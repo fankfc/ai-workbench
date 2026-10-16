@@ -1,0 +1,4 @@
+check,method,status,reviewer,evidence
+real_windows_ime,Windows IME enter selection screen recording,not_verified,,
+narrator,actual Narrator core task and file language reading,not_verified,,
+multiple_monitor_scaling,two monitors with different DPI actual window move,not_verified,,

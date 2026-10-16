@@ -1,0 +1,561 @@
+{
+  "version": "1.0",
+  "build_id": "f5807a69331c3a2ee9108d527b6923e54f55b2219de35cd56cd01935534a0e7a",
+  "run_id": "20261015T033003612027Z-e2d02e03",
+  "created_at": "2026-10-15T03:43:47.231082+00:00",
+  "seed": 4317,
+  "encoding": "UTF-8",
+  "provider_boundary": "fake",
+  "files": [
+    {
+      "path": "contracts.json",
+      "size": 467,
+      "sha256": "ec9e02f701f27b439b795518c2db802bd8bf0a8a74798e7e47f80421db232266"
+    },
+    {
+      "path": "contracts.log",
+      "size": 36,
+      "sha256": "4167353118eadafc7064d2db34f78acc1185fb9ff86266af92c96ded32dcf700"
+    },
+    {
+      "path": "desktop-build.json",
+      "size": 406,
+      "sha256": "a43d8c6a42f773d14585b17e4fda64b51e1699c0a496aebe4a2ab775159d5bc0"
+    },
+    {
+      "path": "desktop-build.log",
+      "size": 989,
+      "sha256": "e5e543d3365b4a28bee468c7303de2f537576bfa198797c00ddaac496b145b01"
+    },
+    {
+      "path": "desktop-e2e-report.json",
+      "size": 49207,
+      "sha256": "47f1b336272031562aa95567ed6b6f5b15188ded54545dd459fc73dac9fe842d"
+    },
+    {
+      "path": "desktop-e2e.json",
+      "size": 559,
+      "sha256": "dd2193f786c60870e918d75b839748cfb3088cca66400c4cf1729a3258071b22"
+    },
+    {
+      "path": "desktop-e2e.log",
+      "size": 291,
+      "sha256": "899b5e11b048bd2a84a60d13514021c51fc63dd64e969d345963c6764ba4f53e"
+    },
+    {
+      "path": "desktop-test-build.json",
+      "size": 421,
+      "sha256": "0762fabc290a17b789db5f5c3485c17937464329d2e3ed16da29f140b71beb5b"
+    },
+    {
+      "path": "desktop-test-build.log",
+      "size": 1065,
+      "sha256": "c4ac169d637493ce5f574e821995d282b1f541e74d20c8e4ba1d766ae4a8c0cc"
+    },
+    {
+      "path": "desktop-typecheck.json",
+      "size": 418,
+      "sha256": "5863a780fb1ee5f4cb36aa48b69f124f7b6c185b66c72f29a765dc6b5cc237e5"
+    },
+    {
+      "path": "desktop-typecheck.log",
+      "size": 152,
+      "sha256": "564f140b6f2d4d85dc9e27a791f4784f3b0b098932d89a144674e92fa0297072"
+    },
+    {
+      "path": "desktop-unit-report.json",
+      "size": 36079,
+      "sha256": "c325ee9201efa49b10fb1c6f86bdf9a847eba96a88dbd90da7a321759d969c5f"
+    },
+    {
+      "path": "desktop-unit.json",
+      "size": 610,
+      "sha256": "6a71277cfe896ffcf75e9a700897aad6279d96cc6b56ac2c43d622b35cec9cd7"
+    },
+    {
+      "path": "desktop-unit.log",
+      "size": 119,
+      "sha256": "02cf451cfd45ead8e4d61c682c33f9cb214adecf31e415f390a39b066d9d6be3"
+    },
+    {
+      "path": "playwright-observations.json",
+      "size": 4897,
+      "sha256": "1dffb9af49b031fa34a2ac12c075638e09e6822b24f951c37ba47c8385af16b6"
+    },
+    {
+      "path": "pytest-observations.json",
+      "size": 231662,
+      "sha256": "f664c6131c64bea866537c0fc48c4a7c03c84d4d83af63d5588269e1a8bf37d6"
+    },
+    {
+      "path": "python.json",
+      "size": 678,
+      "sha256": "3fb0f31b242d23c2115dd8c561977f854a293c2868fe0885281a58a0d3ce839b"
+    },
+    {
+      "path": "python.log",
+      "size": 3042,
+      "sha256": "078a4d33a8dab66c15c4f8f4849a3b5084b50e9d662fcb37c7950ff891c215e6"
+    },
+    {
+      "path": "python.xml",
+      "size": 241157,
+      "sha256": "33fd46da208b6cd3e3f2f650e2158988fb68889a68d2108801749aa4c17e2264"
+    },
+    {
+      "path": "runtime-sop.json",
+      "size": 34819,
+      "sha256": "47e74ebdc52378b7ebd5e4d059ce5cb8b5baf31aa91b19977999c47548e856f9"
+    },
+    {
+      "path": "runtime-sop.md",
+      "size": 18209,
+      "sha256": "c62590793932ee97c6a88f07b27062433e4dcbeab8093d42178ad22c6837c311"
+    },
+    {
+      "path": "source-after.json",
+      "size": 349,
+      "sha256": "5b24e9bba677fdc36b5082958012e2aecaab733c01b00497a44522430aef4123"
+    },
+    {
+      "path": "source-before.json",
+      "size": 349,
+      "sha256": "5b24e9bba677fdc36b5082958012e2aecaab733c01b00497a44522430aef4123"
+    },
+    {
+      "path": "verification.json",
+      "size": 57026,
+      "sha256": "bc4863a2d9c47bd751a53f1bf75de4efb4c8b08d2389171cc15156035e731705"
+    },
+    {
+      "path": "vitest-observations.json",
+      "size": 16758,
+      "sha256": "a2015b91ad4d7f3bf2178093f0e4f08762b6d8b393f868c8930476f6f31be18c"
+    },
+    {
+      "path": "electron-results/.last-run.json",
+      "size": 45,
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": "electron-results/accessibility-keyboard-nav-ed6ba-p-labelled-composer-visible/electron.log",
+      "size": 145,
+      "sha256": "586dd1818f898d356ac516ef5ce2eebe53fbd8ca947cdb2cfdc5f315243d405c"
+    },
+    {
+      "path": "electron-results/accessibility-keyboard-nav-ed6ba-p-labelled-composer-visible/fixture.json",
+      "size": 150,
+      "sha256": "02da88c5027c98294d9a0cbfa07e13626aed6aa1d6d5647723c6edc69b2ad3e6"
+    },
+    {
+      "path": "electron-results/accessibility-keyboard-nav-ed6ba-p-labelled-composer-visible/keyboard-zoom.png",
+      "size": 21874,
+      "sha256": "e6c37a28c0102dd14086ce0303b3d2bc9bf120b8c0a6d23a1509dc4d0a9f433d"
+    },
+    {
+      "path": "electron-results/artifact-files-cancelled-s-0b7a2-er-report-a-successful-pair/electron.log",
+      "size": 446,
+      "sha256": "61d429d8e3de7aad5184191c5396a2c569f9dbf34299474634292dd81e5e0f29"
+    },
+    {
+      "path": "electron-results/artifact-files-cancelled-s-0b7a2-er-report-a-successful-pair/fixture.json",
+      "size": 150,
+      "sha256": "744d7f2c6047fc46e3cb92abc406eda1b631f8f1215af8b5bbe197d1056144a2"
+    },
+    {
+      "path": "electron-results/artifact-files-default-exp-29079--a-dialog-starting-location/electron.log",
+      "size": 145,
+      "sha256": "b9f09bc8e02229375c8af17e7e1ad24de2e2d670d27768ed9cee924223ad163e"
+    },
+    {
+      "path": "electron-results/artifact-files-default-exp-29079--a-dialog-starting-location/fixture.json",
+      "size": 150,
+      "sha256": "384c6f0ff836d86efcf41da2638f9d6109ca0f754bc272093b69a974f8abb80b"
+    },
+    {
+      "path": "electron-results/artifact-files-product-bun-045e3-xact-bilingual-format-pairs/artifact-pairs.png",
+      "size": 150751,
+      "sha256": "22f5dcd7e68a1a309dc7f21c4f1459e3fac71bfdb5a41822620a92c310722e5d"
+    },
+    {
+      "path": "electron-results/artifact-files-product-bun-045e3-xact-bilingual-format-pairs/electron.log",
+      "size": 145,
+      "sha256": "62ab24ded23eefb58498f745c27f55e08dd11075292b27b1d13d327abeeb9590"
+    },
+    {
+      "path": "electron-results/artifact-files-product-bun-045e3-xact-bilingual-format-pairs/fixture.json",
+      "size": 150,
+      "sha256": "adc1352e4d13a808560d369eca1f179fada0da9a0aed14b41d42fdd8c553d7af"
+    },
+    {
+      "path": "electron-results/artifact-files-product-bun-045e3-xact-bilingual-format-pairs/preview-docx.png",
+      "size": 87634,
+      "sha256": "861cb1c94065fd0503a387ee7036de886f4a50a9bfea32029b95c23088b4aa4a"
+    },
+    {
+      "path": "electron-results/artifact-files-product-bun-045e3-xact-bilingual-format-pairs/preview-pdf.png",
+      "size": 82284,
+      "sha256": "c885f55f8a7e031a2c70f47299deef4ab1425fc690b406b08dadbc86e29cb605"
+    },
+    {
+      "path": "electron-results/artifact-files-product-bun-045e3-xact-bilingual-format-pairs/saved-file-hashes.json",
+      "size": 1523,
+      "sha256": "11b0a3418fec76e537b2ebf03c732c14da15774425299ece255a6601b64b79a0"
+    },
+    {
+      "path": "electron-results/backup-restore-storage-cre-f7eec-f-the-actual-published-chat/backup-created.png",
+      "size": 131876,
+      "sha256": "4e2f8f3872da595a223d9ecadba4f20f6044ab6f3622b638a8f7eeefed237d8f"
+    },
+    {
+      "path": "electron-results/backup-restore-storage-cre-f7eec-f-the-actual-published-chat/backup-export.json",
+      "size": 1217,
+      "sha256": "721275a93c11c4297d566983ee190145c106b5d0fef93efca6313536b4c3660d"
+    },
+    {
+      "path": "electron-results/backup-restore-storage-cre-f7eec-f-the-actual-published-chat/electron.log",
+      "size": 145,
+      "sha256": "2daf710c21bb3380d07e0286a6872fe3f25534b1796219eedd792c8d589612cd"
+    },
+    {
+      "path": "electron-results/backup-restore-storage-cre-f7eec-f-the-actual-published-chat/fixture.json",
+      "size": 150,
+      "sha256": "1075867b5b02a835351583ce263428966536e371b78619a6637f357852cf0b8b"
+    },
+    {
+      "path": "electron-results/backup-restore-storage-res-6f62b-ual-managed-backend-restart/electron.log",
+      "size": 145,
+      "sha256": "6248aa924b003c2138a0e526f2c129bfbcbb9758e1ec55620cba047f5f29f679"
+    },
+    {
+      "path": "electron-results/backup-restore-storage-res-6f62b-ual-managed-backend-restart/fixture.json",
+      "size": 150,
+      "sha256": "a6a6c8db76a984ff10915b53a690b9d2a9b9ddb2a1b6fbcf5b784f7fdbf2102f"
+    },
+    {
+      "path": "electron-results/backup-restore-storage-res-6f62b-ual-managed-backend-restart/history-restored.png",
+      "size": 110150,
+      "sha256": "60bcf6cf313b3f35dc6ad9bb3b7fb46c3c8e9b894284e94e73bb63c661166a78"
+    },
+    {
+      "path": "electron-results/backup-restore-storage-res-6f62b-ual-managed-backend-restart/restore-managed-restart.json",
+      "size": 382,
+      "sha256": "21ec73e5215cd3748a5ce2660611b152544f7056bd42544cdd8d12c0605122da"
+    },
+    {
+      "path": "electron-results/chat-publication-internal--0f4ad--boundary-or-briefly-appear/electron.log",
+      "size": 145,
+      "sha256": "8f1bab02cc54dfdc7c46ec41e83e00287fc014dbda081e38663051ce8b453197"
+    },
+    {
+      "path": "electron-results/chat-publication-internal--0f4ad--boundary-or-briefly-appear/fixture.json",
+      "size": 150,
+      "sha256": "bba540592377b7163f4542ce2640de588fdcf9b592ac0eb468dd03023095bbd5"
+    },
+    {
+      "path": "electron-results/composer-history-double-cl-74fb5--script-text-cannot-execute/electron.log",
+      "size": 145,
+      "sha256": "69f732fbd320dfea66a36b3cdc176a2f42e14068b240bd79ee446cd57c8fe620"
+    },
+    {
+      "path": "electron-results/composer-history-double-cl-74fb5--script-text-cannot-execute/fixture.json",
+      "size": 150,
+      "sha256": "a62530d5894b75a2b5d4b3e691189d9875d97d5f3586c76f4b30f4849c7b8322"
+    },
+    {
+      "path": "electron-results/composer-history-IME-enter-59fd2-fts-remain-per-conversation/electron.log",
+      "size": 145,
+      "sha256": "b289e96c13daa4804c0a941a9339077f00871f367f5946c3c954185238f227e3"
+    },
+    {
+      "path": "electron-results/composer-history-IME-enter-59fd2-fts-remain-per-conversation/fixture.json",
+      "size": 150,
+      "sha256": "9391c4e7443bf262770fac1ed3382dc1182fc115936859756236f4ce4a66d314"
+    },
+    {
+      "path": "electron-results/composer-history-only-a-na-2c4c3-e-material-reaches-the-task/electron.log",
+      "size": 379,
+      "sha256": "7ff0d37d02f2340e607480b6d58dc4fd37a5fa5670cb7a7ee2f0b17d07285f70"
+    },
+    {
+      "path": "electron-results/composer-history-only-a-na-2c4c3-e-material-reaches-the-task/fixture.json",
+      "size": 150,
+      "sha256": "3a68d12f8b9f0f33d8804e94188f36d23a51d07046f04511c1116efb187e6aaa"
+    },
+    {
+      "path": "electron-results/connections-connection-pag-796a3-om-verified-real-identities/electron.log",
+      "size": 145,
+      "sha256": "5210dc7733385a42aac0cfd0c32dd3479d6feb8be83849ff41f779c81b1e3fef"
+    },
+    {
+      "path": "electron-results/connections-connection-pag-796a3-om-verified-real-identities/fixture.json",
+      "size": 150,
+      "sha256": "e7913059f89b6ee728a882deffd2fda8e751256f69a846182dea52c6a51ef192"
+    },
+    {
+      "path": "electron-results/host-actual-isolated-Electron-exposes-only-a-business-bridge/electron.log",
+      "size": 145,
+      "sha256": "e8d293ac84f1bbd5394400ac8cb80bcbab5400efd64f3f547fafbab718d83a1e"
+    },
+    {
+      "path": "electron-results/host-actual-isolated-Electron-exposes-only-a-business-bridge/fixture.json",
+      "size": 150,
+      "sha256": "1a03a227f4453adad4e649b731114a5b442f2baee851035aab00e1a4d6d65a76"
+    },
+    {
+      "path": "electron-results/host-disconnect-keeps-the-draft-and-blocks-sending/electron.log",
+      "size": 145,
+      "sha256": "2e0293d4bebe371c3f062fec6b79b1998a7bf1d42c2a6f84b82f3f9dfbf81753"
+    },
+    {
+      "path": "electron-results/host-disconnect-keeps-the-draft-and-blocks-sending/fixture.json",
+      "size": 150,
+      "sha256": "cf6d1ba5e8957e510607603ad6693e49a0d0d417b66db27a24d352eb9a7a0619"
+    },
+    {
+      "path": "electron-results/host-second-launch-focuses-dad63-ut-starting-another-backend/electron.log",
+      "size": 145,
+      "sha256": "0f22a39354d62d819dfcf67906b42b7d0f816f3fb2f57c1af5856998d5d5f542"
+    },
+    {
+      "path": "electron-results/host-second-launch-focuses-dad63-ut-starting-another-backend/fixture.json",
+      "size": 150,
+      "sha256": "e922ec91a851b13f4bf674b9f4e4ca47eccd3588e50bd25599c4e08ec09c6733"
+    },
+    {
+      "path": "electron-results/ime-and-layout-composition-13bb8-ocus-without-transient-leak/composition-and-replay.png",
+      "size": 97627,
+      "sha256": "fdf87f367ed86513558d5e389d530ff69125261dba9ced1268c969f94865a304"
+    },
+    {
+      "path": "electron-results/ime-and-layout-composition-13bb8-ocus-without-transient-leak/electron.log",
+      "size": 145,
+      "sha256": "326cf579affb25e08bbd03eeb0ed787c5ca0a785e7d3ca763aa45805bfd84ed4"
+    },
+    {
+      "path": "electron-results/ime-and-layout-composition-13bb8-ocus-without-transient-leak/fixture.json",
+      "size": 150,
+      "sha256": "c838298497b473d2b2bdfbd5f7eb94226b7cfce81b9ee5514d59590a6c0201d3"
+    },
+    {
+      "path": "electron-results/layout-layout-fits-1024x768/electron.log",
+      "size": 144,
+      "sha256": "f9071da5e12b44119225dfdc2a513461103505bee34d06ebf9f4199f1ab4b3a2"
+    },
+    {
+      "path": "electron-results/layout-layout-fits-1024x768/fixture.json",
+      "size": 150,
+      "sha256": "337e1301f7abda3840c9f10adcd9fb022ddd6d12b6b1d95e002a7a12e2b9b39f"
+    },
+    {
+      "path": "electron-results/layout-layout-fits-1024x768/layout-1024.png",
+      "size": 54894,
+      "sha256": "ac6e6db23329176e42a76784e77b31ecfa2ce40c67fe23cc62293ab13f9fb9ca"
+    },
+    {
+      "path": "electron-results/layout-layout-fits-1280x800/electron.log",
+      "size": 144,
+      "sha256": "560559e31b32d3f19596080198d8c3c2ca2818020bf7473f7edba5add36a8846"
+    },
+    {
+      "path": "electron-results/layout-layout-fits-1280x800/fixture.json",
+      "size": 150,
+      "sha256": "359a8859e12e95ded780c5a1a7a3987a08f286f7db632c3efead080a38bc232e"
+    },
+    {
+      "path": "electron-results/layout-layout-fits-1280x800/layout-1280.png",
+      "size": 76033,
+      "sha256": "ed6262e6acbe30a21f7f4a53cf41c57625ae941cb020c30f055857196ded3968"
+    },
+    {
+      "path": "electron-results/layout-layout-fits-1440x900/electron.log",
+      "size": 145,
+      "sha256": "f63800ef4853628e1bb22292797dc6a00f4a7260c7c99940437469a6cab6c739"
+    },
+    {
+      "path": "electron-results/layout-layout-fits-1440x900/fixture.json",
+      "size": 150,
+      "sha256": "1f74f0de4660a1718633d61b5940cbb00b33469e5d076162e36af3d4ebfea499"
+    },
+    {
+      "path": "electron-results/layout-layout-fits-1440x900/layout-1440.png",
+      "size": 77513,
+      "sha256": "1e92d40e34887766b35221426c37ed1b9b8c8f506e05d51dc6a933f4c1cc0b01"
+    },
+    {
+      "path": "electron-results/layout-layout-fits-320x768/electron.log",
+      "size": 145,
+      "sha256": "a2842619c836767527ca0957078fd6e1cc7f8d947a8a696e9b4f91361936e642"
+    },
+    {
+      "path": "electron-results/layout-layout-fits-320x768/fixture.json",
+      "size": 150,
+      "sha256": "2adef270738e475012ec0e821082e4b320c4a36304ecb2306ba5eccf21937c11"
+    },
+    {
+      "path": "electron-results/layout-layout-fits-320x768/layout-320.png",
+      "size": 47623,
+      "sha256": "4c739bcc85bda7f5c280c3d8dfeef0fff04b7ae5fece8dbf6f9e05a72782e956"
+    },
+    {
+      "path": "electron-results/layout-theme-large-text-an-bc835-nt-zoom-retain-the-composer/dark-22-200percent.png",
+      "size": 117543,
+      "sha256": "a899f61648cab5ee92145011218be8c87b272811a30a45811539002f8a9d5fd0"
+    },
+    {
+      "path": "electron-results/layout-theme-large-text-an-bc835-nt-zoom-retain-the-composer/electron.log",
+      "size": 144,
+      "sha256": "b8475784d12c524df966e52fbc0dec1c9024c15170c0d0c2af05ba8d1f02782e"
+    },
+    {
+      "path": "electron-results/layout-theme-large-text-an-bc835-nt-zoom-retain-the-composer/fixture.json",
+      "size": 150,
+      "sha256": "5b32681fd17185b923c85cfb3d16edc1fc31fdfd47f1907753d21939c2e8df39"
+    },
+    {
+      "path": "electron-results/layout-theme-large-text-an-bc835-nt-zoom-retain-the-composer/zoom-bounds.json",
+      "size": 165,
+      "sha256": "57470ff2196a5607d5a276f2afd8248d05e330ae23282e3468a98553d82926ce"
+    },
+    {
+      "path": "electron-results/local-performance-record-t-c1dec-ples-in-the-actual-renderer/electron.log",
+      "size": 145,
+      "sha256": "0d99ca010e808a76cb4d13faa9a8034d2b8df851e83dae7fc52c1fd6f069d44e"
+    },
+    {
+      "path": "electron-results/local-performance-record-t-c1dec-ples-in-the-actual-renderer/fixture.json",
+      "size": 150,
+      "sha256": "5f91bc186248e97f2ce21ad017faf9cbfd6b8b3f7df3370edacfd03607ffcfa2"
+    },
+    {
+      "path": "electron-results/review-regressions-disconn-7f20f-essages-and-published-files/electron.log",
+      "size": 145,
+      "sha256": "a2605ecf7f8e10597fe4eeb916d94b85714ff55fb0524f3cef3c6a7fdf56a9a2"
+    },
+    {
+      "path": "electron-results/review-regressions-disconn-7f20f-essages-and-published-files/fixture.json",
+      "size": 150,
+      "sha256": "21f26ffa7ea3761fdce5e57258704b150d08f1fa6900edd9656d57801305f71d"
+    },
+    {
+      "path": "electron-results/review-regressions-late-re-c826f-llutes-another-conversation/electron.log",
+      "size": 145,
+      "sha256": "c37229eef7c8189adf90d7df2b3ab3c794e76e5d94f1356bc78fe0b2d646a5a9"
+    },
+    {
+      "path": "electron-results/review-regressions-late-re-c826f-llutes-another-conversation/fixture.json",
+      "size": 150,
+      "sha256": "34d15c04a6c83d095b5f5c11548eadee5736cc0c34b0960d5151ad5bc5843c37"
+    },
+    {
+      "path": "electron-results/review-regressions-same-te-8a6cf-d-nonce-or-chosen-materials/electron.log",
+      "size": 437,
+      "sha256": "8f23f6584444972ee11fe81048aa07f694de44a0f30b1790ebd6bf0cfcf57e17"
+    },
+    {
+      "path": "electron-results/review-regressions-same-te-8a6cf-d-nonce-or-chosen-materials/fixture.json",
+      "size": 150,
+      "sha256": "a72ac72723e04670298edb45245fc94b02e8be2eb7308106cc6d3aaa168cb0f2"
+    },
+    {
+      "path": "electron-results/review-regressions-usage-d-9be2d-uding-the-final-millisecond/electron.log",
+      "size": 144,
+      "sha256": "362e0d73aa9500bbf673bbc14d6503a1b6134a36f9c0307f357696c7ce895798"
+    },
+    {
+      "path": "electron-results/review-regressions-usage-d-9be2d-uding-the-final-millisecond/fixture.json",
+      "size": 150,
+      "sha256": "267d3f92f1e3e9b2d1efaa2e3389e56de80c334b768983eaa20b2c4da1d4bd73"
+    },
+    {
+      "path": "electron-results/security-boundary-untruste-7befd-rity-user-script-stays-text/electron.log",
+      "size": 145,
+      "sha256": "cfa7f57d9f532ff7a7f00c2b226fb2615949c7e9385f437bdb129f485b377f6e"
+    },
+    {
+      "path": "electron-results/security-boundary-untruste-7befd-rity-user-script-stays-text/fixture.json",
+      "size": 150,
+      "sha256": "c790f040d796479cf09c7574473557d9296cb1eae02c0c7c69a075c3410c904c"
+    },
+    {
+      "path": "electron-results/settings-usage-selected-di-53509--restarts-the-owned-backend/electron.log",
+      "size": 145,
+      "sha256": "c761e71335601c2a68274d0942277fc602c09cfc359c7c446ae40343c4d9d1be"
+    },
+    {
+      "path": "electron-results/settings-usage-selected-di-53509--restarts-the-owned-backend/fixture.json",
+      "size": 150,
+      "sha256": "2151436e50d8108ca6f1d3e174a8dda1a98e74e90b92a242cef4491778c27992"
+    },
+    {
+      "path": "electron-results/settings-usage-usage-has-n-7bb68-d-diagnostics-stay-separate/electron.log",
+      "size": 144,
+      "sha256": "af89d99dad02e01f0a99e03cec522e0acdd994e78d375c008db85a1bdc48681a"
+    },
+    {
+      "path": "electron-results/settings-usage-usage-has-n-7bb68-d-diagnostics-stay-separate/fixture.json",
+      "size": 150,
+      "sha256": "c2186ad84981febc6ab5f905fbca0ec10ed324df370126c36cb0ea3ded0b3ba3"
+    },
+    {
+      "path": "electron-results/task-profiles-CSV-mixed-su-bff53-ats-instead-of-generic-demo/electron.log",
+      "size": 145,
+      "sha256": "ba43cde89d9d9a87749c509dd5eed4dfd76dcb93bda81cf9a3fce79fa2d4428d"
+    },
+    {
+      "path": "electron-results/task-profiles-CSV-mixed-su-bff53-ats-instead-of-generic-demo/fixture.json",
+      "size": 150,
+      "sha256": "9b0103b8eb95deb3e2e4dfba69cde647fe7e3ab7bccd10bd7424468a522772a0"
+    },
+    {
+      "path": "electron-results/task-profiles-CSV-mixed-su-bff53-ats-instead-of-generic-demo/mixed-profile-snapshot.json",
+      "size": 27953,
+      "sha256": "61a2737ab88715167a09c4d8ddb286778a9e6ab026dd9f4e2dae04333d5d3cb0"
+    },
+    {
+      "path": "electron-results/task-profiles-CSV-mixed-su-bff53-ats-instead-of-generic-demo/mixed-published.png",
+      "size": 135364,
+      "sha256": "9ef04202b4fe63ca42588f222e4126867716aefc94c66ad723e7e5221985be14"
+    },
+    {
+      "path": "electron-results/task-profiles-missing-audi-7aa13-INPUT-before-any-model-step/electron.log",
+      "size": 145,
+      "sha256": "e1a84153b032fb4d098b92077b91884252b3254c6d8c1a2b059f84864adb512c"
+    },
+    {
+      "path": "electron-results/task-profiles-missing-audi-7aa13-INPUT-before-any-model-step/fixture.json",
+      "size": 150,
+      "sha256": "18d9d570aa4af452e2efd7e7af5bd5e2cf92d679730c2841837a893eac9fa3de"
+    },
+    {
+      "path": "electron-results/task-profiles-normal-docum-6a462-GPT-file-with-no-translator/electron.log",
+      "size": 145,
+      "sha256": "2f90f2ff507c1fadf50f5fc43504fc6eec664023c885680f463c79a657965e0c"
+    },
+    {
+      "path": "electron-results/task-profiles-normal-docum-6a462-GPT-file-with-no-translator/fixture.json",
+      "size": 150,
+      "sha256": "087a905bfcc6f9fca1a478f7c4e8ec8065f4872facd95cc7a693584b5bced2ce"
+    },
+    {
+      "path": "electron-results/task-profiles-normal-docum-6a462-GPT-file-with-no-translator/native-document-snapshot.json",
+      "size": 18017,
+      "sha256": "5dc367fc2f9d2de11769dd9a02421d109b12ff3ef9f188602de1576f86392a52"
+    },
+    {
+      "path": "electron-results/task-profiles-normal-docum-6a462-GPT-file-with-no-translator/native-document.png",
+      "size": 139484,
+      "sha256": "1b86c9d32d14fe17bf0d0dda609f83e1c122f51cd4e24e690bcc58f7a6aa7460"
+    },
+    {
+      "path": "electron-results/task-profiles-paper-eviden-2cfcf--from-chosen-attachment-IDs/electron.log",
+      "size": 145,
+      "sha256": "e077cb66bbd34425fa70a3cfcea681f16258e956f67053c32687d5576c90099f"
+    },
+    {
+      "path": "electron-results/task-profiles-paper-eviden-2cfcf--from-chosen-attachment-IDs/fixture.json",
+      "size": 150,
+      "sha256": "c8f7b15b278eb07206f7fef0a999ed5a35be378b615d4596131a9d12ec5249ab"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "generated_at_utc": "2026-10-13T15:42:43.4915808Z",
+  "commit": null,
+  "production_and_tests_frozen": true,
+  "real_model_starts": 0,
+  "owned_test_count": 44,
+  "owned_test_exit_code": 0,
+  "consumer_test_count": 157,
+  "consumer_test_exit_code": 0,
+  "source_hashes": [
+    {
+      "path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\app\\providers\\phase_bridge.py",
+      "sha256": "0aa1c86b3bbfa97b0d5e254b337379448adbffa4bae4b2510aaefbd0d98e9552"
+    },
+    {
+      "path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\tests\\contracts\\test_phase_bridge.py",
+      "sha256": "3a955d5d9c9bb66fff11c3bde3399181c68a23a9eeb7728dac0132784fcf9028"
+    }
+  ]
+}

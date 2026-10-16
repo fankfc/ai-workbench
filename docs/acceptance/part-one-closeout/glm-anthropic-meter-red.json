@@ -1,0 +1,14 @@
+{
+  "time": "2026-10-14T06:28:09.631428+00:00",
+  "command": [
+    "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\.venv\\Scripts\\python.exe",
+    "-m",
+    "pytest",
+    "-q",
+    "tests/unit/test_glm_anthropic_usage.py",
+    "-q"
+  ],
+  "exit_code": 1,
+  "git_commit": null,
+  "log": "docs\\acceptance\\part-one-closeout\\glm-anthropic-meter-red.log"
+}

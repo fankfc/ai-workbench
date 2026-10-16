@@ -1,0 +1,129 @@
+FFFFF                                                                    [100%]
+================================== FAILURES ===================================
+_ test_installing_v1_after_default_empty_glossary_changes_translation[False] __
+
+client = <starlette.testclient.TestClient object at 0x00000252CDA1BE00>
+explicit_retry = False
+
+    @pytest.mark.parametrize('explicit_retry', [False, True])
+    def test_installing_v1_after_default_empty_glossary_changes_translation(client, explicit_retry):
+        _, task, attempt = claude_turn(client, text=SOURCE)
+        translation = service(client, transform=glossary_translation)
+        first = translate(translation, task, attempt)
+        assert first.status == 'READY' and first.text == 'bank.'
+    
+        put(GlossaryStore(client.app.state.database.path), task, 'shore')
+        revised = translate(translation, task, attempt, explicit_retry=explicit_retry)
+    
+>       assert revised.status == 'READY' and revised.text == 'shore.'
+E       AssertionError: assert ('READY' == 'READY'
+E         
+E           READY and 'bank.' == 'shore.'
+E         
+E         - shore.
+E         + bank.)
+
+tests\translation\test_glossary_content_cache.py:44: AssertionError
+__ test_installing_v1_after_default_empty_glossary_changes_translation[True] __
+
+client = <starlette.testclient.TestClient object at 0x00000252CDCE39D0>
+explicit_retry = True
+
+    @pytest.mark.parametrize('explicit_retry', [False, True])
+    def test_installing_v1_after_default_empty_glossary_changes_translation(client, explicit_retry):
+        _, task, attempt = claude_turn(client, text=SOURCE)
+        translation = service(client, transform=glossary_translation)
+        first = translate(translation, task, attempt)
+        assert first.status == 'READY' and first.text == 'bank.'
+    
+        put(GlossaryStore(client.app.state.database.path), task, 'shore')
+        revised = translate(translation, task, attempt, explicit_retry=explicit_retry)
+    
+>       assert revised.status == 'READY' and revised.text == 'shore.'
+E       AssertionError: assert ('READY' == 'READY'
+E         
+E           READY and 'bank.' == 'shore.'
+E         
+E         - shore.
+E         + bank.)
+
+tests\translation\test_glossary_content_cache.py:44: AssertionError
+__ test_same_context_and_version_do_not_share_different_task_glossary_terms ___
+
+client = <starlette.testclient.TestClient object at 0x00000252CDDDF4D0>
+
+    def test_same_context_and_version_do_not_share_different_task_glossary_terms(client):
+        _, first_task, first_attempt = claude_turn(client, text=SOURCE, key='bank')
+        _, second_task, second_attempt = claude_turn(client, text=SOURCE, key='shore')
+        glossary = GlossaryStore(client.app.state.database.path)
+        put(glossary, first_task, 'bank')
+        put(glossary, second_task, 'shore')
+        translation = service(client, transform=glossary_translation)
+    
+        first = translate(translation, first_task, first_attempt)
+        second = translate(translation, second_task, second_attempt)
+    
+        assert first.status == second.status == 'READY'
+>       assert first.text == 'bank.' and second.text == 'shore.'
+E       AssertionError: assert ('bank.' == 'bank.'
+E         
+E           bank. and 'bank.' == 'shore.'
+E         
+E         - shore.
+E         + bank.)
+
+tests\translation\test_glossary_content_cache.py:64: AssertionError
+________ test_task_scope_is_kept_even_with_identical_glossary_contents ________
+
+client = <starlette.testclient.TestClient object at 0x00000252CDD45A70>
+
+    def test_task_scope_is_kept_even_with_identical_glossary_contents(client):
+        _, first_task, first_attempt = claude_turn(client, text=SOURCE, key='first')
+        _, second_task, second_attempt = claude_turn(client, text=SOURCE, key='second')
+        glossary = GlossaryStore(client.app.state.database.path)
+        put(glossary, first_task, 'shore')
+        put(glossary, second_task, 'shore')
+        translation = service(client, transform=glossary_translation)
+    
+        first = translate(translation, first_task, first_attempt)
+        second = translate(translation, second_task, second_attempt)
+    
+        assert first.status == second.status == 'READY' and first.text == second.text == 'shore.'
+>       assert not second.cache_hit and len(translation.translator.calls) == 2
+E       AssertionError: assert (not True)
+E        +  where True = TranslationResult(job_id='3eb808cb9776465f9ef0263c0008f529', status='READY', text='shore.', source_sha256='571ed349bc6...e_attempts=0, cache_hit=True, clarification=None, blocks=({'block_id': 'b-1df523e88e46c929b059', 'target': 'shore.'},)).cache_hit
+
+tests\translation\test_glossary_content_cache.py:80: AssertionError
+_____ test_installed_empty_v1_has_distinct_scope_from_uninstalled_default _____
+
+client = <starlette.testclient.TestClient object at 0x00000252CDED9350>
+
+    def test_installed_empty_v1_has_distinct_scope_from_uninstalled_default(client):
+        _, task, attempt = claude_turn(client, text=SOURCE)
+        translation = service(client, transform=glossary_translation)
+        first = translate(translation, task, attempt)
+        GlossaryStore(client.app.state.database.path).put(
+            task, '1', 'geography', [], reason='Explicitly accept no geographical terms.',
+        )
+    
+        installed = translate(translation, task, attempt, explicit_retry=True)
+    
+        assert first.status == installed.status == 'READY' and installed.text == 'bank.'
+>       assert not installed.cache_hit and len(translation.translator.calls) == 2
+E       AssertionError: assert (not True)
+E        +  where True = TranslationResult(job_id='cb517a8710a245d681c1969e6d17a786', status='READY', text='bank.', source_sha256='571ed349bc66...te_attempts=0, cache_hit=True, clarification=None, blocks=({'block_id': 'b-1df523e88e46c929b059', 'target': 'bank.'},)).cache_hit
+
+tests\translation\test_glossary_content_cache.py:94: AssertionError
+============================== warnings summary ===============================
+tests/translation/test_glossary_content_cache.py::test_installing_v1_after_default_empty_glossary_changes_translation[False]
+  C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/translation/test_glossary_content_cache.py::test_installing_v1_after_default_empty_glossary_changes_translation[False]
+FAILED tests/translation/test_glossary_content_cache.py::test_installing_v1_after_default_empty_glossary_changes_translation[True]
+FAILED tests/translation/test_glossary_content_cache.py::test_same_context_and_version_do_not_share_different_task_glossary_terms
+FAILED tests/translation/test_glossary_content_cache.py::test_task_scope_is_kept_even_with_identical_glossary_contents
+FAILED tests/translation/test_glossary_content_cache.py::test_installed_empty_v1_has_distinct_scope_from_uninstalled_default
+5 failed, 1 warning in 1.88s

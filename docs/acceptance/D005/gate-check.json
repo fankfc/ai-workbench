@@ -1,0 +1,10 @@
+{
+  "profile_id": "local-zcode-probe",
+  "adapter": "zcode",
+  "status": "not_connected",
+  "identity_status": "unknown",
+  "model_starts": 0,
+  "max_runs": 3,
+  "reason_code": "SUPPORTED_EXECUTOR_NOT_ENABLED",
+  "unavailable_reason_code": "MODEL_SELECTION_REQUIRED"
+}

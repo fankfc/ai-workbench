@@ -1,0 +1,6 @@
+Error occurred in handler for 'workbench:saveArtifactPair': Error: 同名文件已存在，请选择其他位置。
+    at [90mC:\Users\asd15\Documents\ChatGPT\ai\[39mapps\desktop\dist-test\main\index.cjs:894:13
+[90m    at async Session.<anonymous> (node:electron/js2c/browser_init:1:119972)[39m
+
+Debugger ending on ws://127.0.0.1:60517/88049702-f671-4b39-956f-c841537a1783
+For help, see: https://nodejs.org/learn/getting-started/debugging

@@ -1,0 +1,780 @@
+....FFFFFFFFF.FFFFFFFFFFFFFFFFFFFFFFFFF.                                 [100%]
+================================== FAILURES ===================================
+______________ test_invalid_contracts_are_rejected[duplicate_ac] ______________
+
+change = 'duplicate_ac'
+
+    @pytest.mark.parametrize("change", ["duplicate_ac", "empty_ac", "semantic_c", "no_core_reasoning", "unsafe_scope", "no_scope", "reserved_exceeds_budget", "fixed_a_calls"])
+    def test_invalid_contracts_are_rejected(change):
+        value = contract_sample()
+        if change == "duplicate_ac":
+            value["acceptance"].append(copy.deepcopy(value["acceptance"][0]))
+        elif change == "empty_ac":
+            value["acceptance"] = []
+        elif change == "semantic_c":
+            value["acceptance"][1]["verifier"] = "C"
+        elif change == "no_core_reasoning":
+            value["a_responsibilities"].remove("core_reasoning")
+        elif change == "unsafe_scope":
+            value["b_write_scopes"] = ["../a"]
+        elif change == "no_scope":
+            value["b_write_scopes"] = ["other"]
+        elif change == "reserved_exceeds_budget":
+            value["budget"]["reserved_a_tokens"] = 10001
+        else:
+            value["max_a_calls"] = 2
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests\unit\test_task_contracts.py:74: Failed
+________________ test_invalid_contracts_are_rejected[empty_ac] ________________
+
+change = 'empty_ac'
+
+    @pytest.mark.parametrize("change", ["duplicate_ac", "empty_ac", "semantic_c", "no_core_reasoning", "unsafe_scope", "no_scope", "reserved_exceeds_budget", "fixed_a_calls"])
+    def test_invalid_contracts_are_rejected(change):
+        value = contract_sample()
+        if change == "duplicate_ac":
+            value["acceptance"].append(copy.deepcopy(value["acceptance"][0]))
+        elif change == "empty_ac":
+            value["acceptance"] = []
+        elif change == "semantic_c":
+            value["acceptance"][1]["verifier"] = "C"
+        elif change == "no_core_reasoning":
+            value["a_responsibilities"].remove("core_reasoning")
+        elif change == "unsafe_scope":
+            value["b_write_scopes"] = ["../a"]
+        elif change == "no_scope":
+            value["b_write_scopes"] = ["other"]
+        elif change == "reserved_exceeds_budget":
+            value["budget"]["reserved_a_tokens"] = 10001
+        else:
+            value["max_a_calls"] = 2
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests\unit\test_task_contracts.py:74: Failed
+_______________ test_invalid_contracts_are_rejected[semantic_c] _______________
+
+change = 'semantic_c'
+
+    @pytest.mark.parametrize("change", ["duplicate_ac", "empty_ac", "semantic_c", "no_core_reasoning", "unsafe_scope", "no_scope", "reserved_exceeds_budget", "fixed_a_calls"])
+    def test_invalid_contracts_are_rejected(change):
+        value = contract_sample()
+        if change == "duplicate_ac":
+            value["acceptance"].append(copy.deepcopy(value["acceptance"][0]))
+        elif change == "empty_ac":
+            value["acceptance"] = []
+        elif change == "semantic_c":
+            value["acceptance"][1]["verifier"] = "C"
+        elif change == "no_core_reasoning":
+            value["a_responsibilities"].remove("core_reasoning")
+        elif change == "unsafe_scope":
+            value["b_write_scopes"] = ["../a"]
+        elif change == "no_scope":
+            value["b_write_scopes"] = ["other"]
+        elif change == "reserved_exceeds_budget":
+            value["budget"]["reserved_a_tokens"] = 10001
+        else:
+            value["max_a_calls"] = 2
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests\unit\test_task_contracts.py:74: Failed
+___________ test_invalid_contracts_are_rejected[no_core_reasoning] ____________
+
+change = 'no_core_reasoning'
+
+    @pytest.mark.parametrize("change", ["duplicate_ac", "empty_ac", "semantic_c", "no_core_reasoning", "unsafe_scope", "no_scope", "reserved_exceeds_budget", "fixed_a_calls"])
+    def test_invalid_contracts_are_rejected(change):
+        value = contract_sample()
+        if change == "duplicate_ac":
+            value["acceptance"].append(copy.deepcopy(value["acceptance"][0]))
+        elif change == "empty_ac":
+            value["acceptance"] = []
+        elif change == "semantic_c":
+            value["acceptance"][1]["verifier"] = "C"
+        elif change == "no_core_reasoning":
+            value["a_responsibilities"].remove("core_reasoning")
+        elif change == "unsafe_scope":
+            value["b_write_scopes"] = ["../a"]
+        elif change == "no_scope":
+            value["b_write_scopes"] = ["other"]
+        elif change == "reserved_exceeds_budget":
+            value["budget"]["reserved_a_tokens"] = 10001
+        else:
+            value["max_a_calls"] = 2
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests\unit\test_task_contracts.py:74: Failed
+______________ test_invalid_contracts_are_rejected[unsafe_scope] ______________
+
+change = 'unsafe_scope'
+
+    @pytest.mark.parametrize("change", ["duplicate_ac", "empty_ac", "semantic_c", "no_core_reasoning", "unsafe_scope", "no_scope", "reserved_exceeds_budget", "fixed_a_calls"])
+    def test_invalid_contracts_are_rejected(change):
+        value = contract_sample()
+        if change == "duplicate_ac":
+            value["acceptance"].append(copy.deepcopy(value["acceptance"][0]))
+        elif change == "empty_ac":
+            value["acceptance"] = []
+        elif change == "semantic_c":
+            value["acceptance"][1]["verifier"] = "C"
+        elif change == "no_core_reasoning":
+            value["a_responsibilities"].remove("core_reasoning")
+        elif change == "unsafe_scope":
+            value["b_write_scopes"] = ["../a"]
+        elif change == "no_scope":
+            value["b_write_scopes"] = ["other"]
+        elif change == "reserved_exceeds_budget":
+            value["budget"]["reserved_a_tokens"] = 10001
+        else:
+            value["max_a_calls"] = 2
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests\unit\test_task_contracts.py:74: Failed
+________________ test_invalid_contracts_are_rejected[no_scope] ________________
+
+change = 'no_scope'
+
+    @pytest.mark.parametrize("change", ["duplicate_ac", "empty_ac", "semantic_c", "no_core_reasoning", "unsafe_scope", "no_scope", "reserved_exceeds_budget", "fixed_a_calls"])
+    def test_invalid_contracts_are_rejected(change):
+        value = contract_sample()
+        if change == "duplicate_ac":
+            value["acceptance"].append(copy.deepcopy(value["acceptance"][0]))
+        elif change == "empty_ac":
+            value["acceptance"] = []
+        elif change == "semantic_c":
+            value["acceptance"][1]["verifier"] = "C"
+        elif change == "no_core_reasoning":
+            value["a_responsibilities"].remove("core_reasoning")
+        elif change == "unsafe_scope":
+            value["b_write_scopes"] = ["../a"]
+        elif change == "no_scope":
+            value["b_write_scopes"] = ["other"]
+        elif change == "reserved_exceeds_budget":
+            value["budget"]["reserved_a_tokens"] = 10001
+        else:
+            value["max_a_calls"] = 2
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests\unit\test_task_contracts.py:74: Failed
+________ test_invalid_contracts_are_rejected[reserved_exceeds_budget] _________
+
+change = 'reserved_exceeds_budget'
+
+    @pytest.mark.parametrize("change", ["duplicate_ac", "empty_ac", "semantic_c", "no_core_reasoning", "unsafe_scope", "no_scope", "reserved_exceeds_budget", "fixed_a_calls"])
+    def test_invalid_contracts_are_rejected(change):
+        value = contract_sample()
+        if change == "duplicate_ac":
+            value["acceptance"].append(copy.deepcopy(value["acceptance"][0]))
+        elif change == "empty_ac":
+            value["acceptance"] = []
+        elif change == "semantic_c":
+            value["acceptance"][1]["verifier"] = "C"
+        elif change == "no_core_reasoning":
+            value["a_responsibilities"].remove("core_reasoning")
+        elif change == "unsafe_scope":
+            value["b_write_scopes"] = ["../a"]
+        elif change == "no_scope":
+            value["b_write_scopes"] = ["other"]
+        elif change == "reserved_exceeds_budget":
+            value["budget"]["reserved_a_tokens"] = 10001
+        else:
+            value["max_a_calls"] = 2
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests\unit\test_task_contracts.py:74: Failed
+_____________ test_invalid_contracts_are_rejected[fixed_a_calls] ______________
+
+change = 'fixed_a_calls'
+
+    @pytest.mark.parametrize("change", ["duplicate_ac", "empty_ac", "semantic_c", "no_core_reasoning", "unsafe_scope", "no_scope", "reserved_exceeds_budget", "fixed_a_calls"])
+    def test_invalid_contracts_are_rejected(change):
+        value = contract_sample()
+        if change == "duplicate_ac":
+            value["acceptance"].append(copy.deepcopy(value["acceptance"][0]))
+        elif change == "empty_ac":
+            value["acceptance"] = []
+        elif change == "semantic_c":
+            value["acceptance"][1]["verifier"] = "C"
+        elif change == "no_core_reasoning":
+            value["a_responsibilities"].remove("core_reasoning")
+        elif change == "unsafe_scope":
+            value["b_write_scopes"] = ["../a"]
+        elif change == "no_scope":
+            value["b_write_scopes"] = ["other"]
+        elif change == "reserved_exceeds_budget":
+            value["budget"]["reserved_a_tokens"] = 10001
+        else:
+            value["max_a_calls"] = 2
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests\unit\test_task_contracts.py:74: Failed
+_________ test_contract_digest_detects_budget_and_acceptance_changes __________
+
+    def test_contract_digest_detects_budget_and_acceptance_changes():
+        value = contract_sample()
+        changed = copy.deepcopy(value)
+        changed["budget"]["total_tokens"] += 1
+>       assert contract_digest(value) != contract_digest(changed)
+E       AssertionError: assert 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa' != 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
+E        +  where 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa' = contract_digest({'task_id': 'task', 'attempt_id': 'attempt', 'contract_version': '1.0', 'domain': 'code', ...})
+E        +  and   'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa' = contract_digest({'task_id': 'task', 'attempt_id': 'attempt', 'contract_version': '1.0', 'domain': 'code', ...})
+
+tests\unit\test_task_contracts.py:82: AssertionError
+___________ test_missing_or_invalid_evidence_never_passes[missing] ____________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-26/test_missing_or_invalid_eviden0')
+fault = 'missing'
+
+    @pytest.mark.parametrize("fault", ["missing", "missing_file", "bad_hash", "wrong_revision", "wrong_verifier", "failed_check", "outside", "duplicate"])
+    def test_missing_or_invalid_evidence_never_passes(tmp_path, fault):
+        contract = contract_sample()
+        decision = decision_sample(contract, tmp_path)
+        item = decision["evidence"][0]
+        if fault == "missing":
+            decision["evidence"].pop(0)
+        elif fault == "missing_file":
+            (tmp_path / item["ref"]).unlink()
+        elif fault == "bad_hash":
+            (tmp_path / item["ref"]).write_text("changed")
+        elif fault == "wrong_revision":
+            item["revision_id"] = "old"
+        elif fault == "wrong_verifier":
+            item["verifier"] = "B"
+        elif fault == "failed_check":
+            item["passed"] = False
+        elif fault == "outside":
+            item["ref"] = "../outside"
+        else:
+            decision["evidence"].append(copy.deepcopy(item))
+        result = evaluate_review(contract, decision, tmp_path)
+>       assert not result.eligible_for_output
+E       AssertionError: assert not True
+E        +  where True = namespace(eligible_for_output=True, decision='PASS', reason_codes=[]).eligible_for_output
+
+tests\unit\test_task_contracts.py:118: AssertionError
+_________ test_missing_or_invalid_evidence_never_passes[missing_file] _________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-26/test_missing_or_invalid_eviden1')
+fault = 'missing_file'
+
+    @pytest.mark.parametrize("fault", ["missing", "missing_file", "bad_hash", "wrong_revision", "wrong_verifier", "failed_check", "outside", "duplicate"])
+    def test_missing_or_invalid_evidence_never_passes(tmp_path, fault):
+        contract = contract_sample()
+        decision = decision_sample(contract, tmp_path)
+        item = decision["evidence"][0]
+        if fault == "missing":
+            decision["evidence"].pop(0)
+        elif fault == "missing_file":
+            (tmp_path / item["ref"]).unlink()
+        elif fault == "bad_hash":
+            (tmp_path / item["ref"]).write_text("changed")
+        elif fault == "wrong_revision":
+            item["revision_id"] = "old"
+        elif fault == "wrong_verifier":
+            item["verifier"] = "B"
+        elif fault == "failed_check":
+            item["passed"] = False
+        elif fault == "outside":
+            item["ref"] = "../outside"
+        else:
+            decision["evidence"].append(copy.deepcopy(item))
+        result = evaluate_review(contract, decision, tmp_path)
+>       assert not result.eligible_for_output
+E       AssertionError: assert not True
+E        +  where True = namespace(eligible_for_output=True, decision='PASS', reason_codes=[]).eligible_for_output
+
+tests\unit\test_task_contracts.py:118: AssertionError
+___________ test_missing_or_invalid_evidence_never_passes[bad_hash] ___________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-26/test_missing_or_invalid_eviden2')
+fault = 'bad_hash'
+
+    @pytest.mark.parametrize("fault", ["missing", "missing_file", "bad_hash", "wrong_revision", "wrong_verifier", "failed_check", "outside", "duplicate"])
+    def test_missing_or_invalid_evidence_never_passes(tmp_path, fault):
+        contract = contract_sample()
+        decision = decision_sample(contract, tmp_path)
+        item = decision["evidence"][0]
+        if fault == "missing":
+            decision["evidence"].pop(0)
+        elif fault == "missing_file":
+            (tmp_path / item["ref"]).unlink()
+        elif fault == "bad_hash":
+            (tmp_path / item["ref"]).write_text("changed")
+        elif fault == "wrong_revision":
+            item["revision_id"] = "old"
+        elif fault == "wrong_verifier":
+            item["verifier"] = "B"
+        elif fault == "failed_check":
+            item["passed"] = False
+        elif fault == "outside":
+            item["ref"] = "../outside"
+        else:
+            decision["evidence"].append(copy.deepcopy(item))
+        result = evaluate_review(contract, decision, tmp_path)
+>       assert not result.eligible_for_output
+E       AssertionError: assert not True
+E        +  where True = namespace(eligible_for_output=True, decision='PASS', reason_codes=[]).eligible_for_output
+
+tests\unit\test_task_contracts.py:118: AssertionError
+________ test_missing_or_invalid_evidence_never_passes[wrong_revision] ________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-26/test_missing_or_invalid_eviden3')
+fault = 'wrong_revision'
+
+    @pytest.mark.parametrize("fault", ["missing", "missing_file", "bad_hash", "wrong_revision", "wrong_verifier", "failed_check", "outside", "duplicate"])
+    def test_missing_or_invalid_evidence_never_passes(tmp_path, fault):
+        contract = contract_sample()
+        decision = decision_sample(contract, tmp_path)
+        item = decision["evidence"][0]
+        if fault == "missing":
+            decision["evidence"].pop(0)
+        elif fault == "missing_file":
+            (tmp_path / item["ref"]).unlink()
+        elif fault == "bad_hash":
+            (tmp_path / item["ref"]).write_text("changed")
+        elif fault == "wrong_revision":
+            item["revision_id"] = "old"
+        elif fault == "wrong_verifier":
+            item["verifier"] = "B"
+        elif fault == "failed_check":
+            item["passed"] = False
+        elif fault == "outside":
+            item["ref"] = "../outside"
+        else:
+            decision["evidence"].append(copy.deepcopy(item))
+        result = evaluate_review(contract, decision, tmp_path)
+>       assert not result.eligible_for_output
+E       AssertionError: assert not True
+E        +  where True = namespace(eligible_for_output=True, decision='PASS', reason_codes=[]).eligible_for_output
+
+tests\unit\test_task_contracts.py:118: AssertionError
+________ test_missing_or_invalid_evidence_never_passes[wrong_verifier] ________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-26/test_missing_or_invalid_eviden4')
+fault = 'wrong_verifier'
+
+    @pytest.mark.parametrize("fault", ["missing", "missing_file", "bad_hash", "wrong_revision", "wrong_verifier", "failed_check", "outside", "duplicate"])
+    def test_missing_or_invalid_evidence_never_passes(tmp_path, fault):
+        contract = contract_sample()
+        decision = decision_sample(contract, tmp_path)
+        item = decision["evidence"][0]
+        if fault == "missing":
+            decision["evidence"].pop(0)
+        elif fault == "missing_file":
+            (tmp_path / item["ref"]).unlink()
+        elif fault == "bad_hash":
+            (tmp_path / item["ref"]).write_text("changed")
+        elif fault == "wrong_revision":
+            item["revision_id"] = "old"
+        elif fault == "wrong_verifier":
+            item["verifier"] = "B"
+        elif fault == "failed_check":
+            item["passed"] = False
+        elif fault == "outside":
+            item["ref"] = "../outside"
+        else:
+            decision["evidence"].append(copy.deepcopy(item))
+        result = evaluate_review(contract, decision, tmp_path)
+>       assert not result.eligible_for_output
+E       AssertionError: assert not True
+E        +  where True = namespace(eligible_for_output=True, decision='PASS', reason_codes=[]).eligible_for_output
+
+tests\unit\test_task_contracts.py:118: AssertionError
+_________ test_missing_or_invalid_evidence_never_passes[failed_check] _________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-26/test_missing_or_invalid_eviden5')
+fault = 'failed_check'
+
+    @pytest.mark.parametrize("fault", ["missing", "missing_file", "bad_hash", "wrong_revision", "wrong_verifier", "failed_check", "outside", "duplicate"])
+    def test_missing_or_invalid_evidence_never_passes(tmp_path, fault):
+        contract = contract_sample()
+        decision = decision_sample(contract, tmp_path)
+        item = decision["evidence"][0]
+        if fault == "missing":
+            decision["evidence"].pop(0)
+        elif fault == "missing_file":
+            (tmp_path / item["ref"]).unlink()
+        elif fault == "bad_hash":
+            (tmp_path / item["ref"]).write_text("changed")
+        elif fault == "wrong_revision":
+            item["revision_id"] = "old"
+        elif fault == "wrong_verifier":
+            item["verifier"] = "B"
+        elif fault == "failed_check":
+            item["passed"] = False
+        elif fault == "outside":
+            item["ref"] = "../outside"
+        else:
+            decision["evidence"].append(copy.deepcopy(item))
+        result = evaluate_review(contract, decision, tmp_path)
+>       assert not result.eligible_for_output
+E       AssertionError: assert not True
+E        +  where True = namespace(eligible_for_output=True, decision='PASS', reason_codes=[]).eligible_for_output
+
+tests\unit\test_task_contracts.py:118: AssertionError
+___________ test_missing_or_invalid_evidence_never_passes[outside] ____________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-26/test_missing_or_invalid_eviden6')
+fault = 'outside'
+
+    @pytest.mark.parametrize("fault", ["missing", "missing_file", "bad_hash", "wrong_revision", "wrong_verifier", "failed_check", "outside", "duplicate"])
+    def test_missing_or_invalid_evidence_never_passes(tmp_path, fault):
+        contract = contract_sample()
+        decision = decision_sample(contract, tmp_path)
+        item = decision["evidence"][0]
+        if fault == "missing":
+            decision["evidence"].pop(0)
+        elif fault == "missing_file":
+            (tmp_path / item["ref"]).unlink()
+        elif fault == "bad_hash":
+            (tmp_path / item["ref"]).write_text("changed")
+        elif fault == "wrong_revision":
+            item["revision_id"] = "old"
+        elif fault == "wrong_verifier":
+            item["verifier"] = "B"
+        elif fault == "failed_check":
+            item["passed"] = False
+        elif fault == "outside":
+            item["ref"] = "../outside"
+        else:
+            decision["evidence"].append(copy.deepcopy(item))
+        result = evaluate_review(contract, decision, tmp_path)
+>       assert not result.eligible_for_output
+E       AssertionError: assert not True
+E        +  where True = namespace(eligible_for_output=True, decision='PASS', reason_codes=[]).eligible_for_output
+
+tests\unit\test_task_contracts.py:118: AssertionError
+__________ test_missing_or_invalid_evidence_never_passes[duplicate] ___________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-26/test_missing_or_invalid_eviden7')
+fault = 'duplicate'
+
+    @pytest.mark.parametrize("fault", ["missing", "missing_file", "bad_hash", "wrong_revision", "wrong_verifier", "failed_check", "outside", "duplicate"])
+    def test_missing_or_invalid_evidence_never_passes(tmp_path, fault):
+        contract = contract_sample()
+        decision = decision_sample(contract, tmp_path)
+        item = decision["evidence"][0]
+        if fault == "missing":
+            decision["evidence"].pop(0)
+        elif fault == "missing_file":
+            (tmp_path / item["ref"]).unlink()
+        elif fault == "bad_hash":
+            (tmp_path / item["ref"]).write_text("changed")
+        elif fault == "wrong_revision":
+            item["revision_id"] = "old"
+        elif fault == "wrong_verifier":
+            item["verifier"] = "B"
+        elif fault == "failed_check":
+            item["passed"] = False
+        elif fault == "outside":
+            item["ref"] = "../outside"
+        else:
+            decision["evidence"].append(copy.deepcopy(item))
+        result = evaluate_review(contract, decision, tmp_path)
+>       assert not result.eligible_for_output
+E       AssertionError: assert not True
+E        +  where True = namespace(eligible_for_output=True, decision='PASS', reason_codes=[]).eligible_for_output
+
+tests\unit\test_task_contracts.py:118: AssertionError
+___________ test_stale_or_executor_self_review_is_rejected[task_id] ___________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-26/test_stale_or_executor_self_re0')
+field = 'task_id'
+
+    @pytest.mark.parametrize("field", ["task_id", "attempt_id", "contract_version", "contract_sha256", "reviewer"])
+    def test_stale_or_executor_self_review_is_rejected(tmp_path, field):
+        contract = contract_sample()
+        decision = decision_sample(contract, tmp_path)
+        decision[field] = "B" if field == "reviewer" else "stale"
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests\unit\test_task_contracts.py:127: Failed
+_________ test_stale_or_executor_self_review_is_rejected[attempt_id] __________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-26/test_stale_or_executor_self_re1')
+field = 'attempt_id'
+
+    @pytest.mark.parametrize("field", ["task_id", "attempt_id", "contract_version", "contract_sha256", "reviewer"])
+    def test_stale_or_executor_self_review_is_rejected(tmp_path, field):
+        contract = contract_sample()
+        decision = decision_sample(contract, tmp_path)
+        decision[field] = "B" if field == "reviewer" else "stale"
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests\unit\test_task_contracts.py:127: Failed
+______ test_stale_or_executor_self_review_is_rejected[contract_version] _______
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-26/test_stale_or_executor_self_re2')
+field = 'contract_version'
+
+    @pytest.mark.parametrize("field", ["task_id", "attempt_id", "contract_version", "contract_sha256", "reviewer"])
+    def test_stale_or_executor_self_review_is_rejected(tmp_path, field):
+        contract = contract_sample()
+        decision = decision_sample(contract, tmp_path)
+        decision[field] = "B" if field == "reviewer" else "stale"
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests\unit\test_task_contracts.py:127: Failed
+_______ test_stale_or_executor_self_review_is_rejected[contract_sha256] _______
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-26/test_stale_or_executor_self_re3')
+field = 'contract_sha256'
+
+    @pytest.mark.parametrize("field", ["task_id", "attempt_id", "contract_version", "contract_sha256", "reviewer"])
+    def test_stale_or_executor_self_review_is_rejected(tmp_path, field):
+        contract = contract_sample()
+        decision = decision_sample(contract, tmp_path)
+        decision[field] = "B" if field == "reviewer" else "stale"
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests\unit\test_task_contracts.py:127: Failed
+__________ test_stale_or_executor_self_review_is_rejected[reviewer] ___________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-26/test_stale_or_executor_self_re4')
+field = 'reviewer'
+
+    @pytest.mark.parametrize("field", ["task_id", "attempt_id", "contract_version", "contract_sha256", "reviewer"])
+    def test_stale_or_executor_self_review_is_rejected(tmp_path, field):
+        contract = contract_sample()
+        decision = decision_sample(contract, tmp_path)
+        decision[field] = "B" if field == "reviewer" else "stale"
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests\unit\test_task_contracts.py:127: Failed
+___________ test_b_document_with_a_pass_is_not_a_canonical_original ___________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-26/test_b_document_with_a_pass_is0')
+
+    def test_b_document_with_a_pass_is_not_a_canonical_original(tmp_path):
+        contract = contract_sample("document")
+        decision = decision_sample(contract, tmp_path)
+        decision["canonical_author"] = "B"
+        result = evaluate_review(contract, decision, tmp_path)
+>       assert not result.eligible_for_output
+E       AssertionError: assert not True
+E        +  where True = namespace(eligible_for_output=True, decision='PASS', reason_codes=[]).eligible_for_output
+
+tests\unit\test_task_contracts.py:136: AssertionError
+____________ test_paper_summary_cannot_replace_full_read_coverage _____________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-26/test_paper_summary_cannot_repl0')
+
+    def test_paper_summary_cannot_replace_full_read_coverage(tmp_path):
+        contract = contract_sample("paper")
+        decision = decision_sample(contract, tmp_path)
+        decision["read_unit_ids"] = ["body"]
+        decision["sampling_note"] = "summary only"
+        result = evaluate_review(contract, decision, tmp_path)
+>       assert not result.eligible_for_output
+E       AssertionError: assert not True
+E        +  where True = namespace(eligible_for_output=True, decision='PASS', reason_codes=[]).eligible_for_output
+
+tests\unit\test_task_contracts.py:146: AssertionError
+______ test_other_review_outcomes_preserve_explicit_non_delivery[REPAIR] ______
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-26/test_other_review_outcomes_pre0')
+decision = 'REPAIR'
+
+    @pytest.mark.parametrize("decision", ["REPAIR", "NEED_EVIDENCE", "BLOCKED"])
+    def test_other_review_outcomes_preserve_explicit_non_delivery(tmp_path, decision):
+        contract = contract_sample()
+        value = decision_sample(contract, tmp_path)
+        value["decision"] = decision
+        result = evaluate_review(contract, value, tmp_path)
+>       assert result.decision == decision
+E       AssertionError: assert 'PASS' == 'REPAIR'
+E         
+E         - REPAIR
+E         + PASS
+
+tests\unit\test_task_contracts.py:156: AssertionError
+__ test_other_review_outcomes_preserve_explicit_non_delivery[NEED_EVIDENCE] ___
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-26/test_other_review_outcomes_pre1')
+decision = 'NEED_EVIDENCE'
+
+    @pytest.mark.parametrize("decision", ["REPAIR", "NEED_EVIDENCE", "BLOCKED"])
+    def test_other_review_outcomes_preserve_explicit_non_delivery(tmp_path, decision):
+        contract = contract_sample()
+        value = decision_sample(contract, tmp_path)
+        value["decision"] = decision
+        result = evaluate_review(contract, value, tmp_path)
+>       assert result.decision == decision
+E       AssertionError: assert 'PASS' == 'NEED_EVIDENCE'
+E         
+E         - NEED_EVIDENCE
+E         + PASS
+
+tests\unit\test_task_contracts.py:156: AssertionError
+_____ test_other_review_outcomes_preserve_explicit_non_delivery[BLOCKED] ______
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-26/test_other_review_outcomes_pre2')
+decision = 'BLOCKED'
+
+    @pytest.mark.parametrize("decision", ["REPAIR", "NEED_EVIDENCE", "BLOCKED"])
+    def test_other_review_outcomes_preserve_explicit_non_delivery(tmp_path, decision):
+        contract = contract_sample()
+        value = decision_sample(contract, tmp_path)
+        value["decision"] = decision
+        result = evaluate_review(contract, value, tmp_path)
+>       assert result.decision == decision
+E       AssertionError: assert 'PASS' == 'BLOCKED'
+E         
+E         - BLOCKED
+E         + PASS
+
+tests\unit\test_task_contracts.py:156: AssertionError
+___________ test_escalation_uses_observed_facts[ambiguity-ask_user] ___________
+
+fact = 'ambiguity', expected = 'ask_user'
+
+    @pytest.mark.parametrize("fact,expected", [("ambiguity", "ask_user"), ("evidence_gap", "A_review"), ("assumption_failed", "A_review"), ("method_changed", "A_review"), ("capability_missing", "A_takeover"), ("no_progress", "A_takeover")])
+    def test_escalation_uses_observed_facts(fact, expected):
+        facts = {fact: 2 if fact == "no_progress" else True}
+>       assert choose_escalation(facts).action == expected
+E       AssertionError: assert 'continue' == 'ask_user'
+E         
+E         - ask_user
+E         + continue
+
+tests\unit\test_task_contracts.py:163: AssertionError
+_________ test_escalation_uses_observed_facts[evidence_gap-A_review] __________
+
+fact = 'evidence_gap', expected = 'A_review'
+
+    @pytest.mark.parametrize("fact,expected", [("ambiguity", "ask_user"), ("evidence_gap", "A_review"), ("assumption_failed", "A_review"), ("method_changed", "A_review"), ("capability_missing", "A_takeover"), ("no_progress", "A_takeover")])
+    def test_escalation_uses_observed_facts(fact, expected):
+        facts = {fact: 2 if fact == "no_progress" else True}
+>       assert choose_escalation(facts).action == expected
+E       AssertionError: assert 'continue' == 'A_review'
+E         
+E         - A_review
+E         + continue
+
+tests\unit\test_task_contracts.py:163: AssertionError
+_______ test_escalation_uses_observed_facts[assumption_failed-A_review] _______
+
+fact = 'assumption_failed', expected = 'A_review'
+
+    @pytest.mark.parametrize("fact,expected", [("ambiguity", "ask_user"), ("evidence_gap", "A_review"), ("assumption_failed", "A_review"), ("method_changed", "A_review"), ("capability_missing", "A_takeover"), ("no_progress", "A_takeover")])
+    def test_escalation_uses_observed_facts(fact, expected):
+        facts = {fact: 2 if fact == "no_progress" else True}
+>       assert choose_escalation(facts).action == expected
+E       AssertionError: assert 'continue' == 'A_review'
+E         
+E         - A_review
+E         + continue
+
+tests\unit\test_task_contracts.py:163: AssertionError
+________ test_escalation_uses_observed_facts[method_changed-A_review] _________
+
+fact = 'method_changed', expected = 'A_review'
+
+    @pytest.mark.parametrize("fact,expected", [("ambiguity", "ask_user"), ("evidence_gap", "A_review"), ("assumption_failed", "A_review"), ("method_changed", "A_review"), ("capability_missing", "A_takeover"), ("no_progress", "A_takeover")])
+    def test_escalation_uses_observed_facts(fact, expected):
+        facts = {fact: 2 if fact == "no_progress" else True}
+>       assert choose_escalation(facts).action == expected
+E       AssertionError: assert 'continue' == 'A_review'
+E         
+E         - A_review
+E         + continue
+
+tests\unit\test_task_contracts.py:163: AssertionError
+_____ test_escalation_uses_observed_facts[capability_missing-A_takeover] ______
+
+fact = 'capability_missing', expected = 'A_takeover'
+
+    @pytest.mark.parametrize("fact,expected", [("ambiguity", "ask_user"), ("evidence_gap", "A_review"), ("assumption_failed", "A_review"), ("method_changed", "A_review"), ("capability_missing", "A_takeover"), ("no_progress", "A_takeover")])
+    def test_escalation_uses_observed_facts(fact, expected):
+        facts = {fact: 2 if fact == "no_progress" else True}
+>       assert choose_escalation(facts).action == expected
+E       AssertionError: assert 'continue' == 'A_takeover'
+E         
+E         - A_takeover
+E         + continue
+
+tests\unit\test_task_contracts.py:163: AssertionError
+_________ test_escalation_uses_observed_facts[no_progress-A_takeover] _________
+
+fact = 'no_progress', expected = 'A_takeover'
+
+    @pytest.mark.parametrize("fact,expected", [("ambiguity", "ask_user"), ("evidence_gap", "A_review"), ("assumption_failed", "A_review"), ("method_changed", "A_review"), ("capability_missing", "A_takeover"), ("no_progress", "A_takeover")])
+    def test_escalation_uses_observed_facts(fact, expected):
+        facts = {fact: 2 if fact == "no_progress" else True}
+>       assert choose_escalation(facts).action == expected
+E       AssertionError: assert 'continue' == 'A_takeover'
+E         
+E         - A_takeover
+E         + continue
+
+tests\unit\test_task_contracts.py:163: AssertionError
+________ test_unrecognized_self_confidence_is_not_escalation_evidence _________
+
+    def test_unrecognized_self_confidence_is_not_escalation_evidence():
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests\unit\test_task_contracts.py:167: Failed
+=========================== short test summary info ===========================
+FAILED tests/unit/test_task_contracts.py::test_invalid_contracts_are_rejected[duplicate_ac]
+FAILED tests/unit/test_task_contracts.py::test_invalid_contracts_are_rejected[empty_ac]
+FAILED tests/unit/test_task_contracts.py::test_invalid_contracts_are_rejected[semantic_c]
+FAILED tests/unit/test_task_contracts.py::test_invalid_contracts_are_rejected[no_core_reasoning]
+FAILED tests/unit/test_task_contracts.py::test_invalid_contracts_are_rejected[unsafe_scope]
+FAILED tests/unit/test_task_contracts.py::test_invalid_contracts_are_rejected[no_scope]
+FAILED tests/unit/test_task_contracts.py::test_invalid_contracts_are_rejected[reserved_exceeds_budget]
+FAILED tests/unit/test_task_contracts.py::test_invalid_contracts_are_rejected[fixed_a_calls]
+FAILED tests/unit/test_task_contracts.py::test_contract_digest_detects_budget_and_acceptance_changes
+FAILED tests/unit/test_task_contracts.py::test_missing_or_invalid_evidence_never_passes[missing]
+FAILED tests/unit/test_task_contracts.py::test_missing_or_invalid_evidence_never_passes[missing_file]
+FAILED tests/unit/test_task_contracts.py::test_missing_or_invalid_evidence_never_passes[bad_hash]
+FAILED tests/unit/test_task_contracts.py::test_missing_or_invalid_evidence_never_passes[wrong_revision]
+FAILED tests/unit/test_task_contracts.py::test_missing_or_invalid_evidence_never_passes[wrong_verifier]
+FAILED tests/unit/test_task_contracts.py::test_missing_or_invalid_evidence_never_passes[failed_check]
+FAILED tests/unit/test_task_contracts.py::test_missing_or_invalid_evidence_never_passes[outside]
+FAILED tests/unit/test_task_contracts.py::test_missing_or_invalid_evidence_never_passes[duplicate]
+FAILED tests/unit/test_task_contracts.py::test_stale_or_executor_self_review_is_rejected[task_id]
+FAILED tests/unit/test_task_contracts.py::test_stale_or_executor_self_review_is_rejected[attempt_id]
+FAILED tests/unit/test_task_contracts.py::test_stale_or_executor_self_review_is_rejected[contract_version]
+FAILED tests/unit/test_task_contracts.py::test_stale_or_executor_self_review_is_rejected[contract_sha256]
+FAILED tests/unit/test_task_contracts.py::test_stale_or_executor_self_review_is_rejected[reviewer]
+FAILED tests/unit/test_task_contracts.py::test_b_document_with_a_pass_is_not_a_canonical_original
+FAILED tests/unit/test_task_contracts.py::test_paper_summary_cannot_replace_full_read_coverage
+FAILED tests/unit/test_task_contracts.py::test_other_review_outcomes_preserve_explicit_non_delivery[REPAIR]
+FAILED tests/unit/test_task_contracts.py::test_other_review_outcomes_preserve_explicit_non_delivery[NEED_EVIDENCE]
+FAILED tests/unit/test_task_contracts.py::test_other_review_outcomes_preserve_explicit_non_delivery[BLOCKED]
+FAILED tests/unit/test_task_contracts.py::test_escalation_uses_observed_facts[ambiguity-ask_user]
+FAILED tests/unit/test_task_contracts.py::test_escalation_uses_observed_facts[evidence_gap-A_review]
+FAILED tests/unit/test_task_contracts.py::test_escalation_uses_observed_facts[assumption_failed-A_review]
+FAILED tests/unit/test_task_contracts.py::test_escalation_uses_observed_facts[method_changed-A_review]
+FAILED tests/unit/test_task_contracts.py::test_escalation_uses_observed_facts[capability_missing-A_takeover]
+FAILED tests/unit/test_task_contracts.py::test_escalation_uses_observed_facts[no_progress-A_takeover]
+FAILED tests/unit/test_task_contracts.py::test_unrecognized_self_confidence_is_not_escalation_evidence
+34 failed, 6 passed in 0.48s

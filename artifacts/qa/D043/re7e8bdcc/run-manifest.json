@@ -1,0 +1,36 @@
+{
+  "version": "1.0",
+  "build_id": "cb98eed03df6bd4ffaa551d66a54c77198911cf5b3e763a1ef3c055f5ee54ca4",
+  "run_id": null,
+  "created_at": "2026-10-15T02:00:20.912800+00:00",
+  "seed": 4317,
+  "encoding": "UTF-8",
+  "provider_boundary": "fake",
+  "files": [
+    {
+      "path": ".qa-run.json",
+      "size": 154,
+      "sha256": "1bcd465bdfa7abb1076f88cc076c7cec9b839272f641ab64e4e9967883b7a556"
+    },
+    {
+      "path": "native-translation/workbench.sqlite3",
+      "size": 339968,
+      "sha256": "32243ef595f3286db637fade142f48d29837674699149e37ff84fad911af764d"
+    },
+    {
+      "path": "product-qa-checks.json",
+      "size": 63202,
+      "sha256": "fad2c3b76996f9e1078da1cdd0d194576b6f94094a6c87bea1029dff5ec8d610"
+    },
+    {
+      "path": "scenario-result.json",
+      "size": 582,
+      "sha256": "90caef2e5e42687baf9a38de8eabbbc14a29100dd466860342a853df9b6d869e"
+    },
+    {
+      "path": "translation-corpus-report.json",
+      "size": 582,
+      "sha256": "90caef2e5e42687baf9a38de8eabbbc14a29100dd466860342a853df9b6d869e"
+    }
+  ]
+}

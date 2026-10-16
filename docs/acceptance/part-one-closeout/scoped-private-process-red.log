@@ -1,0 +1,28 @@
+F                                                                        [100%]
+================================== FAILURES ===================================
+_ test_shared_private_process_uses_anonymous_stdin_native_argv_and_owned_cleanup _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-234/test_shared_private_process_us0')
+
+    def test_shared_private_process_uses_anonymous_stdin_native_argv_and_owned_cleanup(tmp_path):
+        program=tmp_path/'echo.py'
+        program.write_text("import json,sys\nx=json.loads(sys.stdin.readline())\nprint(json.dumps({'argv':sys.argv[1:],'input':x}),flush=True)\n",encoding='utf-8')
+        args=['space argument','& echo PRIVATE_COMMAND > injected.txt','$(whoami)','a;b']
+>       process=NativePrivateProcess(tmp_path/'lease.sqlite3')
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_scoped_codex_runtime.py:267: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.providers.scoped_codex_runtime.NativePrivateProcess object at 0x0000020D67879D30>
+args = (WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-234/test_shared_private_process_us0/lease.sqlite3'),)
+kwargs = {}
+
+    def __init__(self,*args,**kwargs):
+>       raise ScopedCodexError('PRIVATE_PROCESS_NOT_IMPLEMENTED')
+E       app.providers.scoped_codex_runtime.ScopedCodexError: PRIVATE_PROCESS_NOT_IMPLEMENTED
+
+services\orchestrator\app\providers\scoped_codex_runtime.py:43: ScopedCodexError
+=========================== short test summary info ===========================
+FAILED tests/contracts/test_scoped_codex_runtime.py::test_shared_private_process_uses_anonymous_stdin_native_argv_and_owned_cleanup
+1 failed in 0.72s

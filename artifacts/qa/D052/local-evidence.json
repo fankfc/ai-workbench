@@ -1,0 +1,31 @@
+{
+  "card": "D052",
+  "case": "windows_install",
+  "command": [
+    "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\.venv\\Scripts\\python.exe",
+    "tests/support/scenario_driver.py",
+    "windows_install",
+    "--root",
+    "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\artifacts\\qa\\D052\\r4109f30f",
+    "--options",
+    "{}"
+  ],
+  "exit_code": 0,
+  "time": "2026-10-15T02:00:54.196109+00:00",
+  "build_id": "cb98eed03df6bd4ffaa551d66a54c77198911cf5b3e763a1ef3c055f5ee54ca4",
+  "run_root": "artifacts/qa/D052/r4109f30f",
+  "result": {
+    "install_ok": false,
+    "publisher_valid": false,
+    "backend_started": false,
+    "user_files_preserved": false,
+    "taskbar_windows": 0,
+    "evidence_kind": "audit",
+    "blocked_reasons": [
+      "authenticode_missing",
+      "source_commit_missing",
+      "trusted_signature_missing",
+      "windows_install_missing"
+    ]
+  }
+}

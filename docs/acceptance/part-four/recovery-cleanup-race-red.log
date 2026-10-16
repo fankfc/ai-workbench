@@ -1,0 +1,186 @@
+FF                                                                       [100%]
+================================== FAILURES ===================================
+_ test_shutdown_waits_for_inflight_user_cancel_cleanup_without_interrupting_it[returned] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-501/test_shutdown_waits_for_inflig0')
+cleanup_result = 'returned'
+
+    @pytest.mark.parametrize('cleanup_result', ['returned', 'failed'])
+    def test_shutdown_waits_for_inflight_user_cancel_cleanup_without_interrupting_it(tmp_path, cleanup_result):
+        app, task, _, calls, bindings, _ = fixture_case(tmp_path)
+        entered, cleanup_entered, release_cleanup = asyncio.Event(), asyncio.Event(), asyncio.Event()
+        cleanup_done, cleanup_aborted = asyncio.Event(), asyncio.Event()
+        async def waiting(*_):
+            entered.set()
+            await asyncio.Event().wait()
+        bindings.planner.plan = waiting
+        async def cancel(task_id, attempt_id):
+            calls['cancel'].append((task_id, attempt_id))
+            cleanup_entered.set()
+            try:
+                await release_cleanup.wait()
+                cleanup_done.set()
+                if cleanup_result == 'failed':
+                    raise RuntimeError('fixture cleanup failure after release')
+            except asyncio.CancelledError:
+                cleanup_aborted.set()
+                raise
+        replacement = NativeBackendBindings(dict(bindings.provider_registry), bindings.planner,
+            bindings.execute, bindings.publish, cancel, 'fixture')
+        supervisor = TaskSupervisor(app.state.database.path, replacement, provider_mode='fake')
+        async def exercise():
+            running = asyncio.create_task(supervisor.run_once())
+            stopping = None
+            try:
+                await entered.wait()
+                with closing(app.state.database.connect()) as connection, transaction(connection):
+                    connection.execute("UPDATE task_runs SET state='CANCELLED',cancel_requested=1,cancel_pending_remote=1,remote_status='unknown',lease_owner=NULL WHERE task_id=?", (task,))
+                await cleanup_entered.wait()
+                stopping = asyncio.create_task(supervisor.shutdown())
+                finished, _ = await asyncio.wait({stopping}, timeout=.05)
+                assert stopping not in finished, 'shutdown skipped cleanup that was still in progress'
+                assert len(calls['cancel']) == 1
+                release_cleanup.set()
+                await asyncio.wait_for(stopping, 1)
+                await asyncio.gather(running, return_exceptions=True)
+                assert cleanup_done.is_set() and not cleanup_aborted.is_set()
+                assert len(calls['cancel']) == 1 and not supervisor._operation.locked()
+                expected = ['NATIVE_LOCAL_CLEANUP_UNCONFIRMED'] if cleanup_result == 'failed' else []
+                assert supervisor.diagnostics == expected
+                row = task_row(app, task)
+                assert row['state'] == 'CANCELLED' and row['cancel_pending_remote'] == 1
+                assert row['remote_status'] == 'unknown' and row['external_stop_confirmed'] is None
+            finally:
+                release_cleanup.set()
+                if stopping is not None:
+                    await asyncio.gather(stopping, return_exceptions=True)
+                if not running.done():
+                    running.cancel()
+                await asyncio.gather(running, return_exceptions=True)
+>       asyncio.run(exercise())
+
+tests\integration\test_native_supervisor.py:321: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:194: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:118: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py:721: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    async def exercise():
+        running = asyncio.create_task(supervisor.run_once())
+        stopping = None
+        try:
+            await entered.wait()
+            with closing(app.state.database.connect()) as connection, transaction(connection):
+                connection.execute("UPDATE task_runs SET state='CANCELLED',cancel_requested=1,cancel_pending_remote=1,remote_status='unknown',lease_owner=NULL WHERE task_id=?", (task,))
+            await cleanup_entered.wait()
+            stopping = asyncio.create_task(supervisor.shutdown())
+            finished, _ = await asyncio.wait({stopping}, timeout=.05)
+>           assert stopping not in finished, 'shutdown skipped cleanup that was still in progress'
+E           AssertionError: shutdown skipped cleanup that was still in progress
+E           assert <Task finished name='Task-8' coro=<TaskSupervisor.shutdown() done, defined at C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\app\runtime\supervisor.py:288> result=None> not in {<Task finished name='Task-8' coro=<TaskSupervisor.shutdown() done, defined at C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\app\runtime\supervisor.py:288> result=None>}
+
+tests\integration\test_native_supervisor.py:302: AssertionError
+_ test_shutdown_waits_for_inflight_user_cancel_cleanup_without_interrupting_it[failed] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-501/test_shutdown_waits_for_inflig1')
+cleanup_result = 'failed'
+
+    @pytest.mark.parametrize('cleanup_result', ['returned', 'failed'])
+    def test_shutdown_waits_for_inflight_user_cancel_cleanup_without_interrupting_it(tmp_path, cleanup_result):
+        app, task, _, calls, bindings, _ = fixture_case(tmp_path)
+        entered, cleanup_entered, release_cleanup = asyncio.Event(), asyncio.Event(), asyncio.Event()
+        cleanup_done, cleanup_aborted = asyncio.Event(), asyncio.Event()
+        async def waiting(*_):
+            entered.set()
+            await asyncio.Event().wait()
+        bindings.planner.plan = waiting
+        async def cancel(task_id, attempt_id):
+            calls['cancel'].append((task_id, attempt_id))
+            cleanup_entered.set()
+            try:
+                await release_cleanup.wait()
+                cleanup_done.set()
+                if cleanup_result == 'failed':
+                    raise RuntimeError('fixture cleanup failure after release')
+            except asyncio.CancelledError:
+                cleanup_aborted.set()
+                raise
+        replacement = NativeBackendBindings(dict(bindings.provider_registry), bindings.planner,
+            bindings.execute, bindings.publish, cancel, 'fixture')
+        supervisor = TaskSupervisor(app.state.database.path, replacement, provider_mode='fake')
+        async def exercise():
+            running = asyncio.create_task(supervisor.run_once())
+            stopping = None
+            try:
+                await entered.wait()
+                with closing(app.state.database.connect()) as connection, transaction(connection):
+                    connection.execute("UPDATE task_runs SET state='CANCELLED',cancel_requested=1,cancel_pending_remote=1,remote_status='unknown',lease_owner=NULL WHERE task_id=?", (task,))
+                await cleanup_entered.wait()
+                stopping = asyncio.create_task(supervisor.shutdown())
+                finished, _ = await asyncio.wait({stopping}, timeout=.05)
+                assert stopping not in finished, 'shutdown skipped cleanup that was still in progress'
+                assert len(calls['cancel']) == 1
+                release_cleanup.set()
+                await asyncio.wait_for(stopping, 1)
+                await asyncio.gather(running, return_exceptions=True)
+                assert cleanup_done.is_set() and not cleanup_aborted.is_set()
+                assert len(calls['cancel']) == 1 and not supervisor._operation.locked()
+                expected = ['NATIVE_LOCAL_CLEANUP_UNCONFIRMED'] if cleanup_result == 'failed' else []
+                assert supervisor.diagnostics == expected
+                row = task_row(app, task)
+                assert row['state'] == 'CANCELLED' and row['cancel_pending_remote'] == 1
+                assert row['remote_status'] == 'unknown' and row['external_stop_confirmed'] is None
+            finally:
+                release_cleanup.set()
+                if stopping is not None:
+                    await asyncio.gather(stopping, return_exceptions=True)
+                if not running.done():
+                    running.cancel()
+                await asyncio.gather(running, return_exceptions=True)
+>       asyncio.run(exercise())
+
+tests\integration\test_native_supervisor.py:321: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:194: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:118: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py:721: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    async def exercise():
+        running = asyncio.create_task(supervisor.run_once())
+        stopping = None
+        try:
+            await entered.wait()
+            with closing(app.state.database.connect()) as connection, transaction(connection):
+                connection.execute("UPDATE task_runs SET state='CANCELLED',cancel_requested=1,cancel_pending_remote=1,remote_status='unknown',lease_owner=NULL WHERE task_id=?", (task,))
+            await cleanup_entered.wait()
+            stopping = asyncio.create_task(supervisor.shutdown())
+            finished, _ = await asyncio.wait({stopping}, timeout=.05)
+>           assert stopping not in finished, 'shutdown skipped cleanup that was still in progress'
+E           AssertionError: shutdown skipped cleanup that was still in progress
+E           assert <Task finished name='Task-18' coro=<TaskSupervisor.shutdown() done, defined at C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\app\runtime\supervisor.py:288> result=None> not in {<Task finished name='Task-18' coro=<TaskSupervisor.shutdown() done, defined at C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\app\runtime\supervisor.py:288> result=None>}
+
+tests\integration\test_native_supervisor.py:302: AssertionError
+============================== warnings summary ===============================
+services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1
+  C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/integration/test_native_supervisor.py::test_shutdown_waits_for_inflight_user_cancel_cleanup_without_interrupting_it[returned]
+FAILED tests/integration/test_native_supervisor.py::test_shutdown_waits_for_inflight_user_cancel_cleanup_without_interrupting_it[failed]
+2 failed, 19 deselected, 1 warning in 1.26s

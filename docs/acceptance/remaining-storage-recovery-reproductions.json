@@ -1,0 +1,90 @@
+{
+  "stable_key_duplicate_before_gap": {
+    "ingest_results": [
+      {
+        "decision": "accepted",
+        "applied_sequences": [
+          1
+        ],
+        "provider_last_sequence": 1
+      },
+      {
+        "decision": "duplicate",
+        "applied_sequences": [],
+        "provider_last_sequence": 1
+      },
+      {
+        "decision": "gap",
+        "applied_sequences": [],
+        "provider_last_sequence": 1
+      },
+      {
+        "decision": "accepted",
+        "applied_sequences": [
+          2
+        ],
+        "provider_last_sequence": 2
+      }
+    ],
+    "final_state": "EXECUTING",
+    "checkpoint": {
+      "provider_event_buffer": {
+        "4": {
+          "attempt_id": "a1",
+          "kind": "provider.completed",
+          "payload": {
+            "result": "done"
+          },
+          "sequence": 4,
+          "task_id": "task1"
+        }
+      },
+      "provider_event_history": {
+        "1": "fe5f21046812b3c30aa7b01d0aed281e32068a3aab39c609ecfe23c2ab4fa922",
+        "2": "16ab8ed6d9728ff8dc1c0b27561f05369c24004905bd82a9d983341818098e60"
+      },
+      "provider_last_sequence": 2,
+      "provider_stable_keys": {
+        "stable": "345c7d692b22d2d9509209725f79533587beed2619d91cf62fbeb5d58f212c3f"
+      }
+    },
+    "expected_provider_last_sequence": 4,
+    "actual_provider_last_sequence": 2
+  },
+  "terminal_during_query_FAILED": {
+    "expected_terminal_state": "FAILED",
+    "actual_final_state": "VALIDATING",
+    "verifier_callback_states": [
+      "FAILED"
+    ],
+    "recovery_result": [
+      {
+        "task_id": "task1",
+        "attempt_id": "a1",
+        "remote_status": "completed",
+        "decision": "verification_ready",
+        "state": "VALIDATING",
+        "query_error": null,
+        "verification_error": null
+      }
+    ]
+  },
+  "terminal_during_query_PUBLISHED": {
+    "expected_terminal_state": "PUBLISHED",
+    "actual_final_state": "VALIDATING",
+    "verifier_callback_states": [
+      "PUBLISHED"
+    ],
+    "recovery_result": [
+      {
+        "task_id": "task1",
+        "attempt_id": "a1",
+        "remote_status": "completed",
+        "decision": "verification_ready",
+        "state": "VALIDATING",
+        "query_error": null,
+        "verification_error": null
+      }
+    ]
+  }
+}

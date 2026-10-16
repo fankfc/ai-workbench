@@ -1,0 +1,334 @@
+{
+  "schema_version": "1.0",
+  "contract_version": "1.0",
+  "generated_at": "2026-10-14T15:36:21.487680+08:00",
+  "scope": "part one D001-D020",
+  "local_backend_verified": false,
+  "real_handoff_complete": false,
+  "part_one_complete": false,
+  "functional_ready": false,
+  "goal_validated": false,
+  "completed_tasks": [
+    "D001",
+    "D002",
+    "D003",
+    "D006",
+    "D007",
+    "D008",
+    "D009",
+    "D010",
+    "D011",
+    "D012",
+    "D013",
+    "D014",
+    "D015",
+    "D016",
+    "D017",
+    "D018",
+    "D019"
+  ],
+  "blocked_tasks": {
+    "D004": "Claude 实际接入与验收未完成；GPT 替代小试验有证据，新执行作用域/正式交接尚未验收。",
+    "D005": "账户与 SDK 鉴权检查成功，但真实 GLM SDK 生成请求 HTTP 405；根因未知，官方发行版主机验证集成仍待补。",
+    "D020": "实际 API→A 计划→B 候选→C→A→发布尚未完整通过；冻结回归另有 1 个异常路径用量测试失败。"
+  },
+  "test_result": {
+    "tests": 1144,
+    "failures": 1,
+    "errors": 0,
+    "skipped": 0
+  },
+  "interfaces": {
+    "api": "authenticated /v1/conversations, turns, messages, events, /v1/tasks; loopback only",
+    "events": "version 1.0; public whitelist enforced for history/SSE/outbox",
+    "sse": "committed conversation cursor replay; EOF then reconnect with after_seq",
+    "storage": "SQLite WAL/FULL + transaction outbox + immutable SHA256 blobs",
+    "workflow": "injected provider, validator, reviewer and budget ports; durable contract pin and owner lease",
+    "recovery": "query/observe/verify ports for accepted external execution; unknown blocks; no restart callback",
+    "current_startup_recovery": "conservative unknown callback; no real provider query until a supported adapter is registered",
+    "publication": "trusted internal native publisher; HTTP/model visibility cannot grant approval",
+    "scope": "service path and role constraints; actual external OS sandbox remains unverified"
+  },
+  "filename_mappings": {
+    "runtime/scheduler.py": "dispatch responsibility implemented in runtime/outbox.py; workflow owns request scheduling",
+    "runtime/deduplication.py": "persistent event deduplication and gap buffering implemented in runtime/recovery.py",
+    "runtime/scopes.py + runtime/write_leases.py": "scope validation and persistent lease handoff implemented in runtime/workspace.py",
+    "app/prompts/*.md": "canonical project prompts are prompts/a_contract.md and prompts/b_execute.md"
+  },
+  "planned_to_actual_files": {
+    "services/orchestrator/app/runtime/scheduler.py": [
+      "services/orchestrator/app/runtime/outbox.py"
+    ],
+    "tests/integration/test_state_outbox.py": [
+      "tests/integration/test_state_machine.py",
+      "tests/integration/test_outbox.py"
+    ],
+    "services/orchestrator/app/runtime/deduplication.py": [
+      "services/orchestrator/app/runtime/recovery.py"
+    ],
+    "tests/fixtures/recovery_events.json": [
+      "tests/integration/test_recovery.py"
+    ],
+    "services/orchestrator/app/prompts/a_contract.md": [
+      "prompts/a_contract.md"
+    ],
+    "services/orchestrator/app/prompts/b_execute.md": [
+      "prompts/b_execute.md"
+    ],
+    "services/orchestrator/app/runtime/scopes.py": [
+      "services/orchestrator/app/runtime/workspace.py"
+    ],
+    "services/orchestrator/app/runtime/write_leases.py": [
+      "services/orchestrator/app/runtime/workspace.py"
+    ],
+    "tests/integration/test_task_scopes.py": [
+      "tests/integration/test_workspace.py",
+      "tests/integration/test_context_gateway.py"
+    ]
+  },
+  "providers": {
+    "claude": {
+      "schema_version": "1.0",
+      "adapter": "claude_code",
+      "capabilities": [
+        "non_interactive",
+        "isolated_workdir"
+      ],
+      "executable": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\claude\\node_modules\\@anthropic-ai\\claude-code-win32-x64\\claude.exe",
+      "executable_sha256": "76de74f7694a5bdc03378a5f837c9e132827bf004c98c276bc4e9094ff06769a",
+      "runtime_version": "2.1.296",
+      "source_uri": "https://code.claude.com/docs/en/setup",
+      "source_kind": "official_installed_runtime",
+      "bounded_probe_enabled": false,
+      "production_enabled": false,
+      "block_reason_code": "AUTHENTICATION_REQUIRED",
+      "generated_at": "2026-10-13T11:43:03Z"
+    },
+    "zcode": {
+      "schema_version": "1.0",
+      "adapter": "zcode",
+      "capabilities": [
+        "non_interactive",
+        "isolated_workdir"
+      ],
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "executable_sha256": "3602f2bb1a10f2cbab4c36886218a33c1ab3db87290e73b033c46c77147d0237",
+      "runtime_version": "0.16.9",
+      "source_uri": "https://github.com/zai-org/ZCode/blob/main/apps/zcode-cli/README.md",
+      "source_kind": "official_installed_runtime",
+      "bounded_probe_enabled": false,
+      "production_enabled": false,
+      "block_reason_code": "MODEL_SELECTION_REQUIRED",
+      "generated_at": "2026-10-13T11:43:03Z",
+      "entrypoint": "D:/zcode/resources/glm/zcode.cjs",
+      "entrypoint_sha256": "b816e38656e70fb585fe2ab1ea010da89cda928dac1ccb5d83255fd18796da6e",
+      "gui_version": "3.15.1.8093",
+      "builtin_config_reference": "D:/zcode/resources/config/provider/zcode-builtin.json"
+    },
+    "gpt": {
+      "schema_version": "1.0",
+      "adapter": "codex",
+      "capabilities": [
+        "non_interactive",
+        "isolated_workdir"
+      ],
+      "executable": "C:\\Users\\asd15\\AppData\\Local\\OpenAI\\Codex\\bin\\f544b3844e0f14e9\\codex.exe",
+      "executable_sha256": "4b01d5920e6785614727443bbecf343f4dedbb7347052b72ba805aab6353ef01",
+      "runtime_version": "0.160.0",
+      "source_uri": "https://developers.openai.com/codex/noninteractive/",
+      "source_kind": "official_installed_runtime",
+      "bounded_probe_enabled": false,
+      "production_enabled": false,
+      "block_reason_code": "TOOL_PERMISSION_POLICY_DENIED",
+      "generated_at": "2026-10-13T11:43:03Z"
+    }
+  },
+  "gpt_completion_level": "route_decided_not_connected; native path chosen; production disabled",
+  "bounded_real_startups_this_session": {
+    "claude": 0,
+    "zcode": 2,
+    "gpt": 1,
+    "total": 3
+  },
+  "real_account_usage": "unknown where provider did not report it",
+  "pending_product_gates": [
+    "Electron GUI",
+    "complete English input and history QA for every Claude request",
+    "trusted A canonical English original capture",
+    "complete Chinese answer translation and QA",
+    "DOCX/PDF render and layout checks",
+    "atomic bilingual attachment bundle publisher",
+    "actual external sandbox enforcement",
+    "blind quality/token qualification",
+    "release and backup acceptance"
+  ],
+  "runbook": "docs/runbooks/backend-operations.md",
+  "evidence": [
+    "docs/acceptance/backend-full-test.log",
+    "docs/acceptance/backend-junit.xml",
+    "docs/acceptance/backend-source-hashes.json",
+    "docs/acceptance/D020/vertical-report.json",
+    "docs/acceptance/D020/request-ledger.json"
+  ],
+  "git_commit": null,
+  "branch": "codex/part1-foundation",
+  "updated_at": "2026-10-13T21:31:17.381600+08:00",
+  "original_files_read": 19,
+  "original_file_audit": [
+    {
+      "path": "DESIGN.md",
+      "original_sha256": "0cbbc54e75e047ffe0a7ea9e44cc827b1a9180a4a63b38a411efaa2230f34153",
+      "current_sha256": "0cbbc54e75e047ffe0a7ea9e44cc827b1a9180a4a63b38a411efaa2230f34153",
+      "changed": false,
+      "authorized_status_update": false
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-13-execution/00-execution-guide.md",
+      "original_sha256": "00f8f1ed9de62be82284723566cd672a4c6880f78c33300d26405d9102fea813",
+      "current_sha256": "00f8f1ed9de62be82284723566cd672a4c6880f78c33300d26405d9102fea813",
+      "changed": false,
+      "authorized_status_update": false
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-13-execution/01-foundation-runtime.md",
+      "original_sha256": "f2fde3f3cd6feec48d681c0f18be8a12d8d5fe686dd83c64583e5a2b2873508e",
+      "current_sha256": "f2fde3f3cd6feec48d681c0f18be8a12d8d5fe686dd83c64583e5a2b2873508e",
+      "changed": false,
+      "authorized_status_update": false
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-13-execution/02-ui-translation-documents.md",
+      "original_sha256": "c290cd29ad48c8348abd108828840a19b45d3c4b5e1fdbdd6a16a874acb333a0",
+      "current_sha256": "c290cd29ad48c8348abd108828840a19b45d3c4b5e1fdbdd6a16a874acb333a0",
+      "changed": false,
+      "authorized_status_update": false
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-13-execution/03-verification-release-operations.md",
+      "original_sha256": "44b3582daa83f35f461de6d10739b316a95fea9692c23d9b57d7303dbf040e9a",
+      "current_sha256": "44b3582daa83f35f461de6d10739b316a95fea9692c23d9b57d7303dbf040e9a",
+      "changed": false,
+      "authorized_status_update": false
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-13-execution/04-runtime-sop.md",
+      "original_sha256": "c62590793932ee97c6a88f07b27062433e4dcbeab8093d42178ad22c6837c311",
+      "current_sha256": "c62590793932ee97c6a88f07b27062433e4dcbeab8093d42178ad22c6837c311",
+      "changed": false,
+      "authorized_status_update": false
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-13-execution/05-work-orders-and-prompts.md",
+      "original_sha256": "94cb042be30a957eba118a73d0af0ae81b367e371b85bea08e7d7a5c0c2a03c0",
+      "current_sha256": "94cb042be30a957eba118a73d0af0ae81b367e371b85bea08e7d7a5c0c2a03c0",
+      "changed": false,
+      "authorized_status_update": false
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-13-execution/data/tasks-01.json",
+      "original_sha256": "9306e42496016225e92f550d522c4f7aee121ca5b3fcdbfde4307540aa19994a",
+      "current_sha256": "1f052d948287d742e9e02527199620d95fd9a6b5da42192c5534cddb82508328",
+      "changed": true,
+      "authorized_status_update": true
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-13-execution/data/tasks-02.json",
+      "original_sha256": "106a1ddeef1150e8595961f764b9d9885a6af251b02605174bcf7b6c714fc560",
+      "current_sha256": "106a1ddeef1150e8595961f764b9d9885a6af251b02605174bcf7b6c714fc560",
+      "changed": false,
+      "authorized_status_update": false
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-13-execution/data/tasks-03.json",
+      "original_sha256": "013c6ed25f711b230294a307ef42fb0e18f1968a77dcc6114ebb5b9a5d899bf4",
+      "current_sha256": "013c6ed25f711b230294a307ef42fb0e18f1968a77dcc6114ebb5b9a5d899bf4",
+      "changed": false,
+      "authorized_status_update": false
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-13-execution/FULL-MANUAL.md",
+      "original_sha256": "5f3038ed1165afe204d52811b36e2f5b52b77d682fb64a62fbbb30006a4ae210",
+      "current_sha256": "5f3038ed1165afe204d52811b36e2f5b52b77d682fb64a62fbbb30006a4ae210",
+      "changed": false,
+      "authorized_status_update": false
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-13-execution/task-board.json",
+      "original_sha256": "bff4f3e2cfffc3ddd169a8c3ad846257e1ac359f1f48bce5518b2d338bcf238e",
+      "current_sha256": "4fabfa505f55d2c4cc040a7c6542d0a249e3c125da60e5ad03f7260e33432b0e",
+      "changed": true,
+      "authorized_status_update": true
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-13-execution/TASK-INDEX.md",
+      "original_sha256": "46a1a7d6736299db807c9401d1d4ef9d4707c0025296da20d25cf91f2e28800e",
+      "current_sha256": "0414569c1deb51e6cc57f4a5e89d2b66d2eb15523f3e348f8391047e6070c49b",
+      "changed": true,
+      "authorized_status_update": true
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-13-execution/verification-report.json",
+      "original_sha256": "d5107889aee091dbc283128b2147b5192413773bfbdd2955423a9fc1d20785ec",
+      "current_sha256": "d5107889aee091dbc283128b2147b5192413773bfbdd2955423a9fc1d20785ec",
+      "changed": false,
+      "authorized_status_update": false
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-13-execution/verification-report.md",
+      "original_sha256": "d8629e40c22dbcc2269561b5efe5b1645c92e29f9683e78586663b4f77ca97de",
+      "current_sha256": "d8629e40c22dbcc2269561b5efe5b1645c92e29f9683e78586663b4f77ca97de",
+      "changed": false,
+      "authorized_status_update": false
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-13-industrial-agent-workbench-plan.md",
+      "original_sha256": "14e421314ead98ec9b5ada1ba36661d5a3f86255c9018811493fafc5297b4599",
+      "current_sha256": "14e421314ead98ec9b5ada1ba36661d5a3f86255c9018811493fafc5297b4599",
+      "changed": false,
+      "authorized_status_update": false
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-13-quality-release-plan.md",
+      "original_sha256": "510df00b97f9c557f82a1da98b2bf3c6158046e03029b6c2f1b1de954a36087e",
+      "current_sha256": "510df00b97f9c557f82a1da98b2bf3c6158046e03029b6c2f1b1de954a36087e",
+      "changed": false,
+      "authorized_status_update": false
+    },
+    {
+      "path": "docs/superpowers/specs/2026-10-13-claude-zcode-workflow-design.md",
+      "original_sha256": "1756ddea989b1be3c15186e3ecf4ba6a99403f80e5f4e7a51a4786c45cc90ad6",
+      "current_sha256": "1756ddea989b1be3c15186e3ecf4ba6a99403f80e5f4e7a51a4786c45cc90ad6",
+      "changed": false,
+      "authorized_status_update": false
+    },
+    {
+      "path": "docs/superpowers/specs/2026-10-13-translation-delivery-spec.md",
+      "original_sha256": "930cb8f15d4727490c3677ddea571d8ef765fcb8d3beb2551a642b7e965bf497",
+      "current_sha256": "930cb8f15d4727490c3677ddea571d8ef765fcb8d3beb2551a642b7e965bf497",
+      "changed": false,
+      "authorized_status_update": false
+    }
+  ],
+  "task_status_counts": {
+    "done": 17,
+    "blocked": 3
+  },
+  "real_model_calls": 3,
+  "real_model_completed_verified": 0,
+  "real_model_calls_counting_basis": "legacy counter: real provider CLI startup attempts; not verified model completions or billable request count",
+  "actual_billable_model_request_count": "unknown",
+  "explicit_real_provider_check": {
+    "result": "skipped",
+    "skipped": 1,
+    "deselected": 16,
+    "new_real_provider_starts": 0,
+    "evidence": "docs/acceptance/D020/real-prerequisite.log"
+  },
+  "final_independent_review": "docs/acceptance/part-one-final-review.md",
+  "phase_status": "frozen_partial",
+  "frozen_at": "2026-10-14T15:36:21.487680+08:00",
+  "full_regression_passed": false,
+  "freeze_record": "docs/acceptance/part-one-freeze-20261014/freeze.json",
+  "source_manifest": "docs/acceptance/part-one-freeze-20261014/source-hashes.json",
+  "historical_local_backend_verification": "原780及929通过快照保留为历史；不代表当前冻结完整回归通过。"
+}

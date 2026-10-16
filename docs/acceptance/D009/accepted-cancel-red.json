@@ -1,0 +1,13 @@
+{
+  "time": "2026-10-13T13:12:25.167599+00:00",
+  "command": [
+    "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\.venv\\Scripts\\python.exe",
+    "-m",
+    "pytest",
+    "-q",
+    "tests/integration/test_conversation_api.py::test_cancel_retains_unknown_remote_acceptance_without_returned_ids"
+  ],
+  "exit_code": 1,
+  "git_commit": null,
+  "log": "docs\\acceptance\\D009\\accepted-cancel-red.log"
+}

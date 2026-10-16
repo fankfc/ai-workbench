@@ -1,0 +1,10 @@
+
+added 22 packages, and audited 24 packages in 2s
+
+1 package is looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+exit_code=0
+lock_before=E45EE2DE1A15400A992949746BED35CD4F495E884CD8A04CE76F4C1410CEFC41
+lock_after=E45EE2DE1A15400A992949746BED35CD4F495E884CD8A04CE76F4C1410CEFC41

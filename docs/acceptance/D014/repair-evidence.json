@@ -1,0 +1,206 @@
+{
+  "at_utc": "2026-10-13T13:17:02.219871+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.13.0 (tags/v3.13.0:60403a5, Oct  7 2024, 09:38:07) [MSC v.1941 64 bit (AMD64)]",
+  "provider_mode": "fake external responses only",
+  "real_model_calls": 0,
+  "mechanical_check": "actual ast.parse of immutable candidate bytes; not a mocked result",
+  "command": "services/orchestrator/.venv/Scripts/python.exe docs/acceptance/D014/verify.py",
+  "source_sha256": {
+    "services/orchestrator/app/runtime/workflow.py": "fd0d743d2de7a0a8cca56b6c14ba77e8fbe64036c52cc6e913ee1061f90aa5ce",
+    "services/orchestrator/app/runtime/repair.py": "13e6848aca9cc573906da5130754c4bf8310f5669cbc00f28a075500aab5bd29",
+    "services/orchestrator/app/providers/fake.py": "abec8a68b99a0e269aa77143e41b528d71b312b334fa3d2772448941b2d2763e",
+    "tests/integration/test_agent_workflow.py": "3b31a01b6ffcc1a6f24cab0a790626cb6e3e91401d14c38ecf130710e9013b1e",
+    "tests/fixtures/workflow_cases.json": "97fed4eb9dc78ebe094f146b08df5203ed45d18c3ffe07f784c9165aad1c82ba"
+  },
+  "scenarios": [
+    {
+      "name": "repair",
+      "result": {
+        "state": "OUTPUT_PREPARING",
+        "current_revision_id": "candidate-44a4629162a7407eb1ebac25ad9fcc39",
+        "review_check_id": "A-review-079fe3131eac48da989b80b53a4555e7",
+        "quality_repairs": 1,
+        "connection_retries": 0,
+        "translation_retries": 0,
+        "reason_codes": [],
+        "evidence_root": "C:\\Users\\asd15\\AppData\\Local\\Temp\\D014-acceptance-tpqhy2lx\\repair\\workspaces\\tasks\\feade506e38d459d9d5d6847ff0eafba\\cc3736114b1a4a3c88bf5ebace71fbbd\\evidence"
+      },
+      "repair": {
+        "policy_version": "repair-1",
+        "quality_repairs": 1,
+        "connection_retries": 0,
+        "translation_retries": 0,
+        "no_progress": 1,
+        "defect_streaks": {
+          "mechanical-fail": 1
+        },
+        "history": [
+          {
+            "revision_id": "candidate-15308845c9ef411a899187d62732eb4f",
+            "byte_sha256": "84e029548a80a6e84a0c49a4d52e7e2d2c7103935723d613f201438fd3bd8da0",
+            "unresolved_defects": [
+              "mechanical-fail"
+            ],
+            "no_progress": 1
+          }
+        ]
+      },
+      "takeover_leases": [],
+      "candidate_history": [
+        {
+          "revision_id": "candidate-15308845c9ef411a899187d62732eb4f",
+          "byte_sha256": "84e029548a80a6e84a0c49a4d52e7e2d2c7103935723d613f201438fd3bd8da0",
+          "role": "B",
+          "step_id": "cdfb3d3799a9431f806a2bf607054ba5",
+          "previous_revision_id": null
+        },
+        {
+          "revision_id": "candidate-44a4629162a7407eb1ebac25ad9fcc39",
+          "byte_sha256": "36680619adb871cfded4489dac29f9550fdab2e5daa6e37f955ec31d76a23806",
+          "role": "B",
+          "step_id": "b50c7723a09a44b0a2971f3575b8dd18",
+          "previous_revision_id": "candidate-15308845c9ef411a899187d62732eb4f"
+        }
+      ]
+    },
+    {
+      "name": "no_progress_takeover",
+      "result": {
+        "state": "OUTPUT_PREPARING",
+        "current_revision_id": "candidate-abaa6747301d4df992ed46aee081c4b5",
+        "review_check_id": "A-review-cca7e14524f643ecaec4825cbde412b5",
+        "quality_repairs": 1,
+        "connection_retries": 0,
+        "translation_retries": 0,
+        "reason_codes": [],
+        "evidence_root": "C:\\Users\\asd15\\AppData\\Local\\Temp\\D014-acceptance-tpqhy2lx\\no_progress_takeover\\workspaces\\tasks\\bb95b7e2a39e431b92a8c9500baa1155\\2c7970f8ae954d23a3af704ef2d8957d\\evidence"
+      },
+      "repair": {
+        "policy_version": "repair-1",
+        "quality_repairs": 1,
+        "connection_retries": 0,
+        "translation_retries": 0,
+        "no_progress": 2,
+        "defect_streaks": {
+          "same-defect": 2
+        },
+        "history": [
+          {
+            "revision_id": "candidate-48822aacccc64c3da63f87d634a612a5",
+            "byte_sha256": "ee5f0996d38d03a9db7f983f2800d1fd09d4332c753656352e8472246921bfcc",
+            "unresolved_defects": [
+              "same-defect"
+            ],
+            "no_progress": 1
+          },
+          {
+            "revision_id": "candidate-5baf9fa464ee46c092f15ac6bab35200",
+            "byte_sha256": "f054e51fdeb15b07098786c57f3696533e5e64d41c37ed19b52a4b0c1f497f08",
+            "unresolved_defects": [
+              "same-defect"
+            ],
+            "no_progress": 2
+          }
+        ]
+      },
+      "takeover_leases": [
+        {
+          "before": {
+            "a": {
+              "epoch": 1,
+              "role": "A",
+              "token": "1ba80abdd06942fcbc5fe43e10ed1379"
+            },
+            "b": {
+              "epoch": 1,
+              "role": "B",
+              "token": "f7328dd0f6e14fab8b1623c7e55e7713"
+            }
+          },
+          "during": {
+            "a": {
+              "epoch": 1,
+              "role": "A",
+              "token": "1ba80abdd06942fcbc5fe43e10ed1379"
+            },
+            "b": {
+              "epoch": 2,
+              "role": "A",
+              "token": "8e81ec7f20d14c99a1eb7e2a7cf2151d"
+            }
+          },
+          "after": {
+            "a": {
+              "epoch": 1,
+              "role": "A",
+              "token": "1ba80abdd06942fcbc5fe43e10ed1379"
+            },
+            "b": {
+              "epoch": 3,
+              "role": "B",
+              "token": "5b47b53c3e594adfbf9da6cece411581"
+            }
+          },
+          "snapshot_path": "C:\\Users\\asd15\\AppData\\Local\\Temp\\D014-acceptance-tpqhy2lx\\no_progress_takeover\\workspaces\\tasks\\bb95b7e2a39e431b92a8c9500baa1155\\2c7970f8ae954d23a3af704ef2d8957d\\b\\snapshots\\candidate-5baf9fa464ee46c092f15ac6bab35200.txt"
+        }
+      ],
+      "candidate_history": [
+        {
+          "revision_id": "candidate-48822aacccc64c3da63f87d634a612a5",
+          "byte_sha256": "ee5f0996d38d03a9db7f983f2800d1fd09d4332c753656352e8472246921bfcc",
+          "role": "B",
+          "step_id": "0c9683fd98c24dadbeb99885e4c18bae",
+          "previous_revision_id": null
+        },
+        {
+          "revision_id": "candidate-5baf9fa464ee46c092f15ac6bab35200",
+          "byte_sha256": "f054e51fdeb15b07098786c57f3696533e5e64d41c37ed19b52a4b0c1f497f08",
+          "role": "B",
+          "step_id": "ea9e9783ca194aa79c3ae457de7a2f55",
+          "previous_revision_id": "candidate-48822aacccc64c3da63f87d634a612a5"
+        },
+        {
+          "revision_id": "candidate-abaa6747301d4df992ed46aee081c4b5",
+          "byte_sha256": "052bb90b4212edafd53354d328a48113a82a8c6449c7c1a47cee9e0a142f4344",
+          "role": "A",
+          "step_id": "0f8af1258b90493a80af28fbcd6ba088",
+          "previous_revision_id": "candidate-5baf9fa464ee46c092f15ac6bab35200"
+        }
+      ]
+    },
+    {
+      "name": "connection_retry",
+      "result": {
+        "state": "OUTPUT_PREPARING",
+        "current_revision_id": "candidate-47482b84353346e7bd6af1163cbd4d0f",
+        "review_check_id": "A-review-4009fafae22940de9139f281321fbca7",
+        "quality_repairs": 0,
+        "connection_retries": 1,
+        "translation_retries": 0,
+        "reason_codes": [],
+        "evidence_root": "C:\\Users\\asd15\\AppData\\Local\\Temp\\D014-acceptance-tpqhy2lx\\connection_retry\\workspaces\\tasks\\03883384741b48ae9fe83b5a52cc5008\\05e0f7ee65984b9ca86fb09381e0000b\\evidence"
+      },
+      "repair": {
+        "policy_version": "repair-1",
+        "quality_repairs": 0,
+        "connection_retries": 1,
+        "translation_retries": 0,
+        "no_progress": 0,
+        "defect_streaks": {},
+        "history": []
+      },
+      "takeover_leases": [],
+      "candidate_history": [
+        {
+          "revision_id": "candidate-47482b84353346e7bd6af1163cbd4d0f",
+          "byte_sha256": "60e9f026310f80bf7c28b048feba20e940d1ee104fe9aa2164260ff1722b317d",
+          "role": "B",
+          "step_id": "8f49ec50ef0148bd87a10bdde71b584e",
+          "previous_revision_id": null
+        }
+      ]
+    }
+  ],
+  "exit_code": 0
+}

@@ -1,0 +1,19 @@
+{
+  "time": "2026-10-14T07:56:09.370721+00:00",
+  "command": [
+    "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\.venv\\Scripts\\python.exe",
+    "-m",
+    "pytest",
+    "-q",
+    "tests/integration/test_connection_settings.py",
+    "tests/integration/test_diagnostics_export.py",
+    "tests/integration/test_storage_settings.py",
+    "tests/integration/test_attachment_api.py",
+    "tests/integration/test_phase_two_migration.py",
+    "tests/integration/test_storage.py",
+    "tests/integration/test_conversation_api.py"
+  ],
+  "exit_code": 0,
+  "git_commit": null,
+  "log": "docs\\acceptance\\part-two\\api-green.log"
+}

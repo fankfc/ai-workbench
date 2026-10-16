@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "adapter": "codex",
+  "capabilities": [
+    "non_interactive",
+    "isolated_workdir"
+  ],
+  "executable": "C:\\Users\\asd15\\AppData\\Local\\OpenAI\\Codex\\bin\\f544b3844e0f14e9\\codex.exe",
+  "executable_sha256": "4b01d5920e6785614727443bbecf343f4dedbb7347052b72ba805aab6353ef01",
+  "runtime_version": "0.160.0",
+  "source_uri": "https://developers.openai.com/codex/noninteractive/",
+  "source_kind": "official_installed_runtime",
+  "bounded_probe_enabled": false,
+  "production_enabled": false,
+  "block_reason_code": "TOOL_PERMISSION_POLICY_DENIED",
+  "generated_at": "2026-10-13T11:43:03Z"
+}
+

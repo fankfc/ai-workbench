@@ -1,0 +1,988 @@
+{
+  "generated_at": "2026-10-13T21:31:17.381600+08:00",
+  "command": [
+    "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\.venv\\Scripts\\python.exe",
+    "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\tests\\support\\scenario_driver.py",
+    "backend_vertical",
+    "--root",
+    "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\vertical-final",
+    "--options",
+    "{\"provider_mode\": \"fake\"}"
+  ],
+  "exit_code": 0,
+  "boundary": "only external model responses are fixtures; local backend and files actually execute",
+  "domains": {
+    "code": {
+      "case": "backend_normal",
+      "domain": "code",
+      "task_state": "PUBLISHED",
+      "task_id": "e32969f69f3c4d9fb1c41f8a4cdc6d2b",
+      "attempt_id": "a7ffc9289c6348c1959e00457e368e1a",
+      "database_path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\vertical-final\\r2c002f9e\\workbench.sqlite3",
+      "artifact_path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\vertical-final\\r2c002f9e\\blobs\\4e\\4e95e91c8af9cd871b2b433d97f466a743620fbf210d472590d2d5617429cdaa",
+      "public_answer_count": 1,
+      "public_messages": [
+        {
+          "id": "d90c0f9ae0554d7b9e287144bfb3d40e",
+          "turn_id": "d90c0f9ae0554d7b9e287144bfb3d40e",
+          "kind": "message.accepted",
+          "text": "核对固定材料并给出结果。",
+          "language": "zh-CN",
+          "attempt_id": "a7ffc9289c6348c1959e00457e368e1a",
+          "content_version_id": null,
+          "historical": false
+        },
+        {
+          "id": "c4e627d40bd6444c8871baa53f240d7b",
+          "turn_id": "d90c0f9ae0554d7b9e287144bfb3d40e",
+          "kind": "answer.published",
+          "text": "def add(a,b):\n    return a+b\nassert add(2,3)==5\nprint(add(2,3))\n",
+          "language": "und",
+          "attempt_id": "a7ffc9289c6348c1959e00457e368e1a",
+          "content_version_id": "candidate-5cdd76c278c846799f5314c07cffd40b",
+          "historical": false
+        }
+      ],
+      "model_starts": 2,
+      "model_starts_after_cancel": 0,
+      "model_starts_after_restart": 0,
+      "recovery_decision": null,
+      "total_tokens": 33,
+      "request_count": 2,
+      "unknown_requests": 0,
+      "qualified_deliveries": 1,
+      "forced_translation_starts": 0,
+      "mechanical_check_count": 1,
+      "candidate_count": 1,
+      "artifact_count": 1,
+      "turn_count": 1,
+      "quality_repairs": 0,
+      "connection_retries": 0,
+      "publication_rejected": false,
+      "provider_boundary": "fake",
+      "real_provider_verified": false,
+      "reason_codes": [],
+      "restart_conservation": null,
+      "dependency_graph": {
+        "version": 1,
+        "nodes": {
+          "answer": {
+            "revision_id": "candidate-5cdd76c278c846799f5314c07cffd40b",
+            "dependencies": {},
+            "stale": false
+          }
+        }
+      }
+    },
+    "paper": {
+      "case": "backend_normal",
+      "domain": "paper",
+      "task_state": "PUBLISHED",
+      "task_id": "73c992965b59481eb13430d9b6d4b373",
+      "attempt_id": "e0a98aa1cf0c4407b1a74a8f6b9f5ccb",
+      "database_path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\vertical-final\\r89127646\\workbench.sqlite3",
+      "artifact_path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\vertical-final\\r89127646\\blobs\\8d\\8db0c7e95a1d74378ed50037f6fca50983aeb607b2f077b027b57d107e49dde9",
+      "public_answer_count": 1,
+      "public_messages": [
+        {
+          "id": "bce11e7b15ae416498e8a53281b8e680",
+          "turn_id": "bce11e7b15ae416498e8a53281b8e680",
+          "kind": "message.accepted",
+          "text": "核对固定材料并给出结果。",
+          "language": "zh-CN",
+          "attempt_id": "e0a98aa1cf0c4407b1a74a8f6b9f5ccb",
+          "content_version_id": null,
+          "historical": false
+        },
+        {
+          "id": "3a40502beaf94d63ba0c24ae3410b38c",
+          "turn_id": "bce11e7b15ae416498e8a53281b8e680",
+          "kind": "answer.published",
+          "text": "# Fixed fixture report\nMeasured sum=6. The provided dataset supports this arithmetic [1].\n\n## References\n[1] Local fixed CSV dataset; synthetic test material, not a published study.\n",
+          "language": "und",
+          "attempt_id": "e0a98aa1cf0c4407b1a74a8f6b9f5ccb",
+          "content_version_id": "candidate-08a1a871a817425886fe191ff17c794c",
+          "historical": false
+        }
+      ],
+      "model_starts": 2,
+      "model_starts_after_cancel": 0,
+      "model_starts_after_restart": 0,
+      "recovery_decision": null,
+      "total_tokens": 33,
+      "request_count": 2,
+      "unknown_requests": 0,
+      "qualified_deliveries": 1,
+      "forced_translation_starts": 0,
+      "mechanical_check_count": 2,
+      "candidate_count": 1,
+      "artifact_count": 1,
+      "turn_count": 1,
+      "quality_repairs": 0,
+      "connection_retries": 0,
+      "publication_rejected": false,
+      "provider_boundary": "fake",
+      "real_provider_verified": false,
+      "reason_codes": [],
+      "restart_conservation": null,
+      "dependency_graph": {
+        "version": 1,
+        "nodes": {
+          "answer": {
+            "revision_id": "candidate-08a1a871a817425886fe191ff17c794c",
+            "dependencies": {},
+            "stale": false
+          }
+        }
+      }
+    },
+    "document": {
+      "case": "backend_normal",
+      "domain": "document",
+      "task_state": "PUBLISHED",
+      "task_id": "74497e764bc5425a8a3c7ef7cdd1a744",
+      "attempt_id": "400bf1d961a9412884b1d6909e6d0422",
+      "database_path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\vertical-final\\r8a7e5a75\\workbench.sqlite3",
+      "artifact_path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\vertical-final\\r8a7e5a75\\blobs\\33\\33c9c638808f3d2aadf5064aff928b6549f9093db6906fb80bd688ab808c2145",
+      "public_answer_count": 1,
+      "public_messages": [
+        {
+          "id": "f1de8c811acf49db9299a7165475c479",
+          "turn_id": "f1de8c811acf49db9299a7165475c479",
+          "kind": "message.accepted",
+          "text": "核对固定材料并给出结果。",
+          "language": "zh-CN",
+          "attempt_id": "400bf1d961a9412884b1d6909e6d0422",
+          "content_version_id": null,
+          "historical": false
+        },
+        {
+          "id": "902e5a6099c145aa9b3b734e381221b3",
+          "turn_id": "f1de8c811acf49db9299a7165475c479",
+          "kind": "answer.published",
+          "text": "# Result\n\nname: Alice\nVerified total: 5.\n",
+          "language": "und",
+          "attempt_id": "400bf1d961a9412884b1d6909e6d0422",
+          "content_version_id": "candidate-5c604d6882d1438a95c112ea64ae667b",
+          "historical": false
+        }
+      ],
+      "model_starts": 2,
+      "model_starts_after_cancel": 0,
+      "model_starts_after_restart": 0,
+      "recovery_decision": null,
+      "total_tokens": 33,
+      "request_count": 2,
+      "unknown_requests": 0,
+      "qualified_deliveries": 1,
+      "forced_translation_starts": 0,
+      "mechanical_check_count": 1,
+      "candidate_count": 1,
+      "artifact_count": 1,
+      "turn_count": 1,
+      "quality_repairs": 0,
+      "connection_retries": 0,
+      "publication_rejected": false,
+      "provider_boundary": "fake",
+      "real_provider_verified": false,
+      "reason_codes": [],
+      "restart_conservation": null,
+      "dependency_graph": {
+        "version": 1,
+        "nodes": {
+          "answer": {
+            "revision_id": "candidate-5c604d6882d1438a95c112ea64ae667b",
+            "dependencies": {},
+            "stale": false
+          }
+        }
+      }
+    },
+    "mixed": {
+      "case": "backend_normal",
+      "domain": "mixed",
+      "task_state": "PUBLISHED",
+      "task_id": "511a70c2c5a24f43bbdf41377a8b64ae",
+      "attempt_id": "669d54b742404e4fa85c60664168fff7",
+      "database_path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\vertical-final\\r123950bd\\workbench.sqlite3",
+      "artifact_path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\vertical-final\\r123950bd\\blobs\\89\\894d53a0cf080f3e8aa0fcc1759b4b7868bf42447c9cc41871eb3492e3a9b328",
+      "public_answer_count": 1,
+      "public_messages": [
+        {
+          "id": "6c8a52ee1f8e4c28932b252dd6192f7f",
+          "turn_id": "6c8a52ee1f8e4c28932b252dd6192f7f",
+          "kind": "message.accepted",
+          "text": "核对固定材料并给出结果。",
+          "language": "zh-CN",
+          "attempt_id": "669d54b742404e4fa85c60664168fff7",
+          "content_version_id": null,
+          "historical": false
+        },
+        {
+          "id": "7d9478ee90d449418e6e7e23384a0d7d",
+          "turn_id": "6c8a52ee1f8e4c28932b252dd6192f7f",
+          "kind": "answer.published",
+          "text": "# Integrated report\nVerified CSV sum=6.\nFigure: values.svg from the current result revision.\n",
+          "language": "und",
+          "attempt_id": "669d54b742404e4fa85c60664168fff7",
+          "content_version_id": "candidate-c957ba8f587342cf83c5e8d874dc3dea",
+          "historical": false
+        }
+      ],
+      "model_starts": 2,
+      "model_starts_after_cancel": 0,
+      "model_starts_after_restart": 0,
+      "recovery_decision": null,
+      "total_tokens": 33,
+      "request_count": 2,
+      "unknown_requests": 0,
+      "qualified_deliveries": 1,
+      "forced_translation_starts": 0,
+      "mechanical_check_count": 2,
+      "candidate_count": 1,
+      "artifact_count": 5,
+      "turn_count": 1,
+      "quality_repairs": 0,
+      "connection_retries": 0,
+      "publication_rejected": false,
+      "provider_boundary": "fake",
+      "real_provider_verified": false,
+      "reason_codes": [],
+      "restart_conservation": null,
+      "dependency_graph": {
+        "version": 5,
+        "nodes": {
+          "data": {
+            "revision_id": "mx-data-59288c81b86a40969b8a849883c9c103",
+            "dependencies": {},
+            "stale": false
+          },
+          "analysis": {
+            "revision_id": "mx-analysis-747caa85a26f404382499692191643f5",
+            "dependencies": {
+              "data": "mx-data-59288c81b86a40969b8a849883c9c103"
+            },
+            "stale": false
+          },
+          "result": {
+            "revision_id": "mx-result-c6cc7f924f9146a290a92b35ccd2c44a",
+            "dependencies": {
+              "analysis": "mx-analysis-747caa85a26f404382499692191643f5"
+            },
+            "stale": false
+          },
+          "figure": {
+            "revision_id": "mx-figure-dec232ba84934de29a2ac54d16f86bab",
+            "dependencies": {
+              "result": "mx-result-c6cc7f924f9146a290a92b35ccd2c44a"
+            },
+            "stale": false
+          },
+          "answer": {
+            "revision_id": "candidate-c957ba8f587342cf83c5e8d874dc3dea",
+            "dependencies": {
+              "result": "mx-result-c6cc7f924f9146a290a92b35ccd2c44a",
+              "figure": "mx-figure-dec232ba84934de29a2ac54d16f86bab"
+            },
+            "stale": false
+          }
+        }
+      }
+    }
+  },
+  "faults": {
+    "backend_repair": {
+      "case": "backend_repair",
+      "domain": "code",
+      "task_state": "PUBLISHED",
+      "task_id": "2a1663cccf2642c2a3428fc6ece1dc8a",
+      "attempt_id": "5d9e90ba789b41ceb8840bf560130ccb",
+      "database_path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\vertical-final\\r7ba3941f\\workbench.sqlite3",
+      "artifact_path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\vertical-final\\r7ba3941f\\blobs\\4e\\4e95e91c8af9cd871b2b433d97f466a743620fbf210d472590d2d5617429cdaa",
+      "public_answer_count": 1,
+      "public_messages": [
+        {
+          "id": "c3df181ffe79449caafa73dd9bc57c3d",
+          "turn_id": "c3df181ffe79449caafa73dd9bc57c3d",
+          "kind": "message.accepted",
+          "text": "核对固定材料并给出结果。",
+          "language": "zh-CN",
+          "attempt_id": "5d9e90ba789b41ceb8840bf560130ccb",
+          "content_version_id": null,
+          "historical": false
+        },
+        {
+          "id": "3fad2b89782346f4a7627071fc508b94",
+          "turn_id": "c3df181ffe79449caafa73dd9bc57c3d",
+          "kind": "answer.published",
+          "text": "def add(a,b):\n    return a+b\nassert add(2,3)==5\nprint(add(2,3))\n",
+          "language": "und",
+          "attempt_id": "5d9e90ba789b41ceb8840bf560130ccb",
+          "content_version_id": "candidate-ecd1d0e83a2f4500bb2fadac6699164b",
+          "historical": false
+        }
+      ],
+      "model_starts": 4,
+      "model_starts_after_cancel": 0,
+      "model_starts_after_restart": 0,
+      "recovery_decision": null,
+      "total_tokens": 63,
+      "request_count": 4,
+      "unknown_requests": 0,
+      "qualified_deliveries": 1,
+      "forced_translation_starts": 0,
+      "mechanical_check_count": 2,
+      "candidate_count": 2,
+      "artifact_count": 2,
+      "turn_count": 1,
+      "quality_repairs": 1,
+      "connection_retries": 0,
+      "publication_rejected": false,
+      "provider_boundary": "fake",
+      "real_provider_verified": false,
+      "reason_codes": [],
+      "restart_conservation": null,
+      "dependency_graph": {
+        "version": 2,
+        "nodes": {
+          "answer": {
+            "revision_id": "candidate-ecd1d0e83a2f4500bb2fadac6699164b",
+            "dependencies": {},
+            "stale": false
+          }
+        }
+      }
+    },
+    "backend_need_evidence": {
+      "case": "backend_need_evidence",
+      "domain": "code",
+      "task_state": "NEEDS_INPUT",
+      "task_id": "8972d0ca1f9c4f7591de07f51163c8bc",
+      "attempt_id": "3faa6474e6fe4c56a68ba2ce0073c894",
+      "database_path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\vertical-final\\r3687eef5\\workbench.sqlite3",
+      "artifact_path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\vertical-final\\r3687eef5\\blobs\\4e\\4e95e91c8af9cd871b2b433d97f466a743620fbf210d472590d2d5617429cdaa",
+      "public_answer_count": 0,
+      "public_messages": [
+        {
+          "id": "31ecf36377454ddab1afa8624a04ce46",
+          "turn_id": "31ecf36377454ddab1afa8624a04ce46",
+          "kind": "message.accepted",
+          "text": "核对固定材料并给出结果。",
+          "language": "zh-CN",
+          "attempt_id": "3faa6474e6fe4c56a68ba2ce0073c894",
+          "content_version_id": null,
+          "historical": false
+        },
+        {
+          "id": "48df08e6131941518ea80e8ed70c2303",
+          "turn_id": "31ecf36377454ddab1afa8624a04ce46",
+          "kind": "input.required",
+          "text": "请补充任务需要的材料。",
+          "language": "zh-CN",
+          "attempt_id": "3faa6474e6fe4c56a68ba2ce0073c894",
+          "content_version_id": null,
+          "historical": false
+        }
+      ],
+      "model_starts": 2,
+      "model_starts_after_cancel": 0,
+      "model_starts_after_restart": 0,
+      "recovery_decision": null,
+      "total_tokens": 30,
+      "request_count": 2,
+      "unknown_requests": 0,
+      "qualified_deliveries": 0,
+      "forced_translation_starts": 0,
+      "mechanical_check_count": 1,
+      "candidate_count": 1,
+      "artifact_count": 1,
+      "turn_count": 1,
+      "quality_repairs": 0,
+      "connection_retries": 0,
+      "publication_rejected": false,
+      "provider_boundary": "fake",
+      "real_provider_verified": false,
+      "reason_codes": [
+        "A_NEEDS_EVIDENCE"
+      ],
+      "restart_conservation": null,
+      "dependency_graph": {
+        "version": 1,
+        "nodes": {
+          "answer": {
+            "revision_id": "candidate-68d801c00e3c42eb979a5a6cc11990d9",
+            "dependencies": {},
+            "stale": false
+          }
+        }
+      }
+    },
+    "backend_cancel_late": {
+      "case": "backend_cancel_late",
+      "domain": "code",
+      "task_state": "CANCELLED",
+      "task_id": "45f950979abf415e8d96096d58c2e5ba",
+      "attempt_id": "20e4a34823eb4dea90371460a5fb9d12",
+      "database_path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\vertical-final\\r1f500963\\workbench.sqlite3",
+      "artifact_path": null,
+      "public_answer_count": 0,
+      "public_messages": [
+        {
+          "id": "80b9d57991124ac6bdc91cebcf13d43a",
+          "turn_id": "80b9d57991124ac6bdc91cebcf13d43a",
+          "kind": "message.accepted",
+          "text": "核对固定材料并给出结果。",
+          "language": "zh-CN",
+          "attempt_id": "20e4a34823eb4dea90371460a5fb9d12",
+          "content_version_id": null,
+          "historical": false
+        },
+        {
+          "id": "dd1084ec521c4bacac9c2aad8e907524",
+          "turn_id": "80b9d57991124ac6bdc91cebcf13d43a",
+          "kind": "request.cancelled",
+          "text": "取消请求已记录。",
+          "language": "zh-CN",
+          "attempt_id": "20e4a34823eb4dea90371460a5fb9d12",
+          "content_version_id": null,
+          "historical": false
+        }
+      ],
+      "model_starts": 1,
+      "model_starts_after_cancel": 0,
+      "model_starts_after_restart": 0,
+      "recovery_decision": null,
+      "total_tokens": 15,
+      "request_count": 1,
+      "unknown_requests": 0,
+      "qualified_deliveries": 0,
+      "forced_translation_starts": 0,
+      "mechanical_check_count": 0,
+      "candidate_count": 0,
+      "artifact_count": 0,
+      "turn_count": 1,
+      "quality_repairs": 0,
+      "connection_retries": 0,
+      "publication_rejected": false,
+      "provider_boundary": "fake",
+      "real_provider_verified": false,
+      "reason_codes": [
+        "CANCELLED_FENCE"
+      ],
+      "restart_conservation": null,
+      "dependency_graph": null
+    },
+    "backend_restart": {
+      "case": "backend_restart",
+      "domain": "code",
+      "task_state": "BLOCKED",
+      "task_id": "6b10193fc96e40f8a5eff80fdb3c8008",
+      "attempt_id": "7320a1d42d49493fa6a74ba8b259792b",
+      "database_path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\vertical-final\\r73833fc3\\workbench.sqlite3",
+      "artifact_path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\vertical-final\\r73833fc3\\blobs\\4e\\4e95e91c8af9cd871b2b433d97f466a743620fbf210d472590d2d5617429cdaa",
+      "public_answer_count": 0,
+      "public_messages": [
+        {
+          "id": "a45a1aa54eb146a78d7246f88857c2f8",
+          "turn_id": "a45a1aa54eb146a78d7246f88857c2f8",
+          "kind": "message.accepted",
+          "text": "核对固定材料并给出结果。",
+          "language": "zh-CN",
+          "attempt_id": "7320a1d42d49493fa6a74ba8b259792b",
+          "content_version_id": null,
+          "historical": false
+        },
+        {
+          "id": "e6fc2a27b34e42d9b1b972b2b7dd5d5c",
+          "turn_id": "a45a1aa54eb146a78d7246f88857c2f8",
+          "kind": "request.failed",
+          "text": "模型连接暂不可用，请检查连接。",
+          "language": "zh-CN",
+          "attempt_id": "7320a1d42d49493fa6a74ba8b259792b",
+          "content_version_id": null,
+          "historical": false
+        }
+      ],
+      "model_starts": 2,
+      "model_starts_after_cancel": 0,
+      "model_starts_after_restart": 0,
+      "recovery_decision": "blocked_unknown",
+      "total_tokens": null,
+      "request_count": 2,
+      "unknown_requests": 1,
+      "qualified_deliveries": 0,
+      "forced_translation_starts": 0,
+      "mechanical_check_count": 1,
+      "candidate_count": 1,
+      "artifact_count": 1,
+      "turn_count": 1,
+      "quality_repairs": 0,
+      "connection_retries": 0,
+      "publication_rejected": false,
+      "provider_boundary": "fake",
+      "real_provider_verified": false,
+      "reason_codes": [
+        "PROVIDER_UNAVAILABLE"
+      ],
+      "restart_conservation": {
+        "request_count_before": 2,
+        "request_count_after": 2,
+        "unknown_requests_before": 1,
+        "unknown_requests_after": 1,
+        "artifact_sha256_before": "4e95e91c8af9cd871b2b433d97f466a743620fbf210d472590d2d5617429cdaa",
+        "artifact_sha256_after": "4e95e91c8af9cd871b2b433d97f466a743620fbf210d472590d2d5617429cdaa",
+        "recovery_mode": "factory reconstruction with existing workflow artifacts and disconnected external request"
+      },
+      "dependency_graph": {
+        "nodes": {
+          "answer": {
+            "dependencies": {},
+            "revision_id": "candidate-567a86a035014e99ba93312e78d4d469",
+            "stale": false
+          }
+        },
+        "version": 1
+      }
+    },
+    "backend_old_approval": {
+      "case": "backend_old_approval",
+      "domain": "code",
+      "task_state": "BLOCKED",
+      "task_id": "8b87364d2d194f07b134a4a76a4346f5",
+      "attempt_id": "fd2d1148bfe3465a8b99ea30cf83773d",
+      "database_path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\vertical-final\\r431cfc5c\\workbench.sqlite3",
+      "artifact_path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\vertical-final\\r431cfc5c\\blobs\\f4\\f4d72e2d2cf5d458ac6344d305fb44e5b17e261502db480584453572dbd4a352",
+      "public_answer_count": 0,
+      "public_messages": [
+        {
+          "id": "6d59dd4fe9d749559d3c3b8c64b9f709",
+          "turn_id": "6d59dd4fe9d749559d3c3b8c64b9f709",
+          "kind": "message.accepted",
+          "text": "核对固定材料并给出结果。",
+          "language": "zh-CN",
+          "attempt_id": "fd2d1148bfe3465a8b99ea30cf83773d",
+          "content_version_id": null,
+          "historical": false
+        }
+      ],
+      "model_starts": 2,
+      "model_starts_after_cancel": 0,
+      "model_starts_after_restart": 0,
+      "recovery_decision": null,
+      "total_tokens": 33,
+      "request_count": 2,
+      "unknown_requests": 0,
+      "qualified_deliveries": 0,
+      "forced_translation_starts": 0,
+      "mechanical_check_count": 1,
+      "candidate_count": 1,
+      "artifact_count": 2,
+      "turn_count": 1,
+      "quality_repairs": 0,
+      "connection_retries": 0,
+      "publication_rejected": true,
+      "provider_boundary": "fake",
+      "real_provider_verified": false,
+      "reason_codes": [],
+      "restart_conservation": null,
+      "dependency_graph": {
+        "version": 2,
+        "nodes": {
+          "answer": {
+            "revision_id": "5d95437953414d27af334c397fbbca6c",
+            "dependencies": {},
+            "stale": false
+          }
+        }
+      }
+    },
+    "backend_duplicate": {
+      "case": "backend_duplicate",
+      "domain": "code",
+      "task_state": "PUBLISHED",
+      "task_id": "8ead75aa480c471aa7241167d6ddf807",
+      "attempt_id": "11a40972168b41a7955511049d1b737f",
+      "database_path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\vertical-final\\rf07e9ab0\\workbench.sqlite3",
+      "artifact_path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\vertical-final\\rf07e9ab0\\blobs\\4e\\4e95e91c8af9cd871b2b433d97f466a743620fbf210d472590d2d5617429cdaa",
+      "public_answer_count": 1,
+      "public_messages": [
+        {
+          "id": "8c8f9c188f0346cca3a171014dd78e3d",
+          "turn_id": "8c8f9c188f0346cca3a171014dd78e3d",
+          "kind": "message.accepted",
+          "text": "核对固定材料并给出结果。",
+          "language": "zh-CN",
+          "attempt_id": "11a40972168b41a7955511049d1b737f",
+          "content_version_id": null,
+          "historical": false
+        },
+        {
+          "id": "953da80cb53e48eaac518d252c9c012b",
+          "turn_id": "8c8f9c188f0346cca3a171014dd78e3d",
+          "kind": "answer.published",
+          "text": "def add(a,b):\n    return a+b\nassert add(2,3)==5\nprint(add(2,3))\n",
+          "language": "und",
+          "attempt_id": "11a40972168b41a7955511049d1b737f",
+          "content_version_id": "candidate-1af6885f9f154ace8de96c0037b2caed",
+          "historical": false
+        }
+      ],
+      "model_starts": 2,
+      "model_starts_after_cancel": 0,
+      "model_starts_after_restart": 0,
+      "recovery_decision": null,
+      "total_tokens": 33,
+      "request_count": 2,
+      "unknown_requests": 0,
+      "qualified_deliveries": 1,
+      "forced_translation_starts": 0,
+      "mechanical_check_count": 1,
+      "candidate_count": 1,
+      "artifact_count": 1,
+      "turn_count": 1,
+      "quality_repairs": 0,
+      "connection_retries": 0,
+      "publication_rejected": false,
+      "provider_boundary": "fake",
+      "real_provider_verified": false,
+      "reason_codes": [],
+      "restart_conservation": null,
+      "dependency_graph": {
+        "version": 1,
+        "nodes": {
+          "answer": {
+            "revision_id": "candidate-1af6885f9f154ace8de96c0037b2caed",
+            "dependencies": {},
+            "stale": false
+          }
+        }
+      }
+    },
+    "backend_budget": {
+      "case": "backend_budget",
+      "domain": "code",
+      "task_state": "BLOCKED",
+      "task_id": "74fb23f6ce474f9c82f044ae2d578b05",
+      "attempt_id": "f81de58b08584d8eb2823da17a35f8d8",
+      "database_path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\vertical-final\\r926cddff\\workbench.sqlite3",
+      "artifact_path": null,
+      "public_answer_count": 0,
+      "public_messages": [
+        {
+          "id": "ef14117a3ef84399bc597b242cd7bb2e",
+          "turn_id": "ef14117a3ef84399bc597b242cd7bb2e",
+          "kind": "message.accepted",
+          "text": "核对固定材料并给出结果。",
+          "language": "zh-CN",
+          "attempt_id": "f81de58b08584d8eb2823da17a35f8d8",
+          "content_version_id": null,
+          "historical": false
+        },
+        {
+          "id": "cce6b929e7e04948bbe96d85725560e1",
+          "turn_id": "ef14117a3ef84399bc597b242cd7bb2e",
+          "kind": "request.failed",
+          "text": "任务预算已用完，请调整预算后重试。",
+          "language": "zh-CN",
+          "attempt_id": "f81de58b08584d8eb2823da17a35f8d8",
+          "content_version_id": null,
+          "historical": false
+        }
+      ],
+      "model_starts": 0,
+      "model_starts_after_cancel": 0,
+      "model_starts_after_restart": 0,
+      "recovery_decision": null,
+      "total_tokens": 0,
+      "request_count": 0,
+      "unknown_requests": 0,
+      "qualified_deliveries": 0,
+      "forced_translation_starts": 0,
+      "mechanical_check_count": 0,
+      "candidate_count": 0,
+      "artifact_count": 0,
+      "turn_count": 1,
+      "quality_repairs": 0,
+      "connection_retries": 0,
+      "publication_rejected": false,
+      "provider_boundary": "fake",
+      "real_provider_verified": false,
+      "reason_codes": [
+        "BUDGET_EXHAUSTED"
+      ],
+      "restart_conservation": null,
+      "dependency_graph": null
+    },
+    "backend_budget_after_repair": {
+      "case": "backend_budget_after_repair",
+      "domain": "code",
+      "task_state": "BLOCKED",
+      "task_id": "95329b96346c464ebec18ea3645d8e35",
+      "attempt_id": "d805ff6ebfa64097be4096aa534d77cb",
+      "database_path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\vertical-final\\r9ac30fe3\\workbench.sqlite3",
+      "artifact_path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\vertical-final\\r9ac30fe3\\blobs\\4e\\4e95e91c8af9cd871b2b433d97f466a743620fbf210d472590d2d5617429cdaa",
+      "public_answer_count": 0,
+      "public_messages": [
+        {
+          "id": "f9b1937ddc0347419486717db35a04ba",
+          "turn_id": "f9b1937ddc0347419486717db35a04ba",
+          "kind": "message.accepted",
+          "text": "核对固定材料并给出结果。",
+          "language": "zh-CN",
+          "attempt_id": "d805ff6ebfa64097be4096aa534d77cb",
+          "content_version_id": null,
+          "historical": false
+        },
+        {
+          "id": "b91aa88e1fac4997973c20ab27165dab",
+          "turn_id": "f9b1937ddc0347419486717db35a04ba",
+          "kind": "request.failed",
+          "text": "任务预算已用完，请调整预算后重试。",
+          "language": "zh-CN",
+          "attempt_id": "d805ff6ebfa64097be4096aa534d77cb",
+          "content_version_id": null,
+          "historical": false
+        }
+      ],
+      "model_starts": 3,
+      "model_starts_after_cancel": 0,
+      "model_starts_after_restart": 0,
+      "recovery_decision": null,
+      "total_tokens": 45,
+      "request_count": 3,
+      "unknown_requests": 0,
+      "qualified_deliveries": 0,
+      "forced_translation_starts": 0,
+      "mechanical_check_count": 2,
+      "candidate_count": 2,
+      "artifact_count": 2,
+      "turn_count": 1,
+      "quality_repairs": 1,
+      "connection_retries": 0,
+      "publication_rejected": false,
+      "provider_boundary": "fake",
+      "real_provider_verified": false,
+      "reason_codes": [
+        "BUDGET_EXHAUSTED"
+      ],
+      "restart_conservation": null,
+      "dependency_graph": {
+        "version": 2,
+        "nodes": {
+          "answer": {
+            "revision_id": "candidate-ee281d1df95c42b9bec31f3c6acaf8e7",
+            "dependencies": {},
+            "stale": false
+          }
+        }
+      }
+    },
+    "backend_connection_failure": {
+      "case": "backend_connection_failure",
+      "domain": "code",
+      "task_state": "BLOCKED",
+      "task_id": "8db94f8afa7343cc87e4a3aabfece430",
+      "attempt_id": "1efa431439ac41228ddd99e7e20ba68c",
+      "database_path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\vertical-final\\r4fcd40c9\\workbench.sqlite3",
+      "artifact_path": null,
+      "public_answer_count": 0,
+      "public_messages": [
+        {
+          "id": "7710ac06e9904985a236a7c5c4d0b1bd",
+          "turn_id": "7710ac06e9904985a236a7c5c4d0b1bd",
+          "kind": "message.accepted",
+          "text": "核对固定材料并给出结果。",
+          "language": "zh-CN",
+          "attempt_id": "1efa431439ac41228ddd99e7e20ba68c",
+          "content_version_id": null,
+          "historical": false
+        },
+        {
+          "id": "803858c19b954251a46becaf0a05098e",
+          "turn_id": "7710ac06e9904985a236a7c5c4d0b1bd",
+          "kind": "request.failed",
+          "text": "任务预算已用完，请调整预算后重试。",
+          "language": "zh-CN",
+          "attempt_id": "1efa431439ac41228ddd99e7e20ba68c",
+          "content_version_id": null,
+          "historical": false
+        }
+      ],
+      "model_starts": 1,
+      "model_starts_after_cancel": 0,
+      "model_starts_after_restart": 0,
+      "recovery_decision": null,
+      "total_tokens": null,
+      "request_count": 1,
+      "unknown_requests": 1,
+      "qualified_deliveries": 0,
+      "forced_translation_starts": 0,
+      "mechanical_check_count": 0,
+      "candidate_count": 0,
+      "artifact_count": 0,
+      "turn_count": 1,
+      "quality_repairs": 0,
+      "connection_retries": 1,
+      "publication_rejected": false,
+      "provider_boundary": "fake",
+      "real_provider_verified": false,
+      "reason_codes": [
+        "UNKNOWN_USAGE"
+      ],
+      "restart_conservation": null,
+      "dependency_graph": null
+    },
+    "backend_language_gate": {
+      "case": "backend_language_gate",
+      "domain": "code",
+      "task_state": "BLOCKED",
+      "task_id": "8275e0f5d5834b06b9bc08f34e04f6a5",
+      "attempt_id": "05b0beed8cd84eefb65846833484dab5",
+      "database_path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\vertical-final\\r0672f268\\workbench.sqlite3",
+      "artifact_path": null,
+      "public_answer_count": 0,
+      "public_messages": [
+        {
+          "id": "076704e26b78477aa95e7422aa7d4947",
+          "turn_id": "076704e26b78477aa95e7422aa7d4947",
+          "kind": "message.accepted",
+          "text": "核对固定材料并给出结果。",
+          "language": "zh-CN",
+          "attempt_id": "05b0beed8cd84eefb65846833484dab5",
+          "content_version_id": null,
+          "historical": false
+        },
+        {
+          "id": "3e4b45feae664412911ea3e3d771100c",
+          "turn_id": "076704e26b78477aa95e7422aa7d4947",
+          "kind": "request.failed",
+          "text": "当前任务所需的语言处理尚未就绪。",
+          "language": "zh-CN",
+          "attempt_id": "05b0beed8cd84eefb65846833484dab5",
+          "content_version_id": null,
+          "historical": false
+        }
+      ],
+      "model_starts": 0,
+      "model_starts_after_cancel": 0,
+      "model_starts_after_restart": 0,
+      "recovery_decision": null,
+      "total_tokens": 0,
+      "request_count": 0,
+      "unknown_requests": 0,
+      "qualified_deliveries": 0,
+      "forced_translation_starts": 0,
+      "mechanical_check_count": 0,
+      "candidate_count": 0,
+      "artifact_count": 0,
+      "turn_count": 1,
+      "quality_repairs": 0,
+      "connection_retries": 0,
+      "publication_rejected": false,
+      "provider_boundary": "fake",
+      "real_provider_verified": false,
+      "reason_codes": [
+        "CLAUDE_LANGUAGE_AND_PUBLICATION_GATES_MISSING"
+      ],
+      "restart_conservation": null,
+      "dependency_graph": null
+    },
+    "backend_upstream_change": {
+      "case": "backend_upstream_change",
+      "domain": "mixed",
+      "task_state": "BLOCKED",
+      "task_id": "a6d9bdeae4644085b3cabfd26050a13d",
+      "attempt_id": "c9220f3fb25d440ab37b46b3ceffcf4d",
+      "database_path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\vertical-final\\rd107c7a8\\workbench.sqlite3",
+      "artifact_path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\vertical-final\\rd107c7a8\\blobs\\89\\894d53a0cf080f3e8aa0fcc1759b4b7868bf42447c9cc41871eb3492e3a9b328",
+      "public_answer_count": 0,
+      "public_messages": [
+        {
+          "id": "940fe6c01fb9464787c695675e51b299",
+          "turn_id": "940fe6c01fb9464787c695675e51b299",
+          "kind": "message.accepted",
+          "text": "核对固定材料并给出结果。",
+          "language": "zh-CN",
+          "attempt_id": "c9220f3fb25d440ab37b46b3ceffcf4d",
+          "content_version_id": null,
+          "historical": false
+        }
+      ],
+      "model_starts": 2,
+      "model_starts_after_cancel": 0,
+      "model_starts_after_restart": 0,
+      "recovery_decision": null,
+      "total_tokens": 33,
+      "request_count": 2,
+      "unknown_requests": 0,
+      "qualified_deliveries": 0,
+      "forced_translation_starts": 0,
+      "mechanical_check_count": 2,
+      "candidate_count": 1,
+      "artifact_count": 6,
+      "turn_count": 1,
+      "quality_repairs": 0,
+      "connection_retries": 0,
+      "publication_rejected": true,
+      "provider_boundary": "fake",
+      "real_provider_verified": false,
+      "reason_codes": [],
+      "restart_conservation": null,
+      "dependency_graph": {
+        "version": 6,
+        "nodes": {
+          "data": {
+            "revision_id": "962b6d17b5984b8d9615b95fbc1f44ff",
+            "dependencies": {},
+            "stale": false
+          },
+          "analysis": {
+            "revision_id": "mx-analysis-5891e958631047e98c38dfcba756edde",
+            "dependencies": {
+              "data": "mx-data-66b93a8fbac4445ab510deda001eaf71"
+            },
+            "stale": true
+          },
+          "result": {
+            "revision_id": "mx-result-5c6afa2aa3384abea2d2284ab895a3ac",
+            "dependencies": {
+              "analysis": "mx-analysis-5891e958631047e98c38dfcba756edde"
+            },
+            "stale": true
+          },
+          "figure": {
+            "revision_id": "mx-figure-0ad74d94828e4c8f89bd71ebfe524af0",
+            "dependencies": {
+              "result": "mx-result-5c6afa2aa3384abea2d2284ab895a3ac"
+            },
+            "stale": true
+          },
+          "answer": {
+            "revision_id": "candidate-0258e08099ae406ca6f38a4f291cb4c0",
+            "dependencies": {
+              "result": "mx-result-5c6afa2aa3384abea2d2284ab895a3ac",
+              "figure": "mx-figure-0ad74d94828e4c8f89bd71ebfe524af0"
+            },
+            "stale": true
+          }
+        }
+      }
+    }
+  },
+  "fault_expectations": {
+    "backend_repair": true,
+    "backend_need_evidence": true,
+    "backend_cancel_late": true,
+    "backend_restart": true,
+    "backend_old_approval": true,
+    "backend_duplicate": true,
+    "backend_budget": true,
+    "backend_budget_after_repair": true,
+    "backend_connection_failure": true,
+    "backend_language_gate": true,
+    "backend_upstream_change": true
+  },
+  "all_local_cases_passed": true,
+  "real_handoff_complete": false,
+  "provider_boundary": "fake"
+}

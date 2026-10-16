@@ -1,0 +1,99 @@
+FFFFF                                                                    [100%]
+================================== FAILURES ===================================
+_ test_metadata_transport_rejects_foreign_resources_and_extra_account_fields[thread/read-params0] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-197/test_metadata_transport_reject0')
+method = 'thread/read', params = {'threadId': 'foreign', 'includeTurns': False}
+
+    @pytest.mark.parametrize("method,params", [("thread/read", {"threadId": "foreign", "includeTurns": False}),
+        ("session/read", {"sessionId": "foreign"}),
+        ("session/close", {"sessionId": "foreign", "expectedPersistence": "durable"}),
+        ("account/read", {"refreshToken": False, "extra": "private"})])
+    def test_metadata_transport_rejects_foreign_resources_and_extra_account_fields(tmp_path, method, params):
+        client = NativeRpcClient(fixture_command(tmp_path), tmp_path, metadata_methods={method})
+>       with pytest.raises(NativeRpcError, match="METADATA_(?:THREAD_NOT_OWNED|SESSION_NOT_OWNED|FIXED_PARAMS_REQUIRED)"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError: Regex pattern did not match.
+E         Expected regex: 'METADATA_(?:THREAD_NOT_OWNED|SESSION_NOT_OWNED|FIXED_PARAMS_REQUIRED)'
+E         Actual message: 'RPC_NOT_RUNNING'
+
+tests\contracts\test_codex_protocol.py:275: AssertionError
+_ test_metadata_transport_rejects_foreign_resources_and_extra_account_fields[session/read-params1] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-197/test_metadata_transport_reject1')
+method = 'session/read', params = {'sessionId': 'foreign'}
+
+    @pytest.mark.parametrize("method,params", [("thread/read", {"threadId": "foreign", "includeTurns": False}),
+        ("session/read", {"sessionId": "foreign"}),
+        ("session/close", {"sessionId": "foreign", "expectedPersistence": "durable"}),
+        ("account/read", {"refreshToken": False, "extra": "private"})])
+    def test_metadata_transport_rejects_foreign_resources_and_extra_account_fields(tmp_path, method, params):
+        client = NativeRpcClient(fixture_command(tmp_path), tmp_path, metadata_methods={method})
+>       with pytest.raises(NativeRpcError, match="METADATA_(?:THREAD_NOT_OWNED|SESSION_NOT_OWNED|FIXED_PARAMS_REQUIRED)"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError: Regex pattern did not match.
+E         Expected regex: 'METADATA_(?:THREAD_NOT_OWNED|SESSION_NOT_OWNED|FIXED_PARAMS_REQUIRED)'
+E         Actual message: 'RPC_NOT_RUNNING'
+
+tests\contracts\test_codex_protocol.py:275: AssertionError
+_ test_metadata_transport_rejects_foreign_resources_and_extra_account_fields[session/close-params2] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-197/test_metadata_transport_reject2')
+method = 'session/close'
+params = {'sessionId': 'foreign', 'expectedPersistence': 'durable'}
+
+    @pytest.mark.parametrize("method,params", [("thread/read", {"threadId": "foreign", "includeTurns": False}),
+        ("session/read", {"sessionId": "foreign"}),
+        ("session/close", {"sessionId": "foreign", "expectedPersistence": "durable"}),
+        ("account/read", {"refreshToken": False, "extra": "private"})])
+    def test_metadata_transport_rejects_foreign_resources_and_extra_account_fields(tmp_path, method, params):
+        client = NativeRpcClient(fixture_command(tmp_path), tmp_path, metadata_methods={method})
+>       with pytest.raises(NativeRpcError, match="METADATA_(?:THREAD_NOT_OWNED|SESSION_NOT_OWNED|FIXED_PARAMS_REQUIRED)"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError: Regex pattern did not match.
+E         Expected regex: 'METADATA_(?:THREAD_NOT_OWNED|SESSION_NOT_OWNED|FIXED_PARAMS_REQUIRED)'
+E         Actual message: 'RPC_NOT_RUNNING'
+
+tests\contracts\test_codex_protocol.py:275: AssertionError
+_ test_metadata_transport_rejects_foreign_resources_and_extra_account_fields[account/read-params3] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-197/test_metadata_transport_reject3')
+method = 'account/read', params = {'refreshToken': False, 'extra': 'private'}
+
+    @pytest.mark.parametrize("method,params", [("thread/read", {"threadId": "foreign", "includeTurns": False}),
+        ("session/read", {"sessionId": "foreign"}),
+        ("session/close", {"sessionId": "foreign", "expectedPersistence": "durable"}),
+        ("account/read", {"refreshToken": False, "extra": "private"})])
+    def test_metadata_transport_rejects_foreign_resources_and_extra_account_fields(tmp_path, method, params):
+        client = NativeRpcClient(fixture_command(tmp_path), tmp_path, metadata_methods={method})
+>       with pytest.raises(NativeRpcError, match="METADATA_(?:THREAD_NOT_OWNED|SESSION_NOT_OWNED|FIXED_PARAMS_REQUIRED)"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError: Regex pattern did not match.
+E         Expected regex: 'METADATA_(?:THREAD_NOT_OWNED|SESSION_NOT_OWNED|FIXED_PARAMS_REQUIRED)'
+E         Actual message: 'RPC_NOT_RUNNING'
+
+tests\contracts\test_codex_protocol.py:275: AssertionError
+________ test_unknown_notification_method_is_not_an_exportable_secret _________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-197/test_unknown_notification_meth0')
+
+    def test_unknown_notification_method_is_not_an_exportable_secret(tmp_path):
+        client = NativeRpcClient(fixture_command(tmp_path), tmp_path, metadata_methods={"model/list"})
+        class PrivateFrame:
+            stdout = b'{"method":"nativeRpc/providerFrame","params":{"frame":{"method":"sk-fixture-PRIVATE_DIAGNOSTIC_CANARY","params":{}}}}\n'
+        client._handle = PrivateFrame()
+        client._drain()
+>       assert "PRIVATE_DIAGNOSTIC_CANARY" not in str(client.diagnostics)
+E       assert 'PRIVATE_DIAGNOSTIC_CANARY' not in "{'server_st...IC_CANARY']}"
+E         
+E         'PRIVATE_DIAGNOSTIC_CANARY' is contained here:
+E           k-fixture-PRIVATE_DIAGNOSTIC_CANARY']}
+
+tests\contracts\test_codex_protocol.py:286: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/contracts/test_codex_protocol.py::test_metadata_transport_rejects_foreign_resources_and_extra_account_fields[thread/read-params0]
+FAILED tests/contracts/test_codex_protocol.py::test_metadata_transport_rejects_foreign_resources_and_extra_account_fields[session/read-params1]
+FAILED tests/contracts/test_codex_protocol.py::test_metadata_transport_rejects_foreign_resources_and_extra_account_fields[session/close-params2]
+FAILED tests/contracts/test_codex_protocol.py::test_metadata_transport_rejects_foreign_resources_and_extra_account_fields[account/read-params3]
+FAILED tests/contracts/test_codex_protocol.py::test_unknown_notification_method_is_not_an_exportable_secret
+5 failed, 27 deselected in 0.31s

@@ -1,0 +1,353 @@
+{
+  "version": "1.0",
+  "source": "docs/decisions/requirements-v1.json",
+  "source_sha256": "48acd0382da193059949b1df046306dca857c755b7eebab5c477b4008b0b21bf",
+  "requirements": [
+    {
+      "id": "R01",
+      "statement": "以 A 独立完成任务的质量为基准",
+      "source": {
+        "path": "docs/superpowers/plans/2026-10-13-industrial-agent-workbench-plan.md",
+        "section": "1. 产品目标与需求编号",
+        "line": 40,
+        "original_row": "| R01 | 以 A 独立完成任务的质量为基准 | 分领域配对评估与重大缺陷记录 |"
+      },
+      "mandatory": true,
+      "gate": "optimization",
+      "owner": [
+        "产品负责人",
+        "QA 负责人",
+        "领域评审"
+      ],
+      "mandatory_cases": [
+        "QUALITY_REAL"
+      ],
+      "acceptance_status": "not_verified"
+    },
+    {
+      "id": "R02",
+      "statement": "尽量减少 A 总 token",
+      "source": {
+        "path": "docs/superpowers/plans/2026-10-13-industrial-agent-workbench-plan.md",
+        "section": "1. 产品目标与需求编号",
+        "line": 41,
+        "original_row": "| R02 | 尽量减少 A 总 token | 含失败、重试、复核的真实用量账本 |"
+      },
+      "mandatory": true,
+      "gate": "optimization",
+      "owner": [
+        "后端计量工程师",
+        "QA 负责人"
+      ],
+      "mandatory_cases": [
+        "QUALITY_REAL"
+      ],
+      "acceptance_status": "not_verified"
+    },
+    {
+      "id": "R03",
+      "statement": "Claude 主用、GPT 可选",
+      "source": {
+        "path": "docs/superpowers/plans/2026-10-13-industrial-agent-workbench-plan.md",
+        "section": "1. 产品目标与需求编号",
+        "line": 42,
+        "original_row": "| R03 | Claude 主用、GPT 可选 | 实际模型识别与分支路由契约测试 |"
+      },
+      "mandatory": true,
+      "gate": "functional",
+      "owner": [
+        "接入工程师",
+        "产品负责人",
+        "QA"
+      ],
+      "mandatory_cases": [
+        "T03",
+        "T04",
+        "PROVIDER_REAL"
+      ],
+      "acceptance_status": "not_verified"
+    },
+    {
+      "id": "R04",
+      "statement": "使用 ZCode 中的 GLM",
+      "source": {
+        "path": "docs/superpowers/plans/2026-10-13-industrial-agent-workbench-plan.md",
+        "section": "1. 产品目标与需求编号",
+        "line": 43,
+        "original_row": "| R04 | 使用 ZCode 中的 GLM | 真实启动、执行、完成与恢复接入报告 |"
+      },
+      "mandatory": true,
+      "gate": "functional",
+      "owner": [
+        "接入工程师",
+        "QA"
+      ],
+      "mandatory_cases": [
+        "PROVIDER_REAL"
+      ],
+      "acceptance_status": "not_verified"
+    },
+    {
+      "id": "R05",
+      "statement": "编程、论文、文档及综合任务",
+      "source": {
+        "path": "docs/superpowers/plans/2026-10-13-industrial-agent-workbench-plan.md",
+        "section": "1. 产品目标与需求编号",
+        "line": 44,
+        "original_row": "| R05 | 编程、论文、文档及综合任务 | 每种类型的真实交付样例 |"
+      },
+      "mandatory": true,
+      "gate": "functional",
+      "owner": [
+        "领域验证工程师",
+        "领域评审",
+        "QA"
+      ],
+      "mandatory_cases": [
+        "JOURNEYS_REAL"
+      ],
+      "acceptance_status": "not_verified"
+    },
+    {
+      "id": "R06",
+      "statement": "聊天式图形界面",
+      "source": {
+        "path": "docs/superpowers/plans/2026-10-13-industrial-agent-workbench-plan.md",
+        "section": "1. 产品目标与需求编号",
+        "line": 45,
+        "original_row": "| R06 | 聊天式图形界面 | 桌面端键盘、鼠标、附件与历史端到端测试 |"
+      },
+      "mandatory": true,
+      "gate": "functional",
+      "owner": [
+        "桌面工程师",
+        "QA"
+      ],
+      "mandatory_cases": [
+        "GUI_MANUAL"
+      ],
+      "acceptance_status": "not_verified"
+    },
+    {
+      "id": "R07",
+      "statement": "Claude 前置完整中→英翻译",
+      "source": {
+        "path": "docs/superpowers/plans/2026-10-13-industrial-agent-workbench-plan.md",
+        "section": "1. 产品目标与需求编号",
+        "line": 46,
+        "original_row": "| R07 | Claude 前置完整中→英翻译 | 输入译文、原文对应关系及语义验证 |"
+      },
+      "mandatory": true,
+      "gate": "functional",
+      "owner": [
+        "翻译工程师",
+        "双语评审",
+        "QA"
+      ],
+      "mandatory_cases": [
+        "T01",
+        "T05",
+        "T06",
+        "T08",
+        "T09",
+        "T16",
+        "T17",
+        "TRANSLATION_HUMAN"
+      ],
+      "acceptance_status": "not_verified"
+    },
+    {
+      "id": "R08",
+      "statement": "Claude 最终回答英→中",
+      "source": {
+        "path": "docs/superpowers/plans/2026-10-13-industrial-agent-workbench-plan.md",
+        "section": "1. 产品目标与需求编号",
+        "line": 47,
+        "original_row": "| R08 | Claude 最终回答英→中 | 只发布检查后的中文回答 |"
+      },
+      "mandatory": true,
+      "gate": "functional",
+      "owner": [
+        "翻译工程师",
+        "后端 API 工程师",
+        "双语评审",
+        "QA"
+      ],
+      "mandatory_cases": [
+        "T05",
+        "T10",
+        "T18",
+        "TRANSLATION_HUMAN"
+      ],
+      "acceptance_status": "not_verified"
+    },
+    {
+      "id": "R09",
+      "statement": "双语文档及真实 A 原文来源",
+      "source": {
+        "path": "docs/superpowers/plans/2026-10-13-industrial-agent-workbench-plan.md",
+        "section": "1. 产品目标与需求编号",
+        "line": 48,
+        "original_row": "| R09 | 双语文档及真实 A 原文来源 | 原件哈希、生成记录、译文来源版本与配对发布记录 |"
+      },
+      "mandatory": true,
+      "gate": "functional",
+      "owner": [
+        "文档工程师",
+        "双语评审",
+        "QA"
+      ],
+      "mandatory_cases": [
+        "T07",
+        "T11",
+        "T12",
+        "T13",
+        "T14",
+        "T15",
+        "TRANSLATION_HUMAN"
+      ],
+      "acceptance_status": "not_verified"
+    },
+    {
+      "id": "R10",
+      "statement": "GPT 无强制翻译",
+      "source": {
+        "path": "docs/superpowers/plans/2026-10-13-industrial-agent-workbench-plan.md",
+        "section": "1. 产品目标与需求编号",
+        "line": 49,
+        "original_row": "| R10 | GPT 无强制翻译 | translator 调用次数为零的契约断言 |"
+      },
+      "mandatory": true,
+      "gate": "functional",
+      "owner": [
+        "翻译工程师",
+        "接入工程师",
+        "QA"
+      ],
+      "mandatory_cases": [
+        "T02"
+      ],
+      "acceptance_status": "not_verified"
+    },
+    {
+      "id": "R11",
+      "statement": "主聊天隐藏内部过程",
+      "source": {
+        "path": "docs/superpowers/plans/2026-10-13-industrial-agent-workbench-plan.md",
+        "section": "1. 产品目标与需求编号",
+        "line": 50,
+        "original_row": "| R11 | 主聊天隐藏内部过程 | 公共事件白名单与 UI 泄漏测试 |"
+      },
+      "mandatory": true,
+      "gate": "functional",
+      "owner": [
+        "后端 API 工程师",
+        "桌面联调工程师",
+        "QA"
+      ],
+      "mandatory_cases": [
+        "T16",
+        "T19"
+      ],
+      "acceptance_status": "not_verified"
+    },
+    {
+      "id": "R12",
+      "statement": "中断恢复、去重、取消、隔离",
+      "source": {
+        "path": "docs/superpowers/plans/2026-10-13-industrial-agent-workbench-plan.md",
+        "section": "1. 产品目标与需求编号",
+        "line": 51,
+        "original_row": "| R12 | 中断恢复、去重、取消、隔离 | 故障注入与恢复测试 |"
+      },
+      "mandatory": true,
+      "gate": "functional",
+      "owner": [
+        "后端运行时工程师",
+        "Windows 运行时工程师",
+        "QA"
+      ],
+      "mandatory_cases": [
+        "T04",
+        "T10",
+        "T11",
+        "T12",
+        "T18"
+      ],
+      "acceptance_status": "not_verified"
+    },
+    {
+      "id": "R13",
+      "statement": "安全安装、更新、迁移、备份",
+      "source": {
+        "path": "docs/superpowers/plans/2026-10-13-industrial-agent-workbench-plan.md",
+        "section": "1. 产品目标与需求编号",
+        "line": 52,
+        "original_row": "| R13 | 安全安装、更新、迁移、备份 | 签名、安装/升级/回滚与恢复演练 |"
+      },
+      "mandatory": true,
+      "gate": "functional",
+      "owner": [
+        "桌面发布工程师",
+        "后端存储工程师",
+        "QA"
+      ],
+      "mandatory_cases": [
+        "INSTALL_SIGNED"
+      ],
+      "acceptance_status": "not_verified"
+    },
+    {
+      "id": "R14",
+      "statement": "可核对用量和运行记录",
+      "source": {
+        "path": "docs/superpowers/plans/2026-10-13-industrial-agent-workbench-plan.md",
+        "section": "1. 产品目标与需求编号",
+        "line": 53,
+        "original_row": "| R14 | 可核对用量和运行记录 | 请求级去重，累计计数正确归一化 |"
+      },
+      "mandatory": true,
+      "gate": "functional",
+      "owner": [
+        "后端计量工程师",
+        "接入工程师",
+        "QA"
+      ],
+      "mandatory_cases": [
+        "T09",
+        "LEDGER_REAL"
+      ],
+      "acceptance_status": "not_verified"
+    },
+    {
+      "id": "R15",
+      "statement": "翻译忠实、歧义可处理",
+      "source": {
+        "path": "docs/superpowers/plans/2026-10-13-industrial-agent-workbench-plan.md",
+        "section": "1. 产品目标与需求编号",
+        "line": 54,
+        "original_row": "| R15 | 翻译忠实、歧义可处理 | 双向翻译样本库及人工双语复核 |"
+      },
+      "mandatory": true,
+      "gate": "functional",
+      "owner": [
+        "翻译工程师",
+        "双语评审",
+        "QA"
+      ],
+      "mandatory_cases": [
+        "T01",
+        "T05",
+        "T06",
+        "T07",
+        "T08",
+        "T17",
+        "T20",
+        "TRANSLATION_HUMAN"
+      ],
+      "acceptance_status": "not_verified"
+    }
+  ],
+  "created_by": "Codex",
+  "human_signoff": "not_claimed"
+}

@@ -1,0 +1,25 @@
+{
+  "name": "@ai-workbench/desktop",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Isolated Windows desktop client for the local workbench.",
+  "main": "dist/main/index.cjs",
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs && vite build",
+    "build:test": "node build.mjs --test && vite build --outDir ../../dist-test/renderer",
+    "typecheck": "tsc --noEmit",
+    "start": "electron .",
+    "start:demo": "electron . --demo"
+  },
+  "dependencies": {
+    "pdfjs-dist": "6.4.299",
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
+  },
+  "devDependencies": {
+    "electron": "44.7.0",
+    "electron-builder": "26.15.3",
+    "typescript": "7.0.2"
+  }
+}

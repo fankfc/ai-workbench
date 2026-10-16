@@ -1,0 +1,29 @@
+{
+  "frozen": false,
+  "issues": [
+    "A_TOKEN_BOUND_UNREGISTERED",
+    "FORMAL_SAMPLE_SIZE_UNREGISTERED",
+    "FREEZE_SIGNATURES_MISSING",
+    "INDEPENDENT_HOLDOUT_MISSING",
+    "INDEPENDENT_REVIEWERS_MISSING",
+    "PILOT_EVIDENCE_MISSING",
+    "POWER_OR_STOPPING_RULE_MISSING",
+    "PROTOCOL_NOT_FROZEN"
+  ],
+  "registration_hash_valid": true,
+  "registration_valid": false,
+  "reason_codes": [
+    "A_TOKEN_BOUND_UNREGISTERED",
+    "FORMAL_SAMPLE_SIZE_UNREGISTERED",
+    "FREEZE_SIGNATURES_MISSING",
+    "INDEPENDENT_HOLDOUT_MISSING",
+    "INDEPENDENT_REVIEWERS_MISSING",
+    "PILOT_EVIDENCE_MISSING",
+    "POWER_OR_STOPPING_RULE_MISSING",
+    "PROTOCOL_NOT_FROZEN"
+  ],
+  "test_set_disjoint": true,
+  "blind_labels_valid": false,
+  "provider_boundary": "none",
+  "real_provider_verified": false
+}

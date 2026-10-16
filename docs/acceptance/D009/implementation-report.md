@@ -1,0 +1,7 @@
+# D009 implementation
+
+Authenticated FastAPI conversation creation/listing, turn idempotency, public history, durable SSE cursor replay, task state and cancellation are implemented. Settings retain the four-argument contract. The launcher binds 127.0.0.1. All request models reject extra fields; validation errors use a fixed Chinese response. Authentication covers OpenAPI, and foreign Host/Origin requests are rejected.
+
+The API freezes provider and route per attempt. Real submissions require a verified strict connection contract and a server-registered runnable adapter; Claude also requires its language gate. Current real provider registry is empty because D004/D005/D006 real capabilities are blocked. Fake registrations are test-only and never start models. Cancellation is persisted separately from remote stopping confirmation. An accepted remote start without returned IDs remains cancel_pending_remote; missing IDs cannot imply a confirmed stop.
+
+TDD observed 12 behavioral failures with the empty importable factory, followed by 12 passing tests. The final card suite has 17 cases, including startup reconciliation and unknown remote acceptance during cancellation. Actual API/OpenAPI/public bytes are exported by scripts/collect_part_one_evidence.py. SSE returns committed cursor records and ends; the desktop reconnects with after_seq. Startup reconciliation is integrated with D012. This backend card does not deliver the Electron main-process token proxy or GUI; those are later cards.

@@ -1,0 +1,44 @@
+F                                                                        [100%]
+================================== FAILURES ===================================
+________ test_approved_claude_answer_can_reach_a_chinese_release_gate _________
+
+claude_answer = (<starlette.testclient.TestClient object at 0x000001A077813620>, '8d7fcd1f5b604fbeb6e6eedb1a11c73c', '46569118c7d94eee...d': '3bf16c0492be4c6d8e103ee204ddd3cd', 'connection_version': '1', 'id': 'a9148206ce4d44fcb5d1fef168f132a6', ...}, ...)
+
+    def test_approved_claude_answer_can_reach_a_chinese_release_gate(claude_answer):
+        client,conversation,task,attempt,root,route,machine = claude_answer
+        publisher = NativePublisher(client.app.state.database.path, root)
+        # Concrete business red: the existing native publisher rejects all Claude
+        # answers even with complete A output and a valid A review.
+>       approval = publisher.stage(task,attempt,'1.0','en-answer','translation-review')
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\integration\test_output_translation.py:48: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+services\orchestrator\app\runtime\publication.py:71: in stage
+    review_snapshot=self._review_snapshot(connection,task,revision_id,review_check_id,content)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.runtime.publication.NativePublisher object at 0x000001A077912BA0>
+connection = <sqlite3.Connection object at 0x000001A075C27880>
+task = <sqlite3.Row object at 0x000001A077902410>, revision_id = 'en-answer'
+review_check_id = 'translation-review'
+content = b'Keep the original file. INTERNAL_ENGLISH_CANARY'
+
+    def _review_snapshot(self,connection,task,revision_id,review_check_id,content):
+        task_id,attempt_id,version=task['task_id'],task['attempt_id'],task['contract_version']
+        route=json.loads(task['route_snapshot_json'])
+        if route.get('model_family')!='gpt' or route.get('route_policy')!='native':
+>           raise PublicationBlocked('LANGUAGE_AND_PROVENANCE_GATES_MISSING')
+E           app.runtime.publication.PublicationBlocked: LANGUAGE_AND_PROVENANCE_GATES_MISSING
+
+services\orchestrator\app\runtime\publication.py:31: PublicationBlocked
+============================== warnings summary ===============================
+tests/integration/test_output_translation.py::test_approved_claude_answer_can_reach_a_chinese_release_gate
+  C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/integration/test_output_translation.py::test_approved_claude_answer_can_reach_a_chinese_release_gate
+1 failed, 1 warning in 2.60s

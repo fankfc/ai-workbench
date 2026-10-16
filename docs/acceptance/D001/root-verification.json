@@ -1,0 +1,24 @@
+{
+  "task_id": "D001",
+  "checked_at": "2026-10-13T18:36:21.559619+08:00",
+  "reviewer": "Codex root, independent of implementer",
+  "spec_compliance": "approved",
+  "quality": "approved",
+  "exact_source_rows": 15,
+  "source_hashes": 5,
+  "negative_document_checks": [
+    {
+      "case": "quality_discount",
+      "result": "rejected"
+    },
+    {
+      "case": "missing_a_full_text",
+      "result": "rejected"
+    }
+  ],
+  "product_acceptance": "not_verified",
+  "human_signoff": "not_claimed",
+  "commit": null,
+  "command": "Python JSON parse + exact source row/hash assertions + in-memory negative edits",
+  "exit_code": 0
+}

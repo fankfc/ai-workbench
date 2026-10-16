@@ -1,0 +1,456 @@
+..........FFFFFFFFF...FFF...FFF..........F.                              [100%]
+================================== FAILURES ===================================
+_ test_timestamp_wire_rejects_coercion_naive_space_and_invalid_dates[0_0-RouteSnapshot-locked_at] _
+
+model = <class 'app.contracts.providers.RouteSnapshot'>, field = 'locked_at'
+value = 0
+
+    @pytest.mark.parametrize("model,field", TIMESTAMP_FIELDS)
+    @pytest.mark.parametrize("value", [
+        0, 0.0, "0", "2026-10-13T19:00:00", "2026-10-13 19:00:00+08:00",
+        "2026-02-30T19:00:00+08:00", "2026-10-13T19:00:00+08:00\n",
+        " 2026-10-13T19:00:00+08:00", "2026-10-13T19:00:00+08:00 ",
+    ])
+    def test_timestamp_wire_rejects_coercion_naive_space_and_invalid_dates(model, field, value):
+>       assert_both_reject(model, timestamp_sample(model, field, value))
+
+tests\contracts\test_schemas.py:347: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.providers.RouteSnapshot'>
+sample = {'id': 'r1', 'task_id': 't1', 'turn_id': 'turn1', 'attempt_id': 'a1', ...}
+
+    def assert_both_reject(model, sample):
+>       with pytest.raises(ValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValidationError
+
+tests\contracts\test_schemas.py:78: Failed
+_ test_timestamp_wire_rejects_coercion_naive_space_and_invalid_dates[0_0-MessageRecord-created_at] _
+
+model = <class 'app.contracts.events.MessageRecord'>, field = 'created_at'
+value = 0
+
+    @pytest.mark.parametrize("model,field", TIMESTAMP_FIELDS)
+    @pytest.mark.parametrize("value", [
+        0, 0.0, "0", "2026-10-13T19:00:00", "2026-10-13 19:00:00+08:00",
+        "2026-02-30T19:00:00+08:00", "2026-10-13T19:00:00+08:00\n",
+        " 2026-10-13T19:00:00+08:00", "2026-10-13T19:00:00+08:00 ",
+    ])
+    def test_timestamp_wire_rejects_coercion_naive_space_and_invalid_dates(model, field, value):
+>       assert_both_reject(model, timestamp_sample(model, field, value))
+
+tests\contracts\test_schemas.py:347: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.events.MessageRecord'>
+sample = {'id': 'm', 'turn_id': 'turn', 'source_role': 'user', 'language': 'zh-CN', ...}
+
+    def assert_both_reject(model, sample):
+>       with pytest.raises(ValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValidationError
+
+tests\contracts\test_schemas.py:78: Failed
+_ test_timestamp_wire_rejects_coercion_naive_space_and_invalid_dates[0_0-DeliveryBundle-published_at] _
+
+model = <class 'app.contracts.artifacts.DeliveryBundle'>, field = 'published_at'
+value = 0
+
+    @pytest.mark.parametrize("model,field", TIMESTAMP_FIELDS)
+    @pytest.mark.parametrize("value", [
+        0, 0.0, "0", "2026-10-13T19:00:00", "2026-10-13 19:00:00+08:00",
+        "2026-02-30T19:00:00+08:00", "2026-10-13T19:00:00+08:00\n",
+        " 2026-10-13T19:00:00+08:00", "2026-10-13T19:00:00+08:00 ",
+    ])
+    def test_timestamp_wire_rejects_coercion_naive_space_and_invalid_dates(model, field, value):
+>       assert_both_reject(model, timestamp_sample(model, field, value))
+
+tests\contracts\test_schemas.py:347: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.artifacts.DeliveryBundle'>
+sample = {'id': 'bundle', 'task_id': 't', 'turn_id': 'turn', 'spec_version': 'v1', ...}
+
+    def assert_both_reject(model, sample):
+>       with pytest.raises(ValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValidationError
+
+tests\contracts\test_schemas.py:78: Failed
+_ test_timestamp_wire_rejects_coercion_naive_space_and_invalid_dates[0.0-RouteSnapshot-locked_at] _
+
+model = <class 'app.contracts.providers.RouteSnapshot'>, field = 'locked_at'
+value = 0.0
+
+    @pytest.mark.parametrize("model,field", TIMESTAMP_FIELDS)
+    @pytest.mark.parametrize("value", [
+        0, 0.0, "0", "2026-10-13T19:00:00", "2026-10-13 19:00:00+08:00",
+        "2026-02-30T19:00:00+08:00", "2026-10-13T19:00:00+08:00\n",
+        " 2026-10-13T19:00:00+08:00", "2026-10-13T19:00:00+08:00 ",
+    ])
+    def test_timestamp_wire_rejects_coercion_naive_space_and_invalid_dates(model, field, value):
+>       assert_both_reject(model, timestamp_sample(model, field, value))
+
+tests\contracts\test_schemas.py:347: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.providers.RouteSnapshot'>
+sample = {'id': 'r1', 'task_id': 't1', 'turn_id': 'turn1', 'attempt_id': 'a1', ...}
+
+    def assert_both_reject(model, sample):
+>       with pytest.raises(ValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValidationError
+
+tests\contracts\test_schemas.py:78: Failed
+_ test_timestamp_wire_rejects_coercion_naive_space_and_invalid_dates[0.0-MessageRecord-created_at] _
+
+model = <class 'app.contracts.events.MessageRecord'>, field = 'created_at'
+value = 0.0
+
+    @pytest.mark.parametrize("model,field", TIMESTAMP_FIELDS)
+    @pytest.mark.parametrize("value", [
+        0, 0.0, "0", "2026-10-13T19:00:00", "2026-10-13 19:00:00+08:00",
+        "2026-02-30T19:00:00+08:00", "2026-10-13T19:00:00+08:00\n",
+        " 2026-10-13T19:00:00+08:00", "2026-10-13T19:00:00+08:00 ",
+    ])
+    def test_timestamp_wire_rejects_coercion_naive_space_and_invalid_dates(model, field, value):
+>       assert_both_reject(model, timestamp_sample(model, field, value))
+
+tests\contracts\test_schemas.py:347: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.events.MessageRecord'>
+sample = {'id': 'm', 'turn_id': 'turn', 'source_role': 'user', 'language': 'zh-CN', ...}
+
+    def assert_both_reject(model, sample):
+>       with pytest.raises(ValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValidationError
+
+tests\contracts\test_schemas.py:78: Failed
+_ test_timestamp_wire_rejects_coercion_naive_space_and_invalid_dates[0.0-DeliveryBundle-published_at] _
+
+model = <class 'app.contracts.artifacts.DeliveryBundle'>, field = 'published_at'
+value = 0.0
+
+    @pytest.mark.parametrize("model,field", TIMESTAMP_FIELDS)
+    @pytest.mark.parametrize("value", [
+        0, 0.0, "0", "2026-10-13T19:00:00", "2026-10-13 19:00:00+08:00",
+        "2026-02-30T19:00:00+08:00", "2026-10-13T19:00:00+08:00\n",
+        " 2026-10-13T19:00:00+08:00", "2026-10-13T19:00:00+08:00 ",
+    ])
+    def test_timestamp_wire_rejects_coercion_naive_space_and_invalid_dates(model, field, value):
+>       assert_both_reject(model, timestamp_sample(model, field, value))
+
+tests\contracts\test_schemas.py:347: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.artifacts.DeliveryBundle'>
+sample = {'id': 'bundle', 'task_id': 't', 'turn_id': 'turn', 'spec_version': 'v1', ...}
+
+    def assert_both_reject(model, sample):
+>       with pytest.raises(ValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValidationError
+
+tests\contracts\test_schemas.py:78: Failed
+_ test_timestamp_wire_rejects_coercion_naive_space_and_invalid_dates[0_1-RouteSnapshot-locked_at] _
+
+model = <class 'app.contracts.providers.RouteSnapshot'>, field = 'locked_at'
+value = '0'
+
+    @pytest.mark.parametrize("model,field", TIMESTAMP_FIELDS)
+    @pytest.mark.parametrize("value", [
+        0, 0.0, "0", "2026-10-13T19:00:00", "2026-10-13 19:00:00+08:00",
+        "2026-02-30T19:00:00+08:00", "2026-10-13T19:00:00+08:00\n",
+        " 2026-10-13T19:00:00+08:00", "2026-10-13T19:00:00+08:00 ",
+    ])
+    def test_timestamp_wire_rejects_coercion_naive_space_and_invalid_dates(model, field, value):
+>       assert_both_reject(model, timestamp_sample(model, field, value))
+
+tests\contracts\test_schemas.py:347: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.providers.RouteSnapshot'>
+sample = {'id': 'r1', 'task_id': 't1', 'turn_id': 'turn1', 'attempt_id': 'a1', ...}
+
+    def assert_both_reject(model, sample):
+>       with pytest.raises(ValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValidationError
+
+tests\contracts\test_schemas.py:78: Failed
+_ test_timestamp_wire_rejects_coercion_naive_space_and_invalid_dates[0_1-MessageRecord-created_at] _
+
+model = <class 'app.contracts.events.MessageRecord'>, field = 'created_at'
+value = '0'
+
+    @pytest.mark.parametrize("model,field", TIMESTAMP_FIELDS)
+    @pytest.mark.parametrize("value", [
+        0, 0.0, "0", "2026-10-13T19:00:00", "2026-10-13 19:00:00+08:00",
+        "2026-02-30T19:00:00+08:00", "2026-10-13T19:00:00+08:00\n",
+        " 2026-10-13T19:00:00+08:00", "2026-10-13T19:00:00+08:00 ",
+    ])
+    def test_timestamp_wire_rejects_coercion_naive_space_and_invalid_dates(model, field, value):
+>       assert_both_reject(model, timestamp_sample(model, field, value))
+
+tests\contracts\test_schemas.py:347: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.events.MessageRecord'>
+sample = {'id': 'm', 'turn_id': 'turn', 'source_role': 'user', 'language': 'zh-CN', ...}
+
+    def assert_both_reject(model, sample):
+>       with pytest.raises(ValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValidationError
+
+tests\contracts\test_schemas.py:78: Failed
+_ test_timestamp_wire_rejects_coercion_naive_space_and_invalid_dates[0_1-DeliveryBundle-published_at] _
+
+model = <class 'app.contracts.artifacts.DeliveryBundle'>, field = 'published_at'
+value = '0'
+
+    @pytest.mark.parametrize("model,field", TIMESTAMP_FIELDS)
+    @pytest.mark.parametrize("value", [
+        0, 0.0, "0", "2026-10-13T19:00:00", "2026-10-13 19:00:00+08:00",
+        "2026-02-30T19:00:00+08:00", "2026-10-13T19:00:00+08:00\n",
+        " 2026-10-13T19:00:00+08:00", "2026-10-13T19:00:00+08:00 ",
+    ])
+    def test_timestamp_wire_rejects_coercion_naive_space_and_invalid_dates(model, field, value):
+>       assert_both_reject(model, timestamp_sample(model, field, value))
+
+tests\contracts\test_schemas.py:347: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.artifacts.DeliveryBundle'>
+sample = {'id': 'bundle', 'task_id': 't', 'turn_id': 'turn', 'spec_version': 'v1', ...}
+
+    def assert_both_reject(model, sample):
+>       with pytest.raises(ValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValidationError
+
+tests\contracts\test_schemas.py:78: Failed
+_ test_timestamp_wire_rejects_coercion_naive_space_and_invalid_dates[2026-10-13 19:00:00+08:00-RouteSnapshot-locked_at] _
+
+model = <class 'app.contracts.providers.RouteSnapshot'>, field = 'locked_at'
+value = '2026-10-13 19:00:00+08:00'
+
+    @pytest.mark.parametrize("model,field", TIMESTAMP_FIELDS)
+    @pytest.mark.parametrize("value", [
+        0, 0.0, "0", "2026-10-13T19:00:00", "2026-10-13 19:00:00+08:00",
+        "2026-02-30T19:00:00+08:00", "2026-10-13T19:00:00+08:00\n",
+        " 2026-10-13T19:00:00+08:00", "2026-10-13T19:00:00+08:00 ",
+    ])
+    def test_timestamp_wire_rejects_coercion_naive_space_and_invalid_dates(model, field, value):
+>       assert_both_reject(model, timestamp_sample(model, field, value))
+
+tests\contracts\test_schemas.py:347: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.providers.RouteSnapshot'>
+sample = {'id': 'r1', 'task_id': 't1', 'turn_id': 'turn1', 'attempt_id': 'a1', ...}
+
+    def assert_both_reject(model, sample):
+>       with pytest.raises(ValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValidationError
+
+tests\contracts\test_schemas.py:78: Failed
+_ test_timestamp_wire_rejects_coercion_naive_space_and_invalid_dates[2026-10-13 19:00:00+08:00-MessageRecord-created_at] _
+
+model = <class 'app.contracts.events.MessageRecord'>, field = 'created_at'
+value = '2026-10-13 19:00:00+08:00'
+
+    @pytest.mark.parametrize("model,field", TIMESTAMP_FIELDS)
+    @pytest.mark.parametrize("value", [
+        0, 0.0, "0", "2026-10-13T19:00:00", "2026-10-13 19:00:00+08:00",
+        "2026-02-30T19:00:00+08:00", "2026-10-13T19:00:00+08:00\n",
+        " 2026-10-13T19:00:00+08:00", "2026-10-13T19:00:00+08:00 ",
+    ])
+    def test_timestamp_wire_rejects_coercion_naive_space_and_invalid_dates(model, field, value):
+>       assert_both_reject(model, timestamp_sample(model, field, value))
+
+tests\contracts\test_schemas.py:347: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.events.MessageRecord'>
+sample = {'id': 'm', 'turn_id': 'turn', 'source_role': 'user', 'language': 'zh-CN', ...}
+
+    def assert_both_reject(model, sample):
+>       with pytest.raises(ValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValidationError
+
+tests\contracts\test_schemas.py:78: Failed
+_ test_timestamp_wire_rejects_coercion_naive_space_and_invalid_dates[2026-10-13 19:00:00+08:00-DeliveryBundle-published_at] _
+
+model = <class 'app.contracts.artifacts.DeliveryBundle'>, field = 'published_at'
+value = '2026-10-13 19:00:00+08:00'
+
+    @pytest.mark.parametrize("model,field", TIMESTAMP_FIELDS)
+    @pytest.mark.parametrize("value", [
+        0, 0.0, "0", "2026-10-13T19:00:00", "2026-10-13 19:00:00+08:00",
+        "2026-02-30T19:00:00+08:00", "2026-10-13T19:00:00+08:00\n",
+        " 2026-10-13T19:00:00+08:00", "2026-10-13T19:00:00+08:00 ",
+    ])
+    def test_timestamp_wire_rejects_coercion_naive_space_and_invalid_dates(model, field, value):
+>       assert_both_reject(model, timestamp_sample(model, field, value))
+
+tests\contracts\test_schemas.py:347: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.artifacts.DeliveryBundle'>
+sample = {'id': 'bundle', 'task_id': 't', 'turn_id': 'turn', 'spec_version': 'v1', ...}
+
+    def assert_both_reject(model, sample):
+>       with pytest.raises(ValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValidationError
+
+tests\contracts\test_schemas.py:78: Failed
+_ test_timestamp_wire_rejects_coercion_naive_space_and_invalid_dates[2026-10-13T19:00:00+08:00\n-RouteSnapshot-locked_at] _
+
+model = <class 'app.contracts.providers.RouteSnapshot'>, field = 'locked_at'
+value = '2026-10-13T19:00:00+08:00\n'
+
+    @pytest.mark.parametrize("model,field", TIMESTAMP_FIELDS)
+    @pytest.mark.parametrize("value", [
+        0, 0.0, "0", "2026-10-13T19:00:00", "2026-10-13 19:00:00+08:00",
+        "2026-02-30T19:00:00+08:00", "2026-10-13T19:00:00+08:00\n",
+        " 2026-10-13T19:00:00+08:00", "2026-10-13T19:00:00+08:00 ",
+    ])
+    def test_timestamp_wire_rejects_coercion_naive_space_and_invalid_dates(model, field, value):
+>       assert_both_reject(model, timestamp_sample(model, field, value))
+
+tests\contracts\test_schemas.py:347: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.providers.RouteSnapshot'>
+sample = {'id': 'r1', 'task_id': 't1', 'turn_id': 'turn1', 'attempt_id': 'a1', ...}
+
+    def assert_both_reject(model, sample):
+        with pytest.raises(ValidationError):
+            model.model_validate_json(json.dumps(sample))
+>       assert list(Draft202012Validator(model.model_json_schema(), format_checker=FormatChecker()).iter_errors(sample))
+E       AssertionError: assert []
+E        +  where [] = list(<generator object create.<locals>.Validator.iter_errors at 0x00000179DA423100>)
+E        +    where <generator object create.<locals>.Validator.iter_errors at 0x00000179DA423100> = iter_errors({'id': 'r1', 'task_id': 't1', 'turn_id': 'turn1', 'attempt_id': 'a1', ...})
+E        +      where iter_errors = Draft202012Validator(schema={'$defs': {'IdentityStatus': {'enum': ['verified', 'unknown', 'mismatch'], 'title': 'Ident...Checker checkers=['date', 'date-time', 'email', 'idn-email', 'idn-hostname', 'ipv4', 'ipv6', 'regex', 'time', 'uuid']>).iter_errors
+E        +        where Draft202012Validator(schema={'$defs': {'IdentityStatus': {'enum': ['verified', 'unknown', 'mismatch'], 'title': 'Ident...Checker checkers=['date', 'date-time', 'email', 'idn-email', 'idn-hostname', 'ipv4', 'ipv6', 'regex', 'time', 'uuid']>) = Draft202012Validator({'$defs': {'IdentityStatus': {'enum': ['verified', 'unknown', 'mismatch'], 'title': 'IdentityStatus', 'type': 'string'...{'enum': [...]}}}}], 'description': 'Unknown identity is recordable with explicit null policy, never executable.', ...}, format_checker=<FormatChecker checkers=['date', 'date-time', 'email', 'idn-email', 'idn-hostname', 'ipv4', 'ipv6', 'regex', 'time', 'uuid']>)
+E        +          where {'$defs': {'IdentityStatus': {'enum': ['verified', 'unknown', 'mismatch'], 'title': 'IdentityStatus', 'type': 'string'...{'enum': [...]}}}}], 'description': 'Unknown identity is recordable with explicit null policy, never executable.', ...} = model_json_schema()
+E        +            where model_json_schema = <class 'app.contracts.providers.RouteSnapshot'>.model_json_schema
+E        +          and   <FormatChecker checkers=['date', 'date-time', 'email', 'idn-email', 'idn-hostname', 'ipv4', 'ipv6', 'regex', 'time', 'uuid']> = FormatChecker()
+
+tests\contracts\test_schemas.py:80: AssertionError
+_ test_timestamp_wire_rejects_coercion_naive_space_and_invalid_dates[2026-10-13T19:00:00+08:00\n-MessageRecord-created_at] _
+
+model = <class 'app.contracts.events.MessageRecord'>, field = 'created_at'
+value = '2026-10-13T19:00:00+08:00\n'
+
+    @pytest.mark.parametrize("model,field", TIMESTAMP_FIELDS)
+    @pytest.mark.parametrize("value", [
+        0, 0.0, "0", "2026-10-13T19:00:00", "2026-10-13 19:00:00+08:00",
+        "2026-02-30T19:00:00+08:00", "2026-10-13T19:00:00+08:00\n",
+        " 2026-10-13T19:00:00+08:00", "2026-10-13T19:00:00+08:00 ",
+    ])
+    def test_timestamp_wire_rejects_coercion_naive_space_and_invalid_dates(model, field, value):
+>       assert_both_reject(model, timestamp_sample(model, field, value))
+
+tests\contracts\test_schemas.py:347: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.events.MessageRecord'>
+sample = {'id': 'm', 'turn_id': 'turn', 'source_role': 'user', 'language': 'zh-CN', ...}
+
+    def assert_both_reject(model, sample):
+        with pytest.raises(ValidationError):
+            model.model_validate_json(json.dumps(sample))
+>       assert list(Draft202012Validator(model.model_json_schema(), format_checker=FormatChecker()).iter_errors(sample))
+E       AssertionError: assert []
+E        +  where [] = list(<generator object create.<locals>.Validator.iter_errors at 0x00000179DA94E5C0>)
+E        +    where <generator object create.<locals>.Validator.iter_errors at 0x00000179DA94E5C0> = iter_errors({'id': 'm', 'turn_id': 'turn', 'source_role': 'user', 'language': 'zh-CN', ...})
+E        +      where iter_errors = Draft202012Validator(schema={'additionalProperties': False, 'properties': {'content_sha256': {'pattern': '^[a-f0-9]{64...Checker checkers=['date', 'date-time', 'email', 'idn-email', 'idn-hostname', 'ipv4', 'ipv6', 'regex', 'time', 'uuid']>).iter_errors
+E        +        where Draft202012Validator(schema={'additionalProperties': False, 'properties': {'content_sha256': {'pattern': '^[a-f0-9]{64...Checker checkers=['date', 'date-time', 'email', 'idn-email', 'idn-hostname', 'ipv4', 'ipv6', 'regex', 'time', 'uuid']>) = Draft202012Validator({'additionalProperties': False, 'properties': {'id': {'minLength': 1, 'pattern': '\\S', 'title': 'Id', 'type': 'string... ['id', 'turn_id', 'source_role', 'language', 'raw_content_ref', 'content_sha256', ...], 'title': 'MessageRecord', ...}, format_checker=<FormatChecker checkers=['date', 'date-time', 'email', 'idn-email', 'idn-hostname', 'ipv4', 'ipv6', 'regex', 'time', 'uuid']>)
+E        +          where {'additionalProperties': False, 'properties': {'id': {'minLength': 1, 'pattern': '\\S', 'title': 'Id', 'type': 'string... ['id', 'turn_id', 'source_role', 'language', 'raw_content_ref', 'content_sha256', ...], 'title': 'MessageRecord', ...} = model_json_schema()
+E        +            where model_json_schema = <class 'app.contracts.events.MessageRecord'>.model_json_schema
+E        +          and   <FormatChecker checkers=['date', 'date-time', 'email', 'idn-email', 'idn-hostname', 'ipv4', 'ipv6', 'regex', 'time', 'uuid']> = FormatChecker()
+
+tests\contracts\test_schemas.py:80: AssertionError
+_ test_timestamp_wire_rejects_coercion_naive_space_and_invalid_dates[2026-10-13T19:00:00+08:00\n-DeliveryBundle-published_at] _
+
+model = <class 'app.contracts.artifacts.DeliveryBundle'>, field = 'published_at'
+value = '2026-10-13T19:00:00+08:00\n'
+
+    @pytest.mark.parametrize("model,field", TIMESTAMP_FIELDS)
+    @pytest.mark.parametrize("value", [
+        0, 0.0, "0", "2026-10-13T19:00:00", "2026-10-13 19:00:00+08:00",
+        "2026-02-30T19:00:00+08:00", "2026-10-13T19:00:00+08:00\n",
+        " 2026-10-13T19:00:00+08:00", "2026-10-13T19:00:00+08:00 ",
+    ])
+    def test_timestamp_wire_rejects_coercion_naive_space_and_invalid_dates(model, field, value):
+>       assert_both_reject(model, timestamp_sample(model, field, value))
+
+tests\contracts\test_schemas.py:347: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.artifacts.DeliveryBundle'>
+sample = {'id': 'bundle', 'task_id': 't', 'turn_id': 'turn', 'spec_version': 'v1', ...}
+
+    def assert_both_reject(model, sample):
+        with pytest.raises(ValidationError):
+            model.model_validate_json(json.dumps(sample))
+>       assert list(Draft202012Validator(model.model_json_schema(), format_checker=FormatChecker()).iter_errors(sample))
+E       AssertionError: assert []
+E        +  where [] = list(<generator object create.<locals>.Validator.iter_errors at 0x00000179DA94E980>)
+E        +    where <generator object create.<locals>.Validator.iter_errors at 0x00000179DA94E980> = iter_errors({'id': 'bundle', 'task_id': 't', 'turn_id': 'turn', 'spec_version': 'v1', ...})
+E        +      where iter_errors = Draft202012Validator(schema={'$defs': {'ArtifactPair': {'additionalProperties': False, 'properties': {'artifact_pair_i...Checker checkers=['date', 'date-time', 'email', 'idn-email', 'idn-hostname', 'ipv4', 'ipv6', 'regex', 'time', 'uuid']>).iter_errors
+E        +        where Draft202012Validator(schema={'$defs': {'ArtifactPair': {'additionalProperties': False, 'properties': {'artifact_pair_i...Checker checkers=['date', 'date-time', 'email', 'idn-email', 'idn-hostname', 'ipv4', 'ipv6', 'regex', 'time', 'uuid']>) = Draft202012Validator({'$defs': {'ArtifactPair': {'additionalProperties': False, 'properties': {'artifact_pair_id': {'minLength': 1, 'patter...n_ids': {'minItems': 1}}}}], 'description': 'A stored state/reference declaration; the publisher must verify it.', ...}, format_checker=<FormatChecker checkers=['date', 'date-time', 'email', 'idn-email', 'idn-hostname', 'ipv4', 'ipv6', 'regex', 'time', 'uuid']>)
+E        +          where {'$defs': {'ArtifactPair': {'additionalProperties': False, 'properties': {'artifact_pair_id': {'minLength': 1, 'patter...n_ids': {'minItems': 1}}}}], 'description': 'A stored state/reference declaration; the publisher must verify it.', ...} = model_json_schema()
+E        +            where model_json_schema = <class 'app.contracts.artifacts.DeliveryBundle'>.model_json_schema
+E        +          and   <FormatChecker checkers=['date', 'date-time', 'email', 'idn-email', 'idn-hostname', 'ipv4', 'ipv6', 'regex', 'time', 'uuid']> = FormatChecker()
+
+tests\contracts\test_schemas.py:80: AssertionError
+_ test_shared_sha256_has_same_exact_length_and_hex_boundary[aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\n] _
+
+value = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\n'
+
+    @pytest.mark.parametrize("value", ["a" * 64, "a" * 64 + "\n", "g" * 64])
+    def test_shared_sha256_has_same_exact_length_and_hex_boundary(value):
+        adapter = TypeAdapter(Sha256)
+        validator = Draft202012Validator(adapter.json_schema())
+        if value == "a" * 64:
+            assert adapter.validate_json(json.dumps(value)) == value
+            validator.validate(value)
+        else:
+            with pytest.raises(ValidationError):
+                adapter.validate_json(json.dumps(value))
+>           assert list(validator.iter_errors(value))
+E           AssertionError: assert []
+E            +  where [] = list(<generator object create.<locals>.Validator.iter_errors at 0x00000179DA94DF80>)
+E            +    where <generator object create.<locals>.Validator.iter_errors at 0x00000179DA94DF80> = iter_errors('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\n')
+E            +      where iter_errors = Draft202012Validator(schema={'pattern': '^[a-f0-9]{64}$', 'type': 'string'}, format_checker=None).iter_errors
+
+tests\contracts\test_schemas.py:369: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/contracts/test_schemas.py::test_timestamp_wire_rejects_coercion_naive_space_and_invalid_dates[0_0-RouteSnapshot-locked_at]
+FAILED tests/contracts/test_schemas.py::test_timestamp_wire_rejects_coercion_naive_space_and_invalid_dates[0_0-MessageRecord-created_at]
+FAILED tests/contracts/test_schemas.py::test_timestamp_wire_rejects_coercion_naive_space_and_invalid_dates[0_0-DeliveryBundle-published_at]
+FAILED tests/contracts/test_schemas.py::test_timestamp_wire_rejects_coercion_naive_space_and_invalid_dates[0.0-RouteSnapshot-locked_at]
+FAILED tests/contracts/test_schemas.py::test_timestamp_wire_rejects_coercion_naive_space_and_invalid_dates[0.0-MessageRecord-created_at]
+FAILED tests/contracts/test_schemas.py::test_timestamp_wire_rejects_coercion_naive_space_and_invalid_dates[0.0-DeliveryBundle-published_at]
+FAILED tests/contracts/test_schemas.py::test_timestamp_wire_rejects_coercion_naive_space_and_invalid_dates[0_1-RouteSnapshot-locked_at]
+FAILED tests/contracts/test_schemas.py::test_timestamp_wire_rejects_coercion_naive_space_and_invalid_dates[0_1-MessageRecord-created_at]
+FAILED tests/contracts/test_schemas.py::test_timestamp_wire_rejects_coercion_naive_space_and_invalid_dates[0_1-DeliveryBundle-published_at]
+FAILED tests/contracts/test_schemas.py::test_timestamp_wire_rejects_coercion_naive_space_and_invalid_dates[2026-10-13 19:00:00+08:00-RouteSnapshot-locked_at]
+FAILED tests/contracts/test_schemas.py::test_timestamp_wire_rejects_coercion_naive_space_and_invalid_dates[2026-10-13 19:00:00+08:00-MessageRecord-created_at]
+FAILED tests/contracts/test_schemas.py::test_timestamp_wire_rejects_coercion_naive_space_and_invalid_dates[2026-10-13 19:00:00+08:00-DeliveryBundle-published_at]
+FAILED tests/contracts/test_schemas.py::test_timestamp_wire_rejects_coercion_naive_space_and_invalid_dates[2026-10-13T19:00:00+08:00\n-RouteSnapshot-locked_at]
+FAILED tests/contracts/test_schemas.py::test_timestamp_wire_rejects_coercion_naive_space_and_invalid_dates[2026-10-13T19:00:00+08:00\n-MessageRecord-created_at]
+FAILED tests/contracts/test_schemas.py::test_timestamp_wire_rejects_coercion_naive_space_and_invalid_dates[2026-10-13T19:00:00+08:00\n-DeliveryBundle-published_at]
+FAILED tests/contracts/test_schemas.py::test_shared_sha256_has_same_exact_length_and_hex_boundary[aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\n]
+16 failed, 27 passed, 84 deselected in 0.65s
+exit_code=1

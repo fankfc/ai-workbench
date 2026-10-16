@@ -1,0 +1,16 @@
+F                                                                        [100%]
+================================== FAILURES ===================================
+____ test_native_text_bridge_explicitly_rejects_unimplemented_claude_route ____
+tests\contracts\test_phase_prompt.py:39: in test_native_text_bridge_explicitly_rejects_unimplemented_claude_route
+    contract = validate_contract(value)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\app\contracts\tasks.py:144: in validate_contract
+    return TaskContract.model_validate(value.model_dump() if isinstance(value, TaskContract) else value)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   pydantic_core._pydantic_core.ValidationError: 1 validation error for TaskContract
+E   language_policy
+E     Extra inputs are not permitted [type=extra_forbidden, input_value='claude_en_bridge', input_type=str]
+E       For further information visit https://errors.pydantic.dev/2.14/v/extra_forbidden
+=========================== short test summary info ===========================
+FAILED tests/contracts/test_phase_prompt.py::test_native_text_bridge_explicitly_rejects_unimplemented_claude_route
+1 failed in 0.33s

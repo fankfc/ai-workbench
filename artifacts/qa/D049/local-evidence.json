@@ -1,0 +1,31 @@
+{
+  "card": "D049",
+  "case": "gui_evidence",
+  "command": [
+    "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\.venv\\Scripts\\python.exe",
+    "tests/support/scenario_driver.py",
+    "gui_evidence",
+    "--root",
+    "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\artifacts\\qa\\D049\\rad3eb024",
+    "--options",
+    "{}"
+  ],
+  "exit_code": 0,
+  "time": "2026-10-15T02:00:35.543184+00:00",
+  "build_id": "cb98eed03df6bd4ffaa551d66a54c77198911cf5b3e763a1ef3c055f5ee54ca4",
+  "run_root": "artifacts/qa/D049/rad3eb024",
+  "result": {
+    "english_leaks": [],
+    "composition_submits": 0,
+    "focus_lost": false,
+    "unmet_checks": [
+      "real_windows_ime",
+      "narrator",
+      "multiple_monitor_scaling"
+    ],
+    "source": "artifacts\\qa\\D049\\gui-observations.json",
+    "automatic_checks_passed": true,
+    "provider_boundary": "fake",
+    "real_provider_verified": false
+  }
+}

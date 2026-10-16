@@ -1,0 +1,77 @@
+{
+  "kind": "developer_command_record",
+  "schema_version": "1",
+  "task_id": "D028",
+  "contract_version": "1",
+  "work_order_sha256": "344ffefddbab7a766c32dd0e76adcc2ec2862d2ae3cf82bcd5b37c5de7f70912",
+  "argv": [
+    ".\\services\\orchestrator\\.venv\\Scripts\\python.exe",
+    "-m",
+    "pytest",
+    "tests/integration/test_input_translation.py",
+    "-q"
+  ],
+  "result_source": "actual_process_exit_and_test_report",
+  "started_at": "2026-10-15T05:09:01.640241+00:00",
+  "finished_at": "2026-10-15T05:09:05.464904+00:00",
+  "exit_code": 0,
+  "timed_out": false,
+  "log_ref": "docs/acceptance/part-five/work-orders/D028-run-v1/process.log",
+  "log_sha256": "4a387ba65530cc99de96bc5dc56643b4a5eddc15a6a19e0b16e380fb2a7e079e",
+  "evidence": [],
+  "revision_before": [
+    {
+      "ref": "services/orchestrator/app/translation/context_gateway.py",
+      "kind": "file",
+      "sha256": "f1d02148b20d1efb2adc8376620b77bac29a0753d3617fb46bcc519aaf02447a"
+    },
+    {
+      "ref": "services/orchestrator/app/translation/history.py",
+      "kind": "file",
+      "sha256": "56a267f2aab42675a4481a673907bfe6fff48a5b99e2282bddc1d07e3543a38e"
+    },
+    {
+      "ref": "services/orchestrator/app/translation/input_pipeline.py",
+      "kind": "file",
+      "sha256": "945072ff9eaa78ab67a39a3e07f6f9cc37a67c8d16e28bfdd525536681c6d382"
+    },
+    {
+      "ref": "services/orchestrator/app/translation/prompts/input_translator.txt",
+      "kind": "file",
+      "sha256": "74c0563000dace2e12c93d50a56943aa8d3e1f16943618b5e7fcaf6870c2d6cf"
+    },
+    {
+      "ref": "tests/integration/test_input_translation.py",
+      "kind": "file",
+      "sha256": "c906f1cf838d392493b884ee2f2cd141a83e62f70615926d64e75e1f13a2265b"
+    }
+  ],
+  "revision": [
+    {
+      "ref": "services/orchestrator/app/translation/context_gateway.py",
+      "kind": "file",
+      "sha256": "f1d02148b20d1efb2adc8376620b77bac29a0753d3617fb46bcc519aaf02447a"
+    },
+    {
+      "ref": "services/orchestrator/app/translation/history.py",
+      "kind": "file",
+      "sha256": "56a267f2aab42675a4481a673907bfe6fff48a5b99e2282bddc1d07e3543a38e"
+    },
+    {
+      "ref": "services/orchestrator/app/translation/input_pipeline.py",
+      "kind": "file",
+      "sha256": "945072ff9eaa78ab67a39a3e07f6f9cc37a67c8d16e28bfdd525536681c6d382"
+    },
+    {
+      "ref": "services/orchestrator/app/translation/prompts/input_translator.txt",
+      "kind": "file",
+      "sha256": "74c0563000dace2e12c93d50a56943aa8d3e1f16943618b5e7fcaf6870c2d6cf"
+    },
+    {
+      "ref": "tests/integration/test_input_translation.py",
+      "kind": "file",
+      "sha256": "c906f1cf838d392493b884ee2f2cd141a83e62f70615926d64e75e1f13a2265b"
+    }
+  ],
+  "authentication": "11331783c59c3cafefa4e3461d47a80f3a56b01d961deb67bb6804d0cdae2c88"
+}

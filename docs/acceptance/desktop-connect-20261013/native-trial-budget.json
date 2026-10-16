@@ -1,0 +1,20 @@
+{
+  "generated_at": "2026-10-13T14:41:29.812554+00:00",
+  "user_authorization": "没有Claude就先拿gpt进行试验",
+  "maximum_model_turn_starts": 3,
+  "first_trial_starts": 1,
+  "wall_timeout_seconds": 120,
+  "stdout_limit_bytes": 2000000,
+  "stderr_limit_bytes": 200000,
+  "purpose": "GPT native text experiment; later B execution/A review only if supported",
+  "production_enablement_authorized_by_trial": false,
+  "mandatory_translation_count": 0,
+  "existing_rules_and_user_config_preserved": true,
+  "no_tool_operation_requested": true,
+  "b_turn_submission_count": 1,
+  "total_top_level_turn_submissions": 3,
+  "provider_internal_turns": "unknown",
+  "b_submit_intent_at": "2026-10-13T14:59:30.262Z",
+  "a_review_turn_submission_count": 1,
+  "a_review_submit_intent_at": "2026-10-13T15:02:36.572550+00:00"
+}

@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "adapter": "claude_code",
+  "capabilities": [
+    "non_interactive",
+    "isolated_workdir"
+  ],
+  "executable": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\claude\\node_modules\\@anthropic-ai\\claude-code-win32-x64\\claude.exe",
+  "executable_sha256": "76de74f7694a5bdc03378a5f837c9e132827bf004c98c276bc4e9094ff06769a",
+  "runtime_version": "2.1.296",
+  "source_uri": "https://code.claude.com/docs/en/setup",
+  "source_kind": "official_installed_runtime",
+  "bounded_probe_enabled": false,
+  "production_enabled": false,
+  "block_reason_code": "AUTHENTICATION_REQUIRED",
+  "generated_at": "2026-10-13T11:43:03Z"
+}
+

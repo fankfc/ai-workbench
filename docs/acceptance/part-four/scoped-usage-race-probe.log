@@ -1,0 +1,77 @@
+{
+  "scope": "synthetic local queue schedule, no provider execution",
+  "results": [
+    {
+      "schedule": "identity_before_error",
+      "exit_code": 1,
+      "started_request_id": "resp_fixture",
+      "final_sse_identity": {
+        "response_id": "resp_fixture",
+        "actual_model_id": "gpt-fixture"
+      },
+      "final_raw_receipt_count": 1,
+      "final_receipt_count": 1,
+      "frames": [
+        {
+          "kind": "started",
+          "external_request_id": "resp_fixture",
+          "external_execution_id": "turn_fixture"
+        },
+        {
+          "kind": "interrupt_ack",
+          "acknowledged": true,
+          "remote_state": "unknown"
+        },
+        {
+          "kind": "usage",
+          "external_request_id": "resp_fixture",
+          "external_execution_id": "turn_fixture",
+          "actual_model_id": "gpt-fixture",
+          "identity_source": "official_response_completed_model",
+          "thread_id": "thread_fixture",
+          "usage": {
+            "input_tokens": 30,
+            "output_tokens": 3,
+            "total_tokens": 33,
+            "reasoning_output_tokens": 1
+          }
+        },
+        {
+          "kind": "error",
+          "reason_code": "UNSUPPORTED_EXECUTION_NOTIFICATION",
+          "remote_state": "unknown",
+          "accepted": true
+        }
+      ]
+    },
+    {
+      "schedule": "identity_during_failure_drain",
+      "exit_code": 1,
+      "started_request_id": null,
+      "final_sse_identity": {
+        "response_id": "resp_fixture",
+        "actual_model_id": "gpt-fixture"
+      },
+      "final_raw_receipt_count": 1,
+      "final_receipt_count": 1,
+      "frames": [
+        {
+          "kind": "started",
+          "external_request_id": null,
+          "external_execution_id": "turn_fixture"
+        },
+        {
+          "kind": "interrupt_ack",
+          "acknowledged": true,
+          "remote_state": "unknown"
+        },
+        {
+          "kind": "error",
+          "reason_code": "UNSUPPORTED_EXECUTION_NOTIFICATION",
+          "remote_state": "unknown",
+          "accepted": true
+        }
+      ]
+    }
+  ]
+}

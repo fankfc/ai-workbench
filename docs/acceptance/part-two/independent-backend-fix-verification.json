@@ -1,0 +1,41 @@
+{
+  "review_date": "2026-10-14",
+  "timezone": "Asia/Shanghai",
+  "git_commit": null,
+  "provider_mode": "fake",
+  "real_model_calls": 0,
+  "evidence_origin": "Captured exec_command/write_stdin tool outputs; this records the actual completed process rather than inferred test results.",
+  "execution": {
+    "executable": "services/orchestrator/.venv/Scripts/python.exe",
+    "environment": {"PYTHONPATH": "services/orchestrator;tests"},
+    "arguments": [
+      "-m", "pytest",
+      "tests/integration/test_native_composite_submission.py",
+      "tests/integration/test_native_profile_checks.py::test_frozen_document_profile_has_real_source_and_complete_format_checks",
+      "tests/integration/test_native_profile_checks.py::test_paper_trace_and_statistics_use_actual_pinned_sources_and_csv",
+      "tests/integration/test_native_profile_checks.py::test_code_without_qualified_port_is_explicitly_unavailable_even_when_python_parses",
+      "tests/integration/test_native_profile_checks.py::test_code_profile_runs_actual_tests_and_retains_exit_status",
+      "tests/artifacts/test_render_layout.py::test_pdf_cannot_reuse_one_actual_paragraph_for_two_required_blocks",
+      "tests/artifacts/test_render_layout.py::test_pdf_block_order_and_multiplicity_are_consumed_without_overlap",
+      "tests/artifacts/test_document_parse.py::test_unsupported_list_structure_is_explicit_instead_of_flattened",
+      "tests/translation/test_late_receipts.py",
+      "tests/translation/test_glossary_content_cache.py",
+      "tests/integration/test_clarification_translation.py::test_actual_a_review_clarification_is_completely_translated_and_public",
+      "tests/integration/test_clarification_translation.py::test_gpt_english_planning_question_is_native_and_calls_translator_zero",
+      "tests/integration/test_clarification_translation.py::test_actual_supervisor_planning_question_never_hands_off_to_b",
+      "-q"
+    ],
+    "tool_session_id": 70089,
+    "tool_chunk_ids": ["965a93", "e66cb0"],
+    "exit_code": 0,
+    "captured_progress_chunks": ["......", "..................                                                 [100%]"],
+    "captured_result_line": "24 passed, 6 warnings in 13.64s",
+    "warnings": ["PyMuPDF SWIG type deprecations", "Starlette TestClient httpx deprecation"]
+  },
+  "additional_counterexample": {
+    "description": "Normal API composite submission uses March/April CSV with an old January/February report; the supported frozen month capability must fail closed.",
+    "tool_chunk_id": "46b389",
+    "exit_code": 0,
+    "captured_stdout": "{\"actual_csv_months\": [\"2026-03\", \"2026-04\"], \"reported_months\": [\"January\", \"February\"], \"bundle_published\": false}"
+  }
+}

@@ -1,0 +1,63 @@
+F                                                                        [100%]
+================================== FAILURES ===================================
+_ test_half_v2_render_and_transaction_failure_leave_only_complete_v1_visible[claude] _
+
+document_task = {'client': <starlette.testclient.TestClient object at 0x00000290D6A48EC0>, 'cid': 'cc5ac1cd7c754e3daa4d83f8809f75b9', 'task': '19c33c6158814772ac5ffbf6fbbf57ec', 'attempt': 'f0d909aac9394708b37c5f5ea200fb43', ...}
+
+    @pytest.mark.parametrize('document_task',['claude'],indirect=True)
+    def test_half_v2_render_and_transaction_failure_leave_only_complete_v1_visible(document_task):
+        from app.documents.publish import BundlePublisher
+        from app.documents.render import DocumentRenderer
+        ctx=document_task; ready=prepare_bilingual(ctx)
+        publisher=BundlePublisher(ctx['client'].app.state.database.path,ctx['client'].app.state.settings.data_root/'evidence')
+        first=publisher.stage(ctx['task'],ctx['attempt'],'1.0',ready['source'],['markdown'],title='Report',translation_revision_id=ready['translation'],review_check_id=ready['review'])
+        ready['machine'].transition(ctx['task'],ctx['attempt'],'OUTPUT_PREPARING','READY','1.0')
+        publisher.publish(first,answer_releaser=ready['answer'].publish_in_transaction)
+>       new=prepare_bilingual(ctx,'# Report\n\nJanuary 30. February 50. Increase 20.\n')
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\artifacts\test_atomic_publication.py:42: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\artifacts\helpers.py:98: in prepare_bilingual
+    asyncio.run(publisher.stage(ctx['task'],ctx['attempt'],'1.0',source,review))
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:194: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:118: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py:721: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+services\orchestrator\app\runtime\answer_publication.py:95: in stage
+    register_release_gate(connection,task_id,attempt_id,contract_version,zh_id,approval,route.id)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+connection = <sqlite3.Connection object at 0x00000290D6D61D50>
+task_id = '19c33c6158814772ac5ffbf6fbbf57ec'
+attempt_id = 'f0d909aac9394708b37c5f5ea200fb43', contract_version = '1.0'
+artifact_version_id = 'translation-0c11394f658f49b9bc1bf0cd7a13ecc9'
+approval_id = 'release-29049a19f39146e5bbdcd54d0ce150c5'
+route_snapshot_id = '7c8914d9fa2b4df5b66f9be2444c00a8'
+
+    def register_release_gate(connection, task_id, attempt_id, contract_version, artifact_version_id, approval_id, route_snapshot_id):
+        if not connection.in_transaction:
+            raise TransitionError("RELEASE_GATE_TRANSACTION_REQUIRED")
+        row = require_current_attempt(connection,task_id,attempt_id,contract_version)
+        if row["cancel_requested"] or row["state"] in {"CANCELLED","FAILED","PUBLISHED"}:
+            raise TransitionError("CANCELLED_OR_TERMINAL_RELEASE")
+        checkpoint = checkpoint_for(row)
+        if checkpoint.get("stale") or checkpoint.get("publication_blocked"):
+>           raise TransitionError("RELEASE_GATE_STALE")
+E           app.runtime.state_machine.TransitionError: RELEASE_GATE_STALE
+
+services\orchestrator\app\runtime\state_machine.py:72: TransitionError
+============================== warnings summary ===============================
+tests/artifacts/test_atomic_publication.py::test_half_v2_render_and_transaction_failure_leave_only_complete_v1_visible[claude]
+  C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/artifacts/test_atomic_publication.py::test_half_v2_render_and_transaction_failure_leave_only_complete_v1_visible[claude]
+1 failed, 1 warning in 1.68s

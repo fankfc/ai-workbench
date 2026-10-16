@@ -1,0 +1,1415 @@
+.FFF.FFFFFF.FFFFFFFFFFFFFFF.......FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF.F      [100%]
+================================== FAILURES ===================================
+_____ test_legacy_records_reject_invalid_values[ProviderIdentity-kwargs0] _____
+
+model = <class 'app.contracts.providers.ProviderIdentity'>
+kwargs = {'adapter': '', 'model_id': 'm', 'family': <ModelFamily.CLAUDE: 'claude'>, 'connection_id': 'c'}
+
+    @pytest.mark.parametrize("model,kwargs", [
+        (ProviderIdentity, {"adapter": "", "model_id": "m", "family": ModelFamily.CLAUDE, "connection_id": "c"}),
+        (AgentEvent, {"task_id": "", "attempt_id": "a", "sequence": 1, "kind": "model.delta", "payload": {}}),
+        (AgentEvent, {"task_id": "t", "attempt_id": "a", "sequence": 0, "kind": "model.delta", "payload": {}}),
+    ])
+    def test_legacy_records_reject_invalid_values(model, kwargs):
+>       with pytest.raises((ValidationError, ValueError, TypeError)):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE any of (ValidationError, ValueError, TypeError)
+
+tests\contracts\test_schemas.py:100: Failed
+________ test_legacy_records_reject_invalid_values[AgentEvent-kwargs1] ________
+
+model = <class 'app.contracts.events.AgentEvent'>
+kwargs = {'task_id': '', 'attempt_id': 'a', 'sequence': 1, 'kind': 'model.delta', ...}
+
+    @pytest.mark.parametrize("model,kwargs", [
+        (ProviderIdentity, {"adapter": "", "model_id": "m", "family": ModelFamily.CLAUDE, "connection_id": "c"}),
+        (AgentEvent, {"task_id": "", "attempt_id": "a", "sequence": 1, "kind": "model.delta", "payload": {}}),
+        (AgentEvent, {"task_id": "t", "attempt_id": "a", "sequence": 0, "kind": "model.delta", "payload": {}}),
+    ])
+    def test_legacy_records_reject_invalid_values(model, kwargs):
+>       with pytest.raises((ValidationError, ValueError, TypeError)):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE any of (ValidationError, ValueError, TypeError)
+
+tests\contracts\test_schemas.py:100: Failed
+________ test_legacy_records_reject_invalid_values[AgentEvent-kwargs2] ________
+
+model = <class 'app.contracts.events.AgentEvent'>
+kwargs = {'task_id': 't', 'attempt_id': 'a', 'sequence': 0, 'kind': 'model.delta', ...}
+
+    @pytest.mark.parametrize("model,kwargs", [
+        (ProviderIdentity, {"adapter": "", "model_id": "m", "family": ModelFamily.CLAUDE, "connection_id": "c"}),
+        (AgentEvent, {"task_id": "", "attempt_id": "a", "sequence": 1, "kind": "model.delta", "payload": {}}),
+        (AgentEvent, {"task_id": "t", "attempt_id": "a", "sequence": 0, "kind": "model.delta", "payload": {}}),
+    ])
+    def test_legacy_records_reject_invalid_values(model, kwargs):
+>       with pytest.raises((ValidationError, ValueError, TypeError)):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE any of (ValidationError, ValueError, TypeError)
+
+tests\contracts\test_schemas.py:100: Failed
+_____ test_unverified_provider_is_recordable_but_not_executable[unknown] ______
+
+status = 'unknown'
+
+    @pytest.mark.parametrize("status", ["unknown", "mismatch"])
+    def test_unverified_provider_is_recordable_but_not_executable(status):
+        data = provider_sample()
+        data.update(identity_status=status, identity_source=None)
+        data["identity"]["family"] = "unknown"
+        value = assert_both_accept(ProviderContract, data)
+>       with pytest.raises(ValueError, match="UNVERIFIED_MODEL_IDENTITY"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests\contracts\test_schemas.py:115: Failed
+_____ test_unverified_provider_is_recordable_but_not_executable[mismatch] _____
+
+status = 'mismatch'
+
+    @pytest.mark.parametrize("status", ["unknown", "mismatch"])
+    def test_unverified_provider_is_recordable_but_not_executable(status):
+        data = provider_sample()
+        data.update(identity_status=status, identity_source=None)
+        data["identity"]["family"] = "unknown"
+        value = assert_both_accept(ProviderContract, data)
+>       with pytest.raises(ValueError, match="UNVERIFIED_MODEL_IDENTITY"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests\contracts\test_schemas.py:115: Failed
+_ test_provider_rejects_unknown_family_extra_fields_or_false_verified[family] _
+
+fault = 'family'
+
+    @pytest.mark.parametrize("fault", ["family", "extra", "source"])
+    def test_provider_rejects_unknown_family_extra_fields_or_false_verified(fault):
+        data = provider_sample()
+        if fault == "family":
+            data["identity"]["family"] = "claude-alias"
+        elif fault == "extra":
+            data["identity"]["api_key"] = "SECRET_CANARY"
+        else:
+            data["identity_source"] = None
+>       assert_both_reject(ProviderContract, data)
+
+tests\contracts\test_schemas.py:128: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.providers.ProviderContract'>
+sample = {'schema_version': '1.0', 'identity': {'adapter': 'claude_code', 'model_id': 'test-claude', 'family': 'claude-alias', 'connection_id': 'c1'}, 'identity_status': 'verified', 'identity_source': 'test-fixture-only', ...}
+
+    def assert_both_reject(model, sample):
+>       with pytest.raises(ValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValidationError
+
+tests\contracts\test_schemas.py:77: Failed
+_ test_provider_rejects_unknown_family_extra_fields_or_false_verified[extra] __
+
+fault = 'extra'
+
+    @pytest.mark.parametrize("fault", ["family", "extra", "source"])
+    def test_provider_rejects_unknown_family_extra_fields_or_false_verified(fault):
+        data = provider_sample()
+        if fault == "family":
+            data["identity"]["family"] = "claude-alias"
+        elif fault == "extra":
+            data["identity"]["api_key"] = "SECRET_CANARY"
+        else:
+            data["identity_source"] = None
+>       assert_both_reject(ProviderContract, data)
+
+tests\contracts\test_schemas.py:128: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.providers.ProviderContract'>
+sample = {'schema_version': '1.0', 'identity': {'adapter': 'claude_code', 'model_id': 'test-claude', 'family': 'claude', 'connection_id': 'c1', ...}, 'identity_status': 'verified', 'identity_source': 'test-fixture-only', ...}
+
+    def assert_both_reject(model, sample):
+>       with pytest.raises(ValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValidationError
+
+tests\contracts\test_schemas.py:77: Failed
+_ test_provider_rejects_unknown_family_extra_fields_or_false_verified[source] _
+
+fault = 'source'
+
+    @pytest.mark.parametrize("fault", ["family", "extra", "source"])
+    def test_provider_rejects_unknown_family_extra_fields_or_false_verified(fault):
+        data = provider_sample()
+        if fault == "family":
+            data["identity"]["family"] = "claude-alias"
+        elif fault == "extra":
+            data["identity"]["api_key"] = "SECRET_CANARY"
+        else:
+            data["identity_source"] = None
+>       assert_both_reject(ProviderContract, data)
+
+tests\contracts\test_schemas.py:128: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.providers.ProviderContract'>
+sample = {'schema_version': '1.0', 'identity': {'adapter': 'claude_code', 'model_id': 'test-claude', 'family': 'claude', 'connection_id': 'c1'}, 'identity_status': 'verified', 'identity_source': None, ...}
+
+    def assert_both_reject(model, sample):
+>       with pytest.raises(ValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValidationError
+
+tests\contracts\test_schemas.py:77: Failed
+____________ test_route_is_frozen_and_claude_policy_is_not_guessed ____________
+
+    def test_route_is_frozen_and_claude_policy_is_not_guessed():
+        route = assert_both_accept(RouteSnapshot, route_sample())
+        route.require_executable()
+>       with pytest.raises(ValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValidationError
+
+tests\contracts\test_schemas.py:134: Failed
+________ test_unknown_route_can_record_null_policy_but_cannot_execute _________
+
+    def test_unknown_route_can_record_null_policy_but_cannot_execute():
+        sample = route_sample()
+        sample.update(model_family="unknown", identity_status="unknown", identity_source=None, route_policy=None)
+        route = assert_both_accept(RouteSnapshot, sample)
+>       with pytest.raises(ValueError, match="UNVERIFIED_MODEL_IDENTITY"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests\contracts\test_schemas.py:151: Failed
+__________________ test_route_requires_every_spec_field[id] ___________________
+
+missing = 'id'
+
+    @pytest.mark.parametrize("missing", list(route_sample()))
+    def test_route_requires_every_spec_field(missing):
+        sample = route_sample()
+        sample.pop(missing)
+>       assert_both_reject(RouteSnapshot, sample)
+
+tests\contracts\test_schemas.py:159: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.providers.RouteSnapshot'>
+sample = {'task_id': 't1', 'turn_id': 'turn1', 'attempt_id': 'a1', 'provider_id': 'fixture', ...}
+
+    def assert_both_reject(model, sample):
+>       with pytest.raises(ValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValidationError
+
+tests\contracts\test_schemas.py:77: Failed
+________________ test_route_requires_every_spec_field[task_id] ________________
+
+missing = 'task_id'
+
+    @pytest.mark.parametrize("missing", list(route_sample()))
+    def test_route_requires_every_spec_field(missing):
+        sample = route_sample()
+        sample.pop(missing)
+>       assert_both_reject(RouteSnapshot, sample)
+
+tests\contracts\test_schemas.py:159: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.providers.RouteSnapshot'>
+sample = {'id': 'r1', 'turn_id': 'turn1', 'attempt_id': 'a1', 'provider_id': 'fixture', ...}
+
+    def assert_both_reject(model, sample):
+>       with pytest.raises(ValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValidationError
+
+tests\contracts\test_schemas.py:77: Failed
+________________ test_route_requires_every_spec_field[turn_id] ________________
+
+missing = 'turn_id'
+
+    @pytest.mark.parametrize("missing", list(route_sample()))
+    def test_route_requires_every_spec_field(missing):
+        sample = route_sample()
+        sample.pop(missing)
+>       assert_both_reject(RouteSnapshot, sample)
+
+tests\contracts\test_schemas.py:159: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.providers.RouteSnapshot'>
+sample = {'id': 'r1', 'task_id': 't1', 'attempt_id': 'a1', 'provider_id': 'fixture', ...}
+
+    def assert_both_reject(model, sample):
+>       with pytest.raises(ValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValidationError
+
+tests\contracts\test_schemas.py:77: Failed
+______________ test_route_requires_every_spec_field[attempt_id] _______________
+
+missing = 'attempt_id'
+
+    @pytest.mark.parametrize("missing", list(route_sample()))
+    def test_route_requires_every_spec_field(missing):
+        sample = route_sample()
+        sample.pop(missing)
+>       assert_both_reject(RouteSnapshot, sample)
+
+tests\contracts\test_schemas.py:159: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.providers.RouteSnapshot'>
+sample = {'id': 'r1', 'task_id': 't1', 'turn_id': 'turn1', 'provider_id': 'fixture', ...}
+
+    def assert_both_reject(model, sample):
+>       with pytest.raises(ValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValidationError
+
+tests\contracts\test_schemas.py:77: Failed
+______________ test_route_requires_every_spec_field[provider_id] ______________
+
+missing = 'provider_id'
+
+    @pytest.mark.parametrize("missing", list(route_sample()))
+    def test_route_requires_every_spec_field(missing):
+        sample = route_sample()
+        sample.pop(missing)
+>       assert_both_reject(RouteSnapshot, sample)
+
+tests\contracts\test_schemas.py:159: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.providers.RouteSnapshot'>
+sample = {'id': 'r1', 'task_id': 't1', 'turn_id': 'turn1', 'attempt_id': 'a1', ...}
+
+    def assert_both_reject(model, sample):
+>       with pytest.raises(ValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValidationError
+
+tests\contracts\test_schemas.py:77: Failed
+_______________ test_route_requires_every_spec_field[model_id] ________________
+
+missing = 'model_id'
+
+    @pytest.mark.parametrize("missing", list(route_sample()))
+    def test_route_requires_every_spec_field(missing):
+        sample = route_sample()
+        sample.pop(missing)
+>       assert_both_reject(RouteSnapshot, sample)
+
+tests\contracts\test_schemas.py:159: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.providers.RouteSnapshot'>
+sample = {'id': 'r1', 'task_id': 't1', 'turn_id': 'turn1', 'attempt_id': 'a1', ...}
+
+    def assert_both_reject(model, sample):
+>       with pytest.raises(ValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValidationError
+
+tests\contracts\test_schemas.py:77: Failed
+_____________ test_route_requires_every_spec_field[model_family] ______________
+
+missing = 'model_family'
+
+    @pytest.mark.parametrize("missing", list(route_sample()))
+    def test_route_requires_every_spec_field(missing):
+        sample = route_sample()
+        sample.pop(missing)
+>       assert_both_reject(RouteSnapshot, sample)
+
+tests\contracts\test_schemas.py:159: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.providers.RouteSnapshot'>
+sample = {'id': 'r1', 'task_id': 't1', 'turn_id': 'turn1', 'attempt_id': 'a1', ...}
+
+    def assert_both_reject(model, sample):
+>       with pytest.raises(ValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValidationError
+
+tests\contracts\test_schemas.py:77: Failed
+______________ test_route_requires_every_spec_field[adapter_id] _______________
+
+missing = 'adapter_id'
+
+    @pytest.mark.parametrize("missing", list(route_sample()))
+    def test_route_requires_every_spec_field(missing):
+        sample = route_sample()
+        sample.pop(missing)
+>       assert_both_reject(RouteSnapshot, sample)
+
+tests\contracts\test_schemas.py:159: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.providers.RouteSnapshot'>
+sample = {'id': 'r1', 'task_id': 't1', 'turn_id': 'turn1', 'attempt_id': 'a1', ...}
+
+    def assert_both_reject(model, sample):
+>       with pytest.raises(ValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValidationError
+
+tests\contracts\test_schemas.py:77: Failed
+____________ test_route_requires_every_spec_field[identity_status] ____________
+
+missing = 'identity_status'
+
+    @pytest.mark.parametrize("missing", list(route_sample()))
+    def test_route_requires_every_spec_field(missing):
+        sample = route_sample()
+        sample.pop(missing)
+>       assert_both_reject(RouteSnapshot, sample)
+
+tests\contracts\test_schemas.py:159: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.providers.RouteSnapshot'>
+sample = {'id': 'r1', 'task_id': 't1', 'turn_id': 'turn1', 'attempt_id': 'a1', ...}
+
+    def assert_both_reject(model, sample):
+>       with pytest.raises(ValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValidationError
+
+tests\contracts\test_schemas.py:77: Failed
+____________ test_route_requires_every_spec_field[identity_source] ____________
+
+missing = 'identity_source'
+
+    @pytest.mark.parametrize("missing", list(route_sample()))
+    def test_route_requires_every_spec_field(missing):
+        sample = route_sample()
+        sample.pop(missing)
+>       assert_both_reject(RouteSnapshot, sample)
+
+tests\contracts\test_schemas.py:159: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.providers.RouteSnapshot'>
+sample = {'id': 'r1', 'task_id': 't1', 'turn_id': 'turn1', 'attempt_id': 'a1', ...}
+
+    def assert_both_reject(model, sample):
+>       with pytest.raises(ValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValidationError
+
+tests\contracts\test_schemas.py:77: Failed
+__________ test_route_requires_every_spec_field[connection_version] ___________
+
+missing = 'connection_version'
+
+    @pytest.mark.parametrize("missing", list(route_sample()))
+    def test_route_requires_every_spec_field(missing):
+        sample = route_sample()
+        sample.pop(missing)
+>       assert_both_reject(RouteSnapshot, sample)
+
+tests\contracts\test_schemas.py:159: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.providers.RouteSnapshot'>
+sample = {'id': 'r1', 'task_id': 't1', 'turn_id': 'turn1', 'attempt_id': 'a1', ...}
+
+    def assert_both_reject(model, sample):
+>       with pytest.raises(ValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValidationError
+
+tests\contracts\test_schemas.py:77: Failed
+____________ test_route_requires_every_spec_field[policy_version] _____________
+
+missing = 'policy_version'
+
+    @pytest.mark.parametrize("missing", list(route_sample()))
+    def test_route_requires_every_spec_field(missing):
+        sample = route_sample()
+        sample.pop(missing)
+>       assert_both_reject(RouteSnapshot, sample)
+
+tests\contracts\test_schemas.py:159: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.providers.RouteSnapshot'>
+sample = {'id': 'r1', 'task_id': 't1', 'turn_id': 'turn1', 'attempt_id': 'a1', ...}
+
+    def assert_both_reject(model, sample):
+>       with pytest.raises(ValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValidationError
+
+tests\contracts\test_schemas.py:77: Failed
+_____________ test_route_requires_every_spec_field[route_policy] ______________
+
+missing = 'route_policy'
+
+    @pytest.mark.parametrize("missing", list(route_sample()))
+    def test_route_requires_every_spec_field(missing):
+        sample = route_sample()
+        sample.pop(missing)
+>       assert_both_reject(RouteSnapshot, sample)
+
+tests\contracts\test_schemas.py:159: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.providers.RouteSnapshot'>
+sample = {'id': 'r1', 'task_id': 't1', 'turn_id': 'turn1', 'attempt_id': 'a1', ...}
+
+    def assert_both_reject(model, sample):
+>       with pytest.raises(ValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValidationError
+
+tests\contracts\test_schemas.py:77: Failed
+_______________ test_route_requires_every_spec_field[locked_at] _______________
+
+missing = 'locked_at'
+
+    @pytest.mark.parametrize("missing", list(route_sample()))
+    def test_route_requires_every_spec_field(missing):
+        sample = route_sample()
+        sample.pop(missing)
+>       assert_both_reject(RouteSnapshot, sample)
+
+tests\contracts\test_schemas.py:159: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.providers.RouteSnapshot'>
+sample = {'id': 'r1', 'task_id': 't1', 'turn_id': 'turn1', 'attempt_id': 'a1', ...}
+
+    def assert_both_reject(model, sample):
+>       with pytest.raises(ValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValidationError
+
+tests\contracts\test_schemas.py:77: Failed
+_ test_public_events_reject_internal_fields_at_every_boundary[top-message.accepted] _
+
+kind = 'message.accepted', location = 'top'
+
+    @pytest.mark.parametrize("kind", list(PUBLIC_PAYLOADS))
+    @pytest.mark.parametrize("location", ["top", "payload"])
+    def test_public_events_reject_internal_fields_at_every_boundary(kind, location):
+        sample = public_sample(kind)
+        target = sample if location == "top" else sample["payload"]
+        target["raw_response"] = "INTERNAL_ENGLISH_CANARY"
+>       assert_both_reject(PublicEvent, sample)
+
+tests\contracts\test_schemas.py:174: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.events.PublicEvent'>
+sample = {'schema_version': '1.0', 'event_id': 'e1', 'conversation_id': 'conv1', 'turn_id': 'turn1', ...}
+
+    def assert_both_reject(model, sample):
+>       with pytest.raises(ValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValidationError
+
+tests\contracts\test_schemas.py:77: Failed
+_ test_public_events_reject_internal_fields_at_every_boundary[top-response.pending] _
+
+kind = 'response.pending', location = 'top'
+
+    @pytest.mark.parametrize("kind", list(PUBLIC_PAYLOADS))
+    @pytest.mark.parametrize("location", ["top", "payload"])
+    def test_public_events_reject_internal_fields_at_every_boundary(kind, location):
+        sample = public_sample(kind)
+        target = sample if location == "top" else sample["payload"]
+        target["raw_response"] = "INTERNAL_ENGLISH_CANARY"
+>       assert_both_reject(PublicEvent, sample)
+
+tests\contracts\test_schemas.py:174: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.events.PublicEvent'>
+sample = {'schema_version': '1.0', 'event_id': 'e1', 'conversation_id': 'conv1', 'turn_id': 'turn1', ...}
+
+    def assert_both_reject(model, sample):
+>       with pytest.raises(ValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValidationError
+
+tests\contracts\test_schemas.py:77: Failed
+_ test_public_events_reject_internal_fields_at_every_boundary[top-answer.published] _
+
+kind = 'answer.published', location = 'top'
+
+    @pytest.mark.parametrize("kind", list(PUBLIC_PAYLOADS))
+    @pytest.mark.parametrize("location", ["top", "payload"])
+    def test_public_events_reject_internal_fields_at_every_boundary(kind, location):
+        sample = public_sample(kind)
+        target = sample if location == "top" else sample["payload"]
+        target["raw_response"] = "INTERNAL_ENGLISH_CANARY"
+>       assert_both_reject(PublicEvent, sample)
+
+tests\contracts\test_schemas.py:174: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.events.PublicEvent'>
+sample = {'schema_version': '1.0', 'event_id': 'e1', 'conversation_id': 'conv1', 'turn_id': 'turn1', ...}
+
+    def assert_both_reject(model, sample):
+>       with pytest.raises(ValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValidationError
+
+tests\contracts\test_schemas.py:77: Failed
+_ test_public_events_reject_internal_fields_at_every_boundary[top-artifacts.published] _
+
+kind = 'artifacts.published', location = 'top'
+
+    @pytest.mark.parametrize("kind", list(PUBLIC_PAYLOADS))
+    @pytest.mark.parametrize("location", ["top", "payload"])
+    def test_public_events_reject_internal_fields_at_every_boundary(kind, location):
+        sample = public_sample(kind)
+        target = sample if location == "top" else sample["payload"]
+        target["raw_response"] = "INTERNAL_ENGLISH_CANARY"
+>       assert_both_reject(PublicEvent, sample)
+
+tests\contracts\test_schemas.py:174: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.events.PublicEvent'>
+sample = {'schema_version': '1.0', 'event_id': 'e1', 'conversation_id': 'conv1', 'turn_id': 'turn1', ...}
+
+    def assert_both_reject(model, sample):
+>       with pytest.raises(ValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValidationError
+
+tests\contracts\test_schemas.py:77: Failed
+_ test_public_events_reject_internal_fields_at_every_boundary[top-request.failed] _
+
+kind = 'request.failed', location = 'top'
+
+    @pytest.mark.parametrize("kind", list(PUBLIC_PAYLOADS))
+    @pytest.mark.parametrize("location", ["top", "payload"])
+    def test_public_events_reject_internal_fields_at_every_boundary(kind, location):
+        sample = public_sample(kind)
+        target = sample if location == "top" else sample["payload"]
+        target["raw_response"] = "INTERNAL_ENGLISH_CANARY"
+>       assert_both_reject(PublicEvent, sample)
+
+tests\contracts\test_schemas.py:174: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.events.PublicEvent'>
+sample = {'schema_version': '1.0', 'event_id': 'e1', 'conversation_id': 'conv1', 'turn_id': 'turn1', ...}
+
+    def assert_both_reject(model, sample):
+>       with pytest.raises(ValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValidationError
+
+tests\contracts\test_schemas.py:77: Failed
+_ test_public_events_reject_internal_fields_at_every_boundary[top-request.cancelled] _
+
+kind = 'request.cancelled', location = 'top'
+
+    @pytest.mark.parametrize("kind", list(PUBLIC_PAYLOADS))
+    @pytest.mark.parametrize("location", ["top", "payload"])
+    def test_public_events_reject_internal_fields_at_every_boundary(kind, location):
+        sample = public_sample(kind)
+        target = sample if location == "top" else sample["payload"]
+        target["raw_response"] = "INTERNAL_ENGLISH_CANARY"
+>       assert_both_reject(PublicEvent, sample)
+
+tests\contracts\test_schemas.py:174: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.events.PublicEvent'>
+sample = {'schema_version': '1.0', 'event_id': 'e1', 'conversation_id': 'conv1', 'turn_id': 'turn1', ...}
+
+    def assert_both_reject(model, sample):
+>       with pytest.raises(ValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValidationError
+
+tests\contracts\test_schemas.py:77: Failed
+_ test_public_events_reject_internal_fields_at_every_boundary[top-input.required] _
+
+kind = 'input.required', location = 'top'
+
+    @pytest.mark.parametrize("kind", list(PUBLIC_PAYLOADS))
+    @pytest.mark.parametrize("location", ["top", "payload"])
+    def test_public_events_reject_internal_fields_at_every_boundary(kind, location):
+        sample = public_sample(kind)
+        target = sample if location == "top" else sample["payload"]
+        target["raw_response"] = "INTERNAL_ENGLISH_CANARY"
+>       assert_both_reject(PublicEvent, sample)
+
+tests\contracts\test_schemas.py:174: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.events.PublicEvent'>
+sample = {'schema_version': '1.0', 'event_id': 'e1', 'conversation_id': 'conv1', 'turn_id': 'turn1', ...}
+
+    def assert_both_reject(model, sample):
+>       with pytest.raises(ValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValidationError
+
+tests\contracts\test_schemas.py:77: Failed
+_ test_public_events_reject_internal_fields_at_every_boundary[payload-message.accepted] _
+
+kind = 'message.accepted', location = 'payload'
+
+    @pytest.mark.parametrize("kind", list(PUBLIC_PAYLOADS))
+    @pytest.mark.parametrize("location", ["top", "payload"])
+    def test_public_events_reject_internal_fields_at_every_boundary(kind, location):
+        sample = public_sample(kind)
+        target = sample if location == "top" else sample["payload"]
+        target["raw_response"] = "INTERNAL_ENGLISH_CANARY"
+>       assert_both_reject(PublicEvent, sample)
+
+tests\contracts\test_schemas.py:174: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.events.PublicEvent'>
+sample = {'schema_version': '1.0', 'event_id': 'e1', 'conversation_id': 'conv1', 'turn_id': 'turn1', ...}
+
+    def assert_both_reject(model, sample):
+>       with pytest.raises(ValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValidationError
+
+tests\contracts\test_schemas.py:77: Failed
+_ test_public_events_reject_internal_fields_at_every_boundary[payload-response.pending] _
+
+kind = 'response.pending', location = 'payload'
+
+    @pytest.mark.parametrize("kind", list(PUBLIC_PAYLOADS))
+    @pytest.mark.parametrize("location", ["top", "payload"])
+    def test_public_events_reject_internal_fields_at_every_boundary(kind, location):
+        sample = public_sample(kind)
+        target = sample if location == "top" else sample["payload"]
+        target["raw_response"] = "INTERNAL_ENGLISH_CANARY"
+>       assert_both_reject(PublicEvent, sample)
+
+tests\contracts\test_schemas.py:174: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.events.PublicEvent'>
+sample = {'schema_version': '1.0', 'event_id': 'e1', 'conversation_id': 'conv1', 'turn_id': 'turn1', ...}
+
+    def assert_both_reject(model, sample):
+>       with pytest.raises(ValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValidationError
+
+tests\contracts\test_schemas.py:77: Failed
+_ test_public_events_reject_internal_fields_at_every_boundary[payload-answer.published] _
+
+kind = 'answer.published', location = 'payload'
+
+    @pytest.mark.parametrize("kind", list(PUBLIC_PAYLOADS))
+    @pytest.mark.parametrize("location", ["top", "payload"])
+    def test_public_events_reject_internal_fields_at_every_boundary(kind, location):
+        sample = public_sample(kind)
+        target = sample if location == "top" else sample["payload"]
+        target["raw_response"] = "INTERNAL_ENGLISH_CANARY"
+>       assert_both_reject(PublicEvent, sample)
+
+tests\contracts\test_schemas.py:174: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.events.PublicEvent'>
+sample = {'schema_version': '1.0', 'event_id': 'e1', 'conversation_id': 'conv1', 'turn_id': 'turn1', ...}
+
+    def assert_both_reject(model, sample):
+>       with pytest.raises(ValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValidationError
+
+tests\contracts\test_schemas.py:77: Failed
+_ test_public_events_reject_internal_fields_at_every_boundary[payload-artifacts.published] _
+
+kind = 'artifacts.published', location = 'payload'
+
+    @pytest.mark.parametrize("kind", list(PUBLIC_PAYLOADS))
+    @pytest.mark.parametrize("location", ["top", "payload"])
+    def test_public_events_reject_internal_fields_at_every_boundary(kind, location):
+        sample = public_sample(kind)
+        target = sample if location == "top" else sample["payload"]
+        target["raw_response"] = "INTERNAL_ENGLISH_CANARY"
+>       assert_both_reject(PublicEvent, sample)
+
+tests\contracts\test_schemas.py:174: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.events.PublicEvent'>
+sample = {'schema_version': '1.0', 'event_id': 'e1', 'conversation_id': 'conv1', 'turn_id': 'turn1', ...}
+
+    def assert_both_reject(model, sample):
+>       with pytest.raises(ValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValidationError
+
+tests\contracts\test_schemas.py:77: Failed
+_ test_public_events_reject_internal_fields_at_every_boundary[payload-request.failed] _
+
+kind = 'request.failed', location = 'payload'
+
+    @pytest.mark.parametrize("kind", list(PUBLIC_PAYLOADS))
+    @pytest.mark.parametrize("location", ["top", "payload"])
+    def test_public_events_reject_internal_fields_at_every_boundary(kind, location):
+        sample = public_sample(kind)
+        target = sample if location == "top" else sample["payload"]
+        target["raw_response"] = "INTERNAL_ENGLISH_CANARY"
+>       assert_both_reject(PublicEvent, sample)
+
+tests\contracts\test_schemas.py:174: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.events.PublicEvent'>
+sample = {'schema_version': '1.0', 'event_id': 'e1', 'conversation_id': 'conv1', 'turn_id': 'turn1', ...}
+
+    def assert_both_reject(model, sample):
+>       with pytest.raises(ValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValidationError
+
+tests\contracts\test_schemas.py:77: Failed
+_ test_public_events_reject_internal_fields_at_every_boundary[payload-request.cancelled] _
+
+kind = 'request.cancelled', location = 'payload'
+
+    @pytest.mark.parametrize("kind", list(PUBLIC_PAYLOADS))
+    @pytest.mark.parametrize("location", ["top", "payload"])
+    def test_public_events_reject_internal_fields_at_every_boundary(kind, location):
+        sample = public_sample(kind)
+        target = sample if location == "top" else sample["payload"]
+        target["raw_response"] = "INTERNAL_ENGLISH_CANARY"
+>       assert_both_reject(PublicEvent, sample)
+
+tests\contracts\test_schemas.py:174: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.events.PublicEvent'>
+sample = {'schema_version': '1.0', 'event_id': 'e1', 'conversation_id': 'conv1', 'turn_id': 'turn1', ...}
+
+    def assert_both_reject(model, sample):
+>       with pytest.raises(ValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValidationError
+
+tests\contracts\test_schemas.py:77: Failed
+_ test_public_events_reject_internal_fields_at_every_boundary[payload-input.required] _
+
+kind = 'input.required', location = 'payload'
+
+    @pytest.mark.parametrize("kind", list(PUBLIC_PAYLOADS))
+    @pytest.mark.parametrize("location", ["top", "payload"])
+    def test_public_events_reject_internal_fields_at_every_boundary(kind, location):
+        sample = public_sample(kind)
+        target = sample if location == "top" else sample["payload"]
+        target["raw_response"] = "INTERNAL_ENGLISH_CANARY"
+>       assert_both_reject(PublicEvent, sample)
+
+tests\contracts\test_schemas.py:174: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.events.PublicEvent'>
+sample = {'schema_version': '1.0', 'event_id': 'e1', 'conversation_id': 'conv1', 'turn_id': 'turn1', ...}
+
+    def assert_both_reject(model, sample):
+>       with pytest.raises(ValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValidationError
+
+tests\contracts\test_schemas.py:77: Failed
+_______ test_public_events_reject_invalid_or_unapproved_envelopes[kind] _______
+
+fault = 'kind'
+
+    @pytest.mark.parametrize("fault", ["kind", "attempt", "sequence", "boolean_sequence", "payload_kind", "approval", "artifact_extra", "version"])
+    def test_public_events_reject_invalid_or_unapproved_envelopes(fault):
+        sample = public_sample()
+        if fault == "kind":
+            sample["kind"] = "tool.delta"
+        elif fault == "attempt":
+            sample.pop("attempt_id")
+        elif fault == "sequence":
+            sample["sequence"] = "1"
+        elif fault == "boolean_sequence":
+            sample["sequence"] = True
+        elif fault == "payload_kind":
+            sample["payload"] = {"status": "pending"}
+        elif fault == "approval":
+            sample["payload"].pop("approval_id")
+        elif fault == "version":
+            sample["schema_version"] = "2.0"
+        else:
+            sample = public_sample("artifacts.published")
+            sample["payload"]["artifacts"][0]["immutable_uri"] = "private/path"
+>       assert_both_reject(PublicEvent, sample)
+
+tests\contracts\test_schemas.py:197: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.events.PublicEvent'>
+sample = {'schema_version': '1.0', 'event_id': 'e1', 'conversation_id': 'conv1', 'turn_id': 'turn1', ...}
+
+    def assert_both_reject(model, sample):
+>       with pytest.raises(ValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValidationError
+
+tests\contracts\test_schemas.py:77: Failed
+_____ test_public_events_reject_invalid_or_unapproved_envelopes[attempt] ______
+
+fault = 'attempt'
+
+    @pytest.mark.parametrize("fault", ["kind", "attempt", "sequence", "boolean_sequence", "payload_kind", "approval", "artifact_extra", "version"])
+    def test_public_events_reject_invalid_or_unapproved_envelopes(fault):
+        sample = public_sample()
+        if fault == "kind":
+            sample["kind"] = "tool.delta"
+        elif fault == "attempt":
+            sample.pop("attempt_id")
+        elif fault == "sequence":
+            sample["sequence"] = "1"
+        elif fault == "boolean_sequence":
+            sample["sequence"] = True
+        elif fault == "payload_kind":
+            sample["payload"] = {"status": "pending"}
+        elif fault == "approval":
+            sample["payload"].pop("approval_id")
+        elif fault == "version":
+            sample["schema_version"] = "2.0"
+        else:
+            sample = public_sample("artifacts.published")
+            sample["payload"]["artifacts"][0]["immutable_uri"] = "private/path"
+>       assert_both_reject(PublicEvent, sample)
+
+tests\contracts\test_schemas.py:197: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.events.PublicEvent'>
+sample = {'schema_version': '1.0', 'event_id': 'e1', 'conversation_id': 'conv1', 'turn_id': 'turn1', ...}
+
+    def assert_both_reject(model, sample):
+>       with pytest.raises(ValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValidationError
+
+tests\contracts\test_schemas.py:77: Failed
+_____ test_public_events_reject_invalid_or_unapproved_envelopes[sequence] _____
+
+fault = 'sequence'
+
+    @pytest.mark.parametrize("fault", ["kind", "attempt", "sequence", "boolean_sequence", "payload_kind", "approval", "artifact_extra", "version"])
+    def test_public_events_reject_invalid_or_unapproved_envelopes(fault):
+        sample = public_sample()
+        if fault == "kind":
+            sample["kind"] = "tool.delta"
+        elif fault == "attempt":
+            sample.pop("attempt_id")
+        elif fault == "sequence":
+            sample["sequence"] = "1"
+        elif fault == "boolean_sequence":
+            sample["sequence"] = True
+        elif fault == "payload_kind":
+            sample["payload"] = {"status": "pending"}
+        elif fault == "approval":
+            sample["payload"].pop("approval_id")
+        elif fault == "version":
+            sample["schema_version"] = "2.0"
+        else:
+            sample = public_sample("artifacts.published")
+            sample["payload"]["artifacts"][0]["immutable_uri"] = "private/path"
+>       assert_both_reject(PublicEvent, sample)
+
+tests\contracts\test_schemas.py:197: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.events.PublicEvent'>
+sample = {'schema_version': '1.0', 'event_id': 'e1', 'conversation_id': 'conv1', 'turn_id': 'turn1', ...}
+
+    def assert_both_reject(model, sample):
+>       with pytest.raises(ValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValidationError
+
+tests\contracts\test_schemas.py:77: Failed
+_ test_public_events_reject_invalid_or_unapproved_envelopes[boolean_sequence] _
+
+fault = 'boolean_sequence'
+
+    @pytest.mark.parametrize("fault", ["kind", "attempt", "sequence", "boolean_sequence", "payload_kind", "approval", "artifact_extra", "version"])
+    def test_public_events_reject_invalid_or_unapproved_envelopes(fault):
+        sample = public_sample()
+        if fault == "kind":
+            sample["kind"] = "tool.delta"
+        elif fault == "attempt":
+            sample.pop("attempt_id")
+        elif fault == "sequence":
+            sample["sequence"] = "1"
+        elif fault == "boolean_sequence":
+            sample["sequence"] = True
+        elif fault == "payload_kind":
+            sample["payload"] = {"status": "pending"}
+        elif fault == "approval":
+            sample["payload"].pop("approval_id")
+        elif fault == "version":
+            sample["schema_version"] = "2.0"
+        else:
+            sample = public_sample("artifacts.published")
+            sample["payload"]["artifacts"][0]["immutable_uri"] = "private/path"
+>       assert_both_reject(PublicEvent, sample)
+
+tests\contracts\test_schemas.py:197: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.events.PublicEvent'>
+sample = {'schema_version': '1.0', 'event_id': 'e1', 'conversation_id': 'conv1', 'turn_id': 'turn1', ...}
+
+    def assert_both_reject(model, sample):
+>       with pytest.raises(ValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValidationError
+
+tests\contracts\test_schemas.py:77: Failed
+___ test_public_events_reject_invalid_or_unapproved_envelopes[payload_kind] ___
+
+fault = 'payload_kind'
+
+    @pytest.mark.parametrize("fault", ["kind", "attempt", "sequence", "boolean_sequence", "payload_kind", "approval", "artifact_extra", "version"])
+    def test_public_events_reject_invalid_or_unapproved_envelopes(fault):
+        sample = public_sample()
+        if fault == "kind":
+            sample["kind"] = "tool.delta"
+        elif fault == "attempt":
+            sample.pop("attempt_id")
+        elif fault == "sequence":
+            sample["sequence"] = "1"
+        elif fault == "boolean_sequence":
+            sample["sequence"] = True
+        elif fault == "payload_kind":
+            sample["payload"] = {"status": "pending"}
+        elif fault == "approval":
+            sample["payload"].pop("approval_id")
+        elif fault == "version":
+            sample["schema_version"] = "2.0"
+        else:
+            sample = public_sample("artifacts.published")
+            sample["payload"]["artifacts"][0]["immutable_uri"] = "private/path"
+>       assert_both_reject(PublicEvent, sample)
+
+tests\contracts\test_schemas.py:197: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.events.PublicEvent'>
+sample = {'schema_version': '1.0', 'event_id': 'e1', 'conversation_id': 'conv1', 'turn_id': 'turn1', ...}
+
+    def assert_both_reject(model, sample):
+>       with pytest.raises(ValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValidationError
+
+tests\contracts\test_schemas.py:77: Failed
+_____ test_public_events_reject_invalid_or_unapproved_envelopes[approval] _____
+
+fault = 'approval'
+
+    @pytest.mark.parametrize("fault", ["kind", "attempt", "sequence", "boolean_sequence", "payload_kind", "approval", "artifact_extra", "version"])
+    def test_public_events_reject_invalid_or_unapproved_envelopes(fault):
+        sample = public_sample()
+        if fault == "kind":
+            sample["kind"] = "tool.delta"
+        elif fault == "attempt":
+            sample.pop("attempt_id")
+        elif fault == "sequence":
+            sample["sequence"] = "1"
+        elif fault == "boolean_sequence":
+            sample["sequence"] = True
+        elif fault == "payload_kind":
+            sample["payload"] = {"status": "pending"}
+        elif fault == "approval":
+            sample["payload"].pop("approval_id")
+        elif fault == "version":
+            sample["schema_version"] = "2.0"
+        else:
+            sample = public_sample("artifacts.published")
+            sample["payload"]["artifacts"][0]["immutable_uri"] = "private/path"
+>       assert_both_reject(PublicEvent, sample)
+
+tests\contracts\test_schemas.py:197: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.events.PublicEvent'>
+sample = {'schema_version': '1.0', 'event_id': 'e1', 'conversation_id': 'conv1', 'turn_id': 'turn1', ...}
+
+    def assert_both_reject(model, sample):
+>       with pytest.raises(ValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValidationError
+
+tests\contracts\test_schemas.py:77: Failed
+__ test_public_events_reject_invalid_or_unapproved_envelopes[artifact_extra] __
+
+fault = 'artifact_extra'
+
+    @pytest.mark.parametrize("fault", ["kind", "attempt", "sequence", "boolean_sequence", "payload_kind", "approval", "artifact_extra", "version"])
+    def test_public_events_reject_invalid_or_unapproved_envelopes(fault):
+        sample = public_sample()
+        if fault == "kind":
+            sample["kind"] = "tool.delta"
+        elif fault == "attempt":
+            sample.pop("attempt_id")
+        elif fault == "sequence":
+            sample["sequence"] = "1"
+        elif fault == "boolean_sequence":
+            sample["sequence"] = True
+        elif fault == "payload_kind":
+            sample["payload"] = {"status": "pending"}
+        elif fault == "approval":
+            sample["payload"].pop("approval_id")
+        elif fault == "version":
+            sample["schema_version"] = "2.0"
+        else:
+            sample = public_sample("artifacts.published")
+            sample["payload"]["artifacts"][0]["immutable_uri"] = "private/path"
+>       assert_both_reject(PublicEvent, sample)
+
+tests\contracts\test_schemas.py:197: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.events.PublicEvent'>
+sample = {'schema_version': '1.0', 'event_id': 'e1', 'conversation_id': 'conv1', 'turn_id': 'turn1', ...}
+
+    def assert_both_reject(model, sample):
+>       with pytest.raises(ValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValidationError
+
+tests\contracts\test_schemas.py:77: Failed
+_____ test_public_events_reject_invalid_or_unapproved_envelopes[version] ______
+
+fault = 'version'
+
+    @pytest.mark.parametrize("fault", ["kind", "attempt", "sequence", "boolean_sequence", "payload_kind", "approval", "artifact_extra", "version"])
+    def test_public_events_reject_invalid_or_unapproved_envelopes(fault):
+        sample = public_sample()
+        if fault == "kind":
+            sample["kind"] = "tool.delta"
+        elif fault == "attempt":
+            sample.pop("attempt_id")
+        elif fault == "sequence":
+            sample["sequence"] = "1"
+        elif fault == "boolean_sequence":
+            sample["sequence"] = True
+        elif fault == "payload_kind":
+            sample["payload"] = {"status": "pending"}
+        elif fault == "approval":
+            sample["payload"].pop("approval_id")
+        elif fault == "version":
+            sample["schema_version"] = "2.0"
+        else:
+            sample = public_sample("artifacts.published")
+            sample["payload"]["artifacts"][0]["immutable_uri"] = "private/path"
+>       assert_both_reject(PublicEvent, sample)
+
+tests\contracts\test_schemas.py:197: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.events.PublicEvent'>
+sample = {'schema_version': '2.0', 'event_id': 'e1', 'conversation_id': 'conv1', 'turn_id': 'turn1', ...}
+
+    def assert_both_reject(model, sample):
+>       with pytest.raises(ValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValidationError
+
+tests\contracts\test_schemas.py:77: Failed
+__ test_internal_event_may_contain_raw_payload_but_public_schema_rejects_it ___
+
+    def test_internal_event_may_contain_raw_payload_but_public_schema_rejects_it():
+        sample = {"task_id": "t1", "attempt_id": "a1", "sequence": 1, "kind": "model.delta", "payload": {"text": "INTERNAL_ENGLISH_CANARY"}}
+        InternalEventRecord.model_validate(sample)
+>       assert_both_reject(PublicEvent, sample)
+
+tests\contracts\test_schemas.py:203: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.events.PublicEvent'>
+sample = {'task_id': 't1', 'attempt_id': 'a1', 'sequence': 1, 'kind': 'model.delta', ...}
+
+    def assert_both_reject(model, sample):
+>       with pytest.raises(ValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValidationError
+
+tests\contracts\test_schemas.py:77: Failed
+_____ test_sequence_validation_needs_stream_context_and_rejects_disorder ______
+
+    def test_sequence_validation_needs_stream_context_and_rejects_disorder():
+        validate_event_sequence([AgentEvent("t", "a", n, "model.delta", {}) for n in (1, 2, 3)])
+        for sequence in [(1, 2, 2), (1, 3, 2)]:
+>           with pytest.raises(ValueError, match="EVENT_SEQUENCE_NOT_INCREASING"):
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           Failed: DID NOT RAISE ValueError
+
+tests\contracts\test_schemas.py:209: Failed
+_ test_spec_records_preserve_all_required_and_nullable_fields[MessageRecord] __
+
+model = <class 'app.contracts.events.MessageRecord'>
+
+    @pytest.mark.parametrize("model", list(RECORD_SAMPLES))
+    def test_spec_records_preserve_all_required_and_nullable_fields(model):
+        sample = RECORD_SAMPLES[model]
+        value = assert_both_accept(model, sample)
+        assert set(value.model_dump()) == set(sample)
+        for missing in sample:
+            incomplete = deepcopy(sample)
+            incomplete.pop(missing)
+>           assert_both_reject(model, incomplete)
+
+tests\contracts\test_schemas.py:233: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.events.MessageRecord'>
+sample = {'turn_id': 'turn', 'source_role': 'user', 'language': 'zh-CN', 'raw_content_ref': 'blob1', ...}
+
+    def assert_both_reject(model, sample):
+>       with pytest.raises(ValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValidationError
+
+tests\contracts\test_schemas.py:77: Failed
+_ test_spec_records_preserve_all_required_and_nullable_fields[TranslationJob] _
+
+model = <class 'app.contracts.translation.TranslationJob'>
+
+    @pytest.mark.parametrize("model", list(RECORD_SAMPLES))
+    def test_spec_records_preserve_all_required_and_nullable_fields(model):
+        sample = RECORD_SAMPLES[model]
+        value = assert_both_accept(model, sample)
+        assert set(value.model_dump()) == set(sample)
+        for missing in sample:
+            incomplete = deepcopy(sample)
+            incomplete.pop(missing)
+>           assert_both_reject(model, incomplete)
+
+tests\contracts\test_schemas.py:233: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.translation.TranslationJob'>
+sample = {'task_id': 't', 'turn_id': 'turn', 'source_ref': 'blob', 'source_sha256': 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', ...}
+
+    def assert_both_reject(model, sample):
+>       with pytest.raises(ValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValidationError
+
+tests\contracts\test_schemas.py:77: Failed
+_ test_spec_records_preserve_all_required_and_nullable_fields[TranslationBlock] _
+
+model = <class 'app.contracts.translation.TranslationBlock'>
+
+    @pytest.mark.parametrize("model", list(RECORD_SAMPLES))
+    def test_spec_records_preserve_all_required_and_nullable_fields(model):
+        sample = RECORD_SAMPLES[model]
+        value = assert_both_accept(model, sample)
+        assert set(value.model_dump()) == set(sample)
+        for missing in sample:
+            incomplete = deepcopy(sample)
+            incomplete.pop(missing)
+>           assert_both_reject(model, incomplete)
+
+tests\contracts\test_schemas.py:233: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.translation.TranslationBlock'>
+sample = {'block_id': 'block', 'source_locator': 'input.md:p1', 'source_sha256': 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'target_ref': None, ...}
+
+    def assert_both_reject(model, sample):
+>       with pytest.raises(ValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValidationError
+
+tests\contracts\test_schemas.py:77: Failed
+_ test_spec_records_preserve_all_required_and_nullable_fields[TranslationQA] __
+
+model = <class 'app.contracts.translation.TranslationQA'>
+
+    @pytest.mark.parametrize("model", list(RECORD_SAMPLES))
+    def test_spec_records_preserve_all_required_and_nullable_fields(model):
+        sample = RECORD_SAMPLES[model]
+        value = assert_both_accept(model, sample)
+        assert set(value.model_dump()) == set(sample)
+        for missing in sample:
+            incomplete = deepcopy(sample)
+            incomplete.pop(missing)
+>           assert_both_reject(model, incomplete)
+
+tests\contracts\test_schemas.py:233: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.translation.TranslationQA'>
+sample = {'job_id': 'j', 'candidate_version': 'v1', 'coverage_result': 'not_verified', 'protected_span_result': 'not_verified', ...}
+
+    def assert_both_reject(model, sample):
+>       with pytest.raises(ValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValidationError
+
+tests\contracts\test_schemas.py:77: Failed
+_ test_spec_records_preserve_all_required_and_nullable_fields[ArtifactVersion] _
+
+model = <class 'app.contracts.artifacts.ArtifactVersion'>
+
+    @pytest.mark.parametrize("model", list(RECORD_SAMPLES))
+    def test_spec_records_preserve_all_required_and_nullable_fields(model):
+        sample = RECORD_SAMPLES[model]
+        value = assert_both_accept(model, sample)
+        assert set(value.model_dump()) == set(sample)
+        for missing in sample:
+            incomplete = deepcopy(sample)
+            incomplete.pop(missing)
+>           assert_both_reject(model, incomplete)
+
+tests\contracts\test_schemas.py:233: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.artifacts.ArtifactVersion'>
+sample = {'task_id': 't', 'artifact_kind': 'markdown', 'language': 'en', 'immutable_uri': 'blob1', ...}
+
+    def assert_both_reject(model, sample):
+>       with pytest.raises(ValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValidationError
+
+tests\contracts\test_schemas.py:77: Failed
+_ test_spec_records_preserve_all_required_and_nullable_fields[DeliveryBundle] _
+
+model = <class 'app.contracts.artifacts.DeliveryBundle'>
+
+    @pytest.mark.parametrize("model", list(RECORD_SAMPLES))
+    def test_spec_records_preserve_all_required_and_nullable_fields(model):
+        sample = RECORD_SAMPLES[model]
+        value = assert_both_accept(model, sample)
+        assert set(value.model_dump()) == set(sample)
+        for missing in sample:
+            incomplete = deepcopy(sample)
+            incomplete.pop(missing)
+>           assert_both_reject(model, incomplete)
+
+tests\contracts\test_schemas.py:233: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.artifacts.DeliveryBundle'>
+sample = {'task_id': 't', 'turn_id': 'turn', 'spec_version': 'v1', 'route_snapshot_id': 'r', ...}
+
+    def assert_both_reject(model, sample):
+>       with pytest.raises(ValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValidationError
+
+tests\contracts\test_schemas.py:77: Failed
+_________ test_message_visibility_is_only_user_internal_or_attachment _________
+
+    def test_message_visibility_is_only_user_internal_or_attachment():
+        for visibility in ("user", "internal", "attachment"):
+            sample = deepcopy(RECORD_SAMPLES[MessageRecord])
+            sample["visibility"] = visibility
+            assert_both_accept(MessageRecord, sample)
+        sample["visibility"] = "public_raw"
+>       assert_both_reject(MessageRecord, sample)
+
+tests\contracts\test_schemas.py:242: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.events.MessageRecord'>
+sample = {'id': 'm', 'turn_id': 'turn', 'source_role': 'user', 'language': 'zh-CN', ...}
+
+    def assert_both_reject(model, sample):
+>       with pytest.raises(ValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValidationError
+
+tests\contracts\test_schemas.py:77: Failed
+______________ test_translation_attempt_limit_and_hash_integrity ______________
+
+    def test_translation_attempt_limit_and_hash_integrity():
+        sample = deepcopy(RECORD_SAMPLES[TranslationJob])
+        sample["attempt_count"] = 4
+>       assert_both_reject(TranslationJob, sample)
+
+tests\contracts\test_schemas.py:254: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.translation.TranslationJob'>
+sample = {'id': 'j', 'task_id': 't', 'turn_id': 'turn', 'source_ref': 'blob', ...}
+
+    def assert_both_reject(model, sample):
+>       with pytest.raises(ValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValidationError
+
+tests\contracts\test_schemas.py:77: Failed
+=========================== short test summary info ===========================
+FAILED tests/contracts/test_schemas.py::test_legacy_records_reject_invalid_values[ProviderIdentity-kwargs0]
+FAILED tests/contracts/test_schemas.py::test_legacy_records_reject_invalid_values[AgentEvent-kwargs1]
+FAILED tests/contracts/test_schemas.py::test_legacy_records_reject_invalid_values[AgentEvent-kwargs2]
+FAILED tests/contracts/test_schemas.py::test_unverified_provider_is_recordable_but_not_executable[unknown]
+FAILED tests/contracts/test_schemas.py::test_unverified_provider_is_recordable_but_not_executable[mismatch]
+FAILED tests/contracts/test_schemas.py::test_provider_rejects_unknown_family_extra_fields_or_false_verified[family]
+FAILED tests/contracts/test_schemas.py::test_provider_rejects_unknown_family_extra_fields_or_false_verified[extra]
+FAILED tests/contracts/test_schemas.py::test_provider_rejects_unknown_family_extra_fields_or_false_verified[source]
+FAILED tests/contracts/test_schemas.py::test_route_is_frozen_and_claude_policy_is_not_guessed
+FAILED tests/contracts/test_schemas.py::test_unknown_route_can_record_null_policy_but_cannot_execute
+FAILED tests/contracts/test_schemas.py::test_route_requires_every_spec_field[id]
+FAILED tests/contracts/test_schemas.py::test_route_requires_every_spec_field[task_id]
+FAILED tests/contracts/test_schemas.py::test_route_requires_every_spec_field[turn_id]
+FAILED tests/contracts/test_schemas.py::test_route_requires_every_spec_field[attempt_id]
+FAILED tests/contracts/test_schemas.py::test_route_requires_every_spec_field[provider_id]
+FAILED tests/contracts/test_schemas.py::test_route_requires_every_spec_field[model_id]
+FAILED tests/contracts/test_schemas.py::test_route_requires_every_spec_field[model_family]
+FAILED tests/contracts/test_schemas.py::test_route_requires_every_spec_field[adapter_id]
+FAILED tests/contracts/test_schemas.py::test_route_requires_every_spec_field[identity_status]
+FAILED tests/contracts/test_schemas.py::test_route_requires_every_spec_field[identity_source]
+FAILED tests/contracts/test_schemas.py::test_route_requires_every_spec_field[connection_version]
+FAILED tests/contracts/test_schemas.py::test_route_requires_every_spec_field[policy_version]
+FAILED tests/contracts/test_schemas.py::test_route_requires_every_spec_field[route_policy]
+FAILED tests/contracts/test_schemas.py::test_route_requires_every_spec_field[locked_at]
+FAILED tests/contracts/test_schemas.py::test_public_events_reject_internal_fields_at_every_boundary[top-message.accepted]
+FAILED tests/contracts/test_schemas.py::test_public_events_reject_internal_fields_at_every_boundary[top-response.pending]
+FAILED tests/contracts/test_schemas.py::test_public_events_reject_internal_fields_at_every_boundary[top-answer.published]
+FAILED tests/contracts/test_schemas.py::test_public_events_reject_internal_fields_at_every_boundary[top-artifacts.published]
+FAILED tests/contracts/test_schemas.py::test_public_events_reject_internal_fields_at_every_boundary[top-request.failed]
+FAILED tests/contracts/test_schemas.py::test_public_events_reject_internal_fields_at_every_boundary[top-request.cancelled]
+FAILED tests/contracts/test_schemas.py::test_public_events_reject_internal_fields_at_every_boundary[top-input.required]
+FAILED tests/contracts/test_schemas.py::test_public_events_reject_internal_fields_at_every_boundary[payload-message.accepted]
+FAILED tests/contracts/test_schemas.py::test_public_events_reject_internal_fields_at_every_boundary[payload-response.pending]
+FAILED tests/contracts/test_schemas.py::test_public_events_reject_internal_fields_at_every_boundary[payload-answer.published]
+FAILED tests/contracts/test_schemas.py::test_public_events_reject_internal_fields_at_every_boundary[payload-artifacts.published]
+FAILED tests/contracts/test_schemas.py::test_public_events_reject_internal_fields_at_every_boundary[payload-request.failed]
+FAILED tests/contracts/test_schemas.py::test_public_events_reject_internal_fields_at_every_boundary[payload-request.cancelled]
+FAILED tests/contracts/test_schemas.py::test_public_events_reject_internal_fields_at_every_boundary[payload-input.required]
+FAILED tests/contracts/test_schemas.py::test_public_events_reject_invalid_or_unapproved_envelopes[kind]
+FAILED tests/contracts/test_schemas.py::test_public_events_reject_invalid_or_unapproved_envelopes[attempt]
+FAILED tests/contracts/test_schemas.py::test_public_events_reject_invalid_or_unapproved_envelopes[sequence]
+FAILED tests/contracts/test_schemas.py::test_public_events_reject_invalid_or_unapproved_envelopes[boolean_sequence]
+FAILED tests/contracts/test_schemas.py::test_public_events_reject_invalid_or_unapproved_envelopes[payload_kind]
+FAILED tests/contracts/test_schemas.py::test_public_events_reject_invalid_or_unapproved_envelopes[approval]
+FAILED tests/contracts/test_schemas.py::test_public_events_reject_invalid_or_unapproved_envelopes[artifact_extra]
+FAILED tests/contracts/test_schemas.py::test_public_events_reject_invalid_or_unapproved_envelopes[version]
+FAILED tests/contracts/test_schemas.py::test_internal_event_may_contain_raw_payload_but_public_schema_rejects_it
+FAILED tests/contracts/test_schemas.py::test_sequence_validation_needs_stream_context_and_rejects_disorder
+FAILED tests/contracts/test_schemas.py::test_spec_records_preserve_all_required_and_nullable_fields[MessageRecord]
+FAILED tests/contracts/test_schemas.py::test_spec_records_preserve_all_required_and_nullable_fields[TranslationJob]
+FAILED tests/contracts/test_schemas.py::test_spec_records_preserve_all_required_and_nullable_fields[TranslationBlock]
+FAILED tests/contracts/test_schemas.py::test_spec_records_preserve_all_required_and_nullable_fields[TranslationQA]
+FAILED tests/contracts/test_schemas.py::test_spec_records_preserve_all_required_and_nullable_fields[ArtifactVersion]
+FAILED tests/contracts/test_schemas.py::test_spec_records_preserve_all_required_and_nullable_fields[DeliveryBundle]
+FAILED tests/contracts/test_schemas.py::test_message_visibility_is_only_user_internal_or_attachment
+FAILED tests/contracts/test_schemas.py::test_translation_attempt_limit_and_hash_integrity
+56 failed, 11 passed, 2 deselected in 0.87s
+exit_code=1

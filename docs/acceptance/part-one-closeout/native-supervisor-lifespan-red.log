@@ -1,0 +1,144 @@
+...........F.FF                                                          [100%]
+================================== FAILURES ===================================
+____ test_api_lifespan_injects_explicit_fixture_backend_and_stops_cleanly _____
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-250/test_api_lifespan_injects_expl0')
+
+    def test_api_lifespan_injects_explicit_fixture_backend_and_stops_cleanly(tmp_path):
+        import time
+        app, _, runtime, calls, bindings, _ = fixture_case(tmp_path)
+>       connected = create_app(app.state.settings, backend_factory=lambda _: bindings)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       TypeError: create_app() got an unexpected keyword argument 'backend_factory'
+
+tests\integration\test_native_supervisor.py:145: TypeError
+______ test_shutdown_interrupts_local_wait_without_requeueing_the_claim _______
+
+_ = ('edef400d66134dc1863380a7b2d9158e', '7b575ebbb8e646319500757667befa4f', 'supervisor:e34c59a558ac44f8bee2c896517e3816')
+
+    async def waiting(*_):
+        entered.set()
+>       await asyncio.Event().wait()
+
+tests\integration\test_native_supervisor.py:191: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <asyncio.locks.Event object at 0x000002CA74E3E090 [unset]>
+
+    async def wait(self):
+        """Block until the internal flag is true.
+    
+        If the internal flag is true on entry, return True
+        immediately.  Otherwise, block until another task calls
+        set() to set the flag to true, then return True.
+        """
+        if self._value:
+            return True
+    
+        fut = self._get_loop().create_future()
+        self._waiters.append(fut)
+        try:
+>           await fut
+E           asyncio.exceptions.CancelledError
+
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\locks.py:213: CancelledError
+
+The above exception was the direct cause of the following exception:
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-250/test_shutdown_interrupts_local0')
+
+    def test_shutdown_interrupts_local_wait_without_requeueing_the_claim(tmp_path):
+        app, task, _, calls, bindings, supervisor = fixture_case(tmp_path)
+        entered = asyncio.Event()
+        async def waiting(*_):
+            entered.set()
+            await asyncio.Event().wait()
+        bindings.planner.plan = waiting
+        async def exercise():
+            task_run = asyncio.create_task(supervisor.run_once())
+            await entered.wait()
+            await supervisor.shutdown()
+            with pytest.raises(asyncio.CancelledError):
+                await asyncio.wait_for(task_run, .25)
+>       asyncio.run(exercise())
+
+tests\integration\test_native_supervisor.py:199: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:194: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:118: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py:721: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+tests\integration\test_native_supervisor.py:198: in exercise
+    await asyncio.wait_for(task_run, .25)
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\tasks.py:506: in wait_for
+    async with timeouts.timeout(timeout):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <Timeout [expired]>
+exc_type = <class 'asyncio.exceptions.CancelledError'>
+exc_val = CancelledError(), exc_tb = <traceback object at 0x000002CA74F28240>
+
+    async def __aexit__(
+        self,
+        exc_type: Optional[Type[BaseException]],
+        exc_val: Optional[BaseException],
+        exc_tb: Optional[TracebackType],
+    ) -> Optional[bool]:
+        assert self._state in (_State.ENTERED, _State.EXPIRING)
+    
+        if self._timeout_handler is not None:
+            self._timeout_handler.cancel()
+            self._timeout_handler = None
+    
+        if self._state is _State.EXPIRING:
+            self._state = _State.EXPIRED
+    
+            if self._task.uncancel() <= self._cancelling and exc_type is not None:
+                # Since there are no new cancel requests, we're
+                # handling this.
+                if issubclass(exc_type, exceptions.CancelledError):
+>                   raise TimeoutError from exc_val
+E                   TimeoutError
+
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\timeouts.py:116: TimeoutError
+______ test_foreign_owner_after_plan_is_not_clobbered_by_old_dispatcher _______
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-250/test_foreign_owner_after_plan_0')
+
+    def test_foreign_owner_after_plan_is_not_clobbered_by_old_dispatcher(tmp_path):
+        app, task, _, calls, bindings, supervisor = fixture_case(tmp_path)
+        original = bindings.planner.plan
+        async def replaced(*args):
+            plan = await original(*args)
+            with closing(app.state.database.connect()) as connection, transaction(connection):
+                connection.execute("UPDATE task_runs SET lease_owner='new-private-owner'")
+            return plan
+        bindings.planner.plan = replaced
+        asyncio.run(supervisor.run_once())
+        assert calls['execute'] == calls['publish'] == []
+        row = task_row(app, task)
+>       assert row['state'] == 'PLANNING' and row['lease_owner'] == 'new-private-owner'
+E       AssertionError: assert ('BLOCKED' == 'PLANNING'
+E         
+E         - PLANNING
+E         + BLOCKED)
+
+tests\integration\test_native_supervisor.py:217: AssertionError
+============================== warnings summary ===============================
+services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1
+  C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/integration/test_native_supervisor.py::test_api_lifespan_injects_explicit_fixture_backend_and_stops_cleanly
+FAILED tests/integration/test_native_supervisor.py::test_shutdown_interrupts_local_wait_without_requeueing_the_claim
+FAILED tests/integration/test_native_supervisor.py::test_foreign_owner_after_plan_is_not_clobbered_by_old_dispatcher
+3 failed, 12 passed, 1 warning in 2.71s
+EXIT_CODE=1

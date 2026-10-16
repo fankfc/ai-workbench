@@ -1,0 +1,30 @@
+.............................................FF                          [100%]
+================================== FAILURES ===================================
+________ test_timeout_limit_matches_the_shared_sixty_second_client[61] ________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-188/test_timeout_limit_matches_the0')
+seconds = 61
+
+    @pytest.mark.parametrize("seconds", [61, 120])
+    def test_timeout_limit_matches_the_shared_sixty_second_client(tmp_path, seconds):
+>       with pytest.raises(ZCodeProtocolError, match="RPC_BOUNDS_REQUIRED"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ZCodeProtocolError
+
+tests\contracts\test_zcode_protocol.py:225: Failed
+_______ test_timeout_limit_matches_the_shared_sixty_second_client[120] ________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-188/test_timeout_limit_matches_the1')
+seconds = 120
+
+    @pytest.mark.parametrize("seconds", [61, 120])
+    def test_timeout_limit_matches_the_shared_sixty_second_client(tmp_path, seconds):
+>       with pytest.raises(ZCodeProtocolError, match="RPC_BOUNDS_REQUIRED"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ZCodeProtocolError
+
+tests\contracts\test_zcode_protocol.py:225: Failed
+=========================== short test summary info ===========================
+FAILED tests/contracts/test_zcode_protocol.py::test_timeout_limit_matches_the_shared_sixty_second_client[61]
+FAILED tests/contracts/test_zcode_protocol.py::test_timeout_limit_matches_the_shared_sixty_second_client[120]
+2 failed, 45 passed in 0.49s

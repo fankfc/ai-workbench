@@ -1,0 +1,10 @@
+{
+  "schema_version": "1.0",
+  "profile_id": "local-codex-probe",
+  "adapter": "codex",
+  "expected_family": "gpt",
+  "requested_runs": 1,
+  "executable": "C:\\Users\\asd15\\AppData\\Local\\OpenAI\\Codex\\bin\\f544b3844e0f14e9\\codex.exe",
+  "connection_id": "local-codex-probe"
+}
+

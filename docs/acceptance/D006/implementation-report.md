@@ -1,0 +1,5 @@
+# D006 GPT route report entry
+
+Completion level: **route_only_done**. Connection state: **not_connected**. The selected candidate is the existing official Codex native CLI 0.160.0; the GPT native policy declares zero mandatory translation. This is a route decision, not a verified real tool/identity integration. Actual file tools were denied by local policy (`TOOL_PERMISSION_POLICY_DENIED`), no required result artifact exists, and structured response model identity is unknown. Production and further bounded-probe registration remain disabled.
+
+Decision and evidence: [GPT route decision](../../decisions/gpt-route.md), [route review](route-review.md), [combined implementation report](../D004-D006-implementation-report.md), [capabilities](../gpt-capabilities.json), [profile](../profiles/gpt.json), [actual attempt/probe](probe-report.json), [redacted stream](real-discovery.stdout.redacted.txt), [redacted tool policy failure](real-discovery.stderr.redacted.txt), [disabled gate check](gate-check.json), [supported entry/hash](supported-entry.json). A CLI login is not independent API permission, model identity or product readiness.

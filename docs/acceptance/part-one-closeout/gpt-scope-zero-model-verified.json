@@ -1,0 +1,276 @@
+{
+  "generated_at": "2026-10-14T05:06:02.382877+00:00",
+  "status": "metadata_preconditions_verified",
+  "submitted_model_turns": 0,
+  "scope_enforced": false,
+  "production_enabled": false,
+  "runtime_scope_qualification": false,
+  "direct_auth_home_or_config_file_reads": false,
+  "raw_private_values_exported": false,
+  "argv_exported": false,
+  "probe_sha256": "dc1d7055919293681d5db01020700a36f4825ee991fd69e582baae804f1059f5",
+  "projection_sha256": "adbd98c2bcf2416a17239476c25e828dd1f121d8352d84e01d61b4a33edafa28",
+  "metadata_sessions": [
+    {
+      "label": "baseline",
+      "server_starts": 1,
+      "submitted_model_turns": 0,
+      "rpc_calls": [
+        {
+          "method": "initialize",
+          "id": 1
+        },
+        {
+          "method": "initialized",
+          "id": null
+        },
+        {
+          "method": "config/read",
+          "id": 2
+        }
+      ],
+      "unexpected_model_activity": false,
+      "callback_count": 0,
+      "raw_config_argv_account_or_keys_exported": false,
+      "resources_after": {
+        "running": 0,
+        "temp_dirs": 0,
+        "open_handles": 0,
+        "peak_reserved_handles": 9,
+        "active_processes": 0,
+        "failed_cleanups": 0,
+        "query_errors": []
+      },
+      "local_cleanup": {
+        "local_state": "cancelled",
+        "exit_code": 0,
+        "remote_state": "unknown",
+        "remote_stop_confirmed": false,
+        "raw_output_persisted": false,
+        "stdout_kept_bytes": 18093,
+        "stderr_kept_bytes": 0
+      }
+    },
+    {
+      "label": "restricted",
+      "server_starts": 1,
+      "submitted_model_turns": 0,
+      "rpc_calls": [
+        {
+          "method": "initialize",
+          "id": 1
+        },
+        {
+          "method": "initialized",
+          "id": null
+        },
+        {
+          "method": "config/read",
+          "id": 2
+        },
+        {
+          "method": "thread/start",
+          "id": 3
+        },
+        {
+          "method": "thread/read",
+          "id": 4
+        },
+        {
+          "method": "thread/unsubscribe",
+          "id": 5
+        }
+      ],
+      "unexpected_model_activity": false,
+      "callback_count": 0,
+      "raw_config_argv_account_or_keys_exported": false,
+      "owned_thread_id": "01a138cd-a2b8-7ca0-bf30-7ed2df89bb08",
+      "resources_after": {
+        "running": 0,
+        "temp_dirs": 0,
+        "open_handles": 0,
+        "peak_reserved_handles": 9,
+        "active_processes": 0,
+        "failed_cleanups": 0,
+        "query_errors": []
+      },
+      "local_cleanup": {
+        "local_state": "cancelled",
+        "exit_code": 0,
+        "remote_state": "unknown",
+        "remote_stop_confirmed": false,
+        "raw_output_persisted": false,
+        "stdout_kept_bytes": 24701,
+        "stderr_kept_bytes": 0
+      }
+    }
+  ],
+  "all_required_controls_verified": true,
+  "lifetime_config_refresh_boundary": "unknown_pending_source_review",
+  "maximum_seconds": 60,
+  "maximum_bytes_per_server": 2000000,
+  "native_home_environment_presence": {
+    "CODEX_HOME": false,
+    "CODEX_SQLITE_HOME": false
+  },
+  "runtime_version": "0.160.0",
+  "executable_sha256": "4b01d5920e6785614727443bbecf343f4dedbb7347052b72ba805aab6353ef01",
+  "baseline_mcp": {
+    "mcp_field_available": true,
+    "configured_server_count": 1,
+    "explicit_disabled_server_count": 0,
+    "allConfiguredMcpDisabled": false
+  },
+  "configured_mcp_key_count": 1,
+  "controls": {
+    "features.shell_tool": {
+      "expected": false,
+      "effective_value": false,
+      "status": "verified"
+    },
+    "features.view_image": {
+      "expected": false,
+      "effective_value": false,
+      "status": "verified"
+    },
+    "features.code_mode": {
+      "expected": false,
+      "effective_value": false,
+      "status": "verified"
+    },
+    "features.code_mode_only": {
+      "expected": false,
+      "effective_value": false,
+      "status": "verified"
+    },
+    "features.code_mode_host.enabled": {
+      "expected": false,
+      "effective_value": false,
+      "status": "verified"
+    },
+    "features.code_mode_host.disable_in_process_fallback": {
+      "expected": false,
+      "effective_value": false,
+      "status": "verified"
+    },
+    "features.multi_agent": {
+      "expected": false,
+      "effective_value": false,
+      "status": "verified"
+    },
+    "features.multi_agent_v2": {
+      "expected": false,
+      "effective_value": false,
+      "status": "verified"
+    },
+    "features.apps": {
+      "expected": false,
+      "effective_value": false,
+      "status": "verified"
+    },
+    "features.plugins": {
+      "expected": false,
+      "effective_value": false,
+      "status": "verified"
+    },
+    "features.tool_suggest": {
+      "expected": false,
+      "effective_value": false,
+      "status": "verified"
+    },
+    "features.recommended_plugins": {
+      "expected": false,
+      "effective_value": false,
+      "status": "verified"
+    },
+    "features.memories": {
+      "expected": false,
+      "effective_value": false,
+      "status": "verified"
+    },
+    "memories.use_memories": {
+      "expected": false,
+      "effective_value": false,
+      "status": "verified"
+    },
+    "cloud.skills.enabled": {
+      "expected": false,
+      "effective_value": false,
+      "status": "verified"
+    },
+    "features.image_generation": {
+      "expected": false,
+      "effective_value": false,
+      "status": "verified"
+    },
+    "web_search": {
+      "expected": "disabled",
+      "effective_value": "disabled",
+      "status": "verified"
+    },
+    "features.hooks": {
+      "expected": false,
+      "effective_value": false,
+      "status": "verified"
+    },
+    "notify": {
+      "expected": [],
+      "effective_value": null,
+      "status": "verified",
+      "effective_item_count": 0
+    },
+    "features.deferred_executor": {
+      "expected": false,
+      "effective_value": false,
+      "status": "verified"
+    },
+    "features.request_permissions_tool": {
+      "expected": false,
+      "effective_value": false,
+      "status": "verified"
+    }
+  },
+  "compiled_code_mode_fallback": {
+    "direct_compiled_rpc_field_verified": false,
+    "raw_effective_typed_field_verified": true,
+    "source": "resolve_code_mode_config reads explicit typed host member; no default-value inference",
+    "configuration_shape": "explicit features.code_mode_host.enabled=false and disable_in_process_fallback=false"
+  },
+  "restricted_mcp": {
+    "mcp_field_available": true,
+    "configured_server_count": 1,
+    "explicit_disabled_server_count": 1,
+    "allConfiguredMcpDisabled": true
+  },
+  "effective_mcp_key_set_matches_baseline": true,
+  "thread_start": {
+    "thread_id": "01a138cd-a2b8-7ca0-bf30-7ed2df89bb08",
+    "owned_id_matches": true,
+    "ephemeral_echoed": true,
+    "environment_field_available": true,
+    "effective_environment_count": 0,
+    "empty_environments_echoed": true,
+    "strict_policy_echoed": true,
+    "returned_turn_count": 0,
+    "strict_empty_environment_thread_verified": true
+  },
+  "thread_read": {
+    "thread_id": "01a138cd-a2b8-7ca0-bf30-7ed2df89bb08",
+    "owned_id_matches": true,
+    "ephemeral_echoed": true,
+    "environment_field_available": true,
+    "effective_environment_count": 0,
+    "empty_environments_echoed": true,
+    "strict_policy_echoed": null,
+    "returned_turn_count": 0,
+    "strict_empty_environment_thread_verified": true
+  },
+  "owned_thread_unsubscribe_acknowledged": true,
+  "metadata_preconditions_verified": true,
+  "duration_seconds": 1.206,
+  "completed_at": "2026-10-14T05:06:03.587993+00:00",
+  "server_starts": 2,
+  "unexpected_model_activity": false,
+  "source_tag": "rust-v0.160.0",
+  "scope_unknown_reason": "Metadata is distinct from model execution scope; current tool registry and MCP refresh lifetime still require verified runtime enforcement."
+}

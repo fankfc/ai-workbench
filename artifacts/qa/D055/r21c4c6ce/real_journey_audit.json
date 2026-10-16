@@ -1,0 +1,12 @@
+{
+  "domains_passed": [],
+  "provenance_valid": false,
+  "pairs_valid": false,
+  "model_identity_verified": false,
+  "all_required_entries_tested": false,
+  "evidence_kind": "audit",
+  "blocked_reasons": [
+    "candidate_missing",
+    "source_commit_missing"
+  ]
+}

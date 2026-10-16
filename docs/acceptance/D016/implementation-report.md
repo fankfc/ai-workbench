@@ -1,0 +1,11 @@
+# D016 dependency revision invalidation
+
+Implemented `runtime/dependencies.py` and `storage/revisions.py` without changing the initial database migration. Immutable artifact rows retain explicit upstream revision IDs; current logical nodes and a monotonic graph version persist in `task_runs.checkpoint_json.dependency_graph`. Activation verifies stored dependency bindings and actual blob bytes before changing current state.
+
+Changes invalidate exactly the transitive downstream revisions plus the superseded source. Bound checks retain historical results with `details_json.stale=true`; translation units and their job-bound QA become stale. Independent branches remain current. Historical bytes remain readable. Self-reference, cycles, reused revision IDs under different nodes, changed dependency bindings, missing/stale upstream versions and mixed new source/old translation are rejected.
+
+The publisher takes a `snapshot_fence` over current immutable revisions and verifies it with `require_publication_fence` inside the existing `BEGIN IMMEDIATE` transaction. Graph version, current revisions, byte hashes, cancellation and latest attempt must agree. A competing connection changing an upstream revision before publication makes the old fence fail. Unknown/missing graphs return false from `is_current_revision`.
+
+Verification: `services/orchestrator/.venv/Scripts/python.exe -m pytest tests/integration/test_dependency_invalidation.py -q` → 14 passed. Business RED was 3 failed/11 passed: rebinding one revision, duplicate current logical registration and missed translation-job QA invalidation. All three were fixed and rechecked. The scaffold import failure is recorded separately. The isolated real SQLite/blob replay exported `dependency-dag.json` and `invalidation-report.json`; no model provider was invoked.
+
+Storage staging can precede activation and leave an immutable unactivated revision on failure. This revision is historical/staging data, never current or publishable. Fresh QA and A approval must bind to the new current revision. Re-validating a branch does not revive an old stale approval. D014/D018/D020 use the published interface in `.superpowers/sdd/dependency-interface.md`.

@@ -1,0 +1,62 @@
+{
+  "platform": "nt",
+  "source_and_tests_modified": false,
+  "provider_model_calls": 0,
+  "helper_sha256": "2540318d7c65bf886088f6cf32719ca75f6efbba84d8726dc5c12ac22f5cc28f",
+  "results": [
+    {
+      "case": "released",
+      "passed": true,
+      "rename_attempts": 2,
+      "delays": [
+        0.02
+      ],
+      "outcome": "committed",
+      "same_paths": true,
+      "handles_remaining": 0,
+      "live_data_unchanged": true
+    },
+    {
+      "case": "continuously_held",
+      "passed": true,
+      "rename_attempts": 5,
+      "delays": [
+        0.02,
+        0.04,
+        0.08,
+        0.16
+      ],
+      "outcome": "DirectoryCommitBusy",
+      "same_paths": true,
+      "handles_remaining": 0,
+      "live_data_unchanged": true
+    },
+    {
+      "case": "destination_appears",
+      "passed": true,
+      "rename_attempts": 1,
+      "delays": [
+        0.02
+      ],
+      "outcome": "DirectoryCommitBlocked",
+      "same_paths": true,
+      "handles_remaining": 0,
+      "live_data_unchanged": true
+    },
+    {
+      "case": "source_replaced",
+      "passed": true,
+      "rename_attempts": 1,
+      "delays": [
+        0.02
+      ],
+      "outcome": "DirectoryCommitBlocked",
+      "same_paths": true,
+      "handles_remaining": 0,
+      "live_data_unchanged": true
+    }
+  ],
+  "fixture_removed": true,
+  "handles_remaining": 0,
+  "limits": "Preflight and retry-boundary checks; not a portable atomic no-replace or OS sandbox claim."
+}

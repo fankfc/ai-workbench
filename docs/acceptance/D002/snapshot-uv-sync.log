@@ -1,0 +1,41 @@
+Using CPython 3.13.0 interpreter at: C:\Users\asd15\Documents\ChatGPT\ai\.tools\uv\Scripts\python.exe
+Creating virtual environment at: services\orchestrator\.venv
+Resolved 31 packages in 1ms
+   Building ai-workbench-orchestrator @ file:///C:/Users/asd15/Documents/ChatGPT/ai/.tools/d002-snapshots/clean-20261013-v3/services/orchestrator
+      Built ai-workbench-orchestrator @ file:///C:/Users/asd15/Documents/ChatGPT/ai/.tools/d002-snapshots/clean-20261013-v3/services/orchestrator
+Prepared 1 package in 2.88s
+Installed 31 packages in 1.39s
+ + ai-workbench-orchestrator==0.1.0 (from file:///C:/Users/asd15/Documents/ChatGPT/ai/.tools/d002-snapshots/clean-20261013-v3/services/orchestrator)
+ + annotated-doc==0.0.5
+ + annotated-types==0.8.0
+ + anyio==4.15.1
+ + attrs==26.1.0
+ + certifi==2026.7.22
+ + click==8.5.0
+ + colorama==0.4.6
+ + fastapi==0.143.0
+ + h11==0.16.0
+ + httpcore==1.0.9
+ + httpx==0.28.1
+ + idna==3.20
+ + iniconfig==2.3.1
+ + jsonschema==4.26.0
+ + jsonschema-specifications==2025.9.1
+ + opentelemetry-api==1.45.1
+ + packaging==26.3
+ + pluggy==1.6.0
+ + pydantic==2.14.1
+ + pydantic-core==2.50.1
+ + pygments==2.21.0
+ + pytest==9.1.1
+ + referencing==0.37.0
+ + rfc3339-validator==0.1.4
+ + rpds-py==2026.9.1
+ + six==1.17.0
+ + starlette==1.8.0
+ + typing-extensions==4.16.0
+ + typing-inspection==0.4.4
+ + uvicorn==0.54.0
+exit_code=0
+lock_before=DECFBA37BD2E2C4A5258749794806B1BF82AC56B42D73DA767F28022E68DCEA7
+lock_after=DECFBA37BD2E2C4A5258749794806B1BF82AC56B42D73DA767F28022E68DCEA7

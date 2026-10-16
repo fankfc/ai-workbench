@@ -1,0 +1,72 @@
+{
+  "electron": "44.7.0",
+  "unit": {
+    "passed": 27,
+    "exit_code": 0,
+    "files": 6,
+    "failed": 0,
+    "command": "npm run test:desktop"
+  },
+  "source_state": "unborn; no commit",
+  "real": {
+    "status": "BLOCKED",
+    "model_calls": 0,
+    "command": "npm run test:e2e:real",
+    "blocked": 8,
+    "full_acceptance_assembled": false,
+    "reason": "No qualified production A or GLM profiles",
+    "exit_code": 1
+  },
+  "recorded_at": "2026-10-14T17:58:50.7055168+08:00",
+  "playwright": "1.64.0",
+  "pdfjs": "6.4.299",
+  "typecheck": {
+    "command": "npm run typecheck:desktop",
+    "exit_code": 0
+  },
+  "git_commit": null,
+  "e2e": {
+    "external_responses": "explicit demonstration fixtures",
+    "command": "npm run test:e2e",
+    "failed": 0,
+    "actual_electron": true,
+    "passed": 28,
+    "actual_python": true,
+    "exit_code": 0
+  },
+  "production_test_hook_present": false,
+  "node": "24.19.0",
+  "npm": "11.17.0",
+  "test_build": {
+    "command": "npm run build:desktop:test",
+    "exit_code": 0
+  },
+  "build": {
+    "command": "npm run build:desktop",
+    "exit_code": 0
+  },
+  "layout_followup": {
+    "exit_code": 0,
+    "send_control_inside_viewport": true,
+    "passed": 5,
+    "native_full_window_screenshot": true,
+    "command": "npm run test:e2e -- tests/e2e/layout.spec.ts"
+  },
+  "independent_review": {
+    "historical_same_text_nonce_preserved": true,
+    "native_english_clarification_decode": true,
+    "findings_fixed": 4,
+    "needs_input_user_cancellation": true
+  },
+  "task_profiles": {
+    "missing_inputs_steps": 0,
+    "missing_inputs_usage_count": 0,
+    "normal_document_state": "PUBLISHED",
+    "mixed_state": "PUBLISHED",
+    "mixed_translation_count": 0,
+    "domain_card": "D038",
+    "normal_gui_profile_freeze": true,
+    "normal_document_translation_count": 0,
+    "missing_inputs_state": "NEEDS_INPUT"
+  }
+}

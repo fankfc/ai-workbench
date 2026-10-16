@@ -1,0 +1,16 @@
+{
+  "name": "desktop-e2e",
+  "command": [
+    "C:\\Program Files\\nodejs\\node.EXE",
+    "node_modules/@playwright/test/cli.js",
+    "test",
+    "--reporter=json",
+    "--output=C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\part-five\\final-v1\\regression\\electron-results"
+  ],
+  "cwd": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai",
+  "started_at": "2026-10-15T05:30:16.824520+00:00",
+  "ended_at": "2026-10-15T05:35:40.634967+00:00",
+  "exit_code": 1,
+  "log": "docs/acceptance/part-five/final-v1/regression/desktop-e2e.log",
+  "launch_error": null
+}

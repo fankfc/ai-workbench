@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0",
+  "adapter": "codex",
+  "generated_at": "2026-10-13T11:43:03Z",
+  "installation": "observed",
+  "cli_version": "0.160.0",
+  "actual_model_identity": "unknown",
+  "non_interactive_entry": "documented_and_observed",
+  "isolated_workdir": "observed",
+  "required_file_and_terminal_tools": "blocked",
+  "finish_exit_artifact_consistent": false,
+  "usage_status": "observed",
+  "usage": {
+    "input_tokens": 50369,
+    "cached_input_tokens": 37504,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 100,
+    "reasoning_output_tokens": 0
+  },
+  "auth_status": "existing_chatgpt_login_observed",
+  "model_selection": "unknown",
+  "resume": "unverified",
+  "cancellation": "unverified",
+  "desktop_cli_session_shared": "unknown",
+  "desktop_cli_login_shared": "unknown",
+  "desktop_cli_quota_shared": "unknown",
+  "workspace_noninterference": "unverified",
+  "production_enabled": false,
+  "bounded_probe_enabled": false,
+  "block_reason_code": "TOOL_PERMISSION_POLICY_DENIED",
+  "evidence_ref": "docs/acceptance/D006/probe-report.json",
+  "supported_entry_ref": "docs/acceptance/D006/supported-entry.json",
+  "offline_test_mode": "fixture_only"
+}
+

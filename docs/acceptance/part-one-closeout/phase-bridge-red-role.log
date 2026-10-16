@@ -1,0 +1,23 @@
+F                                                                        [100%]
+================================== FAILURES ===================================
+_______ test_gpt_profile_cannot_be_substituted_for_zcode_b_before_start _______
+
+prepared = (WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-173/test_gpt_profile_cannot_be_sub0/task/attemp..., 'output_tokens': 2}), source='reported', mode='request_total', cumulative_scope=None),), exit_code=0, finished=True))
+
+    def test_gpt_profile_cannot_be_substituted_for_zcode_b_before_start(prepared):
+        selected=provider('gpt')
+        current=list(prepared)
+        current[1]=selected
+        current[3]=replace(prepared[3],identity=ProviderIdentity(**selected.identity.model_dump()))
+        events,runtime,_=run(tuple(current))
+>       assert error(events)=='PROVIDER_ROLE_MISMATCH'
+E       AssertionError: assert 'CAPTURE_IDENTITY_MISMATCH' == 'PROVIDER_ROLE_MISMATCH'
+E         
+E         - PROVIDER_ROLE_MISMATCH
+E         + CAPTURE_IDENTITY_MISMATCH
+
+tests\contracts\test_phase_bridge.py:202: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/contracts/test_phase_bridge.py::test_gpt_profile_cannot_be_substituted_for_zcode_b_before_start
+1 failed, 41 deselected in 0.43s
+exit_code=1

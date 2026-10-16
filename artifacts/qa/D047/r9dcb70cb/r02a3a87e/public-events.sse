@@ -1,0 +1,12 @@
+id: 1
+event: message.accepted
+data: {"schema_version":"1.0","event_id":"f0d325e127bb4220abcf005c1e873b92","conversation_id":"d844254ef6e04d2d98c3e49d1b9e1b7a","turn_id":"698e47382ba643d3b01212864f7b32a9","task_id":"b71baafd8dd3469e8ab768d50453fc2e","attempt_id":"cb442e1738e94c8d9fd1b82c4f800e79","sequence":1,"kind":"message.accepted","payload":{"message_id":"698e47382ba643d3b01212864f7b32a9","text":"核对固定材料并给出结果。","language":"zh-CN"}}
+
+id: 2
+event: response.pending
+data: {"schema_version":"1.0","event_id":"6d6463fac87c4a9ebca36fab2a971e59","conversation_id":"d844254ef6e04d2d98c3e49d1b9e1b7a","turn_id":"698e47382ba643d3b01212864f7b32a9","task_id":"b71baafd8dd3469e8ab768d50453fc2e","attempt_id":"cb442e1738e94c8d9fd1b82c4f800e79","sequence":2,"kind":"response.pending","payload":{"status":"pending"}}
+
+id: 17
+event: answer.published
+data: {"schema_version":"1.0","event_id":"a6de40665ed54fe78626b295170ad1cc","conversation_id":"d844254ef6e04d2d98c3e49d1b9e1b7a","turn_id":"698e47382ba643d3b01212864f7b32a9","task_id":"b71baafd8dd3469e8ab768d50453fc2e","attempt_id":"cb442e1738e94c8d9fd1b82c4f800e79","sequence":17,"kind":"answer.published","payload":{"message_id":"d4de590dda6e402d8d7b17849bf3f8a7","text":"def add(a,b):\n    return a+b\nassert add(2,3)==5\nprint(add(2,3))\n","language":"und","content_version_id":"candidate-0bb9dba22d6d4cf9b7eaeab59dc42333","approval_id":"release-d057f81d947b44f08d05f433c40a8b87"}}
+

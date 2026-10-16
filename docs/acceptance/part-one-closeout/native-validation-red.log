@@ -1,0 +1,61 @@
+FFFF                                                                     [100%]
+================================== FAILURES ===================================
+____________ test_registry_port_uses_actual_immutable_python_bytes ____________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-231/test_registry_port_uses_actual0')
+
+    def test_registry_port_uses_actual_immutable_python_bytes(tmp_path):
+        app, candidate = candidate_case(tmp_path)
+        result = NativeRegistryValidator(app.state.database.path)(candidate)
+>       assert len(result) == 1 and result[0]['passed'] is True
+E       assert (0 == 1)
+E        +  where 0 = len([])
+
+tests\integration\test_native_validation.py:38: AssertionError
+___________ test_broken_python_is_not_a_successful_mechanical_check ___________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-231/test_broken_python_is_not_a_su0')
+
+    def test_broken_python_is_not_a_successful_mechanical_check(tmp_path):
+        app, candidate = candidate_case(tmp_path, content=b'def broken(:\n')
+        result = NativeRegistryValidator(app.state.database.path)(candidate)
+>       assert len(result) == 1 and result[0]['passed'] is False
+E       assert (0 == 1)
+E        +  where 0 = len([])
+
+tests\integration\test_native_validation.py:46: AssertionError
+_____ test_arbitrary_execution_condition_cannot_be_called_syntax_verified _____
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-231/test_arbitrary_execution_condi0')
+
+    def test_arbitrary_execution_condition_cannot_be_called_syntax_verified(tmp_path):
+        app, candidate = candidate_case(tmp_path, method='Run model command and verify everything')
+        result = NativeRegistryValidator(app.state.database.path)(candidate)
+>       assert len(result) == 1 and result[0]['passed'] is False
+E       assert (0 == 1)
+E        +  where 0 = len([])
+
+tests\integration\test_native_validation.py:52: AssertionError
+_______ test_mixed_mechanical_proof_checks_current_dependency_revision ________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-231/test_mixed_mechanical_proof_ch0')
+
+    def test_mixed_mechanical_proof_checks_current_dependency_revision(tmp_path):
+        app, candidate = candidate_case(tmp_path, domain='mixed', method='persisted_dependency_current')
+        result = NativeRegistryValidator(app.state.database.path)(candidate)
+>       assert len(result) == 1 and result[0]['passed'] is True
+E       assert (0 == 1)
+E        +  where 0 = len([])
+
+tests\integration\test_native_validation.py:59: AssertionError
+============================== warnings summary ===============================
+services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1
+  C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/integration/test_native_validation.py::test_registry_port_uses_actual_immutable_python_bytes
+FAILED tests/integration/test_native_validation.py::test_broken_python_is_not_a_successful_mechanical_check
+FAILED tests/integration/test_native_validation.py::test_arbitrary_execution_condition_cannot_be_called_syntax_verified
+FAILED tests/integration/test_native_validation.py::test_mixed_mechanical_proof_checks_current_dependency_revision

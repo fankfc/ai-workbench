@@ -1,0 +1,341 @@
+Command: .tools/uv/Scripts/uv.exe build --wheel --out-dir .tools/part-five-prompts-wheel services/orchestrator
+Building wheel...
+running egg_info
+writing ai_workbench_orchestrator.egg-info\PKG-INFO
+writing dependency_links to ai_workbench_orchestrator.egg-info\dependency_links.txt
+writing requirements to ai_workbench_orchestrator.egg-info\requires.txt
+writing top-level names to ai_workbench_orchestrator.egg-info\top_level.txt
+reading manifest file 'ai_workbench_orchestrator.egg-info\SOURCES.txt'
+writing manifest file 'ai_workbench_orchestrator.egg-info\SOURCES.txt'
+running bdist_wheel
+running build
+running build_py
+copying app\contracts\work_orders.py -> build\lib\app\contracts
+copying app\runtime\review_handoff.py -> build\lib\app\runtime
+copying app\runtime\workflow.py -> build\lib\app\runtime
+copying app\translation\service.py -> build\lib\app\translation
+running egg_info
+writing ai_workbench_orchestrator.egg-info\PKG-INFO
+writing dependency_links to ai_workbench_orchestrator.egg-info\dependency_links.txt
+writing requirements to ai_workbench_orchestrator.egg-info\requires.txt
+writing top-level names to ai_workbench_orchestrator.egg-info\top_level.txt
+reading manifest file 'ai_workbench_orchestrator.egg-info\SOURCES.txt'
+writing manifest file 'ai_workbench_orchestrator.egg-info\SOURCES.txt'
+installing to build\bdist.win-amd64\wheel
+running install
+running install_lib
+creating build\bdist.win-amd64\wheel
+creating build\bdist.win-amd64\wheel\app
+creating build\bdist.win-amd64\wheel\app\api
+copying build\lib\app\api\application.py -> build\bdist.win-amd64\wheel\.\app\api
+copying build\lib\app\api\artifacts.py -> build\bdist.win-amd64\wheel\.\app\api
+copying build\lib\app\api\attachments.py -> build\bdist.win-amd64\wheel\.\app\api
+copying build\lib\app\api\backups.py -> build\bdist.win-amd64\wheel\.\app\api
+copying build\lib\app\api\conversations.py -> build\bdist.win-amd64\wheel\.\app\api
+copying build\lib\app\api\diagnostics.py -> build\bdist.win-amd64\wheel\.\app\api
+copying build\lib\app\api\launcher.py -> build\bdist.win-amd64\wheel\.\app\api
+copying build\lib\app\api\profiles.py -> build\bdist.win-amd64\wheel\.\app\api
+copying build\lib\app\api\public_events.py -> build\bdist.win-amd64\wheel\.\app\api
+copying build\lib\app\api\settings.py -> build\bdist.win-amd64\wheel\.\app\api
+copying build\lib\app\api\storage.py -> build\bdist.win-amd64\wheel\.\app\api
+copying build\lib\app\api\tasks.py -> build\bdist.win-amd64\wheel\.\app\api
+copying build\lib\app\api\turns.py -> build\bdist.win-amd64\wheel\.\app\api
+copying build\lib\app\api\usage.py -> build\bdist.win-amd64\wheel\.\app\api
+copying build\lib\app\api\__init__.py -> build\bdist.win-amd64\wheel\.\app\api
+copying build\lib\app\api\__main__.py -> build\bdist.win-amd64\wheel\.\app\api
+copying build\lib\app\config.py -> build\bdist.win-amd64\wheel\.\app
+creating build\bdist.win-amd64\wheel\app\contracts
+copying build\lib\app\contracts\artifacts.py -> build\bdist.win-amd64\wheel\.\app\contracts
+copying build\lib\app\contracts\events.py -> build\bdist.win-amd64\wheel\.\app\contracts
+copying build\lib\app\contracts\providers.py -> build\bdist.win-amd64\wheel\.\app\contracts
+copying build\lib\app\contracts\tasks.py -> build\bdist.win-amd64\wheel\.\app\contracts
+copying build\lib\app\contracts\translation.py -> build\bdist.win-amd64\wheel\.\app\contracts
+copying build\lib\app\contracts\work_orders.py -> build\bdist.win-amd64\wheel\.\app\contracts
+copying build\lib\app\contracts\__init__.py -> build\bdist.win-amd64\wheel\.\app\contracts
+creating build\bdist.win-amd64\wheel\app\documents
+copying build\lib\app\documents\canonical.py -> build\bdist.win-amd64\wheel\.\app\documents
+copying build\lib\app\documents\composite.py -> build\bdist.win-amd64\wheel\.\app\documents
+copying build\lib\app\documents\invalidation.py -> build\bdist.win-amd64\wheel\.\app\documents
+copying build\lib\app\documents\model.py -> build\bdist.win-amd64\wheel\.\app\documents
+copying build\lib\app\documents\parse.py -> build\bdist.win-amd64\wheel\.\app\documents
+copying build\lib\app\documents\publish.py -> build\bdist.win-amd64\wheel\.\app\documents
+copying build\lib\app\documents\render.py -> build\bdist.win-amd64\wheel\.\app\documents
+copying build\lib\app\documents\translate.py -> build\bdist.win-amd64\wheel\.\app\documents
+copying build\lib\app\documents\__init__.py -> build\bdist.win-amd64\wheel\.\app\documents
+creating build\bdist.win-amd64\wheel\app\operations
+copying build\lib\app\operations\controller.py -> build\bdist.win-amd64\wheel\.\app\operations
+copying build\lib\app\operations\drills.py -> build\bdist.win-amd64\wheel\.\app\operations
+copying build\lib\app\operations\feedback.py -> build\bdist.win-amd64\wheel\.\app\operations
+copying build\lib\app\operations\__init__.py -> build\bdist.win-amd64\wheel\.\app\operations
+creating build\bdist.win-amd64\wheel\app\profiles
+copying build\lib\app\profiles\code.yaml -> build\bdist.win-amd64\wheel\.\app\profiles
+copying build\lib\app\profiles\document.yaml -> build\bdist.win-amd64\wheel\.\app\profiles
+copying build\lib\app\profiles\mixed.yaml -> build\bdist.win-amd64\wheel\.\app\profiles
+copying build\lib\app\profiles\newprofile_checks.py -> build\bdist.win-amd64\wheel\.\app\profiles
+copying build\lib\app\profiles\paper.yaml -> build\bdist.win-amd64\wheel\.\app\profiles
+copying build\lib\app\profiles\registry.py -> build\bdist.win-amd64\wheel\.\app\profiles
+copying build\lib\app\profiles\__init__.py -> build\bdist.win-amd64\wheel\.\app\profiles
+creating build\bdist.win-amd64\wheel\app\prompts
+creating build\bdist.win-amd64\wheel\app\prompts\roles
+copying build\lib\app\prompts\roles\a_planner.v1.md -> build\bdist.win-amd64\wheel\.\app\prompts\roles
+copying build\lib\app\prompts\roles\a_reviewer.v1.md -> build\bdist.win-amd64\wheel\.\app\prompts\roles
+copying build\lib\app\prompts\roles\a_takeover.v1.md -> build\bdist.win-amd64\wheel\.\app\prompts\roles
+copying build\lib\app\prompts\roles\b_checker.v1.md -> build\bdist.win-amd64\wheel\.\app\prompts\roles
+copying build\lib\app\prompts\roles\b_executor.v1.md -> build\bdist.win-amd64\wheel\.\app\prompts\roles
+copying build\lib\app\prompts\roles\b_translator.v1.md -> build\bdist.win-amd64\wheel\.\app\prompts\roles
+copying build\lib\app\prompts\roles\runtime_boundaries.v1.md -> build\bdist.win-amd64\wheel\.\app\prompts\roles
+creating build\bdist.win-amd64\wheel\app\providers
+copying build\lib\app\providers\base.py -> build\bdist.win-amd64\wheel\.\app\providers
+copying build\lib\app\providers\claude_code.py -> build\bdist.win-amd64\wheel\.\app\providers
+copying build\lib\app\providers\codex_protocol.py -> build\bdist.win-amd64\wheel\.\app\providers
+copying build\lib\app\providers\fake.py -> build\bdist.win-amd64\wheel\.\app\providers
+copying build\lib\app\providers\gpt.py -> build\bdist.win-amd64\wheel\.\app\providers
+copying build\lib\app\providers\native_rpc.py -> build\bdist.win-amd64\wheel\.\app\providers
+copying build\lib\app\providers\native_rpc_worker.py -> build\bdist.win-amd64\wheel\.\app\providers
+copying build\lib\app\providers\native_scope.py -> build\bdist.win-amd64\wheel\.\app\providers
+copying build\lib\app\providers\phase_bridge.py -> build\bdist.win-amd64\wheel\.\app\providers
+copying build\lib\app\providers\probe.py -> build\bdist.win-amd64\wheel\.\app\providers
+copying build\lib\app\providers\scoped_codex_runtime.py -> build\bdist.win-amd64\wheel\.\app\providers
+copying build\lib\app\providers\scoped_codex_worker.py -> build\bdist.win-amd64\wheel\.\app\providers
+copying build\lib\app\providers\zcode.py -> build\bdist.win-amd64\wheel\.\app\providers
+copying build\lib\app\providers\zcode_protocol.py -> build\bdist.win-amd64\wheel\.\app\providers
+copying build\lib\app\providers\__init__.py -> build\bdist.win-amd64\wheel\.\app\providers
+creating build\bdist.win-amd64\wheel\app\quality
+copying build\lib\app\quality\eligibility.py -> build\bdist.win-amd64\wheel\.\app\quality
+copying build\lib\app\quality\__init__.py -> build\bdist.win-amd64\wheel\.\app\quality
+creating build\bdist.win-amd64\wheel\app\release
+copying build\lib\app\release\audit.py -> build\bdist.win-amd64\wheel\.\app\release
+copying build\lib\app\release\evidence.py -> build\bdist.win-amd64\wheel\.\app\release
+copying build\lib\app\release\sbom.py -> build\bdist.win-amd64\wheel\.\app\release
+copying build\lib\app\release\__init__.py -> build\bdist.win-amd64\wheel\.\app\release
+creating build\bdist.win-amd64\wheel\app\runtime
+copying build\lib\app\runtime\answer_publication.py -> build\bdist.win-amd64\wheel\.\app\runtime
+copying build\lib\app\runtime\composite_context.py -> build\bdist.win-amd64\wheel\.\app\runtime
+copying build\lib\app\runtime\context_gateway.py -> build\bdist.win-amd64\wheel\.\app\runtime
+copying build\lib\app\runtime\conversation_context.py -> build\bdist.win-amd64\wheel\.\app\runtime
+copying build\lib\app\runtime\demo_backend.py -> build\bdist.win-amd64\wheel\.\app\runtime
+copying build\lib\app\runtime\dependencies.py -> build\bdist.win-amd64\wheel\.\app\runtime
+copying build\lib\app\runtime\escalation.py -> build\bdist.win-amd64\wheel\.\app\runtime
+copying build\lib\app\runtime\leases.py -> build\bdist.win-amd64\wheel\.\app\runtime
+copying build\lib\app\runtime\native_backend.py -> build\bdist.win-amd64\wheel\.\app\runtime
+copying build\lib\app\runtime\native_executor.py -> build\bdist.win-amd64\wheel\.\app\runtime
+copying build\lib\app\runtime\native_validation.py -> build\bdist.win-amd64\wheel\.\app\runtime
+copying build\lib\app\runtime\outbox.py -> build\bdist.win-amd64\wheel\.\app\runtime
+copying build\lib\app\runtime\planning.py -> build\bdist.win-amd64\wheel\.\app\runtime
+copying build\lib\app\runtime\processes.py -> build\bdist.win-amd64\wheel\.\app\runtime
+copying build\lib\app\runtime\publication.py -> build\bdist.win-amd64\wheel\.\app\runtime
+copying build\lib\app\runtime\public_projection.py -> build\bdist.win-amd64\wheel\.\app\runtime
+copying build\lib\app\runtime\recovery.py -> build\bdist.win-amd64\wheel\.\app\runtime
+copying build\lib\app\runtime\repair.py -> build\bdist.win-amd64\wheel\.\app\runtime
+copying build\lib\app\runtime\resources.py -> build\bdist.win-amd64\wheel\.\app\runtime
+copying build\lib\app\runtime\review_handoff.py -> build\bdist.win-amd64\wheel\.\app\runtime
+copying build\lib\app\runtime\role_prompts.py -> build\bdist.win-amd64\wheel\.\app\runtime
+copying build\lib\app\runtime\startup_publication.py -> build\bdist.win-amd64\wheel\.\app\runtime
+copying build\lib\app\runtime\state_machine.py -> build\bdist.win-amd64\wheel\.\app\runtime
+copying build\lib\app\runtime\supervisor.py -> build\bdist.win-amd64\wheel\.\app\runtime
+copying build\lib\app\runtime\workflow.py -> build\bdist.win-amd64\wheel\.\app\runtime
+copying build\lib\app\runtime\workspace.py -> build\bdist.win-amd64\wheel\.\app\runtime
+copying build\lib\app\runtime\__init__.py -> build\bdist.win-amd64\wheel\.\app\runtime
+creating build\bdist.win-amd64\wheel\app\storage
+copying build\lib\app\storage\backup.py -> build\bdist.win-amd64\wheel\.\app\storage
+copying build\lib\app\storage\blobs.py -> build\bdist.win-amd64\wheel\.\app\storage
+copying build\lib\app\storage\cleanup.py -> build\bdist.win-amd64\wheel\.\app\storage
+copying build\lib\app\storage\database.py -> build\bdist.win-amd64\wheel\.\app\storage
+copying build\lib\app\storage\directory_commit.py -> build\bdist.win-amd64\wheel\.\app\storage
+copying build\lib\app\storage\migrations.py -> build\bdist.win-amd64\wheel\.\app\storage
+copying build\lib\app\storage\relocation.py -> build\bdist.win-amd64\wheel\.\app\storage
+copying build\lib\app\storage\restore.py -> build\bdist.win-amd64\wheel\.\app\storage
+copying build\lib\app\storage\revisions.py -> build\bdist.win-amd64\wheel\.\app\storage
+creating build\bdist.win-amd64\wheel\app\storage\schema
+copying build\lib\app\storage\schema\0001_initial.sql -> build\bdist.win-amd64\wheel\.\app\storage\schema
+copying build\lib\app\storage\schema\0002_route_snapshots.sql -> build\bdist.win-amd64\wheel\.\app\storage\schema
+copying build\lib\app\storage\schema\0003_delivery_bundles.sql -> build\bdist.win-amd64\wheel\.\app\storage\schema
+copying build\lib\app\storage\schema\0004_desktop_settings.sql -> build\bdist.win-amd64\wheel\.\app\storage\schema
+copying build\lib\app\storage\__init__.py -> build\bdist.win-amd64\wheel\.\app\storage
+creating build\bdist.win-amd64\wheel\app\translation
+copying build\lib\app\translation\cache.py -> build\bdist.win-amd64\wheel\.\app\translation
+copying build\lib\app\translation\clarification.py -> build\bdist.win-amd64\wheel\.\app\translation
+copying build\lib\app\translation\context_gateway.py -> build\bdist.win-amd64\wheel\.\app\translation
+copying build\lib\app\translation\glossary.py -> build\bdist.win-amd64\wheel\.\app\translation
+copying build\lib\app\translation\history.py -> build\bdist.win-amd64\wheel\.\app\translation
+copying build\lib\app\translation\input_pipeline.py -> build\bdist.win-amd64\wheel\.\app\translation
+copying build\lib\app\translation\output_pipeline.py -> build\bdist.win-amd64\wheel\.\app\translation
+copying build\lib\app\translation\ports.py -> build\bdist.win-amd64\wheel\.\app\translation
+creating build\bdist.win-amd64\wheel\app\translation\prompts
+copying build\lib\app\translation\prompts\input_translator.txt -> build\bdist.win-amd64\wheel\.\app\translation\prompts
+copying build\lib\app\translation\prompts\output_translator.txt -> build\bdist.win-amd64\wheel\.\app\translation\prompts
+copying build\lib\app\translation\prompts\semantic_checker.txt -> build\bdist.win-amd64\wheel\.\app\translation\prompts
+copying build\lib\app\translation\protection.py -> build\bdist.win-amd64\wheel\.\app\translation
+copying build\lib\app\translation\quality.py -> build\bdist.win-amd64\wheel\.\app\translation
+copying build\lib\app\translation\router.py -> build\bdist.win-amd64\wheel\.\app\translation
+copying build\lib\app\translation\runtime_context.py -> build\bdist.win-amd64\wheel\.\app\translation
+copying build\lib\app\translation\segments.py -> build\bdist.win-amd64\wheel\.\app\translation
+copying build\lib\app\translation\service.py -> build\bdist.win-amd64\wheel\.\app\translation
+copying build\lib\app\translation\__init__.py -> build\bdist.win-amd64\wheel\.\app\translation
+creating build\bdist.win-amd64\wheel\app\usage
+copying build\lib\app\usage\budgets.py -> build\bdist.win-amd64\wheel\.\app\usage
+copying build\lib\app\usage\ledger.py -> build\bdist.win-amd64\wheel\.\app\usage
+copying build\lib\app\usage\normalization.py -> build\bdist.win-amd64\wheel\.\app\usage
+copying build\lib\app\usage\__init__.py -> build\bdist.win-amd64\wheel\.\app\usage
+creating build\bdist.win-amd64\wheel\app\validation
+copying build\lib\app\validation\base.py -> build\bdist.win-amd64\wheel\.\app\validation
+copying build\lib\app\validation\code.py -> build\bdist.win-amd64\wheel\.\app\validation
+copying build\lib\app\validation\document.py -> build\bdist.win-amd64\wheel\.\app\validation
+copying build\lib\app\validation\paper.py -> build\bdist.win-amd64\wheel\.\app\validation
+copying build\lib\app\validation\registry.py -> build\bdist.win-amd64\wheel\.\app\validation
+copying build\lib\app\validation\__init__.py -> build\bdist.win-amd64\wheel\.\app\validation
+copying build\lib\app\__init__.py -> build\bdist.win-amd64\wheel\.\app
+running install_egg_info
+Copying ai_workbench_orchestrator.egg-info to build\bdist.win-amd64\wheel\.\ai_workbench_orchestrator-0.1.0-py3.13.egg-info
+running install_scripts
+creating build\bdist.win-amd64\wheel\ai_workbench_orchestrator-0.1.0.dist-info\WHEEL
+creating 'C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\part-five-prompts-wheel\\.tmp-wxv9rf0a\\ai_workbench_orchestrator-0.1.0-py3-none-any.whl' and adding 'build\\bdist.win-amd64\\wheel' to it
+adding 'app/__init__.py'
+adding 'app/config.py'
+adding 'app/api/__init__.py'
+adding 'app/api/__main__.py'
+adding 'app/api/application.py'
+adding 'app/api/artifacts.py'
+adding 'app/api/attachments.py'
+adding 'app/api/backups.py'
+adding 'app/api/conversations.py'
+adding 'app/api/diagnostics.py'
+adding 'app/api/launcher.py'
+adding 'app/api/profiles.py'
+adding 'app/api/public_events.py'
+adding 'app/api/settings.py'
+adding 'app/api/storage.py'
+adding 'app/api/tasks.py'
+adding 'app/api/turns.py'
+adding 'app/api/usage.py'
+adding 'app/contracts/__init__.py'
+adding 'app/contracts/artifacts.py'
+adding 'app/contracts/events.py'
+adding 'app/contracts/providers.py'
+adding 'app/contracts/tasks.py'
+adding 'app/contracts/translation.py'
+adding 'app/contracts/work_orders.py'
+adding 'app/documents/__init__.py'
+adding 'app/documents/canonical.py'
+adding 'app/documents/composite.py'
+adding 'app/documents/invalidation.py'
+adding 'app/documents/model.py'
+adding 'app/documents/parse.py'
+adding 'app/documents/publish.py'
+adding 'app/documents/render.py'
+adding 'app/documents/translate.py'
+adding 'app/operations/__init__.py'
+adding 'app/operations/controller.py'
+adding 'app/operations/drills.py'
+adding 'app/operations/feedback.py'
+adding 'app/profiles/__init__.py'
+adding 'app/profiles/code.yaml'
+adding 'app/profiles/document.yaml'
+adding 'app/profiles/mixed.yaml'
+adding 'app/profiles/newprofile_checks.py'
+adding 'app/profiles/paper.yaml'
+adding 'app/profiles/registry.py'
+adding 'app/prompts/roles/a_planner.v1.md'
+adding 'app/prompts/roles/a_reviewer.v1.md'
+adding 'app/prompts/roles/a_takeover.v1.md'
+adding 'app/prompts/roles/b_checker.v1.md'
+adding 'app/prompts/roles/b_executor.v1.md'
+adding 'app/prompts/roles/b_translator.v1.md'
+adding 'app/prompts/roles/runtime_boundaries.v1.md'
+adding 'app/providers/__init__.py'
+adding 'app/providers/base.py'
+adding 'app/providers/claude_code.py'
+adding 'app/providers/codex_protocol.py'
+adding 'app/providers/fake.py'
+adding 'app/providers/gpt.py'
+adding 'app/providers/native_rpc.py'
+adding 'app/providers/native_rpc_worker.py'
+adding 'app/providers/native_scope.py'
+adding 'app/providers/phase_bridge.py'
+adding 'app/providers/probe.py'
+adding 'app/providers/scoped_codex_runtime.py'
+adding 'app/providers/scoped_codex_worker.py'
+adding 'app/providers/zcode.py'
+adding 'app/providers/zcode_protocol.py'
+adding 'app/quality/__init__.py'
+adding 'app/quality/eligibility.py'
+adding 'app/release/__init__.py'
+adding 'app/release/audit.py'
+adding 'app/release/evidence.py'
+adding 'app/release/sbom.py'
+adding 'app/runtime/__init__.py'
+adding 'app/runtime/answer_publication.py'
+adding 'app/runtime/composite_context.py'
+adding 'app/runtime/context_gateway.py'
+adding 'app/runtime/conversation_context.py'
+adding 'app/runtime/demo_backend.py'
+adding 'app/runtime/dependencies.py'
+adding 'app/runtime/escalation.py'
+adding 'app/runtime/leases.py'
+adding 'app/runtime/native_backend.py'
+adding 'app/runtime/native_executor.py'
+adding 'app/runtime/native_validation.py'
+adding 'app/runtime/outbox.py'
+adding 'app/runtime/planning.py'
+adding 'app/runtime/processes.py'
+adding 'app/runtime/public_projection.py'
+adding 'app/runtime/publication.py'
+adding 'app/runtime/recovery.py'
+adding 'app/runtime/repair.py'
+adding 'app/runtime/resources.py'
+adding 'app/runtime/review_handoff.py'
+adding 'app/runtime/role_prompts.py'
+adding 'app/runtime/startup_publication.py'
+adding 'app/runtime/state_machine.py'
+adding 'app/runtime/supervisor.py'
+adding 'app/runtime/workflow.py'
+adding 'app/runtime/workspace.py'
+adding 'app/storage/__init__.py'
+adding 'app/storage/backup.py'
+adding 'app/storage/blobs.py'
+adding 'app/storage/cleanup.py'
+adding 'app/storage/database.py'
+adding 'app/storage/directory_commit.py'
+adding 'app/storage/migrations.py'
+adding 'app/storage/relocation.py'
+adding 'app/storage/restore.py'
+adding 'app/storage/revisions.py'
+adding 'app/storage/schema/0001_initial.sql'
+adding 'app/storage/schema/0002_route_snapshots.sql'
+adding 'app/storage/schema/0003_delivery_bundles.sql'
+adding 'app/storage/schema/0004_desktop_settings.sql'
+adding 'app/translation/__init__.py'
+adding 'app/translation/cache.py'
+adding 'app/translation/clarification.py'
+adding 'app/translation/context_gateway.py'
+adding 'app/translation/glossary.py'
+adding 'app/translation/history.py'
+adding 'app/translation/input_pipeline.py'
+adding 'app/translation/output_pipeline.py'
+adding 'app/translation/ports.py'
+adding 'app/translation/protection.py'
+adding 'app/translation/quality.py'
+adding 'app/translation/router.py'
+adding 'app/translation/runtime_context.py'
+adding 'app/translation/segments.py'
+adding 'app/translation/service.py'
+adding 'app/translation/prompts/input_translator.txt'
+adding 'app/translation/prompts/output_translator.txt'
+adding 'app/translation/prompts/semantic_checker.txt'
+adding 'app/usage/__init__.py'
+adding 'app/usage/budgets.py'
+adding 'app/usage/ledger.py'
+adding 'app/usage/normalization.py'
+adding 'app/validation/__init__.py'
+adding 'app/validation/base.py'
+adding 'app/validation/code.py'
+adding 'app/validation/document.py'
+adding 'app/validation/paper.py'
+adding 'app/validation/registry.py'
+adding 'ai_workbench_orchestrator-0.1.0.dist-info/METADATA'
+adding 'ai_workbench_orchestrator-0.1.0.dist-info/WHEEL'
+adding 'ai_workbench_orchestrator-0.1.0.dist-info/top_level.txt'
+adding 'ai_workbench_orchestrator-0.1.0.dist-info/RECORD'
+removing build\bdist.win-amd64\wheel
+Successfully built .tools\part-five-prompts-wheel\ai_workbench_orchestrator-0.1.0-py3-none-any.whl
+Exit code: 0

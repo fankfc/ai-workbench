@@ -1,0 +1,28 @@
+{
+  "card": "D059",
+  "case": "incident_rollback",
+  "command": [
+    "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\.venv\\Scripts\\python.exe",
+    "tests/support/scenario_driver.py",
+    "incident_rollback",
+    "--root",
+    "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\artifacts\\qa\\D059\\rfacff77f",
+    "--options",
+    "{\"fault\": \"critical_translation_after_model_change\"}"
+  ],
+  "exit_code": 0,
+  "time": "2026-10-15T02:01:03.464353+00:00",
+  "build_id": "cb98eed03df6bd4ffaa551d66a54c77198911cf5b3e763a1ef3c055f5ee54ca4",
+  "run_root": "artifacts/qa/D059/rfacff77f",
+  "result": {
+    "optimization_disabled": true,
+    "affected_publication_stopped": true,
+    "provider_switched": false,
+    "evidence_preserved": true,
+    "resume_requires_requalification": true,
+    "evidence_kind": "deterministic_product_probe",
+    "blocked_reasons": [
+      "desktop_drill_signed_rollback_and_real_model_requalification_not_executed"
+    ]
+  }
+}

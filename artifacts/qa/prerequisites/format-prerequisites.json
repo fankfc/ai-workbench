@@ -1,0 +1,15 @@
+{
+  "source_kind": "local_prerequisite_probe",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.13.0",
+  "capabilities": {
+    "markdown": true,
+    "pdf": true,
+    "docx_package": true,
+    "docx_visual": true,
+    "font_path": "C:\\Windows\\Fonts\\simsun.ttc",
+    "font_sha256": "1526ac24375f51f6eb73bc2d3f8072dbe4a80a3a65217677c9d9a84f67dab2ab"
+  },
+  "blocked_reasons": [],
+  "actual_pdf_and_docx_render": true
+}

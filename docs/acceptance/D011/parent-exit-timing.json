@@ -1,0 +1,57 @@
+[
+  {
+    "case": 0,
+    "actual_worker_records": 3,
+    "local_state": "exited",
+    "returncode": 0,
+    "pids": [
+      33780,
+      46724,
+      64200
+    ]
+  },
+  {
+    "case": 1,
+    "actual_worker_records": 3,
+    "local_state": "exited",
+    "returncode": 0,
+    "pids": [
+      13292,
+      56608,
+      60692
+    ]
+  },
+  {
+    "case": 2,
+    "actual_worker_records": 3,
+    "local_state": "exited",
+    "returncode": 0,
+    "pids": [
+      36092,
+      58304,
+      63116
+    ]
+  },
+  {
+    "case": 3,
+    "actual_worker_records": 3,
+    "local_state": "exited",
+    "returncode": 0,
+    "pids": [
+      1544,
+      58636,
+      64188
+    ]
+  },
+  {
+    "case": 4,
+    "actual_worker_records": 3,
+    "local_state": "exited",
+    "returncode": 0,
+    "pids": [
+      32972,
+      47584,
+      48468
+    ]
+  }
+]

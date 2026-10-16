@@ -1,0 +1,37 @@
+{
+  "authorization": "\u7528\u6237\u8981\u6c42\u5b8c\u6574\u6536\u5c3e\u7b2c\u4e00\u90e8\u5206\uff0c\u4e0d\u518d\u8be2\u95ee\uff0c\u5e76\u8981\u6c42\u7ee7\u7eed\u4efb\u52a1",
+  "scope": "Native GPT execution-metadata observation and official ZCode supported host verification",
+  "maximum_new_model_turn_submissions": 2,
+  "new_model_turn_submissions": 2,
+  "metadata_and_source_builds_are_model_turns": false,
+  "maximum_seconds_per_model_turn": 120,
+  "maximum_capture_bytes": 2000000,
+  "provider_internal_requests": "unknown unless reported",
+  "automatic_retries": false,
+  "no_new_keys_or_account_entitlement_claims": true,
+  "production_enablement_requires_fresh_verified_evidence": true,
+  "gpt_count": 2,
+  "gpt_actual_turn_starts": 2,
+  "gpt_observation": {
+    "invocation_id": "40512fd95cf94631a3598203d16ea06b",
+    "intent_reserved_at": "2026-10-14T03:40:00.715029+00:00",
+    "status": "completed",
+    "maximum_turn_start_submissions": 1,
+    "actual_turn_start_submissions": 1,
+    "note": "Budget records intent before launch; not proof of acceptance or billing.",
+    "finished_at": "2026-10-14T03:40:30.706269+00:00",
+    "observed_bound_turn_starts": 1,
+    "report": "docs/acceptance/part-one-closeout/gpt-execution-metadata-observation.json"
+  },
+  "gpt_http_identity_observation": {
+    "invocation_id": "a86d78492e0b46ef901641f46924582c",
+    "intent_reserved_at": "2026-10-14T04:16:58.982347+00:00",
+    "status": "completed",
+    "maximum_turn_start_submissions": 1,
+    "actual_turn_start_submissions": 1,
+    "note": "Budget records intent before launch; not proof of acceptance or billing.",
+    "finished_at": "2026-10-14T04:17:20.391667+00:00",
+    "observed_bound_turn_starts": 1,
+    "report": "docs/acceptance/part-one-closeout/gpt-http-identity-observation.json"
+  }
+}

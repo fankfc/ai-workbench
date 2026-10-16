@@ -1,0 +1,111 @@
+FFFFFF                                                                   [100%]
+================================== FAILURES ===================================
+_____ test_pdf_cannot_reuse_one_actual_paragraph_for_two_required_blocks ______
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-380/test_pdf_cannot_reuse_one_actu0')
+
+    def test_pdf_cannot_reuse_one_actual_paragraph_for_two_required_blocks(tmp_path):
+        from app.documents.parse import parse_document
+        from app.documents.render import DocumentRenderer,verify_pdf
+        full=parse_document(b'# Report\n\nRequired paragraph 30.\n\nRequired paragraph 30.',
+            'markdown',source_version_id='full',language='en')
+        omitted=parse_document(b'# Report\n\nRequired paragraph 30.',
+            'markdown',source_version_id='omitted',language='en')
+        actual_pdf=DocumentRenderer().render(omitted,'pdf',evidence_dir=tmp_path/'one').data
+>       with pytest.raises(ValueError,match='PDF_CONTENT_MISSING'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests\artifacts\test_render_layout.py:87: Failed
+_____ test_pdf_block_order_and_multiplicity_are_consumed_without_overlap ______
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-380/test_pdf_block_order_and_multi0')
+
+    def test_pdf_block_order_and_multiplicity_are_consumed_without_overlap(tmp_path):
+        from app.documents.parse import parse_document
+        from app.documents.render import DocumentRenderer,verify_pdf
+        full=parse_document(b'# Report\n\nFirst required paragraph 30.\n\nSecond required paragraph 40.',
+            'markdown',source_version_id='full',language='en')
+        reversed_model=parse_document(b'# Report\n\nSecond required paragraph 40.\n\nFirst required paragraph 30.',
+            'markdown',source_version_id='reverse',language='en')
+        actual_pdf=DocumentRenderer().render(reversed_model,'pdf',evidence_dir=tmp_path/'reverse').data
+>       with pytest.raises(ValueError,match='PDF_CONTENT_MISSING'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests\artifacts\test_render_layout.py:99: Failed
+_ test_unsupported_list_structure_is_explicit_instead_of_flattened[1. First action.\n2. Second action.\n] _
+
+text = b'1. First action.\n2. Second action.\n'
+
+    @pytest.mark.parametrize('text', [b'1. First action.\n2. Second action.\n',
+        b'- First action.\n  - Required child step.\n',b'- First action.\n\n  Required continuation.\n'])
+    def test_unsupported_list_structure_is_explicit_instead_of_flattened(text):
+        from app.documents.parse import parse_document
+        model=parse_document(text,'markdown',source_version_id='s',language='en')
+>       assert not model.complete
+E       AssertionError: assert not True
+E        +  where True = DocumentModel(schema_version='1.0', source_version_id='s', source_bytes_sha256='51a3d345202091c5bf5c090b2b9e278869dc42...e_ids=[], translatable=True, preservation_reason=None, metadata={})], issues=[], resources={}, translation_evidence={}).complete
+
+tests\artifacts\test_document_parse.py:69: AssertionError
+_ test_unsupported_list_structure_is_explicit_instead_of_flattened[- First action.\n  - Required child step.\n] _
+
+text = b'- First action.\n  - Required child step.\n'
+
+    @pytest.mark.parametrize('text', [b'1. First action.\n2. Second action.\n',
+        b'- First action.\n  - Required child step.\n',b'- First action.\n\n  Required continuation.\n'])
+    def test_unsupported_list_structure_is_explicit_instead_of_flattened(text):
+        from app.documents.parse import parse_document
+        model=parse_document(text,'markdown',source_version_id='s',language='en')
+>       assert not model.complete
+E       AssertionError: assert not True
+E        +  where True = DocumentModel(schema_version='1.0', source_version_id='s', source_bytes_sha256='6f7e9668dac8bc05a4b21ef7ad20e9793b3e85...e_ids=[], translatable=True, preservation_reason=None, metadata={})], issues=[], resources={}, translation_evidence={}).complete
+
+tests\artifacts\test_document_parse.py:69: AssertionError
+_ test_unsupported_list_structure_is_explicit_instead_of_flattened[- First action.\n\n  Required continuation.\n] _
+
+text = b'- First action.\n\n  Required continuation.\n'
+
+    @pytest.mark.parametrize('text', [b'1. First action.\n2. Second action.\n',
+        b'- First action.\n  - Required child step.\n',b'- First action.\n\n  Required continuation.\n'])
+    def test_unsupported_list_structure_is_explicit_instead_of_flattened(text):
+        from app.documents.parse import parse_document
+        model=parse_document(text,'markdown',source_version_id='s',language='en')
+>       assert not model.complete
+E       AssertionError: assert not True
+E        +  where True = DocumentModel(schema_version='1.0', source_version_id='s', source_bytes_sha256='2a32e12b008153bb2d6ac6b29545bc9e82f3e1...e_ids=[], translatable=True, preservation_reason=None, metadata={})], issues=[], resources={}, translation_evidence={}).complete
+
+tests\artifacts\test_document_parse.py:69: AssertionError
+______ test_simple_flat_bullets_remain_supported_with_structure_metadata ______
+
+    def test_simple_flat_bullets_remain_supported_with_structure_metadata():
+        from app.documents.parse import parse_document
+        model=parse_document(b'- First action.\n- Second action.\n','markdown',source_version_id='s',language='en')
+        assert model.complete
+>       assert all(b.metadata.get('list_type')=='unordered' and b.metadata.get('list_depth')==1 for b in model.blocks)
+E       assert False
+E        +  where False = all(<generator object test_simple_flat_bullets_remain_supported_with_structure_metadata.<locals>.<genexpr> at 0x000001AF21D2C520>)
+
+tests\artifacts\test_document_parse.py:77: AssertionError
+============================== warnings summary ===============================
+<frozen importlib._bootstrap>:488
+<frozen importlib._bootstrap>:488
+  <frozen importlib._bootstrap>:488: DeprecationWarning: builtin type SwigPyPacked has no __module__ attribute
+
+<frozen importlib._bootstrap>:488
+<frozen importlib._bootstrap>:488
+  <frozen importlib._bootstrap>:488: DeprecationWarning: builtin type SwigPyObject has no __module__ attribute
+
+<frozen importlib._bootstrap>:488
+  <frozen importlib._bootstrap>:488: DeprecationWarning: builtin type swigvarlink has no __module__ attribute
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/artifacts/test_render_layout.py::test_pdf_cannot_reuse_one_actual_paragraph_for_two_required_blocks
+FAILED tests/artifacts/test_render_layout.py::test_pdf_block_order_and_multiplicity_are_consumed_without_overlap
+FAILED tests/artifacts/test_document_parse.py::test_unsupported_list_structure_is_explicit_instead_of_flattened[1. First action.\n2. Second action.\n]
+FAILED tests/artifacts/test_document_parse.py::test_unsupported_list_structure_is_explicit_instead_of_flattened[- First action.\n  - Required child step.\n]
+FAILED tests/artifacts/test_document_parse.py::test_unsupported_list_structure_is_explicit_instead_of_flattened[- First action.\n\n  Required continuation.\n]
+FAILED tests/artifacts/test_document_parse.py::test_simple_flat_bullets_remain_supported_with_structure_metadata
+6 failed, 13 deselected, 5 warnings in 0.98s
+<sys>:0: DeprecationWarning: builtin type swigvarlink has no __module__ attribute

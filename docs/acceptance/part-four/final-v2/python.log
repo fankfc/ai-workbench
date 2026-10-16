@@ -1,0 +1,60 @@
+........................................................................ [  4%]
+........................................................................ [  9%]
+........................................................................ [ 13%]
+........................................................................ [ 18%]
+........................................................................ [ 22%]
+........................................................................ [ 27%]
+........................................................................ [ 32%]
+........................................................................ [ 36%]
+..........F............................................................. [ 41%]
+........................................................................ [ 45%]
+........................................................................ [ 50%]
+........................................................................ [ 55%]
+........................................................................ [ 59%]
+........................................................................ [ 64%]
+........................................................................ [ 68%]
+........................................................................ [ 73%]
+........................................................................ [ 78%]
+........................................................................ [ 82%]
+........................................................................ [ 87%]
+........................................................................ [ 91%]
+........................................................................ [ 96%]
+......................................................                   [100%]
+================================== FAILURES ===================================
+_ test_failure_retains_genuine_bound_usage_without_business_capture[error_before_turn_completed] _
+
+tmp_path = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/.omx/qa/p4/7a6652ca/test_failure_retains_genuine_b1')
+scenario = 'error_before_turn_completed'
+
+    @pytest.mark.parametrize('scenario', ['trailing_error','error_before_turn_completed'])
+    def test_failure_retains_genuine_bound_usage_without_business_capture(tmp_path,scenario):
+        frames, code = worker_frames(tmp_path,scenario)
+        assert code == 1
+        usages = [frame for frame in frames if frame['kind']=='usage']
+>       assert len(usages) == 1
+E       assert 0 == 1
+E        +  where 0 = len([])
+
+tests\contracts\test_scoped_worker_repairs.py:143: AssertionError
+============================== warnings summary ===============================
+<frozen importlib._bootstrap>:488
+<frozen importlib._bootstrap>:488
+  <frozen importlib._bootstrap>:488: DeprecationWarning: builtin type SwigPyPacked has no __module__ attribute
+
+<frozen importlib._bootstrap>:488
+<frozen importlib._bootstrap>:488
+  <frozen importlib._bootstrap>:488: DeprecationWarning: builtin type SwigPyObject has no __module__ attribute
+
+<frozen importlib._bootstrap>:488
+  <frozen importlib._bootstrap>:488: DeprecationWarning: builtin type swigvarlink has no __module__ attribute
+
+services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1
+  C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/contracts/test_scoped_worker_repairs.py::test_failure_retains_genuine_bound_usage_without_business_capture[error_before_turn_completed] - assert 0 == 1
+ +  where 0 = len([])
+1 failed, 1565 passed, 1 deselected, 6 warnings in 488.82s (0:08:08)
+<sys>:0: DeprecationWarning: builtin type swigvarlink has no __module__ attribute

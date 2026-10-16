@@ -1,0 +1,55 @@
+{
+  "status": "source_derived_candidate_only",
+  "production_enabled": false,
+  "scope_enforced": false,
+  "new_model_starts": 0,
+  "runtime_config_query_performed": false,
+  "all_schema_checks_passed": true,
+  "checks": {
+    "canonical_feature_keys_are_present_and_not_removed": true,
+    "canonical_config_schema_valid": true,
+    "empty_thread_environment_schema_valid": true,
+    "empty_turn_environment_schema_valid": true
+  },
+  "candidate_per_process_settings": {
+    "features": {
+      "shell_tool": false,
+      "view_image": false,
+      "code_mode": false,
+      "code_mode_only": false,
+      "code_mode_host": {
+        "enabled": false,
+        "disable_in_process_fallback": false
+      },
+      "multi_agent": false,
+      "multi_agent_v2": false,
+      "apps": false,
+      "plugins": false,
+      "tool_suggest": false,
+      "recommended_plugins": false,
+      "memories": false,
+      "image_generation": false,
+      "hooks": false,
+      "deferred_executor": false,
+      "request_permissions_tool": false
+    },
+    "memories": {
+      "use_memories": false
+    },
+    "cloud": {
+      "skills": {
+        "enabled": false
+      }
+    },
+    "web_search": "disabled",
+    "notify": []
+  },
+  "mcp_control_requires_effective_names_and_lifetime_pin": true,
+  "scope_markdown_sha256": "e809526f3763aabb3b8e0ab80fdd94398c445f7b729d976da011ffd9e134e06a",
+  "schema_sha256": {
+    ".tools/gpt-response-identity-source/codex-rs/core/config.schema.json": "7ce31bde1ed6ef15c53a96ba460bb1d0fb7b99fd9ab719b567c94c474f62b023",
+    ".tools/gpt-metadata-probe/schemas/v2/ThreadStartParams.json": "80a40a7fac15b4bf70efb7f893fb353acc0a0d30c68f54aee4f01923deca85de",
+    ".tools/gpt-metadata-probe/schemas/v2/TurnStartParams.json": "07771223642e1b61bd9aac0069fc0f98143a1c047724ca02c7ceb13653442738",
+    ".tools/gpt-response-identity-source/codex-rs/features/src/lib.rs": "124c76d1fbad7b05fd78a62b89a28282c7ecab1de7426ac18696987024ddeae0"
+  }
+}

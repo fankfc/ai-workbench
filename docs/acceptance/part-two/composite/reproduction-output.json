@@ -1,0 +1,50 @@
+{
+  "v1": {
+    "source_data": "source_data-3b6678ed4f8649a59d62e36d91912214",
+    "analysis_code": "analysis_code-8d5faf85757441289d9b24acd76993e6",
+    "computed_results": "computed_results-9dc9798f6f054138b7800c190134f993",
+    "figures": "figures-4ad0cc1aae3a4e70ba0cfe16fa5a0c03",
+    "results": {
+      "increase": "10",
+      "monthly_totals": {
+        "2026-01": "30",
+        "2026-02": "40"
+      },
+      "rows": 4
+    },
+    "source_ref": "input/analysis-319c1ef664f149ee9115f670f0351db2.csv",
+    "code_ref": "input/analysis-319c1ef664f149ee9115f670f0351db2.py",
+    "source_sha256": "17038a6f42374e654ecd6760e02b5af6f63334b149285ff0a42beb9ba5f7e3ec",
+    "code_sha256": "67a53ac38da2186ad92a8620ff2f4d440b5f53352db225df284b2a1415d0c955",
+    "command": [
+      "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\.venv\\Scripts\\python.exe",
+      "<scoped-analysis.py>",
+      "<scoped-sales.csv>"
+    ],
+    "exit_code": 0
+  },
+  "v2": {
+    "source_data": "source_data-4ef291f25eab4046997e8612c19db1c9",
+    "analysis_code": "analysis_code-c007280539f24cc194bc3e2ecdc72624",
+    "computed_results": "computed_results-084cb2cb301f4595bd9788d0f07a36d7",
+    "figures": "figures-3352ee57ec4241a7a6acb48ea85d1067",
+    "results": {
+      "increase": "20",
+      "monthly_totals": {
+        "2026-01": "30",
+        "2026-02": "50"
+      },
+      "rows": 4
+    },
+    "source_ref": "input/analysis-308b3f9bbe204b0db89f8b3cda715ee3.csv",
+    "code_ref": "input/analysis-308b3f9bbe204b0db89f8b3cda715ee3.py",
+    "source_sha256": "ef0de77ffed340f5c54aaf517b49d643d71fea712c2ae499619ba13de70c2ab4",
+    "code_sha256": "67a53ac38da2186ad92a8620ff2f4d440b5f53352db225df284b2a1415d0c955",
+    "command": [
+      "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\.venv\\Scripts\\python.exe",
+      "<scoped-analysis.py>",
+      "<scoped-sales.csv>"
+    ],
+    "exit_code": 0
+  }
+}

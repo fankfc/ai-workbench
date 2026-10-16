@@ -1,0 +1,59 @@
+F.                                                                       [100%]
+================================== FAILURES ===================================
+______ test_one_explicit_probe_can_check_both_native_metadata_connectors ______
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-206/test_one_explicit_probe_can_ch0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x00000216C93DC9D0>
+
+    def test_one_explicit_probe_can_check_both_native_metadata_connectors(tmp_path, monkeypatch):
+        module = load_script()
+        seen = []
+    
+        class Codex:
+            def __init__(self, command, cwd, **bounds):
+                seen.append(('codex', command))
+    
+            def metadata(self):
+                return {'identity_status': 'unknown', 'actual_model_id': None,
+                        'production_enabled': False, 'model_turn_starts': 0,
+                        'cleanup': {'cleanup_complete': True, 'running': 0, 'open_handles': 0, 'temp_dirs': 0}}
+    
+        class ZCode:
+            @staticmethod
+            def fixed_command(cwd):
+                return ['fixture-node.exe', 'fixture-zcode.cjs', 'app-server', '--cwd', str(cwd), '--no-color']
+    
+            def __init__(self, command, cwd, **bounds):
+                seen.append(('zcode', command))
+                assert os.environ.get('ZCODE_BUILTIN_PROVIDER_CONFIG_FILE') == str(module.ROOT / 'unused') or os.environ.get('ZCODE_BUILTIN_PROVIDER_CONFIG_FILE') == 'D:/zcode/resources/config/provider/zcode-builtin.json'
+    
+            def probe(self):
+                return {'metadata_status': 'observed', 'reason_code': 'HOST_ACCOUNT_CONTEXT_REQUIRED',
+                        'identity_status': 'unknown', 'actual_model_id': None, 'available_models': [],
+                        'production_enabled': False, 'model_turn_starts': 0,
+                        'cleanup': {'cleanup_complete': True, 'running': 0, 'open_handles': 0, 'temp_dirs': 0}}
+    
+        monkeypatch.setattr(module, 'CodexProtocolClient', Codex)
+        monkeypatch.setattr(module, 'ZCodeProtocolClient', ZCode, raising=False)
+        monkeypatch.setenv('ZCODE_BUILTIN_PROVIDER_CONFIG_FILE', 'keep-existing-nonsecret-path')
+        output = tmp_path / 'combined.json'
+        try:
+            code = module.main(['--provider', 'all', '--cwd', str(tmp_path / 'work'), '--output', str(output)])
+        except SystemExit:
+            code = None
+>       assert [name for name, command in seen] == ['codex', 'zcode'], 'Both independent native metadata routes must be checked'
+E       AssertionError: Both independent native metadata routes must be checked
+E       assert [] == ['codex', 'zcode']
+E         
+E         Right contains 2 more items, first extra item: 'codex'
+E         Use -v to get more diff
+
+tests\contracts\test_native_connection_probe.py:52: AssertionError
+---------------------------- Captured stderr call -----------------------------
+usage: __main__.py [-h] [--provider {codex}]
+                   [--codex-executable CODEX_EXECUTABLE] [--cwd CWD]
+                   [--output OUTPUT] [--timeout-seconds TIMEOUT_SECONDS]
+                   [--max-output-bytes MAX_OUTPUT_BYTES]
+__main__.py: error: argument --provider: invalid choice: 'all' (choose from 'codex')
+=========================== short test summary info ===========================
+FAILED tests/contracts/test_native_connection_probe.py::test_one_explicit_probe_can_check_both_native_metadata_connectors

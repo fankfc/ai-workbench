@@ -1,0 +1,1707 @@
+{
+  "generated_at": "2026-10-13T21:31:17.381600+08:00",
+  "provider_boundary": "fake",
+  "real_model_starts": 0,
+  "requests": {
+    "code": {
+      "total_tokens": 33,
+      "known_lower_bound": 33,
+      "unknown_requests": 0,
+      "a_tokens": 18,
+      "qualified_deliveries": 1,
+      "tokens_per_delivery": 33.0,
+      "requests": [
+        {
+          "attempt_id": "a7ffc9289c6348c1959e00457e368e1a",
+          "cumulative_scope": null,
+          "domain": "code",
+          "external_request_id": "a4b4a027599a43f4af9386115e2a078c",
+          "function": "execution",
+          "mode": "request_total",
+          "provider": "glm",
+          "provider_profile_id": "fake-glm",
+          "role": "B",
+          "task_id": "e32969f69f3c4d9fb1c41f8a4cdc6d2b",
+          "status": "completed",
+          "source": "reported",
+          "total_tokens": 15,
+          "events": [
+            {
+              "cumulative_scope": null,
+              "event_id": "usage:a4b4a027599a43f4af9386115e2a078c:pending",
+              "mode": "pending",
+              "normalized": {
+                "components": {},
+                "mapping_version": "1.0",
+                "source": "unknown",
+                "total_tokens": null
+              },
+              "raw": {
+                "request_start_confirmed": false,
+                "usage_observed": false
+              },
+              "sequence": 1,
+              "sha256": "713072e07f5bca5f6b3be9ce5f0850cfc2ee06b37d7339231fe2d34007307e3a",
+              "status": "running"
+            },
+            {
+              "cumulative_scope": null,
+              "event_id": "usage:a4b4a027599a43f4af9386115e2a078c:1",
+              "mode": "request_total",
+              "normalized": {
+                "components": {
+                  "cached_tokens": null,
+                  "input_tokens": 10,
+                  "output_tokens": 5,
+                  "reasoning_tokens": null
+                },
+                "mapping_version": "1.0",
+                "source": "reported",
+                "total_tokens": 15
+              },
+              "raw": {
+                "input_tokens": 10,
+                "output_tokens": 5
+              },
+              "sequence": 2,
+              "sha256": "339279c153df403d60674be57bcefca4175832dec81e32f26b3aa618203f5d35",
+              "status": "completed"
+            }
+          ]
+        },
+        {
+          "attempt_id": "a7ffc9289c6348c1959e00457e368e1a",
+          "cumulative_scope": null,
+          "domain": "code",
+          "external_request_id": "ecfac0d88ccf403fa94c6dc8c903c6e0",
+          "function": "review",
+          "mode": "request_total",
+          "provider": "gpt",
+          "provider_profile_id": "fake-gpt",
+          "role": "A",
+          "task_id": "e32969f69f3c4d9fb1c41f8a4cdc6d2b",
+          "status": "completed",
+          "source": "reported",
+          "total_tokens": 18,
+          "events": [
+            {
+              "cumulative_scope": null,
+              "event_id": "usage:ecfac0d88ccf403fa94c6dc8c903c6e0:pending",
+              "mode": "pending",
+              "normalized": {
+                "components": {},
+                "mapping_version": "1.0",
+                "source": "unknown",
+                "total_tokens": null
+              },
+              "raw": {
+                "request_start_confirmed": false,
+                "usage_observed": false
+              },
+              "sequence": 1,
+              "sha256": "6c358d03b08ccf9264a745e73c6ac4dd8bac5f4b435dabed4a38c87a4d77c62b",
+              "status": "running"
+            },
+            {
+              "cumulative_scope": null,
+              "event_id": "usage:ecfac0d88ccf403fa94c6dc8c903c6e0:1",
+              "mode": "request_total",
+              "normalized": {
+                "components": {
+                  "cached_tokens": null,
+                  "input_tokens": 12,
+                  "output_tokens": 6,
+                  "reasoning_tokens": null
+                },
+                "mapping_version": "1.0",
+                "source": "reported",
+                "total_tokens": 18
+              },
+              "raw": {
+                "input_tokens": 12,
+                "output_tokens": 6
+              },
+              "sequence": 2,
+              "sha256": "86b40e40b486b0fa8b724cfa668b4783cbbf4f5b79ed651b2f12da2fddc3ae6d",
+              "status": "completed"
+            }
+          ]
+        }
+      ]
+    },
+    "paper": {
+      "total_tokens": 33,
+      "known_lower_bound": 33,
+      "unknown_requests": 0,
+      "a_tokens": 18,
+      "qualified_deliveries": 1,
+      "tokens_per_delivery": 33.0,
+      "requests": [
+        {
+          "attempt_id": "e0a98aa1cf0c4407b1a74a8f6b9f5ccb",
+          "cumulative_scope": null,
+          "domain": "paper",
+          "external_request_id": "c0392237f7f8426685c58bc128edf7c5",
+          "function": "execution",
+          "mode": "request_total",
+          "provider": "glm",
+          "provider_profile_id": "fake-glm",
+          "role": "B",
+          "task_id": "73c992965b59481eb13430d9b6d4b373",
+          "status": "completed",
+          "source": "reported",
+          "total_tokens": 15,
+          "events": [
+            {
+              "cumulative_scope": null,
+              "event_id": "usage:c0392237f7f8426685c58bc128edf7c5:pending",
+              "mode": "pending",
+              "normalized": {
+                "components": {},
+                "mapping_version": "1.0",
+                "source": "unknown",
+                "total_tokens": null
+              },
+              "raw": {
+                "request_start_confirmed": false,
+                "usage_observed": false
+              },
+              "sequence": 1,
+              "sha256": "0249322d00da4d787ff67c71747e221237a7e5bf334c252954a58c9b96551e97",
+              "status": "running"
+            },
+            {
+              "cumulative_scope": null,
+              "event_id": "usage:c0392237f7f8426685c58bc128edf7c5:1",
+              "mode": "request_total",
+              "normalized": {
+                "components": {
+                  "cached_tokens": null,
+                  "input_tokens": 10,
+                  "output_tokens": 5,
+                  "reasoning_tokens": null
+                },
+                "mapping_version": "1.0",
+                "source": "reported",
+                "total_tokens": 15
+              },
+              "raw": {
+                "input_tokens": 10,
+                "output_tokens": 5
+              },
+              "sequence": 2,
+              "sha256": "ba3af6a9b0f67b937746b55d2dc4a2256c8081a756b94bc8100775e78233db02",
+              "status": "completed"
+            }
+          ]
+        },
+        {
+          "attempt_id": "e0a98aa1cf0c4407b1a74a8f6b9f5ccb",
+          "cumulative_scope": null,
+          "domain": "paper",
+          "external_request_id": "4720ebd5895347a2b93e5bbc6a41386a",
+          "function": "review",
+          "mode": "request_total",
+          "provider": "gpt",
+          "provider_profile_id": "fake-gpt",
+          "role": "A",
+          "task_id": "73c992965b59481eb13430d9b6d4b373",
+          "status": "completed",
+          "source": "reported",
+          "total_tokens": 18,
+          "events": [
+            {
+              "cumulative_scope": null,
+              "event_id": "usage:4720ebd5895347a2b93e5bbc6a41386a:pending",
+              "mode": "pending",
+              "normalized": {
+                "components": {},
+                "mapping_version": "1.0",
+                "source": "unknown",
+                "total_tokens": null
+              },
+              "raw": {
+                "request_start_confirmed": false,
+                "usage_observed": false
+              },
+              "sequence": 1,
+              "sha256": "d809e8733347c3633de953f63c45ffc98b91655ce5522ca759aab2d5d9d18b3a",
+              "status": "running"
+            },
+            {
+              "cumulative_scope": null,
+              "event_id": "usage:4720ebd5895347a2b93e5bbc6a41386a:1",
+              "mode": "request_total",
+              "normalized": {
+                "components": {
+                  "cached_tokens": null,
+                  "input_tokens": 12,
+                  "output_tokens": 6,
+                  "reasoning_tokens": null
+                },
+                "mapping_version": "1.0",
+                "source": "reported",
+                "total_tokens": 18
+              },
+              "raw": {
+                "input_tokens": 12,
+                "output_tokens": 6
+              },
+              "sequence": 2,
+              "sha256": "89aabb7b360eb12c13b720d4abdb670a9e5afeb84b1ded4c0364e80bfbd0c2b4",
+              "status": "completed"
+            }
+          ]
+        }
+      ]
+    },
+    "document": {
+      "total_tokens": 33,
+      "known_lower_bound": 33,
+      "unknown_requests": 0,
+      "a_tokens": 18,
+      "qualified_deliveries": 1,
+      "tokens_per_delivery": 33.0,
+      "requests": [
+        {
+          "attempt_id": "400bf1d961a9412884b1d6909e6d0422",
+          "cumulative_scope": null,
+          "domain": "document",
+          "external_request_id": "5d152944bfa64ef99aae29a4bbfc8e07",
+          "function": "execution",
+          "mode": "request_total",
+          "provider": "glm",
+          "provider_profile_id": "fake-glm",
+          "role": "B",
+          "task_id": "74497e764bc5425a8a3c7ef7cdd1a744",
+          "status": "completed",
+          "source": "reported",
+          "total_tokens": 15,
+          "events": [
+            {
+              "cumulative_scope": null,
+              "event_id": "usage:5d152944bfa64ef99aae29a4bbfc8e07:pending",
+              "mode": "pending",
+              "normalized": {
+                "components": {},
+                "mapping_version": "1.0",
+                "source": "unknown",
+                "total_tokens": null
+              },
+              "raw": {
+                "request_start_confirmed": false,
+                "usage_observed": false
+              },
+              "sequence": 1,
+              "sha256": "066bf8567c67bf1d256094f06370ac981eaa033741e36b9a5e891fefc77d7b93",
+              "status": "running"
+            },
+            {
+              "cumulative_scope": null,
+              "event_id": "usage:5d152944bfa64ef99aae29a4bbfc8e07:1",
+              "mode": "request_total",
+              "normalized": {
+                "components": {
+                  "cached_tokens": null,
+                  "input_tokens": 10,
+                  "output_tokens": 5,
+                  "reasoning_tokens": null
+                },
+                "mapping_version": "1.0",
+                "source": "reported",
+                "total_tokens": 15
+              },
+              "raw": {
+                "input_tokens": 10,
+                "output_tokens": 5
+              },
+              "sequence": 2,
+              "sha256": "02860e96fd63072bb1488b40469c8bf6ea9a36a8d60368b34b0392c6156bdf3c",
+              "status": "completed"
+            }
+          ]
+        },
+        {
+          "attempt_id": "400bf1d961a9412884b1d6909e6d0422",
+          "cumulative_scope": null,
+          "domain": "document",
+          "external_request_id": "26f3379474d0476993db1def4f40a47d",
+          "function": "review",
+          "mode": "request_total",
+          "provider": "gpt",
+          "provider_profile_id": "fake-gpt",
+          "role": "A",
+          "task_id": "74497e764bc5425a8a3c7ef7cdd1a744",
+          "status": "completed",
+          "source": "reported",
+          "total_tokens": 18,
+          "events": [
+            {
+              "cumulative_scope": null,
+              "event_id": "usage:26f3379474d0476993db1def4f40a47d:pending",
+              "mode": "pending",
+              "normalized": {
+                "components": {},
+                "mapping_version": "1.0",
+                "source": "unknown",
+                "total_tokens": null
+              },
+              "raw": {
+                "request_start_confirmed": false,
+                "usage_observed": false
+              },
+              "sequence": 1,
+              "sha256": "6d5c6a490c42a690e268baa1b6020ba417f358af8f35bc00b80a3bc353cfac16",
+              "status": "running"
+            },
+            {
+              "cumulative_scope": null,
+              "event_id": "usage:26f3379474d0476993db1def4f40a47d:1",
+              "mode": "request_total",
+              "normalized": {
+                "components": {
+                  "cached_tokens": null,
+                  "input_tokens": 12,
+                  "output_tokens": 6,
+                  "reasoning_tokens": null
+                },
+                "mapping_version": "1.0",
+                "source": "reported",
+                "total_tokens": 18
+              },
+              "raw": {
+                "input_tokens": 12,
+                "output_tokens": 6
+              },
+              "sequence": 2,
+              "sha256": "642da8468da76339f72489f485bdc4cf198f3438721ab08a7661d63954844922",
+              "status": "completed"
+            }
+          ]
+        }
+      ]
+    },
+    "mixed": {
+      "total_tokens": 33,
+      "known_lower_bound": 33,
+      "unknown_requests": 0,
+      "a_tokens": 18,
+      "qualified_deliveries": 1,
+      "tokens_per_delivery": 33.0,
+      "requests": [
+        {
+          "attempt_id": "669d54b742404e4fa85c60664168fff7",
+          "cumulative_scope": null,
+          "domain": "mixed",
+          "external_request_id": "a68368121e5d40569ba531f04c58c140",
+          "function": "execution",
+          "mode": "request_total",
+          "provider": "glm",
+          "provider_profile_id": "fake-glm",
+          "role": "B",
+          "task_id": "511a70c2c5a24f43bbdf41377a8b64ae",
+          "status": "completed",
+          "source": "reported",
+          "total_tokens": 15,
+          "events": [
+            {
+              "cumulative_scope": null,
+              "event_id": "usage:a68368121e5d40569ba531f04c58c140:pending",
+              "mode": "pending",
+              "normalized": {
+                "components": {},
+                "mapping_version": "1.0",
+                "source": "unknown",
+                "total_tokens": null
+              },
+              "raw": {
+                "request_start_confirmed": false,
+                "usage_observed": false
+              },
+              "sequence": 1,
+              "sha256": "e8396a95a377a30c578f6ba7ffab138d1ddfc5e8b061eea71ab89821253fb874",
+              "status": "running"
+            },
+            {
+              "cumulative_scope": null,
+              "event_id": "usage:a68368121e5d40569ba531f04c58c140:1",
+              "mode": "request_total",
+              "normalized": {
+                "components": {
+                  "cached_tokens": null,
+                  "input_tokens": 10,
+                  "output_tokens": 5,
+                  "reasoning_tokens": null
+                },
+                "mapping_version": "1.0",
+                "source": "reported",
+                "total_tokens": 15
+              },
+              "raw": {
+                "input_tokens": 10,
+                "output_tokens": 5
+              },
+              "sequence": 2,
+              "sha256": "c4aff5462aded99a3ab7c05fa748b89e4c967ac5be30be1c63d8361fbd1f39fa",
+              "status": "completed"
+            }
+          ]
+        },
+        {
+          "attempt_id": "669d54b742404e4fa85c60664168fff7",
+          "cumulative_scope": null,
+          "domain": "mixed",
+          "external_request_id": "7292681f35f84c2fb94cdfaf4468e483",
+          "function": "review",
+          "mode": "request_total",
+          "provider": "gpt",
+          "provider_profile_id": "fake-gpt",
+          "role": "A",
+          "task_id": "511a70c2c5a24f43bbdf41377a8b64ae",
+          "status": "completed",
+          "source": "reported",
+          "total_tokens": 18,
+          "events": [
+            {
+              "cumulative_scope": null,
+              "event_id": "usage:7292681f35f84c2fb94cdfaf4468e483:pending",
+              "mode": "pending",
+              "normalized": {
+                "components": {},
+                "mapping_version": "1.0",
+                "source": "unknown",
+                "total_tokens": null
+              },
+              "raw": {
+                "request_start_confirmed": false,
+                "usage_observed": false
+              },
+              "sequence": 1,
+              "sha256": "a98170c2995a01a274d5015be0bdb475e12666df22f448e693e872eb183b0089",
+              "status": "running"
+            },
+            {
+              "cumulative_scope": null,
+              "event_id": "usage:7292681f35f84c2fb94cdfaf4468e483:1",
+              "mode": "request_total",
+              "normalized": {
+                "components": {
+                  "cached_tokens": null,
+                  "input_tokens": 12,
+                  "output_tokens": 6,
+                  "reasoning_tokens": null
+                },
+                "mapping_version": "1.0",
+                "source": "reported",
+                "total_tokens": 18
+              },
+              "raw": {
+                "input_tokens": 12,
+                "output_tokens": 6
+              },
+              "sequence": 2,
+              "sha256": "2a95a6cd18cb7c2d6a00397dc494e2b1350e75b7742af683fe4ba35747dad433",
+              "status": "completed"
+            }
+          ]
+        }
+      ]
+    },
+    "backend_repair": {
+      "total_tokens": 63,
+      "known_lower_bound": 63,
+      "unknown_requests": 0,
+      "a_tokens": 33,
+      "qualified_deliveries": 1,
+      "tokens_per_delivery": 63.0,
+      "requests": [
+        {
+          "attempt_id": "5d9e90ba789b41ceb8840bf560130ccb",
+          "cumulative_scope": null,
+          "domain": "code",
+          "external_request_id": "e35b04a94c3e4bff987384210d921671",
+          "function": "execution",
+          "mode": "request_total",
+          "provider": "glm",
+          "provider_profile_id": "fake-glm",
+          "role": "B",
+          "task_id": "2a1663cccf2642c2a3428fc6ece1dc8a",
+          "status": "completed",
+          "source": "reported",
+          "total_tokens": 15,
+          "events": [
+            {
+              "cumulative_scope": null,
+              "event_id": "usage:e35b04a94c3e4bff987384210d921671:pending",
+              "mode": "pending",
+              "normalized": {
+                "components": {},
+                "mapping_version": "1.0",
+                "source": "unknown",
+                "total_tokens": null
+              },
+              "raw": {
+                "request_start_confirmed": false,
+                "usage_observed": false
+              },
+              "sequence": 1,
+              "sha256": "84b95a81e68e9424c0911e3a90e80c6645fb20f6e2b3a98249315706509e1032",
+              "status": "running"
+            },
+            {
+              "cumulative_scope": null,
+              "event_id": "usage:e35b04a94c3e4bff987384210d921671:1",
+              "mode": "request_total",
+              "normalized": {
+                "components": {
+                  "cached_tokens": null,
+                  "input_tokens": 10,
+                  "output_tokens": 5,
+                  "reasoning_tokens": null
+                },
+                "mapping_version": "1.0",
+                "source": "reported",
+                "total_tokens": 15
+              },
+              "raw": {
+                "input_tokens": 10,
+                "output_tokens": 5
+              },
+              "sequence": 2,
+              "sha256": "a0bf1dc19ef3cb0c50a5324d9e9dd29fb7991f68846faa5ef1a6bb6c4baebc88",
+              "status": "completed"
+            }
+          ]
+        },
+        {
+          "attempt_id": "5d9e90ba789b41ceb8840bf560130ccb",
+          "cumulative_scope": null,
+          "domain": "code",
+          "external_request_id": "ba888e1130144ec9a677eb056cf74f7e",
+          "function": "review",
+          "mode": "request_total",
+          "provider": "gpt",
+          "provider_profile_id": "fake-gpt",
+          "role": "A",
+          "task_id": "2a1663cccf2642c2a3428fc6ece1dc8a",
+          "status": "completed",
+          "source": "reported",
+          "total_tokens": 15,
+          "events": [
+            {
+              "cumulative_scope": null,
+              "event_id": "usage:ba888e1130144ec9a677eb056cf74f7e:pending",
+              "mode": "pending",
+              "normalized": {
+                "components": {},
+                "mapping_version": "1.0",
+                "source": "unknown",
+                "total_tokens": null
+              },
+              "raw": {
+                "request_start_confirmed": false,
+                "usage_observed": false
+              },
+              "sequence": 1,
+              "sha256": "040b6c031684678c7d433d01cda52bd14d7772763b8edf7aa373ac8a06f9f287",
+              "status": "running"
+            },
+            {
+              "cumulative_scope": null,
+              "event_id": "usage:ba888e1130144ec9a677eb056cf74f7e:1",
+              "mode": "request_total",
+              "normalized": {
+                "components": {
+                  "cached_tokens": null,
+                  "input_tokens": 10,
+                  "output_tokens": 5,
+                  "reasoning_tokens": null
+                },
+                "mapping_version": "1.0",
+                "source": "reported",
+                "total_tokens": 15
+              },
+              "raw": {
+                "input_tokens": 10,
+                "output_tokens": 5
+              },
+              "sequence": 2,
+              "sha256": "3feb56122b741ae8dcd222378bc04dcb589d85fc3a2af1321cab5c3d8498dfbb",
+              "status": "completed"
+            }
+          ]
+        },
+        {
+          "attempt_id": "5d9e90ba789b41ceb8840bf560130ccb",
+          "cumulative_scope": null,
+          "domain": "code",
+          "external_request_id": "8248d543ad1747c3addb905d9561549a",
+          "function": "execution",
+          "mode": "request_total",
+          "provider": "glm",
+          "provider_profile_id": "fake-glm",
+          "role": "B",
+          "task_id": "2a1663cccf2642c2a3428fc6ece1dc8a",
+          "status": "completed",
+          "source": "reported",
+          "total_tokens": 15,
+          "events": [
+            {
+              "cumulative_scope": null,
+              "event_id": "usage:8248d543ad1747c3addb905d9561549a:pending",
+              "mode": "pending",
+              "normalized": {
+                "components": {},
+                "mapping_version": "1.0",
+                "source": "unknown",
+                "total_tokens": null
+              },
+              "raw": {
+                "request_start_confirmed": false,
+                "usage_observed": false
+              },
+              "sequence": 1,
+              "sha256": "7015ed422bbeba56054d3425f6b83aff7dfb7da53a5648ef2828bf5932078707",
+              "status": "running"
+            },
+            {
+              "cumulative_scope": null,
+              "event_id": "usage:8248d543ad1747c3addb905d9561549a:1",
+              "mode": "request_total",
+              "normalized": {
+                "components": {
+                  "cached_tokens": null,
+                  "input_tokens": 10,
+                  "output_tokens": 5,
+                  "reasoning_tokens": null
+                },
+                "mapping_version": "1.0",
+                "source": "reported",
+                "total_tokens": 15
+              },
+              "raw": {
+                "input_tokens": 10,
+                "output_tokens": 5
+              },
+              "sequence": 2,
+              "sha256": "0e02f9953edf24ace29e7993ca9ec928f587f86bccbb6a7376029d7708b2f829",
+              "status": "completed"
+            }
+          ]
+        },
+        {
+          "attempt_id": "5d9e90ba789b41ceb8840bf560130ccb",
+          "cumulative_scope": null,
+          "domain": "code",
+          "external_request_id": "a358426f70d34c9694feefd786d89f80",
+          "function": "review",
+          "mode": "request_total",
+          "provider": "gpt",
+          "provider_profile_id": "fake-gpt",
+          "role": "A",
+          "task_id": "2a1663cccf2642c2a3428fc6ece1dc8a",
+          "status": "completed",
+          "source": "reported",
+          "total_tokens": 18,
+          "events": [
+            {
+              "cumulative_scope": null,
+              "event_id": "usage:a358426f70d34c9694feefd786d89f80:pending",
+              "mode": "pending",
+              "normalized": {
+                "components": {},
+                "mapping_version": "1.0",
+                "source": "unknown",
+                "total_tokens": null
+              },
+              "raw": {
+                "request_start_confirmed": false,
+                "usage_observed": false
+              },
+              "sequence": 1,
+              "sha256": "1253416dfa005a6772de70e20127509d42e315cc3b942ee4d96c71eba8401926",
+              "status": "running"
+            },
+            {
+              "cumulative_scope": null,
+              "event_id": "usage:a358426f70d34c9694feefd786d89f80:1",
+              "mode": "request_total",
+              "normalized": {
+                "components": {
+                  "cached_tokens": null,
+                  "input_tokens": 12,
+                  "output_tokens": 6,
+                  "reasoning_tokens": null
+                },
+                "mapping_version": "1.0",
+                "source": "reported",
+                "total_tokens": 18
+              },
+              "raw": {
+                "input_tokens": 12,
+                "output_tokens": 6
+              },
+              "sequence": 2,
+              "sha256": "1cf2ac9b50b9af371c6e0c2989c13527b4c68c981ff986f49b7fbf30836863c1",
+              "status": "completed"
+            }
+          ]
+        }
+      ]
+    },
+    "backend_need_evidence": {
+      "total_tokens": 30,
+      "known_lower_bound": 30,
+      "unknown_requests": 0,
+      "a_tokens": 15,
+      "qualified_deliveries": 0,
+      "tokens_per_delivery": null,
+      "requests": [
+        {
+          "attempt_id": "3faa6474e6fe4c56a68ba2ce0073c894",
+          "cumulative_scope": null,
+          "domain": "code",
+          "external_request_id": "813488d57df3460a8f8b0228db5cde6c",
+          "function": "execution",
+          "mode": "request_total",
+          "provider": "glm",
+          "provider_profile_id": "fake-glm",
+          "role": "B",
+          "task_id": "8972d0ca1f9c4f7591de07f51163c8bc",
+          "status": "completed",
+          "source": "reported",
+          "total_tokens": 15,
+          "events": [
+            {
+              "cumulative_scope": null,
+              "event_id": "usage:813488d57df3460a8f8b0228db5cde6c:pending",
+              "mode": "pending",
+              "normalized": {
+                "components": {},
+                "mapping_version": "1.0",
+                "source": "unknown",
+                "total_tokens": null
+              },
+              "raw": {
+                "request_start_confirmed": false,
+                "usage_observed": false
+              },
+              "sequence": 1,
+              "sha256": "543bdb16728eede90e097416634a7473c8252a2a0b23b390506e657f4ac3234e",
+              "status": "running"
+            },
+            {
+              "cumulative_scope": null,
+              "event_id": "usage:813488d57df3460a8f8b0228db5cde6c:1",
+              "mode": "request_total",
+              "normalized": {
+                "components": {
+                  "cached_tokens": null,
+                  "input_tokens": 10,
+                  "output_tokens": 5,
+                  "reasoning_tokens": null
+                },
+                "mapping_version": "1.0",
+                "source": "reported",
+                "total_tokens": 15
+              },
+              "raw": {
+                "input_tokens": 10,
+                "output_tokens": 5
+              },
+              "sequence": 2,
+              "sha256": "775017c1558a575d2556d35d6ba632d2647df6dac3c9259ed2c1a38550f2529f",
+              "status": "completed"
+            }
+          ]
+        },
+        {
+          "attempt_id": "3faa6474e6fe4c56a68ba2ce0073c894",
+          "cumulative_scope": null,
+          "domain": "code",
+          "external_request_id": "b18dcacf73a2401e8e1a46243702a840",
+          "function": "review",
+          "mode": "request_total",
+          "provider": "gpt",
+          "provider_profile_id": "fake-gpt",
+          "role": "A",
+          "task_id": "8972d0ca1f9c4f7591de07f51163c8bc",
+          "status": "completed",
+          "source": "reported",
+          "total_tokens": 15,
+          "events": [
+            {
+              "cumulative_scope": null,
+              "event_id": "usage:b18dcacf73a2401e8e1a46243702a840:pending",
+              "mode": "pending",
+              "normalized": {
+                "components": {},
+                "mapping_version": "1.0",
+                "source": "unknown",
+                "total_tokens": null
+              },
+              "raw": {
+                "request_start_confirmed": false,
+                "usage_observed": false
+              },
+              "sequence": 1,
+              "sha256": "aa3c1113ba3ab93b054b8617af4371c23751c51b79ea67a7fccdc3e4e5baf70d",
+              "status": "running"
+            },
+            {
+              "cumulative_scope": null,
+              "event_id": "usage:b18dcacf73a2401e8e1a46243702a840:1",
+              "mode": "request_total",
+              "normalized": {
+                "components": {
+                  "cached_tokens": null,
+                  "input_tokens": 10,
+                  "output_tokens": 5,
+                  "reasoning_tokens": null
+                },
+                "mapping_version": "1.0",
+                "source": "reported",
+                "total_tokens": 15
+              },
+              "raw": {
+                "input_tokens": 10,
+                "output_tokens": 5
+              },
+              "sequence": 2,
+              "sha256": "75375084cd3b1f84c84e108c0e31155a31d74fa9504ca39d60ed13d24861732f",
+              "status": "completed"
+            }
+          ]
+        }
+      ]
+    },
+    "backend_cancel_late": {
+      "total_tokens": 15,
+      "known_lower_bound": 15,
+      "unknown_requests": 0,
+      "a_tokens": 0,
+      "qualified_deliveries": 0,
+      "tokens_per_delivery": null,
+      "requests": [
+        {
+          "attempt_id": "20e4a34823eb4dea90371460a5fb9d12",
+          "cumulative_scope": null,
+          "domain": "code",
+          "external_request_id": "f463cfcac793442daa7f1da0333a2b9a",
+          "function": "execution",
+          "mode": "request_total",
+          "provider": "glm",
+          "provider_profile_id": "fake-glm",
+          "role": "B",
+          "task_id": "45f950979abf415e8d96096d58c2e5ba",
+          "status": "cancelled",
+          "source": "reported",
+          "total_tokens": 15,
+          "events": [
+            {
+              "cumulative_scope": null,
+              "event_id": "usage:f463cfcac793442daa7f1da0333a2b9a:pending",
+              "mode": "pending",
+              "normalized": {
+                "components": {},
+                "mapping_version": "1.0",
+                "source": "unknown",
+                "total_tokens": null
+              },
+              "raw": {
+                "request_start_confirmed": false,
+                "usage_observed": false
+              },
+              "sequence": 1,
+              "sha256": "2bb9ea6f74844adfc9b07c67f178e9f131d54390aba73ce8cc555902bb685ec6",
+              "status": "running"
+            },
+            {
+              "cumulative_scope": null,
+              "event_id": "usage:f463cfcac793442daa7f1da0333a2b9a:1",
+              "mode": "request_total",
+              "normalized": {
+                "components": {
+                  "cached_tokens": null,
+                  "input_tokens": 10,
+                  "output_tokens": 5,
+                  "reasoning_tokens": null
+                },
+                "mapping_version": "1.0",
+                "source": "reported",
+                "total_tokens": 15
+              },
+              "raw": {
+                "input_tokens": 10,
+                "output_tokens": 5
+              },
+              "sequence": 2,
+              "sha256": "1a7ca13d35a1408aacb9aba3c34e4a604f5830e45f005ea922afb15416bf1060",
+              "status": "cancelled"
+            }
+          ]
+        }
+      ]
+    },
+    "backend_restart": {
+      "total_tokens": null,
+      "known_lower_bound": 15,
+      "unknown_requests": 1,
+      "a_tokens": 0,
+      "qualified_deliveries": 0,
+      "tokens_per_delivery": null,
+      "requests": [
+        {
+          "attempt_id": "7320a1d42d49493fa6a74ba8b259792b",
+          "cumulative_scope": null,
+          "domain": "code",
+          "external_request_id": "44d44834197d4e2699512c6fe88f8f55",
+          "function": "execution",
+          "mode": "request_total",
+          "provider": "glm",
+          "provider_profile_id": "fake-glm",
+          "role": "B",
+          "task_id": "6b10193fc96e40f8a5eff80fdb3c8008",
+          "status": "completed",
+          "source": "reported",
+          "total_tokens": 15,
+          "events": [
+            {
+              "cumulative_scope": null,
+              "event_id": "usage:44d44834197d4e2699512c6fe88f8f55:pending",
+              "mode": "pending",
+              "normalized": {
+                "components": {},
+                "mapping_version": "1.0",
+                "source": "unknown",
+                "total_tokens": null
+              },
+              "raw": {
+                "request_start_confirmed": false,
+                "usage_observed": false
+              },
+              "sequence": 1,
+              "sha256": "ffaac6ed9da591b6643892d269ca881cab057cbc7ac7eebb2faad7dbb43ef747",
+              "status": "running"
+            },
+            {
+              "cumulative_scope": null,
+              "event_id": "usage:44d44834197d4e2699512c6fe88f8f55:1",
+              "mode": "request_total",
+              "normalized": {
+                "components": {
+                  "cached_tokens": null,
+                  "input_tokens": 10,
+                  "output_tokens": 5,
+                  "reasoning_tokens": null
+                },
+                "mapping_version": "1.0",
+                "source": "reported",
+                "total_tokens": 15
+              },
+              "raw": {
+                "input_tokens": 10,
+                "output_tokens": 5
+              },
+              "sequence": 2,
+              "sha256": "f32aa228ce644923a5dd90cf89f943e8a898c0fabfab0859b1b5269ccc6db4c3",
+              "status": "completed"
+            }
+          ]
+        },
+        {
+          "attempt_id": "7320a1d42d49493fa6a74ba8b259792b",
+          "cumulative_scope": null,
+          "domain": "code",
+          "external_request_id": "e9abb6ae9f57477294879db1008517d4",
+          "function": "review",
+          "mode": "request_total",
+          "provider": "gpt",
+          "provider_profile_id": "fake-gpt",
+          "role": "A",
+          "task_id": "6b10193fc96e40f8a5eff80fdb3c8008",
+          "status": "failed",
+          "source": "unknown",
+          "total_tokens": null,
+          "events": [
+            {
+              "cumulative_scope": null,
+              "event_id": "usage:e9abb6ae9f57477294879db1008517d4:pending",
+              "mode": "pending",
+              "normalized": {
+                "components": {},
+                "mapping_version": "1.0",
+                "source": "unknown",
+                "total_tokens": null
+              },
+              "raw": {
+                "request_start_confirmed": false,
+                "usage_observed": false
+              },
+              "sequence": 1,
+              "sha256": "822687db87f249cfe43b663b096d9167e1370452e7486b0751d054c9ccf6c0fb",
+              "status": "running"
+            },
+            {
+              "cumulative_scope": null,
+              "event_id": "usage:e9abb6ae9f57477294879db1008517d4:1",
+              "mode": "request_total",
+              "normalized": {
+                "components": {},
+                "mapping_version": "1.0",
+                "source": "unknown",
+                "total_tokens": null
+              },
+              "raw": {},
+              "sequence": 2,
+              "sha256": "6b7cac6686e323cf3155bb22a50821188d9a152a44c5a7a4a976310e5c4ea485",
+              "status": "failed"
+            }
+          ]
+        }
+      ]
+    },
+    "backend_old_approval": {
+      "total_tokens": 33,
+      "known_lower_bound": 33,
+      "unknown_requests": 0,
+      "a_tokens": 18,
+      "qualified_deliveries": 0,
+      "tokens_per_delivery": null,
+      "requests": [
+        {
+          "attempt_id": "fd2d1148bfe3465a8b99ea30cf83773d",
+          "cumulative_scope": null,
+          "domain": "code",
+          "external_request_id": "99965e8fad234a4f95f915395ccb08ed",
+          "function": "execution",
+          "mode": "request_total",
+          "provider": "glm",
+          "provider_profile_id": "fake-glm",
+          "role": "B",
+          "task_id": "8b87364d2d194f07b134a4a76a4346f5",
+          "status": "completed",
+          "source": "reported",
+          "total_tokens": 15,
+          "events": [
+            {
+              "cumulative_scope": null,
+              "event_id": "usage:99965e8fad234a4f95f915395ccb08ed:pending",
+              "mode": "pending",
+              "normalized": {
+                "components": {},
+                "mapping_version": "1.0",
+                "source": "unknown",
+                "total_tokens": null
+              },
+              "raw": {
+                "request_start_confirmed": false,
+                "usage_observed": false
+              },
+              "sequence": 1,
+              "sha256": "75756d35c8d4d0573e238a6af678623366da5b55261424d9e2195bba7987d8a8",
+              "status": "running"
+            },
+            {
+              "cumulative_scope": null,
+              "event_id": "usage:99965e8fad234a4f95f915395ccb08ed:1",
+              "mode": "request_total",
+              "normalized": {
+                "components": {
+                  "cached_tokens": null,
+                  "input_tokens": 10,
+                  "output_tokens": 5,
+                  "reasoning_tokens": null
+                },
+                "mapping_version": "1.0",
+                "source": "reported",
+                "total_tokens": 15
+              },
+              "raw": {
+                "input_tokens": 10,
+                "output_tokens": 5
+              },
+              "sequence": 2,
+              "sha256": "40a8c7170549528dd3982422a58ddf6d732d78beaef385c62900408f7c96cf6b",
+              "status": "completed"
+            }
+          ]
+        },
+        {
+          "attempt_id": "fd2d1148bfe3465a8b99ea30cf83773d",
+          "cumulative_scope": null,
+          "domain": "code",
+          "external_request_id": "0934b0eed19744cc9dc6f71404158dd9",
+          "function": "review",
+          "mode": "request_total",
+          "provider": "gpt",
+          "provider_profile_id": "fake-gpt",
+          "role": "A",
+          "task_id": "8b87364d2d194f07b134a4a76a4346f5",
+          "status": "completed",
+          "source": "reported",
+          "total_tokens": 18,
+          "events": [
+            {
+              "cumulative_scope": null,
+              "event_id": "usage:0934b0eed19744cc9dc6f71404158dd9:pending",
+              "mode": "pending",
+              "normalized": {
+                "components": {},
+                "mapping_version": "1.0",
+                "source": "unknown",
+                "total_tokens": null
+              },
+              "raw": {
+                "request_start_confirmed": false,
+                "usage_observed": false
+              },
+              "sequence": 1,
+              "sha256": "72d4dcd900917385e8e6875d1feac7a4d54e5e0abbdcf6486e7e0b0d682dad33",
+              "status": "running"
+            },
+            {
+              "cumulative_scope": null,
+              "event_id": "usage:0934b0eed19744cc9dc6f71404158dd9:1",
+              "mode": "request_total",
+              "normalized": {
+                "components": {
+                  "cached_tokens": null,
+                  "input_tokens": 12,
+                  "output_tokens": 6,
+                  "reasoning_tokens": null
+                },
+                "mapping_version": "1.0",
+                "source": "reported",
+                "total_tokens": 18
+              },
+              "raw": {
+                "input_tokens": 12,
+                "output_tokens": 6
+              },
+              "sequence": 2,
+              "sha256": "b8869582be3ea91cea1ed4de3801b552bf432008fffb168f8740a1523474409f",
+              "status": "completed"
+            }
+          ]
+        }
+      ]
+    },
+    "backend_duplicate": {
+      "total_tokens": 33,
+      "known_lower_bound": 33,
+      "unknown_requests": 0,
+      "a_tokens": 18,
+      "qualified_deliveries": 1,
+      "tokens_per_delivery": 33.0,
+      "requests": [
+        {
+          "attempt_id": "11a40972168b41a7955511049d1b737f",
+          "cumulative_scope": null,
+          "domain": "code",
+          "external_request_id": "c6ae968528db4241bc010ecf7fb03f0f",
+          "function": "execution",
+          "mode": "request_total",
+          "provider": "glm",
+          "provider_profile_id": "fake-glm",
+          "role": "B",
+          "task_id": "8ead75aa480c471aa7241167d6ddf807",
+          "status": "completed",
+          "source": "reported",
+          "total_tokens": 15,
+          "events": [
+            {
+              "cumulative_scope": null,
+              "event_id": "usage:c6ae968528db4241bc010ecf7fb03f0f:pending",
+              "mode": "pending",
+              "normalized": {
+                "components": {},
+                "mapping_version": "1.0",
+                "source": "unknown",
+                "total_tokens": null
+              },
+              "raw": {
+                "request_start_confirmed": false,
+                "usage_observed": false
+              },
+              "sequence": 1,
+              "sha256": "4db6b361930d2b9debc418e2e03cc19f9ab56da19dbf255727a8d1626092e64f",
+              "status": "running"
+            },
+            {
+              "cumulative_scope": null,
+              "event_id": "usage:c6ae968528db4241bc010ecf7fb03f0f:1",
+              "mode": "request_total",
+              "normalized": {
+                "components": {
+                  "cached_tokens": null,
+                  "input_tokens": 10,
+                  "output_tokens": 5,
+                  "reasoning_tokens": null
+                },
+                "mapping_version": "1.0",
+                "source": "reported",
+                "total_tokens": 15
+              },
+              "raw": {
+                "input_tokens": 10,
+                "output_tokens": 5
+              },
+              "sequence": 2,
+              "sha256": "8a0b94b45050964f2c4b3f50f20c7c1611b5a03ae4bae7267e9f7cb96c024635",
+              "status": "completed"
+            }
+          ]
+        },
+        {
+          "attempt_id": "11a40972168b41a7955511049d1b737f",
+          "cumulative_scope": null,
+          "domain": "code",
+          "external_request_id": "39698850284a4cbfa28b50a4fe037994",
+          "function": "review",
+          "mode": "request_total",
+          "provider": "gpt",
+          "provider_profile_id": "fake-gpt",
+          "role": "A",
+          "task_id": "8ead75aa480c471aa7241167d6ddf807",
+          "status": "completed",
+          "source": "reported",
+          "total_tokens": 18,
+          "events": [
+            {
+              "cumulative_scope": null,
+              "event_id": "usage:39698850284a4cbfa28b50a4fe037994:pending",
+              "mode": "pending",
+              "normalized": {
+                "components": {},
+                "mapping_version": "1.0",
+                "source": "unknown",
+                "total_tokens": null
+              },
+              "raw": {
+                "request_start_confirmed": false,
+                "usage_observed": false
+              },
+              "sequence": 1,
+              "sha256": "7b076d2be044813d837661174caa1f62ecd08c07110d3fe72d3dcab9de92b8dd",
+              "status": "running"
+            },
+            {
+              "cumulative_scope": null,
+              "event_id": "usage:39698850284a4cbfa28b50a4fe037994:1",
+              "mode": "request_total",
+              "normalized": {
+                "components": {
+                  "cached_tokens": null,
+                  "input_tokens": 12,
+                  "output_tokens": 6,
+                  "reasoning_tokens": null
+                },
+                "mapping_version": "1.0",
+                "source": "reported",
+                "total_tokens": 18
+              },
+              "raw": {
+                "input_tokens": 12,
+                "output_tokens": 6
+              },
+              "sequence": 2,
+              "sha256": "6fd2da30922ff5e522b924e70af00d2af278fab50d9ff9bc9c3650255e6fe6c0",
+              "status": "completed"
+            }
+          ]
+        }
+      ]
+    },
+    "backend_budget": {
+      "total_tokens": 0,
+      "known_lower_bound": 0,
+      "unknown_requests": 0,
+      "a_tokens": 0,
+      "qualified_deliveries": 0,
+      "tokens_per_delivery": null,
+      "requests": []
+    },
+    "backend_budget_after_repair": {
+      "total_tokens": 45,
+      "known_lower_bound": 45,
+      "unknown_requests": 0,
+      "a_tokens": 15,
+      "qualified_deliveries": 0,
+      "tokens_per_delivery": null,
+      "requests": [
+        {
+          "attempt_id": "d805ff6ebfa64097be4096aa534d77cb",
+          "cumulative_scope": null,
+          "domain": "code",
+          "external_request_id": "739a8ed95fb24ca19ae60b40bef5c5c9",
+          "function": "execution",
+          "mode": "request_total",
+          "provider": "glm",
+          "provider_profile_id": "fake-glm",
+          "role": "B",
+          "task_id": "95329b96346c464ebec18ea3645d8e35",
+          "status": "completed",
+          "source": "reported",
+          "total_tokens": 15,
+          "events": [
+            {
+              "cumulative_scope": null,
+              "event_id": "usage:739a8ed95fb24ca19ae60b40bef5c5c9:pending",
+              "mode": "pending",
+              "normalized": {
+                "components": {},
+                "mapping_version": "1.0",
+                "source": "unknown",
+                "total_tokens": null
+              },
+              "raw": {
+                "request_start_confirmed": false,
+                "usage_observed": false
+              },
+              "sequence": 1,
+              "sha256": "a997bc9593608e9e047fa0ed782e7e37a753e522866a8ce5d4f03a4878412c56",
+              "status": "running"
+            },
+            {
+              "cumulative_scope": null,
+              "event_id": "usage:739a8ed95fb24ca19ae60b40bef5c5c9:1",
+              "mode": "request_total",
+              "normalized": {
+                "components": {
+                  "cached_tokens": null,
+                  "input_tokens": 10,
+                  "output_tokens": 5,
+                  "reasoning_tokens": null
+                },
+                "mapping_version": "1.0",
+                "source": "reported",
+                "total_tokens": 15
+              },
+              "raw": {
+                "input_tokens": 10,
+                "output_tokens": 5
+              },
+              "sequence": 2,
+              "sha256": "5e15e7adf0e45d56fe74db11b1ad27f496f551b3f7df25ed0cb5483a48493524",
+              "status": "completed"
+            }
+          ]
+        },
+        {
+          "attempt_id": "d805ff6ebfa64097be4096aa534d77cb",
+          "cumulative_scope": null,
+          "domain": "code",
+          "external_request_id": "4d2e0776d760456e8ab99facf162503d",
+          "function": "review",
+          "mode": "request_total",
+          "provider": "gpt",
+          "provider_profile_id": "fake-gpt",
+          "role": "A",
+          "task_id": "95329b96346c464ebec18ea3645d8e35",
+          "status": "completed",
+          "source": "reported",
+          "total_tokens": 15,
+          "events": [
+            {
+              "cumulative_scope": null,
+              "event_id": "usage:4d2e0776d760456e8ab99facf162503d:pending",
+              "mode": "pending",
+              "normalized": {
+                "components": {},
+                "mapping_version": "1.0",
+                "source": "unknown",
+                "total_tokens": null
+              },
+              "raw": {
+                "request_start_confirmed": false,
+                "usage_observed": false
+              },
+              "sequence": 1,
+              "sha256": "f814a90dee7a10bd466973be69c71dfc0bb44c0b72ea75896111f1839c29bfda",
+              "status": "running"
+            },
+            {
+              "cumulative_scope": null,
+              "event_id": "usage:4d2e0776d760456e8ab99facf162503d:1",
+              "mode": "request_total",
+              "normalized": {
+                "components": {
+                  "cached_tokens": null,
+                  "input_tokens": 10,
+                  "output_tokens": 5,
+                  "reasoning_tokens": null
+                },
+                "mapping_version": "1.0",
+                "source": "reported",
+                "total_tokens": 15
+              },
+              "raw": {
+                "input_tokens": 10,
+                "output_tokens": 5
+              },
+              "sequence": 2,
+              "sha256": "e409a029c7f352bbb1f492e99f44c339e5c4a22dce3ec8f0c575198071e1b754",
+              "status": "completed"
+            }
+          ]
+        },
+        {
+          "attempt_id": "d805ff6ebfa64097be4096aa534d77cb",
+          "cumulative_scope": null,
+          "domain": "code",
+          "external_request_id": "7a425027f42542daa42f5546518c3922",
+          "function": "execution",
+          "mode": "request_total",
+          "provider": "glm",
+          "provider_profile_id": "fake-glm",
+          "role": "B",
+          "task_id": "95329b96346c464ebec18ea3645d8e35",
+          "status": "completed",
+          "source": "reported",
+          "total_tokens": 15,
+          "events": [
+            {
+              "cumulative_scope": null,
+              "event_id": "usage:7a425027f42542daa42f5546518c3922:pending",
+              "mode": "pending",
+              "normalized": {
+                "components": {},
+                "mapping_version": "1.0",
+                "source": "unknown",
+                "total_tokens": null
+              },
+              "raw": {
+                "request_start_confirmed": false,
+                "usage_observed": false
+              },
+              "sequence": 1,
+              "sha256": "49d3ef76bf799a598eb3f64c64095f32578a5fca6bce52a666bbf81d8cbd2ca7",
+              "status": "running"
+            },
+            {
+              "cumulative_scope": null,
+              "event_id": "usage:7a425027f42542daa42f5546518c3922:1",
+              "mode": "request_total",
+              "normalized": {
+                "components": {
+                  "cached_tokens": null,
+                  "input_tokens": 10,
+                  "output_tokens": 5,
+                  "reasoning_tokens": null
+                },
+                "mapping_version": "1.0",
+                "source": "reported",
+                "total_tokens": 15
+              },
+              "raw": {
+                "input_tokens": 10,
+                "output_tokens": 5
+              },
+              "sequence": 2,
+              "sha256": "70ec29b2e7528fd8c507f1a5c5b10f38bcef2b7a13a75865ca5b520461d654d3",
+              "status": "completed"
+            }
+          ]
+        }
+      ]
+    },
+    "backend_connection_failure": {
+      "total_tokens": null,
+      "known_lower_bound": 0,
+      "unknown_requests": 1,
+      "a_tokens": 0,
+      "qualified_deliveries": 0,
+      "tokens_per_delivery": null,
+      "requests": [
+        {
+          "attempt_id": "1efa431439ac41228ddd99e7e20ba68c",
+          "cumulative_scope": null,
+          "domain": "code",
+          "external_request_id": "68b7379c312e495cbc8404c5b210e08c",
+          "function": "execution",
+          "mode": "request_total",
+          "provider": "glm",
+          "provider_profile_id": "fake-glm",
+          "role": "B",
+          "task_id": "8db94f8afa7343cc87e4a3aabfece430",
+          "status": "failed",
+          "source": "unknown",
+          "total_tokens": null,
+          "events": [
+            {
+              "cumulative_scope": null,
+              "event_id": "usage:68b7379c312e495cbc8404c5b210e08c:pending",
+              "mode": "pending",
+              "normalized": {
+                "components": {},
+                "mapping_version": "1.0",
+                "source": "unknown",
+                "total_tokens": null
+              },
+              "raw": {
+                "request_start_confirmed": false,
+                "usage_observed": false
+              },
+              "sequence": 1,
+              "sha256": "39510f18828b537fad21f37bdfb3b58149c9c74c1fe51b9173ed537b41da2702",
+              "status": "running"
+            },
+            {
+              "cumulative_scope": null,
+              "event_id": "usage:68b7379c312e495cbc8404c5b210e08c:1",
+              "mode": "request_total",
+              "normalized": {
+                "components": {},
+                "mapping_version": "1.0",
+                "source": "unknown",
+                "total_tokens": null
+              },
+              "raw": {},
+              "sequence": 2,
+              "sha256": "1583751d7f16364a2915ead0f3af73c756c754107d9aed20ef4e9a5b6c42bfdf",
+              "status": "failed"
+            }
+          ]
+        }
+      ]
+    },
+    "backend_language_gate": {
+      "total_tokens": 0,
+      "known_lower_bound": 0,
+      "unknown_requests": 0,
+      "a_tokens": 0,
+      "qualified_deliveries": 0,
+      "tokens_per_delivery": null,
+      "requests": []
+    },
+    "backend_upstream_change": {
+      "total_tokens": 33,
+      "known_lower_bound": 33,
+      "unknown_requests": 0,
+      "a_tokens": 18,
+      "qualified_deliveries": 0,
+      "tokens_per_delivery": null,
+      "requests": [
+        {
+          "attempt_id": "c9220f3fb25d440ab37b46b3ceffcf4d",
+          "cumulative_scope": null,
+          "domain": "mixed",
+          "external_request_id": "4adda172972c42bbaac16c1745fd97b6",
+          "function": "execution",
+          "mode": "request_total",
+          "provider": "glm",
+          "provider_profile_id": "fake-glm",
+          "role": "B",
+          "task_id": "a6d9bdeae4644085b3cabfd26050a13d",
+          "status": "completed",
+          "source": "reported",
+          "total_tokens": 15,
+          "events": [
+            {
+              "cumulative_scope": null,
+              "event_id": "usage:4adda172972c42bbaac16c1745fd97b6:pending",
+              "mode": "pending",
+              "normalized": {
+                "components": {},
+                "mapping_version": "1.0",
+                "source": "unknown",
+                "total_tokens": null
+              },
+              "raw": {
+                "request_start_confirmed": false,
+                "usage_observed": false
+              },
+              "sequence": 1,
+              "sha256": "19d54e0ec2a25448ff79f3a398a38764257cdd1b1992fdccb269710b0394b1bf",
+              "status": "running"
+            },
+            {
+              "cumulative_scope": null,
+              "event_id": "usage:4adda172972c42bbaac16c1745fd97b6:1",
+              "mode": "request_total",
+              "normalized": {
+                "components": {
+                  "cached_tokens": null,
+                  "input_tokens": 10,
+                  "output_tokens": 5,
+                  "reasoning_tokens": null
+                },
+                "mapping_version": "1.0",
+                "source": "reported",
+                "total_tokens": 15
+              },
+              "raw": {
+                "input_tokens": 10,
+                "output_tokens": 5
+              },
+              "sequence": 2,
+              "sha256": "c8c999015104dd01da2352c7d9860893fc07e2b01ebffd4a831355c321226e8a",
+              "status": "completed"
+            }
+          ]
+        },
+        {
+          "attempt_id": "c9220f3fb25d440ab37b46b3ceffcf4d",
+          "cumulative_scope": null,
+          "domain": "mixed",
+          "external_request_id": "9436dffaf80e4333b8eee1f5ea1c187b",
+          "function": "review",
+          "mode": "request_total",
+          "provider": "gpt",
+          "provider_profile_id": "fake-gpt",
+          "role": "A",
+          "task_id": "a6d9bdeae4644085b3cabfd26050a13d",
+          "status": "completed",
+          "source": "reported",
+          "total_tokens": 18,
+          "events": [
+            {
+              "cumulative_scope": null,
+              "event_id": "usage:9436dffaf80e4333b8eee1f5ea1c187b:pending",
+              "mode": "pending",
+              "normalized": {
+                "components": {},
+                "mapping_version": "1.0",
+                "source": "unknown",
+                "total_tokens": null
+              },
+              "raw": {
+                "request_start_confirmed": false,
+                "usage_observed": false
+              },
+              "sequence": 1,
+              "sha256": "0b552b63f3abe1da4c009fb674ba174c7c90d25986a06b07f8cc5878bbf182a8",
+              "status": "running"
+            },
+            {
+              "cumulative_scope": null,
+              "event_id": "usage:9436dffaf80e4333b8eee1f5ea1c187b:1",
+              "mode": "request_total",
+              "normalized": {
+                "components": {
+                  "cached_tokens": null,
+                  "input_tokens": 12,
+                  "output_tokens": 6,
+                  "reasoning_tokens": null
+                },
+                "mapping_version": "1.0",
+                "source": "reported",
+                "total_tokens": 18
+              },
+              "raw": {
+                "input_tokens": 12,
+                "output_tokens": 6
+              },
+              "sequence": 2,
+              "sha256": "eff8fb9378dc985bc03fc3c3775ba3db57d693a7e9910ec01170152c2b7e0be6",
+              "status": "completed"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "real_account_usage": "not_verified",
+  "savings_claimed": false
+}

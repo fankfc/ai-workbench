@@ -1,0 +1,61 @@
+{
+  "version": "1.0",
+  "build_id": "64bc5e858de1f6a58d2d1b055a1aaf5a8d7861e6f071fb0f392d37583caf04c5",
+  "run_id": null,
+  "created_at": "2026-10-14T15:16:26.264861+00:00",
+  "seed": 4317,
+  "encoding": "UTF-8",
+  "provider_boundary": "fake",
+  "files": [
+    {
+      "path": ".qa-run.json",
+      "size": 153,
+      "sha256": "c4be712eda12a5389379ea54b8a8eae24f79b1983b4af710afde60fc1df469b8"
+    },
+    {
+      "path": "latency-observations.json",
+      "size": 1444,
+      "sha256": "7f5f9d01dce99e9277fc2dfa6c36a5bb5bec55a7b9b255fb30e5e6a40cfca6b0"
+    },
+    {
+      "path": "scenario-result.json",
+      "size": 1444,
+      "sha256": "7f5f9d01dce99e9277fc2dfa6c36a5bb5bec55a7b9b255fb30e5e6a40cfca6b0"
+    },
+    {
+      "path": "service-identity.json",
+      "size": 134,
+      "sha256": "f32e6db5cd4a71a1c5dde783a98a415bd09a63997e1e5b932fd303cebce65215"
+    },
+    {
+      "path": "service-leases.sqlite3",
+      "size": 12288,
+      "sha256": "a5c87a17334ab65812082b3f58eede6da0796ab0cf64f3a8087de3c81e10c874"
+    },
+    {
+      "path": "service-teardown.json",
+      "size": 88,
+      "sha256": "e267a812faae78e62810b76e9de27573d1e1ec3654338f71c4adc6609f854f74"
+    },
+    {
+      "path": "service.stderr.log",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "service-data/workbench.sqlite3",
+      "size": 4685824,
+      "sha256": "e83c6453b8524b2ea4d59d084ee13c33dab941ca2c4d79356e53ec214102a7fb"
+    },
+    {
+      "path": "service-data/workbench.sqlite3-shm",
+      "size": 32768,
+      "sha256": "c3dc939745e0fe3a64501d172b1c976b69823b66edf05ef7ce8a465af00560b2"
+    },
+    {
+      "path": "service-data/workbench.sqlite3-wal",
+      "size": 4157112,
+      "sha256": "58ecfe0ad611b9e81404990e71730e98db62079b3e0efabcd97b08695082a1d8"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+[
+  {
+    "file_name": "report.4dd0e6dca130.en.docx",
+    "sha256": "1a0fd3bec03d95da7a79795e6bb708ee96c6f9dace18f7a56b8f4aa02d525b1e",
+    "expected_sha256": "1a0fd3bec03d95da7a79795e6bb708ee96c6f9dace18f7a56b8f4aa02d525b1e",
+    "size_bytes": 36668
+  },
+  {
+    "file_name": "report.4dd0e6dca130.zh-CN.docx",
+    "sha256": "a09ff3e2c02cfb38ec36e7df2596e6b083f7dceb4ba5861e82b315ba7c3b8165",
+    "expected_sha256": "a09ff3e2c02cfb38ec36e7df2596e6b083f7dceb4ba5861e82b315ba7c3b8165",
+    "size_bytes": 36692
+  },
+  {
+    "file_name": "report.4dd0e6dca130.en.md",
+    "sha256": "50a077defac4ed168f02470a79482953f34d2bb71cf2f0bd538dfaca9273438c",
+    "expected_sha256": "50a077defac4ed168f02470a79482953f34d2bb71cf2f0bd538dfaca9273438c",
+    "size_bytes": 49
+  },
+  {
+    "file_name": "report.4dd0e6dca130.zh-CN.md",
+    "sha256": "d5fe74d950c9fadb060c5fe1052356d2ca59d369cb36f09480e3499087ad622e",
+    "expected_sha256": "d5fe74d950c9fadb060c5fe1052356d2ca59d369cb36f09480e3499087ad622e",
+    "size_bytes": 44
+  },
+  {
+    "file_name": "report.4dd0e6dca130.en.pdf",
+    "sha256": "1bb776b2fe2d39d5f2041ca9cdf77abbde75218e07fe355764a96cc5b036303c",
+    "expected_sha256": "1bb776b2fe2d39d5f2041ca9cdf77abbde75218e07fe355764a96cc5b036303c",
+    "size_bytes": 23130
+  },
+  {
+    "file_name": "report.4dd0e6dca130.zh-CN.pdf",
+    "sha256": "865ea4cc685ff1648ec29bdb3b5927aaa614910f66eaa32cb370512df23a4f7b",
+    "expected_sha256": "865ea4cc685ff1648ec29bdb3b5927aaa614910f66eaa32cb370512df23a4f7b",
+    "size_bytes": 24123
+  }
+]

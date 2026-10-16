@@ -1,0 +1,18 @@
+..........................F...                                           [100%]
+================================== FAILURES ===================================
+__________ test_renderer_exit_zero_without_actual_render_is_not_pass __________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-93/test_renderer_exit_zero_withou0')
+
+    def test_renderer_exit_zero_without_actual_render_is_not_pass(tmp_path):
+        value=result("document",context(tmp_path,b"# Report\n",name="report.md",evidence_type="render",commands={"ac1":["renderer.exe"]},runner=lambda *args:CommandResult(0,b"",b""),execution_authorized=True))
+>       assert value.status=="fail" and value.reason_code=="RENDERED_ARTIFACT_MISSING"
+E       AssertionError: assert ('pass' == 'fail'
+E         
+E         - fail
+E         + pass)
+
+tests\integration\test_validation_registry.py:223: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/integration/test_validation_registry.py::test_renderer_exit_zero_without_actual_render_is_not_pass
+1 failed, 29 passed in 1.07s

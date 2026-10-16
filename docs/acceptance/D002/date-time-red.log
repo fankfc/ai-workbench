@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "C:\Users\asd15\Documents\ChatGPT\ai\docs\acceptance\D002\verify-date-time.py", line 10, in <module>
+    assert "date-time" in checker.checkers, "date-time format checker is not registered"
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: date-time format checker is not registered
+exit_code=1
+expected=missing date-time checker discovered by independent review

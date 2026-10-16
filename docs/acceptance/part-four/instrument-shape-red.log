@@ -1,0 +1,19 @@
+....................................F...                                 [100%]
+================================== FAILURES ===================================
+____________ test_boolean_report_counters_are_not_real_test_counts ____________
+
+verifier = <module 'phase_four_verify' from 'C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\scripts\\phase_four_verify.py'>
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-495/test_boolean_report_counters_a0')
+
+    def test_boolean_report_counters_are_not_real_test_counts(verifier, tmp_path):
+        value = playwright_report()
+        value['stats']['expected'] = True
+        path = tmp_path / 'boolean-count.json'
+        path.write_text(json.dumps(value), encoding='utf-8')
+>       assert verifier.parse_playwright(path)['issues']
+E       assert []
+
+tests\acceptance\test_runtime_sop.py:183: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/acceptance/test_runtime_sop.py::test_boolean_report_counters_are_not_real_test_counts
+1 failed, 39 passed in 9.36s

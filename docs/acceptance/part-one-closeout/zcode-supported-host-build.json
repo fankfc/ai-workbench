@@ -1,0 +1,694 @@
+{
+  "schema_version": 2,
+  "checked_at": "2026-10-14T04:09:43.504910+00:00",
+  "status": "built_real_account_availability_observed_execution_unverified",
+  "production_enabled": false,
+  "real_B_unblocked": false,
+  "account_availability_verified": true,
+  "source_host_metadata_ready": true,
+  "actual_account_family": "zai",
+  "trueProviderRefs": [
+    "account:zai-start-plan"
+  ],
+  "available_model_refs": [
+    {
+      "providerId": "account:zai-start-plan",
+      "modelId": "GLM-5.3"
+    },
+    {
+      "providerId": "account:zai-start-plan",
+      "modelId": "GLM-5.3-Flash"
+    }
+  ],
+  "model_identity_verified": false,
+  "os_scope_verified": false,
+  "official_source": {
+    "commit": "aac4755666d09fdcd70272fcf063c077a639015f",
+    "url": "https://codeload.github.com/zai-org/ZCode/tar.gz/aac4755666d09fdcd70272fcf063c077a639015f",
+    "archive_sha256": "a77cb72315deb872fb7de183111f3b8887e30c4cff5f99e5c23794238899bee3",
+    "archive_bytes": 89405689,
+    "source_files": 17876
+  },
+  "first_build": {
+    "exit_code": 0,
+    "sdk_bundle_sha256": "c8691b22d2c06d7962894b77d78cd24e69ac3996f9fe37190638e9c067540404",
+    "sdk_bundle_bytes": 1385359,
+    "inputs_total": 330,
+    "lock_sha256": "d621a0fc13ce917b45090e677649badc4d54d45e8a7162a8fe31cf83b30351c2",
+    "runtime": {
+      "node": "v24.19.0"
+    },
+    "external_dependencies": {
+      "node_modules/@esbuild/win32-x64": {
+        "version": "0.25.12",
+        "integrity": "sha512-alJC0uCZpTFrSL0CCDjcgleBXPnCrEAhTBILpeAp7M/OFgoqtAetfBzX0xM00MUsVVPpVjlPuMbREqnZCXaTnA=="
+      },
+      "node_modules/esbuild": {
+        "version": "0.25.12",
+        "integrity": "sha512-bbPBYYrtZbkt6Os6FiTLCTFxvq4tt3JKall1vRwshA3fdVztsLAatFaZobhkBC8/BrPetoa0oksYoKXoG4ryJg=="
+      },
+      "node_modules/zod": {
+        "version": "4.6.5",
+        "integrity": "sha512-v5l/aFXZQeai4awLbOpSoHecE9UiMrnfx75tEXLjNonXVARxQ5mOeipTjROUchszUNCqnE+hqAMujRsRHsut2Q=="
+      }
+    }
+  },
+  "current_build": {
+    "official_commit": "aac4755666d09fdcd70272fcf063c077a639015f",
+    "esbuild": "0.25.12",
+    "defines": {
+      "__ZCODE_VERSION__": "3.15.1",
+      "__ZCODE_ENV__": "production"
+    },
+    "bundle_sha256": "c65490d364a0adff0d19a837c9f9c6961b7da3bc648631c2257d4ba6e624f927",
+    "lock_sha256": "d621a0fc13ce917b45090e677649badc4d54d45e8a7162a8fe31cf83b30351c2"
+  },
+  "current_bundle_bytes": 1388755,
+  "phases": [
+    {
+      "phase": "initial_HTTP400",
+      "process_exit_code": 0,
+      "result": {
+        "schema_version": 1,
+        "official_commit": "aac4755666d09fdcd70272fcf063c077a639015f",
+        "sdk_bundle_sha256": "c8691b22d2c06d7962894b77d78cd24e69ac3996f9fe37190638e9c067540404",
+        "account_probe_invocations": 1,
+        "submitted_model_turns": 0,
+        "model_turn_starts": 0,
+        "production_enabled": false,
+        "model_identity_verified": false,
+        "os_scope_verified": false,
+        "used_create_local_services": false,
+        "login_or_refresh_started": false,
+        "credential_values_returned": false,
+        "credential_store_copied": false,
+        "source_title": "zcode-supported-sdk-investigation",
+        "account_snapshot_kind": "official_availability_only_no_full_registry",
+        "elapsed_ms": 437,
+        "guard": {
+          "fs_mutations_denied": 0,
+          "process_mutations_denied": 0,
+          "suppressed_output_calls": 1
+        },
+        "http": {
+          "http_requests_started": 1,
+          "http_responses_received": 1,
+          "last_http_status": 400,
+          "reason_code": null
+        },
+        "queried_provider_ref": "account:zai-start-plan",
+        "available": false,
+        "pending": false,
+        "unknown": true,
+        "unavailable": false,
+        "reason_code": "SDK_ACCOUNT_AVAILABILITY_UNKNOWN",
+        "trueProviderRefs": [],
+        "available_model_refs": [],
+        "status": "blocked",
+        "credential_store_exists": true
+      },
+      "receipt_path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\zcode-supported-sdk\\first\\account-metadata.json",
+      "receipt_sha256": "57d73457117cfcd52c3f7886e0b46adddb279b926aaec5154494c55a772e1877",
+      "freeze_manifest_path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\zcode-supported-sdk\\first\\prequery-source-freeze.json",
+      "frozen_public_sources": {
+        "account-probe.mjs": {
+          "path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\zcode-supported-sdk\\first\\account-probe.mjs",
+          "sha256": "b8d5890f8f68a7b01b280f7ac8e33e521310c3dd072dab448e78819f0998ed30",
+          "currently_matches": true
+        },
+        "host-policy.mjs": {
+          "path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\zcode-supported-sdk\\first\\host-policy.mjs",
+          "sha256": "589a6d465be2fb09e29af9dfb88249a2d3807cfef889be4a2d09e773ea71772e",
+          "currently_matches": true
+        },
+        "readonly-guard.mjs": {
+          "path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\zcode-supported-sdk\\first\\readonly-guard.mjs",
+          "sha256": "d12e60f10d541cca153f027fee16e4c10f5836f3052e789b792609b23abe9969",
+          "currently_matches": true
+        },
+        "sdk-entry.ts": {
+          "path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\zcode-supported-sdk\\first\\sdk-entry.ts",
+          "sha256": "6abd08ebd38c02b34c0f64d869dbb8766468ad77849df0d33e32149301f48c2e",
+          "currently_matches": true
+        },
+        "build.mjs": {
+          "path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\zcode-supported-sdk\\first\\build.mjs",
+          "sha256": "d0b40579faabc7b843a19c42ca02da0b316ee55b13e4f90093e13497c8618c9b",
+          "currently_matches": true
+        },
+        "package.json": {
+          "path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\zcode-supported-sdk\\first\\package.json",
+          "sha256": "be7aa455efc9776610b90065c385e256eaa16ca52370c2eafdf862c0d968adb1",
+          "currently_matches": true
+        },
+        "package-lock.json": {
+          "path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\zcode-supported-sdk\\first\\package-lock.json",
+          "sha256": "d621a0fc13ce917b45090e677649badc4d54d45e8a7162a8fe31cf83b30351c2",
+          "currently_matches": true
+        },
+        "sdk.mjs": {
+          "path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\zcode-supported-sdk\\first\\sdk.mjs",
+          "sha256": "c8691b22d2c06d7962894b77d78cd24e69ac3996f9fe37190638e9c067540404",
+          "currently_matches": true
+        },
+        "build-hashes.json": {
+          "path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\zcode-supported-sdk\\first\\build-hashes.json",
+          "sha256": "412e2b90368cf37377075d46a0ca92cc81845a435e06eba05fa53a294771633e",
+          "currently_matches": true
+        }
+      },
+      "archive_note": "Public source/test snapshots are stored separately. Two older public bundles/tests were reconstructed and verified byte-for-byte against original frozen SHA256; no credential/device value or raw business payload is archived."
+    },
+    {
+      "phase": "corrected_preflight_failure",
+      "process_exit_code": 1,
+      "result": {
+        "schema_version": 1,
+        "official_commit": "aac4755666d09fdcd70272fcf063c077a639015f",
+        "sdk_bundle_sha256": "6c6ba2ca148b359e5704754f3947d489f2617ef0ff6bef1fb938ab0712d4d3dd",
+        "account_probe_invocations": 1,
+        "phase": "corrected_build_diagnostic",
+        "build_app_version": "3.15.1",
+        "build_environment": "production",
+        "diagnostic_classification_is_heuristic": true,
+        "submitted_model_turns": 0,
+        "model_turn_starts": 0,
+        "production_enabled": false,
+        "model_identity_verified": false,
+        "os_scope_verified": false,
+        "used_create_local_services": false,
+        "login_or_refresh_started": false,
+        "credential_values_returned": false,
+        "credential_store_copied": false,
+        "source_title": "zcode-supported-sdk-investigation",
+        "account_snapshot_kind": "official_availability_only_no_full_registry",
+        "elapsed_ms": 164,
+        "guard": {
+          "fs_mutations_denied": 0,
+          "process_mutations_denied": 0,
+          "suppressed_output_calls": 0
+        },
+        "http": {
+          "http_requests_started": 0,
+          "http_responses_received": 0,
+          "last_http_status": null,
+          "reason_code": null
+        },
+        "status": "blocked",
+        "reason_code": "SDK_API_SOURCE_INVALID",
+        "available": false,
+        "pending": false,
+        "unknown": true,
+        "trueProviderRefs": [],
+        "available_model_refs": []
+      },
+      "receipt_path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\zcode-supported-sdk\\diagnostic-preflight-failed\\account-diagnostic-metadata.json",
+      "receipt_sha256": "b48f641a70936456f7d53a8e6458c4eecf04efad50b5c3180ce51dc0c7786111",
+      "freeze_manifest_path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\zcode-supported-sdk\\diagnostic-preflight-failed\\diagnostic-prequery-source-freeze.json",
+      "frozen_public_sources": {
+        "account-diagnostic-probe.mjs": {
+          "path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\zcode-supported-sdk\\diagnostic-preflight-failed\\account-diagnostic-probe.mjs",
+          "sha256": "9aa4aea26e4af6d9e6757cc8364536e81d18f087894e13f1ed07ec91334ef3be",
+          "currently_matches": true
+        },
+        "host-policy.mjs": {
+          "path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\zcode-supported-sdk\\diagnostic-preflight-failed\\host-policy.mjs",
+          "sha256": "745127cf396872df0b62dee9ea7be3f18526355d8cbc21ccaed1f3de42e20c6d",
+          "currently_matches": true
+        },
+        "readonly-guard.mjs": {
+          "path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\zcode-supported-sdk\\diagnostic-preflight-failed\\readonly-guard.mjs",
+          "sha256": "d12e60f10d541cca153f027fee16e4c10f5836f3052e789b792609b23abe9969",
+          "currently_matches": true
+        },
+        "sdk-entry.ts": {
+          "path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\zcode-supported-sdk\\diagnostic-preflight-failed\\sdk-entry.ts",
+          "sha256": "8345e0b18043ae2815846a3d143753867fae7e1d66fe38f525dfe658f1df49fd",
+          "currently_matches": true
+        },
+        "build.mjs": {
+          "path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\zcode-supported-sdk\\diagnostic-preflight-failed\\build.mjs",
+          "sha256": "d1709366f42c779286495261cc6ef961d4c19fc6472836faa1520dfab2ee8555",
+          "currently_matches": true
+        },
+        "package.json": {
+          "path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\zcode-supported-sdk\\diagnostic-preflight-failed\\package.json",
+          "sha256": "be7aa455efc9776610b90065c385e256eaa16ca52370c2eafdf862c0d968adb1",
+          "currently_matches": true
+        },
+        "package-lock.json": {
+          "path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\zcode-supported-sdk\\diagnostic-preflight-failed\\package-lock.json",
+          "sha256": "d621a0fc13ce917b45090e677649badc4d54d45e8a7162a8fe31cf83b30351c2",
+          "currently_matches": true
+        },
+        "sdk.mjs": {
+          "path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\zcode-supported-sdk\\diagnostic-preflight-failed\\sdk.mjs",
+          "sha256": "6c6ba2ca148b359e5704754f3947d489f2617ef0ff6bef1fb938ab0712d4d3dd",
+          "currently_matches": true
+        },
+        "build-hashes.json": {
+          "path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\zcode-supported-sdk\\diagnostic-preflight-failed\\build-hashes.json",
+          "sha256": "6f575c365edcaefb01c9d4482681b129438b41088a1af01a2676692a30c01bc9",
+          "currently_matches": true
+        }
+      },
+      "archive_note": "Public frozen source bytes only; no credential/device value or raw business payload."
+    },
+    {
+      "phase": "corrected_HTTP3001",
+      "process_exit_code": 0,
+      "result": {
+        "schema_version": 1,
+        "official_commit": "aac4755666d09fdcd70272fcf063c077a639015f",
+        "sdk_bundle_sha256": "6c6ba2ca148b359e5704754f3947d489f2617ef0ff6bef1fb938ab0712d4d3dd",
+        "account_probe_invocations": 1,
+        "phase": "corrected_headers_diagnostic",
+        "build_app_version": "3.15.1",
+        "build_environment": "production",
+        "diagnostic_classification_is_heuristic": true,
+        "submitted_model_turns": 0,
+        "model_turn_starts": 0,
+        "production_enabled": false,
+        "model_identity_verified": false,
+        "os_scope_verified": false,
+        "used_create_local_services": false,
+        "login_or_refresh_started": false,
+        "credential_values_returned": false,
+        "credential_store_copied": false,
+        "source_title": "zcode-supported-sdk-investigation",
+        "account_snapshot_kind": "official_availability_only_no_full_registry",
+        "elapsed_ms": 443,
+        "guard": {
+          "fs_mutations_denied": 0,
+          "process_mutations_denied": 0,
+          "suppressed_output_calls": 1
+        },
+        "http": {
+          "http_requests_started": 1,
+          "http_responses_received": 1,
+          "last_http_status": 400,
+          "reason_code": null,
+          "response_error_code": 3001,
+          "classification_flags": {
+            "missing_parameter": false,
+            "unsupported_source": false,
+            "security_verification": false,
+            "expired_auth": false,
+            "auth_rejected": false
+          }
+        },
+        "queried_provider_ref": "account:zai-start-plan",
+        "available": false,
+        "pending": false,
+        "unknown": true,
+        "unavailable": false,
+        "reason_code": "SDK_ACCOUNT_AVAILABILITY_UNKNOWN",
+        "trueProviderRefs": [],
+        "available_model_refs": [],
+        "status": "blocked",
+        "credential_store_exists": true
+      },
+      "receipt_path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\zcode-supported-sdk\\corrected-HTTP3001\\account-diagnostic-fixed-metadata.json",
+      "receipt_sha256": "999dcae1d060fbd2b88b28849e46520a6e959e2608ceac3ec1332a7a2f4bf918",
+      "freeze_manifest_path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\zcode-supported-sdk\\corrected-HTTP3001\\fixed-diagnostic-prequery-source-freeze.json",
+      "frozen_public_sources": {
+        "account-diagnostic-fixed-probe.mjs": {
+          "path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\zcode-supported-sdk\\corrected-HTTP3001\\account-diagnostic-fixed-probe.mjs",
+          "sha256": "9b4801f68c4b3051360353fdff953b35e365803cc6472bc6cfb581a4501c326a",
+          "currently_matches": true
+        },
+        "host-policy.mjs": {
+          "path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\zcode-supported-sdk\\corrected-HTTP3001\\host-policy.mjs",
+          "sha256": "773639fee60ba3f47831edd689e887f2a051ef0e452caf745d57338e8b4062bf",
+          "currently_matches": true
+        },
+        "readonly-guard.mjs": {
+          "path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\zcode-supported-sdk\\corrected-HTTP3001\\readonly-guard.mjs",
+          "sha256": "d12e60f10d541cca153f027fee16e4c10f5836f3052e789b792609b23abe9969",
+          "currently_matches": true
+        },
+        "sdk-entry.ts": {
+          "path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\zcode-supported-sdk\\corrected-HTTP3001\\sdk-entry.ts",
+          "sha256": "8345e0b18043ae2815846a3d143753867fae7e1d66fe38f525dfe658f1df49fd",
+          "currently_matches": true
+        },
+        "build.mjs": {
+          "path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\zcode-supported-sdk\\corrected-HTTP3001\\build.mjs",
+          "sha256": "d1709366f42c779286495261cc6ef961d4c19fc6472836faa1520dfab2ee8555",
+          "currently_matches": true
+        },
+        "package.json": {
+          "path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\zcode-supported-sdk\\corrected-HTTP3001\\package.json",
+          "sha256": "be7aa455efc9776610b90065c385e256eaa16ca52370c2eafdf862c0d968adb1",
+          "currently_matches": true
+        },
+        "package-lock.json": {
+          "path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\zcode-supported-sdk\\corrected-HTTP3001\\package-lock.json",
+          "sha256": "d621a0fc13ce917b45090e677649badc4d54d45e8a7162a8fe31cf83b30351c2",
+          "currently_matches": true
+        },
+        "sdk.mjs": {
+          "path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\zcode-supported-sdk\\corrected-HTTP3001\\sdk.mjs",
+          "sha256": "6c6ba2ca148b359e5704754f3947d489f2617ef0ff6bef1fb938ab0712d4d3dd",
+          "currently_matches": true
+        },
+        "build-hashes.json": {
+          "path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\zcode-supported-sdk\\corrected-HTTP3001\\build-hashes.json",
+          "sha256": "6f575c365edcaefb01c9d4482681b129438b41088a1af01a2676692a30c01bc9",
+          "currently_matches": true
+        }
+      },
+      "archive_note": "Public source/test snapshots are stored separately. Two older public bundles/tests were reconstructed and verified byte-for-byte against original frozen SHA256; no credential/device value or raw business payload is archived."
+    },
+    {
+      "phase": "official_existing_mid_HTTP200",
+      "process_exit_code": 0,
+      "result": {
+        "schema_version": 1,
+        "official_commit": "aac4755666d09fdcd70272fcf063c077a639015f",
+        "sdk_bundle_sha256": "c65490d364a0adff0d19a837c9f9c6961b7da3bc648631c2257d4ba6e624f927",
+        "account_probe_invocations": 1,
+        "phase": "official_existing_mid_diagnostic",
+        "build_app_version": "3.15.1",
+        "build_environment": "production",
+        "diagnostic_classification_is_heuristic": true,
+        "submitted_model_turns": 0,
+        "model_turn_starts": 0,
+        "production_enabled": false,
+        "model_identity_verified": false,
+        "os_scope_verified": false,
+        "used_create_local_services": false,
+        "login_or_refresh_started": false,
+        "credential_values_returned": false,
+        "credential_store_copied": false,
+        "device_identifier_values_returned": false,
+        "existing_mid_present": true,
+        "header_applied": true,
+        "source_title": "zcode-supported-sdk-investigation",
+        "account_snapshot_kind": "official_availability_only_no_full_registry",
+        "elapsed_ms": 489,
+        "guard": {
+          "fs_mutations_denied": 0,
+          "process_mutations_denied": 0,
+          "suppressed_output_calls": 1
+        },
+        "http": {
+          "http_requests_started": 1,
+          "http_responses_received": 1,
+          "last_http_status": 200,
+          "reason_code": null,
+          "response_error_code": null,
+          "classification_flags": {
+            "missing_parameter": false,
+            "unsupported_source": false,
+            "security_verification": false,
+            "expired_auth": false,
+            "auth_rejected": false
+          }
+        },
+        "queried_provider_ref": "account:zai-start-plan",
+        "available": true,
+        "pending": false,
+        "unknown": false,
+        "unavailable": false,
+        "reason_code": "SDK_ACCOUNT_AVAILABILITY_OBSERVED",
+        "trueProviderRefs": [
+          "account:zai-start-plan"
+        ],
+        "available_model_refs": [
+          {
+            "providerId": "account:zai-start-plan",
+            "modelId": "GLM-5.3"
+          },
+          {
+            "providerId": "account:zai-start-plan",
+            "modelId": "GLM-5.3-Flash"
+          }
+        ],
+        "status": "metadata_observed",
+        "credential_store_exists": true
+      },
+      "receipt_path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\zcode-supported-sdk\\existing-mid-phase\\account-existing-mid-metadata.json",
+      "receipt_sha256": "2a9075a22a9c3b280d295e5d56386e91f20b280074254eed54c65d7d14b0291d",
+      "freeze_manifest_path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\zcode-supported-sdk\\existing-mid-phase\\existing-mid-prequery-source-freeze.json",
+      "frozen_public_sources": {
+        "account-existing-mid-probe.mjs": {
+          "path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\zcode-supported-sdk\\existing-mid-phase\\account-existing-mid-probe.mjs",
+          "sha256": "a1157244175e11fdf427cd7deccb219c259b3263f3c029615b84a01b8518a6f8",
+          "currently_matches": true
+        },
+        "host-policy.mjs": {
+          "path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\zcode-supported-sdk\\existing-mid-phase\\host-policy.mjs",
+          "sha256": "34c61e1378391f614ba710c37700ce18f6f9a0a6edfafd52ca255653058d4b09",
+          "currently_matches": true
+        },
+        "readonly-guard.mjs": {
+          "path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\zcode-supported-sdk\\existing-mid-phase\\readonly-guard.mjs",
+          "sha256": "d12e60f10d541cca153f027fee16e4c10f5836f3052e789b792609b23abe9969",
+          "currently_matches": true
+        },
+        "sdk-entry.ts": {
+          "path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\zcode-supported-sdk\\existing-mid-phase\\sdk-entry.ts",
+          "sha256": "a39f2e73356bc89e33050e534d11adff1704d47fb6296b164b431a36897a9552",
+          "currently_matches": true
+        },
+        "build.mjs": {
+          "path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\zcode-supported-sdk\\existing-mid-phase\\build.mjs",
+          "sha256": "d1709366f42c779286495261cc6ef961d4c19fc6472836faa1520dfab2ee8555",
+          "currently_matches": true
+        },
+        "package.json": {
+          "path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\zcode-supported-sdk\\existing-mid-phase\\package.json",
+          "sha256": "be7aa455efc9776610b90065c385e256eaa16ca52370c2eafdf862c0d968adb1",
+          "currently_matches": true
+        },
+        "package-lock.json": {
+          "path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\zcode-supported-sdk\\existing-mid-phase\\package-lock.json",
+          "sha256": "d621a0fc13ce917b45090e677649badc4d54d45e8a7162a8fe31cf83b30351c2",
+          "currently_matches": true
+        },
+        "sdk.mjs": {
+          "path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\zcode-supported-sdk\\existing-mid-phase\\sdk.mjs",
+          "sha256": "c65490d364a0adff0d19a837c9f9c6961b7da3bc648631c2257d4ba6e624f927",
+          "currently_matches": true
+        },
+        "build-hashes.json": {
+          "path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\zcode-supported-sdk\\existing-mid-phase\\build-hashes.json",
+          "sha256": "e80fae3e127d00e25bb997598cab6f5caa7149d01323655dff8ab8efbe6b15b1",
+          "currently_matches": true
+        }
+      },
+      "archive_note": "Public frozen source bytes only; no credential/device value or raw business payload."
+    }
+  ],
+  "real_query_totals": {
+    "process_invocations": 4,
+    "balance_GET_requests_started": 3,
+    "balance_responses_received": 3,
+    "model_turns": 0,
+    "first_HTTP400": 1,
+    "corrected_preflight_HTTP0": 1,
+    "corrected_HTTP400_code3001": 1,
+    "with_official_existing_mid_HTTP200": 1
+  },
+  "offline_validation": {
+    "initial_guard_RED_failed": 9,
+    "guard_GREEN_passed": 10,
+    "official_corrupt_JSON_and_cipher_GREEN_passed": 12,
+    "API_projection_RED_failed": 10,
+    "API_diagnostics_RED_failed": 3,
+    "Headers_interop_RED_failed": 1,
+    "final_API_policy_GREEN_passed": 14,
+    "build_config_RED_failed": 3,
+    "build_config_GREEN_passed": 4,
+    "device_reader_export_RED_failed": 1,
+    "device_adapter_existing_preservation_RED_failed": 1,
+    "final_device_reader_GREEN_passed": 28,
+    "sum_latest_layer_GREEN_checks": 68,
+    "real_network_requests": 0
+  },
+  "write_boundary": {
+    "guard_before_credential_or_telemetry_read": true,
+    "all_mutating_FS_operations_denied": true,
+    "credential_save_delete_denied": true,
+    "OAuth_save_set_clear_denied": true,
+    "existing_device_read_only_inside_official_SDK": true,
+    "device_values_exported": false,
+    "device_values_or_credentials_copied": false,
+    "device_or_request_UUID_generated_in_final_phase": false,
+    "new_login_or_refresh": false,
+    "user_settings_or_CA_migrated": false,
+    "imported_createLocalServices": false,
+    "source_title": "zcode-supported-sdk-investigation",
+    "OS_sandbox_claim": false,
+    "trusted_pinned_call_path_only": true
+  },
+  "protocol_findings": {
+    "first_compile_defines_missing": true,
+    "first_bundle_static_version_fallback": "0.0.0-dev",
+    "first_bundle_static_env_fallback": "test",
+    "corrected_defines": {
+      "version": "3.15.1",
+      "env": "production"
+    },
+    "preflight_case_bug_fixed": true,
+    "required_device_header_initially_missing": true,
+    "official_balance_missing_mid_failure": {
+      "HTTP": 400,
+      "code": 3001,
+      "source_ref": "docs/zcode-endpoint-device-mid-header.md:13"
+    },
+    "final_existing_mid_present": true,
+    "final_header_applied": true,
+    "final_available_from_official_service": true
+  },
+  "remaining_requirements": [
+    "Full AccountProviderService config source/current registry projection into the installed CLI has not yet been verified.",
+    "RequestAuthService/actual private provider-headers application and a model response remain untested.",
+    "Catalog membership is not execution model identity; model identity, OS scope, cancellation and production runtime qualification remain false/unverified."
+  ],
+  "evidence": {
+    "download.json": {
+      "path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\zcode-supported-sdk\\download.json",
+      "sha256": "2182ae417657177df40e813f53bdc6ae985a34c1a2388c718f3bc201001d9901",
+      "bytes": 310
+    },
+    "source-provenance.json": {
+      "path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\zcode-supported-sdk\\source-provenance.json",
+      "sha256": "27e006b85b9461da09216679c0058dbe777c7ebc923f446b6f73f9c80a0a5fd8",
+      "bytes": 166
+    },
+    "diagnostic-source-provenance.json": {
+      "path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\zcode-supported-sdk\\diagnostic-source-provenance.json",
+      "sha256": "20c481a54936b67571534fc580281d9f6d5e13e9f710c36e87a4de7391111977",
+      "bytes": 64
+    },
+    "existing-mid-source-provenance.json": {
+      "path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\zcode-supported-sdk\\existing-mid-source-provenance.json",
+      "sha256": "6fe2061808574714db6490dd5623d44203757740f790a7beaeab54a21d8dd909",
+      "bytes": 73
+    },
+    "guard-red.log": {
+      "path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\zcode-supported-sdk\\guard-red.log",
+      "sha256": "11389bfee9c92f3cccd776b6066f9f44a7df1ec8db07b1f4cd6f2abfcfdd87c0",
+      "bytes": 194
+    },
+    "guard-green.log": {
+      "path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\zcode-supported-sdk\\guard-green.log",
+      "sha256": "c6b4a5f88e585fb967edc25d5498a781d800dac36db7992ace5715c09971264f",
+      "bytes": 26
+    },
+    "sdk-corrupt-json-green.log": {
+      "path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\zcode-supported-sdk\\sdk-corrupt-json-green.log",
+      "sha256": "c85d1756e7547751b081cdb721564a6c9a8535d741f2dbdef218ece1e5bfb94e",
+      "bytes": 95
+    },
+    "sdk-corrupt-cipher-green.log": {
+      "path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\zcode-supported-sdk\\sdk-corrupt-cipher-green.log",
+      "sha256": "d4adffc0062c6dcb22e002454fca2f4409e9b5d2e7bb899cb749c6d3bcc753bb",
+      "bytes": 97
+    },
+    "policy-red.log": {
+      "path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\zcode-supported-sdk\\policy-red.log",
+      "sha256": "2911b9003310a26e5cdbf87f4c40a32fa8aef256c495666da52f0a4db2efe22c",
+      "bytes": 303
+    },
+    "policy-green.log": {
+      "path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\zcode-supported-sdk\\policy-green.log",
+      "sha256": "65bc2e3df1f017afbefad3df8b66bc0c5b7a51831604dd7e790f654d59ca413a",
+      "bytes": 49
+    },
+    "build-config-red.log": {
+      "path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\zcode-supported-sdk\\build-config-red.log",
+      "sha256": "e380ebd05169ff43db0093dadaa5aa3625d4acebf08a626115e7f24c2a4d6c91",
+      "bytes": 128
+    },
+    "build-config-green.log": {
+      "path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\zcode-supported-sdk\\build-config-green.log",
+      "sha256": "9e1f1e320676701187e13d0bf2b1603d1a4ea80617fb962cd7e88e43e73f44a3",
+      "bytes": 48
+    },
+    "diagnostics-red.log": {
+      "path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\zcode-supported-sdk\\diagnostics-red.log",
+      "sha256": "512ea1bbdee8b49385fe75f75aade0c4c383516e07d51149818cc1eacab41f5e",
+      "bytes": 169
+    },
+    "diagnostics-green.log": {
+      "path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\zcode-supported-sdk\\diagnostics-green.log",
+      "sha256": "d2104a8da97f74a8fe6de0aa78bffd9154597fd3be76e407e9314380c3dfffc0",
+      "bytes": 49
+    },
+    "header-case-red.log": {
+      "path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\zcode-supported-sdk\\header-case-red.log",
+      "sha256": "53c5c8bbfac0e61062ca527e25ea6a87c6657a031318ff7ec094d156c877ef8b",
+      "bytes": 93
+    },
+    "header-case-green.log": {
+      "path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\zcode-supported-sdk\\header-case-green.log",
+      "sha256": "72e63b4540e750b49208b0cc0a199c21550f96ad07b6602fc174fd193ec2362c",
+      "bytes": 49
+    },
+    "device-mid-red.log": {
+      "path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\zcode-supported-sdk\\device-mid-red.log",
+      "sha256": "63630f10f963f49e287af43daed072ffecf92b1c4b6b8db05f153ca236723b5f",
+      "bytes": 98
+    },
+    "device-mid-adapter-red.log": {
+      "path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\zcode-supported-sdk\\device-mid-adapter-red.log",
+      "sha256": "e986a0d67ae3bda1facb6547d62ce8a2f269d082c73a9ffbdd91df897ef29dda",
+      "bytes": 98
+    },
+    "device-mid-existing-final-green.log": {
+      "path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\zcode-supported-sdk\\device-mid-existing-final-green.log",
+      "sha256": "e84b6e00011e91cdb3366f4c64442a34a3907ae78ec9e812d167ea433e497ad1",
+      "bytes": 99
+    },
+    "device-mid-missing-final-green.log": {
+      "path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\zcode-supported-sdk\\device-mid-missing-final-green.log",
+      "sha256": "a3528e223666dc25b43aa340cb5bf9e75f9f16b1c0fd6657861f8f76327cd916",
+      "bytes": 97
+    },
+    "device-mid-invalid-final-green.log": {
+      "path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\zcode-supported-sdk\\device-mid-invalid-final-green.log",
+      "sha256": "ed0fc6b6b72aaa14d5bde5560aac5dcf7d36139d49e61af83b9874c6b5e99ea1",
+      "bytes": 97
+    },
+    "final-policy-green.log": {
+      "path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\zcode-supported-sdk\\final-policy-green.log",
+      "sha256": "72e63b4540e750b49208b0cc0a199c21550f96ad07b6602fc174fd193ec2362c",
+      "bytes": 49
+    },
+    "commands.json": {
+      "path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\zcode-supported-sdk\\commands.json",
+      "sha256": "43c9048b3575778a4db04526932600efa3563bd0a679726d798f970dda7dd20e",
+      "bytes": 1465
+    },
+    "api-differences.md": {
+      "path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\zcode-supported-sdk\\api-differences.md",
+      "sha256": "fb9813475dead7ea7bd3fd70246f243ed15d4a63a22e93322e6be53bc9f78eb5",
+      "bytes": 3251
+    },
+    "one-real-query.claim": {
+      "path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\zcode-supported-sdk\\one-real-query.claim",
+      "sha256": "88c02192414e9783c5d739e1d5999435518748929e580291f5b3e2acfedf41da",
+      "bytes": 41
+    },
+    "one-real-diagnostic-query.claim": {
+      "path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\zcode-supported-sdk\\one-real-diagnostic-query.claim",
+      "sha256": "88c02192414e9783c5d739e1d5999435518748929e580291f5b3e2acfedf41da",
+      "bytes": 41
+    },
+    "one-real-diagnostic-fixed-query.claim": {
+      "path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\zcode-supported-sdk\\one-real-diagnostic-fixed-query.claim",
+      "sha256": "88c02192414e9783c5d739e1d5999435518748929e580291f5b3e2acfedf41da",
+      "bytes": 41
+    },
+    "one-real-existing-mid-query.claim": {
+      "path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\zcode-supported-sdk\\one-real-existing-mid-query.claim",
+      "sha256": "88c02192414e9783c5d739e1d5999435518748929e580291f5b3e2acfedf41da",
+      "bytes": 41
+    }
+  },
+  "all_archived_phase_source_hashes_currently_match": true,
+  "final_source_window_hashes_unchanged": true
+}

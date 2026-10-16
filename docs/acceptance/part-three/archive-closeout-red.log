@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "C:\Users\asd15\Documents\ChatGPT\ai\scripts\phase_three_closeout.py", line 197, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\asd15\Documents\ChatGPT\ai\scripts\phase_three_closeout.py", line 55, in main
+    raise ValueError('FRESH_FINAL_VERIFICATION_REQUIRED')
+ValueError: FRESH_FINAL_VERIFICATION_REQUIRED

@@ -1,0 +1,18 @@
+{
+  "generated_at": "2026-10-14T03:08:49.882743+00:00",
+  "codex_protocol_tests": 42,
+  "combined_native_connector_tests": 97,
+  "exit_code": 0,
+  "new_real_model_starts": 0,
+  "production_identity_verified": false,
+  "scope_enforced": false,
+  "script_handed_to_root": "scripts/probe_native_connections.py",
+  "source_sha256": {
+    "services/orchestrator/app/providers/native_rpc.py": "702fdfe1de5d00b8b30a3628f8811f68f0d8d426caec5c9c4ac8cf828fac4c2e",
+    "services/orchestrator/app/providers/native_rpc_worker.py": "efd341daf662db5bbcc73c51bb545ced2759d7c683a7642b2d01231b6aba9419",
+    "services/orchestrator/app/providers/codex_protocol.py": "be3efaea44bc56fd821adbeb28642637466a5472e6daea95beacaaf5a30b4922",
+    "tests/contracts/test_codex_protocol.py": "76d79b3daa239de610251a6b8cdf2dad052922e78e9b2dcd14487895a54390c7",
+    "docs/acceptance/part-one-closeout/codex-protocol-implementation.md": "602d40605da1830cee05d3770d02d7f8f5f1a54ff52d2738628c16b5b39ba368"
+  },
+  "validation_log": "docs/acceptance/part-one-closeout/native-connectors-green.log"
+}

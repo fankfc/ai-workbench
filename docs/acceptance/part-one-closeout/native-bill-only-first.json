@@ -1,0 +1,15 @@
+{
+  "time": "2026-10-14T07:16:53.929631+00:00",
+  "command": [
+    "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\.venv\\Scripts\\python.exe",
+    "-m",
+    "pytest",
+    "-q",
+    "tests/contracts/test_scoped_runtime_repairs.py",
+    "tests/integration/test_native_planning.py::test_planning_failed_transport_keeps_authenticated_reported_billing",
+    "-q"
+  ],
+  "exit_code": 1,
+  "git_commit": null,
+  "log": "docs\\acceptance\\part-one-closeout\\native-bill-only-first.log"
+}

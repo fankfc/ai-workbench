@@ -1,0 +1,238 @@
+{
+  "generated_at": "2026-10-13T11:33:55.960082+00:00",
+  "commit": null,
+  "python": "3.13.0",
+  "sqlite": "3.45.3",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "interpreter": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\.venv\\Scripts\\python.exe",
+  "mode": "isolated real SQLite/filesystem; no external provider calls",
+  "command": "services/orchestrator/.venv/Scripts/python.exe docs/acceptance/D008/reproduce_evidence.py",
+  "pytest_command": "services/orchestrator/.venv/Scripts/python.exe -m pytest tests/integration/test_storage.py -q --junitxml=docs/acceptance/D008/storage-tests.xml",
+  "pytest_exit_code": 0,
+  "passed": 56,
+  "failed": 0,
+  "fault_injection": "ENOSPC/EIO/KeyboardInterrupt injected at filesystem operations; SQLite lock and subprocess exit use real local resources.",
+  "cases": [
+    {
+      "name": "test_transaction_rolls_back_on_interruption",
+      "duration_seconds": 0.01,
+      "result": "passed"
+    },
+    {
+      "name": "test_transaction_rejects_nested_boundary",
+      "duration_seconds": 0.007,
+      "result": "passed"
+    },
+    {
+      "name": "test_failed_upgrade_rolls_back_every_pending_migration",
+      "duration_seconds": 0.008,
+      "result": "passed"
+    },
+    {
+      "name": "test_migration_rejects_transaction_control_without_leaking_ddl",
+      "duration_seconds": 0.006,
+      "result": "passed"
+    },
+    {
+      "name": "test_migration_rejects_missing_version_and_newer_unknown_schema",
+      "duration_seconds": 0.009,
+      "result": "passed"
+    },
+    {
+      "name": "test_migration_rejects_changed_applied_hash",
+      "duration_seconds": 0.009,
+      "result": "passed"
+    },
+    {
+      "name": "test_migration_rejects_unversioned_nonempty_database",
+      "duration_seconds": 0.01,
+      "result": "passed"
+    },
+    {
+      "name": "test_blob_existing_content_with_wrong_hash_is_rejected_not_overwritten",
+      "duration_seconds": 0.007,
+      "result": "passed"
+    },
+    {
+      "name": "test_blob_read_refuses_missing_content",
+      "duration_seconds": 0.003,
+      "result": "passed"
+    },
+    {
+      "name": "test_blob_paths_reject_non_sha256_names[../secret]",
+      "duration_seconds": 0.002,
+      "result": "passed"
+    },
+    {
+      "name": "test_blob_paths_reject_non_sha256_names[AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]",
+      "duration_seconds": 0.002,
+      "result": "passed"
+    },
+    {
+      "name": "test_blob_paths_reject_non_sha256_names[aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa]",
+      "duration_seconds": 0.002,
+      "result": "passed"
+    },
+    {
+      "name": "test_blob_paths_reject_non_sha256_names[aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa]",
+      "duration_seconds": 0.002,
+      "result": "passed"
+    },
+    {
+      "name": "test_artifact_rejects_hash_or_uri_not_matching_actual_bytes[byte_sha256-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa]",
+      "duration_seconds": 0.016,
+      "result": "passed"
+    },
+    {
+      "name": "test_artifact_rejects_hash_or_uri_not_matching_actual_bytes[immutable_uri-blob:sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa]",
+      "duration_seconds": 0.017,
+      "result": "passed"
+    },
+    {
+      "name": "test_artifact_rejects_dependency_that_does_not_exist",
+      "duration_seconds": 0.016,
+      "result": "passed"
+    },
+    {
+      "name": "test_artifact_fsync_failure_never_registers_a_visible_revision[disk-full]",
+      "duration_seconds": 0.019,
+      "result": "passed"
+    },
+    {
+      "name": "test_artifact_fsync_failure_never_registers_a_visible_revision[interrupted]",
+      "duration_seconds": 0.019,
+      "result": "passed"
+    },
+    {
+      "name": "test_artifact_partial_write_failure_leaves_no_reference_or_temporary_file",
+      "duration_seconds": 0.019,
+      "result": "passed"
+    },
+    {
+      "name": "test_artifact_link_failure_never_registers_or_leaks_temporary_files",
+      "duration_seconds": 0.019,
+      "result": "passed"
+    },
+    {
+      "name": "test_artifact_duplicate_id_rolls_back_registration_without_changing_original",
+      "duration_seconds": 0.026,
+      "result": "passed"
+    },
+    {
+      "name": "test_artifact_write_under_database_lock_times_out_without_starting_blob",
+      "duration_seconds": 0.097,
+      "result": "passed"
+    },
+    {
+      "name": "test_artifact_read_rejects_missing_or_corrupted_registered_content[missing]",
+      "duration_seconds": 0.021,
+      "result": "passed"
+    },
+    {
+      "name": "test_artifact_read_rejects_missing_or_corrupted_registered_content[corrupt]",
+      "duration_seconds": 0.025,
+      "result": "passed"
+    },
+    {
+      "name": "test_schema_rejects_duplicate_turn_request_within_conversation",
+      "duration_seconds": 0.013,
+      "result": "passed"
+    },
+    {
+      "name": "test_schema_rejects_duplicate_task_attempt_and_external_request",
+      "duration_seconds": 0.013,
+      "result": "passed"
+    },
+    {
+      "name": "test_schema_rejects_duplicate_event_stream_cursor_or_deduplication_key[1-2-e2]",
+      "duration_seconds": 0.014,
+      "result": "passed"
+    },
+    {
+      "name": "test_schema_rejects_duplicate_event_stream_cursor_or_deduplication_key[2-1-e2]",
+      "duration_seconds": 0.013,
+      "result": "passed"
+    },
+    {
+      "name": "test_schema_rejects_duplicate_event_stream_cursor_or_deduplication_key[2-2-e1]",
+      "duration_seconds": 0.013,
+      "result": "passed"
+    },
+    {
+      "name": "test_schema_rejects_outbox_foreign_reference_mismatch[task_id-absent]",
+      "duration_seconds": 0.013,
+      "result": "passed"
+    },
+    {
+      "name": "test_schema_rejects_outbox_foreign_reference_mismatch[attempt_id-absent]",
+      "duration_seconds": 0.013,
+      "result": "passed"
+    },
+    {
+      "name": "test_schema_rejects_outbox_foreign_reference_mismatch[conversation_id-absent]",
+      "duration_seconds": 0.014,
+      "result": "passed"
+    },
+    {
+      "name": "test_schema_rejects_outbox_foreign_reference_mismatch[turn_id-absent]",
+      "duration_seconds": 0.013,
+      "result": "passed"
+    },
+    {
+      "name": "test_schema_rejects_internal_event_as_public_record",
+      "duration_seconds": 0.013,
+      "result": "passed"
+    },
+    {
+      "name": "test_schema_prevents_changing_frozen_records[UPDATE turns SET route_snapshot_json='{}' WHERE id='t1']",
+      "duration_seconds": 0.02,
+      "result": "passed"
+    },
+    {
+      "name": "test_schema_prevents_changing_frozen_records[UPDATE task_runs SET contract_version='2.0' WHERE task_id='task1']",
+      "duration_seconds": 0.021,
+      "result": "passed"
+    },
+    {
+      "name": "test_schema_prevents_changing_frozen_records[UPDATE artifact_revisions SET byte_sha256='aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa' WHERE id='artifact1']",
+      "duration_seconds": 0.02,
+      "result": "passed"
+    },
+    {
+      "name": "test_schema_prevents_changing_frozen_records[UPDATE outbox_events SET public_event_json='{}' WHERE event_id='e1']",
+      "duration_seconds": 0.02,
+      "result": "passed"
+    },
+    {
+      "name": "test_schema_rejects_invalid_json_and_usage_deduplicates_request_metric",
+      "duration_seconds": 0.013,
+      "result": "passed"
+    },
+    {
+      "name": "test_migration_checks_deferred_foreign_keys_and_rolls_back",
+      "duration_seconds": 0.006,
+      "result": "passed"
+    },
+    {
+      "name": "test_task_external_request_identity_can_be_assigned_once_but_cannot_be_replaced",
+      "duration_seconds": 0.013,
+      "result": "passed"
+    },
+    {
+      "name": "test_simultaneous_blob_writes_never_replace_existing_content",
+      "duration_seconds": 0.011,
+      "result": "passed"
+    },
+    {
+      "name": "test_process_exit_before_database_commit_keeps_blob_but_rolls_back_revision",
+      "duration_seconds": 0.394,
+      "result": "passed"
+    }
+  ],
+  "crash_boundary": "Real child exits 78 after artifact INSERT and before SQLite COMMIT: no visible revision, complete unreferenced blob remains safe.",
+  "not_exercised": [
+    "physical disk exhaustion",
+    "machine power loss",
+    "full product backup/restore"
+  ]
+}

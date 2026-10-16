@@ -1,0 +1,54 @@
+{
+  "status": "LOCAL_CORE_VERIFIED_REAL_ACCEPTANCE_BLOCKED",
+  "complete": false,
+  "real_model_calls": 0,
+  "git_commit": null,
+  "python": {
+    "tests": 1318,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "passed": 1318,
+    "real_provider_deselected": 1,
+    "exit_code": 0,
+    "log": "final-python.log",
+    "junit": "final-python.xml"
+  },
+  "desktop": {
+    "unit_passed": 27,
+    "e2e_passed": 28,
+    "post_presentation_profile_e2e_passed": 4,
+    "typecheck_exit_code": 0,
+    "build_exit_code": 0,
+    "test_build_exit_code": 0
+  },
+  "backend_source_sha256": "30b7567c862172887774d62ec9a6fe03b7abf06047a36b65c5b6e126d469c697",
+  "source_sha256": "e0cafffec582c043ce435f622ce6543a379b4bbfcaf8787f009104e94b21e599",
+  "source_unchanged_during_verification": true,
+  "contract_check": {
+    "exit_code": 0,
+    "result": "CONTRACTS_OK:version=1.0;schemas=2"
+  },
+  "independent_review": {
+    "backend_original_findings": 6,
+    "desktop_original_findings": 4,
+    "all_original_findings_resolved": true,
+    "reviewed_fix_scope_remaining_important": 0
+  },
+  "real": {
+    "configured_profiles": 0,
+    "registered_runtimes": 0,
+    "vertical_cases_blocked": 8,
+    "full_real_acceptance_assembled": false
+  },
+  "task_statuses": {
+    "in_progress": 18,
+    "blocked": 2,
+    "done": 0
+  },
+  "quality_equivalence_claim": false,
+  "token_savings_claim": false,
+  "first_part_freeze_preserved": true,
+  "report": "docs/acceptance/part-two-progress.md",
+  "task_results": "task-results.json"
+}

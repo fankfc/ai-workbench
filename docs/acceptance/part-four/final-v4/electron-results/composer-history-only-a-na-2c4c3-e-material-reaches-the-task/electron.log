@@ -1,0 +1,6 @@
+Debugger ending on ws://127.0.0.1:64400/cb27e92e-9778-4a1c-9705-8a6b46e9a535
+For help, see: https://nodejs.org/learn/getting-started/debugging
+
+Error occurred in handler for 'workbench:status': Error: No handler registered for 'workbench:status'
+[90m    at Session.<anonymous> (node:electron/js2c/browser_init:1:120085)[39m
+[90m    at Session.emit (node:events:514:28)[39m

@@ -1,0 +1,8 @@
+{
+  "task_name": "固定样本",
+  "values": [1, 2, 3],
+  "source_kind": "Assistant-selected fixed, nonsensitive inline sample for user-authorized GPT experiment",
+  "source_language": "zh-CN",
+  "external_files": [],
+  "scope": "Arithmetic text pilot; no user research data"
+}

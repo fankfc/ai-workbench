@@ -1,0 +1,102 @@
+...............................F............................             [100%]
+================================== FAILURES ===================================
+________ test_private_hidden_word_actually_renders_chinese_docx_pages _________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-364/test_private_hidden_word_actua0')
+
+    @pytest.mark.windows
+    def test_private_hidden_word_actually_renders_chinese_docx_pages(tmp_path):
+        from app.documents.parse import parse_document
+        from app.documents.render import DocumentRenderer
+        model = parse_document('# ����\n\nһ�� 30������ 40������ 10��'.encode(), 'markdown', source_version_id='s', language='zh-CN')
+>       rendered = DocumentRenderer().render(model, 'docx', evidence_dir=tmp_path)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\artifacts\test_render_layout.py:51: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+services\orchestrator\app\documents\render.py:153: in render
+    return self._docx(model, root, font)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\app\documents\render.py:282: in _docx
+    preview=self.docx_renderer(data, root)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.documents.render.WindowsWordRenderer object at 0x000001FFA530E6D0>
+data = b'PK\x03\x04\x14\x00\x00\x00\x08\x00\x86\x85N]\xadR\xa5\x91\x95\x01\x00\x00\xca\x06\x00\x00\x13\x00\x00\x00[Content_Ty...\xef\x84\x00\x00docProps/thumbnail.jpegPK\x05\x06\x00\x00\x00\x00\x11\x00\x11\x00a\x04\x00\x00\xe1\x8a\x00\x00\x00\x00'
+root = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-364/test_private_hidden_word_actua0')
+
+        def __call__(self, data, root):
+            with zipfile.ZipFile(io.BytesIO(data)) as archive:
+                if any('vba' in n.lower() for n in archive.namelist()): raise ValueError('DOCX_MACROS_FORBIDDEN')
+                for name in archive.namelist():
+                    if not name.endswith('.rels'): continue
+                    for relation in ET.fromstring(archive.read(name)):
+                        if relation.get('TargetMode')=='External' and (not relation.get('Type','').endswith('/hyperlink')
+                                or re.match(r'^(https?://|mailto:)',relation.get('Target','')) is None):
+                            raise ValueError('DOCX_EXTERNAL_RELATIONSHIP_FORBIDDEN')
+            directory = Path(tempfile.mkdtemp(prefix='word-render-', dir=root))
+            source, output, script = directory/'input.docx', directory/'input.pdf', directory/'render.ps1'
+            source.write_bytes(data)
+            script.write_text('''param([string]$SourceFile, [string]$OutputFile)
+    $ErrorActionPreference = "Stop"
+    $wordApp = $null
+    $wordDoc = $null
+    $saveOption = 0
+    try {
+        $wordApp = New-Object -ComObject Word.Application
+        $wordApp.Visible = $false
+        $wordApp.DisplayAlerts = 0
+        $wordApp.AutomationSecurity = 3
+        $wordDoc = $wordApp.Documents.Open($SourceFile, $false, $true, $false)
+        $wordDoc.ExportAsFixedFormat($OutputFile, 17)
+        Write-Output $wordApp.Version
+    } finally {
+        if ($null -ne $wordDoc) { $wordDoc.Close([ref]$saveOption); [void][Runtime.InteropServices.Marshal]::FinalReleaseComObject($wordDoc) }
+        if ($null -ne $wordApp) {
+            try { $wordApp.Quit([ref]$saveOption) }
+            catch {
+                # Some compatible Word COM hosts exit after the last private
+                # document closes. RPC disconnect then confirms that exit.
+                if ($_.Exception.InnerException.HResult -ne -2147023174) { throw }
+            }
+            [void][Runtime.InteropServices.Marshal]::FinalReleaseComObject($wordApp)
+        }
+        [GC]::Collect()
+        [GC]::WaitForPendingFinalizers()
+    }
+    ''', encoding='utf-8-sig')
+            command = [str(Path(os.environ.get('WINDIR','C:/Windows'))/'System32/WindowsPowerShell/v1.0/powershell.exe'),
+                '-NoProfile','-NonInteractive','-ExecutionPolicy','Bypass','-File',str(script),str(source),str(output)]
+            try:
+                result = subprocess.run(command, capture_output=True, text=True, timeout=45, check=False)
+            except subprocess.TimeoutExpired as error:
+                raise ValueError('DOCX_WORD_RENDER_TIMEOUT') from error
+            (directory/'renderer.log').write_text(result.stdout+'\n'+result.stderr, encoding='utf-8')
+>           if result.returncode or not output.is_file(): raise ValueError('DOCX_WORD_RENDER_FAILED')
+                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           ValueError: DOCX_WORD_RENDER_FAILED
+
+services\orchestrator\app\documents\render.py:106: ValueError
+============================== warnings summary ===============================
+<frozen importlib._bootstrap>:488
+<frozen importlib._bootstrap>:488
+  <frozen importlib._bootstrap>:488: DeprecationWarning: builtin type SwigPyPacked has no __module__ attribute
+
+<frozen importlib._bootstrap>:488
+<frozen importlib._bootstrap>:488
+  <frozen importlib._bootstrap>:488: DeprecationWarning: builtin type SwigPyObject has no __module__ attribute
+
+<frozen importlib._bootstrap>:488
+  <frozen importlib._bootstrap>:488: DeprecationWarning: builtin type swigvarlink has no __module__ attribute
+
+services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1
+  C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/artifacts/test_render_layout.py::test_private_hidden_word_actually_renders_chinese_docx_pages
+1 failed, 59 passed, 6 warnings in 26.54s
+<sys>:0: DeprecationWarning: builtin type swigvarlink has no __module__ attribute
+exit_code=1

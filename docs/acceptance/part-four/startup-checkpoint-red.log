@@ -1,0 +1,92 @@
+FFF                                                                      [100%]
+================================== FAILURES ===================================
+_ test_restart_never_publishes_damaged_or_cancelled_staged_release[malformed_handoff_list] _
+services\orchestrator\app\runtime\startup_publication.py:38: in resume_staged_publication
+    row, checkpoint = _ready(connection, snapshot)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\app\runtime\startup_publication.py:19: in _ready
+    if owner is not None and owner != checkpoint.get('planning_handoff', {}).get('workflow_owner'):
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'list' object has no attribute 'get'
+
+During handling of the above exception, another exception occurred:
+tests\integration\test_startup_publication.py:88: in test_restart_never_publishes_damaged_or_cancelled_staged_release
+    restored = restart(app)
+               ^^^^^^^^^^^^
+tests\integration\test_startup_publication.py:34: in restart
+    return create_app(AppSettings(app.state.settings.data_root, 'restart-fixture-token', 'fake', True))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\app\api\application.py:68: in create_app
+    app.state.recovery_results=Recovery(app.state.database.path).recover(
+services\orchestrator\app\runtime\recovery.py:35: in recover
+    result = resume_staged_publication(self.database_path, snapshot)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\app\runtime\startup_publication.py:98: in resume_staged_publication
+    if owner is not None and owner != checkpoint.get('planning_handoff', {}).get('workflow_owner'):
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'list' object has no attribute 'get'
+_ test_restart_never_publishes_damaged_or_cancelled_staged_release[malformed_handoff_null] _
+services\orchestrator\app\runtime\startup_publication.py:38: in resume_staged_publication
+    row, checkpoint = _ready(connection, snapshot)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\app\runtime\startup_publication.py:19: in _ready
+    if owner is not None and owner != checkpoint.get('planning_handoff', {}).get('workflow_owner'):
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'NoneType' object has no attribute 'get'
+
+During handling of the above exception, another exception occurred:
+tests\integration\test_startup_publication.py:88: in test_restart_never_publishes_damaged_or_cancelled_staged_release
+    restored = restart(app)
+               ^^^^^^^^^^^^
+tests\integration\test_startup_publication.py:34: in restart
+    return create_app(AppSettings(app.state.settings.data_root, 'restart-fixture-token', 'fake', True))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\app\api\application.py:68: in create_app
+    app.state.recovery_results=Recovery(app.state.database.path).recover(
+services\orchestrator\app\runtime\recovery.py:35: in recover
+    result = resume_staged_publication(self.database_path, snapshot)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\app\runtime\startup_publication.py:98: in resume_staged_publication
+    if owner is not None and owner != checkpoint.get('planning_handoff', {}).get('workflow_owner'):
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'NoneType' object has no attribute 'get'
+_ test_restart_never_publishes_damaged_or_cancelled_staged_release[invalid_checkpoint] _
+services\orchestrator\app\runtime\startup_publication.py:38: in resume_staged_publication
+    row, checkpoint = _ready(connection, snapshot)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\app\runtime\startup_publication.py:15: in _ready
+    checkpoint = checkpoint_for(row)
+                 ^^^^^^^^^^^^^^^^^^^
+services\orchestrator\app\runtime\state_machine.py:118: in checkpoint_for
+    raise TransitionError("CHECKPOINT_INVALID")
+E   app.runtime.state_machine.TransitionError: CHECKPOINT_INVALID
+
+During handling of the above exception, another exception occurred:
+tests\integration\test_startup_publication.py:88: in test_restart_never_publishes_damaged_or_cancelled_staged_release
+    restored = restart(app)
+               ^^^^^^^^^^^^
+tests\integration\test_startup_publication.py:34: in restart
+    return create_app(AppSettings(app.state.settings.data_root, 'restart-fixture-token', 'fake', True))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\app\api\application.py:68: in create_app
+    app.state.recovery_results=Recovery(app.state.database.path).recover(
+services\orchestrator\app\runtime\recovery.py:35: in recover
+    result = resume_staged_publication(self.database_path, snapshot)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\app\runtime\startup_publication.py:94: in resume_staged_publication
+    checkpoint = checkpoint_for(current)
+                 ^^^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\app\runtime\state_machine.py:118: in checkpoint_for
+    raise TransitionError("CHECKPOINT_INVALID")
+E   app.runtime.state_machine.TransitionError: CHECKPOINT_INVALID
+============================== warnings summary ===============================
+services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1
+  C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/integration/test_startup_publication.py::test_restart_never_publishes_damaged_or_cancelled_staged_release[malformed_handoff_list]
+FAILED tests/integration/test_startup_publication.py::test_restart_never_publishes_damaged_or_cancelled_staged_release[malformed_handoff_null]
+FAILED tests/integration/test_startup_publication.py::test_restart_never_publishes_damaged_or_cancelled_staged_release[invalid_checkpoint]
+3 failed, 13 deselected, 1 warning in 4.85s

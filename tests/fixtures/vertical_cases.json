@@ -1,0 +1,14 @@
+{
+  "fixture_version": "1.0",
+  "provider_boundary": "fake",
+  "real_provider_verified": false,
+  "domains": {
+    "code": "Actual controlled Python 2+3 execution with exit and assertion checks",
+    "paper": "Actual local CSV Decimal sum=6 and citation structure; semantic judgment remains an external A fixture",
+    "document": "Actual source numbers, names and sections compared against the immutable source",
+    "mixed": "Actual SQLite artifact revision and dependency fence checks"
+  },
+  "cases": ["backend_normal", "backend_repair", "backend_need_evidence", "backend_cancel_late", "backend_restart", "backend_old_approval", "backend_duplicate", "backend_budget", "backend_budget_after_repair", "backend_connection_failure", "backend_language_gate", "backend_upstream_change"],
+  "formal_claude_publication": "blocked pending language, canonical authorship, translation and QA services",
+  "formal_attachment_publication": "blocked pending formal bundle publisher"
+}

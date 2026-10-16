@@ -1,0 +1,41 @@
+{
+  "scope": "read-only frozen SQLite/receiver evidence",
+  "checks": [
+    {
+      "point": "before-commit",
+      "actual_child_exit_record": 81,
+      "persisted_state": "RECEIVED",
+      "persisted_events": 0,
+      "persisted_pending": 0,
+      "receiver_entries": 0,
+      "receiver_ids_unique": true,
+      "receiver_ids_in_database": true,
+      "matches_frozen_report": true,
+      "database_sha256": "b75281fdde69296d40b18588d46d243f9451a016df72a5d74895a8b0e51b96fb"
+    },
+    {
+      "point": "after-commit",
+      "actual_child_exit_record": 82,
+      "persisted_state": "INPUT_PREPARING",
+      "persisted_events": 2,
+      "persisted_pending": 0,
+      "receiver_entries": 1,
+      "receiver_ids_unique": true,
+      "receiver_ids_in_database": true,
+      "matches_frozen_report": true,
+      "database_sha256": "526a3c19d649e0d2aff58d9148a3711d5bbf8b00e377ee0a7226edc18a99a89c"
+    },
+    {
+      "point": "send-before-ack",
+      "actual_child_exit_record": 83,
+      "persisted_state": "INPUT_PREPARING",
+      "persisted_events": 2,
+      "persisted_pending": 0,
+      "receiver_entries": 1,
+      "receiver_ids_unique": true,
+      "receiver_ids_in_database": true,
+      "matches_frozen_report": true,
+      "database_sha256": "61cfd52c1fae0f7dba395ae1a44a6ec8e8323a1eda7e8c503df014e423e73fbb"
+    }
+  ]
+}

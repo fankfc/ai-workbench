@@ -1,0 +1,59 @@
+..........................................FF                             [100%]
+================================== FAILURES ===================================
+__________ test_review_cannot_accept_damaged_actual_candidate_bytes ___________
+
+prepared = (WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-179/test_review_cannot_accept_dama0/task/attemp..., 'output_tokens': 2}), source='reported', mode='request_total', cumulative_scope=None),), exit_code=0, finished=True))
+
+    def test_review_cannot_accept_damaged_actual_candidate_bytes(prepared):
+        current=review_prepared(prepared)
+        (current[0]/'candidate.txt').write_bytes(b'changed')
+        events,_,_=run(current)
+>       assert error(events)=='REVIEW_ARTIFACT_INVALID'
+               ^^^^^^^^^^^^^
+
+tests\contracts\test_phase_bridge.py:344: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+events = [AgentEvent(task_id='task', attempt_id='attempt', sequence=1, kind='provider.started', payload={'external_request_id':...vent(task_id='task', attempt_id='attempt', sequence=5, kind='provider.completed', payload={'protocol_verified': True})]
+
+    def error(events):
+        values=[event.payload['reason_code'] for event in events if event.kind=='provider.error']
+>       assert len(values)==1
+E       assert 0 == 1
+E        +  where 0 = len([])
+
+tests\contracts\test_phase_bridge.py:103: AssertionError
+___ test_review_rechecks_evidence_after_the_terminal_native_iterator_closes ___
+
+prepared = (WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-179/test_review_rechecks_evidence_0/task/attemp..., 'output_tokens': 2}), source='reported', mode='request_total', cumulative_scope=None),), exit_code=0, finished=True))
+
+    def test_review_rechecks_evidence_after_the_terminal_native_iterator_closes(prepared):
+        current=review_prepared(prepared)
+        class DamagingRuntime(MemoryRuntime):
+            async def run(self,request,binding):
+                self.starts.append(request)
+                yield self.records[0]
+                yield self.records[1]
+                (current[0]/'evidence'/'proof.json').write_bytes(b'{}')
+        runtime=DamagingRuntime([PhaseStarted('local-request','remote-request','remote-execution'),current[-1]])
+        events,_,_=run(current,runtime=runtime)
+>       assert error(events)=='REVIEW_EVIDENCE_INVALID'
+               ^^^^^^^^^^^^^
+
+tests\contracts\test_phase_bridge.py:357: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+events = [AgentEvent(task_id='task', attempt_id='attempt', sequence=1, kind='provider.started', payload={'external_request_id':...vent(task_id='task', attempt_id='attempt', sequence=5, kind='provider.completed', payload={'protocol_verified': True})]
+
+    def error(events):
+        values=[event.payload['reason_code'] for event in events if event.kind=='provider.error']
+>       assert len(values)==1
+E       assert 0 == 1
+E        +  where 0 = len([])
+
+tests\contracts\test_phase_bridge.py:103: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/contracts/test_phase_bridge.py::test_review_cannot_accept_damaged_actual_candidate_bytes
+FAILED tests/contracts/test_phase_bridge.py::test_review_rechecks_evidence_after_the_terminal_native_iterator_closes
+2 failed, 42 passed in 0.96s
+exit_code=1

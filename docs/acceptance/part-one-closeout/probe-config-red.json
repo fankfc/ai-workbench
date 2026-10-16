@@ -1,0 +1,14 @@
+{
+  "time": "2026-10-13T15:28:04.757443+00:00",
+  "command": [
+    "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\.venv\\Scripts\\python.exe",
+    "-m",
+    "pytest",
+    "-q",
+    "tests/contracts/test_gpt_adapter.py::test_fixed_probe_argv_uses_existing_permission_boundary",
+    "-q"
+  ],
+  "exit_code": 1,
+  "git_commit": null,
+  "log": "docs\\acceptance\\part-one-closeout\\probe-config-red.log"
+}

@@ -1,0 +1,29 @@
+
+ RUN  v5.0.4 C:/Users/asd15/Documents/ChatGPT/ai
+
+ ❯ tests/desktop/preload.test.ts (4 tests | 1 failed) 6ms
+   ❯ narrow boundary (4)
+     × allows bounded user profile fields and binds material refs to the submitted attachments 4ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/desktop/preload.test.ts > narrow boundary > allows bounded user profile fields and binds material refs to the submitted attachments
+Error: 请求字段不符合接口要求。
+ ❯ exact apps/desktop/src/shared/validation.ts:7:66
+      5| }
+      6| export function exact(value: RecordValue, keys: string[]) {
+      7|   if (Object.keys(value).some(key => !keys.includes(key))) throw new E…
+       |                                                                  ^
+      8| }
+      9| export function string(value: unknown, max = 128): string {
+ ❯ validateCall apps/desktop/src/shared/validation.ts:53:5
+ ❯ tests/desktop/preload.test.ts:8:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 3 passed (4)
+   Start at  17:23:24
+   Duration  199ms (transform 48%, import 33%, tests 11%, worker 8%)
+

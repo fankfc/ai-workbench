@@ -1,0 +1,143 @@
+FFFFFF......                                                             [100%]
+================================== FAILURES ===================================
+_ test_timestamp_rejects_out_of_range_offset_without_normalization[+00:60-RouteSnapshot-locked_at] _
+
+model = <class 'app.contracts.providers.RouteSnapshot'>, field = 'locked_at'
+offset = '+00:60'
+
+    @pytest.mark.parametrize("model,field", TIMESTAMP_FIELDS)
+    @pytest.mark.parametrize("offset", ["+00:60", "+00:99", "+24:00"])
+    def test_timestamp_rejects_out_of_range_offset_without_normalization(model, field, offset):
+>       assert_both_reject(model, timestamp_sample(model, field, "2026-10-13T19:00:00" + offset))
+
+tests\contracts\test_schemas.py:368: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.providers.RouteSnapshot'>
+sample = {'id': 'r1', 'task_id': 't1', 'turn_id': 'turn1', 'attempt_id': 'a1', ...}
+
+    def assert_both_reject(model, sample):
+>       with pytest.raises(ValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValidationError
+
+tests\contracts\test_schemas.py:78: Failed
+_ test_timestamp_rejects_out_of_range_offset_without_normalization[+00:60-MessageRecord-created_at] _
+
+model = <class 'app.contracts.events.MessageRecord'>, field = 'created_at'
+offset = '+00:60'
+
+    @pytest.mark.parametrize("model,field", TIMESTAMP_FIELDS)
+    @pytest.mark.parametrize("offset", ["+00:60", "+00:99", "+24:00"])
+    def test_timestamp_rejects_out_of_range_offset_without_normalization(model, field, offset):
+>       assert_both_reject(model, timestamp_sample(model, field, "2026-10-13T19:00:00" + offset))
+
+tests\contracts\test_schemas.py:368: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.events.MessageRecord'>
+sample = {'id': 'm', 'turn_id': 'turn', 'source_role': 'user', 'language': 'zh-CN', ...}
+
+    def assert_both_reject(model, sample):
+>       with pytest.raises(ValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValidationError
+
+tests\contracts\test_schemas.py:78: Failed
+_ test_timestamp_rejects_out_of_range_offset_without_normalization[+00:60-DeliveryBundle-published_at] _
+
+model = <class 'app.contracts.artifacts.DeliveryBundle'>, field = 'published_at'
+offset = '+00:60'
+
+    @pytest.mark.parametrize("model,field", TIMESTAMP_FIELDS)
+    @pytest.mark.parametrize("offset", ["+00:60", "+00:99", "+24:00"])
+    def test_timestamp_rejects_out_of_range_offset_without_normalization(model, field, offset):
+>       assert_both_reject(model, timestamp_sample(model, field, "2026-10-13T19:00:00" + offset))
+
+tests\contracts\test_schemas.py:368: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.artifacts.DeliveryBundle'>
+sample = {'id': 'bundle', 'task_id': 't', 'turn_id': 'turn', 'spec_version': 'v1', ...}
+
+    def assert_both_reject(model, sample):
+>       with pytest.raises(ValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValidationError
+
+tests\contracts\test_schemas.py:78: Failed
+_ test_timestamp_rejects_out_of_range_offset_without_normalization[+00:99-RouteSnapshot-locked_at] _
+
+model = <class 'app.contracts.providers.RouteSnapshot'>, field = 'locked_at'
+offset = '+00:99'
+
+    @pytest.mark.parametrize("model,field", TIMESTAMP_FIELDS)
+    @pytest.mark.parametrize("offset", ["+00:60", "+00:99", "+24:00"])
+    def test_timestamp_rejects_out_of_range_offset_without_normalization(model, field, offset):
+>       assert_both_reject(model, timestamp_sample(model, field, "2026-10-13T19:00:00" + offset))
+
+tests\contracts\test_schemas.py:368: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.providers.RouteSnapshot'>
+sample = {'id': 'r1', 'task_id': 't1', 'turn_id': 'turn1', 'attempt_id': 'a1', ...}
+
+    def assert_both_reject(model, sample):
+>       with pytest.raises(ValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValidationError
+
+tests\contracts\test_schemas.py:78: Failed
+_ test_timestamp_rejects_out_of_range_offset_without_normalization[+00:99-MessageRecord-created_at] _
+
+model = <class 'app.contracts.events.MessageRecord'>, field = 'created_at'
+offset = '+00:99'
+
+    @pytest.mark.parametrize("model,field", TIMESTAMP_FIELDS)
+    @pytest.mark.parametrize("offset", ["+00:60", "+00:99", "+24:00"])
+    def test_timestamp_rejects_out_of_range_offset_without_normalization(model, field, offset):
+>       assert_both_reject(model, timestamp_sample(model, field, "2026-10-13T19:00:00" + offset))
+
+tests\contracts\test_schemas.py:368: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.events.MessageRecord'>
+sample = {'id': 'm', 'turn_id': 'turn', 'source_role': 'user', 'language': 'zh-CN', ...}
+
+    def assert_both_reject(model, sample):
+>       with pytest.raises(ValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValidationError
+
+tests\contracts\test_schemas.py:78: Failed
+_ test_timestamp_rejects_out_of_range_offset_without_normalization[+00:99-DeliveryBundle-published_at] _
+
+model = <class 'app.contracts.artifacts.DeliveryBundle'>, field = 'published_at'
+offset = '+00:99'
+
+    @pytest.mark.parametrize("model,field", TIMESTAMP_FIELDS)
+    @pytest.mark.parametrize("offset", ["+00:60", "+00:99", "+24:00"])
+    def test_timestamp_rejects_out_of_range_offset_without_normalization(model, field, offset):
+>       assert_both_reject(model, timestamp_sample(model, field, "2026-10-13T19:00:00" + offset))
+
+tests\contracts\test_schemas.py:368: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.artifacts.DeliveryBundle'>
+sample = {'id': 'bundle', 'task_id': 't', 'turn_id': 'turn', 'spec_version': 'v1', ...}
+
+    def assert_both_reject(model, sample):
+>       with pytest.raises(ValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValidationError
+
+tests\contracts\test_schemas.py:78: Failed
+=========================== short test summary info ===========================
+FAILED tests/contracts/test_schemas.py::test_timestamp_rejects_out_of_range_offset_without_normalization[+00:60-RouteSnapshot-locked_at]
+FAILED tests/contracts/test_schemas.py::test_timestamp_rejects_out_of_range_offset_without_normalization[+00:60-MessageRecord-created_at]
+FAILED tests/contracts/test_schemas.py::test_timestamp_rejects_out_of_range_offset_without_normalization[+00:60-DeliveryBundle-published_at]
+FAILED tests/contracts/test_schemas.py::test_timestamp_rejects_out_of_range_offset_without_normalization[+00:99-RouteSnapshot-locked_at]
+FAILED tests/contracts/test_schemas.py::test_timestamp_rejects_out_of_range_offset_without_normalization[+00:99-MessageRecord-created_at]
+FAILED tests/contracts/test_schemas.py::test_timestamp_rejects_out_of_range_offset_without_normalization[+00:99-DeliveryBundle-published_at]
+6 failed, 6 passed, 151 deselected in 0.44s
+exit_code=1

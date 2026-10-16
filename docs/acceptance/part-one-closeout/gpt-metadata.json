@@ -1,0 +1,164 @@
+{
+  "generated_at": "2026-10-13T15:19:59.143499+00:00",
+  "mode": "official app-server metadata only",
+  "server_starts": 1,
+  "maximum_server_starts": 1,
+  "wall_limit_seconds": 60,
+  "model_turn_starts": 0,
+  "config_or_auth_files_read_by_probe": false,
+  "permission_or_rule_overrides": false,
+  "command": [
+    "C:\\Users\\asd15\\AppData\\Local\\OpenAI\\Codex\\bin\\f544b3844e0f14e9\\codex.exe",
+    "app-server",
+    "--listen",
+    "stdio://"
+  ],
+  "executable_sha256": "4b01d5920e6785614727443bbecf343f4dedbb7347052b72ba805aab6353ef01",
+  "probe_sha256": "5803f07c5d73ee8af5fd568109084217813bb5c25d9c3ef838e2e5d5e4c9e99a",
+  "rpc_calls": [
+    {
+      "method": "initialize",
+      "id": 1
+    },
+    {
+      "method": "initialized",
+      "id": null
+    },
+    {
+      "method": "model/list",
+      "id": 2
+    },
+    {
+      "method": "account/read",
+      "id": 3
+    },
+    {
+      "method": "thread/start",
+      "id": 4
+    },
+    {
+      "method": "thread/read",
+      "id": 5
+    }
+  ],
+  "notification_methods": [
+    "account/updated",
+    "mcpServer/startupStatus/updated",
+    "remoteControl/status/changed",
+    "thread/started"
+  ],
+  "raw_account_or_token_persisted": false,
+  "official_docs": [
+    "https://learn.chatgpt.com/docs/app-server",
+    "https://developers.openai.com/siwc/token-sharing-open-source/codex-app-server"
+  ],
+  "server_pid": 21956,
+  "initialize": {
+    "success": true,
+    "result_keys": [
+      "codexHome",
+      "platformFamily",
+      "platformOs",
+      "userAgent"
+    ]
+  },
+  "model_catalog": [
+    {
+      "id": "gpt-6.1-sol",
+      "model": "gpt-6.1-sol",
+      "is_default": true
+    },
+    {
+      "id": "gpt-6-astra",
+      "model": "gpt-6-astra",
+      "is_default": false
+    },
+    {
+      "id": "gpt-6-sol",
+      "model": "gpt-6-sol",
+      "is_default": false
+    },
+    {
+      "id": "gpt-6-luna",
+      "model": "gpt-6-luna",
+      "is_default": false
+    },
+    {
+      "id": "gpt-5.6-sol",
+      "model": "gpt-5.6-sol",
+      "is_default": false
+    },
+    {
+      "id": "gpt-5.6-terra",
+      "model": "gpt-5.6-terra",
+      "is_default": false
+    },
+    {
+      "id": "gpt-5.6-luna",
+      "model": "gpt-5.6-luna",
+      "is_default": false
+    }
+  ],
+  "catalog_error_code": null,
+  "account": {
+    "logged_in": true,
+    "type": "chatgpt"
+  },
+  "thread_start": {
+    "rpc_error_code": null,
+    "thread_id": "01a135d9-67e8-7b40-8836-681d5efa8d8e",
+    "ephemeral": true,
+    "result_model": "gpt-6.1-sol",
+    "thread_model": "gpt-6.1-sol",
+    "model_provider": "openai",
+    "returned_turn_count": 0
+  },
+  "thread_read": {
+    "rpc_error_code": null,
+    "thread_id": "01a135d9-67e8-7b40-8836-681d5efa8d8e",
+    "model": "gpt-6.1-sol",
+    "ephemeral": true
+  },
+  "protocol_probe_completed": true,
+  "resources_after": {
+    "running": 0,
+    "temp_dirs": 0,
+    "open_handles": 0,
+    "peak_reserved_handles": 9,
+    "active_processes": 0,
+    "failed_cleanups": 0,
+    "query_errors": []
+  },
+  "stdout_bytes": 13985,
+  "stderr_bytes": 0,
+  "observed_turn_start_notifications": 0,
+  "duration_seconds": 5.768,
+  "actual_model_identity_verified": false,
+  "model_access_or_task_completion_verified": false,
+  "production_enabled": false,
+  "thread_model_semantics": "Current configured model; not per-turn execution telemetry (installed schema)",
+  "installed_schema_sha256": {
+    ".tools/gpt-metadata-probe/schemas/v2/ThreadStartParams.json": "80a40a7fac15b4bf70efb7f893fb353acc0a0d30c68f54aee4f01923deca85de",
+    ".tools/gpt-metadata-probe/schemas/v2/ThreadStartResponse.json": "92f5ddc37717b922de1dc0b0405e9a6d463f370554e2091610c6e595bc2616d4",
+    ".tools/gpt-metadata-probe/schemas/v2/TurnStartParams.json": "07771223642e1b61bd9aac0069fc0f98143a1c047724ca02c7ceb13653442738",
+    ".tools/gpt-metadata-probe/schemas/v2/TurnStartResponse.json": "12c5151421bb061297c9790ff795a44aa4b9bdb91fbb68012dcf0a08cf4198b1",
+    ".tools/gpt-metadata-probe/schemas/v2/TurnStartedNotification.json": "2e9a109ee549c1e266223304c9e0580075cda03feb65473363b124f18e9a3769",
+    ".tools/gpt-metadata-probe/schemas/v2/TurnCompletedNotification.json": "016870158603b0f84bd9f8f65f927161c9fd5128e5ec632087616462dc44e085",
+    ".tools/gpt-metadata-probe/schemas/v2/RawResponseCompletedNotification.json": "aba140e87952c900f96e0308a8849d3e313d985de1f1aa2b77f193884a76357c",
+    ".tools/gpt-metadata-probe/schemas/v2/ModelReroutedNotification.json": "37cd3c1b3a3560b85b01d4061a07d830fc9ed93b80e4663f975f9197cdb501ef",
+    ".tools/gpt-metadata-probe/schemas/v2/GetAccountParams.json": "30b545275f60975b55bd6fbaafd70f15505801d14168ee82d3931b6e93c78aab",
+    ".tools/gpt-metadata-probe/schemas/v2/GetAccountResponse.json": "67ac3095b058a7d3c1627ff4dd9e52c8ee3c55f961cb1b980959ac15336d6827"
+  },
+  "catalog_proves_model_entitlement": false,
+  "selected_model_source": "official app-server thread/start response; runtime configuration, not inference-response identity",
+  "turn_start_was_called": false,
+  "safe_binding_path": {
+    "thread_start_response_model": "gpt-6.1-sol",
+    "thread_id": "01a135d9-67e8-7b40-8836-681d5efa8d8e",
+    "next_request": "turn/start with exact threadId and explicit matching model; do not infer identity from echo",
+    "completion_requirement": "request-bound execution model metadata plus matching threadId/turnId and completed status",
+    "reroute_requirement": "observe model/rerouted per thread/turn; mismatch blocks old approval",
+    "scope": "proposed; zero turns sent in this probe"
+  },
+  "identity_gap": "Installed TurnStartResponse/TurnStarted/TurnCompleted schemas lack executed model_id; Thread.model is expressly configuration only. Internal-only raw completion has response/thread/turn IDs and usage, but no guaranteed model field."
+}

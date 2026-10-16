@@ -1,0 +1,482 @@
+FFFFFFFFFFFFFFFFFFF                                                      [100%]
+================================== FAILURES ===================================
+_______________ test_canonical_v2_includes_real_agent_override ________________
+
+    def test_canonical_v2_includes_real_agent_override():
+>       assert len(worker.CONTROLS) == 22
+E       assert 0 == 22
+E        +  where 0 = len({})
+E        +    where {} = worker.CONTROLS
+
+tests\contracts\test_scoped_codex_runtime.py:110: AssertionError
+________ test_fixture_preparation_does_not_issue_production_capability ________
+
+factory = <function factory.<locals>.create at 0x00000134B35FD120>
+
+    def test_fixture_preparation_does_not_issue_production_capability(factory):
+>       runtime = factory()
+                  ^^^^^^^^^
+
+tests\contracts\test_scoped_codex_runtime.py:115: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\contracts\test_scoped_codex_runtime.py:96: in create
+    return ScopedCodexRuntime(selected(), ledger_path=tmp_path/'leases.sqlite3',
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.providers.scoped_codex_runtime.ScopedCodexRuntime object at 0x00000134B34ED010>
+args = (ProviderContract(schema_version='1.0', provider_id='private-fixture', identity=ProviderIdentityRecord(adapter='codex'...<IdentityStatus.VERIFIED: 'verified'>, identity_source='synthetic_protocol_fixture', connection_version='fixture-v1'),)
+kwargs = {'ledger_path': WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-211/test_fixture_preparation_doe...d-native-manifest.json'), 'worker_factory': <function factory.<locals>.create.<locals>.<lambda> at 0x00000134B35FC680>}
+
+    def __init__(self, *args, **kwargs):
+>       raise ScopedCodexError('SCOPED_RUNTIME_NOT_IMPLEMENTED')
+E       app.providers.scoped_codex_runtime.ScopedCodexError: SCOPED_RUNTIME_NOT_IMPLEMENTED
+
+services\orchestrator\app\providers\scoped_codex_runtime.py:7: ScopedCodexError
+__________ test_real_local_peer_start_capture_hash_usage_and_cleanup __________
+
+factory = <function factory.<locals>.create at 0x00000134B35FD6C0>
+
+    def test_real_local_peer_start_capture_hash_usage_and_cleanup(factory):
+>       runtime = factory()
+                  ^^^^^^^^^
+
+tests\contracts\test_scoped_codex_runtime.py:129: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\contracts\test_scoped_codex_runtime.py:96: in create
+    return ScopedCodexRuntime(selected(), ledger_path=tmp_path/'leases.sqlite3',
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.providers.scoped_codex_runtime.ScopedCodexRuntime object at 0x00000134B34A6490>
+args = (ProviderContract(schema_version='1.0', provider_id='private-fixture', identity=ProviderIdentityRecord(adapter='codex'...<IdentityStatus.VERIFIED: 'verified'>, identity_source='synthetic_protocol_fixture', connection_version='fixture-v1'),)
+kwargs = {'ledger_path': WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-211/test_real_local_peer_start_c...d-native-manifest.json'), 'worker_factory': <function factory.<locals>.create.<locals>.<lambda> at 0x00000134B35FC900>}
+
+    def __init__(self, *args, **kwargs):
+>       raise ScopedCodexError('SCOPED_RUNTIME_NOT_IMPLEMENTED')
+E       app.providers.scoped_codex_runtime.ScopedCodexError: SCOPED_RUNTIME_NOT_IMPLEMENTED
+
+services\orchestrator\app\providers\scoped_codex_runtime.py:7: ScopedCodexError
+___ test_scope_counterexamples_stop_before_model_submission[agents_enabled] ___
+
+factory = <function factory.<locals>.create at 0x00000134B35FC4A0>
+scenario = 'agents_enabled'
+
+    @pytest.mark.parametrize('scenario', ['agents_enabled','missing_control','nonempty_environment'])
+    def test_scope_counterexamples_stop_before_model_submission(factory, scenario):
+>       runtime = factory(scenario)
+                  ^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_scoped_codex_runtime.py:146: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\contracts\test_scoped_codex_runtime.py:96: in create
+    return ScopedCodexRuntime(selected(), ledger_path=tmp_path/'leases.sqlite3',
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.providers.scoped_codex_runtime.ScopedCodexRuntime object at 0x00000134B34A7110>
+args = (ProviderContract(schema_version='1.0', provider_id='private-fixture', identity=ProviderIdentityRecord(adapter='codex'...<IdentityStatus.VERIFIED: 'verified'>, identity_source='synthetic_protocol_fixture', connection_version='fixture-v1'),)
+kwargs = {'ledger_path': WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-211/test_scope_counterexamples_s...d-native-manifest.json'), 'worker_factory': <function factory.<locals>.create.<locals>.<lambda> at 0x00000134B35FD440>}
+
+    def __init__(self, *args, **kwargs):
+>       raise ScopedCodexError('SCOPED_RUNTIME_NOT_IMPLEMENTED')
+E       app.providers.scoped_codex_runtime.ScopedCodexError: SCOPED_RUNTIME_NOT_IMPLEMENTED
+
+services\orchestrator\app\providers\scoped_codex_runtime.py:7: ScopedCodexError
+__ test_scope_counterexamples_stop_before_model_submission[missing_control] ___
+
+factory = <function factory.<locals>.create at 0x00000134B35FD4E0>
+scenario = 'missing_control'
+
+    @pytest.mark.parametrize('scenario', ['agents_enabled','missing_control','nonempty_environment'])
+    def test_scope_counterexamples_stop_before_model_submission(factory, scenario):
+>       runtime = factory(scenario)
+                  ^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_scoped_codex_runtime.py:146: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\contracts\test_scoped_codex_runtime.py:96: in create
+    return ScopedCodexRuntime(selected(), ledger_path=tmp_path/'leases.sqlite3',
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.providers.scoped_codex_runtime.ScopedCodexRuntime object at 0x00000134B3549CD0>
+args = (ProviderContract(schema_version='1.0', provider_id='private-fixture', identity=ProviderIdentityRecord(adapter='codex'...<IdentityStatus.VERIFIED: 'verified'>, identity_source='synthetic_protocol_fixture', connection_version='fixture-v1'),)
+kwargs = {'ledger_path': WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-211/test_scope_counterexamples_s...d-native-manifest.json'), 'worker_factory': <function factory.<locals>.create.<locals>.<lambda> at 0x00000134B35FDB20>}
+
+    def __init__(self, *args, **kwargs):
+>       raise ScopedCodexError('SCOPED_RUNTIME_NOT_IMPLEMENTED')
+E       app.providers.scoped_codex_runtime.ScopedCodexError: SCOPED_RUNTIME_NOT_IMPLEMENTED
+
+services\orchestrator\app\providers\scoped_codex_runtime.py:7: ScopedCodexError
+_ test_scope_counterexamples_stop_before_model_submission[nonempty_environment] _
+
+factory = <function factory.<locals>.create at 0x00000134B35FD760>
+scenario = 'nonempty_environment'
+
+    @pytest.mark.parametrize('scenario', ['agents_enabled','missing_control','nonempty_environment'])
+    def test_scope_counterexamples_stop_before_model_submission(factory, scenario):
+>       runtime = factory(scenario)
+                  ^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_scoped_codex_runtime.py:146: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\contracts\test_scoped_codex_runtime.py:96: in create
+    return ScopedCodexRuntime(selected(), ledger_path=tmp_path/'leases.sqlite3',
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.providers.scoped_codex_runtime.ScopedCodexRuntime object at 0x00000134B354A2C0>
+args = (ProviderContract(schema_version='1.0', provider_id='private-fixture', identity=ProviderIdentityRecord(adapter='codex'...<IdentityStatus.VERIFIED: 'verified'>, identity_source='synthetic_protocol_fixture', connection_version='fixture-v1'),)
+kwargs = {'ledger_path': WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-211/test_scope_counterexamples_s...d-native-manifest.json'), 'worker_factory': <function factory.<locals>.create.<locals>.<lambda> at 0x00000134B35FDEE0>}
+
+    def __init__(self, *args, **kwargs):
+>       raise ScopedCodexError('SCOPED_RUNTIME_NOT_IMPLEMENTED')
+E       app.providers.scoped_codex_runtime.ScopedCodexError: SCOPED_RUNTIME_NOT_IMPLEMENTED
+
+services\orchestrator\app\providers\scoped_codex_runtime.py:7: ScopedCodexError
+____ test_untrusted_or_ambiguous_capture_never_yields_final[missing_model] ____
+
+factory = <function factory.<locals>.create at 0x00000134B35FE7A0>
+scenario = 'missing_model'
+
+    @pytest.mark.parametrize('scenario', ['missing_model','request_echo','wrong_model','multiple_response',
+        'multiple_receipt','foreign','tool','callback','environment_change','trailing_error'])
+    def test_untrusted_or_ambiguous_capture_never_yields_final(factory, scenario):
+>       runtime = factory(scenario)
+                  ^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_scoped_codex_runtime.py:157: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\contracts\test_scoped_codex_runtime.py:96: in create
+    return ScopedCodexRuntime(selected(), ledger_path=tmp_path/'leases.sqlite3',
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.providers.scoped_codex_runtime.ScopedCodexRuntime object at 0x00000134B3628DD0>
+args = (ProviderContract(schema_version='1.0', provider_id='private-fixture', identity=ProviderIdentityRecord(adapter='codex'...<IdentityStatus.VERIFIED: 'verified'>, identity_source='synthetic_protocol_fixture', connection_version='fixture-v1'),)
+kwargs = {'ledger_path': WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-211/test_untrusted_or_ambiguous_...d-native-manifest.json'), 'worker_factory': <function factory.<locals>.create.<locals>.<lambda> at 0x00000134B35FE840>}
+
+    def __init__(self, *args, **kwargs):
+>       raise ScopedCodexError('SCOPED_RUNTIME_NOT_IMPLEMENTED')
+E       app.providers.scoped_codex_runtime.ScopedCodexError: SCOPED_RUNTIME_NOT_IMPLEMENTED
+
+services\orchestrator\app\providers\scoped_codex_runtime.py:7: ScopedCodexError
+____ test_untrusted_or_ambiguous_capture_never_yields_final[request_echo] _____
+
+factory = <function factory.<locals>.create at 0x00000134B35FED40>
+scenario = 'request_echo'
+
+    @pytest.mark.parametrize('scenario', ['missing_model','request_echo','wrong_model','multiple_response',
+        'multiple_receipt','foreign','tool','callback','environment_change','trailing_error'])
+    def test_untrusted_or_ambiguous_capture_never_yields_final(factory, scenario):
+>       runtime = factory(scenario)
+                  ^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_scoped_codex_runtime.py:157: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\contracts\test_scoped_codex_runtime.py:96: in create
+    return ScopedCodexRuntime(selected(), ledger_path=tmp_path/'leases.sqlite3',
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.providers.scoped_codex_runtime.ScopedCodexRuntime object at 0x00000134B361CAF0>
+args = (ProviderContract(schema_version='1.0', provider_id='private-fixture', identity=ProviderIdentityRecord(adapter='codex'...<IdentityStatus.VERIFIED: 'verified'>, identity_source='synthetic_protocol_fixture', connection_version='fixture-v1'),)
+kwargs = {'ledger_path': WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-211/test_untrusted_or_ambiguous_...d-native-manifest.json'), 'worker_factory': <function factory.<locals>.create.<locals>.<lambda> at 0x00000134B35FEDE0>}
+
+    def __init__(self, *args, **kwargs):
+>       raise ScopedCodexError('SCOPED_RUNTIME_NOT_IMPLEMENTED')
+E       app.providers.scoped_codex_runtime.ScopedCodexError: SCOPED_RUNTIME_NOT_IMPLEMENTED
+
+services\orchestrator\app\providers\scoped_codex_runtime.py:7: ScopedCodexError
+_____ test_untrusted_or_ambiguous_capture_never_yields_final[wrong_model] _____
+
+factory = <function factory.<locals>.create at 0x00000134B35FF420>
+scenario = 'wrong_model'
+
+    @pytest.mark.parametrize('scenario', ['missing_model','request_echo','wrong_model','multiple_response',
+        'multiple_receipt','foreign','tool','callback','environment_change','trailing_error'])
+    def test_untrusted_or_ambiguous_capture_never_yields_final(factory, scenario):
+>       runtime = factory(scenario)
+                  ^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_scoped_codex_runtime.py:157: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\contracts\test_scoped_codex_runtime.py:96: in create
+    return ScopedCodexRuntime(selected(), ledger_path=tmp_path/'leases.sqlite3',
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.providers.scoped_codex_runtime.ScopedCodexRuntime object at 0x00000134B361D040>
+args = (ProviderContract(schema_version='1.0', provider_id='private-fixture', identity=ProviderIdentityRecord(adapter='codex'...<IdentityStatus.VERIFIED: 'verified'>, identity_source='synthetic_protocol_fixture', connection_version='fixture-v1'),)
+kwargs = {'ledger_path': WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-211/test_untrusted_or_ambiguous_...d-native-manifest.json'), 'worker_factory': <function factory.<locals>.create.<locals>.<lambda> at 0x00000134B35FF4C0>}
+
+    def __init__(self, *args, **kwargs):
+>       raise ScopedCodexError('SCOPED_RUNTIME_NOT_IMPLEMENTED')
+E       app.providers.scoped_codex_runtime.ScopedCodexError: SCOPED_RUNTIME_NOT_IMPLEMENTED
+
+services\orchestrator\app\providers\scoped_codex_runtime.py:7: ScopedCodexError
+__ test_untrusted_or_ambiguous_capture_never_yields_final[multiple_response] __
+
+factory = <function factory.<locals>.create at 0x00000134B35FF9C0>
+scenario = 'multiple_response'
+
+    @pytest.mark.parametrize('scenario', ['missing_model','request_echo','wrong_model','multiple_response',
+        'multiple_receipt','foreign','tool','callback','environment_change','trailing_error'])
+    def test_untrusted_or_ambiguous_capture_never_yields_final(factory, scenario):
+>       runtime = factory(scenario)
+                  ^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_scoped_codex_runtime.py:157: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\contracts\test_scoped_codex_runtime.py:96: in create
+    return ScopedCodexRuntime(selected(), ledger_path=tmp_path/'leases.sqlite3',
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.providers.scoped_codex_runtime.ScopedCodexRuntime object at 0x00000134B3608450>
+args = (ProviderContract(schema_version='1.0', provider_id='private-fixture', identity=ProviderIdentityRecord(adapter='codex'...<IdentityStatus.VERIFIED: 'verified'>, identity_source='synthetic_protocol_fixture', connection_version='fixture-v1'),)
+kwargs = {'ledger_path': WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-211/test_untrusted_or_ambiguous_...d-native-manifest.json'), 'worker_factory': <function factory.<locals>.create.<locals>.<lambda> at 0x00000134B35FFA60>}
+
+    def __init__(self, *args, **kwargs):
+>       raise ScopedCodexError('SCOPED_RUNTIME_NOT_IMPLEMENTED')
+E       app.providers.scoped_codex_runtime.ScopedCodexError: SCOPED_RUNTIME_NOT_IMPLEMENTED
+
+services\orchestrator\app\providers\scoped_codex_runtime.py:7: ScopedCodexError
+__ test_untrusted_or_ambiguous_capture_never_yields_final[multiple_receipt] ___
+
+factory = <function factory.<locals>.create at 0x00000134B35FFF60>
+scenario = 'multiple_receipt'
+
+    @pytest.mark.parametrize('scenario', ['missing_model','request_echo','wrong_model','multiple_response',
+        'multiple_receipt','foreign','tool','callback','environment_change','trailing_error'])
+    def test_untrusted_or_ambiguous_capture_never_yields_final(factory, scenario):
+>       runtime = factory(scenario)
+                  ^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_scoped_codex_runtime.py:157: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\contracts\test_scoped_codex_runtime.py:96: in create
+    return ScopedCodexRuntime(selected(), ledger_path=tmp_path/'leases.sqlite3',
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.providers.scoped_codex_runtime.ScopedCodexRuntime object at 0x00000134B3608B50>
+args = (ProviderContract(schema_version='1.0', provider_id='private-fixture', identity=ProviderIdentityRecord(adapter='codex'...<IdentityStatus.VERIFIED: 'verified'>, identity_source='synthetic_protocol_fixture', connection_version='fixture-v1'),)
+kwargs = {'ledger_path': WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-211/test_untrusted_or_ambiguous_...d-native-manifest.json'), 'worker_factory': <function factory.<locals>.create.<locals>.<lambda> at 0x00000134B35FF560>}
+
+    def __init__(self, *args, **kwargs):
+>       raise ScopedCodexError('SCOPED_RUNTIME_NOT_IMPLEMENTED')
+E       app.providers.scoped_codex_runtime.ScopedCodexError: SCOPED_RUNTIME_NOT_IMPLEMENTED
+
+services\orchestrator\app\providers\scoped_codex_runtime.py:7: ScopedCodexError
+_______ test_untrusted_or_ambiguous_capture_never_yields_final[foreign] _______
+
+factory = <function factory.<locals>.create at 0x00000134B3664680>
+scenario = 'foreign'
+
+    @pytest.mark.parametrize('scenario', ['missing_model','request_echo','wrong_model','multiple_response',
+        'multiple_receipt','foreign','tool','callback','environment_change','trailing_error'])
+    def test_untrusted_or_ambiguous_capture_never_yields_final(factory, scenario):
+>       runtime = factory(scenario)
+                  ^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_scoped_codex_runtime.py:157: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\contracts\test_scoped_codex_runtime.py:96: in create
+    return ScopedCodexRuntime(selected(), ledger_path=tmp_path/'leases.sqlite3',
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.providers.scoped_codex_runtime.ScopedCodexRuntime object at 0x00000134B361B020>
+args = (ProviderContract(schema_version='1.0', provider_id='private-fixture', identity=ProviderIdentityRecord(adapter='codex'...<IdentityStatus.VERIFIED: 'verified'>, identity_source='synthetic_protocol_fixture', connection_version='fixture-v1'),)
+kwargs = {'ledger_path': WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-211/test_untrusted_or_ambiguous_...d-native-manifest.json'), 'worker_factory': <function factory.<locals>.create.<locals>.<lambda> at 0x00000134B35FFCE0>}
+
+    def __init__(self, *args, **kwargs):
+>       raise ScopedCodexError('SCOPED_RUNTIME_NOT_IMPLEMENTED')
+E       app.providers.scoped_codex_runtime.ScopedCodexError: SCOPED_RUNTIME_NOT_IMPLEMENTED
+
+services\orchestrator\app\providers\scoped_codex_runtime.py:7: ScopedCodexError
+________ test_untrusted_or_ambiguous_capture_never_yields_final[tool] _________
+
+factory = <function factory.<locals>.create at 0x00000134B35FED40>
+scenario = 'tool'
+
+    @pytest.mark.parametrize('scenario', ['missing_model','request_echo','wrong_model','multiple_response',
+        'multiple_receipt','foreign','tool','callback','environment_change','trailing_error'])
+    def test_untrusted_or_ambiguous_capture_never_yields_final(factory, scenario):
+>       runtime = factory(scenario)
+                  ^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_scoped_codex_runtime.py:157: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\contracts\test_scoped_codex_runtime.py:96: in create
+    return ScopedCodexRuntime(selected(), ledger_path=tmp_path/'leases.sqlite3',
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.providers.scoped_codex_runtime.ScopedCodexRuntime object at 0x00000134B361B3E0>
+args = (ProviderContract(schema_version='1.0', provider_id='private-fixture', identity=ProviderIdentityRecord(adapter='codex'...<IdentityStatus.VERIFIED: 'verified'>, identity_source='synthetic_protocol_fixture', connection_version='fixture-v1'),)
+kwargs = {'ledger_path': WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-211/test_untrusted_or_ambiguous_...d-native-manifest.json'), 'worker_factory': <function factory.<locals>.create.<locals>.<lambda> at 0x00000134B35FF9C0>}
+
+    def __init__(self, *args, **kwargs):
+>       raise ScopedCodexError('SCOPED_RUNTIME_NOT_IMPLEMENTED')
+E       app.providers.scoped_codex_runtime.ScopedCodexError: SCOPED_RUNTIME_NOT_IMPLEMENTED
+
+services\orchestrator\app\providers\scoped_codex_runtime.py:7: ScopedCodexError
+______ test_untrusted_or_ambiguous_capture_never_yields_final[callback] _______
+
+factory = <function factory.<locals>.create at 0x00000134B35FE200>
+scenario = 'callback'
+
+    @pytest.mark.parametrize('scenario', ['missing_model','request_echo','wrong_model','multiple_response',
+        'multiple_receipt','foreign','tool','callback','environment_change','trailing_error'])
+    def test_untrusted_or_ambiguous_capture_never_yields_final(factory, scenario):
+>       runtime = factory(scenario)
+                  ^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_scoped_codex_runtime.py:157: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\contracts\test_scoped_codex_runtime.py:96: in create
+    return ScopedCodexRuntime(selected(), ledger_path=tmp_path/'leases.sqlite3',
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.providers.scoped_codex_runtime.ScopedCodexRuntime object at 0x00000134B360E890>
+args = (ProviderContract(schema_version='1.0', provider_id='private-fixture', identity=ProviderIdentityRecord(adapter='codex'...<IdentityStatus.VERIFIED: 'verified'>, identity_source='synthetic_protocol_fixture', connection_version='fixture-v1'),)
+kwargs = {'ledger_path': WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-211/test_untrusted_or_ambiguous_...d-native-manifest.json'), 'worker_factory': <function factory.<locals>.create.<locals>.<lambda> at 0x00000134B35FF2E0>}
+
+    def __init__(self, *args, **kwargs):
+>       raise ScopedCodexError('SCOPED_RUNTIME_NOT_IMPLEMENTED')
+E       app.providers.scoped_codex_runtime.ScopedCodexError: SCOPED_RUNTIME_NOT_IMPLEMENTED
+
+services\orchestrator\app\providers\scoped_codex_runtime.py:7: ScopedCodexError
+_ test_untrusted_or_ambiguous_capture_never_yields_final[environment_change] __
+
+factory = <function factory.<locals>.create at 0x00000134B35FDB20>
+scenario = 'environment_change'
+
+    @pytest.mark.parametrize('scenario', ['missing_model','request_echo','wrong_model','multiple_response',
+        'multiple_receipt','foreign','tool','callback','environment_change','trailing_error'])
+    def test_untrusted_or_ambiguous_capture_never_yields_final(factory, scenario):
+>       runtime = factory(scenario)
+                  ^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_scoped_codex_runtime.py:157: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\contracts\test_scoped_codex_runtime.py:96: in create
+    return ScopedCodexRuntime(selected(), ledger_path=tmp_path/'leases.sqlite3',
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.providers.scoped_codex_runtime.ScopedCodexRuntime object at 0x00000134B360D8D0>
+args = (ProviderContract(schema_version='1.0', provider_id='private-fixture', identity=ProviderIdentityRecord(adapter='codex'...<IdentityStatus.VERIFIED: 'verified'>, identity_source='synthetic_protocol_fixture', connection_version='fixture-v1'),)
+kwargs = {'ledger_path': WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-211/test_untrusted_or_ambiguous_...d-native-manifest.json'), 'worker_factory': <function factory.<locals>.create.<locals>.<lambda> at 0x00000134B35FE0C0>}
+
+    def __init__(self, *args, **kwargs):
+>       raise ScopedCodexError('SCOPED_RUNTIME_NOT_IMPLEMENTED')
+E       app.providers.scoped_codex_runtime.ScopedCodexError: SCOPED_RUNTIME_NOT_IMPLEMENTED
+
+services\orchestrator\app\providers\scoped_codex_runtime.py:7: ScopedCodexError
+___ test_untrusted_or_ambiguous_capture_never_yields_final[trailing_error] ____
+
+factory = <function factory.<locals>.create at 0x00000134B35FD580>
+scenario = 'trailing_error'
+
+    @pytest.mark.parametrize('scenario', ['missing_model','request_echo','wrong_model','multiple_response',
+        'multiple_receipt','foreign','tool','callback','environment_change','trailing_error'])
+    def test_untrusted_or_ambiguous_capture_never_yields_final(factory, scenario):
+>       runtime = factory(scenario)
+                  ^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_scoped_codex_runtime.py:157: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\contracts\test_scoped_codex_runtime.py:96: in create
+    return ScopedCodexRuntime(selected(), ledger_path=tmp_path/'leases.sqlite3',
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.providers.scoped_codex_runtime.ScopedCodexRuntime object at 0x00000134B3679A50>
+args = (ProviderContract(schema_version='1.0', provider_id='private-fixture', identity=ProviderIdentityRecord(adapter='codex'...<IdentityStatus.VERIFIED: 'verified'>, identity_source='synthetic_protocol_fixture', connection_version='fixture-v1'),)
+kwargs = {'ledger_path': WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-211/test_untrusted_or_ambiguous_...d-native-manifest.json'), 'worker_factory': <function factory.<locals>.create.<locals>.<lambda> at 0x00000134B35FC900>}
+
+    def __init__(self, *args, **kwargs):
+>       raise ScopedCodexError('SCOPED_RUNTIME_NOT_IMPLEMENTED')
+E       app.providers.scoped_codex_runtime.ScopedCodexError: SCOPED_RUNTIME_NOT_IMPLEMENTED
+
+services\orchestrator\app\providers\scoped_codex_runtime.py:7: ScopedCodexError
+_________ test_accepted_disconnect_is_observed_once_and_never_retried _________
+
+factory = <function factory.<locals>.create at 0x00000134B35FC4A0>
+
+    def test_accepted_disconnect_is_observed_once_and_never_retried(factory):
+>       runtime=factory('accepted_disconnect'); events=[]
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_scoped_codex_runtime.py:170: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\contracts\test_scoped_codex_runtime.py:96: in create
+    return ScopedCodexRuntime(selected(), ledger_path=tmp_path/'leases.sqlite3',
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.providers.scoped_codex_runtime.ScopedCodexRuntime object at 0x00000134B3463650>
+args = (ProviderContract(schema_version='1.0', provider_id='private-fixture', identity=ProviderIdentityRecord(adapter='codex'...<IdentityStatus.VERIFIED: 'verified'>, identity_source='synthetic_protocol_fixture', connection_version='fixture-v1'),)
+kwargs = {'ledger_path': WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-211/test_accepted_disconnect_is_...d-native-manifest.json'), 'worker_factory': <function factory.<locals>.create.<locals>.<lambda> at 0x00000134B35FEDE0>}
+
+    def __init__(self, *args, **kwargs):
+>       raise ScopedCodexError('SCOPED_RUNTIME_NOT_IMPLEMENTED')
+E       app.providers.scoped_codex_runtime.ScopedCodexError: SCOPED_RUNTIME_NOT_IMPLEMENTED
+
+services\orchestrator\app\providers\scoped_codex_runtime.py:7: ScopedCodexError
+_____________ test_inflight_cancel_is_timely_owned_local_cleanup ______________
+
+factory = <function factory.<locals>.create at 0x00000134B36649A0>
+
+    def test_inflight_cancel_is_timely_owned_local_cleanup(factory):
+>       runtime=factory('hang',timeout_seconds=15)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_scoped_codex_runtime.py:183: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\contracts\test_scoped_codex_runtime.py:96: in create
+    return ScopedCodexRuntime(selected(), ledger_path=tmp_path/'leases.sqlite3',
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.providers.scoped_codex_runtime.ScopedCodexRuntime object at 0x00000134B3462690>
+args = (ProviderContract(schema_version='1.0', provider_id='private-fixture', identity=ProviderIdentityRecord(adapter='codex'...<IdentityStatus.VERIFIED: 'verified'>, identity_source='synthetic_protocol_fixture', connection_version='fixture-v1'),)
+kwargs = {'ledger_path': WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-211/test_inflight_cancel_is_time...ive-manifest.json'), 'worker_factory': <function factory.<locals>.create.<locals>.<lambda> at 0x00000134B35FCFE0>, ...}
+
+    def __init__(self, *args, **kwargs):
+>       raise ScopedCodexError('SCOPED_RUNTIME_NOT_IMPLEMENTED')
+E       app.providers.scoped_codex_runtime.ScopedCodexError: SCOPED_RUNTIME_NOT_IMPLEMENTED
+
+services\orchestrator\app\providers\scoped_codex_runtime.py:7: ScopedCodexError
+________________ test_output_overflow_and_timeout_are_bounded _________________
+
+factory = <function factory.<locals>.create at 0x00000134B3664E00>
+
+    def test_output_overflow_and_timeout_are_bounded(factory):
+>       runtime=factory('overflow',max_output_bytes=32768)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_scoped_codex_runtime.py:197: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\contracts\test_scoped_codex_runtime.py:96: in create
+    return ScopedCodexRuntime(selected(), ledger_path=tmp_path/'leases.sqlite3',
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.providers.scoped_codex_runtime.ScopedCodexRuntime object at 0x00000134B351FC20>
+args = (ProviderContract(schema_version='1.0', provider_id='private-fixture', identity=ProviderIdentityRecord(adapter='codex'...<IdentityStatus.VERIFIED: 'verified'>, identity_source='synthetic_protocol_fixture', connection_version='fixture-v1'),)
+kwargs = {'ledger_path': WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-211/test_output_overflow_and_tim...ive-manifest.json'), 'worker_factory': <function factory.<locals>.create.<locals>.<lambda> at 0x00000134B3664A40>, ...}
+
+    def __init__(self, *args, **kwargs):
+>       raise ScopedCodexError('SCOPED_RUNTIME_NOT_IMPLEMENTED')
+E       app.providers.scoped_codex_runtime.ScopedCodexError: SCOPED_RUNTIME_NOT_IMPLEMENTED
+
+services\orchestrator\app\providers\scoped_codex_runtime.py:7: ScopedCodexError
+=========================== short test summary info ===========================
+FAILED tests/contracts/test_scoped_codex_runtime.py::test_canonical_v2_includes_real_agent_override
+FAILED tests/contracts/test_scoped_codex_runtime.py::test_fixture_preparation_does_not_issue_production_capability
+FAILED tests/contracts/test_scoped_codex_runtime.py::test_real_local_peer_start_capture_hash_usage_and_cleanup
+FAILED tests/contracts/test_scoped_codex_runtime.py::test_scope_counterexamples_stop_before_model_submission[agents_enabled]
+FAILED tests/contracts/test_scoped_codex_runtime.py::test_scope_counterexamples_stop_before_model_submission[missing_control]
+FAILED tests/contracts/test_scoped_codex_runtime.py::test_scope_counterexamples_stop_before_model_submission[nonempty_environment]
+FAILED tests/contracts/test_scoped_codex_runtime.py::test_untrusted_or_ambiguous_capture_never_yields_final[missing_model]
+FAILED tests/contracts/test_scoped_codex_runtime.py::test_untrusted_or_ambiguous_capture_never_yields_final[request_echo]
+FAILED tests/contracts/test_scoped_codex_runtime.py::test_untrusted_or_ambiguous_capture_never_yields_final[wrong_model]
+FAILED tests/contracts/test_scoped_codex_runtime.py::test_untrusted_or_ambiguous_capture_never_yields_final[multiple_response]
+FAILED tests/contracts/test_scoped_codex_runtime.py::test_untrusted_or_ambiguous_capture_never_yields_final[multiple_receipt]
+FAILED tests/contracts/test_scoped_codex_runtime.py::test_untrusted_or_ambiguous_capture_never_yields_final[foreign]
+FAILED tests/contracts/test_scoped_codex_runtime.py::test_untrusted_or_ambiguous_capture_never_yields_final[tool]
+FAILED tests/contracts/test_scoped_codex_runtime.py::test_untrusted_or_ambiguous_capture_never_yields_final[callback]
+FAILED tests/contracts/test_scoped_codex_runtime.py::test_untrusted_or_ambiguous_capture_never_yields_final[environment_change]
+FAILED tests/contracts/test_scoped_codex_runtime.py::test_untrusted_or_ambiguous_capture_never_yields_final[trailing_error]
+FAILED tests/contracts/test_scoped_codex_runtime.py::test_accepted_disconnect_is_observed_once_and_never_retried
+FAILED tests/contracts/test_scoped_codex_runtime.py::test_inflight_cancel_is_timely_owned_local_cleanup
+FAILED tests/contracts/test_scoped_codex_runtime.py::test_output_overflow_and_timeout_are_bounded
+19 failed in 0.74s

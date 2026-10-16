@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "evidence_paths_checked": 11,
+  "missing_paths": [],
+  "archived_sources_checked_by_phase": [
+    8,
+    15,
+    16
+  ],
+  "source_hash_mismatches": [],
+  "report_matches_actual_final_receipt": true,
+  "new_model_or_metadata_calls": 0
+}

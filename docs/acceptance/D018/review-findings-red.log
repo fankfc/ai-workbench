@@ -1,0 +1,83 @@
+....FFF........................F                                         [100%]
+================================== FAILURES ===================================
+___ test_forged_earlier_answer_does_not_gain_authority_after_actual_publish ___
+
+prepared = (<starlette.testclient.TestClient object at 0x000001EB2C97A2C0>, '67c39c18254b49b2a88806722baef81f', 'a13f2b8e94ba4ae0...est_forged_earlier_answer_doe0/evidence'), <app.runtime.publication.NativePublisher object at 0x000001EB2CA68D60>, ...)
+
+    def test_forged_earlier_answer_does_not_gain_authority_after_actual_publish(prepared):
+        from app.api.turns import append_event
+        client,conversation,task,attempt,root,publisher,machine=prepared
+        publisher.stage(task,attempt,'1.0','rev1','a-review')
+        with closing(client.app.state.database.connect()) as connection,transaction(connection):
+            row=connection.execute('SELECT * FROM task_runs WHERE task_id=?',(task,)).fetchone()
+            append_event(connection,row['turn_id'],task,attempt,'answer.published',{'release_id':'invented'})
+        machine.transition(task,attempt,'OUTPUT_PREPARING','READY','1.0')
+        publisher.publish(task,attempt,'1.0')
+        messages=client.get(f'/v1/conversations/{conversation}/messages').json()['items']
+>       assert sum(m['kind']=='answer.published' for m in messages)==1
+E       assert 2 == 1
+E        +  where 2 = sum(<generator object test_forged_earlier_answer_does_not_gain_authority_after_actual_publish.<locals>.<genexpr> at 0x000001EB2CA153C0>)
+
+tests\integration\test_native_publication.py:85: AssertionError
+_____ test_required_a_canonical_cannot_be_satisfied_by_b_blob_and_a_pass ______
+
+prepared = (<starlette.testclient.TestClient object at 0x000001EB2C987D10>, 'c979581b56454642874657ee6660fb78', '27f5974ae9f7461c...est_required_a_canonical_cann0/evidence'), <app.runtime.publication.NativePublisher object at 0x000001EB2CA34710>, ...)
+
+    def test_required_a_canonical_cannot_be_satisfied_by_b_blob_and_a_pass(prepared):
+        client,_,task,attempt,root,publisher,_=prepared
+        with closing(client.app.state.database.connect()) as connection:
+            check=connection.execute("SELECT * FROM checks WHERE id='a-review'").fetchone()
+            details=json.loads(check['details_json'])
+            details['contract']['deliverables'][0]['require_a_canonical']=True
+            details['decision']=make_decision(details['contract'],'rev1',root)
+            connection.execute("UPDATE checks SET details_json=? WHERE id='a-review'",(json.dumps(details),))
+>       with pytest.raises(PublicationBlocked,match='A_CANONICAL'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE PublicationBlocked
+
+tests\integration\test_native_publication.py:95: Failed
+______ test_genuine_published_history_remains_visible_after_new_attempt _______
+
+prepared = (<starlette.testclient.TestClient object at 0x000001EB2CA716A0>, 'c78b6627bb704bfea8e1388c9505881e', 'd25789a5eab14460...est_genuine_published_history0/evidence'), <app.runtime.publication.NativePublisher object at 0x000001EB2CA73AC0>, ...)
+
+    def test_genuine_published_history_remains_visible_after_new_attempt(prepared):
+        client,conversation,task,attempt,root,publisher,machine=prepared
+        publisher.stage(task,attempt,'1.0','rev1','a-review')
+        machine.transition(task,attempt,'OUTPUT_PREPARING','READY','1.0')
+        publisher.publish(task,attempt,'1.0')
+        with closing(client.app.state.database.connect()) as connection:
+            old=connection.execute('SELECT * FROM task_runs WHERE task_id=?',(task,)).fetchone()
+            route=json.loads(old['route_snapshot_json'])
+            route.update(id='new-route',attempt_id='new-attempt')
+            connection.execute("INSERT INTO task_runs(task_id,attempt_id,turn_id,provider_profile_id,state,attempt_number,route_snapshot_json) VALUES (?,?,?,?,'RECEIVED',2,?)",(task,'new-attempt',old['turn_id'],old['provider_profile_id'],json.dumps(route)))
+        messages=client.get(f'/v1/conversations/{conversation}/messages').json()['items']
+        answers=[m for m in messages if m['kind']=='answer.published']
+>       assert len(answers)==1
+E       assert 0 == 1
+E        +  where 0 = len([])
+
+tests\integration\test_native_publication.py:110: AssertionError
+________ test_delta_retransmit_with_new_event_id_is_still_one_sequence ________
+
+ledger = (<app.usage.ledger.UsageLedger object at 0x000001EB2CA1B590>, '7330f504cb894e5fbb70270420bb7a10', '1bdcfb47812c4cd58f4120ddecdb913c')
+
+    def test_delta_retransmit_with_new_event_id_is_still_one_sequence(ledger):
+        book,task,attempt=ledger
+        record(book,task,attempt,mode='delta',raw={'total_tokens':30})
+        record(book,task,attempt,mode='delta',raw={'total_tokens':30},event_id='alias')
+>       assert book.summary(task)['total_tokens']==30
+E       assert 60 == 30
+
+tests\unit\test_usage_ledger.py:133: AssertionError
+============================== warnings summary ===============================
+tests/integration/test_native_publication.py::test_native_release_reads_approved_bytes_and_is_idempotent
+  C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/integration/test_native_publication.py::test_forged_earlier_answer_does_not_gain_authority_after_actual_publish
+FAILED tests/integration/test_native_publication.py::test_required_a_canonical_cannot_be_satisfied_by_b_blob_and_a_pass
+FAILED tests/integration/test_native_publication.py::test_genuine_published_history_remains_visible_after_new_attempt
+FAILED tests/unit/test_usage_ledger.py::test_delta_retransmit_with_new_event_id_is_still_one_sequence
+4 failed, 28 passed, 1 warning in 2.23s

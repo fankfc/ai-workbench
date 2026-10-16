@@ -1,0 +1,15 @@
+{
+  "name": "desktop-test-build",
+  "command": [
+    "cmd.exe",
+    "/d",
+    "/c",
+    "npm",
+    "run",
+    "build:desktop:test"
+  ],
+  "started_at": "2026-10-15T01:35:00.703736+00:00",
+  "ended_at": "2026-10-15T01:35:02.545284+00:00",
+  "exit_code": 0,
+  "log": "docs/acceptance/part-three/final-v2/desktop-test-build.log"
+}

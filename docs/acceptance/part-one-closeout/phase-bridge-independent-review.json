@@ -1,0 +1,180 @@
+{
+  "at_utc": "2026-10-14T03:10:42.095596+00:00",
+  "reviewer": "provider_d004_d006, independent of both authors",
+  "scope": "phase bridge and root cumulative consumer change",
+  "actual_model_starts": 0,
+  "mode": "new memory-native receipt adversaries plus actual temporary API/Workflow/SQLite with synthetic external responses",
+  "checks": [
+    {
+      "name": "forged-source-content-and-self-hash-vs-contract",
+      "passed": true,
+      "observation": {
+        "kinds": [
+          "provider.started",
+          "provider.identity",
+          "provider.usage",
+          "provider.error"
+        ],
+        "errors": [
+          "REVIEW_BINDING_MISMATCH"
+        ],
+        "business": [],
+        "usage": [
+          {
+            "raw": {
+              "input_tokens": 10,
+              "output_tokens": 2
+            },
+            "source": "reported",
+            "mode": "request_total",
+            "receipt_event_id": "receipt1",
+            "receipt_sequence": 1
+          }
+        ],
+        "runtime_starts": 1
+      }
+    },
+    {
+      "name": "self-hashed-proof-cannot-change-C-verifier",
+      "passed": true,
+      "observation": {
+        "kinds": [
+          "provider.started",
+          "provider.identity",
+          "provider.usage",
+          "provider.error"
+        ],
+        "errors": [
+          "REVIEW_EVIDENCE_INVALID"
+        ],
+        "business": [],
+        "usage": [
+          {
+            "raw": {
+              "input_tokens": 10,
+              "output_tokens": 2
+            },
+            "source": "reported",
+            "mode": "request_total",
+            "receipt_event_id": "receipt1",
+            "receipt_sequence": 1
+          }
+        ],
+        "runtime_starts": 1
+      }
+    },
+    {
+      "name": "hardlinked-prompt-prestart-rejection",
+      "passed": true,
+      "observation": {
+        "kinds": [
+          "provider.error"
+        ],
+        "errors": [
+          "PHASE_REQUEST_INVALID"
+        ],
+        "business": [],
+        "usage": [],
+        "runtime_starts": 0
+      }
+    },
+    {
+      "name": "usage-original-mapping-mutation-does-not-change-capture",
+      "passed": true,
+      "observation": {
+        "kinds": [
+          "provider.started",
+          "provider.identity",
+          "provider.usage",
+          "artifact.candidate",
+          "provider.completed"
+        ],
+        "errors": [],
+        "business": [
+          {
+            "text": "结果为 5。",
+            "language": "zh-CN",
+            "byte_sha256": "f328e7d0c91699e24c1f50300a68fa93c37db92cf0d6fde7b4e63d1d870ce8b3",
+            "request_id": "local-request",
+            "contract_sha256": "feec21a3dcdf2116ef42d1d2a00939910774ec0c4126cc467dc84579bf30c6f4",
+            "raw_response_sha256": "1f16e50f8e3b0bc2353a929f8853c7d30c1a744c4c761d7e8def18f692283079",
+            "content_source": "private_final_envelope"
+          }
+        ],
+        "usage": [
+          {
+            "raw": {
+              "input_tokens": 9,
+              "output_tokens": 4
+            },
+            "source": "reported",
+            "mode": "request_total",
+            "receipt_event_id": "actual-fixture-observation",
+            "receipt_sequence": 73
+          }
+        ],
+        "runtime_starts": 1
+      }
+    },
+    {
+      "name": "accounting-mode-change-blocks-business",
+      "passed": true,
+      "observation": {
+        "kinds": [
+          "provider.started",
+          "provider.identity",
+          "provider.error"
+        ],
+        "errors": [
+          "USAGE_RECEIPT_CONFLICT"
+        ],
+        "business": [],
+        "usage": [],
+        "runtime_starts": 1
+      }
+    },
+    {
+      "name": "gapped-cumulative-cursors-and-profile-namespace",
+      "passed": true,
+      "observation": {
+        "state": "OUTPUT_PREPARING",
+        "total_tokens": 100,
+        "unknown_requests": 0,
+        "A_totals": [
+          10,
+          15
+        ],
+        "B_totals": [
+          30,
+          45
+        ],
+        "provider_starts": 4,
+        "steps": 4,
+        "stored_scopes": [
+          "same-scope-two-profiles"
+        ],
+        "actual_billing": false,
+        "boundary": "external responses and reported counters are synthetic; API/Workflow/DB/bytes execute"
+      }
+    }
+  ],
+  "check_count": 6,
+  "passed_count": 6,
+  "source_sha256_before": {
+    "services/orchestrator/app/providers/phase_bridge.py": "0aa1c86b3bbfa97b0d5e254b337379448adbffa4bae4b2510aaefbd0d98e9552",
+    "tests/contracts/test_phase_bridge.py": "3a955d5d9c9bb66fff11c3bde3399181c68a23a9eeb7728dac0132784fcf9028",
+    "services/orchestrator/app/runtime/workflow.py": "b5a580c4c099f450f31377a64a444a4ea02dca19ca9d80da64ba0560c3312440",
+    "tests/integration/test_agent_workflow.py": "2a202266d9f22784b876e502c357b80c9ce22a794ca1ec9fd0fe38566eaffdf5",
+    "services/orchestrator/app/usage/ledger.py": "83c7b84889f8672114626e7139abce636c9c1c331ef616a2b61e526324b9daed"
+  },
+  "source_sha256_after": {
+    "services/orchestrator/app/providers/phase_bridge.py": "0aa1c86b3bbfa97b0d5e254b337379448adbffa4bae4b2510aaefbd0d98e9552",
+    "tests/contracts/test_phase_bridge.py": "3a955d5d9c9bb66fff11c3bde3399181c68a23a9eeb7728dac0132784fcf9028",
+    "services/orchestrator/app/runtime/workflow.py": "b5a580c4c099f450f31377a64a444a4ea02dca19ca9d80da64ba0560c3312440",
+    "tests/integration/test_agent_workflow.py": "2a202266d9f22784b876e502c357b80c9ce22a794ca1ec9fd0fe38566eaffdf5",
+    "services/orchestrator/app/usage/ledger.py": "83c7b84889f8672114626e7139abce636c9c1c331ef616a2b61e526324b9daed"
+  },
+  "production_source_unchanged": true,
+  "phase_freeze_mismatches": [],
+  "formal_merge_approval": false
+}

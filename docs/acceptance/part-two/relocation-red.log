@@ -1,0 +1,73 @@
+FFFF                                                                     [100%]
+================================== FAILURES ===================================
+__ test_relocation_copies_database_blobs_and_workspace_then_requires_restart __
+
+client = <starlette.testclient.TestClient object at 0x00000177ACFF0440>
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-318/test_relocation_copies_databas0')
+
+    def test_relocation_copies_database_blobs_and_workspace_then_requires_restart(client, tmp_path):
+        source = client.app.state.settings.data_root
+        target = tmp_path / 'new-data'
+        cid = client.post('/v1/conversations', json={'title': 'Ǩ�ƺ�����'}).json()['id']
+        blob = client.app.state.blobs.put('���ɱ����'.encode())
+        workspace = source / 'workspaces' / 'test' / 'input'
+        workspace.mkdir(parents=True)
+        (workspace / 'source.md').write_text('����ȫ������', encoding='utf-8')
+        plan = client.post('/v1/storage/relocation-preview', json={'destination': str(target)})
+>       assert plan.status_code == 200 and plan.json()['ready'] is True
+E       assert (404 == 200)
+E        +  where 404 = <Response [404 Not Found]>.status_code
+
+tests\integration\test_storage_relocation.py:17: AssertionError
+___ test_relocation_rejects_changed_source_nonempty_target_and_nested_paths ___
+
+client = <starlette.testclient.TestClient object at 0x00000177AD03AAD0>
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-318/test_relocation_rejects_change0')
+
+    def test_relocation_rejects_changed_source_nonempty_target_and_nested_paths(client, tmp_path):
+        source = client.app.state.settings.data_root
+>       assert client.post('/v1/storage/relocation-preview', json={'destination': str(source / 'nested')}).status_code == 422
+E       AssertionError: assert 404 == 422
+E        +  where 404 = <Response [404 Not Found]>.status_code
+E        +    where <Response [404 Not Found]> = post('/v1/storage/relocation-preview', json={'destination': 'C:\\Users\\asd15\\AppData\\Local\\Temp\\pytest-of-asd15\\pytest-318\\test_relocation_rejects_change0\\nested'})
+E        +      where post = <starlette.testclient.TestClient object at 0x00000177AD03AAD0>.post
+
+tests\integration\test_storage_relocation.py:35: AssertionError
+___________________ test_relocation_blocks_unresolved_tasks ___________________
+
+client = <starlette.testclient.TestClient object at 0x00000177AD321D10>
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-318/test_relocation_blocks_unresol0')
+
+    def test_relocation_blocks_unresolved_tasks(client, tmp_path):
+        cid = client.post('/v1/conversations', json={'title': '������'}).json()['id']
+        response = client.post(f'/v1/conversations/{cid}/turns', json={'text': '����ԭ��', 'client_request_id': 'request', 'provider_profile_id': 'fake-gpt'})
+        assert response.status_code == 202
+        plan = client.post('/v1/storage/relocation-preview', json={'destination': str(tmp_path / 'new')})
+>       assert plan.status_code == 409
+E       assert 404 == 409
+E        +  where 404 = <Response [404 Not Found]>.status_code
+
+tests\integration\test_storage_relocation.py:53: AssertionError
+____ test_copy_failure_keeps_original_writable_and_does_not_claim_verified ____
+
+client = <starlette.testclient.TestClient object at 0x00000177ACF6E780>
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-318/test_copy_failure_keeps_origin0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x00000177AD4B48A0>
+
+    def test_copy_failure_keeps_original_writable_and_does_not_claim_verified(client, tmp_path, monkeypatch):
+>       import app.storage.relocation as relocation
+E       ModuleNotFoundError: No module named 'app.storage.relocation'
+
+tests\integration\test_storage_relocation.py:58: ModuleNotFoundError
+============================== warnings summary ===============================
+services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1
+  C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/integration/test_storage_relocation.py::test_relocation_copies_database_blobs_and_workspace_then_requires_restart
+FAILED tests/integration/test_storage_relocation.py::test_relocation_rejects_changed_source_nonempty_target_and_nested_paths
+FAILED tests/integration/test_storage_relocation.py::test_relocation_blocks_unresolved_tasks
+FAILED tests/integration/test_storage_relocation.py::test_copy_failure_keeps_original_writable_and_does_not_claim_verified
+4 failed, 1 warning in 1.01s

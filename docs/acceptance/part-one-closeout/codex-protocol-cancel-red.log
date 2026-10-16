@@ -1,0 +1,65 @@
+FF.                                                                      [100%]
+================================== FAILURES ===================================
+_ test_concurrent_cancel_interrupts_hanging_request_promptly_and_is_idempotent _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-192/test_concurrent_cancel_interru0')
+
+    def test_concurrent_cancel_interrupts_hanging_request_promptly_and_is_idempotent(tmp_path):
+        client = NativeRpcClient(fixture_command(tmp_path, "hang"), tmp_path, metadata_methods={"model/list"}, timeout_seconds=10)
+        client.start()
+        outcomes = []
+        def request():
+            try: client.request("model/list")
+            except NativeRpcError as error: outcomes.append(error.reason_code)
+        thread = threading.Thread(target=request)
+        thread.start()
+        time.sleep(0.05)
+        started = time.monotonic()
+        cleanup = client.cancel()
+        elapsed = time.monotonic() - started
+        thread.join(timeout=2)
+>       assert elapsed < 2.5 and not thread.is_alive() and outcomes == ["RPC_CANCELLED"]
+E       assert (7.944130499963649 < 2.5)
+
+tests\contracts\test_codex_protocol.py:224: AssertionError
+_ test_cancel_during_start_leaves_no_resources_and_closed_client_cannot_start _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-192/test_cancel_during_start_leave0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000001A9A1DEDF30>
+
+    def test_cancel_during_start_leaves_no_resources_and_closed_client_cannot_start(tmp_path, monkeypatch):
+        from app.runtime.processes import ProcessManager
+        entered, release = threading.Event(), threading.Event()
+        original = ProcessManager.start
+        def delayed_start(*args, **kwargs):
+            entered.set()
+            assert release.wait(timeout=3)
+            return original(*args, **kwargs)
+        monkeypatch.setattr(ProcessManager, "start", delayed_start)
+        client = NativeRpcClient(fixture_command(tmp_path), tmp_path, metadata_methods={"model/list"})
+        outcomes = []
+        def start():
+            try: client.start()
+            except NativeRpcError as error: outcomes.append(error.reason_code)
+        starter = threading.Thread(target=start)
+        starter.start()
+        assert entered.wait(timeout=2)
+        results = []
+        closer = threading.Thread(target=lambda: results.append(client.cancel()))
+        closer.start()
+        time.sleep(0.05)
+        release.set()
+        starter.join(timeout=3)
+        closer.join(timeout=3)
+        assert not starter.is_alive() and not closer.is_alive()
+>       assert outcomes == ["RPC_CANCELLED"] and results[0].cleanup_complete
+E       AssertionError: assert ([] == ['RPC_CANCELLED']
+E         
+E         Right contains one more item: 'RPC_CANCELLED'
+E         Use -v to get more diff)
+
+tests\contracts\test_codex_protocol.py:254: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/contracts/test_codex_protocol.py::test_concurrent_cancel_interrupts_hanging_request_promptly_and_is_idempotent
+FAILED tests/contracts/test_codex_protocol.py::test_cancel_during_start_leaves_no_resources_and_closed_client_cannot_start
+2 failed, 1 passed, 24 deselected in 9.77s

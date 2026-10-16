@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0",
+  "adapter": "zcode",
+  "capabilities": [
+    "non_interactive",
+    "isolated_workdir"
+  ],
+  "executable": "C:\\Program Files\\nodejs\\node.exe",
+  "executable_sha256": "3602f2bb1a10f2cbab4c36886218a33c1ab3db87290e73b033c46c77147d0237",
+  "runtime_version": "0.16.9",
+  "source_uri": "https://github.com/zai-org/ZCode/blob/main/apps/zcode-cli/README.md",
+  "source_kind": "official_installed_runtime",
+  "bounded_probe_enabled": false,
+  "production_enabled": false,
+  "block_reason_code": "MODEL_SELECTION_REQUIRED",
+  "generated_at": "2026-10-13T11:43:03Z",
+  "entrypoint": "D:/zcode/resources/glm/zcode.cjs",
+  "entrypoint_sha256": "b816e38656e70fb585fe2ab1ea010da89cda928dac1ccb5d83255fd18796da6e",
+  "gui_version": "3.15.1.8093",
+  "builtin_config_reference": "D:/zcode/resources/config/provider/zcode-builtin.json"
+}
+

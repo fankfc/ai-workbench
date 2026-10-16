@@ -1,0 +1,13 @@
+{
+  "time": "2026-10-14T06:09:47.790541+00:00",
+  "command": [
+    "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\.venv\\Scripts\\python.exe",
+    "-m",
+    "pytest",
+    "-q",
+    "tests/contracts/test_scoped_codex_runtime.py::test_output_overflow_and_timeout_are_bounded"
+  ],
+  "exit_code": 1,
+  "git_commit": null,
+  "log": "docs\\acceptance\\part-one-closeout\\scoped-codex-overflow-red.log"
+}

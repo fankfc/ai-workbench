@@ -1,0 +1,260 @@
+FFFFF                                                                    [100%]
+================================== FAILURES ===================================
+_ test_accepted_stream_boundaries_never_authorize_a_duplicate_request[no_completion] _
+
+client = <starlette.testclient.TestClient object at 0x0000020EA57F06E0>
+case = 'no_completion'
+
+    @pytest.mark.parametrize("case", ["no_completion", "completed_then_disconnect", "error_then_completion",
+        "missing_started_ids", "started_after_completion"])
+    def test_accepted_stream_boundaries_never_authorize_a_duplicate_request(client, case):
+        path, manager, _, contract = prepare(client)
+        class BoundaryStream:
+            test_only = True
+            def __init__(self):
+                self.starts = []
+            async def run(self, request):
+                self.starts.append(request)
+                sequence = 1
+                if case == "started_after_completion":
+                    yield AgentEvent(request.task_id, request.attempt_id, sequence, "model.completed", {})
+                    sequence += 1
+                yield AgentEvent(request.task_id, request.attempt_id, sequence, "provider.started",
+                    {} if case == "missing_started_ids" else
+                    {"external_request_id": "boundary-request", "external_execution_id": "boundary-execution"})
+                sequence += 1
+                yield AgentEvent(request.task_id, request.attempt_id, sequence, "provider.usage",
+                    {"raw": {"input_tokens": 10, "output_tokens": 5}, "source": "reported"})
+                sequence += 1
+                if case == "error_then_completion":
+                    yield AgentEvent(request.task_id, request.attempt_id, sequence, "provider.error", {"message": "private fixture error"})
+                    sequence += 1
+                if case in {"completed_then_disconnect", "error_then_completion"}:
+                    yield AgentEvent(request.task_id, request.attempt_id, sequence, "model.completed", {})
+                if case == "completed_then_disconnect":
+                    raise ConnectionError("fixture disconnect after completion claim")
+            async def cancel(self, task_id, attempt_id):
+                pass
+        b, a = BoundaryStream(), FakeProvider()
+        workflow = Workflow(path, manager, b, validator, a, check_budget,
+            estimated_tokens={"B.execution": 64, "A.review": 64})
+        result = asyncio.run(workflow.run(contract))
+        assert result.state == "BLOCKED" and "UNKNOWN_REMOTE" in result.reason_codes
+        assert len(b.starts) == 1 and a.starts == [] and result.connection_retries == 0
+        with closing(Database(path).connect()) as connection:
+            step = dict(connection.execute("SELECT * FROM steps").fetchone())
+            task = dict(connection.execute("SELECT * FROM task_runs").fetchone())
+            public = [json.loads(row[0]) for row in connection.execute("SELECT internal_payload_json FROM outbox_events WHERE kind='request.failed'")]
+        assert step["state"] == "UNKNOWN_REMOTE" and task["remote_status"] == "unknown"
+>       assert json.loads(step["checkpoint_json"])["remote_execution"]["accepted"] is True
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'accepted'
+
+tests\integration\test_agent_workflow.py:552: KeyError
+_ test_accepted_stream_boundaries_never_authorize_a_duplicate_request[completed_then_disconnect] _
+
+client = <starlette.testclient.TestClient object at 0x0000020EA57FC7D0>
+case = 'completed_then_disconnect'
+
+    @pytest.mark.parametrize("case", ["no_completion", "completed_then_disconnect", "error_then_completion",
+        "missing_started_ids", "started_after_completion"])
+    def test_accepted_stream_boundaries_never_authorize_a_duplicate_request(client, case):
+        path, manager, _, contract = prepare(client)
+        class BoundaryStream:
+            test_only = True
+            def __init__(self):
+                self.starts = []
+            async def run(self, request):
+                self.starts.append(request)
+                sequence = 1
+                if case == "started_after_completion":
+                    yield AgentEvent(request.task_id, request.attempt_id, sequence, "model.completed", {})
+                    sequence += 1
+                yield AgentEvent(request.task_id, request.attempt_id, sequence, "provider.started",
+                    {} if case == "missing_started_ids" else
+                    {"external_request_id": "boundary-request", "external_execution_id": "boundary-execution"})
+                sequence += 1
+                yield AgentEvent(request.task_id, request.attempt_id, sequence, "provider.usage",
+                    {"raw": {"input_tokens": 10, "output_tokens": 5}, "source": "reported"})
+                sequence += 1
+                if case == "error_then_completion":
+                    yield AgentEvent(request.task_id, request.attempt_id, sequence, "provider.error", {"message": "private fixture error"})
+                    sequence += 1
+                if case in {"completed_then_disconnect", "error_then_completion"}:
+                    yield AgentEvent(request.task_id, request.attempt_id, sequence, "model.completed", {})
+                if case == "completed_then_disconnect":
+                    raise ConnectionError("fixture disconnect after completion claim")
+            async def cancel(self, task_id, attempt_id):
+                pass
+        b, a = BoundaryStream(), FakeProvider()
+        workflow = Workflow(path, manager, b, validator, a, check_budget,
+            estimated_tokens={"B.execution": 64, "A.review": 64})
+        result = asyncio.run(workflow.run(contract))
+        assert result.state == "BLOCKED" and "UNKNOWN_REMOTE" in result.reason_codes
+        assert len(b.starts) == 1 and a.starts == [] and result.connection_retries == 0
+        with closing(Database(path).connect()) as connection:
+            step = dict(connection.execute("SELECT * FROM steps").fetchone())
+            task = dict(connection.execute("SELECT * FROM task_runs").fetchone())
+            public = [json.loads(row[0]) for row in connection.execute("SELECT internal_payload_json FROM outbox_events WHERE kind='request.failed'")]
+        assert step["state"] == "UNKNOWN_REMOTE" and task["remote_status"] == "unknown"
+>       assert json.loads(step["checkpoint_json"])["remote_execution"]["accepted"] is True
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'accepted'
+
+tests\integration\test_agent_workflow.py:552: KeyError
+_ test_accepted_stream_boundaries_never_authorize_a_duplicate_request[error_then_completion] _
+
+client = <starlette.testclient.TestClient object at 0x0000020EA57FEAD0>
+case = 'error_then_completion'
+
+    @pytest.mark.parametrize("case", ["no_completion", "completed_then_disconnect", "error_then_completion",
+        "missing_started_ids", "started_after_completion"])
+    def test_accepted_stream_boundaries_never_authorize_a_duplicate_request(client, case):
+        path, manager, _, contract = prepare(client)
+        class BoundaryStream:
+            test_only = True
+            def __init__(self):
+                self.starts = []
+            async def run(self, request):
+                self.starts.append(request)
+                sequence = 1
+                if case == "started_after_completion":
+                    yield AgentEvent(request.task_id, request.attempt_id, sequence, "model.completed", {})
+                    sequence += 1
+                yield AgentEvent(request.task_id, request.attempt_id, sequence, "provider.started",
+                    {} if case == "missing_started_ids" else
+                    {"external_request_id": "boundary-request", "external_execution_id": "boundary-execution"})
+                sequence += 1
+                yield AgentEvent(request.task_id, request.attempt_id, sequence, "provider.usage",
+                    {"raw": {"input_tokens": 10, "output_tokens": 5}, "source": "reported"})
+                sequence += 1
+                if case == "error_then_completion":
+                    yield AgentEvent(request.task_id, request.attempt_id, sequence, "provider.error", {"message": "private fixture error"})
+                    sequence += 1
+                if case in {"completed_then_disconnect", "error_then_completion"}:
+                    yield AgentEvent(request.task_id, request.attempt_id, sequence, "model.completed", {})
+                if case == "completed_then_disconnect":
+                    raise ConnectionError("fixture disconnect after completion claim")
+            async def cancel(self, task_id, attempt_id):
+                pass
+        b, a = BoundaryStream(), FakeProvider()
+        workflow = Workflow(path, manager, b, validator, a, check_budget,
+            estimated_tokens={"B.execution": 64, "A.review": 64})
+        result = asyncio.run(workflow.run(contract))
+        assert result.state == "BLOCKED" and "UNKNOWN_REMOTE" in result.reason_codes
+        assert len(b.starts) == 1 and a.starts == [] and result.connection_retries == 0
+        with closing(Database(path).connect()) as connection:
+            step = dict(connection.execute("SELECT * FROM steps").fetchone())
+            task = dict(connection.execute("SELECT * FROM task_runs").fetchone())
+            public = [json.loads(row[0]) for row in connection.execute("SELECT internal_payload_json FROM outbox_events WHERE kind='request.failed'")]
+        assert step["state"] == "UNKNOWN_REMOTE" and task["remote_status"] == "unknown"
+>       assert json.loads(step["checkpoint_json"])["remote_execution"]["accepted"] is True
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'accepted'
+
+tests\integration\test_agent_workflow.py:552: KeyError
+_ test_accepted_stream_boundaries_never_authorize_a_duplicate_request[missing_started_ids] _
+
+client = <starlette.testclient.TestClient object at 0x0000020EA5AD4D60>
+case = 'missing_started_ids'
+
+    @pytest.mark.parametrize("case", ["no_completion", "completed_then_disconnect", "error_then_completion",
+        "missing_started_ids", "started_after_completion"])
+    def test_accepted_stream_boundaries_never_authorize_a_duplicate_request(client, case):
+        path, manager, _, contract = prepare(client)
+        class BoundaryStream:
+            test_only = True
+            def __init__(self):
+                self.starts = []
+            async def run(self, request):
+                self.starts.append(request)
+                sequence = 1
+                if case == "started_after_completion":
+                    yield AgentEvent(request.task_id, request.attempt_id, sequence, "model.completed", {})
+                    sequence += 1
+                yield AgentEvent(request.task_id, request.attempt_id, sequence, "provider.started",
+                    {} if case == "missing_started_ids" else
+                    {"external_request_id": "boundary-request", "external_execution_id": "boundary-execution"})
+                sequence += 1
+                yield AgentEvent(request.task_id, request.attempt_id, sequence, "provider.usage",
+                    {"raw": {"input_tokens": 10, "output_tokens": 5}, "source": "reported"})
+                sequence += 1
+                if case == "error_then_completion":
+                    yield AgentEvent(request.task_id, request.attempt_id, sequence, "provider.error", {"message": "private fixture error"})
+                    sequence += 1
+                if case in {"completed_then_disconnect", "error_then_completion"}:
+                    yield AgentEvent(request.task_id, request.attempt_id, sequence, "model.completed", {})
+                if case == "completed_then_disconnect":
+                    raise ConnectionError("fixture disconnect after completion claim")
+            async def cancel(self, task_id, attempt_id):
+                pass
+        b, a = BoundaryStream(), FakeProvider()
+        workflow = Workflow(path, manager, b, validator, a, check_budget,
+            estimated_tokens={"B.execution": 64, "A.review": 64})
+        result = asyncio.run(workflow.run(contract))
+>       assert result.state == "BLOCKED" and "UNKNOWN_REMOTE" in result.reason_codes
+E       AssertionError: assert ('BLOCKED' == 'BLOCKED'
+E         
+E           BLOCKED and 'UNKNOWN_REMOTE' in ('PROVIDER_RESPONSE_FAILED',))
+E        +  where ('PROVIDER_RESPONSE_FAILED',) = WorkflowResult(state='BLOCKED', current_revision_id=None, review_check_id=None, quality_repairs=0, connection_retries=...ed_stream_boundarie3\\workspaces\\tasks\\f6215a7a3409467789e41ecf8c294ee1\\722083b3be43484c9f6037e34c8bafe9\\evidence').reason_codes
+
+tests\integration\test_agent_workflow.py:545: AssertionError
+_ test_accepted_stream_boundaries_never_authorize_a_duplicate_request[started_after_completion] _
+
+client = <starlette.testclient.TestClient object at 0x0000020EA5AD7820>
+case = 'started_after_completion'
+
+    @pytest.mark.parametrize("case", ["no_completion", "completed_then_disconnect", "error_then_completion",
+        "missing_started_ids", "started_after_completion"])
+    def test_accepted_stream_boundaries_never_authorize_a_duplicate_request(client, case):
+        path, manager, _, contract = prepare(client)
+        class BoundaryStream:
+            test_only = True
+            def __init__(self):
+                self.starts = []
+            async def run(self, request):
+                self.starts.append(request)
+                sequence = 1
+                if case == "started_after_completion":
+                    yield AgentEvent(request.task_id, request.attempt_id, sequence, "model.completed", {})
+                    sequence += 1
+                yield AgentEvent(request.task_id, request.attempt_id, sequence, "provider.started",
+                    {} if case == "missing_started_ids" else
+                    {"external_request_id": "boundary-request", "external_execution_id": "boundary-execution"})
+                sequence += 1
+                yield AgentEvent(request.task_id, request.attempt_id, sequence, "provider.usage",
+                    {"raw": {"input_tokens": 10, "output_tokens": 5}, "source": "reported"})
+                sequence += 1
+                if case == "error_then_completion":
+                    yield AgentEvent(request.task_id, request.attempt_id, sequence, "provider.error", {"message": "private fixture error"})
+                    sequence += 1
+                if case in {"completed_then_disconnect", "error_then_completion"}:
+                    yield AgentEvent(request.task_id, request.attempt_id, sequence, "model.completed", {})
+                if case == "completed_then_disconnect":
+                    raise ConnectionError("fixture disconnect after completion claim")
+            async def cancel(self, task_id, attempt_id):
+                pass
+        b, a = BoundaryStream(), FakeProvider()
+        workflow = Workflow(path, manager, b, validator, a, check_budget,
+            estimated_tokens={"B.execution": 64, "A.review": 64})
+        result = asyncio.run(workflow.run(contract))
+>       assert result.state == "BLOCKED" and "UNKNOWN_REMOTE" in result.reason_codes
+E       AssertionError: assert ('BLOCKED' == 'BLOCKED'
+E         
+E           BLOCKED and 'UNKNOWN_REMOTE' in ('CANDIDATE_MISSING',))
+E        +  where ('CANDIDATE_MISSING',) = WorkflowResult(state='BLOCKED', current_revision_id=None, review_check_id=None, quality_repairs=0, connection_retries=...ed_stream_boundarie4\\workspaces\\tasks\\4f8eeb6416d4443fae3bd79cbded7701\\250d33b251974acc9a2fa18afa5e75e5\\evidence').reason_codes
+
+tests\integration\test_agent_workflow.py:545: AssertionError
+============================== warnings summary ===============================
+tests/integration/test_agent_workflow.py::test_accepted_stream_boundaries_never_authorize_a_duplicate_request[no_completion]
+  C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/integration/test_agent_workflow.py::test_accepted_stream_boundaries_never_authorize_a_duplicate_request[no_completion]
+FAILED tests/integration/test_agent_workflow.py::test_accepted_stream_boundaries_never_authorize_a_duplicate_request[completed_then_disconnect]
+FAILED tests/integration/test_agent_workflow.py::test_accepted_stream_boundaries_never_authorize_a_duplicate_request[error_then_completion]
+FAILED tests/integration/test_agent_workflow.py::test_accepted_stream_boundaries_never_authorize_a_duplicate_request[missing_started_ids]
+FAILED tests/integration/test_agent_workflow.py::test_accepted_stream_boundaries_never_authorize_a_duplicate_request[started_after_completion]
+5 failed, 42 deselected, 1 warning in 1.86s

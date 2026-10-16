@@ -1,0 +1,31 @@
+{
+  "version": "1.0",
+  "build_id": "64bc5e858de1f6a58d2d1b055a1aaf5a8d7861e6f071fb0f392d37583caf04c5",
+  "run_id": null,
+  "created_at": "2026-10-14T15:15:32.761465+00:00",
+  "seed": 4317,
+  "encoding": "UTF-8",
+  "provider_boundary": "fake",
+  "files": [
+    {
+      "path": "task.json",
+      "size": 182,
+      "sha256": "65697a767f68aafcaf98e7e6bac14be85aff1e0461fca14fd369b19461bd0f69"
+    },
+    {
+      "path": "public-messages.json",
+      "size": 847,
+      "sha256": "aef4cd12ef72db17f75fa29939a71abaddefa9caa7328316e9bccb4dc3e7ea73"
+    },
+    {
+      "path": "service-identity.json",
+      "size": 133,
+      "sha256": "69135f303628749a6a12f8d2f3646e54dbbe487d3ea9363a86189b1791c78ace"
+    },
+    {
+      "path": "service-teardown.json",
+      "size": 87,
+      "sha256": "e0ffdafc3b4dd2b834e9bbb96ff8cb2d2bf6b494503a9ab76e42571817a43ea2"
+    }
+  ]
+}

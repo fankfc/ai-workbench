@@ -1,0 +1,11 @@
+{
+  "deleted_active_evidence": false,
+  "secret_leaks": [],
+  "cache_reused_after_glossary_change": false,
+  "history_preserved": true,
+  "evidence_kind": "deterministic_product_probe",
+  "cleanup_blocked": true,
+  "blocked_reasons": [
+    "monthly_restore_and_real_bilingual_review_not_executed"
+  ]
+}

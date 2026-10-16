@@ -1,0 +1,16 @@
+FF                                                                       [100%]
+================================== FAILURES ===================================
+_____ test_mutating_supplied_span_list_cannot_reclassify_chinese_as_code ______
+tests\integration\test_context_gateway.py:114: in test_mutating_supplied_span_list_cannot_reclassify_chinese_as_code
+    with pytest.raises(ContextBlocked, match="NON_ENGLISH_NATURAL_LANGUAGE"):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE ContextBlocked
+________________ test_gateway_takes_immutable_record_snapshot _________________
+tests\integration\test_context_gateway.py:125: in test_gateway_takes_immutable_record_snapshot
+    with pytest.raises(ContextBlocked, match="NON_ENGLISH_NATURAL_LANGUAGE"):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE ContextBlocked
+=========================== short test summary info ===========================
+FAILED tests/integration/test_context_gateway.py::test_mutating_supplied_span_list_cannot_reclassify_chinese_as_code
+FAILED tests/integration/test_context_gateway.py::test_gateway_takes_immutable_record_snapshot
+2 failed, 17 deselected in 0.50s

@@ -1,0 +1,64 @@
+{
+  "kind": "developer_blocked",
+  "schema_version": "1",
+  "task_id": "D028",
+  "contract_version": "1",
+  "work_order_sha256": "219a590fd18c661d0b734b8db377d5a941ff0faa0cfeae6e2bf1ab5604beb0bd",
+  "artifact_version": "D028-current-local-tree",
+  "cannot_complete": "D028 real and human acceptance remains open while direct dependency evidence is absent.",
+  "direct_evidence": [
+    "docs/acceptance/part-five/work-orders/D028-draft-v2/work-order.json",
+    "docs/acceptance/part-five/work-orders/D028-run-v2/process.log"
+  ],
+  "attempted_actions": [
+    "Read current D028 and direct dependency artifact indexes.",
+    "Ran the explicit local input-translation integration tests: actual exit 0.",
+    "Validated the local handoff without changing task statuses."
+  ],
+  "external_conditions": [
+    "Resolve D026/D027 missing direct artifacts and complete required real/human acceptance."
+  ],
+  "independent_tasks": [],
+  "evidence_index": [
+    {
+      "ref": "docs/acceptance/part-five/work-orders/D028-draft-v2/work-order.json",
+      "kind": "file",
+      "sha256": "219a590fd18c661d0b734b8db377d5a941ff0faa0cfeae6e2bf1ab5604beb0bd"
+    },
+    {
+      "ref": "docs/acceptance/part-five/work-orders/D028-run-v2/process.log",
+      "kind": "file",
+      "sha256": "5e543e3a4b7e136d21824085db1933e0f54927a0c923a781556f2544b8b9c707"
+    }
+  ],
+  "task_completion_changed": false,
+  "revision": [
+    {
+      "ref": "services/orchestrator/app/translation/context_gateway.py",
+      "kind": "file",
+      "sha256": "f1d02148b20d1efb2adc8376620b77bac29a0753d3617fb46bcc519aaf02447a"
+    },
+    {
+      "ref": "services/orchestrator/app/translation/history.py",
+      "kind": "file",
+      "sha256": "56a267f2aab42675a4481a673907bfe6fff48a5b99e2282bddc1d07e3543a38e"
+    },
+    {
+      "ref": "services/orchestrator/app/translation/input_pipeline.py",
+      "kind": "file",
+      "sha256": "945072ff9eaa78ab67a39a3e07f6f9cc37a67c8d16e28bfdd525536681c6d382"
+    },
+    {
+      "ref": "services/orchestrator/app/translation/prompts/input_translator.txt",
+      "kind": "file",
+      "sha256": "74c0563000dace2e12c93d50a56943aa8d3e1f16943618b5e7fcaf6870c2d6cf"
+    },
+    {
+      "ref": "tests/integration/test_input_translation.py",
+      "kind": "file",
+      "sha256": "c906f1cf838d392493b884ee2f2cd141a83e62f70615926d64e75e1f13a2265b"
+    }
+  ],
+  "revision_sha256": "53c490cd55e6232d5b659870198c7a465773fdb076345415bfb5a50de263d1c7",
+  "authentication": "8f638629cc6ac8e41f1f893cce65bb2679506f27e1e253961624252cefe0e210"
+}

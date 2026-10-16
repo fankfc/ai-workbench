@@ -1,0 +1,6 @@
+
+Running 35 tests using 1 worker
+(node:47612) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node.EXE --trace-warnings ...` to show where the warning was created)
+···································
+  35 passed (4.8m)

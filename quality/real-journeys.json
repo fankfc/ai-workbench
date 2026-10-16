@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0",
+  "status": "blocked_no_real_provider_access",
+  "source_kind": "inventory",
+  "real_provider_calls": 0,
+  "declared_available_entries": [],
+  "journeys": [],
+  "required_domains": [
+    "code",
+    "paper",
+    "document",
+    "composite"
+  ],
+  "required_providers": [
+    "claude_code",
+    "zcode_glm"
+  ],
+  "gpt_status": "unverified_and_disabled",
+  "functional_accepted": false,
+  "optimization_accepted": false,
+  "remaining": [
+    "fix original materials and independent task criteria",
+    "authorized Claude and ZCode native identity plus receipt binding",
+    "four real domains with correction cancellation recovery and translation failure",
+    "complete A English canonical plus B Chinese MD DOCX PDF pairs",
+    "independent bilingual/domain review and usability screenshots",
+    "separate D046 quality and token eligibility"
+  ]
+}

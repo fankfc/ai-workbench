@@ -1,0 +1,11 @@
+Command: services/orchestrator/.venv/Scripts/python.exe -m pytest tests/contracts/test_role_prompts.py tests/translation/test_role_prompt_contexts.py -q
+PYTHONPATH=services/orchestrator;tests
+........                                                                 [100%]
+============================== warnings summary ===============================
+services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1
+  C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+8 passed, 1 warning in 4.89s
+Exit code: 0

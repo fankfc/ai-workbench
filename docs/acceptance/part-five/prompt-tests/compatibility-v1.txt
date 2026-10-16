@@ -1,0 +1,132 @@
+Command: services/orchestrator/.venv/Scripts/python.exe -m pytest tests/contracts/test_role_prompts.py tests/translation tests/integration/test_claude_native_pipeline.py tests/integration/test_mixed_pipeline.py tests/integration/test_agent_workflow.py -q
+............................................F................FF......... [ 58%]
+...................................................                      [100%]
+================================== FAILURES ===================================
+__ test_actual_workflow_generates_a_canonical_then_translates_and_publishes ___
+
+client = <starlette.testclient.TestClient object at 0x000002345E0E5BF0>
+
+    def test_actual_workflow_generates_a_canonical_then_translates_and_publishes(client):
+        _,task,attempt=claude_turn(client); svc,manager,b,a,workflow=assembly(client,task,attempt)
+        workspace=manager.create(task,attempt); raw='保留原文件。'.encode(); workspace.ingest_source('request.md',raw)
+        with closing(svc.database.connect()) as connection:
+            route=json.loads(connection.execute('SELECT route_snapshot_json FROM task_runs WHERE task_id=?',(task,)).fetchone()[0])
+        value=make_contract(task,attempt,route['id'],'mixed','claude')
+        value['inputs']=[dict(id='USER-1',ref='input/request.md',sha256=hashlib.sha256(raw).hexdigest())]
+        value['source_unit_ids']=['USER-1']; value['full_read_required']=True
+        result=asyncio.run(workflow.run(value))
+>       assert result.state=='OUTPUT_PREPARING', result.reason_codes
+E       AssertionError: ('CLAUDE_INPUT_TRANSLATION_NOT_READY',)
+E       assert 'BLOCKED' == 'OUTPUT_PREPARING'
+E         
+E         - OUTPUT_PREPARING
+E         + BLOCKED
+
+tests\integration\test_claude_native_pipeline.py:86: AssertionError
+_ test_claude_review_receives_verified_english_observations_with_original_proof_binding _
+
+client = <starlette.testclient.TestClient object at 0x0000023463EBAE00>
+
+    def test_claude_review_receives_verified_english_observations_with_original_proof_binding(client):
+        from test_claude_native_pipeline import assembly, mechanical
+        from translation.fakes import claude_turn
+    
+        _, task, attempt = claude_turn(client)
+        service, manager, _, a, workflow = assembly(client, task, attempt)
+        workspace = manager.create(task, attempt)
+        raw = '保留原文件。'.encode()
+        workspace.ingest_source('request.md', raw)
+        with closing(service.database.connect()) as connection:
+            route = json.loads(connection.execute('SELECT route_snapshot_json FROM task_runs WHERE task_id=?', (task,)).fetchone()[0])
+        contract = make_contract(task, attempt, route['id'], 'mixed', 'claude')
+        contract['inputs'] = [dict(id='USER-1', ref='input/request.md', sha256=hashlib.sha256(raw).hexdigest())]
+        contract['source_unit_ids'] = ['USER-1']
+        contract['full_read_required'] = True
+    
+        def observations(candidate):
+            result = mechanical(candidate)
+            for item in result:
+                item['evidence'].update(note='禁止删除原始文件。', code='`print("中文界面")`', measured_value=-0.03)
+            return result
+    
+        workflow.validator = observations
+        result = asyncio.run(workflow.run(contract))
+>       assert result.state == 'OUTPUT_PREPARING', result.reason_codes
+E       AssertionError: ('CLAUDE_INPUT_TRANSLATION_NOT_READY',)
+E       assert 'BLOCKED' == 'OUTPUT_PREPARING'
+E         
+E         - OUTPUT_PREPARING
+E         + BLOCKED
+
+tests\integration\test_agent_workflow.py:148: AssertionError
+_ test_claude_numeric_proof_keeps_translation_qa_and_fixed_budget_gate[10000] _
+
+client = <starlette.testclient.TestClient object at 0x0000023463144490>
+total_tokens = 10000
+
+    @pytest.mark.parametrize('total_tokens', [10000, 30000])
+    def test_claude_numeric_proof_keeps_translation_qa_and_fixed_budget_gate(client, total_tokens):
+        from test_claude_native_pipeline import assembly, mechanical
+        from translation.fakes import claude_turn
+        from artifacts.helpers import external_translation_service
+    
+        _, task, attempt = claude_turn(client, 'Keep the original file.')
+        _, manager, _, a, workflow = assembly(client, task, attempt)
+        service = external_translation_service({'client': client})
+        workflow.translation_service = service
+        workspace = manager.create(task, attempt)
+        raw = b'Keep the original file.'
+        workspace.ingest_source('request.md', raw)
+        with closing(service.database.connect()) as connection:
+            route = json.loads(connection.execute('SELECT route_snapshot_json FROM task_runs WHERE task_id=?', (task,)).fetchone()[0])
+        contract = make_contract(task, attempt, route['id'], 'mixed', 'claude')
+        contract['inputs'] = [dict(id='USER-1', ref='input/request.md', sha256=hashlib.sha256(raw).hexdigest())]
+        contract['source_unit_ids'] = ['USER-1']
+        contract['full_read_required'] = True
+        contract['budget']['total_tokens'] = total_tokens
+    
+        def observations(candidate):
+            values = mechanical(candidate)
+            for item in values:
+                item['evidence'].update(monthly_totals={f'2026-{index:02d}': str(index * 10) for index in range(1, 25)},
+                    note='Computed and independently reproduced all monthly totals.')
+            return values
+    
+        workflow.validator = observations
+        result = asyncio.run(workflow.run(contract))
+        with closing(service.database.connect()) as connection:
+            translation_failures = [row[0] for row in connection.execute(
+                "SELECT clarification FROM translation_jobs WHERE json_extract(job_json,'$.purpose')='review-evidence'")]
+        if total_tokens == 10000:
+            assert result.state == 'BLOCKED'
+>           assert result.reason_codes == ('CLAUDE_REVIEW_EVIDENCE_TRANSLATION_NOT_READY',)
+E           AssertionError: assert ('CLAUDE_INPU...N_NOT_READY',) == ('CLAUDE_REVI...N_NOT_READY',)
+E             
+E             At index 0 diff: 'CLAUDE_INPUT_TRANSLATION_NOT_READY' != 'CLAUDE_REVIEW_EVIDENCE_TRANSLATION_NOT_READY'
+E             Use -v to get more diff
+
+tests\integration\test_agent_workflow.py:203: AssertionError
+============================== warnings summary ===============================
+services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1
+  C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+tests/integration/test_claude_native_pipeline.py::test_private_supervisor_api_document_request_publishes_real_bilingual_files
+tests/integration/test_claude_native_pipeline.py::test_private_supervisor_api_document_request_publishes_real_bilingual_files
+  <frozen importlib._bootstrap>:488: DeprecationWarning: builtin type SwigPyPacked has no __module__ attribute
+
+tests/integration/test_claude_native_pipeline.py::test_private_supervisor_api_document_request_publishes_real_bilingual_files
+tests/integration/test_claude_native_pipeline.py::test_private_supervisor_api_document_request_publishes_real_bilingual_files
+  <frozen importlib._bootstrap>:488: DeprecationWarning: builtin type SwigPyObject has no __module__ attribute
+
+tests/integration/test_claude_native_pipeline.py::test_private_supervisor_api_document_request_publishes_real_bilingual_files
+  <frozen importlib._bootstrap>:488: DeprecationWarning: builtin type swigvarlink has no __module__ attribute
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/integration/test_claude_native_pipeline.py::test_actual_workflow_generates_a_canonical_then_translates_and_publishes
+FAILED tests/integration/test_agent_workflow.py::test_claude_review_receives_verified_english_observations_with_original_proof_binding
+FAILED tests/integration/test_agent_workflow.py::test_claude_numeric_proof_keeps_translation_qa_and_fixed_budget_gate[10000]
+3 failed, 120 passed, 6 warnings in 76.46s (0:01:16)
+<sys>:0: DeprecationWarning: builtin type swigvarlink has no __module__ attribute
+Exit code: 1

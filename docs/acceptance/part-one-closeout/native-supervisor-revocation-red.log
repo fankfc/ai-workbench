@@ -1,0 +1,79 @@
+...............FF                                                        [100%]
+================================== FAILURES ===================================
+_____ test_qualification_revoked_after_startup_blocks_queue_and_registry ______
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-264/test_qualification_revoked_aft0')
+
+    def test_qualification_revoked_after_startup_blocks_queue_and_registry(tmp_path):
+        from app.contracts.providers import ProviderContract
+        app, task, runtime, calls, bindings, supervisor = fixture_case(tmp_path)
+        old = runtime.provider.model_dump()
+        old.update(identity_status='unknown', identity_source=None)
+        bindings.provider_registry['fake-gpt'].provider = ProviderContract.model_validate(old)
+>       asyncio.run(supervisor.run_once())
+
+tests\integration\test_native_supervisor.py:237: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:194: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:118: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py:721: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+services\orchestrator\app\runtime\supervisor.py:192: in run_once
+    claim = self.claim()
+            ^^^^^^^^^^^^
+services\orchestrator\app\runtime\supervisor.py:112: in claim
+    provider = self._qualified(row['provider_profile_id'], port)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.runtime.supervisor.TaskSupervisor object at 0x0000014528375FD0>
+key = 'fake-gpt'
+port = namespace(provider=ProviderContract(schema_version='1.0', provider_id='fake-gpt', identity=ProviderIdentityRecord(adap...t-only'), scope_capability=namespace(require_verified=<function fixture_case.<locals>.<lambda> at 0x000001452863E520>))
+
+    def _qualified(self, key, port):
+        try:
+            provider = port.provider
+            if (not isinstance(provider, ProviderContract) or provider.provider_id != key
+                    or provider.identity.family.value not in {'gpt', 'glm'}):
+                raise ValueError('provider')
+            provider.require_executable()
+            if self.bindings.classification == 'production':
+                expected = {'gpt': 'codex', 'glm': 'zcode'}[provider.identity.family.value]
+                if provider.identity.adapter != expected or port.scope_capability.require_verified(provider) is not None:
+                    raise ValueError('capability')
+        except Exception:
+>           raise SupervisorError('NATIVE_PROVIDER_NOT_QUALIFIED') from None
+E           app.runtime.supervisor.SupervisorError: NATIVE_PROVIDER_NOT_QUALIFIED
+
+services\orchestrator\app\runtime\supervisor.py:75: SupervisorError
+_____________ test_planning_failure_emits_fixed_public_error_once _____________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-264/test_planning_failure_emits_fi0')
+
+    def test_planning_failure_emits_fixed_public_error_once(tmp_path):
+        from app.runtime.outbox import Outbox
+        app, task, _, _, bindings, supervisor = fixture_case(tmp_path, 'disconnect')
+        asyncio.run(supervisor.run_once())
+        asyncio.run(TaskSupervisor(app.state.database.path, bindings, provider_mode='fake').run_once())
+        with closing(app.state.database.connect()) as connection:
+            conversation = connection.execute('SELECT conversation_id FROM turns WHERE task_id=?',(task,)).fetchone()[0]
+>           assert connection.execute("SELECT count(*) FROM outbox_events WHERE task_id=? AND kind='request.failed'",(task,)).fetchone()[0] == 1
+E           assert 0 == 1
+
+tests\integration\test_native_supervisor.py:250: AssertionError
+============================== warnings summary ===============================
+services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1
+  C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/integration/test_native_supervisor.py::test_qualification_revoked_after_startup_blocks_queue_and_registry
+FAILED tests/integration/test_native_supervisor.py::test_planning_failure_emits_fixed_public_error_once
+2 failed, 15 passed, 1 warning in 3.26s
+EXIT_CODE=1

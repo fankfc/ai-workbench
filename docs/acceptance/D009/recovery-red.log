@@ -1,0 +1,77 @@
+.............FF                                                          [100%]
+================================== FAILURES ===================================
+____ test_startup_reconciles_existing_external_request_without_model_retry ____
+
+client = <starlette.testclient.TestClient object at 0x00000231B0018160>
+
+    def test_startup_reconciles_existing_external_request_without_model_retry(client):
+        from contextlib import closing
+        from app.api.application import create_app
+        conversation=create(client)
+        task=submit(client,conversation).json()['task_id']
+        with closing(client.app.state.database.connect()) as connection:
+            connection.execute("UPDATE task_runs SET state='EXECUTING',external_request_id='existing-request',external_execution_id='existing-execution' WHERE task_id=?",(task,))
+        restored=create_app(AppSettings(client.app.state.settings.data_root,'qa-local-token','fake',True))
+        with closing(restored.state.database.connect()) as connection:
+            row=connection.execute('SELECT * FROM task_runs WHERE task_id=?',(task,)).fetchone()
+>       assert row['state']=='BLOCKED' and row['external_request_id']=='existing-request'
+E       AssertionError: assert ('EXECUTING' == 'BLOCKED'
+E         
+E         - BLOCKED
+E         + EXECUTING)
+
+tests\integration\test_conversation_api.py:110: AssertionError
+____________ test_unstarted_turn_survives_restart_as_local_pending ____________
+
+self = <starlette.datastructures.State object at 0x00000231AE3A5250>
+key = 'recovery_results'
+
+    def __getattr__(self, key: Any) -> Any:
+        try:
+>           return self._state[key]
+                   ^^^^^^^^^^^^^^^^
+E           KeyError: 'recovery_results'
+
+services\orchestrator\.venv\Lib\site-packages\starlette\datastructures.py:691: KeyError
+
+During handling of the above exception, another exception occurred:
+
+client = <starlette.testclient.TestClient object at 0x00000231B0018D10>
+
+    def test_unstarted_turn_survives_restart_as_local_pending(client):
+        from contextlib import closing
+        from app.api.application import create_app
+        conversation=create(client)
+        task=submit(client,conversation).json()['task_id']
+        restored=create_app(AppSettings(client.app.state.settings.data_root,'qa-local-token','fake',True))
+        with closing(restored.state.database.connect()) as connection:
+            row=connection.execute('SELECT * FROM task_runs WHERE task_id=?',(task,)).fetchone()
+        assert row['state']=='RECEIVED'
+>       assert restored.state.recovery_results[0]['decision']=='local_pending'
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\integration\test_conversation_api.py:122: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <starlette.datastructures.State object at 0x00000231AE3A5250>
+key = 'recovery_results'
+
+    def __getattr__(self, key: Any) -> Any:
+        try:
+            return self._state[key]
+        except KeyError:
+            message = "'{}' object has no attribute '{}'"
+>           raise AttributeError(message.format(self.__class__.__name__, key))
+E           AttributeError: 'State' object has no attribute 'recovery_results'
+
+services\orchestrator\.venv\Lib\site-packages\starlette\datastructures.py:694: AttributeError
+============================== warnings summary ===============================
+tests/integration/test_conversation_api.py::test_create_list_submit_history_and_public_task
+  C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/integration/test_conversation_api.py::test_startup_reconciles_existing_external_request_without_model_retry
+FAILED tests/integration/test_conversation_api.py::test_unstarted_turn_survives_restart_as_local_pending
+2 failed, 13 passed, 1 warning in 1.27s

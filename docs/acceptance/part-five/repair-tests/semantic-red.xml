@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="1.977" timestamp="2026-10-15T13:11:59.974568+08:00" hostname="帆"><testcase classname="tests.integration.test_repair_work_orders" name="test_semantic_failure_proof_bytes_are_rechecked_before_repair" time="1.407"><failure message="Failed: DID NOT RAISE ValueError">tests\integration\test_repair_work_orders.py:142: in test_semantic_failure_proof_bytes_are_rechecked_before_repair
+    with pytest.raises(ValueError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE ValueError</failure></testcase></testsuite></testsuites>

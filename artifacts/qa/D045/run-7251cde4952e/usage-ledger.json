@@ -1,0 +1,474 @@
+{
+  "duplicate": {
+    "total_tokens": 120,
+    "known_lower_bound": 120,
+    "unknown_requests": 0,
+    "a_tokens": 120,
+    "qualified_deliveries": 0,
+    "tokens_per_delivery": null,
+    "requests": [
+      {
+        "attempt_id": "d0819889d91d4ed19ce63de551e0f23c",
+        "cumulative_scope": null,
+        "domain": "code",
+        "external_request_id": "duplicate:request",
+        "function": "execution",
+        "mode": "request_total",
+        "provider": "gpt",
+        "provider_profile_id": "fake-gpt",
+        "role": "A",
+        "task_id": "f97d5993ec4143b98c33edf23ca0567f",
+        "status": "completed",
+        "source": "reported",
+        "total_tokens": 120,
+        "events": [
+          {
+            "cumulative_scope": null,
+            "event_id": "event",
+            "mode": "request_total",
+            "normalized": {
+              "components": {
+                "cached_tokens": null,
+                "input_tokens": null,
+                "output_tokens": null,
+                "reasoning_tokens": null
+              },
+              "mapping_version": "1.0",
+              "source": "reported",
+              "total_tokens": 120
+            },
+            "raw": {
+              "total_tokens": 120
+            },
+            "sequence": 1,
+            "sha256": "694f3e2a6d5b5c43ce9f22dceb935674daeb9dcd53160a44a2f9492f682c1381",
+            "status": "completed"
+          }
+        ]
+      }
+    ]
+  },
+  "cumulative": {
+    "total_tokens": 250,
+    "known_lower_bound": 250,
+    "unknown_requests": 0,
+    "a_tokens": 250,
+    "qualified_deliveries": 0,
+    "tokens_per_delivery": null,
+    "requests": [
+      {
+        "attempt_id": "772e845d98aa4f8ebe1d9656e9abdc3e",
+        "cumulative_scope": "synthetic-session",
+        "domain": "code",
+        "external_request_id": "cumulative:request1",
+        "function": "execution",
+        "mode": "cumulative",
+        "provider": "gpt",
+        "provider_profile_id": "fake-gpt",
+        "role": "A",
+        "task_id": "bcec8b1969b248a88856f96529009d30",
+        "status": "completed",
+        "source": "reported",
+        "total_tokens": 100,
+        "events": [
+          {
+            "cumulative_scope": "synthetic-session",
+            "event_id": "counter1",
+            "mode": "cumulative",
+            "normalized": {
+              "components": {
+                "cached_tokens": null,
+                "input_tokens": null,
+                "output_tokens": null,
+                "reasoning_tokens": null
+              },
+              "mapping_version": "1.0",
+              "source": "reported",
+              "total_tokens": 100
+            },
+            "raw": {
+              "total_tokens": 100
+            },
+            "sequence": 1,
+            "sha256": "64c1c025fb8abfc119546cfab09a17c7f5cd1512676a9467ad80016fa4fffd5e",
+            "status": "completed"
+          }
+        ]
+      },
+      {
+        "attempt_id": "772e845d98aa4f8ebe1d9656e9abdc3e",
+        "cumulative_scope": "synthetic-session",
+        "domain": "code",
+        "external_request_id": "cumulative:request2",
+        "function": "execution",
+        "mode": "cumulative",
+        "provider": "gpt",
+        "provider_profile_id": "fake-gpt",
+        "role": "A",
+        "task_id": "bcec8b1969b248a88856f96529009d30",
+        "status": "completed",
+        "source": "reported",
+        "total_tokens": 80,
+        "events": [
+          {
+            "cumulative_scope": "synthetic-session",
+            "event_id": "counter2",
+            "mode": "cumulative",
+            "normalized": {
+              "components": {
+                "cached_tokens": null,
+                "input_tokens": null,
+                "output_tokens": null,
+                "reasoning_tokens": null
+              },
+              "mapping_version": "1.0",
+              "source": "reported",
+              "total_tokens": 180
+            },
+            "raw": {
+              "total_tokens": 180
+            },
+            "sequence": 2,
+            "sha256": "e6b1dee0b52e33d9799bd78a8ca4b0339839a9d4d6a7c7013c007485bf3da55a",
+            "status": "completed"
+          }
+        ]
+      },
+      {
+        "attempt_id": "772e845d98aa4f8ebe1d9656e9abdc3e",
+        "cumulative_scope": "synthetic-session",
+        "domain": "code",
+        "external_request_id": "cumulative:request3",
+        "function": "execution",
+        "mode": "cumulative",
+        "provider": "gpt",
+        "provider_profile_id": "fake-gpt",
+        "role": "A",
+        "task_id": "bcec8b1969b248a88856f96529009d30",
+        "status": "completed",
+        "source": "reported",
+        "total_tokens": 70,
+        "events": [
+          {
+            "cumulative_scope": "synthetic-session",
+            "event_id": "counter3",
+            "mode": "cumulative",
+            "normalized": {
+              "components": {
+                "cached_tokens": null,
+                "input_tokens": null,
+                "output_tokens": null,
+                "reasoning_tokens": null
+              },
+              "mapping_version": "1.0",
+              "source": "reported",
+              "total_tokens": 250
+            },
+            "raw": {
+              "total_tokens": 250
+            },
+            "sequence": 3,
+            "sha256": "18e020cd0b8ca1c6a09d12e92c72982ee3b82357d44b56747950e8358eaa3df5",
+            "status": "completed"
+          }
+        ]
+      }
+    ]
+  },
+  "unknown": {
+    "total_tokens": null,
+    "known_lower_bound": 0,
+    "unknown_requests": 1,
+    "a_tokens": 0,
+    "qualified_deliveries": 0,
+    "tokens_per_delivery": null,
+    "requests": [
+      {
+        "attempt_id": "92a03c1a869f4c4f951f8227dfe294c0",
+        "cumulative_scope": null,
+        "domain": "code",
+        "external_request_id": "unknown:request",
+        "function": "execution",
+        "mode": "request_total",
+        "provider": "gpt",
+        "provider_profile_id": "fake-gpt",
+        "role": "A",
+        "task_id": "84dbf58f4e544af0966943d080e8c8ae",
+        "status": "completed",
+        "source": "unknown",
+        "total_tokens": null,
+        "events": [
+          {
+            "cumulative_scope": null,
+            "event_id": "event",
+            "mode": "request_total",
+            "normalized": {
+              "components": {},
+              "mapping_version": "1.0",
+              "source": "unknown",
+              "total_tokens": null
+            },
+            "raw": {},
+            "sequence": 1,
+            "sha256": "e935a79af630c01c3bac6855da43a17c247801004aa16bb84af6541176c45b62",
+            "status": "completed"
+          }
+        ]
+      }
+    ]
+  },
+  "estimated": {
+    "total_tokens": 120,
+    "known_lower_bound": 120,
+    "unknown_requests": 0,
+    "a_tokens": 120,
+    "qualified_deliveries": 0,
+    "tokens_per_delivery": null,
+    "requests": [
+      {
+        "attempt_id": "22660b6199a541969bd5df1b069d9159",
+        "cumulative_scope": null,
+        "domain": "code",
+        "external_request_id": "estimated:request",
+        "function": "execution",
+        "mode": "request_total",
+        "provider": "gpt",
+        "provider_profile_id": "fake-gpt",
+        "role": "A",
+        "task_id": "30c8cd65dabe4f50b779b0346891757a",
+        "status": "completed",
+        "source": "estimated",
+        "total_tokens": 120,
+        "events": [
+          {
+            "cumulative_scope": null,
+            "event_id": "event",
+            "mode": "request_total",
+            "normalized": {
+              "components": {
+                "cached_tokens": null,
+                "input_tokens": null,
+                "output_tokens": null,
+                "reasoning_tokens": null
+              },
+              "mapping_version": "1.0",
+              "source": "estimated",
+              "total_tokens": 120
+            },
+            "raw": {
+              "total_tokens": 120
+            },
+            "sequence": 1,
+            "sha256": "6ee3db5966f2f99baf374a4962f28e262f7a95cfc478583dad667448d4477786",
+            "status": "completed"
+          }
+        ]
+      }
+    ]
+  },
+  "all_costs": {
+    "total_tokens": 50,
+    "known_lower_bound": 50,
+    "unknown_requests": 0,
+    "a_tokens": 30,
+    "qualified_deliveries": 0,
+    "tokens_per_delivery": null,
+    "requests": [
+      {
+        "attempt_id": "d5bca18c7a134546877972c0a09193f5",
+        "cumulative_scope": null,
+        "domain": "code",
+        "external_request_id": "all_costs:cost0",
+        "function": "execution",
+        "mode": "request_total",
+        "provider": "gpt",
+        "provider_profile_id": "fake-gpt",
+        "role": "B",
+        "task_id": "5cb40680535347da8f83c5e720630ba1",
+        "status": "failed",
+        "source": "reported",
+        "total_tokens": 10,
+        "events": [
+          {
+            "cumulative_scope": null,
+            "event_id": "cost-event0",
+            "mode": "request_total",
+            "normalized": {
+              "components": {
+                "cached_tokens": null,
+                "input_tokens": null,
+                "output_tokens": null,
+                "reasoning_tokens": null
+              },
+              "mapping_version": "1.0",
+              "source": "reported",
+              "total_tokens": 10
+            },
+            "raw": {
+              "total_tokens": 10
+            },
+            "sequence": 1,
+            "sha256": "d40d2a895e157ca6fe66076f4adb90d9b25dc256be37f595fec47c671f608b97",
+            "status": "failed"
+          }
+        ]
+      },
+      {
+        "attempt_id": "d5bca18c7a134546877972c0a09193f5",
+        "cumulative_scope": null,
+        "domain": "code",
+        "external_request_id": "all_costs:cost1",
+        "function": "translation",
+        "mode": "request_total",
+        "provider": "gpt",
+        "provider_profile_id": "fake-gpt",
+        "role": "B",
+        "task_id": "5cb40680535347da8f83c5e720630ba1",
+        "status": "cancelled",
+        "source": "reported",
+        "total_tokens": 10,
+        "events": [
+          {
+            "cumulative_scope": null,
+            "event_id": "cost-event1",
+            "mode": "request_total",
+            "normalized": {
+              "components": {
+                "cached_tokens": null,
+                "input_tokens": null,
+                "output_tokens": null,
+                "reasoning_tokens": null
+              },
+              "mapping_version": "1.0",
+              "source": "reported",
+              "total_tokens": 10
+            },
+            "raw": {
+              "total_tokens": 10
+            },
+            "sequence": 1,
+            "sha256": "b421198d124ce04919ac4838d5332ddbb16a4cffbe301049085ae4cd85b3c513",
+            "status": "cancelled"
+          }
+        ]
+      },
+      {
+        "attempt_id": "d5bca18c7a134546877972c0a09193f5",
+        "cumulative_scope": null,
+        "domain": "code",
+        "external_request_id": "all_costs:cost2",
+        "function": "review",
+        "mode": "request_total",
+        "provider": "gpt",
+        "provider_profile_id": "fake-gpt",
+        "role": "A",
+        "task_id": "5cb40680535347da8f83c5e720630ba1",
+        "status": "completed",
+        "source": "reported",
+        "total_tokens": 10,
+        "events": [
+          {
+            "cumulative_scope": null,
+            "event_id": "cost-event2",
+            "mode": "request_total",
+            "normalized": {
+              "components": {
+                "cached_tokens": null,
+                "input_tokens": null,
+                "output_tokens": null,
+                "reasoning_tokens": null
+              },
+              "mapping_version": "1.0",
+              "source": "reported",
+              "total_tokens": 10
+            },
+            "raw": {
+              "total_tokens": 10
+            },
+            "sequence": 1,
+            "sha256": "366a7fd307070c9333213fe1a6442df7248e4b689d30625077d13523f101dc8f",
+            "status": "completed"
+          }
+        ]
+      },
+      {
+        "attempt_id": "d5bca18c7a134546877972c0a09193f5",
+        "cumulative_scope": null,
+        "domain": "code",
+        "external_request_id": "all_costs:cost3",
+        "function": "takeover",
+        "mode": "request_total",
+        "provider": "gpt",
+        "provider_profile_id": "fake-gpt",
+        "role": "A",
+        "task_id": "5cb40680535347da8f83c5e720630ba1",
+        "status": "completed",
+        "source": "reported",
+        "total_tokens": 10,
+        "events": [
+          {
+            "cumulative_scope": null,
+            "event_id": "cost-event3",
+            "mode": "request_total",
+            "normalized": {
+              "components": {
+                "cached_tokens": null,
+                "input_tokens": null,
+                "output_tokens": null,
+                "reasoning_tokens": null
+              },
+              "mapping_version": "1.0",
+              "source": "reported",
+              "total_tokens": 10
+            },
+            "raw": {
+              "total_tokens": 10
+            },
+            "sequence": 1,
+            "sha256": "662db693d200555f12c618ae7c11aa803823c21a5781d8acd7dbe9fcb81d0844",
+            "status": "completed"
+          }
+        ]
+      },
+      {
+        "attempt_id": "d5bca18c7a134546877972c0a09193f5",
+        "cumulative_scope": null,
+        "domain": "code",
+        "external_request_id": "all_costs:cost4",
+        "function": "execution",
+        "mode": "request_total",
+        "provider": "gpt",
+        "provider_profile_id": "fake-gpt",
+        "role": "A",
+        "task_id": "5cb40680535347da8f83c5e720630ba1",
+        "status": "completed",
+        "source": "reported",
+        "total_tokens": 10,
+        "events": [
+          {
+            "cumulative_scope": null,
+            "event_id": "cost-event4",
+            "mode": "request_total",
+            "normalized": {
+              "components": {
+                "cached_tokens": null,
+                "input_tokens": null,
+                "output_tokens": null,
+                "reasoning_tokens": null
+              },
+              "mapping_version": "1.0",
+              "source": "reported",
+              "total_tokens": 10
+            },
+            "raw": {
+              "total_tokens": 10
+            },
+            "sequence": 1,
+            "sha256": "f18f8a6fc2640919edbf831042ad2bffae014b7af737561ba08c60b23fba36f3",
+            "status": "completed"
+          }
+        ]
+      }
+    ]
+  }
+}

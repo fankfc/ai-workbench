@@ -1,0 +1,261 @@
+...................FFFFFFFFFFFFFF                                        [100%]
+================================== FAILURES ===================================
+_ test_artifact_transaction_records_provenance_dependencies_and_source_request _
+
+storage = (<sqlite3.Connection object at 0x000002CBB5EE9F30>, <app.storage.blobs.BlobStore object at 0x000002CBB606EE00>)
+
+    def test_artifact_transaction_records_provenance_dependencies_and_source_request(storage):
+        connection, store = storage
+        source = manually_register(connection, store, id="source0")
+        data = b"derived bytes"
+        artifact = artifact_for(store, data, source_version_id=source.id,
+                                dependencies=[{"artifact_version_id": source.id, "relationship": "derived-from"}])
+        provenance = {"source_role": "A", "origin": "provider", "version": "1"}
+        request = {"provider_id": "p1", "external_request_id": "external-1"}
+        ref = store_artifact(connection, store, data, artifact, attempt_id="a1", provenance=provenance, source_request=request)
+>       assert ref is not None
+E       assert None is not None
+
+tests\integration\test_storage.py:260: AssertionError
+_ test_artifact_rejects_hash_or_uri_not_matching_actual_bytes[byte_sha256-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa] _
+
+storage = (<sqlite3.Connection object at 0x000002CBB60C84F0>, <app.storage.blobs.BlobStore object at 0x000002CBB6029E50>)
+field = 'byte_sha256'
+value = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
+
+    @pytest.mark.parametrize("field,value", [("byte_sha256", "a" * 64), ("immutable_uri", "blob:sha256:" + "a" * 64)])
+    def test_artifact_rejects_hash_or_uri_not_matching_actual_bytes(storage, field, value):
+        connection, store = storage
+        artifact = artifact_for(store, **{field: value})
+>       with pytest.raises(BlobError, match="ARTIFACT_BLOB_REFERENCE_MISMATCH"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE BlobError
+
+tests\integration\test_storage.py:274: Failed
+_ test_artifact_rejects_hash_or_uri_not_matching_actual_bytes[immutable_uri-blob:sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa] _
+
+storage = (<sqlite3.Connection object at 0x000002CBB60C8A90>, <app.storage.blobs.BlobStore object at 0x000002CBB602A350>)
+field = 'immutable_uri'
+value = 'blob:sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
+
+    @pytest.mark.parametrize("field,value", [("byte_sha256", "a" * 64), ("immutable_uri", "blob:sha256:" + "a" * 64)])
+    def test_artifact_rejects_hash_or_uri_not_matching_actual_bytes(storage, field, value):
+        connection, store = storage
+        artifact = artifact_for(store, **{field: value})
+>       with pytest.raises(BlobError, match="ARTIFACT_BLOB_REFERENCE_MISMATCH"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE BlobError
+
+tests\integration\test_storage.py:274: Failed
+____________ test_artifact_rejects_dependency_that_does_not_exist _____________
+
+storage = (<sqlite3.Connection object at 0x000002CBB60C8E50>, <app.storage.blobs.BlobStore object at 0x000002CBB60C8F50>)
+
+    def test_artifact_rejects_dependency_that_does_not_exist(storage):
+        connection, store = storage
+        artifact = artifact_for(store, dependencies=[{"artifact_version_id": "missing", "relationship": "source"}])
+>       with pytest.raises(BlobError, match="ARTIFACT_DEPENDENCY_MISSING"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE BlobError
+
+tests\integration\test_storage.py:282: Failed
+__ test_artifact_fsync_failure_never_registers_a_visible_revision[disk-full] __
+
+storage = (<sqlite3.Connection object at 0x000002CBB60C93F0>, <app.storage.blobs.BlobStore object at 0x000002CBB60C94F0>)
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000002CBB60655B0>
+failure = OSError(28, 'disk full')
+
+    @pytest.mark.parametrize("failure", [OSError(errno.ENOSPC, "disk full"), KeyboardInterrupt("write interrupted")], ids=["disk-full", "interrupted"])
+    def test_artifact_fsync_failure_never_registers_a_visible_revision(storage, monkeypatch, failure):
+        connection, store = storage
+        artifact = artifact_for(store)
+        def fail(_descriptor):
+            raise failure
+        monkeypatch.setattr(blobs_module.os, "fsync", fail)
+>       with pytest.raises(type(failure)):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE OSError
+
+tests\integration\test_storage.py:294: Failed
+_ test_artifact_fsync_failure_never_registers_a_visible_revision[interrupted] _
+
+storage = (<sqlite3.Connection object at 0x000002CBB60C9990>, <app.storage.blobs.BlobStore object at 0x000002CBB60DD550>)
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000002CBB6065CD0>
+failure = KeyboardInterrupt('write interrupted')
+
+    @pytest.mark.parametrize("failure", [OSError(errno.ENOSPC, "disk full"), KeyboardInterrupt("write interrupted")], ids=["disk-full", "interrupted"])
+    def test_artifact_fsync_failure_never_registers_a_visible_revision(storage, monkeypatch, failure):
+        connection, store = storage
+        artifact = artifact_for(store)
+        def fail(_descriptor):
+            raise failure
+        monkeypatch.setattr(blobs_module.os, "fsync", fail)
+>       with pytest.raises(type(failure)):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE KeyboardInterrupt
+
+tests\integration\test_storage.py:294: Failed
+__ test_artifact_partial_write_failure_leaves_no_reference_or_temporary_file __
+
+storage = (<sqlite3.Connection object at 0x000002CBB60CA020>, <app.storage.blobs.BlobStore object at 0x000002CBB60DE270>)
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000002CBB60743B0>
+
+    def test_artifact_partial_write_failure_leaves_no_reference_or_temporary_file(storage, monkeypatch):
+        connection, store = storage
+        factory = blobs_module.tempfile.NamedTemporaryFile
+        class InterruptedFile:
+            def __init__(self, handle):
+                self.handle = handle
+                self.name = handle.name
+            def __enter__(self):
+                self.handle.__enter__()
+                return self
+            def __exit__(self, *args):
+                return self.handle.__exit__(*args)
+            def write(self, data):
+                self.handle.write(data[:3])
+                self.handle.flush()
+                raise OSError(errno.ENOSPC, "partial write")
+        def interrupted(*args, **kwargs):
+            return InterruptedFile(factory(*args, **kwargs))
+        monkeypatch.setattr(blobs_module.tempfile, "NamedTemporaryFile", interrupted)
+        artifact = artifact_for(store)
+>       with pytest.raises(OSError, match="partial write"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE OSError
+
+tests\integration\test_storage.py:322: Failed
+_____ test_artifact_link_failure_never_registers_or_leaks_temporary_files _____
+
+storage = (<sqlite3.Connection object at 0x000002CBB60CA4D0>, <app.storage.blobs.BlobStore object at 0x000002CBB60F4120>)
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000002CBB606FF00>
+
+    def test_artifact_link_failure_never_registers_or_leaks_temporary_files(storage, monkeypatch):
+        connection, store = storage
+        def fail(_source, _destination):
+            raise OSError(errno.EIO, "link failure")
+        monkeypatch.setattr(blobs_module.os, "link", fail)
+>       with pytest.raises(OSError, match="link failure"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE OSError
+
+tests\integration\test_storage.py:334: Failed
+_ test_artifact_duplicate_id_rolls_back_registration_without_changing_original _
+
+storage = (<sqlite3.Connection object at 0x000002CBB60CA980>, <app.storage.blobs.BlobStore object at 0x000002CBB602E2D0>)
+
+    def test_artifact_duplicate_id_rolls_back_registration_without_changing_original(storage):
+        connection, store = storage
+        original = manually_register(connection, store)
+        data = b"new bytes"
+>       with pytest.raises(sqlite3.IntegrityError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE IntegrityError
+
+tests\integration\test_storage.py:344: Failed
+___ test_artifact_write_under_database_lock_times_out_without_starting_blob ___
+
+storage = (<sqlite3.Connection object at 0x000002CBB60CA890>, <app.storage.blobs.BlobStore object at 0x000002CBB602E5D0>)
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-28/test_artifact_write_under_data0')
+
+    def test_artifact_write_under_database_lock_times_out_without_starting_blob(storage, tmp_path):
+        connection, store = storage
+        second = Database(tmp_path / "metadata.sqlite3", busy_timeout_ms=30).connect()
+        try:
+            with transaction(connection):
+                started = time.monotonic()
+>               with pytest.raises(sqlite3.OperationalError, match="locked"):
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E               Failed: DID NOT RAISE OperationalError
+
+tests\integration\test_storage.py:359: Failed
+_ test_artifact_read_rejects_missing_or_corrupted_registered_content[missing] _
+
+storage = (<sqlite3.Connection object at 0x000002CBB60CA110>, <app.storage.blobs.BlobStore object at 0x000002CBB60B5440>)
+damage = 'missing'
+
+    @pytest.mark.parametrize("damage", ["missing", "corrupt"])
+    def test_artifact_read_rejects_missing_or_corrupted_registered_content(storage, damage):
+        connection, store = storage
+        artifact = manually_register(connection, store)
+        path = store.path_for(artifact.byte_sha256)
+        if damage == "missing":
+            path.unlink()
+        else:
+            path.write_bytes(b"corruption")
+>       with pytest.raises(BlobError, match="BLOB_MISSING" if damage == "missing" else "BLOB_HASH_MISMATCH"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE BlobError
+
+tests\integration\test_storage.py:377: Failed
+_ test_artifact_read_rejects_missing_or_corrupted_registered_content[corrupt] _
+
+storage = (<sqlite3.Connection object at 0x000002CBB60C9990>, <app.storage.blobs.BlobStore object at 0x000002CBB60B64C0>)
+damage = 'corrupt'
+
+    @pytest.mark.parametrize("damage", ["missing", "corrupt"])
+    def test_artifact_read_rejects_missing_or_corrupted_registered_content(storage, damage):
+        connection, store = storage
+        artifact = manually_register(connection, store)
+        path = store.path_for(artifact.byte_sha256)
+        if damage == "missing":
+            path.unlink()
+        else:
+            path.write_bytes(b"corruption")
+>       with pytest.raises(BlobError, match="BLOB_MISSING" if damage == "missing" else "BLOB_HASH_MISMATCH"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE BlobError
+
+tests\integration\test_storage.py:377: Failed
+____________ test_artifact_read_refuses_unknown_database_reference ____________
+
+storage = (<sqlite3.Connection object at 0x000002CBB60C8C70>, <app.storage.blobs.BlobStore object at 0x000002CBB60E0410>)
+
+    def test_artifact_read_refuses_unknown_database_reference(storage):
+        connection, store = storage
+>       with pytest.raises(BlobError, match="ARTIFACT_NOT_FOUND"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE BlobError
+
+tests\integration\test_storage.py:383: Failed
+___ test_artifact_external_connection_cannot_see_registration_before_fsync ____
+
+storage = (<sqlite3.Connection object at 0x000002CBB60C8B80>, <app.storage.blobs.BlobStore object at 0x000002CBB60E1DB0>)
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000002CBB606F240>
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-28/test_artifact_external_connect0')
+
+    def test_artifact_external_connection_cannot_see_registration_before_fsync(storage, monkeypatch, tmp_path):
+        connection, store = storage
+        observer = Database(tmp_path / "metadata.sqlite3").connect()
+        original_fsync = blobs_module.os.fsync
+        observations = []
+        def observed(descriptor):
+            observations.append(observer.execute("SELECT count(*) FROM artifact_revisions").fetchone()[0])
+            return original_fsync(descriptor)
+        monkeypatch.setattr(blobs_module.os, "fsync", observed)
+        try:
+            store_artifact(connection, store, b"source bytes", artifact_for(store), attempt_id="a1", provenance={})
+>           assert observations == [0]
+E           assert [] == [0]
+E             
+E             Right contains one more item: 0
+E             Use -v to get more diff
+
+tests\integration\test_storage.py:398: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/integration/test_storage.py::test_artifact_transaction_records_provenance_dependencies_and_source_request
+FAILED tests/integration/test_storage.py::test_artifact_rejects_hash_or_uri_not_matching_actual_bytes[byte_sha256-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa]
+FAILED tests/integration/test_storage.py::test_artifact_rejects_hash_or_uri_not_matching_actual_bytes[immutable_uri-blob:sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa]
+FAILED tests/integration/test_storage.py::test_artifact_rejects_dependency_that_does_not_exist
+FAILED tests/integration/test_storage.py::test_artifact_fsync_failure_never_registers_a_visible_revision[disk-full]
+FAILED tests/integration/test_storage.py::test_artifact_fsync_failure_never_registers_a_visible_revision[interrupted]
+FAILED tests/integration/test_storage.py::test_artifact_partial_write_failure_leaves_no_reference_or_temporary_file
+FAILED tests/integration/test_storage.py::test_artifact_link_failure_never_registers_or_leaks_temporary_files
+FAILED tests/integration/test_storage.py::test_artifact_duplicate_id_rolls_back_registration_without_changing_original
+FAILED tests/integration/test_storage.py::test_artifact_write_under_database_lock_times_out_without_starting_blob
+FAILED tests/integration/test_storage.py::test_artifact_read_rejects_missing_or_corrupted_registered_content[missing]
+FAILED tests/integration/test_storage.py::test_artifact_read_rejects_missing_or_corrupted_registered_content[corrupt]
+FAILED tests/integration/test_storage.py::test_artifact_read_refuses_unknown_database_reference
+FAILED tests/integration/test_storage.py::test_artifact_external_connection_cannot_see_registration_before_fsync
+14 failed, 19 passed in 0.86s
+EXIT_CODE=1

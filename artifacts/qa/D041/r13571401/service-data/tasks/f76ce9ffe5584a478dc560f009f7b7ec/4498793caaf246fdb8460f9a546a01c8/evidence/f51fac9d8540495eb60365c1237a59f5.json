@@ -1,0 +1,1 @@
+{"criterion_id": "demo-review", "revision_id": "candidate-80cf20b6e86041d48ef1e05a570f476c", "byte_sha256": "d21589c953bddb2c22757da2f933307d43a5418c9a05c98b4e3dc435a4a99d9b", "passed": true, "verifier": "A", "details": {"a_step_id": "10db8482d2184876a4db3aa2593e5a32", "test_only": true}}

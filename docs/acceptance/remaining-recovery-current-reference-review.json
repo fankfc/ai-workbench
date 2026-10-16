@@ -1,0 +1,645 @@
+{
+  "at_utc": "2026-10-13T13:42:48.749945+00:00",
+  "reviewer": "provider_d004_d006 independent of D012 author",
+  "scope": "current-step map, remote callback identity, accepted missing references, step-switch fences; actual D014 row replay",
+  "mode": "real temporary SQLite/recovery code; simulated remote callback; no provider launch",
+  "real_model_starts": 0,
+  "source_sha256_before": {
+    "services/orchestrator/app/runtime/recovery.py": "29b46c155ce629c71bc82a58867152af59afde14018ca2bf8284818733275bdd",
+    "tests/integration/test_recovery.py": "10fc3071099895cae735984a2cfa927b9e8cea84960c8bf77d1d763c369b047f",
+    "services/orchestrator/app/runtime/workflow.py": "fd0d743d2de7a0a8cca56b6c14ba77e8fbe64036c52cc6e913ee1061f90aa5ce",
+    "docs/acceptance/D014/stream-evidence.json": "6df727f37f58a2d2c784e8281ce3d6595148aee457a729ad32641516217c6c59"
+  },
+  "source_sha256_after": {
+    "services/orchestrator/app/runtime/recovery.py": "29b46c155ce629c71bc82a58867152af59afde14018ca2bf8284818733275bdd",
+    "tests/integration/test_recovery.py": "10fc3071099895cae735984a2cfa927b9e8cea84960c8bf77d1d763c369b047f",
+    "services/orchestrator/app/runtime/workflow.py": "fd0d743d2de7a0a8cca56b6c14ba77e8fbe64036c52cc6e913ee1061f90aa5ce",
+    "docs/acceptance/D014/stream-evidence.json": "6df727f37f58a2d2c784e8281ce3d6595148aee457a729ad32641516217c6c59"
+  },
+  "source_unchanged": true,
+  "frozen_source_count": 101,
+  "frozen_source_mismatches": {},
+  "checks": [
+    {
+      "name": "current-both",
+      "passed": true,
+      "result": [
+        {
+          "task_id": "task1",
+          "attempt_id": "a1",
+          "remote_status": "running",
+          "decision": "observe_running",
+          "state": "EXECUTING",
+          "query_error": null,
+          "verification_error": null
+        }
+      ],
+      "calls": [
+        {
+          "callback": "query",
+          "task_id": "task1",
+          "attempt_id": "a1",
+          "provider_profile_id": "p2",
+          "task_provider_profile_id": "p1",
+          "external_request_id": "current-request",
+          "external_execution_id": "current-execution",
+          "has_active_external_request": true
+        },
+        {
+          "callback": "observe",
+          "task_id": "task1",
+          "attempt_id": "a1",
+          "provider_profile_id": "p2",
+          "task_provider_profile_id": "p1",
+          "external_request_id": "current-request",
+          "external_execution_id": "current-execution",
+          "has_active_external_request": true
+        }
+      ],
+      "state": "EXECUTING",
+      "frozen_profile": "p1",
+      "frozen_first_request": "request-existing",
+      "active": {
+        "accepted": true,
+        "external_execution_id": "current-execution",
+        "external_request_id": "current-request",
+        "provider_profile_id": "p2",
+        "role": "B",
+        "status": "running",
+        "step_id": "remote-step"
+      },
+      "step_count": 1,
+      "public_outbox_count": 0
+    },
+    {
+      "name": "current-request-only",
+      "passed": true,
+      "result": [
+        {
+          "task_id": "task1",
+          "attempt_id": "a1",
+          "remote_status": "running",
+          "decision": "observe_running",
+          "state": "EXECUTING",
+          "query_error": null,
+          "verification_error": null
+        }
+      ],
+      "calls": [
+        {
+          "callback": "query",
+          "task_id": "task1",
+          "attempt_id": "a1",
+          "provider_profile_id": "p2",
+          "task_provider_profile_id": "p1",
+          "external_request_id": "current-request",
+          "external_execution_id": null,
+          "has_active_external_request": true
+        },
+        {
+          "callback": "observe",
+          "task_id": "task1",
+          "attempt_id": "a1",
+          "provider_profile_id": "p2",
+          "task_provider_profile_id": "p1",
+          "external_request_id": "current-request",
+          "external_execution_id": null,
+          "has_active_external_request": true
+        }
+      ],
+      "state": "EXECUTING",
+      "frozen_profile": "p1",
+      "frozen_first_request": "request-existing",
+      "active": {
+        "accepted": true,
+        "external_execution_id": null,
+        "external_request_id": "current-request",
+        "provider_profile_id": "p2",
+        "role": "B",
+        "status": "running",
+        "step_id": "remote-step"
+      },
+      "step_count": 1,
+      "public_outbox_count": 0
+    },
+    {
+      "name": "current-execution-only",
+      "passed": true,
+      "result": [
+        {
+          "task_id": "task1",
+          "attempt_id": "a1",
+          "remote_status": "running",
+          "decision": "observe_running",
+          "state": "EXECUTING",
+          "query_error": null,
+          "verification_error": null
+        }
+      ],
+      "calls": [
+        {
+          "callback": "query",
+          "task_id": "task1",
+          "attempt_id": "a1",
+          "provider_profile_id": "p2",
+          "task_provider_profile_id": "p1",
+          "external_request_id": null,
+          "external_execution_id": "current-execution",
+          "has_active_external_request": true
+        },
+        {
+          "callback": "observe",
+          "task_id": "task1",
+          "attempt_id": "a1",
+          "provider_profile_id": "p2",
+          "task_provider_profile_id": "p1",
+          "external_request_id": null,
+          "external_execution_id": "current-execution",
+          "has_active_external_request": true
+        }
+      ],
+      "state": "EXECUTING",
+      "frozen_profile": "p1",
+      "frozen_first_request": "request-existing",
+      "active": {
+        "accepted": true,
+        "external_execution_id": "current-execution",
+        "external_request_id": null,
+        "provider_profile_id": "p2",
+        "role": "B",
+        "status": "running",
+        "step_id": "remote-step"
+      },
+      "step_count": 1,
+      "public_outbox_count": 0
+    },
+    {
+      "name": "accepted-missing-refs-stale-True",
+      "passed": true,
+      "result": [
+        {
+          "task_id": "task1",
+          "attempt_id": "a1",
+          "remote_status": "unknown",
+          "decision": "blocked_unknown",
+          "state": "BLOCKED",
+          "query_error": "REMOTE_EXECUTION_REFERENCE_MISSING",
+          "verification_error": null
+        }
+      ],
+      "calls": [],
+      "state": "BLOCKED",
+      "frozen_profile": "p1",
+      "frozen_first_request": "request-existing",
+      "active": {
+        "accepted": true,
+        "external_execution_id": null,
+        "external_request_id": null,
+        "provider_profile_id": "p2",
+        "role": "B",
+        "status": "unknown",
+        "step_id": "remote-step"
+      },
+      "step_count": 1,
+      "public_outbox_count": 0
+    },
+    {
+      "name": "accepted-missing-refs-stale-False",
+      "passed": true,
+      "result": [
+        {
+          "task_id": "task1",
+          "attempt_id": "a1",
+          "remote_status": "unknown",
+          "decision": "blocked_unknown",
+          "state": "BLOCKED",
+          "query_error": "REMOTE_EXECUTION_REFERENCE_MISSING",
+          "verification_error": null
+        }
+      ],
+      "calls": [],
+      "state": "BLOCKED",
+      "frozen_profile": "p1",
+      "frozen_first_request": null,
+      "active": {
+        "accepted": true,
+        "external_execution_id": null,
+        "external_request_id": null,
+        "provider_profile_id": "p2",
+        "role": "B",
+        "status": "unknown",
+        "step_id": "remote-step"
+      },
+      "step_count": 1,
+      "public_outbox_count": 0
+    },
+    {
+      "name": "invalid-role",
+      "passed": true,
+      "result": [
+        {
+          "task_id": "task1",
+          "attempt_id": "a1",
+          "remote_status": "unknown",
+          "decision": "blocked_unknown",
+          "state": "BLOCKED",
+          "query_error": "REMOTE_EXECUTION_BINDING_INVALID",
+          "verification_error": null
+        }
+      ],
+      "calls": [],
+      "state": "BLOCKED",
+      "frozen_profile": "p1",
+      "frozen_first_request": "request-existing",
+      "active": {
+        "accepted": true,
+        "external_execution_id": "real-current-execution",
+        "external_request_id": "real-current-request",
+        "provider_profile_id": "p2",
+        "role": "A",
+        "status": "running",
+        "step_id": "remote-step"
+      },
+      "step_count": 1,
+      "public_outbox_count": 0
+    },
+    {
+      "name": "invalid-contract",
+      "passed": true,
+      "result": [
+        {
+          "task_id": "task1",
+          "attempt_id": "a1",
+          "remote_status": "unknown",
+          "decision": "blocked_unknown",
+          "state": "BLOCKED",
+          "query_error": "REMOTE_EXECUTION_BINDING_INVALID",
+          "verification_error": null
+        }
+      ],
+      "calls": [],
+      "state": "BLOCKED",
+      "frozen_profile": "p1",
+      "frozen_first_request": "request-existing",
+      "active": {
+        "accepted": true,
+        "external_execution_id": "real-current-execution",
+        "external_request_id": "real-current-request",
+        "provider_profile_id": "p2",
+        "role": "B",
+        "status": "running",
+        "step_id": "wrong-contract-step"
+      },
+      "step_count": 2,
+      "public_outbox_count": 0
+    },
+    {
+      "name": "invalid-execution-column",
+      "passed": true,
+      "result": [
+        {
+          "task_id": "task1",
+          "attempt_id": "a1",
+          "remote_status": "unknown",
+          "decision": "blocked_unknown",
+          "state": "BLOCKED",
+          "query_error": "REMOTE_EXECUTION_BINDING_INVALID",
+          "verification_error": null
+        }
+      ],
+      "calls": [],
+      "state": "BLOCKED",
+      "frozen_profile": "p1",
+      "frozen_first_request": "request-existing",
+      "active": {
+        "accepted": true,
+        "external_execution_id": "real-current-execution",
+        "external_request_id": "real-current-request",
+        "provider_profile_id": "p2",
+        "role": "B",
+        "status": "running",
+        "step_id": "remote-step"
+      },
+      "step_count": 1,
+      "public_outbox_count": 0
+    },
+    {
+      "name": "invalid-step-mirror",
+      "passed": true,
+      "result": [
+        {
+          "task_id": "task1",
+          "attempt_id": "a1",
+          "remote_status": "unknown",
+          "decision": "blocked_unknown",
+          "state": "BLOCKED",
+          "query_error": "REMOTE_EXECUTION_BINDING_INVALID",
+          "verification_error": null
+        }
+      ],
+      "calls": [],
+      "state": "BLOCKED",
+      "frozen_profile": "p1",
+      "frozen_first_request": "request-existing",
+      "active": {
+        "accepted": true,
+        "external_execution_id": "real-current-execution",
+        "external_request_id": "real-current-request",
+        "provider_profile_id": "p2",
+        "role": "B",
+        "status": "running",
+        "step_id": "remote-step"
+      },
+      "step_count": 1,
+      "public_outbox_count": 0
+    },
+    {
+      "name": "invalid-missing-step",
+      "passed": true,
+      "result": [
+        {
+          "task_id": "task1",
+          "attempt_id": "a1",
+          "remote_status": "unknown",
+          "decision": "blocked_unknown",
+          "state": "BLOCKED",
+          "query_error": "REMOTE_EXECUTION_BINDING_INVALID",
+          "verification_error": null
+        }
+      ],
+      "calls": [],
+      "state": "BLOCKED",
+      "frozen_profile": "p1",
+      "frozen_first_request": "request-existing",
+      "active": {
+        "accepted": true,
+        "external_execution_id": "real-current-execution",
+        "external_request_id": "real-current-request",
+        "provider_profile_id": "p2",
+        "role": "B",
+        "status": "running",
+        "step_id": "absent"
+      },
+      "step_count": 1,
+      "public_outbox_count": 0
+    },
+    {
+      "name": "invalid-accepted-false",
+      "passed": true,
+      "result": [
+        {
+          "task_id": "task1",
+          "attempt_id": "a1",
+          "remote_status": "unknown",
+          "decision": "blocked_unknown",
+          "state": "BLOCKED",
+          "query_error": "REMOTE_EXECUTION_BINDING_INVALID",
+          "verification_error": null
+        }
+      ],
+      "calls": [],
+      "state": "BLOCKED",
+      "frozen_profile": "p1",
+      "frozen_first_request": "request-existing",
+      "active": {
+        "accepted": false,
+        "external_execution_id": "real-current-execution",
+        "external_request_id": "real-current-request",
+        "provider_profile_id": "p2",
+        "role": "B",
+        "status": "running",
+        "step_id": "remote-step"
+      },
+      "step_count": 1,
+      "public_outbox_count": 0
+    },
+    {
+      "name": "step-switch-during-query",
+      "passed": true,
+      "result": [
+        {
+          "task_id": "task1",
+          "attempt_id": "a1",
+          "remote_status": "unknown",
+          "decision": "external_reference_changed",
+          "state": "EXECUTING"
+        }
+      ],
+      "calls": [
+        {
+          "callback": "query",
+          "task_id": "task1",
+          "attempt_id": "a1",
+          "provider_profile_id": "p2",
+          "task_provider_profile_id": "p1",
+          "external_request_id": "real-current-request",
+          "external_execution_id": "real-current-execution",
+          "has_active_external_request": true
+        }
+      ],
+      "state": "EXECUTING",
+      "frozen_profile": "p1",
+      "frozen_first_request": "request-existing",
+      "active": {
+        "step_id": "step-new",
+        "provider_profile_id": "p2",
+        "role": "B",
+        "external_request_id": "new-request",
+        "external_execution_id": "new-execution",
+        "accepted": true,
+        "status": "running"
+      },
+      "step_count": 2,
+      "public_outbox_count": 0
+    },
+    {
+      "name": "step-switch-during-verify",
+      "passed": true,
+      "result": [
+        {
+          "task_id": "task1",
+          "attempt_id": "a1",
+          "remote_status": "unknown",
+          "decision": "external_reference_changed",
+          "state": "EXECUTING"
+        }
+      ],
+      "calls": [
+        {
+          "callback": "query",
+          "task_id": "task1",
+          "attempt_id": "a1",
+          "provider_profile_id": "p2",
+          "task_provider_profile_id": "p1",
+          "external_request_id": "real-current-request",
+          "external_execution_id": "real-current-execution",
+          "has_active_external_request": true
+        },
+        {
+          "callback": "verify",
+          "task_id": "task1",
+          "attempt_id": "a1",
+          "provider_profile_id": "p2",
+          "task_provider_profile_id": "p1",
+          "external_request_id": "real-current-request",
+          "external_execution_id": "real-current-execution",
+          "has_active_external_request": true
+        }
+      ],
+      "state": "EXECUTING",
+      "frozen_profile": "p1",
+      "frozen_first_request": "request-existing",
+      "active": {
+        "step_id": "step-new",
+        "provider_profile_id": "p2",
+        "role": "B",
+        "external_request_id": "new-request",
+        "external_execution_id": "new-execution",
+        "accepted": true,
+        "status": "running"
+      },
+      "step_count": 2,
+      "public_outbox_count": 0
+    },
+    {
+      "name": "D014-record-replay-accepted_disconnect",
+      "passed": true,
+      "result": [
+        {
+          "task_id": "7d5b206ea91a430fa59544664f589729",
+          "attempt_id": "4ba80870088846b8ad9ff800436a4624",
+          "remote_status": "running",
+          "decision": "observe_running",
+          "state": "EXECUTING",
+          "query_error": null,
+          "verification_error": null
+        }
+      ],
+      "calls": [
+        {
+          "callback": "query",
+          "task_id": "7d5b206ea91a430fa59544664f589729",
+          "attempt_id": "4ba80870088846b8ad9ff800436a4624",
+          "provider_profile_id": "fake-glm",
+          "task_provider_profile_id": "fake-gpt",
+          "external_request_id": "ongoing-request",
+          "external_execution_id": "ongoing-execution",
+          "has_active_external_request": true
+        },
+        {
+          "callback": "observe",
+          "task_id": "7d5b206ea91a430fa59544664f589729",
+          "attempt_id": "4ba80870088846b8ad9ff800436a4624",
+          "provider_profile_id": "fake-glm",
+          "task_provider_profile_id": "fake-gpt",
+          "external_request_id": "ongoing-request",
+          "external_execution_id": "ongoing-execution",
+          "has_active_external_request": true
+        }
+      ],
+      "state": "EXECUTING",
+      "frozen_profile": "fake-gpt",
+      "frozen_first_request": "ongoing-request",
+      "active": {
+        "accepted": true,
+        "external_execution_id": "ongoing-execution",
+        "external_request_id": "ongoing-request",
+        "provider_profile_id": "fake-glm",
+        "role": "B",
+        "status": "unknown",
+        "step_id": "bc989596e717481a9f9d4b0d8dcbf5ae"
+      },
+      "step_count": 1,
+      "public_outbox_count": 0
+    },
+    {
+      "name": "D014-record-replay-missing_ids_cancel",
+      "passed": true,
+      "result": [
+        {
+          "task_id": "6d3e6299fdc043c5944502f97c7a3607",
+          "attempt_id": "99996d55c57f4d628b43b3bda7b52f5a",
+          "remote_status": "unknown",
+          "decision": "cancelled_remote_pending",
+          "state": "CANCELLED",
+          "query_error": "REMOTE_EXECUTION_REFERENCE_MISSING",
+          "verification_error": null
+        }
+      ],
+      "calls": [],
+      "state": "CANCELLED",
+      "frozen_profile": "fake-gpt",
+      "frozen_first_request": null,
+      "active": {
+        "accepted": true,
+        "external_execution_id": null,
+        "external_request_id": null,
+        "provider_profile_id": "fake-glm",
+        "role": "B",
+        "status": "unknown",
+        "step_id": "9501582c924a4798872fc1514bf54a86"
+      },
+      "step_count": 1,
+      "public_outbox_count": 0
+    },
+    {
+      "name": "D014-record-replay-provider_completed_success",
+      "passed": true,
+      "result": [
+        {
+          "task_id": "a6c35043827f4c2a95bfe538b96150d9",
+          "attempt_id": "f3d2dad87c994c2c816eb096ef82f5ed",
+          "remote_status": "completed",
+          "decision": "verification_ready",
+          "state": "OUTPUT_PREPARING",
+          "query_error": null,
+          "verification_error": null
+        }
+      ],
+      "calls": [
+        {
+          "callback": "query",
+          "task_id": "a6c35043827f4c2a95bfe538b96150d9",
+          "attempt_id": "f3d2dad87c994c2c816eb096ef82f5ed",
+          "provider_profile_id": "fake-gpt",
+          "task_provider_profile_id": "fake-gpt",
+          "external_request_id": "remote-request-7a51969ad43c42f9a0ba5556873a79df",
+          "external_execution_id": "remote-execution-7a51969ad43c42f9a0ba5556873a79df",
+          "has_active_external_request": true
+        },
+        {
+          "callback": "verify",
+          "task_id": "a6c35043827f4c2a95bfe538b96150d9",
+          "attempt_id": "f3d2dad87c994c2c816eb096ef82f5ed",
+          "provider_profile_id": "fake-gpt",
+          "task_provider_profile_id": "fake-gpt",
+          "external_request_id": "remote-request-7a51969ad43c42f9a0ba5556873a79df",
+          "external_execution_id": "remote-execution-7a51969ad43c42f9a0ba5556873a79df",
+          "has_active_external_request": true
+        }
+      ],
+      "state": "OUTPUT_PREPARING",
+      "frozen_profile": "fake-gpt",
+      "frozen_first_request": "remote-request-424d5f935a194626bea562246f6b1598",
+      "active": {
+        "accepted": true,
+        "external_execution_id": "remote-execution-7a51969ad43c42f9a0ba5556873a79df",
+        "external_request_id": "remote-request-7a51969ad43c42f9a0ba5556873a79df",
+        "provider_profile_id": "fake-gpt",
+        "role": "A",
+        "status": "completed",
+        "step_id": "7a51969ad43c42f9a0ba5556873a79df"
+      },
+      "step_count": 2,
+      "public_outbox_count": 0
+    }
+  ],
+  "check_count": 16,
+  "passed_count": 16,
+  "publications_created": 0,
+  "formal_merge_approval": false,
+  "limitations": [
+    "D014 serialized row replay uses synthesized prerequisite conversation/profile rows, not a new workflow invocation",
+    "No real remote query or provider cancellation/resume capability is established"
+  ]
+}

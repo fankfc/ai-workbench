@@ -1,0 +1,51 @@
+...F........                                                             [100%]
+================================== FAILURES ===================================
+_ test_claude_review_receives_verified_english_observations_with_original_proof_binding _
+
+client = <starlette.testclient.TestClient object at 0x000002B0CE4FBBB0>
+
+    def test_claude_review_receives_verified_english_observations_with_original_proof_binding(client):
+        from test_claude_native_pipeline import assembly, mechanical
+        from translation.fakes import claude_turn
+    
+        _, task, attempt = claude_turn(client)
+        service, manager, _, a, workflow = assembly(client, task, attempt)
+        workspace = manager.create(task, attempt)
+        raw = '保留原文件。'.encode()
+        workspace.ingest_source('request.md', raw)
+        with closing(service.database.connect()) as connection:
+            route = json.loads(connection.execute('SELECT route_snapshot_json FROM task_runs WHERE task_id=?', (task,)).fetchone()[0])
+        contract = make_contract(task, attempt, route['id'], 'mixed', 'claude')
+        contract['inputs'] = [dict(id='USER-1', ref='input/request.md', sha256=hashlib.sha256(raw).hexdigest())]
+        contract['source_unit_ids'] = ['USER-1']
+        contract['full_read_required'] = True
+    
+        def observations(candidate):
+            result = mechanical(candidate)
+            for item in result:
+                item['evidence'].update(note='禁止删除原始文件。', code='`print("中文界面")`', measured_value=-0.03)
+            return result
+    
+        workflow.validator = observations
+        result = asyncio.run(workflow.run(contract))
+        assert result.state == 'OUTPUT_PREPARING', result.reason_codes
+        review = next(json.loads(Path(request.prompt_path).read_text(encoding='utf-8')) for request in a.starts
+            if json.loads(Path(request.prompt_path).read_text(encoding='utf-8'))['phase'] == 'review')
+        observation = review['evidence_package']['mechanical_observations'][0]
+        source = (workspace.area('evidence') / observation['ref']).read_bytes()
+        assert '禁止删除原始文件。' in source.decode()
+        assert 'Do not delete original files.' in observation['content']
+        assert '禁止删除原始文件。' not in observation['content']
+>       assert '`print("中文界面")`' in observation['content'] and '-0.03' in observation['content']
+E       assert ('`print("中文界面")`' in '{"criterion_id": "AC1", "revision_id": "candidate-d01a090c2dab4f5c9659d4116938b5ea", "byte_sha256": "018762cb1aa8c408...rse_complete": true, "note": "Do not delete original files.", "code": "`print(\\"中文界面\\")`", "measured_value": -0.03}}')
+
+tests\integration\test_agent_workflow.py:156: AssertionError
+============================== warnings summary ===============================
+tests/integration/test_agent_workflow.py::test_a_review_receives_actual_hash_bound_mechanical_observations
+  C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/integration/test_agent_workflow.py::test_claude_review_receives_verified_english_observations_with_original_proof_binding
+1 failed, 11 passed, 1 warning in 6.54s

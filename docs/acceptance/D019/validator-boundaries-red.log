@@ -1,0 +1,97 @@
+..................FFFFFF                                                 [100%]
+================================== FAILURES ===================================
+____________ test_artifact_changed_during_command_cannot_keep_pass ____________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-87/test_artifact_changed_during_c0')
+
+    def test_artifact_changed_during_command_cannot_keep_pass(tmp_path):
+        ctx=context(tmp_path,evidence_type="execution",commands={"ac1":[sys.executable,"candidate.py"]},execution_authorized=True)
+        def runner(*args):
+            ctx.artifact.path.write_bytes(b"changed during validation")
+            return CommandResult(0,b"ok",b"")
+        ctx.runner=runner
+        value=result("code",ctx)
+>       assert value.status=="fail" and value.reason_code=="REVISION_CHANGED_DURING_VALIDATION"
+E       AssertionError: assert ('pass' == 'fail'
+E         
+E         - fail
+E         + pass)
+
+tests\integration\test_validation_registry.py:151: AssertionError
+_______________ test_boolean_exit_code_is_not_an_execution_pass _______________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-87/test_boolean_exit_code_is_not_0')
+
+    def test_boolean_exit_code_is_not_an_execution_pass(tmp_path):
+        value=result("code",context(tmp_path,evidence_type="execution",commands={"ac1":[sys.executable,"candidate.py"]},runner=lambda *args:CommandResult(False,b"ok",b""),execution_authorized=True))
+>       assert value.status=="not_verified" and value.reason_code=="COMMAND_EXIT_STATUS_UNKNOWN"
+E       AssertionError: assert ('pass' == 'not_verified'
+E         
+E         - not_verified
+E         + pass)
+
+tests\integration\test_validation_registry.py:156: AssertionError
+______________ test_empty_code_artifact_is_not_valid_deliverable ______________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-87/test_empty_code_artifact_is_no0')
+
+    def test_empty_code_artifact_is_not_valid_deliverable(tmp_path):
+        value=result("code",context(tmp_path,b""))
+>       assert value.status=="fail" and value.reason_code=="ARTIFACT_EMPTY"
+E       AssertionError: assert ('pass' == 'fail'
+E         
+E         - fail
+E         + pass)
+
+tests\integration\test_validation_registry.py:161: AssertionError
+____________________ test_nonfinite_paper_data_is_corrupt _____________________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-87/test_nonfinite_paper_data_is_c0')
+
+    def test_nonfinite_paper_data_is_corrupt(tmp_path):
+        data=snapshot(tmp_path,"data.csv",b"value\nInfinity\n","data-v1")
+        value=result("paper",context(tmp_path,b'{"sum":"Infinity"}',name="analysis.json",evidence_type="execution",data_inputs={"data":data}))
+>       assert value.status=="fail" and value.reason_code=="DATA_CORRUPT"
+E       AssertionError: assert ('pass' == 'fail'
+E         
+E         - fail
+E         + pass)
+
+tests\integration\test_validation_registry.py:167: AssertionError
+_______________ test_pdf_structure_without_renderer_is_blocked ________________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-87/test_pdf_structure_without_ren0')
+
+    def test_pdf_structure_without_renderer_is_blocked(tmp_path):
+        source=snapshot(tmp_path,"source.txt",b"Total 3\n","source-v1")
+        value=result("document",context(tmp_path,b"%PDF-1.7\n%%EOF",name="report.pdf",source=source))
+>       assert value.status=="blocked" and value.reason_code=="PDF_RENDERER_REQUIRED"
+E       AssertionError: assert ('fail' == 'blocked'
+E         
+E         - blocked
+E         + fail)
+
+tests\integration\test_validation_registry.py:173: AssertionError
+___________ test_manual_human_criterion_cannot_get_mechanical_pass ____________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-87/test_manual_human_criterion_ca0')
+
+    def test_manual_human_criterion_cannot_get_mechanical_pass(tmp_path):
+        ctx=context(tmp_path)
+        ctx.criteria=[{**criterion(),"verifier":"human"}]
+        value=result("code",ctx)
+>       assert value.status=="not_verified" and value.reason_code=="HUMAN_REVIEW_REQUIRED"
+E       AssertionError: assert ('pass' == 'not_verified'
+E         
+E         - not_verified
+E         + pass)
+
+tests\integration\test_validation_registry.py:180: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/integration/test_validation_registry.py::test_artifact_changed_during_command_cannot_keep_pass
+FAILED tests/integration/test_validation_registry.py::test_boolean_exit_code_is_not_an_execution_pass
+FAILED tests/integration/test_validation_registry.py::test_empty_code_artifact_is_not_valid_deliverable
+FAILED tests/integration/test_validation_registry.py::test_nonfinite_paper_data_is_corrupt
+FAILED tests/integration/test_validation_registry.py::test_pdf_structure_without_renderer_is_blocked
+FAILED tests/integration/test_validation_registry.py::test_manual_human_criterion_cannot_get_mechanical_pass
+6 failed, 18 passed in 0.81s

@@ -1,0 +1,135 @@
+{
+  "at_utc": "2026-10-13T13:44:42.170606+00:00",
+  "reviewer": "provider_d004_d006",
+  "mode": "read-only document/evidence checks; no tests, CLI cases or real providers executed",
+  "checks": [
+    {
+      "name": "task-status-scope",
+      "passed": true,
+      "evidence": {
+        "done": 17,
+        "blocked": 3
+      }
+    },
+    {
+      "name": "real-product-gates",
+      "passed": true,
+      "evidence": {
+        "real_handoff_complete": [
+          false,
+          false
+        ],
+        "part_one_complete": [
+          false,
+          false
+        ],
+        "functional_ready": [
+          false,
+          false
+        ],
+        "goal_validated": [
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "name": "actual-startups-not-billable-completions",
+      "passed": true,
+      "evidence": {
+        "starts": {
+          "claude": 0,
+          "zcode": 2,
+          "gpt": 1,
+          "total": 3
+        },
+        "verified_completions": 0,
+        "counter_basis": "legacy counter: real provider CLI startup attempts; not verified model completions or billable request count",
+        "billable": "unknown"
+      }
+    },
+    {
+      "name": "provider-gates-disabled",
+      "passed": true,
+      "evidence": {
+        "claude": "AUTHENTICATION_REQUIRED",
+        "zcode": "MODEL_SELECTION_REQUIRED",
+        "gpt": "TOOL_PERMISSION_POLICY_DENIED"
+      }
+    },
+    {
+      "name": "gpt-route-only",
+      "passed": true,
+      "evidence": "route_decided_not_connected; native path chosen; production disabled"
+    },
+    {
+      "name": "full-test-evidence",
+      "passed": true,
+      "evidence": {
+        "tests": 780,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "deselected": 1,
+        "wall_seconds": 212.62
+      }
+    },
+    {
+      "name": "real-check-explicit-skip",
+      "passed": true,
+      "evidence": {
+        "result": "skipped",
+        "skipped": 1,
+        "deselected": 16,
+        "new_real_provider_starts": 0,
+        "evidence": "docs/acceptance/D020/real-prerequisite.log"
+      }
+    },
+    {
+      "name": "101-source-lock-byte-freeze",
+      "passed": true,
+      "evidence": {
+        "count": 101,
+        "mismatches": []
+      }
+    },
+    {
+      "name": "evidence-and-wrapper-links",
+      "passed": true,
+      "evidence": {
+        "missing": []
+      }
+    },
+    {
+      "name": "D020-fixture-boundary",
+      "passed": true,
+      "evidence": {
+        "local_passed": true,
+        "real_handoff": false,
+        "domain_count": 4,
+        "fault_count": 11,
+        "real_model_starts": 0
+      }
+    },
+    {
+      "name": "runbook-startup-is-conservative",
+      "passed": true,
+      "evidence": "conservative unknown callback; no real provider query until a supported adapter is registered"
+    }
+  ],
+  "passed_count": 11,
+  "check_count": 11,
+  "sha256": {
+    "docs/acceptance/backend-handoff.json": "e9a6ba3f8b2206b7d33e7eca5a6d7e950bd4827e6283a0b4f931484f53aa6828",
+    "docs/acceptance/part-one-progress.json": "2807e8f162838c19c1dff7e465e96235dda4bae4cd9423a4bf5a11ed9be6ecc7",
+    "docs/runbooks/backend-operations.md": "6f8ff550f94ee2a1476855486586593b612e86ffda294fc97202f494a75c6d43",
+    "docs/acceptance/backend-source-hashes.json": "0e49ca976a179024d246f333f66243c2b0d506fad1eb0ff90e4ed662edea8414",
+    "docs/acceptance/backend-junit.xml": "62db620b8254d7e13f396b739e4a3c84eea30c2aa81f2932a7fa4d81539ff5fc",
+    "docs/acceptance/backend-full-test.log": "6747269944e79b9a152a6717128fcaf4c450a51ab9d4fb8c6ceae6e46f802d85",
+    "docs/acceptance/D020/vertical-report.json": "c8c1b4dc2d3e947bf313d0376fa2501b9f20ac27252832098af560f5b13d3c38",
+    "docs/acceptance/D020/request-ledger.json": "110b1efd6c32b8d5111a432cea5c7e9e9346d76f788667cda5ee28967ccde5a7",
+    "docs/superpowers/plans/2026-10-13-execution/task-board.json": "4fabfa505f55d2c4cc040a7c6542d0a249e3c125da60e5ad03f7260e33432b0e"
+  },
+  "formal_merge_approval": false,
+  "additional_independent_reader": "process_d011 reports matching frozen facts and links in team message"
+}

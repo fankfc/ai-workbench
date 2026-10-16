@@ -1,0 +1,46 @@
+.........FFF..                                                           [100%]
+================================== FAILURES ===================================
+_______ test_same_revision_cannot_be_rebound_to_different_dependencies ________
+
+    def test_same_revision_cannot_be_rebound_to_different_dependencies():
+        graph = DependencyGraph()
+        graph.register("data", "d1", {})
+        graph.register("independent", "i1", {})
+>       with pytest.raises(ValueError, match="REVISION_BINDING_CHANGED"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests\integration\test_dependency_invalidation.py:151: Failed
+________ test_same_revision_cannot_be_current_under_two_logical_nodes _________
+
+    def test_same_revision_cannot_be_current_under_two_logical_nodes():
+        graph = DependencyGraph()
+        graph.register("data", "d1", {})
+>       with pytest.raises(ValueError, match="REVISION_LOGICAL_ID_CONFLICT"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests\integration\test_dependency_invalidation.py:158: Failed
+________ test_translation_job_qa_is_stale_even_without_artifact_column ________
+
+storage = (<app.storage.database.Database object at 0x00000192AD515650>, <sqlite3.Connection object at 0x00000192AD6545E0>, <app.storage.blobs.BlobStore object at 0x00000192AD515850>)
+
+    def test_translation_job_qa_is_stale_even_without_artifact_column(storage):
+        _, connection, store = storage
+        add(connection, store, "source", "source-v1")
+        digest = connection.execute("SELECT byte_sha256 FROM artifact_revisions WHERE id='source-v1'").fetchone()[0]
+        connection.execute("INSERT INTO translation_units(id,task_id,attempt_id,turn_id,job_id,block_id,source_version_id,source_locator,source_sha256,source_language,target_language,glossary_version,policy_version,purpose,budget_id) VALUES('u','t','a','turn','j','b','source-v1','all',?,'en','zh-CN','1','1','display','b')", (digest,))
+        connection.execute("INSERT INTO checks(id,task_id,attempt_id,job_id,check_kind,result,check_version) VALUES('translation-qa','t','a','j','translation.qa','pass','1')")
+        add(connection, store, "source", "source-v2")
+        details = json.loads(connection.execute("SELECT details_json FROM checks WHERE id='translation-qa'").fetchone()[0])
+>       assert details.get("stale") is True
+E       AssertionError: assert None is True
+E        +  where None = <built-in method get of dict object at 0x00000192AD68B000>('stale')
+E        +    where <built-in method get of dict object at 0x00000192AD68B000> = {}.get
+
+tests\integration\test_dependency_invalidation.py:170: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/integration/test_dependency_invalidation.py::test_same_revision_cannot_be_rebound_to_different_dependencies
+FAILED tests/integration/test_dependency_invalidation.py::test_same_revision_cannot_be_current_under_two_logical_nodes
+FAILED tests/integration/test_dependency_invalidation.py::test_translation_job_qa_is_stale_even_without_artifact_column
+3 failed, 11 passed in 0.92s

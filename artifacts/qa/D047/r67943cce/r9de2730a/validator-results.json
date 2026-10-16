@@ -1,0 +1,46 @@
+[
+  {
+    "criterion_id": "AC1",
+    "revision_id": "candidate-338991fa82784c2fa03438993f4d0d1d",
+    "artifact_sha256": "4e95e91c8af9cd871b2b433d97f466a743620fbf210d472590d2d5617429cdaa",
+    "validator_id": "code",
+    "validator_version": "1.0",
+    "status": "pass",
+    "reason_code": "COMMAND_EXECUTED_SUCCESSFULLY",
+    "evidence_ref": "evidence/validator-code-187bcb29814848bbbe008d6e0f0a6cc5.json",
+    "evidence_sha256": "ba6b9db79d7660b472da3227de4a28d277acf154c590758f36c050de24e5f224",
+    "method": "native_code_execution",
+    "environment": {
+      "python": "3.13.0",
+      "platform": "win32",
+      "test_only": true,
+      "fixture_trust": "fixed-hash-allowlist"
+    },
+    "duration_ms": 130.31659997068346,
+    "pending_A_review": [],
+    "passed": true
+  },
+  {
+    "criterion_id": "AC2",
+    "revision_id": "candidate-338991fa82784c2fa03438993f4d0d1d",
+    "artifact_sha256": "4e95e91c8af9cd871b2b433d97f466a743620fbf210d472590d2d5617429cdaa",
+    "validator_id": "code",
+    "validator_version": "1.0",
+    "status": "not_verified",
+    "reason_code": "PENDING_A_REVIEW",
+    "evidence_ref": "evidence/validator-code-f1bc222b4c634da0a89dd7702b610d7b.json",
+    "evidence_sha256": "59104ef45add429be5871784192ed45c4ea9991b3ac6d4d3d70331000f31ef23",
+    "method": "semantic_review_pending",
+    "environment": {
+      "python": "3.13.0",
+      "platform": "win32",
+      "test_only": true,
+      "fixture_trust": "fixed-hash-allowlist"
+    },
+    "duration_ms": 0.0048999791033566,
+    "pending_A_review": [
+      "A judges source support"
+    ],
+    "passed": false
+  }
+]

@@ -1,0 +1,862 @@
+{
+  "schema_version": "1.0",
+  "task_id": "D003",
+  "generated_at": "2026-10-13T10:42:20.108423+00:00",
+  "mode": "read_only",
+  "model_calls_made": false,
+  "user_configuration_modified": false,
+  "capabilities": [
+    {
+      "tool": "python",
+      "path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\.venv\\Scripts\\python.exe",
+      "version": "3.13.0",
+      "help_source": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json#commands",
+      "capability": "installed",
+      "status": "available",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "fact"
+    },
+    {
+      "tool": "node",
+      "path": "C:\\Program Files\\nodejs\\node.exe",
+      "version": "24.19.0",
+      "help_source": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json#commands",
+      "capability": "installed",
+      "status": "available",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "fact"
+    },
+    {
+      "tool": "codex",
+      "path": "C:\\Users\\asd15\\AppData\\Local\\OpenAI\\Codex\\bin\\f544b3844e0f14e9\\codex.exe",
+      "version": "0.160.0",
+      "help_source": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json#commands",
+      "capability": "installed",
+      "status": "available",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "fact"
+    },
+    {
+      "tool": "codex",
+      "path": "C:\\Users\\asd15\\AppData\\Local\\OpenAI\\Codex\\bin\\f544b3844e0f14e9\\codex.exe",
+      "version": "0.160.0",
+      "help_source": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json#help_summary",
+      "capability": "launch",
+      "status": "unknown",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "unknown"
+    },
+    {
+      "tool": "codex",
+      "path": "C:\\Users\\asd15\\AppData\\Local\\OpenAI\\Codex\\bin\\f544b3844e0f14e9\\codex.exe",
+      "version": "0.160.0",
+      "help_source": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json#help_summary",
+      "capability": "non_interactive",
+      "status": "documented",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "inference"
+    },
+    {
+      "tool": "codex",
+      "path": "C:\\Users\\asd15\\AppData\\Local\\OpenAI\\Codex\\bin\\f544b3844e0f14e9\\codex.exe",
+      "version": "0.160.0",
+      "help_source": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json#help_summary",
+      "capability": "working_directory",
+      "status": "documented",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "inference"
+    },
+    {
+      "tool": "codex",
+      "path": "C:\\Users\\asd15\\AppData\\Local\\OpenAI\\Codex\\bin\\f544b3844e0f14e9\\codex.exe",
+      "version": "0.160.0",
+      "help_source": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json#help_summary",
+      "capability": "cancellation",
+      "status": "unknown",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "unknown"
+    },
+    {
+      "tool": "codex",
+      "path": "C:\\Users\\asd15\\AppData\\Local\\OpenAI\\Codex\\bin\\f544b3844e0f14e9\\codex.exe",
+      "version": "0.160.0",
+      "help_source": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json#help_summary",
+      "capability": "resume",
+      "status": "documented",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "inference"
+    },
+    {
+      "tool": "codex",
+      "path": "C:\\Users\\asd15\\AppData\\Local\\OpenAI\\Codex\\bin\\f544b3844e0f14e9\\codex.exe",
+      "version": "0.160.0",
+      "help_source": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json#help_summary",
+      "capability": "model_selection",
+      "status": "documented",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "inference"
+    },
+    {
+      "tool": "codex",
+      "path": "C:\\Users\\asd15\\AppData\\Local\\OpenAI\\Codex\\bin\\f544b3844e0f14e9\\codex.exe",
+      "version": "0.160.0",
+      "help_source": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json#help_summary",
+      "capability": "usage",
+      "status": "unknown",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "unknown"
+    },
+    {
+      "tool": "codex",
+      "path": "C:\\Users\\asd15\\AppData\\Local\\OpenAI\\Codex\\bin\\f544b3844e0f14e9\\codex.exe",
+      "version": "0.160.0",
+      "help_source": null,
+      "capability": "actual_model_identity",
+      "status": "unknown",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "unknown"
+    },
+    {
+      "tool": "claude_code",
+      "path": null,
+      "version": null,
+      "help_source": null,
+      "capability": "installed",
+      "status": "unavailable",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "fact"
+    },
+    {
+      "tool": "claude_code",
+      "path": null,
+      "version": null,
+      "help_source": null,
+      "capability": "launch",
+      "status": "unknown",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "unknown"
+    },
+    {
+      "tool": "claude_code",
+      "path": null,
+      "version": null,
+      "help_source": null,
+      "capability": "non_interactive",
+      "status": "unknown",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "unknown"
+    },
+    {
+      "tool": "claude_code",
+      "path": null,
+      "version": null,
+      "help_source": null,
+      "capability": "working_directory",
+      "status": "unknown",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "unknown"
+    },
+    {
+      "tool": "claude_code",
+      "path": null,
+      "version": null,
+      "help_source": null,
+      "capability": "cancellation",
+      "status": "unknown",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "unknown"
+    },
+    {
+      "tool": "claude_code",
+      "path": null,
+      "version": null,
+      "help_source": null,
+      "capability": "resume",
+      "status": "unknown",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "unknown"
+    },
+    {
+      "tool": "claude_code",
+      "path": null,
+      "version": null,
+      "help_source": null,
+      "capability": "model_selection",
+      "status": "unknown",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "unknown"
+    },
+    {
+      "tool": "claude_code",
+      "path": null,
+      "version": null,
+      "help_source": null,
+      "capability": "usage",
+      "status": "unknown",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "unknown"
+    },
+    {
+      "tool": "claude_code",
+      "path": null,
+      "version": null,
+      "help_source": null,
+      "capability": "actual_model_identity",
+      "status": "unknown",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "unknown"
+    },
+    {
+      "tool": "zcode_gui",
+      "path": "D:\\zcode\\ZCode.exe",
+      "version": "3.15.1.8093",
+      "help_source": "PE version resource",
+      "capability": "installed",
+      "status": "available",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "fact"
+    },
+    {
+      "tool": "zcode_gui",
+      "path": "D:\\zcode\\ZCode.exe",
+      "version": "3.15.1.8093",
+      "help_source": null,
+      "capability": "launch",
+      "status": "unknown",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "unknown"
+    },
+    {
+      "tool": "zcode_gui",
+      "path": "D:\\zcode\\ZCode.exe",
+      "version": "3.15.1.8093",
+      "help_source": null,
+      "capability": "non_interactive",
+      "status": "unknown",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "unknown"
+    },
+    {
+      "tool": "zcode_gui",
+      "path": "D:\\zcode\\ZCode.exe",
+      "version": "3.15.1.8093",
+      "help_source": null,
+      "capability": "working_directory",
+      "status": "unknown",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "unknown"
+    },
+    {
+      "tool": "zcode_gui",
+      "path": "D:\\zcode\\ZCode.exe",
+      "version": "3.15.1.8093",
+      "help_source": null,
+      "capability": "cancellation",
+      "status": "unknown",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "unknown"
+    },
+    {
+      "tool": "zcode_gui",
+      "path": "D:\\zcode\\ZCode.exe",
+      "version": "3.15.1.8093",
+      "help_source": null,
+      "capability": "resume",
+      "status": "unknown",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "unknown"
+    },
+    {
+      "tool": "zcode_gui",
+      "path": "D:\\zcode\\ZCode.exe",
+      "version": "3.15.1.8093",
+      "help_source": null,
+      "capability": "model_selection",
+      "status": "unknown",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "unknown"
+    },
+    {
+      "tool": "zcode_gui",
+      "path": "D:\\zcode\\ZCode.exe",
+      "version": "3.15.1.8093",
+      "help_source": null,
+      "capability": "usage",
+      "status": "unknown",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "unknown"
+    },
+    {
+      "tool": "zcode_gui",
+      "path": "D:\\zcode\\ZCode.exe",
+      "version": "3.15.1.8093",
+      "help_source": null,
+      "capability": "actual_model_identity",
+      "status": "unknown",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "unknown"
+    },
+    {
+      "tool": "claude_gui",
+      "path": null,
+      "version": null,
+      "help_source": null,
+      "capability": "installed",
+      "status": "unavailable",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "fact"
+    },
+    {
+      "tool": "pandoc",
+      "path": null,
+      "version": null,
+      "help_source": null,
+      "capability": "installed",
+      "status": "unavailable",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "fact"
+    },
+    {
+      "tool": "pandoc",
+      "path": null,
+      "version": null,
+      "help_source": null,
+      "capability": "format_execution",
+      "status": "unavailable",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "fact"
+    },
+    {
+      "tool": "libreoffice",
+      "path": null,
+      "version": null,
+      "help_source": null,
+      "capability": "installed",
+      "status": "unavailable",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "fact"
+    },
+    {
+      "tool": "libreoffice",
+      "path": null,
+      "version": null,
+      "help_source": null,
+      "capability": "format_execution",
+      "status": "unavailable",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "fact"
+    },
+    {
+      "tool": "tesseract",
+      "path": null,
+      "version": null,
+      "help_source": null,
+      "capability": "installed",
+      "status": "unavailable",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "fact"
+    },
+    {
+      "tool": "tesseract",
+      "path": null,
+      "version": null,
+      "help_source": null,
+      "capability": "format_execution",
+      "status": "unavailable",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "fact"
+    },
+    {
+      "tool": "pdftotext",
+      "path": "C:\\Users\\asd15\\AppData\\Local\\Programs\\MiKTeX\\miktex\\bin\\x64\\pdftotext.exe",
+      "version": null,
+      "help_source": null,
+      "capability": "installed",
+      "status": "available",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "fact"
+    },
+    {
+      "tool": "pdftotext",
+      "path": "C:\\Users\\asd15\\AppData\\Local\\Programs\\MiKTeX\\miktex\\bin\\x64\\pdftotext.exe",
+      "version": null,
+      "help_source": null,
+      "capability": "format_execution",
+      "status": "unknown",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "unknown"
+    },
+    {
+      "tool": "npm",
+      "path": "C:\\Program Files\\nodejs\\node_modules\\npm\\package.json",
+      "version": "11.17.0",
+      "help_source": "installed npm package metadata",
+      "capability": "installed",
+      "status": "available",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "fact"
+    },
+    {
+      "tool": "provider_connections",
+      "path": null,
+      "version": null,
+      "help_source": null,
+      "capability": "desktop_cli_session_shared",
+      "status": "unknown",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "unknown"
+    },
+    {
+      "tool": "provider_connections",
+      "path": null,
+      "version": null,
+      "help_source": null,
+      "capability": "desktop_cli_login_shared",
+      "status": "unknown",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "unknown"
+    },
+    {
+      "tool": "provider_connections",
+      "path": null,
+      "version": null,
+      "help_source": null,
+      "capability": "desktop_cli_quota_shared",
+      "status": "unknown",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "unknown"
+    }
+  ],
+  "facts": [
+    {
+      "tool": "python",
+      "path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\.venv\\Scripts\\python.exe",
+      "version": "3.13.0",
+      "help_source": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json#commands",
+      "capability": "installed",
+      "status": "available",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "fact"
+    },
+    {
+      "tool": "node",
+      "path": "C:\\Program Files\\nodejs\\node.exe",
+      "version": "24.19.0",
+      "help_source": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json#commands",
+      "capability": "installed",
+      "status": "available",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "fact"
+    },
+    {
+      "tool": "codex",
+      "path": "C:\\Users\\asd15\\AppData\\Local\\OpenAI\\Codex\\bin\\f544b3844e0f14e9\\codex.exe",
+      "version": "0.160.0",
+      "help_source": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json#commands",
+      "capability": "installed",
+      "status": "available",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "fact"
+    },
+    {
+      "tool": "claude_code",
+      "path": null,
+      "version": null,
+      "help_source": null,
+      "capability": "installed",
+      "status": "unavailable",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "fact"
+    },
+    {
+      "tool": "zcode_gui",
+      "path": "D:\\zcode\\ZCode.exe",
+      "version": "3.15.1.8093",
+      "help_source": "PE version resource",
+      "capability": "installed",
+      "status": "available",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "fact"
+    },
+    {
+      "tool": "claude_gui",
+      "path": null,
+      "version": null,
+      "help_source": null,
+      "capability": "installed",
+      "status": "unavailable",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "fact"
+    },
+    {
+      "tool": "pandoc",
+      "path": null,
+      "version": null,
+      "help_source": null,
+      "capability": "installed",
+      "status": "unavailable",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "fact"
+    },
+    {
+      "tool": "pandoc",
+      "path": null,
+      "version": null,
+      "help_source": null,
+      "capability": "format_execution",
+      "status": "unavailable",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "fact"
+    },
+    {
+      "tool": "libreoffice",
+      "path": null,
+      "version": null,
+      "help_source": null,
+      "capability": "installed",
+      "status": "unavailable",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "fact"
+    },
+    {
+      "tool": "libreoffice",
+      "path": null,
+      "version": null,
+      "help_source": null,
+      "capability": "format_execution",
+      "status": "unavailable",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "fact"
+    },
+    {
+      "tool": "tesseract",
+      "path": null,
+      "version": null,
+      "help_source": null,
+      "capability": "installed",
+      "status": "unavailable",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "fact"
+    },
+    {
+      "tool": "tesseract",
+      "path": null,
+      "version": null,
+      "help_source": null,
+      "capability": "format_execution",
+      "status": "unavailable",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "fact"
+    },
+    {
+      "tool": "pdftotext",
+      "path": "C:\\Users\\asd15\\AppData\\Local\\Programs\\MiKTeX\\miktex\\bin\\x64\\pdftotext.exe",
+      "version": null,
+      "help_source": null,
+      "capability": "installed",
+      "status": "available",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "fact"
+    },
+    {
+      "tool": "npm",
+      "path": "C:\\Program Files\\nodejs\\node_modules\\npm\\package.json",
+      "version": "11.17.0",
+      "help_source": "installed npm package metadata",
+      "capability": "installed",
+      "status": "available",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "fact"
+    }
+  ],
+  "inferences": [
+    {
+      "tool": "codex",
+      "path": "C:\\Users\\asd15\\AppData\\Local\\OpenAI\\Codex\\bin\\f544b3844e0f14e9\\codex.exe",
+      "version": "0.160.0",
+      "help_source": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json#help_summary",
+      "capability": "non_interactive",
+      "status": "documented",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "inference"
+    },
+    {
+      "tool": "codex",
+      "path": "C:\\Users\\asd15\\AppData\\Local\\OpenAI\\Codex\\bin\\f544b3844e0f14e9\\codex.exe",
+      "version": "0.160.0",
+      "help_source": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json#help_summary",
+      "capability": "working_directory",
+      "status": "documented",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "inference"
+    },
+    {
+      "tool": "codex",
+      "path": "C:\\Users\\asd15\\AppData\\Local\\OpenAI\\Codex\\bin\\f544b3844e0f14e9\\codex.exe",
+      "version": "0.160.0",
+      "help_source": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json#help_summary",
+      "capability": "resume",
+      "status": "documented",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "inference"
+    },
+    {
+      "tool": "codex",
+      "path": "C:\\Users\\asd15\\AppData\\Local\\OpenAI\\Codex\\bin\\f544b3844e0f14e9\\codex.exe",
+      "version": "0.160.0",
+      "help_source": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json#help_summary",
+      "capability": "model_selection",
+      "status": "documented",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "inference"
+    }
+  ],
+  "unknowns": [
+    {
+      "tool": "codex",
+      "path": "C:\\Users\\asd15\\AppData\\Local\\OpenAI\\Codex\\bin\\f544b3844e0f14e9\\codex.exe",
+      "version": "0.160.0",
+      "help_source": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json#help_summary",
+      "capability": "launch",
+      "status": "unknown",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "unknown"
+    },
+    {
+      "tool": "codex",
+      "path": "C:\\Users\\asd15\\AppData\\Local\\OpenAI\\Codex\\bin\\f544b3844e0f14e9\\codex.exe",
+      "version": "0.160.0",
+      "help_source": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json#help_summary",
+      "capability": "cancellation",
+      "status": "unknown",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "unknown"
+    },
+    {
+      "tool": "codex",
+      "path": "C:\\Users\\asd15\\AppData\\Local\\OpenAI\\Codex\\bin\\f544b3844e0f14e9\\codex.exe",
+      "version": "0.160.0",
+      "help_source": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json#help_summary",
+      "capability": "usage",
+      "status": "unknown",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "unknown"
+    },
+    {
+      "tool": "codex",
+      "path": "C:\\Users\\asd15\\AppData\\Local\\OpenAI\\Codex\\bin\\f544b3844e0f14e9\\codex.exe",
+      "version": "0.160.0",
+      "help_source": null,
+      "capability": "actual_model_identity",
+      "status": "unknown",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "unknown"
+    },
+    {
+      "tool": "claude_code",
+      "path": null,
+      "version": null,
+      "help_source": null,
+      "capability": "launch",
+      "status": "unknown",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "unknown"
+    },
+    {
+      "tool": "claude_code",
+      "path": null,
+      "version": null,
+      "help_source": null,
+      "capability": "non_interactive",
+      "status": "unknown",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "unknown"
+    },
+    {
+      "tool": "claude_code",
+      "path": null,
+      "version": null,
+      "help_source": null,
+      "capability": "working_directory",
+      "status": "unknown",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "unknown"
+    },
+    {
+      "tool": "claude_code",
+      "path": null,
+      "version": null,
+      "help_source": null,
+      "capability": "cancellation",
+      "status": "unknown",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "unknown"
+    },
+    {
+      "tool": "claude_code",
+      "path": null,
+      "version": null,
+      "help_source": null,
+      "capability": "resume",
+      "status": "unknown",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "unknown"
+    },
+    {
+      "tool": "claude_code",
+      "path": null,
+      "version": null,
+      "help_source": null,
+      "capability": "model_selection",
+      "status": "unknown",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "unknown"
+    },
+    {
+      "tool": "claude_code",
+      "path": null,
+      "version": null,
+      "help_source": null,
+      "capability": "usage",
+      "status": "unknown",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "unknown"
+    },
+    {
+      "tool": "claude_code",
+      "path": null,
+      "version": null,
+      "help_source": null,
+      "capability": "actual_model_identity",
+      "status": "unknown",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "unknown"
+    },
+    {
+      "tool": "zcode_gui",
+      "path": "D:\\zcode\\ZCode.exe",
+      "version": "3.15.1.8093",
+      "help_source": null,
+      "capability": "launch",
+      "status": "unknown",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "unknown"
+    },
+    {
+      "tool": "zcode_gui",
+      "path": "D:\\zcode\\ZCode.exe",
+      "version": "3.15.1.8093",
+      "help_source": null,
+      "capability": "non_interactive",
+      "status": "unknown",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "unknown"
+    },
+    {
+      "tool": "zcode_gui",
+      "path": "D:\\zcode\\ZCode.exe",
+      "version": "3.15.1.8093",
+      "help_source": null,
+      "capability": "working_directory",
+      "status": "unknown",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "unknown"
+    },
+    {
+      "tool": "zcode_gui",
+      "path": "D:\\zcode\\ZCode.exe",
+      "version": "3.15.1.8093",
+      "help_source": null,
+      "capability": "cancellation",
+      "status": "unknown",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "unknown"
+    },
+    {
+      "tool": "zcode_gui",
+      "path": "D:\\zcode\\ZCode.exe",
+      "version": "3.15.1.8093",
+      "help_source": null,
+      "capability": "resume",
+      "status": "unknown",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "unknown"
+    },
+    {
+      "tool": "zcode_gui",
+      "path": "D:\\zcode\\ZCode.exe",
+      "version": "3.15.1.8093",
+      "help_source": null,
+      "capability": "model_selection",
+      "status": "unknown",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "unknown"
+    },
+    {
+      "tool": "zcode_gui",
+      "path": "D:\\zcode\\ZCode.exe",
+      "version": "3.15.1.8093",
+      "help_source": null,
+      "capability": "usage",
+      "status": "unknown",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "unknown"
+    },
+    {
+      "tool": "zcode_gui",
+      "path": "D:\\zcode\\ZCode.exe",
+      "version": "3.15.1.8093",
+      "help_source": null,
+      "capability": "actual_model_identity",
+      "status": "unknown",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "unknown"
+    },
+    {
+      "tool": "pdftotext",
+      "path": "C:\\Users\\asd15\\AppData\\Local\\Programs\\MiKTeX\\miktex\\bin\\x64\\pdftotext.exe",
+      "version": null,
+      "help_source": null,
+      "capability": "format_execution",
+      "status": "unknown",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "unknown"
+    },
+    {
+      "tool": "provider_connections",
+      "path": null,
+      "version": null,
+      "help_source": null,
+      "capability": "desktop_cli_session_shared",
+      "status": "unknown",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "unknown"
+    },
+    {
+      "tool": "provider_connections",
+      "path": null,
+      "version": null,
+      "help_source": null,
+      "capability": "desktop_cli_login_shared",
+      "status": "unknown",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "unknown"
+    },
+    {
+      "tool": "provider_connections",
+      "path": null,
+      "version": null,
+      "help_source": null,
+      "capability": "desktop_cli_quota_shared",
+      "status": "unknown",
+      "evidence_ref": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\D003\\probe-trace.json",
+      "evidence_kind": "unknown"
+    }
+  ],
+  "limitations": [
+    "Version/help and PE metadata prove installation observations only.",
+    "Help mentions are not execution, authentication, quota, or model verification.",
+    "GUI executables and MiKTeX pdftotext are never launched.",
+    "No real provider executor is enabled; D004-D006 require supported adapter evidence and explicit bounded execution."
+  ]
+}

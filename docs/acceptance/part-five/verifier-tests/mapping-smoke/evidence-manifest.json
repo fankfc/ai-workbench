@@ -1,0 +1,71 @@
+{
+  "version": "1.0",
+  "build_id": "29de8e4261812bb2f81364f852c5074153689ccb8b65166c938be34c6b166268",
+  "run_id": "20261015T051417249380Z-663ae1b3",
+  "created_at": "2026-10-15T05:14:19.840840+00:00",
+  "seed": 4317,
+  "encoding": "UTF-8",
+  "provider_boundary": "fake",
+  "files": [
+    {
+      "path": "source-after.json",
+      "size": 2247,
+      "sha256": "14189778fa5b40903b1592ebfdaa4b5932c6e7b5cedb512a5d6f6794c994d3ac"
+    },
+    {
+      "path": "source-before.json",
+      "size": 2247,
+      "sha256": "14189778fa5b40903b1592ebfdaa4b5932c6e7b5cedb512a5d6f6794c994d3ac"
+    },
+    {
+      "path": "summary.md",
+      "size": 361,
+      "sha256": "a3f59ac1ee0ca3c3f756a27faf5cee9e01eabd3e17f2e908c9786e4ee1298d16"
+    },
+    {
+      "path": "verification.json",
+      "size": 22568,
+      "sha256": "4777a056d7ca07fb399d75b35e59fb4e96772322aa737c49fbc3494e3a713994"
+    },
+    {
+      "path": "work-orders-and-prompts.md",
+      "size": 9831,
+      "sha256": "94cb042be30a957eba118a73d0af0ae81b367e371b85bea08e7d7a5c0c2a03c0"
+    },
+    {
+      "path": "work-orders.json",
+      "size": 11026,
+      "sha256": "6fde5e573c63f6c35fdf85538803ad8e4aa831fcbf93ababec1d6160a3a20c09"
+    },
+    {
+      "path": "regression/evidence-manifest.json",
+      "size": 1080,
+      "sha256": "e426b32899552a53a6432945131f0a5c517f143acc3b9ffede56d21cc0735e15"
+    },
+    {
+      "path": "regression/runtime-sop.json",
+      "size": 34819,
+      "sha256": "47e74ebdc52378b7ebd5e4d059ce5cb8b5baf31aa91b19977999c47548e856f9"
+    },
+    {
+      "path": "regression/runtime-sop.md",
+      "size": 18209,
+      "sha256": "c62590793932ee97c6a88f07b27062433e4dcbeab8093d42178ad22c6837c311"
+    },
+    {
+      "path": "regression/source-after.json",
+      "size": 349,
+      "sha256": "cd8f4f2f332796b2c0b740d7a06874db1aa9c187fdd9c2fe137bd3f7e3b19fc2"
+    },
+    {
+      "path": "regression/source-before.json",
+      "size": 349,
+      "sha256": "cd8f4f2f332796b2c0b740d7a06874db1aa9c187fdd9c2fe137bd3f7e3b19fc2"
+    },
+    {
+      "path": "regression/verification.json",
+      "size": 52671,
+      "sha256": "c8a91f2a76510328a6d29cf1e8710931255a8e5409e3a7342316b4aebdb3f3eb"
+    }
+  ]
+}

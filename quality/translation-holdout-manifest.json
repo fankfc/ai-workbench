@@ -1,0 +1,10 @@
+{
+  "version": "1.0-draft",
+  "status": "awaiting_independent_custodian",
+  "required_samples": 60,
+  "samples": [],
+  "body_policy": "held_outside_repository_and_B_workspace",
+  "independence_verified": false,
+  "reviewers": [],
+  "actual_sample_count": 0
+}

@@ -1,0 +1,85 @@
+{
+  "generated_at": "2026-10-13T13:32:18.776878+00:00",
+  "mode": "temporary local API/SQLite and synthetic external event stream",
+  "command": "services/orchestrator/.venv/Scripts/python.exe docs/acceptance/remaining-workflow-stream-probe.py --postfix",
+  "source_hashes": {
+    "services/orchestrator/app/runtime/workflow.py": "fd0d743d2de7a0a8cca56b6c14ba77e8fbe64036c52cc6e913ee1061f90aa5ce",
+    "services/orchestrator/app/runtime/repair.py": "13e6848aca9cc573906da5130754c4bf8310f5669cbc00f28a075500aab5bd29",
+    "services/orchestrator/app/providers/fake.py": "abec8a68b99a0e269aa77143e41b528d71b312b334fa3d2772448941b2d2763e"
+  },
+  "results": {
+    "claude_b_original_context": {
+      "state": "BLOCKED",
+      "b_starts": 0,
+      "reason_codes": [
+        "CLAUDE_REQUEST_CONTEXT_GATE_MISSING"
+      ],
+      "request_family": null,
+      "chinese_source_in_prompt": false
+    },
+    "remote_unknown_after_start": {
+      "state": "BLOCKED",
+      "b_starts": 1,
+      "reason_codes": [
+        "UNKNOWN_REMOTE"
+      ],
+      "task_external_request_id": "ongoing-request",
+      "task_external_execution_id": "ongoing-execution",
+      "step_external_execution_ids": [
+        "ongoing-execution"
+      ],
+      "active_external_request": {
+        "external_request_id": "ongoing-request",
+        "external_execution_id": "ongoing-execution",
+        "step_id": "fe87d97678874d8fa3bec5edb252a27f",
+        "provider_profile_id": "fake-glm",
+        "role": "B",
+        "accepted": true,
+        "status": "unknown"
+      },
+      "step_remote_executions": [
+        {
+          "external_request_id": "ongoing-request",
+          "external_execution_id": "ongoing-execution",
+          "step_id": "fe87d97678874d8fa3bec5edb252a27f",
+          "provider_profile_id": "fake-glm",
+          "role": "B",
+          "accepted": true,
+          "status": "unknown"
+        }
+      ]
+    },
+    "terminal_after_start": {
+      "state": "FAILED",
+      "b_starts": 1,
+      "reason_codes": [
+        "TERMINAL_STATE_FENCE"
+      ],
+      "task_external_request_id": "ongoing-request",
+      "task_external_execution_id": "ongoing-execution",
+      "step_external_execution_ids": [
+        "ongoing-execution"
+      ],
+      "active_external_request": {
+        "external_request_id": "ongoing-request",
+        "external_execution_id": "ongoing-execution",
+        "step_id": "2eb9d36d0f1143218929936a7e86a621",
+        "provider_profile_id": "fake-glm",
+        "role": "B",
+        "accepted": true,
+        "status": "unknown"
+      },
+      "step_remote_executions": [
+        {
+          "external_request_id": "ongoing-request",
+          "external_execution_id": "ongoing-execution",
+          "step_id": "2eb9d36d0f1143218929936a7e86a621",
+          "provider_profile_id": "fake-glm",
+          "role": "B",
+          "accepted": true,
+          "status": "unknown"
+        }
+      ]
+    }
+  }
+}

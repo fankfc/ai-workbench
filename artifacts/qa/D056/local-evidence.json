@@ -1,0 +1,25 @@
+{
+  "card": "D056",
+  "case": "feedback_bundle",
+  "command": [
+    "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\.venv\\Scripts\\python.exe",
+    "tests/support/scenario_driver.py",
+    "feedback_bundle",
+    "--root",
+    "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\artifacts\\qa\\D056\\re9e05202",
+    "--options",
+    "{\"include_content\": false}"
+  ],
+  "exit_code": 0,
+  "time": "2026-10-15T02:00:58.696129+00:00",
+  "build_id": "cb98eed03df6bd4ffaa551d66a54c77198911cf5b3e763a1ef3c055f5ee54ca4",
+  "run_root": "artifacts/qa/D056/re9e05202",
+  "result": {
+    "secret_leaks": [],
+    "contains_user_content": false,
+    "explicit_content_opt_in": false,
+    "reproducible_case": true,
+    "evidence_kind": "deterministic_product_probe",
+    "blocked_reasons": []
+  }
+}

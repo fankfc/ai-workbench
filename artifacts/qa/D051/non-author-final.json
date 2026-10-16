@@ -1,0 +1,15 @@
+{
+  "build_id": "cb98eed03df6bd4ffaa551d66a54c77198911cf5b3e763a1ef3c055f5ee54ca4",
+  "qa_source_id": "be235c533d31cb6f4d79585d028c8da25cedd8d109edd022d33aa00bebcebe95",
+  "run_root": "artifacts/qa/D051/non-author-bee90623",
+  "exit_code": 0,
+  "post_exit_manifest_valid": true,
+  "restore_state": "RESTORED",
+  "files_verified": 37,
+  "schema_before": 3,
+  "schema_after": 4,
+  "source_untouched": true,
+  "credential_restored": false,
+  "raw_result_sha256": "497bd666a66d5990f3512f5eb9136e045d36c5d52dbcfb040e86b997353ef80f",
+  "real_model_calls": 0
+}

@@ -1,0 +1,25 @@
+{
+  "generated_at": "2026-10-13T11:33:55.960082+00:00",
+  "commit": null,
+  "python": "3.13.0",
+  "sqlite": "3.45.3",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "interpreter": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\.venv\\Scripts\\python.exe",
+  "mode": "isolated real SQLite/filesystem; no external provider calls",
+  "command": "services/orchestrator/.venv/Scripts/python.exe docs/acceptance/D008/reproduce_evidence.py",
+  "sources": {
+    "services/orchestrator/app/storage/__init__.py": "39e60d6180501fd43c1cd09e857770b93eefd12134a360882614499faa93be1a",
+    "services/orchestrator/app/storage/database.py": "082bf15eabb6a594268b4350bc9c6065678d46cbb861608e4901a4a150ccc69c",
+    "services/orchestrator/app/storage/migrations.py": "c0477e896b2129e30e882b448239e0f78c8f1ff838cfe7ada1c47d567baa11bb",
+    "services/orchestrator/app/storage/blobs.py": "97760c554a223cfd958459c4b11681722e0d7cd5449213544bc3353510737c3f",
+    "services/orchestrator/app/storage/schema/0001_initial.sql": "63788dd70e69dcd9e3011dd41c18514bc5d72ed5d52cf9cc82e71061cd38fcc5",
+    "tests/integration/test_storage.py": "598dd7fcac5040fac289ee0e2de08c4f9bf27f3b703776dd5eaba9d03daa267f",
+    "docs/acceptance/D008/reproduce_evidence.py": "5fa3c381e092ae41c20d55e23556092540c056d07036f9843cb6c8cf5dc2c895",
+    "services/orchestrator/app/contracts/__init__.py": "f0a32c4cdf2a1472c58b8b2a97c41d4c5d0378690d2773a2cbae5abce6381a24",
+    "services/orchestrator/app/contracts/artifacts.py": "e4b41d2cd4fc14aa11a8e941a525b6e711a838e1e360ae60f0789ccfa4dee558",
+    "services/orchestrator/app/contracts/events.py": "7a0272a6047284668b04a5bb085dd87f2b8d481f481772ce7a288168590a4773",
+    "services/orchestrator/app/contracts/providers.py": "ab41820328b1640b8e7b72db2d6dad056b26bdb9234ebc3a89c2f5248eb8d890",
+    "services/orchestrator/app/contracts/tasks.py": "32831ea24aeedeee861e4e35ebd40e4bea38ba20e4ce0f3385c65b808372f765",
+    "services/orchestrator/app/contracts/translation.py": "8d435fe7d0a471618352dbdddb75f88fdcc5373c9c7b2ce302b6c3aff47068e4"
+  }
+}

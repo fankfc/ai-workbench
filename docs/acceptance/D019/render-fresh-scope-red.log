@@ -1,0 +1,60 @@
+................................FFF                                      [100%]
+================================== FAILURES ===================================
+_______ test_preexisting_render_is_preserved_and_runner_does_not_start ________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-123/test_preexisting_render_is_pre0')
+
+    def test_preexisting_render_is_preserved_and_runner_does_not_start(tmp_path):
+        rendered=tmp_path/"old-page.png"
+        rendered.write_bytes(png_fixture())
+        calls=[]
+        value=result("document",context(tmp_path,b"# New report\n",name="report.md",evidence_type="render",commands={"ac1":["fixture-renderer.exe"]},runner=lambda *args:calls.append(args) or CommandResult(0,b"",b""),execution_authorized=True,rendered_paths={"ac1":rendered}))
+>       assert value.status=="blocked" and value.reason_code=="RENDER_OUTPUT_ALREADY_EXISTS"
+E       AssertionError: assert ('pass' == 'blocked'
+E         
+E         - blocked
+E         + pass)
+
+tests\integration\test_validation_registry.py:286: AssertionError
+_________ test_fresh_render_output_outside_scope_blocks_before_runner _________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-123/test_fresh_render_output_outsi0')
+
+    def test_fresh_render_output_outside_scope_blocks_before_runner(tmp_path):
+        from uuid import uuid4
+        rendered=tmp_path.parent/("outside-"+uuid4().hex+".png")
+        calls=[]
+        value=result("document",context(tmp_path,b"# Report\n",name="report.md",evidence_type="render",commands={"ac1":["fixture-renderer.exe"]},runner=lambda *args:calls.append(args) or CommandResult(0,b"",b""),execution_authorized=True,rendered_paths={"ac1":rendered}))
+>       assert value.status=="blocked" and value.reason_code=="RENDERED_ARTIFACT_SCOPE_INVALID"
+E       AssertionError: assert ('fail' == 'blocked'
+E         
+E         - blocked
+E         + fail)
+
+tests\integration\test_validation_registry.py:295: AssertionError
+___ test_old_png_and_noop_success_does_not_prove_rendering_current_revision ___
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-123/test_old_png_and_noop_success_0')
+
+    def test_old_png_and_noop_success_does_not_prove_rendering_current_revision(tmp_path):
+        source=tmp_path/'report.md'
+        source.write_bytes(b'# New report revision\n')
+        output=tmp_path/'old-page.png'
+        output.write_bytes(png_fixture())
+        calls=[]
+        def noop(*args):
+            calls.append(args)
+            return CommandResult(0,b'',b'')
+        criterion=dict(id='render',mandatory=True,verifier='C',evidence_type='render',condition='Render current artifact revision',semantic=False)
+        context=ValidationContext('task','attempt',ArtifactSnapshot('new-revision',hashlib.sha256(source.read_bytes()).hexdigest(),source),[criterion],tmp_path,runner=noop,commands={'render':['renderer.exe',str(source)]},execution_authorized=True,rendered_paths={'render':output})
+        result=Registry().validate('document',context)[0]
+>       assert result.status!='pass'
+E       AssertionError: assert 'pass' != 'pass'
+E        +  where 'pass' = ValidationResult(criterion_id='render', revision_id='new-revision', artifact_sha256='bc2f4fff4e491137e54a013102c615042...onment={'python': '3.13.0', 'platform': 'win32'}, duration_ms=2.6995999505743384, pending_A_review=('visual_quality',)).status
+
+tests\integration\test_validator_render_replay.py:18: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/integration/test_validation_registry.py::test_preexisting_render_is_preserved_and_runner_does_not_start
+FAILED tests/integration/test_validation_registry.py::test_fresh_render_output_outside_scope_blocks_before_runner
+FAILED tests/integration/test_validator_render_replay.py::test_old_png_and_noop_success_does_not_prove_rendering_current_revision
+3 failed, 32 passed in 1.24s

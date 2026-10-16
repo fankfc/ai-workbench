@@ -1,0 +1,2 @@
+{"state_outbox_passed": 129, "recovery_passed": 34, "legal_edges": 92, "crash_exits": [81, 82, 83], "provider_last_sequence": 3}
+EXIT_CODE=0

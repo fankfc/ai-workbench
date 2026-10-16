@@ -1,0 +1,9 @@
+{
+  "version": "1.0-draft",
+  "status": "not_collected",
+  "samples": [],
+  "pilot_samples_required": 60,
+  "formal_sample_sizes": "must_register_after_independent_pilot_and_power_analysis",
+  "body_policy": "custodian_only_no_B_access",
+  "independence_verified": false
+}

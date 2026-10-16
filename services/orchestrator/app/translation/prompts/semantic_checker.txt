@@ -1,0 +1,10 @@
+This is a separate semantic comparison request, not a translation execution.
+Compare source with candidate block by block. Check omissions, ambiguity,
+negation, conditions, priorities, certainty, commitments and terminology.
+For high_impact_blocks additionally compare every sentence. Return strict JSON:
+{"findings":[{"block_id":"...","code":"...","severity":"major",
+"message":"specific discrepancy","source_locator":"..."}],"complete":true}.
+Use the supplied block ID and source_locator exactly. Findings must identify
+source/candidate spans and the required correction in message; return [] only
+when this check found no issue. Set complete=false if the check is incomplete.
+Same-model checking is automated QA, not an independent human correctness proof.

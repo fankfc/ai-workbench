@@ -1,0 +1,45 @@
+{
+  "all_passed": true,
+  "checks": {
+    "actual_completed_arithmetic": true,
+    "actual_text_hash": true,
+    "singleton_actual_execution": true,
+    "unique_sse_bound_to_receipt": true,
+    "actual_identity_distinct_from_configuration": true,
+    "usage_reported_and_not_double_counted": true,
+    "new_budget_sealed_and_old_entries_preserved": true,
+    "bounded_and_no_tools_observed": true,
+    "no_scope_or_production_promotion": true,
+    "complete_local_cleanup_remote_unknown": true,
+    "actual_observer_and_parser_hashes": true,
+    "version_pinned_sources_match": true,
+    "production_native_metadata_sources_unchanged": true
+  },
+  "offline_tests": {
+    "red_failed": 3,
+    "red_passed": 21,
+    "green_passed": 24
+  },
+  "new_model_submissions_during_verification": 0,
+  "reported_usage_total": 21977,
+  "separate_continuation_plus_sse_known_total": 69021,
+  "source_hashes": {
+    ".tools/gpt-sse-projection/projection.py": "0c83ea8bc649ad0dd2dd4f815983ff1bce9dfb0fb70d4765dd0fc31d67d4d84e",
+    ".tools/gpt-sse-projection/test_projection.py": "e084dc94c204b77fefa34f79950623670d61366ab576530f81eaabb31524b53d",
+    ".tools/gpt-sse-projection/observe.py": "43a5c0d27044a0b45e5bceaeb8808a2df2f294661ff3ddb79013dd314dedae06",
+    ".tools/gpt-sse-projection/build_observer.py": "3e7aca604daf6446962cf362480383c0088b67d7ecf5ca8b06e36ac149eefa88",
+    ".tools/gpt-sse-projection/verify.py": "b224ceb31e1af74cbb717aaba40183853d016649b2254cd6fd1bca3dfaba2ca9",
+    "docs/acceptance/part-one-closeout/gpt-sse-identity-observation.json": "9f7f12fc409157833f2f32ef5690f0ff28c025635979423bf4ec9dbd8fac41d6",
+    "docs/acceptance/part-one-closeout/gpt-sse-identity-observation.md": "ceb3a2b5f0f20569c8f596f38473920914553700f938e63b0e3a0674bb1fb6a9",
+    "docs/acceptance/part-one-closeout/sse-identity-budget.json": "44f0d85675cce1cdbe52f662ba8dbfe03375f0d5672b1e33580c6ef2edbe725a",
+    "docs/acceptance/part-one-closeout/continuation-budget.json": "ca02ac041589caf76b4932b612698c44fc9283a3d7df7016ab51953f208a7134",
+    "docs/acceptance/part-one-closeout/gpt-sse-parser-red.log": "f0f4399db24fd84fa93dfc41f63a415375d811292b0b7b07103254c9ef4ebf3c",
+    "docs/acceptance/part-one-closeout/gpt-sse-parser-green.log": "e08261e0632e6223084c7e9a939447d9eb8f612b04ab2f61054e8adc90538ec6",
+    "docs/acceptance/part-one-closeout/gpt-http-observation-limitations.md": "86bfa71b75451553efc9e82c7a1773f3bdede8daa6905ec72fb97de5966afd5a"
+  },
+  "frozen_native_metadata_hashes": {
+    "native_rpc.py": "702fdfe1de5d00b8b30a3628f8811f68f0d8d426caec5c9c4ac8cf828fac4c2e",
+    "native_rpc_worker.py": "efd341daf662db5bbcc73c51bb545ced2759d7c683a7642b2d01231b6aba9419",
+    "codex_protocol.py": "be3efaea44bc56fd821adbeb28642637466a5472e6daea95beacaaf5a30b4922"
+  }
+}

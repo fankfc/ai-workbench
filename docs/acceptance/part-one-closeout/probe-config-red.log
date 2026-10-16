@@ -1,0 +1,19 @@
+F                                                                        [100%]
+================================== FAILURES ===================================
+___________ test_fixed_probe_argv_uses_existing_permission_boundary ___________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-166/test_fixed_probe_argv_uses_exi0')
+
+    def test_fixed_probe_argv_uses_existing_permission_boundary(tmp_path):
+        script = probe_script()
+        argv = script.fixed_probe_argv("codex", tmp_path, "fixture", tmp_path / "codex.exe")
+        assert argv[1:3] == ["exec", "--json"]
+        assert argv[argv.index("--sandbox") + 1] == "workspace-write"
+        assert "--dangerously-bypass-approvals-and-sandbox" not in argv
+        assert "--ignore-rules" not in argv
+>       assert "--ignore-user-config" not in argv
+E       AssertionError: assert '--ignore-user-config' not in ['C:\\Users\\asd15\\AppData\\Local\\Temp\\pytest-of-asd15\\pytest-166\\test_fixed_probe_argv_uses_exi0\\codex.exe', 'exec', '--json', '--sandbox', 'workspace-write', '--ignore-user-config', ...]
+
+tests\contracts\test_gpt_adapter.py:163: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/contracts/test_gpt_adapter.py::test_fixed_probe_argv_uses_existing_permission_boundary

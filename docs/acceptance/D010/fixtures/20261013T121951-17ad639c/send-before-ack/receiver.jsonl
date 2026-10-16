@@ -1,0 +1,1 @@
+{"schema_version": "1.0", "event_id": "c2c78130d19c437e8e4b5fc12a92fb3b", "conversation_id": "c1", "turn_id": "t1", "task_id": "task1", "attempt_id": "a1", "sequence": 2, "kind": "response.pending", "payload": {"status": "pending"}}

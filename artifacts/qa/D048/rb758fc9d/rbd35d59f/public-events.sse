@@ -1,0 +1,12 @@
+id: 1
+event: message.accepted
+data: {"schema_version":"1.0","event_id":"0650d1b48e6a48ae844c5968a5d1ace9","conversation_id":"7a31cf6bf6a84c07b157408cc5d66783","turn_id":"876208124ad0409f97c7cd90b8925177","task_id":"c163ed6c85404b2496a6c767b2a5e515","attempt_id":"c0b2ff8eff75483e8ad82bc97e57c2ac","sequence":1,"kind":"message.accepted","payload":{"message_id":"876208124ad0409f97c7cd90b8925177","text":"核对固定材料并给出结果。","language":"zh-CN"}}
+
+id: 2
+event: response.pending
+data: {"schema_version":"1.0","event_id":"ccde96aaac9d40c69d9c1ea8c4ef14e4","conversation_id":"7a31cf6bf6a84c07b157408cc5d66783","turn_id":"876208124ad0409f97c7cd90b8925177","task_id":"c163ed6c85404b2496a6c767b2a5e515","attempt_id":"c0b2ff8eff75483e8ad82bc97e57c2ac","sequence":2,"kind":"response.pending","payload":{"status":"pending"}}
+
+id: 6
+event: request.cancelled
+data: {"schema_version":"1.0","event_id":"2916d059ba6f4eb4bf4fcb7c36cc3735","conversation_id":"7a31cf6bf6a84c07b157408cc5d66783","turn_id":"876208124ad0409f97c7cd90b8925177","task_id":"c163ed6c85404b2496a6c767b2a5e515","attempt_id":"c0b2ff8eff75483e8ad82bc97e57c2ac","sequence":6,"kind":"request.cancelled","payload":{"text":"取消请求已记录。","language":"zh-CN","cancel_requested":true,"external_stop_confirmed":null}}
+

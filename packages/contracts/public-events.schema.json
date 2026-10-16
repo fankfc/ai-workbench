@@ -1,0 +1,797 @@
+{
+  "$defs": {
+    "AnswerPublished": {
+      "additionalProperties": false,
+      "properties": {
+        "attempt_id": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Attempt Id",
+          "type": "string"
+        },
+        "conversation_id": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Conversation Id",
+          "type": "string"
+        },
+        "event_id": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Event Id",
+          "type": "string"
+        },
+        "kind": {
+          "const": "answer.published",
+          "title": "Kind",
+          "type": "string"
+        },
+        "payload": {
+          "$ref": "#/$defs/AnswerPublishedPayload"
+        },
+        "schema_version": {
+          "const": "1.0",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "sequence": {
+          "minimum": 1,
+          "title": "Sequence",
+          "type": "integer"
+        },
+        "task_id": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Task Id",
+          "type": "string"
+        },
+        "turn_id": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Turn Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "schema_version",
+        "event_id",
+        "conversation_id",
+        "turn_id",
+        "task_id",
+        "attempt_id",
+        "sequence",
+        "kind",
+        "payload"
+      ],
+      "title": "AnswerPublished",
+      "type": "object"
+    },
+    "AnswerPublishedPayload": {
+      "additionalProperties": false,
+      "description": "References are mandatory; D018 must verify actual approval and route gates.",
+      "properties": {
+        "approval_id": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Approval Id",
+          "type": "string"
+        },
+        "content_version_id": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Content Version Id",
+          "type": "string"
+        },
+        "language": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Language",
+          "type": "string"
+        },
+        "message_id": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Message Id",
+          "type": "string"
+        },
+        "text": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Text",
+          "type": "string"
+        }
+      },
+      "required": [
+        "message_id",
+        "text",
+        "language",
+        "content_version_id",
+        "approval_id"
+      ],
+      "title": "AnswerPublishedPayload",
+      "type": "object"
+    },
+    "ArtifactsPublished": {
+      "additionalProperties": false,
+      "properties": {
+        "attempt_id": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Attempt Id",
+          "type": "string"
+        },
+        "conversation_id": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Conversation Id",
+          "type": "string"
+        },
+        "event_id": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Event Id",
+          "type": "string"
+        },
+        "kind": {
+          "const": "artifacts.published",
+          "title": "Kind",
+          "type": "string"
+        },
+        "payload": {
+          "$ref": "#/$defs/ArtifactsPublishedPayload"
+        },
+        "schema_version": {
+          "const": "1.0",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "sequence": {
+          "minimum": 1,
+          "title": "Sequence",
+          "type": "integer"
+        },
+        "task_id": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Task Id",
+          "type": "string"
+        },
+        "turn_id": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Turn Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "schema_version",
+        "event_id",
+        "conversation_id",
+        "turn_id",
+        "task_id",
+        "attempt_id",
+        "sequence",
+        "kind",
+        "payload"
+      ],
+      "title": "ArtifactsPublished",
+      "type": "object"
+    },
+    "ArtifactsPublishedPayload": {
+      "additionalProperties": false,
+      "properties": {
+        "artifacts": {
+          "items": {
+            "$ref": "#/$defs/PublicArtifact"
+          },
+          "minItems": 1,
+          "title": "Artifacts",
+          "type": "array"
+        },
+        "bundle_id": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Bundle Id",
+          "type": "string"
+        },
+        "version_id": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Version Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "bundle_id",
+        "version_id",
+        "artifacts"
+      ],
+      "title": "ArtifactsPublishedPayload",
+      "type": "object"
+    },
+    "InputRequired": {
+      "additionalProperties": false,
+      "properties": {
+        "attempt_id": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Attempt Id",
+          "type": "string"
+        },
+        "conversation_id": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Conversation Id",
+          "type": "string"
+        },
+        "event_id": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Event Id",
+          "type": "string"
+        },
+        "kind": {
+          "const": "input.required",
+          "title": "Kind",
+          "type": "string"
+        },
+        "payload": {
+          "$ref": "#/$defs/InputRequiredPayload"
+        },
+        "schema_version": {
+          "const": "1.0",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "sequence": {
+          "minimum": 1,
+          "title": "Sequence",
+          "type": "integer"
+        },
+        "task_id": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Task Id",
+          "type": "string"
+        },
+        "turn_id": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Turn Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "schema_version",
+        "event_id",
+        "conversation_id",
+        "turn_id",
+        "task_id",
+        "attempt_id",
+        "sequence",
+        "kind",
+        "payload"
+      ],
+      "title": "InputRequired",
+      "type": "object"
+    },
+    "InputRequiredPayload": {
+      "additionalProperties": false,
+      "properties": {
+        "language": {
+          "enum": [
+            "zh-CN",
+            "en"
+          ],
+          "title": "Language",
+          "type": "string"
+        },
+        "prompt_id": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Prompt Id",
+          "type": "string"
+        },
+        "text": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Text",
+          "type": "string"
+        }
+      },
+      "required": [
+        "prompt_id",
+        "text",
+        "language"
+      ],
+      "title": "InputRequiredPayload",
+      "type": "object"
+    },
+    "MessageAccepted": {
+      "additionalProperties": false,
+      "properties": {
+        "attempt_id": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Attempt Id",
+          "type": "string"
+        },
+        "conversation_id": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Conversation Id",
+          "type": "string"
+        },
+        "event_id": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Event Id",
+          "type": "string"
+        },
+        "kind": {
+          "const": "message.accepted",
+          "title": "Kind",
+          "type": "string"
+        },
+        "payload": {
+          "$ref": "#/$defs/MessageAcceptedPayload"
+        },
+        "schema_version": {
+          "const": "1.0",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "sequence": {
+          "minimum": 1,
+          "title": "Sequence",
+          "type": "integer"
+        },
+        "task_id": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Task Id",
+          "type": "string"
+        },
+        "turn_id": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Turn Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "schema_version",
+        "event_id",
+        "conversation_id",
+        "turn_id",
+        "task_id",
+        "attempt_id",
+        "sequence",
+        "kind",
+        "payload"
+      ],
+      "title": "MessageAccepted",
+      "type": "object"
+    },
+    "MessageAcceptedPayload": {
+      "additionalProperties": false,
+      "properties": {
+        "language": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Language",
+          "type": "string"
+        },
+        "message_id": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Message Id",
+          "type": "string"
+        },
+        "text": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Text",
+          "type": "string"
+        }
+      },
+      "required": [
+        "message_id",
+        "text",
+        "language"
+      ],
+      "title": "MessageAcceptedPayload",
+      "type": "object"
+    },
+    "PublicArtifact": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_id": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Artifact Id",
+          "type": "string"
+        },
+        "artifact_pair_id": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "pattern": "\\S",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Artifact Pair Id"
+        },
+        "file_name": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "File Name",
+          "type": "string"
+        },
+        "format": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Format",
+          "type": "string"
+        },
+        "language": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Language",
+          "type": "string"
+        },
+        "size_bytes": {
+          "minimum": 0,
+          "title": "Size Bytes",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "artifact_id",
+        "artifact_pair_id",
+        "format",
+        "language",
+        "file_name",
+        "size_bytes"
+      ],
+      "title": "PublicArtifact",
+      "type": "object"
+    },
+    "RequestCancelled": {
+      "additionalProperties": false,
+      "properties": {
+        "attempt_id": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Attempt Id",
+          "type": "string"
+        },
+        "conversation_id": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Conversation Id",
+          "type": "string"
+        },
+        "event_id": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Event Id",
+          "type": "string"
+        },
+        "kind": {
+          "const": "request.cancelled",
+          "title": "Kind",
+          "type": "string"
+        },
+        "payload": {
+          "$ref": "#/$defs/RequestCancelledPayload"
+        },
+        "schema_version": {
+          "const": "1.0",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "sequence": {
+          "minimum": 1,
+          "title": "Sequence",
+          "type": "integer"
+        },
+        "task_id": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Task Id",
+          "type": "string"
+        },
+        "turn_id": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Turn Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "schema_version",
+        "event_id",
+        "conversation_id",
+        "turn_id",
+        "task_id",
+        "attempt_id",
+        "sequence",
+        "kind",
+        "payload"
+      ],
+      "title": "RequestCancelled",
+      "type": "object"
+    },
+    "RequestCancelledPayload": {
+      "additionalProperties": false,
+      "properties": {
+        "cancel_requested": {
+          "const": true,
+          "title": "Cancel Requested",
+          "type": "boolean"
+        },
+        "external_stop_confirmed": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "External Stop Confirmed"
+        },
+        "language": {
+          "const": "zh-CN",
+          "title": "Language",
+          "type": "string"
+        },
+        "text": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Text",
+          "type": "string"
+        }
+      },
+      "required": [
+        "text",
+        "language",
+        "cancel_requested",
+        "external_stop_confirmed"
+      ],
+      "title": "RequestCancelledPayload",
+      "type": "object"
+    },
+    "RequestFailed": {
+      "additionalProperties": false,
+      "properties": {
+        "attempt_id": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Attempt Id",
+          "type": "string"
+        },
+        "conversation_id": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Conversation Id",
+          "type": "string"
+        },
+        "event_id": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Event Id",
+          "type": "string"
+        },
+        "kind": {
+          "const": "request.failed",
+          "title": "Kind",
+          "type": "string"
+        },
+        "payload": {
+          "$ref": "#/$defs/RequestFailedPayload"
+        },
+        "schema_version": {
+          "const": "1.0",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "sequence": {
+          "minimum": 1,
+          "title": "Sequence",
+          "type": "integer"
+        },
+        "task_id": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Task Id",
+          "type": "string"
+        },
+        "turn_id": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Turn Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "schema_version",
+        "event_id",
+        "conversation_id",
+        "turn_id",
+        "task_id",
+        "attempt_id",
+        "sequence",
+        "kind",
+        "payload"
+      ],
+      "title": "RequestFailed",
+      "type": "object"
+    },
+    "RequestFailedPayload": {
+      "additionalProperties": false,
+      "properties": {
+        "action": {
+          "enum": [
+            "retry",
+            "reconnect",
+            "provide_input",
+            "none"
+          ],
+          "title": "Action",
+          "type": "string"
+        },
+        "error_code": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Error Code",
+          "type": "string"
+        },
+        "language": {
+          "const": "zh-CN",
+          "title": "Language",
+          "type": "string"
+        },
+        "text": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Text",
+          "type": "string"
+        }
+      },
+      "required": [
+        "error_code",
+        "text",
+        "language",
+        "action"
+      ],
+      "title": "RequestFailedPayload",
+      "type": "object"
+    },
+    "ResponsePending": {
+      "additionalProperties": false,
+      "properties": {
+        "attempt_id": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Attempt Id",
+          "type": "string"
+        },
+        "conversation_id": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Conversation Id",
+          "type": "string"
+        },
+        "event_id": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Event Id",
+          "type": "string"
+        },
+        "kind": {
+          "const": "response.pending",
+          "title": "Kind",
+          "type": "string"
+        },
+        "payload": {
+          "$ref": "#/$defs/ResponsePendingPayload"
+        },
+        "schema_version": {
+          "const": "1.0",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "sequence": {
+          "minimum": 1,
+          "title": "Sequence",
+          "type": "integer"
+        },
+        "task_id": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Task Id",
+          "type": "string"
+        },
+        "turn_id": {
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Turn Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "schema_version",
+        "event_id",
+        "conversation_id",
+        "turn_id",
+        "task_id",
+        "attempt_id",
+        "sequence",
+        "kind",
+        "payload"
+      ],
+      "title": "ResponsePending",
+      "type": "object"
+    },
+    "ResponsePendingPayload": {
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "const": "pending",
+          "title": "Status",
+          "type": "string"
+        }
+      },
+      "required": [
+        "status"
+      ],
+      "title": "ResponsePendingPayload",
+      "type": "object"
+    }
+  },
+  "$id": "urn:ai-workbench:contracts:1.0:public-events.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Schema permission does not prove release authority or translation quality.",
+  "discriminator": {
+    "mapping": {
+      "answer.published": "#/$defs/AnswerPublished",
+      "artifacts.published": "#/$defs/ArtifactsPublished",
+      "input.required": "#/$defs/InputRequired",
+      "message.accepted": "#/$defs/MessageAccepted",
+      "request.cancelled": "#/$defs/RequestCancelled",
+      "request.failed": "#/$defs/RequestFailed",
+      "response.pending": "#/$defs/ResponsePending"
+    },
+    "propertyName": "kind"
+  },
+  "oneOf": [
+    {
+      "$ref": "#/$defs/MessageAccepted"
+    },
+    {
+      "$ref": "#/$defs/ResponsePending"
+    },
+    {
+      "$ref": "#/$defs/AnswerPublished"
+    },
+    {
+      "$ref": "#/$defs/ArtifactsPublished"
+    },
+    {
+      "$ref": "#/$defs/RequestFailed"
+    },
+    {
+      "$ref": "#/$defs/RequestCancelled"
+    },
+    {
+      "$ref": "#/$defs/InputRequired"
+    }
+  ],
+  "title": "PublicEvent",
+  "x-contract-version": "1.0"
+}

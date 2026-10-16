@@ -1,0 +1,15 @@
+F                                                                        [100%]
+================================== FAILURES ===================================
+__________________ test_phase_five_current_run_entry_exists ___________________
+
+    def test_phase_five_current_run_entry_exists():
+>       assert SCRIPT.is_file(), 'Stage-five has no current-run verification entry'
+E       AssertionError: Stage-five has no current-run verification entry
+E       assert False
+E        +  where False = is_file()
+E        +    where is_file = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/scripts/phase_five_verify.py').is_file
+
+tests\acceptance\test_work_order_protocol.py:15: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/acceptance/test_work_order_protocol.py::test_phase_five_current_run_entry_exists
+1 failed in 0.48s

@@ -1,0 +1,16 @@
+{
+  "functional_release": false,
+  "optimization_goal_met": false,
+  "blocked_reasons": [
+    "candidate_missing",
+    "dependency_lock:package-lock.json",
+    "dependency_lock:services/orchestrator/uv.lock",
+    "sbom",
+    "source_commit_missing",
+    "source_commit_not_verified",
+    "source_tree_not_frozen",
+    "trusted_signature_missing"
+  ],
+  "qualified_scope": [],
+  "evidence_kind": "audit"
+}

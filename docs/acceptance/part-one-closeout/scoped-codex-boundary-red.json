@@ -1,0 +1,14 @@
+{
+  "time": "2026-10-14T06:12:21.723838+00:00",
+  "command": [
+    "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\.venv\\Scripts\\python.exe",
+    "-m",
+    "pytest",
+    "-q",
+    "tests/contracts/test_scoped_codex_runtime.py::test_workspace_symlink_inside_scope_is_rejected_before_start",
+    "tests/contracts/test_scoped_codex_runtime.py::test_completed_steps_can_follow_but_unknown_remote_blocks_new_request_across_restart"
+  ],
+  "exit_code": 1,
+  "git_commit": null,
+  "log": "docs\\acceptance\\part-one-closeout\\scoped-codex-boundary-red.log"
+}

@@ -1,0 +1,765 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Candidate evidence ledger; schema validity is not release eligibility",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "candidate",
+    "commit",
+    "dependency_locks",
+    "sbom",
+    "compatible_schema",
+    "evidence"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "candidate": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "path",
+            "sha256"
+          ],
+          "properties": {
+            "path": {
+              "type": "string",
+              "minLength": 1
+            },
+            "sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          }
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "commit": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "dependency_locks": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "package-lock.json",
+        "services/orchestrator/uv.lock"
+      ],
+      "properties": {
+        "package-lock.json": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "path",
+            "sha256"
+          ],
+          "properties": {
+            "path": {
+              "type": "string",
+              "minLength": 1
+            },
+            "sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          }
+        },
+        "services/orchestrator/uv.lock": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "path",
+            "sha256"
+          ],
+          "properties": {
+            "path": {
+              "type": "string",
+              "minLength": 1
+            },
+            "sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          }
+        }
+      }
+    },
+    "sbom": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "sha256"
+      ],
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      }
+    },
+    "compatible_schema": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "security_boundary": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "report"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "missing",
+                "blocked",
+                "failed",
+                "skipped",
+                "passed"
+              ]
+            },
+            "report": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "path",
+                    "sha256"
+                  ],
+                  "properties": {
+                    "path": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "sha256": {
+                      "type": "string",
+                      "pattern": "^[0-9a-f]{64}$"
+                    }
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          }
+        },
+        "translation_review": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "report"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "missing",
+                "blocked",
+                "failed",
+                "skipped",
+                "passed"
+              ]
+            },
+            "report": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "path",
+                    "sha256"
+                  ],
+                  "properties": {
+                    "path": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "sha256": {
+                      "type": "string",
+                      "pattern": "^[0-9a-f]{64}$"
+                    }
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          }
+        },
+        "accessibility_review": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "report"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "missing",
+                "blocked",
+                "failed",
+                "skipped",
+                "passed"
+              ]
+            },
+            "report": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "path",
+                    "sha256"
+                  ],
+                  "properties": {
+                    "path": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "sha256": {
+                      "type": "string",
+                      "pattern": "^[0-9a-f]{64}$"
+                    }
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          }
+        },
+        "performance": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "report"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "missing",
+                "blocked",
+                "failed",
+                "skipped",
+                "passed"
+              ]
+            },
+            "report": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "path",
+                    "sha256"
+                  ],
+                  "properties": {
+                    "path": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "sha256": {
+                      "type": "string",
+                      "pattern": "^[0-9a-f]{64}$"
+                    }
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          }
+        },
+        "reliability_24h": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "report"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "missing",
+                "blocked",
+                "failed",
+                "skipped",
+                "passed"
+              ]
+            },
+            "report": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "path",
+                    "sha256"
+                  ],
+                  "properties": {
+                    "path": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "sha256": {
+                      "type": "string",
+                      "pattern": "^[0-9a-f]{64}$"
+                    }
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          }
+        },
+        "backup_restore": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "report"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "missing",
+                "blocked",
+                "failed",
+                "skipped",
+                "passed"
+              ]
+            },
+            "report": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "path",
+                    "sha256"
+                  ],
+                  "properties": {
+                    "path": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "sha256": {
+                      "type": "string",
+                      "pattern": "^[0-9a-f]{64}$"
+                    }
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          }
+        },
+        "windows_install": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "report"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "missing",
+                "blocked",
+                "failed",
+                "skipped",
+                "passed"
+              ]
+            },
+            "report": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "path",
+                    "sha256"
+                  ],
+                  "properties": {
+                    "path": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "sha256": {
+                      "type": "string",
+                      "pattern": "^[0-9a-f]{64}$"
+                    }
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          }
+        },
+        "signed_update": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "report"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "missing",
+                "blocked",
+                "failed",
+                "skipped",
+                "passed"
+              ]
+            },
+            "report": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "path",
+                    "sha256"
+                  ],
+                  "properties": {
+                    "path": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "sha256": {
+                      "type": "string",
+                      "pattern": "^[0-9a-f]{64}$"
+                    }
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          }
+        },
+        "real_journeys": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "report"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "missing",
+                "blocked",
+                "failed",
+                "skipped",
+                "passed"
+              ]
+            },
+            "report": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "path",
+                    "sha256"
+                  ],
+                  "properties": {
+                    "path": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "sha256": {
+                      "type": "string",
+                      "pattern": "^[0-9a-f]{64}$"
+                    }
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          }
+        },
+        "beta_trial": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "report"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "missing",
+                "blocked",
+                "failed",
+                "skipped",
+                "passed"
+              ]
+            },
+            "report": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "path",
+                    "sha256"
+                  ],
+                  "properties": {
+                    "path": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "sha256": {
+                      "type": "string",
+                      "pattern": "^[0-9a-f]{64}$"
+                    }
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          }
+        },
+        "authenticode": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "report"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "missing",
+                "blocked",
+                "failed",
+                "skipped",
+                "passed"
+              ]
+            },
+            "report": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "path",
+                    "sha256"
+                  ],
+                  "properties": {
+                    "path": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "sha256": {
+                      "type": "string",
+                      "pattern": "^[0-9a-f]{64}$"
+                    }
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          }
+        },
+        "release_approval": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "report"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "missing",
+                "blocked",
+                "failed",
+                "skipped",
+                "passed"
+              ]
+            },
+            "report": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "path",
+                    "sha256"
+                  ],
+                  "properties": {
+                    "path": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "sha256": {
+                      "type": "string",
+                      "pattern": "^[0-9a-f]{64}$"
+                    }
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          }
+        },
+        "optimization_qualification": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "report"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "missing",
+                "blocked",
+                "failed",
+                "skipped",
+                "passed"
+              ]
+            },
+            "report": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "path",
+                    "sha256"
+                  ],
+                  "properties": {
+                    "path": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "sha256": {
+                      "type": "string",
+                      "pattern": "^[0-9a-f]{64}$"
+                    }
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          }
+        },
+        "final_handover": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "report"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "missing",
+                "blocked",
+                "failed",
+                "skipped",
+                "passed"
+              ]
+            },
+            "report": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "path",
+                    "sha256"
+                  ],
+                  "properties": {
+                    "path": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "sha256": {
+                      "type": "string",
+                      "pattern": "^[0-9a-f]{64}$"
+                    }
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          }
+        }
+      },
+      "required": [
+        "security_boundary",
+        "translation_review",
+        "accessibility_review",
+        "performance",
+        "reliability_24h",
+        "backup_restore",
+        "windows_install",
+        "signed_update",
+        "real_journeys",
+        "beta_trial",
+        "authenticode",
+        "release_approval",
+        "optimization_qualification",
+        "final_handover"
+      ]
+    },
+    "note": {
+      "type": "string"
+    }
+  }
+}

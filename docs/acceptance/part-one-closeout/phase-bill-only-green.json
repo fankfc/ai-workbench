@@ -1,0 +1,16 @@
+{
+  "time": "2026-10-14T07:22:15.418635+00:00",
+  "command": [
+    "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\.venv\\Scripts\\python.exe",
+    "-m",
+    "pytest",
+    "-q",
+    "tests/contracts/test_phase_usage.py",
+    "tests/contracts/test_scoped_runtime_repairs.py",
+    "tests/contracts/test_scoped_worker_repairs.py",
+    "-q"
+  ],
+  "exit_code": 1,
+  "git_commit": null,
+  "log": "docs\\acceptance\\part-one-closeout\\phase-bill-only-green.log"
+}

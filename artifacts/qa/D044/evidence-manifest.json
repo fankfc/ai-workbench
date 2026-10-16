@@ -1,0 +1,66 @@
+{
+  "version": "1.0",
+  "build_id": "512ed724dab6261fe8b3e1ec7eac0d56f0d1ed8ff7891fb0a1dfdbae4308ce1b",
+  "run_id": null,
+  "created_at": "2026-10-14T15:04:36.351674+00:00",
+  "seed": 4317,
+  "encoding": "UTF-8",
+  "provider_boundary": "fake",
+  "files": [
+    {
+      "path": "freeze-audit.json",
+      "size": 831,
+      "sha256": "3954ae1b48674f095b8f50698c75468d735561f281f16391bf65019dd525a66a"
+    },
+    {
+      "path": "run-194a70ed0071/.qa-run.json",
+      "size": 155,
+      "sha256": "66bf2a246847e7b5849fc703ba8c4a584b6ccd118acfb7819866585e90dc09b2"
+    },
+    {
+      "path": "run-194a70ed0071/freeze-audit.json",
+      "size": 831,
+      "sha256": "3954ae1b48674f095b8f50698c75468d735561f281f16391bf65019dd525a66a"
+    },
+    {
+      "path": "run-194a70ed0071/registration-under-audit.json",
+      "size": 3401,
+      "sha256": "59a9287129172c4012234e5ad92072a1d9dadf1d06755f55b2b0b3803883dd03"
+    },
+    {
+      "path": "run-194a70ed0071/run-manifest.json",
+      "size": 904,
+      "sha256": "c69addb4bcc35436501de748e5bc8b28ade97bdb2ab1cb21641667ebda65bc6f"
+    },
+    {
+      "path": "run-194a70ed0071/scenario-result.json",
+      "size": 831,
+      "sha256": "3954ae1b48674f095b8f50698c75468d735561f281f16391bf65019dd525a66a"
+    },
+    {
+      "path": "run-66245d4f842e/.qa-run.json",
+      "size": 155,
+      "sha256": "2fdbb3a605d62556433fe9d3beac562eabaf6b8fb696b5fd37ab1cad2206464a"
+    },
+    {
+      "path": "run-66245d4f842e/freeze-audit.json",
+      "size": 831,
+      "sha256": "3954ae1b48674f095b8f50698c75468d735561f281f16391bf65019dd525a66a"
+    },
+    {
+      "path": "run-66245d4f842e/registration-under-audit.json",
+      "size": 3401,
+      "sha256": "59a9287129172c4012234e5ad92072a1d9dadf1d06755f55b2b0b3803883dd03"
+    },
+    {
+      "path": "run-66245d4f842e/run-manifest.json",
+      "size": 904,
+      "sha256": "535f7ca8e4c509ecf2731842feca0dea9d401fef585d7be41d66c6b72b9d1c25"
+    },
+    {
+      "path": "run-66245d4f842e/scenario-result.json",
+      "size": 831,
+      "sha256": "3954ae1b48674f095b8f50698c75468d735561f281f16391bf65019dd525a66a"
+    }
+  ]
+}

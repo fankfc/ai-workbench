@@ -1,0 +1,190 @@
+FF                                                                       [100%]
+================================== FAILURES ===================================
+_ test_cancel_ends_unresponsive_local_wait_and_allows_next_task_without_remote_restart[returned] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-480/test_cancel_ends_unresponsive_0')
+cleanup = 'returned'
+
+    @pytest.mark.parametrize('cleanup', ['returned', 'failed'])
+    def test_cancel_ends_unresponsive_local_wait_and_allows_next_task_without_remote_restart(tmp_path, cleanup):
+        app, task, runtime, calls, bindings, _ = fixture_case(tmp_path)
+        entered, interrupted = asyncio.Event(), asyncio.Event()
+        original = bindings.planner.plan
+        async def waiting(task_id, *args):
+            if task_id != task:
+                return await original(task_id, *args)
+            entered.set()
+            try:
+                await asyncio.Event().wait()
+            finally:
+                interrupted.set()
+        bindings.planner.plan = waiting
+        async def cancel(task_id, attempt_id):
+            calls['cancel'].append((task_id, attempt_id))
+            if cleanup == 'failed':
+                raise RuntimeError('fixture local cleanup failed')
+        replacement = NativeBackendBindings(dict(bindings.provider_registry), bindings.planner,
+            bindings.execute, bindings.publish, cancel, 'fixture')
+        supervisor = TaskSupervisor(app.state.database.path, replacement, provider_mode='fake')
+        async def exercise():
+            running = asyncio.create_task(supervisor.run_once())
+            try:
+                await entered.wait()
+                with TestClient(app) as client:
+                    client.headers['Authorization'] = 'Bearer ' + app.state.settings.api_token
+                    with closing(app.state.database.connect()) as connection, transaction(connection):
+                        connection.execute("UPDATE task_runs SET external_request_id='accepted-remote',remote_status='unknown' WHERE task_id=?", (task,))
+                        conversation = connection.execute('SELECT conversation_id FROM turns WHERE task_id=?', (task,)).fetchone()[0]
+                    cancelled = client.post(f'/v1/tasks/{task}/cancel').json()
+                    assert cancelled['cancel_pending_remote'] is True
+                    next_task = client.post(f'/v1/conversations/{conversation}/turns', json=dict(text='Compute [4,5,6]',
+                        domain='mixed', provider_profile_id='fake-gpt', client_request_id='next-request')).json()['task_id']
+                finished, _ = await asyncio.wait({running}, timeout=.5)
+                assert running in finished, 'cancel left the local planner wait holding the dispatcher'
+                assert await running is None
+                assert interrupted.is_set() and not supervisor._operation.locked()
+                row = task_row(app, task)
+                assert row['state'] == 'CANCELLED' and row['cancel_pending_remote'] == 1
+                assert row['external_stop_confirmed'] is None and row['remote_status'] == 'unknown'
+                assert len(calls['cancel']) == 1 and not runtime.starts
+                await supervisor.run_once()
+                assert task_row(app, next_task)['state'] == 'PUBLISHED'
+                assert len(runtime.starts) == len(calls['execute']) == len(calls['publish']) == 1
+                assert len(calls['cancel']) == 1
+            finally:
+                if not running.done():
+                    running.cancel()
+                await asyncio.gather(running, return_exceptions=True)
+>       asyncio.run(exercise())
+
+tests\integration\test_native_supervisor.py:247: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:194: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:118: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py:721: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    async def exercise():
+        running = asyncio.create_task(supervisor.run_once())
+        try:
+            await entered.wait()
+            with TestClient(app) as client:
+                client.headers['Authorization'] = 'Bearer ' + app.state.settings.api_token
+                with closing(app.state.database.connect()) as connection, transaction(connection):
+                    connection.execute("UPDATE task_runs SET external_request_id='accepted-remote',remote_status='unknown' WHERE task_id=?", (task,))
+                    conversation = connection.execute('SELECT conversation_id FROM turns WHERE task_id=?', (task,)).fetchone()[0]
+                cancelled = client.post(f'/v1/tasks/{task}/cancel').json()
+                assert cancelled['cancel_pending_remote'] is True
+                next_task = client.post(f'/v1/conversations/{conversation}/turns', json=dict(text='Compute [4,5,6]',
+                    domain='mixed', provider_profile_id='fake-gpt', client_request_id='next-request')).json()['task_id']
+            finished, _ = await asyncio.wait({running}, timeout=.5)
+>           assert running in finished, 'cancel left the local planner wait holding the dispatcher'
+E           AssertionError: cancel left the local planner wait holding the dispatcher
+E           assert <Task pending name='Task-5' coro=<TaskSupervisor.run_once() running at C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\app\runtime\supervisor.py:234> wait_for=<Future pending cb=[Task.task_wakeup()]>> in set()
+
+tests\integration\test_native_supervisor.py:232: AssertionError
+_ test_cancel_ends_unresponsive_local_wait_and_allows_next_task_without_remote_restart[failed] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-480/test_cancel_ends_unresponsive_1')
+cleanup = 'failed'
+
+    @pytest.mark.parametrize('cleanup', ['returned', 'failed'])
+    def test_cancel_ends_unresponsive_local_wait_and_allows_next_task_without_remote_restart(tmp_path, cleanup):
+        app, task, runtime, calls, bindings, _ = fixture_case(tmp_path)
+        entered, interrupted = asyncio.Event(), asyncio.Event()
+        original = bindings.planner.plan
+        async def waiting(task_id, *args):
+            if task_id != task:
+                return await original(task_id, *args)
+            entered.set()
+            try:
+                await asyncio.Event().wait()
+            finally:
+                interrupted.set()
+        bindings.planner.plan = waiting
+        async def cancel(task_id, attempt_id):
+            calls['cancel'].append((task_id, attempt_id))
+            if cleanup == 'failed':
+                raise RuntimeError('fixture local cleanup failed')
+        replacement = NativeBackendBindings(dict(bindings.provider_registry), bindings.planner,
+            bindings.execute, bindings.publish, cancel, 'fixture')
+        supervisor = TaskSupervisor(app.state.database.path, replacement, provider_mode='fake')
+        async def exercise():
+            running = asyncio.create_task(supervisor.run_once())
+            try:
+                await entered.wait()
+                with TestClient(app) as client:
+                    client.headers['Authorization'] = 'Bearer ' + app.state.settings.api_token
+                    with closing(app.state.database.connect()) as connection, transaction(connection):
+                        connection.execute("UPDATE task_runs SET external_request_id='accepted-remote',remote_status='unknown' WHERE task_id=?", (task,))
+                        conversation = connection.execute('SELECT conversation_id FROM turns WHERE task_id=?', (task,)).fetchone()[0]
+                    cancelled = client.post(f'/v1/tasks/{task}/cancel').json()
+                    assert cancelled['cancel_pending_remote'] is True
+                    next_task = client.post(f'/v1/conversations/{conversation}/turns', json=dict(text='Compute [4,5,6]',
+                        domain='mixed', provider_profile_id='fake-gpt', client_request_id='next-request')).json()['task_id']
+                finished, _ = await asyncio.wait({running}, timeout=.5)
+                assert running in finished, 'cancel left the local planner wait holding the dispatcher'
+                assert await running is None
+                assert interrupted.is_set() and not supervisor._operation.locked()
+                row = task_row(app, task)
+                assert row['state'] == 'CANCELLED' and row['cancel_pending_remote'] == 1
+                assert row['external_stop_confirmed'] is None and row['remote_status'] == 'unknown'
+                assert len(calls['cancel']) == 1 and not runtime.starts
+                await supervisor.run_once()
+                assert task_row(app, next_task)['state'] == 'PUBLISHED'
+                assert len(runtime.starts) == len(calls['execute']) == len(calls['publish']) == 1
+                assert len(calls['cancel']) == 1
+            finally:
+                if not running.done():
+                    running.cancel()
+                await asyncio.gather(running, return_exceptions=True)
+>       asyncio.run(exercise())
+
+tests\integration\test_native_supervisor.py:247: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:194: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:118: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py:721: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    async def exercise():
+        running = asyncio.create_task(supervisor.run_once())
+        try:
+            await entered.wait()
+            with TestClient(app) as client:
+                client.headers['Authorization'] = 'Bearer ' + app.state.settings.api_token
+                with closing(app.state.database.connect()) as connection, transaction(connection):
+                    connection.execute("UPDATE task_runs SET external_request_id='accepted-remote',remote_status='unknown' WHERE task_id=?", (task,))
+                    conversation = connection.execute('SELECT conversation_id FROM turns WHERE task_id=?', (task,)).fetchone()[0]
+                cancelled = client.post(f'/v1/tasks/{task}/cancel').json()
+                assert cancelled['cancel_pending_remote'] is True
+                next_task = client.post(f'/v1/conversations/{conversation}/turns', json=dict(text='Compute [4,5,6]',
+                    domain='mixed', provider_profile_id='fake-gpt', client_request_id='next-request')).json()['task_id']
+            finished, _ = await asyncio.wait({running}, timeout=.5)
+>           assert running in finished, 'cancel left the local planner wait holding the dispatcher'
+E           AssertionError: cancel left the local planner wait holding the dispatcher
+E           assert <Task pending name='Task-16' coro=<TaskSupervisor.run_once() running at C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\app\runtime\supervisor.py:234> wait_for=<Future pending cb=[Task.task_wakeup()]>> in set()
+
+tests\integration\test_native_supervisor.py:232: AssertionError
+============================== warnings summary ===============================
+services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1
+  C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/integration/test_native_supervisor.py::test_cancel_ends_unresponsive_local_wait_and_allows_next_task_without_remote_restart[returned]
+FAILED tests/integration/test_native_supervisor.py::test_cancel_ends_unresponsive_local_wait_and_allows_next_task_without_remote_restart[failed]
+2 failed, 17 deselected, 1 warning in 2.10s

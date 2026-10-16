@@ -1,0 +1,183 @@
+{
+  "schema_version": "1.0",
+  "frozen_at": "2026-10-14T09:50:52.698947+00:00",
+  "scenarios": [
+    {
+      "domain": "code",
+      "request": "tests/fixtures/vertical/code.zh.md",
+      "inputs": [
+        {
+          "path": "tests/fixtures/vertical/code.zh.md",
+          "sha256": "417589444e5eb320e30b94662252c02590c9afe07cafca6d54c5939752ac84e8"
+        },
+        {
+          "path": "tests/fixtures/vertical/add.py",
+          "sha256": "71bdccb8f575f1049fa00f1fc2ab6ba89d655be178c869ac7c190839e4fe2330"
+        },
+        {
+          "path": "tests/fixtures/vertical/test_add.py.txt",
+          "sha256": "743656717aa65a07287757e276136935e5b22f90c248799f1d4dcba520e3ef0f"
+        }
+      ],
+      "requested_formats": [
+        "code",
+        "test_results"
+      ],
+      "required_criteria": [
+        "signed_addition",
+        "scope_integrity",
+        "A_design_review"
+      ],
+      "provider_mode": "real",
+      "model_families": [
+        "claude",
+        "gpt"
+      ],
+      "b_family": "glm",
+      "budget_tokens": 300000,
+      "reserved_a_tokens": 60000,
+      "budget_seconds": 480,
+      "status": "BLOCKED",
+      "requires": [
+        "actual_gui_submission",
+        "verified_model_identity",
+        "A_B_C_A_evidence",
+        "download_hashes",
+        "cancel_and_restart",
+        "domain_human_review"
+      ]
+    },
+    {
+      "domain": "paper",
+      "request": "tests/fixtures/vertical/paper.zh.md",
+      "inputs": [
+        {
+          "path": "tests/fixtures/vertical/paper.zh.md",
+          "sha256": "5b3700094bd7d3679de9b3fa253856e088490bc7034cb5b0a62033da956df438"
+        },
+        {
+          "path": "tests/fixtures/vertical/observations.csv",
+          "sha256": "316a64156540108eefa9cbb7387dce24493d7eef1da60cf4586f204fad8b3bb6"
+        }
+      ],
+      "requested_formats": [
+        "pdf",
+        "docx"
+      ],
+      "required_criteria": [
+        "mean=2.5",
+        "range=1..4",
+        "no_causal_claim",
+        "A_evidence_review"
+      ],
+      "provider_mode": "real",
+      "model_families": [
+        "claude",
+        "gpt"
+      ],
+      "b_family": "glm",
+      "budget_tokens": 300000,
+      "reserved_a_tokens": 60000,
+      "budget_seconds": 480,
+      "status": "BLOCKED",
+      "requires": [
+        "actual_gui_submission",
+        "verified_model_identity",
+        "A_B_C_A_evidence",
+        "download_hashes",
+        "cancel_and_restart",
+        "domain_human_review"
+      ]
+    },
+    {
+      "domain": "document",
+      "request": "tests/fixtures/vertical/document.zh.md",
+      "inputs": [
+        {
+          "path": "tests/fixtures/vertical/document.zh.md",
+          "sha256": "28552989778fd9eb118f9580ef48e7b76a82270ad15cdb574da690536c96582d"
+        },
+        {
+          "path": "tests/fixtures/vertical/source.zh.md",
+          "sha256": "9e4b556b7e6b3534d1a6699d0b48b4ab19e4239627a524f3468f7eb2faf2329e"
+        }
+      ],
+      "requested_formats": [
+        "markdown",
+        "docx",
+        "pdf"
+      ],
+      "required_criteria": [
+        "complete_source",
+        "negative_threshold=-0.03",
+        "uncertainty_preserved",
+        "A_audience_review"
+      ],
+      "provider_mode": "real",
+      "model_families": [
+        "claude",
+        "gpt"
+      ],
+      "b_family": "glm",
+      "budget_tokens": 300000,
+      "reserved_a_tokens": 60000,
+      "budget_seconds": 480,
+      "status": "BLOCKED",
+      "requires": [
+        "actual_gui_submission",
+        "verified_model_identity",
+        "A_B_C_A_evidence",
+        "download_hashes",
+        "cancel_and_restart",
+        "domain_human_review"
+      ]
+    },
+    {
+      "domain": "composite",
+      "request": "tests/fixtures/vertical/composite.zh.md",
+      "inputs": [
+        {
+          "path": "tests/fixtures/vertical/composite.zh.md",
+          "sha256": "9b3af4a4ab51c9bdd9ead58c339b93fc332e19f4cdf063bd70ad157d1ab090f5"
+        },
+        {
+          "path": "tests/fixtures/vertical/sales.csv",
+          "sha256": "17038a6f42374e654ecd6760e02b5af6f63334b149285ff0a42beb9ba5f7e3ec"
+        }
+      ],
+      "requested_formats": [
+        "code",
+        "csv",
+        "png",
+        "pdf"
+      ],
+      "required_criteria": [
+        "v1=30,40,10",
+        "v2=30,50,20",
+        "fresh_dependencies",
+        "historical_v1_retained"
+      ],
+      "provider_mode": "real",
+      "model_families": [
+        "claude",
+        "gpt"
+      ],
+      "b_family": "glm",
+      "budget_tokens": 300000,
+      "reserved_a_tokens": 60000,
+      "budget_seconds": 480,
+      "status": "BLOCKED",
+      "requires": [
+        "actual_gui_submission",
+        "verified_model_identity",
+        "A_B_C_A_evidence",
+        "download_hashes",
+        "cancel_and_restart",
+        "domain_human_review"
+      ]
+    }
+  ],
+  "evaluated": false,
+  "quality_equivalence_claim": false,
+  "token_savings_claim": false
+}

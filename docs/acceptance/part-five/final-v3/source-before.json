@@ -1,0 +1,49 @@
+{
+  "build_id": "c6d7cca918e8191838f2870cfcdb9006f36879df1b4663499c08fcb0f810d73e",
+  "qa_source_id": "b598cd691ca2afa6a762d0c1e18a583de70370f951136aac9f512781a0fe6656",
+  "mapping_sha256": "68a418544c0460e4d7a57c657dba74ec5bf441a08560bdd6980e7fe548bdd2ab",
+  "spec_sha256": "94cb042be30a957eba118a73d0af0ae81b367e371b85bea08e7d7a5c0c2a03c0",
+  "role_assets": [
+    {
+      "path": "services/orchestrator/app/prompts/roles/a_planner.v1.md",
+      "sha256": "1a8ec59cd385f3cc82251c0cf555c3ac92cfdd2814d56917dc0898137da35209"
+    },
+    {
+      "path": "services/orchestrator/app/prompts/roles/a_reviewer.v1.md",
+      "sha256": "1add8582dc76978eda30537b776fb67b82d5aadf569f96462896985d384c0af7"
+    },
+    {
+      "path": "services/orchestrator/app/prompts/roles/a_takeover.v1.md",
+      "sha256": "0028d5bfcce1c7d9bbdcd607addb33041e1fd49e6b272a441d29c3a44b42b610"
+    },
+    {
+      "path": "services/orchestrator/app/prompts/roles/b_checker.v1.md",
+      "sha256": "67f8cc481eba133a7e8cee11941266285fffd4fc2bc54bb506029d2bb8a40a68"
+    },
+    {
+      "path": "services/orchestrator/app/prompts/roles/b_executor.v1.md",
+      "sha256": "8d9347fce1429188cddc2e8107c0ed6509be3858b7e7d15473407480a5b085ad"
+    },
+    {
+      "path": "services/orchestrator/app/prompts/roles/b_translator.v1.md",
+      "sha256": "a3d1ef4032c6de68eb809fd3b79b3ab1efb5721cbd7e458233d9f0890578494a"
+    },
+    {
+      "path": "services/orchestrator/app/prompts/roles/runtime_boundaries.v1.md",
+      "sha256": "359110f30437262422ccaef0124370c65383eddbc01cb53c9b01138981867cc8"
+    },
+    {
+      "path": "services/orchestrator/app/translation/prompts/input_translator.txt",
+      "sha256": "dc2ee410ceaf6f374a145f39987e46d40785b1223cc089d3b1c7f2570fa267bc"
+    },
+    {
+      "path": "services/orchestrator/app/translation/prompts/output_translator.txt",
+      "sha256": "d17c4697e10f647eeb40850ce19e4659ae7902694f583a7c4f1d448b6eeae8eb"
+    },
+    {
+      "path": "services/orchestrator/app/translation/prompts/semantic_checker.txt",
+      "sha256": "a6db6b8b6932b156414e7d7cadc068e7ed448ea1d701c04cdd852c716b5758df"
+    }
+  ],
+  "role_assets_sha256": "15c48b52d05713d9b1ddf6612476774a24e329c575d23fef2c5486258017fc4c"
+}

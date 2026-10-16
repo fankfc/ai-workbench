@@ -1,0 +1,22 @@
+{
+  "generated_at": "2026-10-14T04:17:20.383364+00:00",
+  "checks": {
+    "done_one": true,
+    "arithmetic": true,
+    "answer_sha": true,
+    "usage_once": true,
+    "identity_unknown": true,
+    "budget2_preserves1": true,
+    "cleanup0": true,
+    "observer_sha": true,
+    "native_frozen": true
+  },
+  "new_model_calls_in_verification": 0,
+  "known_continuation_gpt_tokens": 47044,
+  "source_sha256": {
+    ".tools/new-gpt-http-observer/observe.py": "290d2af6f2d6b2fb50fd043ca6217b353b83061c1aff93f81c36f62361acf907",
+    "docs/acceptance/part-one-closeout/gpt-http-identity-observation.json": "8e42b6672f194500a33e98bdb744f1df5e7a520609fd42f61e9f787c06a4e063",
+    "docs/acceptance/part-one-closeout/gpt-http-identity-observation.md": "53f2ba12bd4feb77f8c6cf28452d38d776b1018ecc826206be237e51f0175400",
+    "docs/acceptance/part-one-closeout/effective-openai-origin.json": "a5dfa645d64d2cfe076cbd6ed29cd571b7bd7aa49911663b464737f8c5e38b4e"
+  }
+}

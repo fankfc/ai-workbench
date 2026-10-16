@@ -1,0 +1,62 @@
+{
+  "at_utc": "2026-10-13T15:47:17.240908+00:00",
+  "phase": "before",
+  "evidence_scope": "Pre-start parameter validation, in-memory provider frame, actual Windows local metadata fixture cancellation",
+  "real_provider_starts": 0,
+  "real_model_starts": 0,
+  "real_auth_operations": 0,
+  "source_hashes_before": {
+    "services/orchestrator/app/providers/native_rpc.py": "ea12af564efafd769c76dc8a485361232d810ed0c33242999b086866aee642b7",
+    "services/orchestrator/app/providers/native_rpc_worker.py": "7e276efbd2c069c3bc284a633a76824d7e2c8ff015bbc9148311f360eb333544",
+    "services/orchestrator/app/providers/codex_protocol.py": "cd3b54ae3eb2c75ddf1ca094b02c7f5bcf4846494f3dc406aeb6f12f253f123c",
+    "services/orchestrator/app/providers/zcode_protocol.py": "d1ea04b883574e936e7f280931669e947d3012bf4d7500240f49ea69e6b73673"
+  },
+  "source_hashes_after": {
+    "services/orchestrator/app/providers/native_rpc.py": "ea12af564efafd769c76dc8a485361232d810ed0c33242999b086866aee642b7",
+    "services/orchestrator/app/providers/native_rpc_worker.py": "7e276efbd2c069c3bc284a633a76824d7e2c8ff015bbc9148311f360eb333544",
+    "services/orchestrator/app/providers/codex_protocol.py": "cd3b54ae3eb2c75ddf1ca094b02c7f5bcf4846494f3dc406aeb6f12f253f123c",
+    "services/orchestrator/app/providers/zcode_protocol.py": "d1ea04b883574e936e7f280931669e947d3012bf4d7500240f49ea69e6b73673"
+  },
+  "policy_checks": [
+    {
+      "method": "session/close",
+      "blocked": false,
+      "server_starts": 0
+    },
+    {
+      "method": "thread/read",
+      "blocked": false,
+      "server_starts": 0
+    },
+    {
+      "method": "thread/start",
+      "blocked": false,
+      "server_starts": 0
+    },
+    {
+      "method": "account/read",
+      "blocked": false,
+      "server_starts": 0
+    },
+    {
+      "method": "model/list",
+      "blocked": false,
+      "server_starts": 0
+    }
+  ],
+  "untrusted_method_canary_exported": true,
+  "concurrent_cancel": {
+    "seconds": 3.0741965000052005,
+    "request_thread_alive": false,
+    "request_errors": [
+      "RPC_TIMEOUT"
+    ],
+    "cleanup_complete": true,
+    "running": 0,
+    "open_handles": 0,
+    "temp_dirs": 0
+  },
+  "command": "services/orchestrator/.venv/Scripts/python.exe docs/acceptance/part-one-closeout/native-protocol-review-probe.py",
+  "exit_code": 0,
+  "source_unchanged": true
+}

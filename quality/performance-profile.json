@@ -1,0 +1,10 @@
+{
+  "version": "1.0",
+  "seed": 4317,
+  "proposed_p95_ms": {"input_echo":100,"ui_ack":200,"cancel_feedback":500,"state_visible":1000,"cold_start":3000},
+  "required": {"cold_starts":30,"inputs":200,"history_tasks":10000,"attachment_bytes":104857600,"log_bytes":20971520,"soak_hours":24,"lifecycle_cycles":100},
+  "status": "not_qualified",
+  "hardware_power_mode_review": "pending",
+  "external_model_latency": null,
+  "all_samples_must_be_preserved": true
+}

@@ -1,0 +1,36 @@
+{
+  "version": "1.0",
+  "build_id": "cb98eed03df6bd4ffaa551d66a54c77198911cf5b3e763a1ef3c055f5ee54ca4",
+  "run_id": null,
+  "created_at": "2026-10-15T02:01:03.408725+00:00",
+  "seed": 4317,
+  "encoding": "UTF-8",
+  "provider_boundary": "fake",
+  "files": [
+    {
+      "path": ".qa-run.json",
+      "size": 153,
+      "sha256": "372ad06f01dc8ef1ae7b166cfaf5c77923329596946e5d62196e2a6cf6913e7c"
+    },
+    {
+      "path": "incident_rollback.json",
+      "size": 346,
+      "sha256": "b6403c18130e9202e11adb2cfe27e93888641cb165c81388fdf3556964100b62"
+    },
+    {
+      "path": "product/blobs/ba/bafb8c7caa5bed6b61dcf6d50d95fc6c81bc86738871607c37885f6f39586c28",
+      "size": 39,
+      "sha256": "bafb8c7caa5bed6b61dcf6d50d95fc6c81bc86738871607c37885f6f39586c28"
+    },
+    {
+      "path": "product/workbench.sqlite3",
+      "size": 339968,
+      "sha256": "aa959d4895463e21acbeb4e5705f6bea83d3b0eacfcbafbae9c516f73d3a7d98"
+    },
+    {
+      "path": "scenario-result.json",
+      "size": 348,
+      "sha256": "60a51f51001a5aafa406bd0f66ccbd5be00178ec48779c07988364f6aca683f5"
+    }
+  ]
+}

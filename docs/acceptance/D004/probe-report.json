@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0",
+  "task_id": "D004",
+  "generated_at": "2026-10-13T11:43:03Z",
+  "adapter": "claude_code",
+  "status": "blocked",
+  "completion_level": "offline_adapter_implemented_real_blocked",
+  "reason_code": "AUTHENTICATION_REQUIRED",
+  "identity_status": "unknown",
+  "actual_model_id": null,
+  "actual_model_family": "unknown",
+  "production_enabled": false,
+  "bounded_probe_enabled": false,
+  "cli_starts": 0,
+  "model_starts": 0,
+  "actual_provider_request_count": null,
+  "actual_provider_request_count_scope": "top-level; provider-internal retry count not observable",
+  "session_id": null,
+  "usage": null,
+  "usage_status": "unknown",
+  "monetary_usage": null,
+  "resume_verified": false,
+  "cancellation_verified": false,
+  "remote_stop_confirmed": null,
+  "local_process_alive": false,
+  "attempt_refs": [
+    "docs/acceptance/D004/entry-investigation.json"
+  ],
+  "artifact_hashes": {},
+  "required_tool_task_passed": false,
+  "offline_fixtures_are_not_real_verification": true
+}
+

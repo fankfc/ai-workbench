@@ -1,0 +1,13 @@
+{
+  "time": "2026-10-13T12:10:44.681326+00:00",
+  "command": [
+    "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\.venv\\Scripts\\python.exe",
+    "-m",
+    "pytest",
+    "-q",
+    "tests/integration/test_backend_vertical.py"
+  ],
+  "exit_code": 1,
+  "git_commit": null,
+  "log": "docs\\acceptance\\D020\\integration-first.log"
+}

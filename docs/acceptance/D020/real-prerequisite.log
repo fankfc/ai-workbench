@@ -1,0 +1,4 @@
+s                                                                        [100%]
+=========================== short test summary info ===========================
+SKIPPED [1] tests\integration\test_backend_vertical.py:101: D004/D005 actual connections remain blocked; no new model starts authorized beyond the recorded bounded experiment
+1 skipped, 16 deselected in 0.03s

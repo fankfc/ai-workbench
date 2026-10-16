@@ -1,0 +1,22 @@
+FFF                                                                      [100%]
+================================== FAILURES ===================================
+________ test_local_exit_with_unknown_remote_also_blocks_distinct_step ________
+tests\integration\test_process_lifecycle.py:329: in test_local_exit_with_unknown_remote_also_blocks_distinct_step
+    with pytest.raises(RuntimeError, match="REMOTE_EXECUTION_UNCONFIRMED"):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE RuntimeError
+_________ test_crashed_owner_remote_lease_blocks_new_manager_restart __________
+tests\integration\test_process_lifecycle.py:348: in test_crashed_owner_remote_lease_blocks_new_manager_restart
+    with pytest.raises(RuntimeError, match="REMOTE_EXECUTION_UNCONFIRMED"):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE RuntimeError
+_______ test_monitor_failure_cleans_temp_and_records_failed_accounting ________
+tests\integration\test_process_lifecycle.py:367: in test_monitor_failure_cleans_temp_and_records_failed_accounting
+    with pytest.raises(RuntimeError, match="PROCESS_CLEANUP_FAILED"):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE RuntimeError
+=========================== short test summary info ===========================
+FAILED tests/integration/test_process_lifecycle.py::test_local_exit_with_unknown_remote_also_blocks_distinct_step
+FAILED tests/integration/test_process_lifecycle.py::test_crashed_owner_remote_lease_blocks_new_manager_restart
+FAILED tests/integration/test_process_lifecycle.py::test_monitor_failure_cleans_temp_and_records_failed_accounting
+3 failed, 20 deselected in 2.06s

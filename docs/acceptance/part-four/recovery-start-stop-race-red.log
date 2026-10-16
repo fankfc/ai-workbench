@@ -1,0 +1,30 @@
+
+ RUN  v5.0.4 C:/Users/asd15/Documents/ChatGPT/ai
+
+ ❯ tests/desktop/backend.test.ts (11 tests | 1 failed | 10 skipped) 5ms
+   ❯ managed process lifecycle (9)
+     × does not spawn after shutdown cancels startup while the data directory is pending 4ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/desktop/backend.test.ts > managed process lifecycle > does not spawn after shutdown cancels startup while the data directory is pending
+TypeError: Cannot spy on export "mkdir". Module namespace is not configurable in ESM. See: https://vitest.dev/guide/mocking/modules#mocking-a-module
+ ❯ tests/desktop/backend.test.ts:34:21
+     32|     let release!:()=>void;let entered!:()=>void;const directoryEntered…
+     33|     const actualMkdir=filesystem.mkdir;
+     34|     const paused=vi.spyOn(filesystem,'mkdir').mockImplementationOnce(a…
+       |                     ^
+     35|     const starting=backend.start().then(value=>({value}),error=>({erro…
+     36|     try {
+
+Caused by: TypeError: Cannot redefine property: mkdir
+ ❯ tests/desktop/backend.test.ts:34:21
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 10 skipped (11)
+   Start at  10:30:27
+   Duration  213ms (transform 48%, import 37%, tests 8%, worker 6%)
+

@@ -1,0 +1,16 @@
+id: 1
+event: message.accepted
+data: {"schema_version":"1.0","event_id":"152cbe1d65974ad1966e943093754d35","conversation_id":"de44e40b1f2949ab8ac6c753562e0ecb","turn_id":"881614ee5c884ea9bb7aedb99632b6e9","task_id":"cab5540290264a05b14643d778f12b68","attempt_id":"f9b7c99b8b484aef9768e5d914590ebf","sequence":1,"kind":"message.accepted","payload":{"message_id":"881614ee5c884ea9bb7aedb99632b6e9","text":"请核对固定样本。","language":"zh-CN"}}
+
+id: 2
+event: response.pending
+data: {"schema_version":"1.0","event_id":"cebec1b50b7b4479a0f00fd2d4594b99","conversation_id":"de44e40b1f2949ab8ac6c753562e0ecb","turn_id":"881614ee5c884ea9bb7aedb99632b6e9","task_id":"cab5540290264a05b14643d778f12b68","attempt_id":"f9b7c99b8b484aef9768e5d914590ebf","sequence":2,"kind":"response.pending","payload":{"status":"pending"}}
+
+id: 4
+event: response.pending
+data: {"schema_version":"1.0","event_id":"35b57e3fb0fc45478066fc9c349cdbd3","conversation_id":"de44e40b1f2949ab8ac6c753562e0ecb","turn_id":"881614ee5c884ea9bb7aedb99632b6e9","task_id":"cab5540290264a05b14643d778f12b68","attempt_id":"f9b7c99b8b484aef9768e5d914590ebf","sequence":4,"kind":"response.pending","payload":{"status":"pending"}}
+
+id: 5
+event: request.failed
+data: {"schema_version":"1.0","event_id":"95ee5f276bc848238aa6169c27ac0eff","conversation_id":"de44e40b1f2949ab8ac6c753562e0ecb","turn_id":"881614ee5c884ea9bb7aedb99632b6e9","task_id":"cab5540290264a05b14643d778f12b68","attempt_id":"f9b7c99b8b484aef9768e5d914590ebf","sequence":5,"kind":"request.failed","payload":{"error_code":"PROVIDER_UNAVAILABLE","text":"模型连接暂不可用，请检查连接。","language":"zh-CN","action":"reconnect"}}
+

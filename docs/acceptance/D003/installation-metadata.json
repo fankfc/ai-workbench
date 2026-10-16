@@ -1,0 +1,15 @@
+{
+  "task_id": "D003",
+  "collected_at": "2026-10-13T10:42:18.2488147Z",
+  "source_kind": "read_only_shelllink_and_uninstall_icon",
+  "shortcut_path": "C:\\Users\\asd15\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\ZCode.lnk",
+  "target_path": "D:\\zcode\\ZCode.exe",
+  "target_exists": true,
+  "file_version": "3.15.1.8093",
+  "product_version": "3.15.1.8093",
+  "target_sha256": "d39000efadb1a7ef97ab9bc8a5929c826fb57f8faba8c4b14f6646df7e190b6e",
+  "display_icon_path": null,
+  "gui_started": false,
+  "uninstall_command_executed": false,
+  "account_configuration_read": false
+}

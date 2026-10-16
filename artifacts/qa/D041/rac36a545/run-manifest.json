@@ -1,0 +1,116 @@
+{
+  "version": "1.0",
+  "build_id": "cb98eed03df6bd4ffaa551d66a54c77198911cf5b3e763a1ef3c055f5ee54ca4",
+  "run_id": null,
+  "created_at": "2026-10-15T02:00:19.079595+00:00",
+  "seed": 4317,
+  "encoding": "UTF-8",
+  "provider_boundary": "fake",
+  "files": [
+    {
+      "path": ".qa-run.json",
+      "size": 151,
+      "sha256": "b0de57b58d3e274e5aea4f91c11659505dbcb0c7dd0684729db9171d58566d45"
+    },
+    {
+      "path": "evidence-manifest.json",
+      "size": 895,
+      "sha256": "f178995cd90c5f249965ca92d7269ed55b53e6eb1d401404bf4737865b82457d"
+    },
+    {
+      "path": "public-messages.json",
+      "size": 847,
+      "sha256": "8c87b9592c4ef50e7590f4d8aae35dab894d0ca654ff2d5dea1331c543fd2df7"
+    },
+    {
+      "path": "scenario-result.json",
+      "size": 434,
+      "sha256": "f072b38cb15e8823a2445819b1a172bf69921e1fee0b93a079a63bf41cebf935"
+    },
+    {
+      "path": "service-data/blobs/ad/ad50541a0d784d697fda88d2a39ac1af1b310cdc65b2f5196eea4e9cd1ba48c8",
+      "size": 1465,
+      "sha256": "ad50541a0d784d697fda88d2a39ac1af1b310cdc65b2f5196eea4e9cd1ba48c8"
+    },
+    {
+      "path": "service-data/blobs/d2/d21589c953bddb2c22757da2f933307d43a5418c9a05c98b4e3dc435a4a99d9b",
+      "size": 123,
+      "sha256": "d21589c953bddb2c22757da2f933307d43a5418c9a05c98b4e3dc435a4a99d9b"
+    },
+    {
+      "path": "service-data/tasks/1241eb92f8ba4293814a7c5628c3506a/02f899f1bdde41b2931d3ab897113cc3/.lease-lock",
+      "size": 1,
+      "sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+    },
+    {
+      "path": "service-data/tasks/1241eb92f8ba4293814a7c5628c3506a/02f899f1bdde41b2931d3ab897113cc3/.source-manifest.json",
+      "size": 94,
+      "sha256": "e5fcf796af61f02acef11f036b3ede89262570f2a538f9f99b737b498f88e81e"
+    },
+    {
+      "path": "service-data/tasks/1241eb92f8ba4293814a7c5628c3506a/02f899f1bdde41b2931d3ab897113cc3/.write-leases.json",
+      "size": 94,
+      "sha256": "c6a18be3da702612dab19b12593b24f221211599dfd4c6c2df73849a6f3b8133"
+    },
+    {
+      "path": "service-data/tasks/1241eb92f8ba4293814a7c5628c3506a/02f899f1bdde41b2931d3ab897113cc3/a/prompts/6aad170bf4f14c64a986481bf62e27c5.json",
+      "size": 3531,
+      "sha256": "8e5c8307417791b213f3982b5de8c5906bb89bcdbbd3611185f739aa0792f45d"
+    },
+    {
+      "path": "service-data/tasks/1241eb92f8ba4293814a7c5628c3506a/02f899f1bdde41b2931d3ab897113cc3/b/demo.md",
+      "size": 123,
+      "sha256": "d21589c953bddb2c22757da2f933307d43a5418c9a05c98b4e3dc435a4a99d9b"
+    },
+    {
+      "path": "service-data/tasks/1241eb92f8ba4293814a7c5628c3506a/02f899f1bdde41b2931d3ab897113cc3/b/prompts/448442c976504b2a96a36ab8979cba79.json",
+      "size": 2010,
+      "sha256": "f1f400089f7f4ac188bb4f0e77b3af2f6d008830032c42b1845c7cbba1f284af"
+    },
+    {
+      "path": "service-data/tasks/1241eb92f8ba4293814a7c5628c3506a/02f899f1bdde41b2931d3ab897113cc3/evidence/2c207d8d62df4655b5669962a3227dcb.json",
+      "size": 289,
+      "sha256": "5c167f2e91dc7b5349841169e93cd7bc3bdac58f29ed3bf461cd0fab43a8626a"
+    },
+    {
+      "path": "service-data/tasks/1241eb92f8ba4293814a7c5628c3506a/02f899f1bdde41b2931d3ab897113cc3/evidence/2d4e70125a6241aeaa6c64cec47beb73.json",
+      "size": 351,
+      "sha256": "883534ba27694db0038202bf0f501541e75a7850065453676688a83c559520e3"
+    },
+    {
+      "path": "service-data/tasks/1241eb92f8ba4293814a7c5628c3506a/02f899f1bdde41b2931d3ab897113cc3/input/user_request.txt",
+      "size": 18,
+      "sha256": "1595625c31f90f870b8c315a10dc23d7b452ba14191ccfd7a0996d9d15547f70"
+    },
+    {
+      "path": "service-data/workbench.sqlite3",
+      "size": 397312,
+      "sha256": "ede04d579aa23f77333cff238e724e9b0297af7342eed885f2e5ac05ea234af8"
+    },
+    {
+      "path": "service-identity.json",
+      "size": 134,
+      "sha256": "218c8313a3996a78aaa169bd88c839805a2b3fab8605df383e7d313d0cf78f1f"
+    },
+    {
+      "path": "service-leases.sqlite3",
+      "size": 12288,
+      "sha256": "75ac8d12b2b367da7ae6090ca89b86480cead7b97a73ebaba957ed77d4f6e77f"
+    },
+    {
+      "path": "service-teardown.json",
+      "size": 88,
+      "sha256": "89a318502bfd103a3bf7df64b40b5fab0e6dbf00086e711940cb5d2390c38268"
+    },
+    {
+      "path": "service.stderr.log",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "task.json",
+      "size": 182,
+      "sha256": "078bc442d448b214c8107b94f22d782a5a8adf222ff82475ddef78f711db4f87"
+    }
+  ]
+}

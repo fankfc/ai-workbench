@@ -1,0 +1,349 @@
+[
+  {
+    "card": "D042",
+    "case": "requirement_coverage",
+    "run_root": "artifacts/qa/D042/run-b93316ed5b89",
+    "report": "artifacts/qa/D042/coverage-report.json",
+    "exit_code": 0,
+    "result": {
+      "missing_requirements": [],
+      "unresolved_mandatory": [
+        "R01",
+        "R02",
+        "R03",
+        "R04",
+        "R05",
+        "R06",
+        "R07",
+        "R08",
+        "R09",
+        "R10",
+        "R11",
+        "R12",
+        "R13",
+        "R14",
+        "R15"
+      ],
+      "release_complete": false,
+      "optimization_goal_met": false,
+      "mapped_requirements": 15,
+      "translation_cases": 20,
+      "regression_hash_valid": true,
+      "per_requirement": [
+        {
+          "requirement": "R01",
+          "gate": "optimization",
+          "issues": [
+            "ACCEPTANCE_EVIDENCE_MISSING:QUALITY_REAL"
+          ]
+        },
+        {
+          "requirement": "R02",
+          "gate": "optimization",
+          "issues": [
+            "ACCEPTANCE_EVIDENCE_MISSING:QUALITY_REAL"
+          ]
+        },
+        {
+          "requirement": "R03",
+          "gate": "functional",
+          "issues": [
+            "ACCEPTANCE_EVIDENCE_MISSING:T03",
+            "ACCEPTANCE_EVIDENCE_MISSING:T04",
+            "ACCEPTANCE_EVIDENCE_MISSING:PROVIDER_REAL"
+          ]
+        },
+        {
+          "requirement": "R04",
+          "gate": "functional",
+          "issues": [
+            "ACCEPTANCE_EVIDENCE_MISSING:PROVIDER_REAL"
+          ]
+        },
+        {
+          "requirement": "R05",
+          "gate": "functional",
+          "issues": [
+            "ACCEPTANCE_EVIDENCE_MISSING:JOURNEYS_REAL"
+          ]
+        },
+        {
+          "requirement": "R06",
+          "gate": "functional",
+          "issues": [
+            "ACCEPTANCE_EVIDENCE_MISSING:GUI_MANUAL"
+          ]
+        },
+        {
+          "requirement": "R07",
+          "gate": "functional",
+          "issues": [
+            "ACCEPTANCE_EVIDENCE_MISSING:T01",
+            "ACCEPTANCE_EVIDENCE_MISSING:T05",
+            "ACCEPTANCE_EVIDENCE_MISSING:T06",
+            "ACCEPTANCE_EVIDENCE_MISSING:T08",
+            "ACCEPTANCE_EVIDENCE_MISSING:T09",
+            "ACCEPTANCE_EVIDENCE_MISSING:T16",
+            "ACCEPTANCE_EVIDENCE_MISSING:T17",
+            "ACCEPTANCE_EVIDENCE_MISSING:TRANSLATION_HUMAN"
+          ]
+        },
+        {
+          "requirement": "R08",
+          "gate": "functional",
+          "issues": [
+            "ACCEPTANCE_EVIDENCE_MISSING:T05",
+            "ACCEPTANCE_EVIDENCE_MISSING:T10",
+            "ACCEPTANCE_EVIDENCE_MISSING:T18",
+            "ACCEPTANCE_EVIDENCE_MISSING:TRANSLATION_HUMAN"
+          ]
+        },
+        {
+          "requirement": "R09",
+          "gate": "functional",
+          "issues": [
+            "ACCEPTANCE_EVIDENCE_MISSING:T07",
+            "ACCEPTANCE_EVIDENCE_MISSING:T11",
+            "ACCEPTANCE_EVIDENCE_MISSING:T12",
+            "ACCEPTANCE_EVIDENCE_MISSING:T13",
+            "ACCEPTANCE_EVIDENCE_MISSING:T14",
+            "ACCEPTANCE_EVIDENCE_MISSING:T15",
+            "ACCEPTANCE_EVIDENCE_MISSING:TRANSLATION_HUMAN"
+          ]
+        },
+        {
+          "requirement": "R10",
+          "gate": "functional",
+          "issues": [
+            "ACCEPTANCE_EVIDENCE_MISSING:T02"
+          ]
+        },
+        {
+          "requirement": "R11",
+          "gate": "functional",
+          "issues": [
+            "ACCEPTANCE_EVIDENCE_MISSING:T16",
+            "ACCEPTANCE_EVIDENCE_MISSING:T19"
+          ]
+        },
+        {
+          "requirement": "R12",
+          "gate": "functional",
+          "issues": [
+            "ACCEPTANCE_EVIDENCE_MISSING:T04",
+            "ACCEPTANCE_EVIDENCE_MISSING:T10",
+            "ACCEPTANCE_EVIDENCE_MISSING:T11",
+            "ACCEPTANCE_EVIDENCE_MISSING:T12",
+            "ACCEPTANCE_EVIDENCE_MISSING:T18"
+          ]
+        },
+        {
+          "requirement": "R13",
+          "gate": "functional",
+          "issues": [
+            "ACCEPTANCE_EVIDENCE_MISSING:INSTALL_SIGNED"
+          ]
+        },
+        {
+          "requirement": "R14",
+          "gate": "functional",
+          "issues": [
+            "ACCEPTANCE_EVIDENCE_MISSING:T09",
+            "ACCEPTANCE_EVIDENCE_MISSING:LEDGER_REAL"
+          ]
+        },
+        {
+          "requirement": "R15",
+          "gate": "functional",
+          "issues": [
+            "ACCEPTANCE_EVIDENCE_MISSING:T01",
+            "ACCEPTANCE_EVIDENCE_MISSING:T05",
+            "ACCEPTANCE_EVIDENCE_MISSING:T06",
+            "ACCEPTANCE_EVIDENCE_MISSING:T07",
+            "ACCEPTANCE_EVIDENCE_MISSING:T08",
+            "ACCEPTANCE_EVIDENCE_MISSING:T17",
+            "ACCEPTANCE_EVIDENCE_MISSING:T20",
+            "ACCEPTANCE_EVIDENCE_MISSING:TRANSLATION_HUMAN"
+          ]
+        }
+      ],
+      "provider_boundary": "none",
+      "real_provider_verified": false
+    }
+  },
+  {
+    "card": "D043",
+    "case": "translation_corpus",
+    "run_root": "artifacts/qa/D043/run-cd0e9870e8e4",
+    "report": "artifacts/qa/D043/translation-corpus-report.json",
+    "exit_code": 0,
+    "result": {
+      "published": false,
+      "issue_codes": [
+        "HUMAN_REVIEW_MISSING",
+        "INDEPENDENT_HOLDOUT_MISSING",
+        "REAL_CLAUDE_SCENARIOS_UNVERIFIED"
+      ],
+      "reviewed_blocks": 0,
+      "expected_blocks": 60,
+      "translator_calls": 0,
+      "gpt_native_status": "NATIVE",
+      "product_evaluations": 62,
+      "critical_negative_rejected": 2,
+      "human_review_complete": false,
+      "holdout_sample_count": 0,
+      "automated_checks_only": true,
+      "provider_boundary": "fake",
+      "real_provider_verified": false
+    }
+  },
+  {
+    "card": "D044",
+    "case": "evaluation_protocol",
+    "run_root": "artifacts/qa/D044/run-194a70ed0071",
+    "report": "artifacts/qa/D044/freeze-audit.json",
+    "exit_code": 0,
+    "result": {
+      "frozen": false,
+      "issues": [
+        "A_TOKEN_BOUND_UNREGISTERED",
+        "FORMAL_SAMPLE_SIZE_UNREGISTERED",
+        "FREEZE_SIGNATURES_MISSING",
+        "INDEPENDENT_HOLDOUT_MISSING",
+        "INDEPENDENT_REVIEWERS_MISSING",
+        "PILOT_EVIDENCE_MISSING",
+        "POWER_OR_STOPPING_RULE_MISSING",
+        "PROTOCOL_NOT_FROZEN"
+      ],
+      "registration_hash_valid": true,
+      "registration_valid": false,
+      "reason_codes": [
+        "A_TOKEN_BOUND_UNREGISTERED",
+        "FORMAL_SAMPLE_SIZE_UNREGISTERED",
+        "FREEZE_SIGNATURES_MISSING",
+        "INDEPENDENT_HOLDOUT_MISSING",
+        "INDEPENDENT_REVIEWERS_MISSING",
+        "PILOT_EVIDENCE_MISSING",
+        "POWER_OR_STOPPING_RULE_MISSING",
+        "PROTOCOL_NOT_FROZEN"
+      ],
+      "test_set_disjoint": true,
+      "blind_labels_valid": false,
+      "provider_boundary": "none",
+      "real_provider_verified": false
+    }
+  },
+  {
+    "card": "D045",
+    "case": "usage_reconciliation",
+    "run_root": "artifacts/qa/D045/run-7251cde4952e",
+    "report": "artifacts/qa/D045/usage-report.json",
+    "exit_code": 0,
+    "result": {
+      "duplicate_total": 120,
+      "duplicate_requests": 1,
+      "cumulative_total": 250,
+      "unknown_total": null,
+      "unknown_requests": 1,
+      "estimated_source": "estimated",
+      "qualified_delivery_cost": null,
+      "counted_functions": [
+        "execution",
+        "review",
+        "takeover",
+        "translation"
+      ],
+      "all_costs_total": 50,
+      "a_tokens": 250,
+      "b_tokens": 20,
+      "reported_complete": true,
+      "duplicate_count": 1,
+      "source_kind": "synthetic",
+      "denominator": 0,
+      "real_usage_verified": false,
+      "optimization_eligible": false,
+      "provider_boundary": "fake",
+      "real_provider_verified": false,
+      "limitations": [
+        "REAL_PROVIDER_WIRE_EVENTS_MISSING",
+        "INDEPENDENT_USAGE_RECONCILIATION_MISSING"
+      ]
+    }
+  },
+  {
+    "card": "D046",
+    "case": "optimization_gate",
+    "run_root": "artifacts/qa/D046/run-a493a533f88f",
+    "report": "artifacts/qa/D046/joint-gate-report.json",
+    "exit_code": 0,
+    "result": {
+      "eligible": false,
+      "optimization_goal_met": false,
+      "route": "a_led",
+      "blocked_reasons": [
+        "A_TOKEN_BOUND_UNREGISTERED",
+        "CANDIDATE_OR_SOURCE_IDENTITY_INVALID",
+        "CONFIGURATION_NOT_REGISTERED",
+        "EVIDENCE_CONFIGURATION_MISMATCH",
+        "FORMAL_SAMPLE_COUNT_MISMATCH",
+        "FORMAL_SAMPLE_SIZE_UNREGISTERED",
+        "FREEZE_SIGNATURES_MISSING",
+        "HASHED_IDENTITY_REPORTS_INVALID",
+        "HASHED_RAW_SAMPLES_MISSING_OR_INVALID",
+        "HASHED_REVIEW_REPORTS_INVALID",
+        "HASHED_USAGE_REPORTS_INVALID",
+        "INDEPENDENT_HOLDOUT_MISSING",
+        "INDEPENDENT_REVIEWERS_MISSING",
+        "PAIRED_STATISTICAL_EVIDENCE_INCOMPLETE",
+        "PILOT_EVIDENCE_MISSING",
+        "POWER_OR_STOPPING_RULE_MISSING",
+        "PROTOCOL_NOT_FROZEN",
+        "REAL_EVALUATION_EVIDENCE_MISSING",
+        "REAL_PROVENANCE_REVIEW_OR_USAGE_MISSING"
+      ],
+      "route_mode": "a_led",
+      "reason_codes": [
+        "A_TOKEN_BOUND_UNREGISTERED",
+        "CANDIDATE_OR_SOURCE_IDENTITY_INVALID",
+        "CONFIGURATION_NOT_REGISTERED",
+        "EVIDENCE_CONFIGURATION_MISMATCH",
+        "FORMAL_SAMPLE_COUNT_MISMATCH",
+        "FORMAL_SAMPLE_SIZE_UNREGISTERED",
+        "FREEZE_SIGNATURES_MISSING",
+        "HASHED_IDENTITY_REPORTS_INVALID",
+        "HASHED_RAW_SAMPLES_MISSING_OR_INVALID",
+        "HASHED_REVIEW_REPORTS_INVALID",
+        "HASHED_USAGE_REPORTS_INVALID",
+        "INDEPENDENT_HOLDOUT_MISSING",
+        "INDEPENDENT_REVIEWERS_MISSING",
+        "PAIRED_STATISTICAL_EVIDENCE_INCOMPLETE",
+        "PILOT_EVIDENCE_MISSING",
+        "POWER_OR_STOPPING_RULE_MISSING",
+        "PROTOCOL_NOT_FROZEN",
+        "REAL_EVALUATION_EVIDENCE_MISSING",
+        "REAL_PROVENANCE_REVIEW_OR_USAGE_MISSING"
+      ],
+      "product_goal_complete": false,
+      "qualification_key": "73c7acb3d3c81065ec5ad025aa4967a3e2e0015e3c14cb17857cc03004255d83",
+      "quality_bounds": {},
+      "token_savings_lower_bound": -0.1218732872486609,
+      "qualified_scope": [],
+      "sample_count": 0,
+      "confidence_method": "paired_hoeffding_bonferroni",
+      "family_comparisons": 84,
+      "quality_noninferior": true,
+      "synthetic_quality_bounds": {
+        "correctness": 0.37812671275133913,
+        "completeness": 0.37812671275133913,
+        "reasoning": 0.37812671275133913,
+        "evidence": 0.37812671275133913,
+        "consistency": 0.37812671275133913,
+        "usability": 0.37812671275133913
+      },
+      "statistical_fixture": "synthetic_only",
+      "functional_release": false,
+      "provider_boundary": "none",
+      "real_provider_verified": false
+    }
+  }
+]

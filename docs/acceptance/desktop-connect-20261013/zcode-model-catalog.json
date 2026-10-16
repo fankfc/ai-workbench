@@ -1,0 +1,16 @@
+{
+  "generated_at": "2026-10-13T14:52:37.102051+00:00",
+  "workspace": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\zmeta-b9b99353",
+  "capabilities_ok": true,
+  "create_ok": false,
+  "error_code": -32022,
+  "result_keys": [],
+  "session_id": null,
+  "state_revision": null,
+  "model_keys": [],
+  "available_models": [],
+  "current_model": null,
+  "model_turn_starts": 0,
+  "credentials_read_by_assistant": false,
+  "production_enabled": false
+}

@@ -1,0 +1,17 @@
+{
+  "time": "2026-10-13T13:31:17.028338+00:00",
+  "git_commit": null,
+  "branch": "codex/part1-foundation",
+  "python": "3.13.0",
+  "sqlite": "3.45.3",
+  "provider_mode": "fake",
+  "real_model_starts": 0,
+  "hashes": {
+    "services/orchestrator/app/config.py": "3e97a7aae4f835be69309502b84a5281207f5cc6b0bb9c678ba9fd75181f55a8",
+    "services/orchestrator/app/api/application.py": "6aad58bcbbdf83820676d8326cf7b30193858dd11074db1accbe6f91644ef240",
+    "services/orchestrator/app/api/conversations.py": "15f8e88602481d4172f088619828761a8c12fa1ad423da596ff46b5f296c0f61",
+    "services/orchestrator/app/api/turns.py": "45c14e71847a65a7fcd8de99185b0c0331aaa7d59d87b9bf25c5020f9262ceb2",
+    "services/orchestrator/app/api/tasks.py": "c980c2cb6da8cace2831838c2ed9c7f7b31753842ffcc422f0bc7c8a7d09ae2f",
+    "tests/integration/test_conversation_api.py": "388a20302c441816c3479730a56ee51fa2a129766b90077027c99285ab0d8dfd"
+  }
+}

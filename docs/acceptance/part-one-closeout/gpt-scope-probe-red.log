@@ -1,0 +1,45 @@
+FFFF.                                                                    [100%]
+================================== FAILURES ===================================
+_________ test_actual_effective_controls_are_required_not_argv_claims _________
+
+    def test_actual_effective_controls_are_required_not_argv_claims():
+        result = controls({'features': {'shell_tool': False}, 'notify': [], 'web_search': 'disabled'},
+            {'features.shell_tool': False, 'notify': [], 'web_search': 'disabled'})
+>       assert result['all_required_controls_verified'] is True
+E       assert False is True
+
+.tools\gpt-scope-probe\test_projection.py:6: AssertionError
+__ test_missing_and_private_unexpected_values_remain_unknown_without_export ___
+
+    def test_missing_and_private_unexpected_values_remain_unknown_without_export():
+        result = controls({'features': {'shell_tool': 'PRIVATE_CANARY'}}, {'features.shell_tool': False, 'features.plugins': False})
+        assert result['all_required_controls_verified'] is False
+        assert 'PRIVATE_CANARY' not in str(result)
+>       assert result['controls']['features.plugins']['status'] == 'unavailable'
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'features.plugins'
+
+.tools\gpt-scope-probe\test_projection.py:12: KeyError
+_______ test_only_actual_effective_server_enabled_false_proves_disabled _______
+
+    def test_only_actual_effective_server_enabled_false_proves_disabled():
+        result = mcp_projection({'mcp_servers': {'PRIVATE_SERVER': {'enabled': False}}})
+>       assert result['server_keys'] == ['PRIVATE_SERVER']
+E       AssertionError: assert None == ['PRIVATE_SERVER']
+
+.tools\gpt-scope-probe\test_projection.py:16: AssertionError
+_______ test_owned_ephemeral_empty_environment_is_independently_echoed ________
+
+    def test_owned_ephemeral_empty_environment_is_independently_echoed():
+        result = thread_projection({'thread': {'id': 'owned', 'ephemeral': True, 'environments': [], 'turns': []},
+            'approvalPolicy': 'never', 'sandbox': {'type': 'readOnly', 'networkAccess': False}}, 'owned')
+>       assert result['strict_empty_environment_thread_verified'] is True
+E       assert False is True
+
+.tools\gpt-scope-probe\test_projection.py:26: AssertionError
+=========================== short test summary info ===========================
+FAILED .tools/gpt-scope-probe/test_projection.py::test_actual_effective_controls_are_required_not_argv_claims
+FAILED .tools/gpt-scope-probe/test_projection.py::test_missing_and_private_unexpected_values_remain_unknown_without_export
+FAILED .tools/gpt-scope-probe/test_projection.py::test_only_actual_effective_server_enabled_false_proves_disabled
+FAILED .tools/gpt-scope-probe/test_projection.py::test_owned_ephemeral_empty_environment_is_independently_echoed
+4 failed, 1 passed in 0.35s

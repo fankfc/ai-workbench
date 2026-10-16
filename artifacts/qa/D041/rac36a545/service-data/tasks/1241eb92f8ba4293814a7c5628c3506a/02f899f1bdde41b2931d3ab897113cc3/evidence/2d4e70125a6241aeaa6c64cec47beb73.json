@@ -1,0 +1,1 @@
+{"criterion_id": "source-preserved", "revision_id": "candidate-28adfa1937d4473aae8933e6b9082fc6", "byte_sha256": "d21589c953bddb2c22757da2f933307d43a5418c9a05c98b4e3dc435a4a99d9b", "passed": true, "verifier": "C", "details": {"sha256": "d21589c953bddb2c22757da2f933307d43a5418c9a05c98b4e3dc435a4a99d9b", "preserved": true, "demonstration_only": true}}

@@ -1,0 +1,793 @@
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFF                                            [100%]
+================================== FAILURES ===================================
+________ test_exact_card_full_actions_and_only_direct_artifact_context ________
+
+work_orders = <test_work_orders.work_orders.<locals>.MissingImplementation object at 0x000001E24DADDE80>
+repo = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-533/test_exact_card_full_actions_a0')
+
+    def test_exact_card_full_actions_and_only_direct_artifact_context(work_orders, repo):
+>       before = (repo / work_orders.BOARD_REF).read_bytes()
+                         ^^^^^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_work_orders.py:70: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <test_work_orders.work_orders.<locals>.MissingImplementation object at 0x000001E24DADDE80>
+name = 'BOARD_REF'
+
+    def __getattr__(self, name):
+>       raise AssertionError("work-order implementation is required")
+E       AssertionError: work-order implementation is required
+
+tests\contracts\test_work_orders.py:19: AssertionError
+____________________ test_task_id_must_match_exactly[D02] _____________________
+
+work_orders = <test_work_orders.work_orders.<locals>.MissingImplementation object at 0x000001E24DADE510>
+repo = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-533/test_task_id_must_match_exactl0')
+task_id = 'D02'
+
+    @pytest.mark.parametrize("task_id", ["D02", "D999", "D028;whoami"])
+    def test_task_id_must_match_exactly(work_orders, repo, task_id):
+        with pytest.raises(ValueError):
+>           work_orders.draft_work_order(repo, task_id, "1", ["src/allowed.py"], "out/order")
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_work_orders.py:87: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <test_work_orders.work_orders.<locals>.MissingImplementation object at 0x000001E24DADE510>
+name = 'draft_work_order'
+
+    def __getattr__(self, name):
+>       raise AssertionError("work-order implementation is required")
+E       AssertionError: work-order implementation is required
+
+tests\contracts\test_work_orders.py:19: AssertionError
+____________________ test_task_id_must_match_exactly[D999] ____________________
+
+work_orders = <test_work_orders.work_orders.<locals>.MissingImplementation object at 0x000001E24DADEBA0>
+repo = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-533/test_task_id_must_match_exactl1')
+task_id = 'D999'
+
+    @pytest.mark.parametrize("task_id", ["D02", "D999", "D028;whoami"])
+    def test_task_id_must_match_exactly(work_orders, repo, task_id):
+        with pytest.raises(ValueError):
+>           work_orders.draft_work_order(repo, task_id, "1", ["src/allowed.py"], "out/order")
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_work_orders.py:87: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <test_work_orders.work_orders.<locals>.MissingImplementation object at 0x000001E24DADEBA0>
+name = 'draft_work_order'
+
+    def __getattr__(self, name):
+>       raise AssertionError("work-order implementation is required")
+E       AssertionError: work-order implementation is required
+
+tests\contracts\test_work_orders.py:19: AssertionError
+________________ test_task_id_must_match_exactly[D028;whoami] _________________
+
+work_orders = <test_work_orders.work_orders.<locals>.MissingImplementation object at 0x000001E24DADECF0>
+repo = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-533/test_task_id_must_match_exactl2')
+task_id = 'D028;whoami'
+
+    @pytest.mark.parametrize("task_id", ["D02", "D999", "D028;whoami"])
+    def test_task_id_must_match_exactly(work_orders, repo, task_id):
+        with pytest.raises(ValueError):
+>           work_orders.draft_work_order(repo, task_id, "1", ["src/allowed.py"], "out/order")
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_work_orders.py:87: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <test_work_orders.work_orders.<locals>.MissingImplementation object at 0x000001E24DADECF0>
+name = 'draft_work_order'
+
+    def __getattr__(self, name):
+>       raise AssertionError("work-order implementation is required")
+E       AssertionError: work-order implementation is required
+
+tests\contracts\test_work_orders.py:19: AssertionError
+_________ test_traversal_and_ambiguous_scopes_are_rejected[../escape] _________
+
+work_orders = <test_work_orders.work_orders.<locals>.MissingImplementation object at 0x000001E24DADEE40>
+repo = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-533/test_traversal_and_ambiguous_s0')
+ref = '../escape'
+
+    @pytest.mark.parametrize("ref", ["../escape", "/absolute", "C:/escape", "src/../unrelated.py", "src/allowed.py:stream", "src/%2e%2e"])
+    def test_traversal_and_ambiguous_scopes_are_rejected(work_orders, repo, ref):
+        with pytest.raises((ValueError, PermissionError)):
+>           work_orders.draft_work_order(repo, "D028", "1", [ref], "out/order")
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_work_orders.py:93: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <test_work_orders.work_orders.<locals>.MissingImplementation object at 0x000001E24DADEE40>
+name = 'draft_work_order'
+
+    def __getattr__(self, name):
+>       raise AssertionError("work-order implementation is required")
+E       AssertionError: work-order implementation is required
+
+tests\contracts\test_work_orders.py:19: AssertionError
+_________ test_traversal_and_ambiguous_scopes_are_rejected[/absolute] _________
+
+work_orders = <test_work_orders.work_orders.<locals>.MissingImplementation object at 0x000001E24DADEF90>
+repo = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-533/test_traversal_and_ambiguous_s1')
+ref = '/absolute'
+
+    @pytest.mark.parametrize("ref", ["../escape", "/absolute", "C:/escape", "src/../unrelated.py", "src/allowed.py:stream", "src/%2e%2e"])
+    def test_traversal_and_ambiguous_scopes_are_rejected(work_orders, repo, ref):
+        with pytest.raises((ValueError, PermissionError)):
+>           work_orders.draft_work_order(repo, "D028", "1", [ref], "out/order")
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_work_orders.py:93: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <test_work_orders.work_orders.<locals>.MissingImplementation object at 0x000001E24DADEF90>
+name = 'draft_work_order'
+
+    def __getattr__(self, name):
+>       raise AssertionError("work-order implementation is required")
+E       AssertionError: work-order implementation is required
+
+tests\contracts\test_work_orders.py:19: AssertionError
+_________ test_traversal_and_ambiguous_scopes_are_rejected[C:/escape] _________
+
+work_orders = <test_work_orders.work_orders.<locals>.MissingImplementation object at 0x000001E24DADF0E0>
+repo = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-533/test_traversal_and_ambiguous_s2')
+ref = 'C:/escape'
+
+    @pytest.mark.parametrize("ref", ["../escape", "/absolute", "C:/escape", "src/../unrelated.py", "src/allowed.py:stream", "src/%2e%2e"])
+    def test_traversal_and_ambiguous_scopes_are_rejected(work_orders, repo, ref):
+        with pytest.raises((ValueError, PermissionError)):
+>           work_orders.draft_work_order(repo, "D028", "1", [ref], "out/order")
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_work_orders.py:93: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <test_work_orders.work_orders.<locals>.MissingImplementation object at 0x000001E24DADF0E0>
+name = 'draft_work_order'
+
+    def __getattr__(self, name):
+>       raise AssertionError("work-order implementation is required")
+E       AssertionError: work-order implementation is required
+
+tests\contracts\test_work_orders.py:19: AssertionError
+____ test_traversal_and_ambiguous_scopes_are_rejected[src/../unrelated.py] ____
+
+work_orders = <test_work_orders.work_orders.<locals>.MissingImplementation object at 0x000001E24DADF230>
+repo = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-533/test_traversal_and_ambiguous_s3')
+ref = 'src/../unrelated.py'
+
+    @pytest.mark.parametrize("ref", ["../escape", "/absolute", "C:/escape", "src/../unrelated.py", "src/allowed.py:stream", "src/%2e%2e"])
+    def test_traversal_and_ambiguous_scopes_are_rejected(work_orders, repo, ref):
+        with pytest.raises((ValueError, PermissionError)):
+>           work_orders.draft_work_order(repo, "D028", "1", [ref], "out/order")
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_work_orders.py:93: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <test_work_orders.work_orders.<locals>.MissingImplementation object at 0x000001E24DADF230>
+name = 'draft_work_order'
+
+    def __getattr__(self, name):
+>       raise AssertionError("work-order implementation is required")
+E       AssertionError: work-order implementation is required
+
+tests\contracts\test_work_orders.py:19: AssertionError
+___ test_traversal_and_ambiguous_scopes_are_rejected[src/allowed.py:stream] ___
+
+work_orders = <test_work_orders.work_orders.<locals>.MissingImplementation object at 0x000001E24DADF380>
+repo = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-533/test_traversal_and_ambiguous_s4')
+ref = 'src/allowed.py:stream'
+
+    @pytest.mark.parametrize("ref", ["../escape", "/absolute", "C:/escape", "src/../unrelated.py", "src/allowed.py:stream", "src/%2e%2e"])
+    def test_traversal_and_ambiguous_scopes_are_rejected(work_orders, repo, ref):
+        with pytest.raises((ValueError, PermissionError)):
+>           work_orders.draft_work_order(repo, "D028", "1", [ref], "out/order")
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_work_orders.py:93: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <test_work_orders.work_orders.<locals>.MissingImplementation object at 0x000001E24DADF380>
+name = 'draft_work_order'
+
+    def __getattr__(self, name):
+>       raise AssertionError("work-order implementation is required")
+E       AssertionError: work-order implementation is required
+
+tests\contracts\test_work_orders.py:19: AssertionError
+________ test_traversal_and_ambiguous_scopes_are_rejected[src/%2e%2e] _________
+
+work_orders = <test_work_orders.work_orders.<locals>.MissingImplementation object at 0x000001E24DADF4D0>
+repo = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-533/test_traversal_and_ambiguous_s5')
+ref = 'src/%2e%2e'
+
+    @pytest.mark.parametrize("ref", ["../escape", "/absolute", "C:/escape", "src/../unrelated.py", "src/allowed.py:stream", "src/%2e%2e"])
+    def test_traversal_and_ambiguous_scopes_are_rejected(work_orders, repo, ref):
+        with pytest.raises((ValueError, PermissionError)):
+>           work_orders.draft_work_order(repo, "D028", "1", [ref], "out/order")
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_work_orders.py:93: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <test_work_orders.work_orders.<locals>.MissingImplementation object at 0x000001E24DADF4D0>
+name = 'draft_work_order'
+
+    def __getattr__(self, name):
+>       raise AssertionError("work-order implementation is required")
+E       AssertionError: work-order implementation is required
+
+tests\contracts\test_work_orders.py:19: AssertionError
+_____________________ test_fresh_output_never_overwrites ______________________
+
+work_orders = <test_work_orders.work_orders.<locals>.MissingImplementation object at 0x000001E24DADF620>
+repo = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-533/test_fresh_output_never_overwr0')
+
+    def test_fresh_output_never_overwrites(work_orders, repo):
+>       draft(work_orders, repo)
+
+tests\contracts\test_work_orders.py:97: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\contracts\test_work_orders.py:50: in draft
+    return work_orders.draft_work_order(repo, "D028", "1", ["src/allowed.py"], "out/draft")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <test_work_orders.work_orders.<locals>.MissingImplementation object at 0x000001E24DADF620>
+name = 'draft_work_order'
+
+    def __getattr__(self, name):
+>       raise AssertionError("work-order implementation is required")
+E       AssertionError: work-order implementation is required
+
+tests\contracts\test_work_orders.py:19: AssertionError
+_______ test_record_measures_real_process_exit_and_does_not_parse_shell _______
+
+work_orders = <test_work_orders.work_orders.<locals>.MissingImplementation object at 0x000001E24DADF4D0>
+repo = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-533/test_record_measures_real_proc0')
+
+    def test_record_measures_real_process_exit_and_does_not_parse_shell(work_orders, repo):
+>       order = draft(work_orders, repo)
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_work_orders.py:103: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\contracts\test_work_orders.py:50: in draft
+    return work_orders.draft_work_order(repo, "D028", "1", ["src/allowed.py"], "out/draft")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <test_work_orders.work_orders.<locals>.MissingImplementation object at 0x000001E24DADF4D0>
+name = 'draft_work_order'
+
+    def __getattr__(self, name):
+>       raise AssertionError("work-order implementation is required")
+E       AssertionError: work-order implementation is required
+
+tests\contracts\test_work_orders.py:19: AssertionError
+______ test_handoff_accepts_measured_local_checks_without_finishing_task ______
+
+work_orders = <test_work_orders.work_orders.<locals>.MissingImplementation object at 0x000001E24DADF380>
+repo = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-533/test_handoff_accepts_measured_0')
+
+    def test_handoff_accepts_measured_local_checks_without_finishing_task(work_orders, repo):
+>       value = handoff(work_orders, repo)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_work_orders.py:114: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\contracts\test_work_orders.py:61: in handoff
+    order = draft(work_orders, repo)
+            ^^^^^^^^^^^^^^^^^^^^^^^^
+tests\contracts\test_work_orders.py:50: in draft
+    return work_orders.draft_work_order(repo, "D028", "1", ["src/allowed.py"], "out/draft")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <test_work_orders.work_orders.<locals>.MissingImplementation object at 0x000001E24DADF380>
+name = 'draft_work_order'
+
+    def __getattr__(self, name):
+>       raise AssertionError("work-order implementation is required")
+E       AssertionError: work-order implementation is required
+
+tests\contracts\test_work_orders.py:19: AssertionError
+_ test_handoff_rejects_wrong_binding_missing_stale_or_fabricated_evidence[task] _
+
+work_orders = <test_work_orders.work_orders.<locals>.MissingImplementation object at 0x000001E24DADF230>
+repo = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-533/test_handoff_rejects_wrong_bin0')
+change = 'task'
+
+    @pytest.mark.parametrize("change", ["task", "version", "scope", "evidence", "missing_evidence", "log", "record", "revision", "fabricated_pass"])
+    def test_handoff_rejects_wrong_binding_missing_stale_or_fabricated_evidence(work_orders, repo, change):
+>       value = handoff(work_orders, repo)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_work_orders.py:124: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\contracts\test_work_orders.py:61: in handoff
+    order = draft(work_orders, repo)
+            ^^^^^^^^^^^^^^^^^^^^^^^^
+tests\contracts\test_work_orders.py:50: in draft
+    return work_orders.draft_work_order(repo, "D028", "1", ["src/allowed.py"], "out/draft")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <test_work_orders.work_orders.<locals>.MissingImplementation object at 0x000001E24DADF230>
+name = 'draft_work_order'
+
+    def __getattr__(self, name):
+>       raise AssertionError("work-order implementation is required")
+E       AssertionError: work-order implementation is required
+
+tests\contracts\test_work_orders.py:19: AssertionError
+_ test_handoff_rejects_wrong_binding_missing_stale_or_fabricated_evidence[version] _
+
+work_orders = <test_work_orders.work_orders.<locals>.MissingImplementation object at 0x000001E24DADF0E0>
+repo = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-533/test_handoff_rejects_wrong_bin1')
+change = 'version'
+
+    @pytest.mark.parametrize("change", ["task", "version", "scope", "evidence", "missing_evidence", "log", "record", "revision", "fabricated_pass"])
+    def test_handoff_rejects_wrong_binding_missing_stale_or_fabricated_evidence(work_orders, repo, change):
+>       value = handoff(work_orders, repo)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_work_orders.py:124: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\contracts\test_work_orders.py:61: in handoff
+    order = draft(work_orders, repo)
+            ^^^^^^^^^^^^^^^^^^^^^^^^
+tests\contracts\test_work_orders.py:50: in draft
+    return work_orders.draft_work_order(repo, "D028", "1", ["src/allowed.py"], "out/draft")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <test_work_orders.work_orders.<locals>.MissingImplementation object at 0x000001E24DADF0E0>
+name = 'draft_work_order'
+
+    def __getattr__(self, name):
+>       raise AssertionError("work-order implementation is required")
+E       AssertionError: work-order implementation is required
+
+tests\contracts\test_work_orders.py:19: AssertionError
+_ test_handoff_rejects_wrong_binding_missing_stale_or_fabricated_evidence[scope] _
+
+work_orders = <test_work_orders.work_orders.<locals>.MissingImplementation object at 0x000001E24DADEF90>
+repo = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-533/test_handoff_rejects_wrong_bin2')
+change = 'scope'
+
+    @pytest.mark.parametrize("change", ["task", "version", "scope", "evidence", "missing_evidence", "log", "record", "revision", "fabricated_pass"])
+    def test_handoff_rejects_wrong_binding_missing_stale_or_fabricated_evidence(work_orders, repo, change):
+>       value = handoff(work_orders, repo)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_work_orders.py:124: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\contracts\test_work_orders.py:61: in handoff
+    order = draft(work_orders, repo)
+            ^^^^^^^^^^^^^^^^^^^^^^^^
+tests\contracts\test_work_orders.py:50: in draft
+    return work_orders.draft_work_order(repo, "D028", "1", ["src/allowed.py"], "out/draft")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <test_work_orders.work_orders.<locals>.MissingImplementation object at 0x000001E24DADEF90>
+name = 'draft_work_order'
+
+    def __getattr__(self, name):
+>       raise AssertionError("work-order implementation is required")
+E       AssertionError: work-order implementation is required
+
+tests\contracts\test_work_orders.py:19: AssertionError
+_ test_handoff_rejects_wrong_binding_missing_stale_or_fabricated_evidence[evidence] _
+
+work_orders = <test_work_orders.work_orders.<locals>.MissingImplementation object at 0x000001E24DADEE40>
+repo = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-533/test_handoff_rejects_wrong_bin3')
+change = 'evidence'
+
+    @pytest.mark.parametrize("change", ["task", "version", "scope", "evidence", "missing_evidence", "log", "record", "revision", "fabricated_pass"])
+    def test_handoff_rejects_wrong_binding_missing_stale_or_fabricated_evidence(work_orders, repo, change):
+>       value = handoff(work_orders, repo)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_work_orders.py:124: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\contracts\test_work_orders.py:61: in handoff
+    order = draft(work_orders, repo)
+            ^^^^^^^^^^^^^^^^^^^^^^^^
+tests\contracts\test_work_orders.py:50: in draft
+    return work_orders.draft_work_order(repo, "D028", "1", ["src/allowed.py"], "out/draft")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <test_work_orders.work_orders.<locals>.MissingImplementation object at 0x000001E24DADEE40>
+name = 'draft_work_order'
+
+    def __getattr__(self, name):
+>       raise AssertionError("work-order implementation is required")
+E       AssertionError: work-order implementation is required
+
+tests\contracts\test_work_orders.py:19: AssertionError
+_ test_handoff_rejects_wrong_binding_missing_stale_or_fabricated_evidence[missing_evidence] _
+
+work_orders = <test_work_orders.work_orders.<locals>.MissingImplementation object at 0x000001E24DADECF0>
+repo = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-533/test_handoff_rejects_wrong_bin4')
+change = 'missing_evidence'
+
+    @pytest.mark.parametrize("change", ["task", "version", "scope", "evidence", "missing_evidence", "log", "record", "revision", "fabricated_pass"])
+    def test_handoff_rejects_wrong_binding_missing_stale_or_fabricated_evidence(work_orders, repo, change):
+>       value = handoff(work_orders, repo)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_work_orders.py:124: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\contracts\test_work_orders.py:61: in handoff
+    order = draft(work_orders, repo)
+            ^^^^^^^^^^^^^^^^^^^^^^^^
+tests\contracts\test_work_orders.py:50: in draft
+    return work_orders.draft_work_order(repo, "D028", "1", ["src/allowed.py"], "out/draft")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <test_work_orders.work_orders.<locals>.MissingImplementation object at 0x000001E24DADECF0>
+name = 'draft_work_order'
+
+    def __getattr__(self, name):
+>       raise AssertionError("work-order implementation is required")
+E       AssertionError: work-order implementation is required
+
+tests\contracts\test_work_orders.py:19: AssertionError
+_ test_handoff_rejects_wrong_binding_missing_stale_or_fabricated_evidence[log] _
+
+work_orders = <test_work_orders.work_orders.<locals>.MissingImplementation object at 0x000001E24DADEBA0>
+repo = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-533/test_handoff_rejects_wrong_bin5')
+change = 'log'
+
+    @pytest.mark.parametrize("change", ["task", "version", "scope", "evidence", "missing_evidence", "log", "record", "revision", "fabricated_pass"])
+    def test_handoff_rejects_wrong_binding_missing_stale_or_fabricated_evidence(work_orders, repo, change):
+>       value = handoff(work_orders, repo)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_work_orders.py:124: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\contracts\test_work_orders.py:61: in handoff
+    order = draft(work_orders, repo)
+            ^^^^^^^^^^^^^^^^^^^^^^^^
+tests\contracts\test_work_orders.py:50: in draft
+    return work_orders.draft_work_order(repo, "D028", "1", ["src/allowed.py"], "out/draft")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <test_work_orders.work_orders.<locals>.MissingImplementation object at 0x000001E24DADEBA0>
+name = 'draft_work_order'
+
+    def __getattr__(self, name):
+>       raise AssertionError("work-order implementation is required")
+E       AssertionError: work-order implementation is required
+
+tests\contracts\test_work_orders.py:19: AssertionError
+_ test_handoff_rejects_wrong_binding_missing_stale_or_fabricated_evidence[record] _
+
+work_orders = <test_work_orders.work_orders.<locals>.MissingImplementation object at 0x000001E24DADE510>
+repo = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-533/test_handoff_rejects_wrong_bin6')
+change = 'record'
+
+    @pytest.mark.parametrize("change", ["task", "version", "scope", "evidence", "missing_evidence", "log", "record", "revision", "fabricated_pass"])
+    def test_handoff_rejects_wrong_binding_missing_stale_or_fabricated_evidence(work_orders, repo, change):
+>       value = handoff(work_orders, repo)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_work_orders.py:124: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\contracts\test_work_orders.py:61: in handoff
+    order = draft(work_orders, repo)
+            ^^^^^^^^^^^^^^^^^^^^^^^^
+tests\contracts\test_work_orders.py:50: in draft
+    return work_orders.draft_work_order(repo, "D028", "1", ["src/allowed.py"], "out/draft")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <test_work_orders.work_orders.<locals>.MissingImplementation object at 0x000001E24DADE510>
+name = 'draft_work_order'
+
+    def __getattr__(self, name):
+>       raise AssertionError("work-order implementation is required")
+E       AssertionError: work-order implementation is required
+
+tests\contracts\test_work_orders.py:19: AssertionError
+_ test_handoff_rejects_wrong_binding_missing_stale_or_fabricated_evidence[revision] _
+
+work_orders = <test_work_orders.work_orders.<locals>.MissingImplementation object at 0x000001E24DADE3C0>
+repo = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-533/test_handoff_rejects_wrong_bin7')
+change = 'revision'
+
+    @pytest.mark.parametrize("change", ["task", "version", "scope", "evidence", "missing_evidence", "log", "record", "revision", "fabricated_pass"])
+    def test_handoff_rejects_wrong_binding_missing_stale_or_fabricated_evidence(work_orders, repo, change):
+>       value = handoff(work_orders, repo)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_work_orders.py:124: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\contracts\test_work_orders.py:61: in handoff
+    order = draft(work_orders, repo)
+            ^^^^^^^^^^^^^^^^^^^^^^^^
+tests\contracts\test_work_orders.py:50: in draft
+    return work_orders.draft_work_order(repo, "D028", "1", ["src/allowed.py"], "out/draft")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <test_work_orders.work_orders.<locals>.MissingImplementation object at 0x000001E24DADE3C0>
+name = 'draft_work_order'
+
+    def __getattr__(self, name):
+>       raise AssertionError("work-order implementation is required")
+E       AssertionError: work-order implementation is required
+
+tests\contracts\test_work_orders.py:19: AssertionError
+_ test_handoff_rejects_wrong_binding_missing_stale_or_fabricated_evidence[fabricated_pass] _
+
+work_orders = <test_work_orders.work_orders.<locals>.MissingImplementation object at 0x000001E24DADDE80>
+repo = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-533/test_handoff_rejects_wrong_bin8')
+change = 'fabricated_pass'
+
+    @pytest.mark.parametrize("change", ["task", "version", "scope", "evidence", "missing_evidence", "log", "record", "revision", "fabricated_pass"])
+    def test_handoff_rejects_wrong_binding_missing_stale_or_fabricated_evidence(work_orders, repo, change):
+>       value = handoff(work_orders, repo)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_work_orders.py:124: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\contracts\test_work_orders.py:61: in handoff
+    order = draft(work_orders, repo)
+            ^^^^^^^^^^^^^^^^^^^^^^^^
+tests\contracts\test_work_orders.py:50: in draft
+    return work_orders.draft_work_order(repo, "D028", "1", ["src/allowed.py"], "out/draft")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <test_work_orders.work_orders.<locals>.MissingImplementation object at 0x000001E24DADDE80>
+name = 'draft_work_order'
+
+    def __getattr__(self, name):
+>       raise AssertionError("work-order implementation is required")
+E       AssertionError: work-order implementation is required
+
+tests\contracts\test_work_orders.py:19: AssertionError
+____________ test_real_nonzero_exit_never_becomes_accepted_handoff ____________
+
+work_orders = <test_work_orders.work_orders.<locals>.MissingImplementation object at 0x000001E24DADF770>
+repo = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-533/test_real_nonzero_exit_never_b0')
+
+    def test_real_nonzero_exit_never_becomes_accepted_handoff(work_orders, repo):
+>       handoff(work_orders, repo, rc=9)
+
+tests\contracts\test_work_orders.py:145: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\contracts\test_work_orders.py:61: in handoff
+    order = draft(work_orders, repo)
+            ^^^^^^^^^^^^^^^^^^^^^^^^
+tests\contracts\test_work_orders.py:50: in draft
+    return work_orders.draft_work_order(repo, "D028", "1", ["src/allowed.py"], "out/draft")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <test_work_orders.work_orders.<locals>.MissingImplementation object at 0x000001E24DADF770>
+name = 'draft_work_order'
+
+    def __getattr__(self, name):
+>       raise AssertionError("work-order implementation is required")
+E       AssertionError: work-order implementation is required
+
+tests\contracts\test_work_orders.py:19: AssertionError
+______ test_handoff_declared_files_must_match_observed_allowlist_changes ______
+
+work_orders = <test_work_orders.work_orders.<locals>.MissingImplementation object at 0x000001E24DADDE80>
+repo = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-533/test_handoff_declared_files_mu0')
+
+    def test_handoff_declared_files_must_match_observed_allowlist_changes(work_orders, repo):
+>       order = draft(work_orders, repo)
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_work_orders.py:151: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\contracts\test_work_orders.py:50: in draft
+    return work_orders.draft_work_order(repo, "D028", "1", ["src/allowed.py"], "out/draft")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <test_work_orders.work_orders.<locals>.MissingImplementation object at 0x000001E24DADDE80>
+name = 'draft_work_order'
+
+    def __getattr__(self, name):
+>       raise AssertionError("work-order implementation is required")
+E       AssertionError: work-order implementation is required
+
+tests\contracts\test_work_orders.py:19: AssertionError
+____________ test_linked_repository_artifacts_are_denied[symlink] _____________
+
+work_orders = <test_work_orders.work_orders.<locals>.MissingImplementation object at 0x000001E24DADE3C0>
+repo = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-533/test_linked_repository_artifac0')
+kind = 'symlink'
+
+    @pytest.mark.parametrize("kind", ["symlink", "hardlink"])
+    def test_linked_repository_artifacts_are_denied(work_orders, repo, kind):
+        target = repo / "src/alias.py"
+        try:
+            os.symlink(repo / "src/allowed.py", target) if kind == "symlink" else os.link(repo / "src/allowed.py", target)
+        except OSError:
+            pytest.skip("host cannot create this link")
+        with pytest.raises(PermissionError):
+>           work_orders.draft_work_order(repo, "D028", "1", ["src/alias.py"], "out/order")
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_work_orders.py:166: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <test_work_orders.work_orders.<locals>.MissingImplementation object at 0x000001E24DADE3C0>
+name = 'draft_work_order'
+
+    def __getattr__(self, name):
+>       raise AssertionError("work-order implementation is required")
+E       AssertionError: work-order implementation is required
+
+tests\contracts\test_work_orders.py:19: AssertionError
+____________ test_linked_repository_artifacts_are_denied[hardlink] ____________
+
+work_orders = <test_work_orders.work_orders.<locals>.MissingImplementation object at 0x000001E24DADE510>
+repo = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-533/test_linked_repository_artifac1')
+kind = 'hardlink'
+
+    @pytest.mark.parametrize("kind", ["symlink", "hardlink"])
+    def test_linked_repository_artifacts_are_denied(work_orders, repo, kind):
+        target = repo / "src/alias.py"
+        try:
+            os.symlink(repo / "src/allowed.py", target) if kind == "symlink" else os.link(repo / "src/allowed.py", target)
+        except OSError:
+            pytest.skip("host cannot create this link")
+        with pytest.raises(PermissionError):
+>           work_orders.draft_work_order(repo, "D028", "1", ["src/alias.py"], "out/order")
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_work_orders.py:166: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <test_work_orders.work_orders.<locals>.MissingImplementation object at 0x000001E24DADE510>
+name = 'draft_work_order'
+
+    def __getattr__(self, name):
+>       raise AssertionError("work-order implementation is required")
+E       AssertionError: work-order implementation is required
+
+tests\contracts\test_work_orders.py:19: AssertionError
+______________ test_source_data_cannot_expand_trusted_allowlist _______________
+
+work_orders = <test_work_orders.work_orders.<locals>.MissingImplementation object at 0x000001E24DADEBA0>
+repo = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-533/test_source_data_cannot_expand0')
+
+    def test_source_data_cannot_expand_trusted_allowlist(work_orders, repo):
+>       value = draft(work_orders, repo)
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_work_orders.py:170: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\contracts\test_work_orders.py:50: in draft
+    return work_orders.draft_work_order(repo, "D028", "1", ["src/allowed.py"], "out/draft")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <test_work_orders.work_orders.<locals>.MissingImplementation object at 0x000001E24DADEBA0>
+name = 'draft_work_order'
+
+    def __getattr__(self, name):
+>       raise AssertionError("work-order implementation is required")
+E       AssertionError: work-order implementation is required
+
+tests\contracts\test_work_orders.py:19: AssertionError
+_ test_repair_and_blocked_reports_require_retrievable_evidence[repair-payload0] _
+
+work_orders = <test_work_orders.work_orders.<locals>.MissingImplementation object at 0x000001E24DADECF0>
+repo = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-533/test_repair_and_blocked_report0')
+kind = 'repair'
+payload = {'defects': [{'defect_id': 'DEF-1', 'requirement_id': 'R07', 'location': 'src/allowed.py', 'impact': 'Missing translated block', ...}], 'artifact_version': 'rev-1'}
+
+    @pytest.mark.parametrize("kind,payload", [
+        ("repair", {"defects": [{"defect_id": "DEF-1", "requirement_id": "R07", "location": "src/allowed.py",
+            "impact": "Missing translated block", "failure_evidence": ["inputs/direct.txt"],
+            "allowed_files": ["src/allowed.py"], "pass_condition": "All source blocks have translations",
+            "rerun_checks": [["python", "-m", "pytest", "tests/integration/test_input_translation.py"]]}], "artifact_version": "rev-1"}),
+        ("blocked", {"cannot_complete": "Real acceptance", "direct_evidence": ["inputs/direct.txt"],
+            "attempted_actions": ["Checked dependency files"], "external_conditions": ["Approved human review"],
+            "independent_tasks": ["D029"], "artifact_version": "rev-1"}),
+    ])
+    def test_repair_and_blocked_reports_require_retrievable_evidence(work_orders, repo, kind, payload):
+>       draft(work_orders, repo)
+
+tests\contracts\test_work_orders.py:187: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\contracts\test_work_orders.py:50: in draft
+    return work_orders.draft_work_order(repo, "D028", "1", ["src/allowed.py"], "out/draft")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <test_work_orders.work_orders.<locals>.MissingImplementation object at 0x000001E24DADECF0>
+name = 'draft_work_order'
+
+    def __getattr__(self, name):
+>       raise AssertionError("work-order implementation is required")
+E       AssertionError: work-order implementation is required
+
+tests\contracts\test_work_orders.py:19: AssertionError
+_ test_repair_and_blocked_reports_require_retrievable_evidence[blocked-payload1] _
+
+work_orders = <test_work_orders.work_orders.<locals>.MissingImplementation object at 0x000001E24DADEE40>
+repo = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-533/test_repair_and_blocked_report1')
+kind = 'blocked'
+payload = {'cannot_complete': 'Real acceptance', 'direct_evidence': ['inputs/direct.txt'], 'attempted_actions': ['Checked dependency files'], 'external_conditions': ['Approved human review'], ...}
+
+    @pytest.mark.parametrize("kind,payload", [
+        ("repair", {"defects": [{"defect_id": "DEF-1", "requirement_id": "R07", "location": "src/allowed.py",
+            "impact": "Missing translated block", "failure_evidence": ["inputs/direct.txt"],
+            "allowed_files": ["src/allowed.py"], "pass_condition": "All source blocks have translations",
+            "rerun_checks": [["python", "-m", "pytest", "tests/integration/test_input_translation.py"]]}], "artifact_version": "rev-1"}),
+        ("blocked", {"cannot_complete": "Real acceptance", "direct_evidence": ["inputs/direct.txt"],
+            "attempted_actions": ["Checked dependency files"], "external_conditions": ["Approved human review"],
+            "independent_tasks": ["D029"], "artifact_version": "rev-1"}),
+    ])
+    def test_repair_and_blocked_reports_require_retrievable_evidence(work_orders, repo, kind, payload):
+>       draft(work_orders, repo)
+
+tests\contracts\test_work_orders.py:187: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\contracts\test_work_orders.py:50: in draft
+    return work_orders.draft_work_order(repo, "D028", "1", ["src/allowed.py"], "out/draft")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <test_work_orders.work_orders.<locals>.MissingImplementation object at 0x000001E24DADEE40>
+name = 'draft_work_order'
+
+    def __getattr__(self, name):
+>       raise AssertionError("work-order implementation is required")
+E       AssertionError: work-order implementation is required
+
+tests\contracts\test_work_orders.py:19: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/contracts/test_work_orders.py::test_exact_card_full_actions_and_only_direct_artifact_context
+FAILED tests/contracts/test_work_orders.py::test_task_id_must_match_exactly[D02]
+FAILED tests/contracts/test_work_orders.py::test_task_id_must_match_exactly[D999]
+FAILED tests/contracts/test_work_orders.py::test_task_id_must_match_exactly[D028;whoami]
+FAILED tests/contracts/test_work_orders.py::test_traversal_and_ambiguous_scopes_are_rejected[../escape]
+FAILED tests/contracts/test_work_orders.py::test_traversal_and_ambiguous_scopes_are_rejected[/absolute]
+FAILED tests/contracts/test_work_orders.py::test_traversal_and_ambiguous_scopes_are_rejected[C:/escape]
+FAILED tests/contracts/test_work_orders.py::test_traversal_and_ambiguous_scopes_are_rejected[src/../unrelated.py]
+FAILED tests/contracts/test_work_orders.py::test_traversal_and_ambiguous_scopes_are_rejected[src/allowed.py:stream]
+FAILED tests/contracts/test_work_orders.py::test_traversal_and_ambiguous_scopes_are_rejected[src/%2e%2e]
+FAILED tests/contracts/test_work_orders.py::test_fresh_output_never_overwrites
+FAILED tests/contracts/test_work_orders.py::test_record_measures_real_process_exit_and_does_not_parse_shell
+FAILED tests/contracts/test_work_orders.py::test_handoff_accepts_measured_local_checks_without_finishing_task
+FAILED tests/contracts/test_work_orders.py::test_handoff_rejects_wrong_binding_missing_stale_or_fabricated_evidence[task]
+FAILED tests/contracts/test_work_orders.py::test_handoff_rejects_wrong_binding_missing_stale_or_fabricated_evidence[version]
+FAILED tests/contracts/test_work_orders.py::test_handoff_rejects_wrong_binding_missing_stale_or_fabricated_evidence[scope]
+FAILED tests/contracts/test_work_orders.py::test_handoff_rejects_wrong_binding_missing_stale_or_fabricated_evidence[evidence]
+FAILED tests/contracts/test_work_orders.py::test_handoff_rejects_wrong_binding_missing_stale_or_fabricated_evidence[missing_evidence]
+FAILED tests/contracts/test_work_orders.py::test_handoff_rejects_wrong_binding_missing_stale_or_fabricated_evidence[log]
+FAILED tests/contracts/test_work_orders.py::test_handoff_rejects_wrong_binding_missing_stale_or_fabricated_evidence[record]
+FAILED tests/contracts/test_work_orders.py::test_handoff_rejects_wrong_binding_missing_stale_or_fabricated_evidence[revision]
+FAILED tests/contracts/test_work_orders.py::test_handoff_rejects_wrong_binding_missing_stale_or_fabricated_evidence[fabricated_pass]
+FAILED tests/contracts/test_work_orders.py::test_real_nonzero_exit_never_becomes_accepted_handoff
+FAILED tests/contracts/test_work_orders.py::test_handoff_declared_files_must_match_observed_allowlist_changes
+FAILED tests/contracts/test_work_orders.py::test_linked_repository_artifacts_are_denied[symlink]
+FAILED tests/contracts/test_work_orders.py::test_linked_repository_artifacts_are_denied[hardlink]
+FAILED tests/contracts/test_work_orders.py::test_source_data_cannot_expand_trusted_allowlist
+FAILED tests/contracts/test_work_orders.py::test_repair_and_blocked_reports_require_retrievable_evidence[repair-payload0]
+FAILED tests/contracts/test_work_orders.py::test_repair_and_blocked_reports_require_retrievable_evidence[blocked-payload1]
+29 failed in 0.95s

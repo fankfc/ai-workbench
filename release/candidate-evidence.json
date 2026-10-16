@@ -1,0 +1,82 @@
+{
+  "schema_version": "1.0",
+  "candidate": {
+    "path": "dist/windows/AIBroker-Setup.exe",
+    "sha256": "5618db4686a6b889a95f45b92820c31337c07f995f30b3e208ebb3f689b795ac"
+  },
+  "commit": null,
+  "dependency_locks": {
+    "package-lock.json": {
+      "path": "package-lock.json",
+      "sha256": "11387c8f64e98c0cf3e102c969f2f90f16f1ae0306cb7b167b0007166610b71a"
+    },
+    "services/orchestrator/uv.lock": {
+      "path": "services/orchestrator/uv.lock",
+      "sha256": "ebaee8745f99acf7d5e5d63191629035e890c713bbad1c5518ef9e0fdbc7577d"
+    }
+  },
+  "sbom": {
+    "path": "artifacts/qa/D054/sbom.json",
+    "sha256": "80ff474c1f6b1303fe69e57ee1df4a94cce2925b5c690ad927550b18e007eec4"
+  },
+  "compatible_schema": 4,
+  "evidence": {
+    "security_boundary": {
+      "status": "missing",
+      "report": null
+    },
+    "translation_review": {
+      "status": "missing",
+      "report": null
+    },
+    "accessibility_review": {
+      "status": "missing",
+      "report": null
+    },
+    "performance": {
+      "status": "missing",
+      "report": null
+    },
+    "reliability_24h": {
+      "status": "missing",
+      "report": null
+    },
+    "backup_restore": {
+      "status": "missing",
+      "report": null
+    },
+    "windows_install": {
+      "status": "missing",
+      "report": null
+    },
+    "signed_update": {
+      "status": "missing",
+      "report": null
+    },
+    "real_journeys": {
+      "status": "missing",
+      "report": null
+    },
+    "beta_trial": {
+      "status": "missing",
+      "report": null
+    },
+    "authenticode": {
+      "status": "missing",
+      "report": null
+    },
+    "release_approval": {
+      "status": "missing",
+      "report": null
+    },
+    "optimization_qualification": {
+      "status": "missing",
+      "report": null
+    },
+    "final_handover": {
+      "status": "missing",
+      "report": null
+    }
+  },
+  "note": "Lock inventory is not a verified packaged runtime/tool/license SBOM. Missing evidence is a blocking result."
+}

@@ -1,0 +1,67 @@
+F                                                                        [100%]
+================================== FAILURES ===================================
+_______ test_staged_ready_release_can_resume_without_another_model_call _______
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-242/test_staged_ready_release_can_0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x0000016D3DB5C180>
+
+    def test_staged_ready_release_can_resume_without_another_model_call(tmp_path, monkeypatch):
+        from app.runtime.publication import NativePublisher
+        app, plan, workflow, b, a, runtime = case(tmp_path)
+        executor = NativeTaskExecutor(workflow)
+        result = asyncio.run(executor.execute(plan))
+        original = NativePublisher.publish
+        def interrupted(*args):
+            raise RuntimeError('explicit fixture interruption after durable READY')
+        monkeypatch.setattr(NativePublisher, 'publish', interrupted)
+        with pytest.raises(RuntimeError):
+            asyncio.run(executor.publish(plan, result))
+        with closing(app.state.database.connect()) as connection:
+            assert connection.execute('SELECT state FROM task_runs').fetchone()[0] == 'READY'
+        monkeypatch.setattr(NativePublisher, 'publish', original)
+>       assert asyncio.run(executor.publish(plan, result))['state'] == 'PUBLISHED'
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\integration\test_prepared_workflow.py:121: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:194: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:118: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py:721: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.runtime.native_executor.NativeTaskExecutor object at 0x0000016D3DB167B0>
+plan = PreparedPlan(contract=TaskContract(task_id='ad7ce6c16b364b2a8429a4e09679965f', attempt_id='ede815aa3497483893f4d47668c...nput/user_request.txt': '927f0764f7f5ea51150d06a12fbcfc9b8ac66959b1ecd8c8008f1338f43144aa'}), classification='fixture')
+result = WorkflowResult(state='OUTPUT_PREPARING', current_revision_id='candidate-9ebd6b4f184e4142ba5873b2c50f25e3', review_chec...\test_staged_ready_release_can_0\\tasks\\ad7ce6c16b364b2a8429a4e09679965f\\ede815aa3497483893f4d47668cd840f\\evidence')
+
+    async def publish(self, plan, result):
+        if not isinstance(plan, PreparedPlan) or result.state != 'OUTPUT_PREPARING':
+            raise PublicationBlocked('NATIVE_EXECUTION_NOT_APPROVED')
+        contract = plan.contract
+        with closing(Database(self.database_path).connect()) as connection:
+            row = require_current_attempt(connection, contract.task_id, contract.attempt_id, contract.contract_version)
+            checkpoint = checkpoint_for(row)
+            handoff = checkpoint.get('planning_handoff', {})
+            workflow = checkpoint.get('workflow', {})
+            if (handoff.get('planning_step_id') != plan.planning_step_id
+                    or handoff.get('previous_owner') != plan.owner_token
+                    or workflow.get('current_revision_id') != result.current_revision_id
+                    or workflow.get('review_check_id') != result.review_check_id
+                    or row['state'] not in {'OUTPUT_PREPARING', 'PUBLISHED'}):
+>               raise PublicationBlocked('NATIVE_RESULT_BINDING_REQUIRED')
+E               app.runtime.publication.PublicationBlocked: NATIVE_RESULT_BINDING_REQUIRED
+
+services\orchestrator\app\runtime\native_executor.py:33: PublicationBlocked
+============================== warnings summary ===============================
+services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1
+  C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/integration/test_prepared_workflow.py::test_staged_ready_release_can_resume_without_another_model_call

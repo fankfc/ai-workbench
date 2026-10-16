@@ -1,0 +1,11 @@
+{
+  "checked_at": "2026-10-13T14:36:32.600271+00:00",
+  "login_exit_code": 4294967295,
+  "timed_out": false,
+  "logged_in": false,
+  "auth_method": "none",
+  "auth_status_exit_code": 1,
+  "raw_output_retained": false,
+  "credentials_read_by_assistant": false,
+  "model_requests_started": 0
+}

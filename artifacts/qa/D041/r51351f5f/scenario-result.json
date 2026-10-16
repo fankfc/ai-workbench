@@ -1,0 +1,18 @@
+{
+  "exit_code": 0,
+  "service_pid": 55704,
+  "evidence_files": [
+    "task.json",
+    "public-messages.json",
+    "service-identity.json",
+    "service-teardown.json"
+  ],
+  "manifest_valid": true,
+  "root_isolated": true,
+  "process_cleaned": true,
+  "run_id": "2729e696409c460faf20dcde51487585",
+  "task_state": "PUBLISHED",
+  "answer_count": 1,
+  "provider_boundary": "fake",
+  "real_provider_verified": false
+}

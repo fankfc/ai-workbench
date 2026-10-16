@@ -1,0 +1,77 @@
+[
+  {
+    "path": ".python-version",
+    "source_matches_snapshot": true,
+    "snapshot_unchanged": true
+  },
+  {
+    "path": ".gitignore",
+    "source_matches_snapshot": true,
+    "snapshot_unchanged": true
+  },
+  {
+    "path": "package.json",
+    "source_matches_snapshot": true,
+    "snapshot_unchanged": true
+  },
+  {
+    "path": "package-lock.json",
+    "source_matches_snapshot": true,
+    "snapshot_unchanged": true
+  },
+  {
+    "path": "playwright.config.ts",
+    "source_matches_snapshot": true,
+    "snapshot_unchanged": true
+  },
+  {
+    "path": "pytest.ini",
+    "source_matches_snapshot": true,
+    "snapshot_unchanged": true
+  },
+  {
+    "path": "README.md",
+    "source_matches_snapshot": true,
+    "snapshot_unchanged": true
+  },
+  {
+    "path": "apps/desktop/package.json",
+    "source_matches_snapshot": true,
+    "snapshot_unchanged": true
+  },
+  {
+    "path": "services/orchestrator/pyproject.toml",
+    "source_matches_snapshot": true,
+    "snapshot_unchanged": true
+  },
+  {
+    "path": "services/orchestrator/uv.lock",
+    "source_matches_snapshot": true,
+    "snapshot_unchanged": true
+  },
+  {
+    "path": "services/orchestrator/app/__init__.py",
+    "source_matches_snapshot": true,
+    "snapshot_unchanged": true
+  },
+  {
+    "path": "tests/unit/test_package_bootstrap.py",
+    "source_matches_snapshot": true,
+    "snapshot_unchanged": true
+  },
+  {
+    "path": "tests/e2e/README.md",
+    "source_matches_snapshot": true,
+    "snapshot_unchanged": true
+  },
+  {
+    "path": "docs/runbooks/development.md",
+    "source_matches_snapshot": true,
+    "snapshot_unchanged": true
+  },
+  {
+    "path": "docs/acceptance/D002/verify-date-time.py",
+    "source_matches_snapshot": true,
+    "snapshot_unchanged": true
+  }
+]

@@ -1,0 +1,1036 @@
+{
+  "generated_at": "2026-10-14T03:58:47.216400+00:00",
+  "status": "source_routes_with_peer_bound_sse_observation_no_production_or_scope_qualification",
+  "official_runtime_version": "0.160.0",
+  "official_runtime_sha256": "4b01d5920e6785614727443bbecf343f4dedbb7347052b72ba805aab6353ef01",
+  "read_only_cli_help_processes": 3,
+  "real_model_submissions": 0,
+  "real_provider_metadata_queries": 0,
+  "credential_authenticated_requests": 0,
+  "auth_file_reads": 0,
+  "auth_values_exported": 0,
+  "production_source_edits": 0,
+  "test_edits": 0,
+  "public_source_tree_api": {
+    "status": 403,
+    "reason": "rate_limit",
+    "initial_combined_shell_exit_code": 1,
+    "preceding_help_commands_exit_code": 0
+  },
+  "help_results": [
+    {
+      "name": "cli-help",
+      "exit_code": 0,
+      "sha256": "709e67c5d77e5f9f1178f41a086ab06fa6cf97c6de1ac5264f94316908bd2491",
+      "size_bytes": 5988
+    },
+    {
+      "name": "app-server-help",
+      "exit_code": 0,
+      "sha256": "5199eb0a2a7f270fed22602704f6289548c0c992f24a19d44436056f6727fc34",
+      "size_bytes": 3295
+    },
+    {
+      "name": "debug-help",
+      "exit_code": 0,
+      "sha256": "289957713058a592df64f57e8665f4f561591d9f996eef8df19c0942f08a8111",
+      "size_bytes": 1101
+    }
+  ],
+  "public_source_downloads": [
+    {
+      "path": "codex-rs/codex-api/src/sse/responses.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/codex-api/src/sse/responses.rs",
+      "size": 69865,
+      "sha256": "327127fb7e6886b0ffe73c74c753cc44b2c09e72c090600a861756334397cd2b"
+    },
+    {
+      "path": "codex-rs/codex-api/src/endpoint/responses_websocket.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/codex-api/src/endpoint/responses_websocket.rs",
+      "size": 47768,
+      "sha256": "e2af597f23bc95c54854dd0520eb85a8e5026c660e2a7eb10e5cd38f6817eeff"
+    },
+    {
+      "path": "codex-rs/core/src/client.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/core/src/client.rs",
+      "size": 118699,
+      "sha256": "605ced35cd853fcc4e23f6edd724c96f96f74c736a45e6ea95bf5300f3ab814c"
+    },
+    {
+      "path": "codex-rs/cli/src/main.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/cli/src/main.rs",
+      "size": 177127,
+      "sha256": "dc0356a131108ace0f63f7e9f5040b1f0fc19a71057eeeb4108e04623267c502"
+    },
+    {
+      "path": "codex-rs/otel/src/lib.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/otel/src/lib.rs",
+      "size": 3566,
+      "sha256": "be3c972cae9545a22bb49d052d621991f27cdeda1d1c5a080b3ee848e69a1981"
+    },
+    {
+      "path": "codex-rs/responses-api-proxy/README.md",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/responses-api-proxy/README.md",
+      "size": 6549,
+      "sha256": "e109f86c0acac8c829fe38f168d0a13dbab3b7d4d2e25bce25a0483046ac9517"
+    },
+    {
+      "path": "codex-rs/responses-api-proxy/src/lib.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/responses-api-proxy/src/lib.rs",
+      "size": 8659,
+      "sha256": "092e92662b9a564f98bd5ee157c09348465288a1656adcd5eb34d555dc551c1f"
+    },
+    {
+      "path": "codex-rs/config/src/config.schema.json",
+      "error": "HTTPError",
+      "status": 404
+    },
+    {
+      "path": "codex-rs/core/config.schema.json",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/core/config.schema.json",
+      "size": 229468,
+      "sha256": "7ce31bde1ed6ef15c53a96ba460bb1d0fb7b99fd9ab719b567c94c474f62b023"
+    },
+    {
+      "path": "codex-rs/otel/src/events/session_telemetry.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/otel/src/events/session_telemetry.rs",
+      "size": 54405,
+      "sha256": "b162e7a25d56970743a960825ccc332bf87334f8a8acdc4b18773e5a9ff72c49"
+    },
+    {
+      "path": "codex-rs/otel/src/events/mod.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/otel/src/events/mod.rs",
+      "size": 57,
+      "sha256": "7ff247efd4f2de0da5bef63c226ebb3ccabb38702d9fb84a9a0307d1702b377d"
+    },
+    {
+      "path": "codex-rs/otel/src/events/api_request.rs",
+      "error": "HTTPError",
+      "status": 404
+    },
+    {
+      "path": "codex-rs/core/src/codex/mod.rs",
+      "error": "HTTPError",
+      "status": 404
+    },
+    {
+      "path": "codex-rs/core/src/client/telemetry.rs",
+      "error": "HTTPError",
+      "status": 404
+    },
+    {
+      "path": "codex-rs/codex-api/src/telemetry.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/codex-api/src/telemetry.rs",
+      "size": 2712,
+      "sha256": "25524333a8131297e0fd04c5b869417b53e9f704377febb64be70d01df8ffdb9"
+    },
+    {
+      "path": "codex-rs/http-client/src/lib.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/http-client/src/lib.rs",
+      "size": 3060,
+      "sha256": "7f4187bf5774ecc4dbe96c43b4a71730aa696ca2d0912789ffc16e180741294f"
+    },
+    {
+      "path": "codex-rs/responses-api-proxy/src/cli.rs",
+      "error": "HTTPError",
+      "status": 404
+    },
+    {
+      "path": "codex-rs/responses-api-proxy/src/forwarder.rs",
+      "error": "HTTPError",
+      "status": 404
+    },
+    {
+      "path": "codex-rs/response-debug-context/src/lib.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/response-debug-context/src/lib.rs",
+      "size": 7232,
+      "sha256": "42d57c97fe1e4b5465690c7eaa23061b84192e565a1e72ad5388fc251d1a9f50"
+    },
+    {
+      "path": "codex-rs/core/src/codex.rs",
+      "error": "HTTPError",
+      "status": 404
+    },
+    {
+      "path": "codex-rs/core/src/lib.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/core/src/lib.rs",
+      "size": 8704,
+      "sha256": "77123e59406093fcaa2f10e549458c228e55d53c84fef06728a73933cc9f096b"
+    },
+    {
+      "path": "codex-rs/otel/src/events/shared.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/otel/src/events/shared.rs",
+      "size": 2251,
+      "sha256": "a1faa6568bccf8ffe0db78518758744af54e7a94ea2b324a66cd31349fd0eda6"
+    },
+    {
+      "path": "codex-rs/http-client/src/outbound_proxy.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/http-client/src/outbound_proxy.rs",
+      "size": 31827,
+      "sha256": "5c1fb52555ea4e9546cf66dd1c4ddee2a9d6ef136ba3f51a25ceafd368d3be36"
+    },
+    {
+      "path": "codex-rs/responses-api-proxy/src/dump.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/responses-api-proxy/src/dump.rs",
+      "size": 11527,
+      "sha256": "1f2850c9b0af53fa7d7bcbd28389898322d4b42a16260d4980105f7833479ccb"
+    },
+    {
+      "path": "codex-rs/rollout-trace/src/lib.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/rollout-trace/src/lib.rs",
+      "size": 3373,
+      "sha256": "82ff49e69bb52aa07f1585df2b7c59cf8068a8911656dff05232130f1bf95dcb"
+    },
+    {
+      "path": "codex-rs/core/src/config/mod.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/core/src/config/mod.rs",
+      "size": 200720,
+      "sha256": "854f5a6b184714740500b8d3eae2bb04cb88172efccf11d38a74f2f6189c0341"
+    },
+    {
+      "path": "codex-rs/model-provider-info/src/lib.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/model-provider-info/src/lib.rs",
+      "size": 31061,
+      "sha256": "941a8ec0e8be4b45080cac3df3d052999a4cb104811575634b1a9ed510690958"
+    },
+    {
+      "path": "codex-rs/core/src/client_common.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/core/src/client_common.rs",
+      "size": 4820,
+      "sha256": "0125e520f71798e6c31a1d0147934c0d90288ab9cc4bfce6e8374ac587f2b43a"
+    },
+    {
+      "path": "codex-rs/core/src/session.rs",
+      "error": "HTTPError",
+      "status": 404
+    },
+    {
+      "path": "codex-rs/core/src/session/mod.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/core/src/session/mod.rs",
+      "size": 210605,
+      "sha256": "d05728bce8f6f3163d20ec4286bf964d7dfda27a39d4669b755e7a2e51849ecf"
+    },
+    {
+      "path": "codex-rs/app-server/src/lib.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/app-server/src/lib.rs",
+      "size": 65841,
+      "sha256": "1591686b49c80c062d2b1ce48e03eb7c95bb872cc57b41e0ecc016ceb42fd6f2"
+    },
+    {
+      "path": "codex-rs/app-server/src/main.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/app-server/src/main.rs",
+      "size": 5558,
+      "sha256": "6c027c0307379f7426f25812e4422d5740ac6a128a28a51bcf79267516457ced"
+    },
+    {
+      "path": "codex-rs/app-server/src/logging.rs",
+      "error": "HTTPError",
+      "status": 404
+    },
+    {
+      "path": "codex-rs/exec/src/lib.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/exec/src/lib.rs",
+      "size": 86172,
+      "sha256": "48be5b8d89283f1fe338682d634ea3e73847ef1eb7c7626ca801002980527de1"
+    },
+    {
+      "path": "codex-rs/rollout-trace/src/inference.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/rollout-trace/src/inference.rs",
+      "size": 17833,
+      "sha256": "346622c9a9e83514ea6d839734592b7d2d5e51759ccc411559c1708536d684f5"
+    },
+    {
+      "path": "codex-rs/otel/src/provider.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/otel/src/provider.rs",
+      "size": 30984,
+      "sha256": "55df2c25edb49d9a3ce71dc19fca274b7eb7ac157f082f6ca4cb680d49f34442"
+    },
+    {
+      "path": "codex-rs/otel-trace-websocket/src/lib.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/otel-trace-websocket/src/lib.rs",
+      "size": 6605,
+      "sha256": "47b1c303e2cecf08c7cd2fa8240cc497307d8aa9bc7747ccfe750db945f5d790"
+    },
+    {
+      "path": "codex-rs/core/src/telemetry.rs",
+      "error": "HTTPError",
+      "status": 404
+    },
+    {
+      "path": "codex-rs/codex-api/src/common.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/codex-api/src/common.rs",
+      "size": 14017,
+      "sha256": "1b01d4b2d7784c67e302b38d5b44aaa5ff733d8b575fb776cc4e2902ccb3a14c"
+    },
+    {
+      "path": "codex-rs/core/src/session/turn.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/core/src/session/turn.rs",
+      "size": 126454,
+      "sha256": "8c27407110003a384cc7a9f85985d83ff824378f1feb22e7e5c19d927d77ca1d"
+    },
+    {
+      "path": "codex-rs/core/src/session/step_settings.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/core/src/session/step_settings.rs",
+      "size": 13502,
+      "sha256": "b583eeff726c5e06c0b6640b83d1a7b89ffa605fe62f804197bb13707751141c"
+    },
+    {
+      "path": "codex-rs/app-server/src/log_db.rs",
+      "error": "HTTPError",
+      "status": 404
+    },
+    {
+      "path": "codex-rs/features/src/lib.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/features/src/lib.rs",
+      "size": 65810,
+      "sha256": "124c76d1fbad7b05fd78a62b89a28282c7ecab1de7426ac18696987024ddeae0"
+    },
+    {
+      "path": "codex-rs/network-proxy/README.md",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/network-proxy/README.md",
+      "size": 11059,
+      "sha256": "677dd6517cab4cbbab9ad35f680fb56f674069631af4ba2aa150959fe001ef0d"
+    },
+    {
+      "path": "main/codex-rs/codex-api/src/sse/responses.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/main/codex-rs/codex-api/src/sse/responses.rs",
+      "size": 72742,
+      "sha256": "c58b85803937e43eb66adf6148d8f8fcca8e7badf43c1e96a747c9e56ae4e618"
+    },
+    {
+      "path": "main/codex-rs/otel/src/events/shared.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/main/codex-rs/otel/src/events/shared.rs",
+      "size": 2251,
+      "sha256": "a1faa6568bccf8ffe0db78518758744af54e7a94ea2b324a66cd31349fd0eda6"
+    },
+    {
+      "path": "main/codex-rs/otel/src/events/session_telemetry.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/main/codex-rs/otel/src/events/session_telemetry.rs",
+      "size": 55432,
+      "sha256": "be39f9dcc60be5124bbf5118c6cc684a63497f000eaae212d32677c8ffb3aa84"
+    },
+    {
+      "path": "main/codex-rs/cli/src/main.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/main/codex-rs/cli/src/main.rs",
+      "size": 182791,
+      "sha256": "80280221d9bb995db200cbb05753cbab276efccfbb5127a436144f5f38dfb6b5"
+    },
+    {
+      "path": "codex-rs/state/src/log_db.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/state/src/log_db.rs",
+      "size": 33086,
+      "sha256": "528f9e21f3be1a1021c2032591ca55daed4381b8a9a004b5849be3865f6376d5"
+    },
+    {
+      "path": "codex-rs/state/src/log_db/mod.rs",
+      "error": "HTTPError",
+      "status": 404
+    },
+    {
+      "path": "codex-rs/feedback/src/lib.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/feedback/src/lib.rs",
+      "size": 68224,
+      "sha256": "a46d6485d2c49f956b2f663f83d23bea0fd242227cdca48e72566a1cf9cca8ad"
+    },
+    {
+      "path": "codex-rs/feedback/src/logger.rs",
+      "error": "HTTPError",
+      "status": 404
+    },
+    {
+      "path": "codex-rs/core/src/tools/config.rs",
+      "error": "HTTPError",
+      "status": 404
+    },
+    {
+      "path": "codex-rs/core/src/tools/spec.rs",
+      "error": "HTTPError",
+      "status": 404
+    },
+    {
+      "path": "codex-rs/core/src/tools/mod.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/core/src/tools/mod.rs",
+      "size": 5240,
+      "sha256": "510635e3ae67e4c63e1feaf6d645f25dc2590f54391645dddeec0a84c1d17616"
+    },
+    {
+      "path": "codex-rs/core/src/tools/registry.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/core/src/tools/registry.rs",
+      "size": 31508,
+      "sha256": "d2793cddbdc34ad8d849a991dafd5871a3ce8ded4b33c446b2c1934e1cee526b"
+    },
+    {
+      "path": "codex-rs/protocol/src/config_types.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/protocol/src/config_types.rs",
+      "size": 31651,
+      "sha256": "ce9b26223db7cc4b5cf474e571e4509e8cc52536e159510f153f94de0fcd37e8"
+    },
+    {
+      "path": "codex-rs/core/src/tools/spec_plan.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/core/src/tools/spec_plan.rs",
+      "size": 60033,
+      "sha256": "849ef21d4e5c83febdc31eacd7609911d43e3f69a35168fe02ae899273b5ef3e"
+    },
+    {
+      "path": "codex-rs/tools/src/lib.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/tools/src/lib.rs",
+      "size": 4982,
+      "sha256": "cbe198fbe00e9577649eb321844cef335e108749856acba36b16dd80c18a47d3"
+    },
+    {
+      "path": "codex-rs/tools/src/config.rs",
+      "error": "HTTPError",
+      "status": 404
+    },
+    {
+      "path": "codex-rs/tools/src/spec.rs",
+      "error": "HTTPError",
+      "status": 404
+    },
+    {
+      "path": "codex-rs/tools/src/registry.rs",
+      "error": "HTTPError",
+      "status": 404
+    },
+    {
+      "path": "codex-rs/tools/src/builtin.rs",
+      "error": "HTTPError",
+      "status": 404
+    },
+    {
+      "path": "codex-rs/app-server/src/config_api.rs",
+      "error": "HTTPError",
+      "status": 404
+    },
+    {
+      "path": "codex-rs/app-server-protocol/src/protocol/v2.rs",
+      "error": "HTTPError",
+      "status": 404
+    },
+    {
+      "path": "codex-rs/core/src/session/startup.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/core/src/session/startup.rs",
+      "size": 1329,
+      "sha256": "16e8ae850b86628c666a85284fed6d10b5ddf59d875ee492633ecdc45ab3db0d"
+    },
+    {
+      "path": "codex-rs/core/src/session/session.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/core/src/session/session.rs",
+      "size": 94081,
+      "sha256": "2da4c0288596269fbb6df6d9a04a389e8ce0184be77ee2bcce765521e63702a5"
+    },
+    {
+      "path": "codex-rs/ext/extension-api/src/tool_policy.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/ext/extension-api/src/tool_policy.rs",
+      "size": 1774,
+      "sha256": "909df60dd82a289a4fb7ae7083f56d6018e75cc1942880be14f2f51bc5e33f42"
+    },
+    {
+      "path": "codex-rs/ext/extension-api/src/lib.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/ext/extension-api/src/lib.rs",
+      "size": 4925,
+      "sha256": "0ba9a6299da1e8914af856d396b844b3aa5784ec05270b8d39ddef513d04d711"
+    },
+    {
+      "path": "codex-rs/app-server/src/config_manager_service.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/app-server/src/config_manager_service.rs",
+      "size": 33170,
+      "sha256": "cb5e0862e3402aed6349d870f4a8b38472ad1835edd906f797ea1e3aeeac8209"
+    },
+    {
+      "path": "codex-rs/app-server/src/config_manager.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/app-server/src/config_manager.rs",
+      "size": 22878,
+      "sha256": "9aab02f8480f984ed1421293cd6294d86b044b9f3cc01dc424ac5a92d33c084c"
+    },
+    {
+      "path": "codex-rs/app-server-protocol/src/protocol/v2/mod.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/app-server-protocol/src/protocol/v2/mod.rs",
+      "size": 1524,
+      "sha256": "5f35011edb645ffac64553b170ed9f0ab0f4a5f04675a0d7e4b30ba5174ebe84"
+    },
+    {
+      "path": "codex-rs/app-server-protocol/src/protocol/v2/config.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/app-server-protocol/src/protocol/v2/config.rs",
+      "size": 41441,
+      "sha256": "8187edb07de0259f5a96927ca69b749a7ba9049062bf2ef2eb1ff9c7d8696447"
+    },
+    {
+      "path": "codex-rs/state/src/lib.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/state/src/lib.rs",
+      "size": 6311,
+      "sha256": "0e4d12ca4f6d0e3632b85b26f92e9396e9560cad60352b08314d253963eb6d66"
+    },
+    {
+      "path": "codex-rs/state/src/runtime.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/state/src/runtime.rs",
+      "size": 27408,
+      "sha256": "7c6426618654b8b48d17f344b088d3fdb834bf020b219bd9bbb2279967096b2a"
+    },
+    {
+      "path": "codex-rs/state/src/model/log_entry.rs",
+      "error": "HTTPError",
+      "status": 404
+    },
+    {
+      "path": "codex-rs/codex-api/src/provider.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/codex-api/src/provider.rs",
+      "size": 1942,
+      "sha256": "d2dc59b0872b40d60eaed12322e14490f582c03ca92347f1b0cbdd1842744154"
+    },
+    {
+      "path": "codex-rs/codex-client/src/retry.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/codex-client/src/retry.rs",
+      "size": 3840,
+      "sha256": "4e61c0e5e5037866706863c32780748ec82e114160ec759a582621de0aad4c06"
+    },
+    {
+      "path": "codex-rs/codex-client/src/session.rs",
+      "error": "HTTPError",
+      "status": 404
+    },
+    {
+      "path": "codex-rs/codex-api/src/endpoint/responses.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/codex-api/src/endpoint/responses.rs",
+      "size": 4961,
+      "sha256": "4f2fff3da4ca3ca9fcfa40ada8e98a0229af296094e03febb4d823f32ef932c8"
+    },
+    {
+      "path": "codex-rs/state/src/sqlite.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/state/src/sqlite.rs",
+      "size": 12894,
+      "sha256": "aef74fffc8a6dc6469154b3d6f357de0fc409955a6721f2a904579748ed558a8"
+    },
+    {
+      "path": "codex-rs/state/src/model.rs",
+      "error": "HTTPError",
+      "status": 404
+    },
+    {
+      "path": "codex-rs/state/src/runtime/logs.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/state/src/runtime/logs.rs",
+      "size": 69106,
+      "sha256": "09d10deee494d96f003a091b9f4972a395e20d18d2e5948a04d8f7fb4b41ef9f"
+    },
+    {
+      "path": "codex-rs/otel/src/targets.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/otel/src/targets.rs",
+      "size": 447,
+      "sha256": "11fb3bc5505129dbe1e5767b777c0f1813a400ee4ad1e66b16b08cbcf72e0210"
+    },
+    {
+      "path": "codex-rs/app-server/src/otel_reloader.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/app-server/src/otel_reloader.rs",
+      "size": 4372,
+      "sha256": "c92e8c2288a15e385dc2a6d5e571da3d4d81edee54b84825dd2630a7991f4e7a"
+    },
+    {
+      "path": "codex-rs/app-server/src/stderr_logging_tests.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/app-server/src/stderr_logging_tests.rs",
+      "size": 5077,
+      "sha256": "47b0fcc46855cdd78fe3dc4be6ce55be764b88b42c5fff2a050076487967ca5c"
+    },
+    {
+      "path": "codex-rs/core/src/environment_selection.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/core/src/environment_selection.rs",
+      "size": 99522,
+      "sha256": "b0965914a955882755876915b2af963ee3a44aa8a31a611c6a9c12ffae4a8a52"
+    },
+    {
+      "path": "codex-rs/app-server-protocol/src/protocol/v2/environment.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/app-server-protocol/src/protocol/v2/environment.rs",
+      "size": 5253,
+      "sha256": "b0ba5364f7fd66b6936d2db6d76bb12debf8a11cb8d652fa1608adff68f995a0"
+    },
+    {
+      "path": "codex-rs/app-server/src/codex_message_processor/thread_handler.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/app-server/src/codex_message_processor/thread_handler.rs",
+      "error": "HTTPError",
+      "reason": "HTTP Error 404: Not Found"
+    },
+    {
+      "path": "codex-rs/core/Cargo.toml",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/core/Cargo.toml",
+      "size": 6250,
+      "sha256": "1aee35fc41fd286fda3c8007ecdf324bda9da02eaa0ce6b012bb169c2590a750"
+    },
+    {
+      "path": "codex-rs/config/src/types.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/config/src/types.rs",
+      "size": 43862,
+      "sha256": "951d5b6a7ff5c7dd667039f1f0c44fe1028a2d8ab372d45632b60d325464631d"
+    },
+    {
+      "path": "codex-rs/Cargo.toml",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/Cargo.toml",
+      "size": 20615,
+      "sha256": "e558c28aaf94c9f20c7d57224eb9509084e31110850aad24d04bef7811dc335d"
+    },
+    {
+      "path": "codex-rs/config/src/mcp_types.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/config/src/mcp_types.rs",
+      "size": 25715,
+      "sha256": "08bdfe6bcc0ca607b1ead8b373029f895528604290f94bf1ba18c2dc83db8fd8"
+    },
+    {
+      "path": "codex-rs/core-plugins/src/lib.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/core-plugins/src/lib.rs",
+      "size": 5173,
+      "sha256": "d1d325a67cc9d9eaf7e7e8ea166d1572f0ae1edd2f5c41cf98cd5470dc274681"
+    },
+    {
+      "path": "codex-rs/codex-mcp/src/lib.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/codex-mcp/src/lib.rs",
+      "size": 4926,
+      "sha256": "5a6b8da293471bf824625b8d85db70a991dab77468c0ad42f9028e8873354f6f"
+    },
+    {
+      "path": "codex-rs/ext/mcp/src/extension.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/ext/mcp/src/extension.rs",
+      "error": "HTTPError",
+      "reason": "HTTP Error 404: Not Found"
+    },
+    {
+      "path": "codex-rs/core-plugins/src/manager.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/core-plugins/src/manager.rs",
+      "size": 148748,
+      "sha256": "4d1ac59d49155bfe434b169243c53eab4099ccf2c3d2649ec5e273e255419153"
+    },
+    {
+      "path": "codex-rs/codex-mcp/src/connection_manager.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/codex-mcp/src/connection_manager.rs",
+      "size": 45710,
+      "sha256": "88ffc14d95837a4f905b6e47721121a3d47246f4ca95fecb9142035687c40dfe"
+    },
+    {
+      "path": "codex-rs/config/src/config_loader/mod.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/config/src/config_loader/mod.rs",
+      "error": "HTTPError",
+      "reason": "HTTP Error 404: Not Found"
+    },
+    {
+      "path": "codex-rs/config/src/lib.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/config/src/lib.rs",
+      "size": 10024,
+      "sha256": "8b97ce776c67a44a782b3360eb7001472a7b9aa1809c5c4104026888d35d20b5"
+    },
+    {
+      "path": "codex-rs/config/src/merge.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/config/src/merge.rs",
+      "size": 8478,
+      "sha256": "d119f72f5bb56b295cab98a94e62fdfdb937463f32b7765049a6e62a7cf61b29"
+    }
+  ],
+  "native_frozen_hash_matches": {
+    "services/orchestrator/app/providers/native_rpc.py": {
+      "expected": "702fdfe1de5d00b8b30a3628f8811f68f0d8d426caec5c9c4ac8cf828fac4c2e",
+      "actual": "702fdfe1de5d00b8b30a3628f8811f68f0d8d426caec5c9c4ac8cf828fac4c2e"
+    },
+    "services/orchestrator/app/providers/native_rpc_worker.py": {
+      "expected": "efd341daf662db5bbcc73c51bb545ced2759d7c683a7642b2d01231b6aba9419",
+      "actual": "efd341daf662db5bbcc73c51bb545ced2759d7c683a7642b2d01231b6aba9419"
+    },
+    "services/orchestrator/app/providers/codex_protocol.py": {
+      "expected": "be3efaea44bc56fd821adbeb28642637466a5472e6daea95beacaaf5a30b4922",
+      "actual": "be3efaea44bc56fd821adbeb28642637466a5472e6daea95beacaaf5a30b4922"
+    },
+    "tests/contracts/test_codex_protocol.py": {
+      "expected": "76d79b3daa239de610251a6b8cdf2dad052922e78e9b2dcd14487895a54390c7",
+      "actual": "76d79b3daa239de610251a6b8cdf2dad052922e78e9b2dcd14487895a54390c7"
+    }
+  },
+  "current_main_sse_sha256": "c58b85803937e43eb66adf6148d8f8fcca8e7badf43c1e96a747c9e56ae4e618",
+  "report_sha256": "3a52a6e85dca2c560e5fa9e60e82220989e7ce2fb88168c1f4bbc1ceef71939b",
+  "limits": [
+    "source version match does not attest reproducible binary build",
+    "this reviewer did not start models or access account/auth/history; peer observed one bound server response model",
+    "honest new HTTP route is distinct from builtin profile; identity does not qualify scope",
+    "exact SSE TRACE is excluded by inspected SQLite feedback OTel event layers; other native state persistence not globally audited",
+    "no proxy CA new exporter or secret handling was performed"
+  ],
+  "end_source_cache_hash_check": true,
+  "updated_at": "2026-10-14T04:42:56.190616+00:00",
+  "end_source_cache_hash_checks": [
+    {
+      "path": "codex-rs/codex-api/src/sse/responses.rs",
+      "sha256": "327127fb7e6886b0ffe73c74c753cc44b2c09e72c090600a861756334397cd2b",
+      "matches": true
+    },
+    {
+      "path": "codex-rs/codex-api/src/endpoint/responses_websocket.rs",
+      "sha256": "e2af597f23bc95c54854dd0520eb85a8e5026c660e2a7eb10e5cd38f6817eeff",
+      "matches": true
+    },
+    {
+      "path": "codex-rs/core/src/client.rs",
+      "sha256": "605ced35cd853fcc4e23f6edd724c96f96f74c736a45e6ea95bf5300f3ab814c",
+      "matches": true
+    },
+    {
+      "path": "codex-rs/cli/src/main.rs",
+      "sha256": "dc0356a131108ace0f63f7e9f5040b1f0fc19a71057eeeb4108e04623267c502",
+      "matches": true
+    },
+    {
+      "path": "codex-rs/otel/src/lib.rs",
+      "sha256": "be3c972cae9545a22bb49d052d621991f27cdeda1d1c5a080b3ee848e69a1981",
+      "matches": true
+    },
+    {
+      "path": "codex-rs/responses-api-proxy/README.md",
+      "sha256": "e109f86c0acac8c829fe38f168d0a13dbab3b7d4d2e25bce25a0483046ac9517",
+      "matches": true
+    },
+    {
+      "path": "codex-rs/responses-api-proxy/src/lib.rs",
+      "sha256": "092e92662b9a564f98bd5ee157c09348465288a1656adcd5eb34d555dc551c1f",
+      "matches": true
+    },
+    {
+      "path": "codex-rs/core/config.schema.json",
+      "sha256": "7ce31bde1ed6ef15c53a96ba460bb1d0fb7b99fd9ab719b567c94c474f62b023",
+      "matches": true
+    },
+    {
+      "path": "codex-rs/otel/src/events/session_telemetry.rs",
+      "sha256": "b162e7a25d56970743a960825ccc332bf87334f8a8acdc4b18773e5a9ff72c49",
+      "matches": true
+    },
+    {
+      "path": "codex-rs/otel/src/events/mod.rs",
+      "sha256": "7ff247efd4f2de0da5bef63c226ebb3ccabb38702d9fb84a9a0307d1702b377d",
+      "matches": true
+    },
+    {
+      "path": "codex-rs/codex-api/src/telemetry.rs",
+      "sha256": "25524333a8131297e0fd04c5b869417b53e9f704377febb64be70d01df8ffdb9",
+      "matches": true
+    },
+    {
+      "path": "codex-rs/http-client/src/lib.rs",
+      "sha256": "7f4187bf5774ecc4dbe96c43b4a71730aa696ca2d0912789ffc16e180741294f",
+      "matches": true
+    },
+    {
+      "path": "codex-rs/response-debug-context/src/lib.rs",
+      "sha256": "42d57c97fe1e4b5465690c7eaa23061b84192e565a1e72ad5388fc251d1a9f50",
+      "matches": true
+    },
+    {
+      "path": "codex-rs/core/src/lib.rs",
+      "sha256": "77123e59406093fcaa2f10e549458c228e55d53c84fef06728a73933cc9f096b",
+      "matches": true
+    },
+    {
+      "path": "codex-rs/otel/src/events/shared.rs",
+      "sha256": "a1faa6568bccf8ffe0db78518758744af54e7a94ea2b324a66cd31349fd0eda6",
+      "matches": true
+    },
+    {
+      "path": "codex-rs/http-client/src/outbound_proxy.rs",
+      "sha256": "5c1fb52555ea4e9546cf66dd1c4ddee2a9d6ef136ba3f51a25ceafd368d3be36",
+      "matches": true
+    },
+    {
+      "path": "codex-rs/responses-api-proxy/src/dump.rs",
+      "sha256": "1f2850c9b0af53fa7d7bcbd28389898322d4b42a16260d4980105f7833479ccb",
+      "matches": true
+    },
+    {
+      "path": "codex-rs/rollout-trace/src/lib.rs",
+      "sha256": "82ff49e69bb52aa07f1585df2b7c59cf8068a8911656dff05232130f1bf95dcb",
+      "matches": true
+    },
+    {
+      "path": "codex-rs/core/src/config/mod.rs",
+      "sha256": "854f5a6b184714740500b8d3eae2bb04cb88172efccf11d38a74f2f6189c0341",
+      "matches": true
+    },
+    {
+      "path": "codex-rs/model-provider-info/src/lib.rs",
+      "sha256": "941a8ec0e8be4b45080cac3df3d052999a4cb104811575634b1a9ed510690958",
+      "matches": true
+    },
+    {
+      "path": "codex-rs/core/src/client_common.rs",
+      "sha256": "0125e520f71798e6c31a1d0147934c0d90288ab9cc4bfce6e8374ac587f2b43a",
+      "matches": true
+    },
+    {
+      "path": "codex-rs/core/src/session/mod.rs",
+      "sha256": "d05728bce8f6f3163d20ec4286bf964d7dfda27a39d4669b755e7a2e51849ecf",
+      "matches": true
+    },
+    {
+      "path": "codex-rs/app-server/src/lib.rs",
+      "sha256": "1591686b49c80c062d2b1ce48e03eb7c95bb872cc57b41e0ecc016ceb42fd6f2",
+      "matches": true
+    },
+    {
+      "path": "codex-rs/app-server/src/main.rs",
+      "sha256": "6c027c0307379f7426f25812e4422d5740ac6a128a28a51bcf79267516457ced",
+      "matches": true
+    },
+    {
+      "path": "codex-rs/exec/src/lib.rs",
+      "sha256": "48be5b8d89283f1fe338682d634ea3e73847ef1eb7c7626ca801002980527de1",
+      "matches": true
+    },
+    {
+      "path": "codex-rs/rollout-trace/src/inference.rs",
+      "sha256": "346622c9a9e83514ea6d839734592b7d2d5e51759ccc411559c1708536d684f5",
+      "matches": true
+    },
+    {
+      "path": "codex-rs/otel/src/provider.rs",
+      "sha256": "55df2c25edb49d9a3ce71dc19fca274b7eb7ac157f082f6ca4cb680d49f34442",
+      "matches": true
+    },
+    {
+      "path": "codex-rs/otel-trace-websocket/src/lib.rs",
+      "sha256": "47b1c303e2cecf08c7cd2fa8240cc497307d8aa9bc7747ccfe750db945f5d790",
+      "matches": true
+    },
+    {
+      "path": "codex-rs/codex-api/src/common.rs",
+      "sha256": "1b01d4b2d7784c67e302b38d5b44aaa5ff733d8b575fb776cc4e2902ccb3a14c",
+      "matches": true
+    },
+    {
+      "path": "codex-rs/core/src/session/turn.rs",
+      "sha256": "8c27407110003a384cc7a9f85985d83ff824378f1feb22e7e5c19d927d77ca1d",
+      "matches": true
+    },
+    {
+      "path": "codex-rs/core/src/session/step_settings.rs",
+      "sha256": "b583eeff726c5e06c0b6640b83d1a7b89ffa605fe62f804197bb13707751141c",
+      "matches": true
+    },
+    {
+      "path": "codex-rs/features/src/lib.rs",
+      "sha256": "124c76d1fbad7b05fd78a62b89a28282c7ecab1de7426ac18696987024ddeae0",
+      "matches": true
+    },
+    {
+      "path": "codex-rs/network-proxy/README.md",
+      "sha256": "677dd6517cab4cbbab9ad35f680fb56f674069631af4ba2aa150959fe001ef0d",
+      "matches": true
+    },
+    {
+      "path": "main/codex-rs/codex-api/src/sse/responses.rs",
+      "sha256": "c58b85803937e43eb66adf6148d8f8fcca8e7badf43c1e96a747c9e56ae4e618",
+      "matches": true
+    },
+    {
+      "path": "main/codex-rs/otel/src/events/shared.rs",
+      "sha256": "a1faa6568bccf8ffe0db78518758744af54e7a94ea2b324a66cd31349fd0eda6",
+      "matches": true
+    },
+    {
+      "path": "main/codex-rs/otel/src/events/session_telemetry.rs",
+      "sha256": "be39f9dcc60be5124bbf5118c6cc684a63497f000eaae212d32677c8ffb3aa84",
+      "matches": true
+    },
+    {
+      "path": "main/codex-rs/cli/src/main.rs",
+      "sha256": "80280221d9bb995db200cbb05753cbab276efccfbb5127a436144f5f38dfb6b5",
+      "matches": true
+    },
+    {
+      "path": "codex-rs/state/src/log_db.rs",
+      "sha256": "528f9e21f3be1a1021c2032591ca55daed4381b8a9a004b5849be3865f6376d5",
+      "matches": true
+    },
+    {
+      "path": "codex-rs/feedback/src/lib.rs",
+      "sha256": "a46d6485d2c49f956b2f663f83d23bea0fd242227cdca48e72566a1cf9cca8ad",
+      "matches": true
+    },
+    {
+      "path": "codex-rs/core/src/tools/mod.rs",
+      "sha256": "510635e3ae67e4c63e1feaf6d645f25dc2590f54391645dddeec0a84c1d17616",
+      "matches": true
+    },
+    {
+      "path": "codex-rs/core/src/tools/registry.rs",
+      "sha256": "d2793cddbdc34ad8d849a991dafd5871a3ce8ded4b33c446b2c1934e1cee526b",
+      "matches": true
+    },
+    {
+      "path": "codex-rs/protocol/src/config_types.rs",
+      "sha256": "ce9b26223db7cc4b5cf474e571e4509e8cc52536e159510f153f94de0fcd37e8",
+      "matches": true
+    },
+    {
+      "path": "codex-rs/core/src/tools/spec_plan.rs",
+      "sha256": "849ef21d4e5c83febdc31eacd7609911d43e3f69a35168fe02ae899273b5ef3e",
+      "matches": true
+    },
+    {
+      "path": "codex-rs/tools/src/lib.rs",
+      "sha256": "cbe198fbe00e9577649eb321844cef335e108749856acba36b16dd80c18a47d3",
+      "matches": true
+    },
+    {
+      "path": "codex-rs/core/src/session/startup.rs",
+      "sha256": "16e8ae850b86628c666a85284fed6d10b5ddf59d875ee492633ecdc45ab3db0d",
+      "matches": true
+    },
+    {
+      "path": "codex-rs/core/src/session/session.rs",
+      "sha256": "2da4c0288596269fbb6df6d9a04a389e8ce0184be77ee2bcce765521e63702a5",
+      "matches": true
+    },
+    {
+      "path": "codex-rs/ext/extension-api/src/tool_policy.rs",
+      "sha256": "909df60dd82a289a4fb7ae7083f56d6018e75cc1942880be14f2f51bc5e33f42",
+      "matches": true
+    },
+    {
+      "path": "codex-rs/ext/extension-api/src/lib.rs",
+      "sha256": "0ba9a6299da1e8914af856d396b844b3aa5784ec05270b8d39ddef513d04d711",
+      "matches": true
+    },
+    {
+      "path": "codex-rs/app-server/src/config_manager_service.rs",
+      "sha256": "cb5e0862e3402aed6349d870f4a8b38472ad1835edd906f797ea1e3aeeac8209",
+      "matches": true
+    },
+    {
+      "path": "codex-rs/app-server/src/config_manager.rs",
+      "sha256": "9aab02f8480f984ed1421293cd6294d86b044b9f3cc01dc424ac5a92d33c084c",
+      "matches": true
+    },
+    {
+      "path": "codex-rs/app-server-protocol/src/protocol/v2/mod.rs",
+      "sha256": "5f35011edb645ffac64553b170ed9f0ab0f4a5f04675a0d7e4b30ba5174ebe84",
+      "matches": true
+    },
+    {
+      "path": "codex-rs/app-server-protocol/src/protocol/v2/config.rs",
+      "sha256": "8187edb07de0259f5a96927ca69b749a7ba9049062bf2ef2eb1ff9c7d8696447",
+      "matches": true
+    },
+    {
+      "path": "codex-rs/state/src/lib.rs",
+      "sha256": "0e4d12ca4f6d0e3632b85b26f92e9396e9560cad60352b08314d253963eb6d66",
+      "matches": true
+    },
+    {
+      "path": "codex-rs/state/src/runtime.rs",
+      "sha256": "7c6426618654b8b48d17f344b088d3fdb834bf020b219bd9bbb2279967096b2a",
+      "matches": true
+    },
+    {
+      "path": "codex-rs/codex-api/src/provider.rs",
+      "sha256": "d2dc59b0872b40d60eaed12322e14490f582c03ca92347f1b0cbdd1842744154",
+      "matches": true
+    },
+    {
+      "path": "codex-rs/codex-client/src/retry.rs",
+      "sha256": "4e61c0e5e5037866706863c32780748ec82e114160ec759a582621de0aad4c06",
+      "matches": true
+    },
+    {
+      "path": "codex-rs/codex-api/src/endpoint/responses.rs",
+      "sha256": "4f2fff3da4ca3ca9fcfa40ada8e98a0229af296094e03febb4d823f32ef932c8",
+      "matches": true
+    },
+    {
+      "path": "codex-rs/state/src/sqlite.rs",
+      "sha256": "aef74fffc8a6dc6469154b3d6f357de0fc409955a6721f2a904579748ed558a8",
+      "matches": true
+    },
+    {
+      "path": "codex-rs/state/src/runtime/logs.rs",
+      "sha256": "09d10deee494d96f003a091b9f4972a395e20d18d2e5948a04d8f7fb4b41ef9f",
+      "matches": true
+    },
+    {
+      "path": "codex-rs/otel/src/targets.rs",
+      "sha256": "11fb3bc5505129dbe1e5767b777c0f1813a400ee4ad1e66b16b08cbcf72e0210",
+      "matches": true
+    },
+    {
+      "path": "codex-rs/app-server/src/otel_reloader.rs",
+      "sha256": "c92e8c2288a15e385dc2a6d5e571da3d4d81edee54b84825dd2630a7991f4e7a",
+      "matches": true
+    },
+    {
+      "path": "codex-rs/app-server/src/stderr_logging_tests.rs",
+      "sha256": "47b0fcc46855cdd78fe3dc4be6ce55be764b88b42c5fff2a050076487967ca5c",
+      "matches": true
+    },
+    {
+      "path": "codex-rs/core/src/environment_selection.rs",
+      "sha256": "b0965914a955882755876915b2af963ee3a44aa8a31a611c6a9c12ffae4a8a52",
+      "matches": true
+    },
+    {
+      "path": "codex-rs/app-server-protocol/src/protocol/v2/environment.rs",
+      "sha256": "b0ba5364f7fd66b6936d2db6d76bb12debf8a11cb8d652fa1608adff68f995a0",
+      "matches": true
+    },
+    {
+      "path": "codex-rs/core/Cargo.toml",
+      "sha256": "1aee35fc41fd286fda3c8007ecdf324bda9da02eaa0ce6b012bb169c2590a750",
+      "matches": true
+    },
+    {
+      "path": "codex-rs/config/src/types.rs",
+      "sha256": "951d5b6a7ff5c7dd667039f1f0c44fe1028a2d8ab372d45632b60d325464631d",
+      "matches": true
+    },
+    {
+      "path": "codex-rs/Cargo.toml",
+      "sha256": "e558c28aaf94c9f20c7d57224eb9509084e31110850aad24d04bef7811dc335d",
+      "matches": true
+    },
+    {
+      "path": "codex-rs/config/src/mcp_types.rs",
+      "sha256": "08bdfe6bcc0ca607b1ead8b373029f895528604290f94bf1ba18c2dc83db8fd8",
+      "matches": true
+    },
+    {
+      "path": "codex-rs/core-plugins/src/lib.rs",
+      "sha256": "d1d325a67cc9d9eaf7e7e8ea166d1572f0ae1edd2f5c41cf98cd5470dc274681",
+      "matches": true
+    },
+    {
+      "path": "codex-rs/codex-mcp/src/lib.rs",
+      "sha256": "5a6b8da293471bf824625b8d85db70a991dab77468c0ad42f9028e8873354f6f",
+      "matches": true
+    },
+    {
+      "path": "codex-rs/core-plugins/src/manager.rs",
+      "sha256": "4d1ac59d49155bfe434b169243c53eab4099ccf2c3d2649ec5e273e255419153",
+      "matches": true
+    },
+    {
+      "path": "codex-rs/codex-mcp/src/connection_manager.rs",
+      "sha256": "88ffc14d95837a4f905b6e47721121a3d47246f4ca95fecb9142035687c40dfe",
+      "matches": true
+    },
+    {
+      "path": "codex-rs/config/src/lib.rs",
+      "sha256": "8b97ce776c67a44a782b3360eb7001472a7b9aa1809c5c4104026888d35d20b5",
+      "matches": true
+    },
+    {
+      "path": "codex-rs/config/src/merge.rs",
+      "sha256": "d119f72f5bb56b295cab98a94e62fdfdb937463f32b7765049a6e62a7cf61b29",
+      "matches": true
+    }
+  ],
+  "peer_actual_observation": {
+    "report": "docs/acceptance/part-one-closeout/gpt-sse-identity-observation.json",
+    "sha256": "9f7f12fc409157833f2f32ef5690f0ff28c025635979423bf4ec9dbd8fac41d6",
+    "independent_check": "docs/acceptance/part-one-closeout/gpt-sse-independent-verification.json",
+    "actual_model_id": "gpt-6.1-sol",
+    "identity_status": "reported_verified",
+    "scope_enforced": false,
+    "production_enabled": false,
+    "does_not_backfill_prior_observations": true
+  },
+  "evidence_refresh_exit_code": 0
+}

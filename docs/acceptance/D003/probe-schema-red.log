@@ -1,0 +1,260 @@
+.........FFFF................................FF......                    [100%]
+================================== FAILURES ===================================
+__ test_only_verified_identity_evidence_can_classify_model[changes9-unknown] __
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-11/test_only_verified_identity_ev9')
+changes = {'identity_source': ['provider_response_metadata']}
+expected = 'unknown'
+
+    @pytest.mark.parametrize(
+        "changes,expected",
+        [
+            ({"identity_source": None, "app_name": "Claude Code", "model_alias": "Claude"}, "unknown"),
+            ({"observed_family": "claude", "identity_source": None}, "unknown"),
+            ({"identity_verified": False}, "unknown"),
+            ({"identity_source": "configuration_alias"}, "unknown"),
+            ({"evidence_ref": ""}, "unknown"),
+            ({"response_model_id": ""}, "unknown"),
+            ({}, "verified"),
+            ({"observed_family": "gpt", "response_model_id": "gpt-test"}, "mismatch"),
+            ({"observed_family": "other"}, "unknown"),
+            ({"identity_source": ["provider_response_metadata"]}, "unknown"),
+            ({"identity_source": {"source": "provider_response_metadata"}}, "unknown"),
+            ({"observed_family": ["claude"]}, "unknown"),
+            ({"expected_family": {"family": "claude"}}, "unknown"),
+        ],
+    )
+    def test_only_verified_identity_evidence_can_classify_model(tmp_path, changes, expected):
+>       assert classify_probe(identity_report(tmp_path, **changes)) == expected
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_readonly_probe.py:61: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+report = {'expected_family': 'claude', 'observed_family': 'claude', 'response_model_id': 'claude-test-model', 'identity_source': ['provider_response_metadata'], ...}
+
+    def classify_probe(report: dict) -> str:
+        """Classify adapter-produced evidence, never user profile identity claims.
+    
+    The trusted adapter is responsible for acquiring response metadata or verifying
+    the source. The file/hash binding proves integrity, not provider authenticity.
+    """
+        if not isinstance(report, dict) or report.get("identity_verified") is not True:
+            return "unknown"
+>       if report.get("identity_source") not in {"provider_response_metadata", "verified_source"}:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       TypeError: unhashable type: 'list'
+
+services\orchestrator\app\providers\probe.py:74: TypeError
+_ test_only_verified_identity_evidence_can_classify_model[changes10-unknown] __
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-11/test_only_verified_identity_ev10')
+changes = {'identity_source': {'source': 'provider_response_metadata'}}
+expected = 'unknown'
+
+    @pytest.mark.parametrize(
+        "changes,expected",
+        [
+            ({"identity_source": None, "app_name": "Claude Code", "model_alias": "Claude"}, "unknown"),
+            ({"observed_family": "claude", "identity_source": None}, "unknown"),
+            ({"identity_verified": False}, "unknown"),
+            ({"identity_source": "configuration_alias"}, "unknown"),
+            ({"evidence_ref": ""}, "unknown"),
+            ({"response_model_id": ""}, "unknown"),
+            ({}, "verified"),
+            ({"observed_family": "gpt", "response_model_id": "gpt-test"}, "mismatch"),
+            ({"observed_family": "other"}, "unknown"),
+            ({"identity_source": ["provider_response_metadata"]}, "unknown"),
+            ({"identity_source": {"source": "provider_response_metadata"}}, "unknown"),
+            ({"observed_family": ["claude"]}, "unknown"),
+            ({"expected_family": {"family": "claude"}}, "unknown"),
+        ],
+    )
+    def test_only_verified_identity_evidence_can_classify_model(tmp_path, changes, expected):
+>       assert classify_probe(identity_report(tmp_path, **changes)) == expected
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_readonly_probe.py:61: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+report = {'expected_family': 'claude', 'observed_family': 'claude', 'response_model_id': 'claude-test-model', 'identity_source': {'source': 'provider_response_metadata'}, ...}
+
+    def classify_probe(report: dict) -> str:
+        """Classify adapter-produced evidence, never user profile identity claims.
+    
+    The trusted adapter is responsible for acquiring response metadata or verifying
+    the source. The file/hash binding proves integrity, not provider authenticity.
+    """
+        if not isinstance(report, dict) or report.get("identity_verified") is not True:
+            return "unknown"
+>       if report.get("identity_source") not in {"provider_response_metadata", "verified_source"}:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       TypeError: unhashable type: 'dict'
+
+services\orchestrator\app\providers\probe.py:74: TypeError
+_ test_only_verified_identity_evidence_can_classify_model[changes11-unknown] __
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-11/test_only_verified_identity_ev11')
+changes = {'observed_family': ['claude']}, expected = 'unknown'
+
+    @pytest.mark.parametrize(
+        "changes,expected",
+        [
+            ({"identity_source": None, "app_name": "Claude Code", "model_alias": "Claude"}, "unknown"),
+            ({"observed_family": "claude", "identity_source": None}, "unknown"),
+            ({"identity_verified": False}, "unknown"),
+            ({"identity_source": "configuration_alias"}, "unknown"),
+            ({"evidence_ref": ""}, "unknown"),
+            ({"response_model_id": ""}, "unknown"),
+            ({}, "verified"),
+            ({"observed_family": "gpt", "response_model_id": "gpt-test"}, "mismatch"),
+            ({"observed_family": "other"}, "unknown"),
+            ({"identity_source": ["provider_response_metadata"]}, "unknown"),
+            ({"identity_source": {"source": "provider_response_metadata"}}, "unknown"),
+            ({"observed_family": ["claude"]}, "unknown"),
+            ({"expected_family": {"family": "claude"}}, "unknown"),
+        ],
+    )
+    def test_only_verified_identity_evidence_can_classify_model(tmp_path, changes, expected):
+>       assert classify_probe(identity_report(tmp_path, **changes)) == expected
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_readonly_probe.py:61: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+report = {'expected_family': 'claude', 'observed_family': ['claude'], 'response_model_id': 'claude-test-model', 'identity_source': 'provider_response_metadata', ...}
+
+    def classify_probe(report: dict) -> str:
+        """Classify adapter-produced evidence, never user profile identity claims.
+    
+    The trusted adapter is responsible for acquiring response metadata or verifying
+    the source. The file/hash binding proves integrity, not provider authenticity.
+    """
+        if not isinstance(report, dict) or report.get("identity_verified") is not True:
+            return "unknown"
+        if report.get("identity_source") not in {"provider_response_metadata", "verified_source"}:
+            return "unknown"
+>       if report.get("observed_family") not in FAMILIES or report.get("expected_family") not in FAMILIES:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       TypeError: unhashable type: 'list'
+
+services\orchestrator\app\providers\probe.py:76: TypeError
+_ test_only_verified_identity_evidence_can_classify_model[changes12-unknown] __
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-11/test_only_verified_identity_ev12')
+changes = {'expected_family': {'family': 'claude'}}, expected = 'unknown'
+
+    @pytest.mark.parametrize(
+        "changes,expected",
+        [
+            ({"identity_source": None, "app_name": "Claude Code", "model_alias": "Claude"}, "unknown"),
+            ({"observed_family": "claude", "identity_source": None}, "unknown"),
+            ({"identity_verified": False}, "unknown"),
+            ({"identity_source": "configuration_alias"}, "unknown"),
+            ({"evidence_ref": ""}, "unknown"),
+            ({"response_model_id": ""}, "unknown"),
+            ({}, "verified"),
+            ({"observed_family": "gpt", "response_model_id": "gpt-test"}, "mismatch"),
+            ({"observed_family": "other"}, "unknown"),
+            ({"identity_source": ["provider_response_metadata"]}, "unknown"),
+            ({"identity_source": {"source": "provider_response_metadata"}}, "unknown"),
+            ({"observed_family": ["claude"]}, "unknown"),
+            ({"expected_family": {"family": "claude"}}, "unknown"),
+        ],
+    )
+    def test_only_verified_identity_evidence_can_classify_model(tmp_path, changes, expected):
+>       assert classify_probe(identity_report(tmp_path, **changes)) == expected
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_readonly_probe.py:61: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+report = {'expected_family': {'family': 'claude'}, 'observed_family': 'claude', 'response_model_id': 'claude-test-model', 'identity_source': 'provider_response_metadata', ...}
+
+    def classify_probe(report: dict) -> str:
+        """Classify adapter-produced evidence, never user profile identity claims.
+    
+    The trusted adapter is responsible for acquiring response metadata or verifying
+    the source. The file/hash binding proves integrity, not provider authenticity.
+    """
+        if not isinstance(report, dict) or report.get("identity_verified") is not True:
+            return "unknown"
+        if report.get("identity_source") not in {"provider_response_metadata", "verified_source"}:
+            return "unknown"
+>       if report.get("observed_family") not in FAMILIES or report.get("expected_family") not in FAMILIES:
+                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       TypeError: unhashable type: 'dict'
+
+services\orchestrator\app\providers\probe.py:76: TypeError
+_ test_profile_rejects_secrets_arbitrary_commands_and_untrusted_identity[changes5] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-11/test_profile_rejects_secrets_a5')
+changes = {'adapter': ['codex']}
+
+    @pytest.mark.parametrize("changes", [{"api_key": "sk-proj-PROFILE_SECRET_CANARY"}, {"command": ["powershell", "-Command", "unsafe"]}, {"environment": {"TOKEN": "SECRET"}}, {"identity_status": "verified"}, {"adapter": "unknown"}, {"adapter": ["codex"]}, {"adapter": {"name": "codex"}}, {"expected_family": "claude"}, {"requested_runs": "3"}])
+    def test_profile_rejects_secrets_arbitrary_commands_and_untrusted_identity(tmp_path, changes):
+        path = tmp_path / "probe-profile.json"
+        path.write_text(json.dumps(profile(**changes)), encoding="utf-8")
+        with pytest.raises(ProbeError) as error:
+>           read_profile(path)
+
+tests\contracts\test_readonly_probe.py:252: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+services\orchestrator\app\providers\probe.py:154: in read_profile
+    return validate_profile(json.loads(Path(path).read_text(encoding="utf-8-sig")))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+profile = {'schema_version': '1.0', 'profile_id': 'future-codex', 'adapter': ['codex'], 'expected_family': 'gpt', ...}
+
+    def validate_profile(profile: object) -> dict:
+        if not isinstance(profile, dict) or set(profile) - PROFILE_FIELDS:
+            raise ProbeError("PROFILE_FIELDS_INVALID")
+        if profile.get("schema_version") != "1.0" or not isinstance(profile.get("profile_id"), str) or not profile["profile_id"]:
+            raise ProbeError("PROFILE_SCHEMA_INVALID")
+        adapter = profile.get("adapter")
+>       if adapter not in ADAPTER_FAMILIES or profile.get("expected_family") != ADAPTER_FAMILIES[adapter]:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       TypeError: unhashable type: 'list'
+
+services\orchestrator\app\providers\probe.py:140: TypeError
+_ test_profile_rejects_secrets_arbitrary_commands_and_untrusted_identity[changes6] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-11/test_profile_rejects_secrets_a6')
+changes = {'adapter': {'name': 'codex'}}
+
+    @pytest.mark.parametrize("changes", [{"api_key": "sk-proj-PROFILE_SECRET_CANARY"}, {"command": ["powershell", "-Command", "unsafe"]}, {"environment": {"TOKEN": "SECRET"}}, {"identity_status": "verified"}, {"adapter": "unknown"}, {"adapter": ["codex"]}, {"adapter": {"name": "codex"}}, {"expected_family": "claude"}, {"requested_runs": "3"}])
+    def test_profile_rejects_secrets_arbitrary_commands_and_untrusted_identity(tmp_path, changes):
+        path = tmp_path / "probe-profile.json"
+        path.write_text(json.dumps(profile(**changes)), encoding="utf-8")
+        with pytest.raises(ProbeError) as error:
+>           read_profile(path)
+
+tests\contracts\test_readonly_probe.py:252: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+services\orchestrator\app\providers\probe.py:154: in read_profile
+    return validate_profile(json.loads(Path(path).read_text(encoding="utf-8-sig")))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+profile = {'schema_version': '1.0', 'profile_id': 'future-codex', 'adapter': {'name': 'codex'}, 'expected_family': 'gpt', ...}
+
+    def validate_profile(profile: object) -> dict:
+        if not isinstance(profile, dict) or set(profile) - PROFILE_FIELDS:
+            raise ProbeError("PROFILE_FIELDS_INVALID")
+        if profile.get("schema_version") != "1.0" or not isinstance(profile.get("profile_id"), str) or not profile["profile_id"]:
+            raise ProbeError("PROFILE_SCHEMA_INVALID")
+        adapter = profile.get("adapter")
+>       if adapter not in ADAPTER_FAMILIES or profile.get("expected_family") != ADAPTER_FAMILIES[adapter]:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       TypeError: unhashable type: 'dict'
+
+services\orchestrator\app\providers\probe.py:140: TypeError
+=========================== short test summary info ===========================
+FAILED tests/contracts/test_readonly_probe.py::test_only_verified_identity_evidence_can_classify_model[changes9-unknown]
+FAILED tests/contracts/test_readonly_probe.py::test_only_verified_identity_evidence_can_classify_model[changes10-unknown]
+FAILED tests/contracts/test_readonly_probe.py::test_only_verified_identity_evidence_can_classify_model[changes11-unknown]
+FAILED tests/contracts/test_readonly_probe.py::test_only_verified_identity_evidence_can_classify_model[changes12-unknown]
+FAILED tests/contracts/test_readonly_probe.py::test_profile_rejects_secrets_arbitrary_commands_and_untrusted_identity[changes5]
+FAILED tests/contracts/test_readonly_probe.py::test_profile_rejects_secrets_arbitrary_commands_and_untrusted_identity[changes6]
+6 failed, 47 passed in 0.89s

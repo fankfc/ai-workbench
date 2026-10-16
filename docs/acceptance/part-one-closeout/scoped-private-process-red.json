@@ -1,0 +1,13 @@
+{
+  "time": "2026-10-14T06:16:49.360936+00:00",
+  "command": [
+    "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\.venv\\Scripts\\python.exe",
+    "-m",
+    "pytest",
+    "-q",
+    "tests/contracts/test_scoped_codex_runtime.py::test_shared_private_process_uses_anonymous_stdin_native_argv_and_owned_cleanup"
+  ],
+  "exit_code": 1,
+  "git_commit": null,
+  "log": "docs\\acceptance\\part-one-closeout\\scoped-private-process-red.log"
+}

@@ -1,0 +1,29 @@
+appId: com.aiworkbench.desktop
+productName: AI Workbench
+artifactName: AIBroker-Setup.exe
+directories:
+  output: ../../dist/windows
+files:
+  - dist/**
+  - package.json
+asar: true
+forceCodeSigning: true
+electronDist: ../../node_modules/electron/dist
+extraResources:
+  - from: ../../release/staging/python
+    to: python
+  - from: ../../services/orchestrator/app
+    to: services/orchestrator/app
+  - from: ../../release/staging/tool-inventory.json
+    to: tool-inventory.json
+win:
+  target:
+    - target: nsis
+      arch: [x64]
+  verifyUpdateCodeSignature: true
+nsis:
+  oneClick: false
+  perMachine: false
+  allowElevation: false
+  allowToChangeInstallationDirectory: true
+  deleteAppDataOnUninstall: false

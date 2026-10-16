@@ -1,0 +1,41 @@
+{
+  "generated_at": "2026-10-13T13:39:44.151462+00:00",
+  "python": "3.13.0",
+  "sqlite": "3.45.3",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "interpreter": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\.venv\\Scripts\\python.exe",
+  "commit": null,
+  "mode": "isolated real SQLite/filesystem/subprocess; no external provider calls",
+  "command": "services/orchestrator/.venv/Scripts/python.exe docs/acceptance/D010/reproduce_evidence.py",
+  "exit_code": 0,
+  "crashes": [
+    {
+      "point": "before-commit",
+      "exit_code": 81,
+      "task_state": "RECEIVED",
+      "event_count": 0,
+      "receiver_count": 0,
+      "pending_count": 0
+    },
+    {
+      "point": "after-commit",
+      "exit_code": 82,
+      "task_state": "INPUT_PREPARING",
+      "event_count": 2,
+      "receiver_count": 1,
+      "pending_count": 0,
+      "receiver_event_id": "57da8944a47e4ffda997764e9561ea5d"
+    },
+    {
+      "point": "send-before-ack",
+      "exit_code": 83,
+      "task_state": "INPUT_PREPARING",
+      "event_count": 2,
+      "receiver_count": 1,
+      "pending_count": 0,
+      "receiver_event_id": "c3ccef8502a14670a0da70134d4d3afc"
+    }
+  ],
+  "fixture_directory": "docs/acceptance/D010/fixtures/20261013T133944-5097c812",
+  "receiver_policy": "Stable event_id deduplication persists across resend; one receiver entry remains."
+}

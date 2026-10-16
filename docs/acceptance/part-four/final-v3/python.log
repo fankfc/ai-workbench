@@ -1,0 +1,122 @@
+........................................................................ [  4%]
+........................................................................ [  9%]
+........................................................................ [ 13%]
+........................................................................ [ 18%]
+........................................................................ [ 22%]
+........................................................................ [ 27%]
+........................................................................ [ 31%]
+........................................................................ [ 36%]
+........................................................................ [ 41%]
+........................................................................ [ 45%]
+........................................................................ [ 50%]
+........................................................................ [ 54%]
+........................................................................ [ 59%]
+........................................................................ [ 63%]
+........................................................................ [ 68%]
+........................................................................ [ 73%]
+........................................................................ [ 77%]
+........................................................................ [ 82%]
+........................................................................ [ 86%]
+..............................................................F......... [ 91%]
+........................................................................ [ 95%]
+.................................................................        [100%]
+================================== FAILURES ===================================
+_ test_rehashed_archive_must_preserve_database_declared_task_inputs[planning-remove_all] _
+
+client = <starlette.testclient.TestClient object at 0x000001329397A030>
+tmp_path = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/.omx/qa/p4/60e486cd/test_rehashed_archive_must_pre2')
+context = 'planning', tamper = 'remove_all'
+
+    @pytest.mark.parametrize('context,tamper', [(context, tamper)
+        for context in ['contract', 'planning', 'materials', 'language', 'profile', 'step', 'check', 'artifact']
+        for tamper in ['remove_all', 'rewrite_source_hash'] if (context, tamper) != ('profile', 'rewrite_source_hash')])
+    def test_rehashed_archive_must_preserve_database_declared_task_inputs(client, tmp_path, context, tamper):
+        """Neither the archive file list nor its source manifest is authoritative."""
+        from app.runtime.workspace import WorkspaceManager
+        from support.contracts import make_contract
+        from app.contracts.artifacts import ArtifactVersion
+        from app.storage.blobs import store_artifact
+        create, validate, restore = engines()
+        root = client.app.state.settings.data_root
+        cid = client.post('/v1/conversations', json={'title': 'Paused source closure'}).json()['id']
+        task = client.post(f'/v1/conversations/{cid}/turns', json={'text': 'retain source', 'client_request_id': 'source', 'provider_profile_id': 'fake-gpt'}).json()['task_id']
+        with closing(client.app.state.database.connect()) as c:
+            row = dict(c.execute('SELECT * FROM task_runs WHERE task_id=?', (task,)).fetchone())
+        attempt = row['attempt_id']
+        original = b'irreplaceable complete input'
+        digest = hashlib.sha256(original).hexdigest()
+        workspace = WorkspaceManager(root).create(task, attempt)
+        workspace.ingest_source('material.txt', original)
+        ref = 'input/material.txt'
+        checkpoint = json.loads(row['checkpoint_json'])
+        if context == 'contract':
+            contract = make_contract(task, attempt, json.loads(row['route_snapshot_json'])['id'])
+            contract['inputs'] = [{'id': 'SOURCE-1', 'ref': ref, 'sha256': digest}]
+            checkpoint['task_contract'] = contract
+        elif context == 'planning': checkpoint['a_planning'] = {'status': 'completed', 'source_hashes': {ref: digest}}
+        elif context == 'materials': checkpoint['input_materials'] = [{'source_ref': ref, 'source_sha256': digest, 'parsed': True}]
+        elif context == 'language': checkpoint['language_context'] = {'sources': [{'ref': ref, 'sha256': digest}]}
+        elif context == 'profile':
+            checkpoint['a_planning'] = {'status': 'needs_input'}
+            checkpoint['task_profile'] = {'inputs': {'source_refs': [ref]}}
+        with closing(client.app.state.database.connect()) as c:
+            c.execute("UPDATE task_runs SET state='PAUSED',checkpoint_json=? WHERE task_id=?", (json.dumps(checkpoint), task))
+            if context == 'step':
+                c.execute("INSERT INTO steps(id,task_id,attempt_id,step_key,role,state,request_json) VALUES('source-step',?,?,'source-step','A','COMPLETED',?)", (task, attempt, json.dumps({'sources': [{'ref': ref, 'sha256': digest}]})))
+            elif context == 'check':
+                c.execute("INSERT INTO checks(id,task_id,attempt_id,check_kind,result,check_version,details_json) VALUES('source-check',?,?,'source.capture','pass','1.0',?)", (task, attempt, json.dumps({'source_ref': ref, 'source_sha256': digest})))
+            elif context == 'artifact':
+                data = b'pending derived artifact'; artifact_hash = hashlib.sha256(data).hexdigest()
+                artifact = ArtifactVersion(id='pending-artifact', task_id=task, artifact_kind='document', language='en',
+                    immutable_uri=client.app.state.blobs.uri_for(artifact_hash), byte_sha256=artifact_hash,
+                    canonical_content_sha256=artifact_hash, source_version_id=None, origin_authors=['C'],
+                    canonical_issued_by='C', reviewed_by=[], rendered_by='C', a_response_ref=None, dependencies=[])
+                store_artifact(c, client.app.state.blobs, data, artifact, attempt_id=attempt,
+                    provenance={'source_ref': ref, 'source_sha256': digest}, source_request={'input_refs': [ref]})
+>       bundle = create(root, tmp_path.parent / (tmp_path.name + '-backups'))
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\storage\test_backup_restore.py:271: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+services\orchestrator\app\storage\backup.py:337: in create_backup
+    pending.rename(committed)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/.omx/qa/p4/60e486cd/test_rehashed_archive_must_pre2-backups/.pending-6087151cda3f45278181946176f0ace9')
+target = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/.omx/qa/p4/60e486cd/test_rehashed_archive_must_pre2-backups/backup-6b1f27bce9e3422c8f0f33b3bb7303e3')
+
+    def rename(self, target):
+        """
+        Rename this path to the target path.
+    
+        The target path may be absolute or relative. Relative paths are
+        interpreted relative to the current working directory, *not* the
+        directory of the Path object.
+    
+        Returns the new Path instance pointing to the target path.
+        """
+>       os.rename(self, target)
+E       PermissionError: [WinError 5] 拒绝访问。: 'C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.omx\\qa\\p4\\60e486cd\\test_rehashed_archive_must_pre2-backups\\.pending-6087151cda3f45278181946176f0ace9' -> 'C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.omx\\qa\\p4\\60e486cd\\test_rehashed_archive_must_pre2-backups\\backup-6b1f27bce9e3422c8f0f33b3bb7303e3'
+
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:767: PermissionError
+============================== warnings summary ===============================
+<frozen importlib._bootstrap>:488
+<frozen importlib._bootstrap>:488
+  <frozen importlib._bootstrap>:488: DeprecationWarning: builtin type SwigPyPacked has no __module__ attribute
+
+<frozen importlib._bootstrap>:488
+<frozen importlib._bootstrap>:488
+  <frozen importlib._bootstrap>:488: DeprecationWarning: builtin type SwigPyObject has no __module__ attribute
+
+<frozen importlib._bootstrap>:488
+  <frozen importlib._bootstrap>:488: DeprecationWarning: builtin type swigvarlink has no __module__ attribute
+
+services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1
+  C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/storage/test_backup_restore.py::test_rehashed_archive_must_preserve_database_declared_task_inputs[planning-remove_all] - PermissionError: [WinError 5] 拒绝访问。: 'C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.omx\\qa\\p4\\60e486cd\\test_rehashed_archive_must_pre2-backups\\.pending-6087151cda3f45278181946176f0ace9' -> 'C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.omx\\qa\\p4\\60e486cd\\test_rehashed_archive_must_pre2-backups\\backup-6b1f27bce9e3422c8f0f33b3bb7303e3'
+1 failed, 1576 passed, 1 deselected, 6 warnings in 640.33s (0:10:40)
+<sys>:0: DeprecationWarning: builtin type swigvarlink has no __module__ attribute

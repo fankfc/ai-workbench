@@ -1,0 +1,680 @@
+{
+  "state": "PUBLISHED",
+  "checkpoint": {
+    "request_domain": "mixed",
+    "task_profile": {
+      "status": "READY_FOR_A_CONTRACT",
+      "domain": "mixed",
+      "profile_version": "9652115638d25727356c9c4fd1e69f2cdbeacc2cba55bc1eadec806c853b6cfa",
+      "missing_inputs": [],
+      "model_started": false,
+      "language_policy": "native",
+      "require_a_canonical": false,
+      "require_bilingual_pair": false,
+      "require_a_confirmation": true,
+      "eligible_for_publication": false,
+      "version": "9652115638d25727356c9c4fd1e69f2cdbeacc2cba55bc1eadec806c853b6cfa",
+      "inputs": {
+        "data_refs": [
+          "input/attachment_ab502343069b499e973037d12539d1a3.csv"
+        ],
+        "formats": [
+          "markdown"
+        ]
+      }
+    },
+    "requested_formats": [
+      "markdown"
+    ],
+    "supervisor": {
+      "owner_token": "supervisor:50eb24ec73f143f9957fdf2af53fba80",
+      "stage": "claimed",
+      "classification": "fixture"
+    },
+    "input_materials": [
+      {
+        "attachment_id": "ab502343069b499e973037d12539d1a3",
+        "source_ref": "input/attachment_ab502343069b499e973037d12539d1a3.csv",
+        "source_sha256": "17038a6f42374e654ecd6760e02b5af6f63334b149285ff0a42beb9ba5f7e3ec",
+        "text_ref": "input/attachment_ab502343069b499e973037d12539d1a3.parsed.md",
+        "text_sha256": "17038a6f42374e654ecd6760e02b5af6f63334b149285ff0a42beb9ba5f7e3ec",
+        "text_format": "markdown",
+        "coverage": "full",
+        "parsed": true,
+        "block_scope": []
+      }
+    ],
+    "dependency_graph": {
+      "version": 7,
+      "nodes": {
+        "source_data": {
+          "revision_id": "source_data-d490ed36f1174f838aa638baf3d8c6ea",
+          "dependencies": {},
+          "stale": false
+        },
+        "analysis_code": {
+          "revision_id": "analysis_code-d8478ad5414044cd862bff11f35fc461",
+          "dependencies": {
+            "source_data": "source_data-d490ed36f1174f838aa638baf3d8c6ea"
+          },
+          "stale": false
+        },
+        "computed_results": {
+          "revision_id": "computed_results-55ee1cdc41d647188163cd0563f3f9fa",
+          "dependencies": {
+            "analysis_code": "analysis_code-d8478ad5414044cd862bff11f35fc461",
+            "source_data": "source_data-d490ed36f1174f838aa638baf3d8c6ea"
+          },
+          "stale": false
+        },
+        "figures": {
+          "revision_id": "figures-f33284701dee4e719a03a98fa2a2c908",
+          "dependencies": {
+            "computed_results": "computed_results-55ee1cdc41d647188163cd0563f3f9fa"
+          },
+          "stale": false
+        },
+        "answer": {
+          "revision_id": "candidate-6844d8b3230e4c20a6ae1867607ca851",
+          "dependencies": {
+            "source_data": "source_data-d490ed36f1174f838aa638baf3d8c6ea",
+            "analysis_code": "analysis_code-d8478ad5414044cd862bff11f35fc461",
+            "computed_results": "computed_results-55ee1cdc41d647188163cd0563f3f9fa",
+            "figures": "figures-f33284701dee4e719a03a98fa2a2c908"
+          },
+          "stale": false
+        },
+        "delivery.markdown.zh-CN": {
+          "revision_id": "render-625ad2ac14664e2195f8969b5271d049",
+          "dependencies": {
+            "answer": "candidate-6844d8b3230e4c20a6ae1867607ca851"
+          },
+          "stale": false
+        }
+      }
+    },
+    "dependency_version": 7,
+    "composite_run": {
+      "source_data": "source_data-d490ed36f1174f838aa638baf3d8c6ea",
+      "analysis_code": "analysis_code-d8478ad5414044cd862bff11f35fc461",
+      "computed_results": "computed_results-55ee1cdc41d647188163cd0563f3f9fa",
+      "figures": "figures-f33284701dee4e719a03a98fa2a2c908",
+      "results": {
+        "increase": "10",
+        "monthly_totals": {
+          "2026-01": "30",
+          "2026-02": "40"
+        },
+        "rows": 4
+      },
+      "source_ref": "input/analysis-0f43432cb1dd4410a4f89de1479e175f.csv",
+      "code_ref": "input/analysis-0f43432cb1dd4410a4f89de1479e175f.py",
+      "source_sha256": "17038a6f42374e654ecd6760e02b5af6f63334b149285ff0a42beb9ba5f7e3ec",
+      "code_sha256": "67a53ac38da2186ad92a8620ff2f4d440b5f53352db225df284b2a1415d0c955",
+      "command": [
+        "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\.venv\\Scripts\\python.exe",
+        "<scoped-analysis.py>",
+        "<scoped-sales.csv>"
+      ],
+      "exit_code": 0,
+      "data_ref": "input/attachment_ab502343069b499e973037d12539d1a3.csv",
+      "planning_context": {
+        "summary": "Service independently recomputed the attached CSV. Use these exact results and state January, February, and Increase fields in the canonical report: {\"increase\": \"10\", \"monthly_totals\": {\"2026-01\": \"30\", \"2026-02\": \"40\"}, \"rows\": 4}",
+        "inputs": [
+          {
+            "id": "COMPOSITE-CSV",
+            "ref": "input/analysis-0f43432cb1dd4410a4f89de1479e175f.csv",
+            "sha256": "17038a6f42374e654ecd6760e02b5af6f63334b149285ff0a42beb9ba5f7e3ec"
+          },
+          {
+            "id": "COMPOSITE-CODE",
+            "ref": "input/analysis-0f43432cb1dd4410a4f89de1479e175f.py",
+            "sha256": "67a53ac38da2186ad92a8620ff2f4d440b5f53352db225df284b2a1415d0c955"
+          },
+          {
+            "id": "COMPOSITE-RESULT",
+            "ref": "input/composite-results-aa0141900c218dd9.json",
+            "sha256": "aa0141900c218dd947979d1c143c061a8de33354ade72904b593fccf23326808"
+          }
+        ],
+        "dependencies": [
+          "source_data-d490ed36f1174f838aa638baf3d8c6ea",
+          "analysis_code-d8478ad5414044cd862bff11f35fc461",
+          "computed_results-55ee1cdc41d647188163cd0563f3f9fa",
+          "figures-f33284701dee4e719a03a98fa2a2c908"
+        ]
+      }
+    },
+    "runtime_budget": {
+      "total_tokens": 300000,
+      "reserved_a_tokens": 60000
+    },
+    "a_planning": {
+      "status": "completed",
+      "owner_token": "supervisor:50eb24ec73f143f9957fdf2af53fba80",
+      "step_id": "0c0ad6434da848fe98d39d8d68087dea",
+      "contract_sha256": "5c39b8bfa3f980f3676bc2da5e17cf7aeefbd48cfaeeab24e685b37be5568925",
+      "capture_sha256": "d867f7f3f70f24d64c7cc94f8a0ab0d5a21e136d1e8c78c8607eca9c1478d5db",
+      "raw_response_ref": "blob:sha256:d867f7f3f70f24d64c7cc94f8a0ab0d5a21e136d1e8c78c8607eca9c1478d5db",
+      "source_hashes": {
+        "input/user_request.txt": "84f448425d925296d51a7cdb3d04347fda461d73a3f8dccb844cd0637d94328b",
+        "input/attachment_ab502343069b499e973037d12539d1a3.csv": "17038a6f42374e654ecd6760e02b5af6f63334b149285ff0a42beb9ba5f7e3ec",
+        "input/analysis-0f43432cb1dd4410a4f89de1479e175f.csv": "17038a6f42374e654ecd6760e02b5af6f63334b149285ff0a42beb9ba5f7e3ec",
+        "input/analysis-0f43432cb1dd4410a4f89de1479e175f.py": "67a53ac38da2186ad92a8620ff2f4d440b5f53352db225df284b2a1415d0c955",
+        "input/composite-results-aa0141900c218dd9.json": "aa0141900c218dd947979d1c143c061a8de33354ade72904b593fccf23326808"
+      },
+      "classification": "fixture",
+      "model_identity_observed": true,
+      "usage_observed": true
+    },
+    "active_external_request": {
+      "step_id": "0c0ad6434da848fe98d39d8d68087dea",
+      "provider_profile_id": "fake-gpt",
+      "role": "A",
+      "accepted": true,
+      "status": "completed",
+      "external_request_id": "demo-response-0c0ad6434da848fe98d39d8d68087dea",
+      "external_execution_id": "demo-execution-0c0ad6434da848fe98d39d8d68087dea"
+    },
+    "task_contract": {
+      "task_id": "f123d830db7b4bb2b0258cd312975fca",
+      "attempt_id": "faa7093c7bf342e78d13ce989bb2abc3",
+      "contract_version": "1.0",
+      "domain": "mixed",
+      "model_family": "gpt",
+      "route_snapshot_id": "75c9b3f0867741a19124046a5b1972ec",
+      "objective": "演示产品流程；外部模型输出是固定测试响应。",
+      "method": "Preserve the full source in a marked demonstration answer.",
+      "inputs": [
+        {
+          "id": "USER-1",
+          "ref": "input/user_request.txt",
+          "sha256": "84f448425d925296d51a7cdb3d04347fda461d73a3f8dccb844cd0637d94328b"
+        },
+        {
+          "id": "PROFILE-1",
+          "ref": "input/attachment_ab502343069b499e973037d12539d1a3.csv",
+          "sha256": "17038a6f42374e654ecd6760e02b5af6f63334b149285ff0a42beb9ba5f7e3ec"
+        },
+        {
+          "id": "COMPOSITE-CSV",
+          "ref": "input/analysis-0f43432cb1dd4410a4f89de1479e175f.csv",
+          "sha256": "17038a6f42374e654ecd6760e02b5af6f63334b149285ff0a42beb9ba5f7e3ec"
+        },
+        {
+          "id": "COMPOSITE-CODE",
+          "ref": "input/analysis-0f43432cb1dd4410a4f89de1479e175f.py",
+          "sha256": "67a53ac38da2186ad92a8620ff2f4d440b5f53352db225df284b2a1415d0c955"
+        },
+        {
+          "id": "COMPOSITE-RESULT",
+          "ref": "input/composite-results-aa0141900c218dd9.json",
+          "sha256": "aa0141900c218dd947979d1c143c061a8de33354ade72904b593fccf23326808"
+        }
+      ],
+      "constraints": [
+        {
+          "id": "preserve",
+          "text": "Preserve source bytes and identify the response as a demonstration.",
+          "mandatory": true
+        }
+      ],
+      "deliverables": [
+        {
+          "id": "answer",
+          "kind": "document",
+          "write_scope": "b/demo.md",
+          "require_a_canonical": true
+        }
+      ],
+      "acceptance": [
+        {
+          "id": "source-preserved",
+          "mandatory": true,
+          "verifier": "C",
+          "evidence_type": "artifact",
+          "condition": "Actual source and immutable candidate hashes agree.",
+          "semantic": false
+        },
+        {
+          "id": "demo-review",
+          "mandatory": true,
+          "verifier": "A",
+          "evidence_type": "review",
+          "condition": "Fixture response is marked as a demo and preserves user requirements.",
+          "semantic": true
+        },
+        {
+          "id": "mixed.C1",
+          "mandatory": true,
+          "verifier": "C",
+          "evidence_type": "artifact",
+          "condition": "recomputed_data_report_binding",
+          "semantic": false
+        },
+        {
+          "id": "mixed.C2",
+          "mandatory": true,
+          "verifier": "C",
+          "evidence_type": "dependency",
+          "condition": "complete_dependency_bundle",
+          "semantic": false
+        },
+        {
+          "id": "mixed.A1",
+          "mandatory": true,
+          "verifier": "A",
+          "evidence_type": "review",
+          "condition": "method_and_uncertainty",
+          "semantic": true
+        }
+      ],
+      "dependencies": [
+        "source_data-d490ed36f1174f838aa638baf3d8c6ea",
+        "analysis_code-d8478ad5414044cd862bff11f35fc461",
+        "computed_results-55ee1cdc41d647188163cd0563f3f9fa",
+        "figures-f33284701dee4e719a03a98fa2a2c908"
+      ],
+      "budget": {
+        "total_tokens": 300000,
+        "reserved_a_tokens": 60000
+      },
+      "b_write_scopes": [
+        "b"
+      ],
+      "a_responsibilities": [
+        "core_reasoning",
+        "evidence_judgment",
+        "final_review",
+        "method_choice",
+        "problem_modeling"
+      ],
+      "guidance_depth": "ordinary",
+      "full_read_required": true,
+      "source_unit_ids": [
+        "USER-1",
+        "PROFILE-1",
+        "COMPOSITE-CSV",
+        "COMPOSITE-CODE",
+        "COMPOSITE-RESULT"
+      ]
+    },
+    "workflow": {
+      "contract_sha256": "5c39b8bfa3f980f3676bc2da5e17cf7aeefbd48cfaeeab24e685b37be5568925",
+      "candidate_history": [
+        {
+          "revision_id": "candidate-a79c6affb0174ef5aaf4c42e6abbff25",
+          "byte_sha256": "6f40a4d6af9f84a7b6274c7664c7391b6a7733bd99a52ae1b166e019ad5240ea",
+          "role": "B",
+          "step_id": "eb51eb8e34fb4a499664b1ab086c58a3",
+          "previous_revision_id": null
+        },
+        {
+          "revision_id": "candidate-6844d8b3230e4c20a6ae1867607ca851",
+          "byte_sha256": "6f40a4d6af9f84a7b6274c7664c7391b6a7733bd99a52ae1b166e019ad5240ea",
+          "role": "A",
+          "step_id": "30ec16231fcd4bf38aadd6d49e8a1d24",
+          "previous_revision_id": "candidate-a79c6affb0174ef5aaf4c42e6abbff25"
+        }
+      ],
+      "current_revision_id": "candidate-6844d8b3230e4c20a6ae1867607ca851",
+      "review_check_id": "A-review-3b31650a7f9e4bd0b11ccad509812ddb",
+      "reviews": [
+        {
+          "contract": {
+            "task_id": "f123d830db7b4bb2b0258cd312975fca",
+            "attempt_id": "faa7093c7bf342e78d13ce989bb2abc3",
+            "contract_version": "1.0",
+            "domain": "mixed",
+            "model_family": "gpt",
+            "route_snapshot_id": "75c9b3f0867741a19124046a5b1972ec",
+            "objective": "演示产品流程；外部模型输出是固定测试响应。",
+            "method": "Preserve the full source in a marked demonstration answer.",
+            "inputs": [
+              {
+                "id": "USER-1",
+                "ref": "input/user_request.txt",
+                "sha256": "84f448425d925296d51a7cdb3d04347fda461d73a3f8dccb844cd0637d94328b"
+              },
+              {
+                "id": "PROFILE-1",
+                "ref": "input/attachment_ab502343069b499e973037d12539d1a3.csv",
+                "sha256": "17038a6f42374e654ecd6760e02b5af6f63334b149285ff0a42beb9ba5f7e3ec"
+              },
+              {
+                "id": "COMPOSITE-CSV",
+                "ref": "input/analysis-0f43432cb1dd4410a4f89de1479e175f.csv",
+                "sha256": "17038a6f42374e654ecd6760e02b5af6f63334b149285ff0a42beb9ba5f7e3ec"
+              },
+              {
+                "id": "COMPOSITE-CODE",
+                "ref": "input/analysis-0f43432cb1dd4410a4f89de1479e175f.py",
+                "sha256": "67a53ac38da2186ad92a8620ff2f4d440b5f53352db225df284b2a1415d0c955"
+              },
+              {
+                "id": "COMPOSITE-RESULT",
+                "ref": "input/composite-results-aa0141900c218dd9.json",
+                "sha256": "aa0141900c218dd947979d1c143c061a8de33354ade72904b593fccf23326808"
+              }
+            ],
+            "constraints": [
+              {
+                "id": "preserve",
+                "text": "Preserve source bytes and identify the response as a demonstration.",
+                "mandatory": true
+              }
+            ],
+            "deliverables": [
+              {
+                "id": "answer",
+                "kind": "document",
+                "write_scope": "b/demo.md",
+                "require_a_canonical": true
+              }
+            ],
+            "acceptance": [
+              {
+                "id": "source-preserved",
+                "mandatory": true,
+                "verifier": "C",
+                "evidence_type": "artifact",
+                "condition": "Actual source and immutable candidate hashes agree.",
+                "semantic": false
+              },
+              {
+                "id": "demo-review",
+                "mandatory": true,
+                "verifier": "A",
+                "evidence_type": "review",
+                "condition": "Fixture response is marked as a demo and preserves user requirements.",
+                "semantic": true
+              },
+              {
+                "id": "mixed.C1",
+                "mandatory": true,
+                "verifier": "C",
+                "evidence_type": "artifact",
+                "condition": "recomputed_data_report_binding",
+                "semantic": false
+              },
+              {
+                "id": "mixed.C2",
+                "mandatory": true,
+                "verifier": "C",
+                "evidence_type": "dependency",
+                "condition": "complete_dependency_bundle",
+                "semantic": false
+              },
+              {
+                "id": "mixed.A1",
+                "mandatory": true,
+                "verifier": "A",
+                "evidence_type": "review",
+                "condition": "method_and_uncertainty",
+                "semantic": true
+              }
+            ],
+            "dependencies": [
+              "source_data-d490ed36f1174f838aa638baf3d8c6ea",
+              "analysis_code-d8478ad5414044cd862bff11f35fc461",
+              "computed_results-55ee1cdc41d647188163cd0563f3f9fa",
+              "figures-f33284701dee4e719a03a98fa2a2c908"
+            ],
+            "budget": {
+              "total_tokens": 300000,
+              "reserved_a_tokens": 60000
+            },
+            "b_write_scopes": [
+              "b"
+            ],
+            "a_responsibilities": [
+              "core_reasoning",
+              "evidence_judgment",
+              "final_review",
+              "method_choice",
+              "problem_modeling"
+            ],
+            "guidance_depth": "ordinary",
+            "full_read_required": true,
+            "source_unit_ids": [
+              "USER-1",
+              "PROFILE-1",
+              "COMPOSITE-CSV",
+              "COMPOSITE-CODE",
+              "COMPOSITE-RESULT"
+            ]
+          },
+          "decision": {
+            "task_id": "f123d830db7b4bb2b0258cd312975fca",
+            "attempt_id": "faa7093c7bf342e78d13ce989bb2abc3",
+            "contract_version": "1.0",
+            "contract_sha256": "5c39b8bfa3f980f3676bc2da5e17cf7aeefbd48cfaeeab24e685b37be5568925",
+            "reviewer": "A",
+            "decision": "PASS",
+            "revision_id": "candidate-6844d8b3230e4c20a6ae1867607ca851",
+            "evidence": [
+              {
+                "criterion_id": "source-preserved",
+                "revision_id": "candidate-6844d8b3230e4c20a6ae1867607ca851",
+                "ref": "352c1eb279714df491feae9db98dad5c.json",
+                "sha256": "3d8c10ee7b9fdbccf944f6ed2c50326bceb2157648d69c3a2b38d76b17bef344",
+                "verifier": "C",
+                "passed": true
+              },
+              {
+                "criterion_id": "mixed.C1",
+                "revision_id": "candidate-6844d8b3230e4c20a6ae1867607ca851",
+                "ref": "a1dca2801d964495b8e74b5a5c2659b8.json",
+                "sha256": "aefe645c56667c61683a738b555487824df02584b2b7faf7c26037c7f023ae2e",
+                "verifier": "C",
+                "passed": true
+              },
+              {
+                "criterion_id": "mixed.C2",
+                "revision_id": "candidate-6844d8b3230e4c20a6ae1867607ca851",
+                "ref": "ca7925b37c1b4815800df32f28bdc3a3.json",
+                "sha256": "4a4e92f90552345c1a57acf4c592427d541913ec688adae1eccd700278d3c294",
+                "verifier": "C",
+                "passed": true
+              },
+              {
+                "criterion_id": "demo-review",
+                "revision_id": "candidate-6844d8b3230e4c20a6ae1867607ca851",
+                "ref": "a9f5dcbf05704e82bab5ad0ccb29e42f.json",
+                "sha256": "7ab4448fa493ee68a05f65d604c898fdc4635ff23afafe58fd19aa7300696617",
+                "verifier": "A",
+                "passed": true
+              },
+              {
+                "criterion_id": "mixed.A1",
+                "revision_id": "candidate-6844d8b3230e4c20a6ae1867607ca851",
+                "ref": "d41fbf3ef9584ac6a34e3fbad65dff41.json",
+                "sha256": "9c355073aa78c34135059a3fdc1d13bece10447f5bed194f99e8ca277e164480",
+                "verifier": "A",
+                "passed": true
+              }
+            ],
+            "read_unit_ids": [
+              "USER-1",
+              "PROFILE-1",
+              "COMPOSITE-CSV",
+              "COMPOSITE-CODE",
+              "COMPOSITE-RESULT"
+            ],
+            "source_refs": [
+              "input/user_request.txt",
+              "input/attachment_ab502343069b499e973037d12539d1a3.csv",
+              "input/analysis-0f43432cb1dd4410a4f89de1479e175f.csv",
+              "input/analysis-0f43432cb1dd4410a4f89de1479e175f.py",
+              "input/composite-results-aa0141900c218dd9.json"
+            ],
+            "sampling_note": null,
+            "canonical_author": "A",
+            "a_response_ref": "19c613addab8426ba76aa725f79b8153",
+            "issues": []
+          },
+          "gate": {
+            "decision": "PASS",
+            "eligible_for_output": true,
+            "missing_criteria": [],
+            "reason_codes": []
+          },
+          "evidence_root": "C:\\Users\\asd15\\AppData\\Local\\Temp\\workbench-electron-hZJGAt\\workbench\\tasks\\f123d830db7b4bb2b0258cd312975fca\\faa7093c7bf342e78d13ce989bb2abc3\\evidence",
+          "a_step_id": "19c613addab8426ba76aa725f79b8153"
+        }
+      ],
+      "takeover_leases": [
+        {
+          "before": {
+            "a": {
+              "epoch": 1,
+              "role": "A",
+              "token": "4c98de76ae804e29a9144131858b5ac5"
+            },
+            "b": {
+              "epoch": 1,
+              "role": "B",
+              "token": "5561266bb33a4c228ab588f39cf82b9a"
+            }
+          },
+          "during": {
+            "a": {
+              "epoch": 1,
+              "role": "A",
+              "token": "4c98de76ae804e29a9144131858b5ac5"
+            },
+            "b": {
+              "epoch": 2,
+              "role": "A",
+              "token": "9c4a9f87a1cc4893aa277bb6e34b3646"
+            }
+          },
+          "after": {
+            "a": {
+              "epoch": 1,
+              "role": "A",
+              "token": "4c98de76ae804e29a9144131858b5ac5"
+            },
+            "b": {
+              "epoch": 3,
+              "role": "B",
+              "token": "d01ae5dc5b8142e3927fc1d8c013a6aa"
+            }
+          },
+          "snapshot_path": null
+        }
+      ],
+      "repair": {
+        "policy_version": "repair-1",
+        "quality_repairs": 0,
+        "connection_retries": 0,
+        "translation_retries": 0,
+        "no_progress": 0,
+        "defect_streaks": {},
+        "history": []
+      },
+      "reason_codes": [],
+      "upstream_versions": {
+        "source_data": "source_data-d490ed36f1174f838aa638baf3d8c6ea",
+        "analysis_code": "analysis_code-d8478ad5414044cd862bff11f35fc461",
+        "computed_results": "computed_results-55ee1cdc41d647188163cd0563f3f9fa",
+        "figures": "figures-f33284701dee4e719a03a98fa2a2c908"
+      },
+      "source_context": [
+        {
+          "ref": "input/user_request.txt",
+          "sha256": "84f448425d925296d51a7cdb3d04347fda461d73a3f8dccb844cd0637d94328b",
+          "content": "请重新计算数据并交付报告、代码、数据和图。\n\n附件 sales.csv 的完整内容：\nmonth,category,amount\n2026-01,A,10\n2026-01,B,20\n2026-02,A,15\n2026-02,B,25\n\n\nTask profile inputs (untrusted):\n{\"data_refs\": [\"input/attachment_ab502343069b499e973037d12539d1a3.csv\"], \"formats\": [\"markdown\"]}\n\nService independently recomputed the attached CSV. Use these exact results and state January, February, and Increase fields in the canonical report: {\"increase\": \"10\", \"monthly_totals\": {\"2026-01\": \"30\", \"2026-02\": \"40\"}, \"rows\": 4}",
+          "content_ref": "input/user_request.txt",
+          "content_sha256": "84f448425d925296d51a7cdb3d04347fda461d73a3f8dccb844cd0637d94328b",
+          "trust": "untrusted_material"
+        },
+        {
+          "ref": "input/attachment_ab502343069b499e973037d12539d1a3.csv",
+          "sha256": "17038a6f42374e654ecd6760e02b5af6f63334b149285ff0a42beb9ba5f7e3ec",
+          "content": "month,category,amount\n2026-01,A,10\n2026-01,B,20\n2026-02,A,15\n2026-02,B,25\n",
+          "content_ref": "input/attachment_ab502343069b499e973037d12539d1a3.csv",
+          "content_sha256": "17038a6f42374e654ecd6760e02b5af6f63334b149285ff0a42beb9ba5f7e3ec",
+          "trust": "untrusted_material"
+        },
+        {
+          "ref": "input/analysis-0f43432cb1dd4410a4f89de1479e175f.csv",
+          "sha256": "17038a6f42374e654ecd6760e02b5af6f63334b149285ff0a42beb9ba5f7e3ec",
+          "content": "month,category,amount\n2026-01,A,10\n2026-01,B,20\n2026-02,A,15\n2026-02,B,25\n",
+          "content_ref": "input/analysis-0f43432cb1dd4410a4f89de1479e175f.csv",
+          "content_sha256": "17038a6f42374e654ecd6760e02b5af6f63334b149285ff0a42beb9ba5f7e3ec",
+          "trust": "untrusted_material"
+        },
+        {
+          "ref": "input/analysis-0f43432cb1dd4410a4f89de1479e175f.py",
+          "sha256": "67a53ac38da2186ad92a8620ff2f4d440b5f53352db225df284b2a1415d0c955",
+          "content": "import csv, json, sys\nfrom decimal import Decimal\nfrom pathlib import Path\nsource = Path(sys.argv[1]).read_bytes()\nrows = list(csv.DictReader(source.decode(\"utf-8\").splitlines()))\ntotals = {}\nfor row in rows:\n    month = row[\"month\"]\n    totals[month] = totals.get(month, Decimal(0)) + Decimal(row[\"amount\"])\nmonths = sorted(totals)\nif len(rows) != 4 or len(months) != 2:\n    raise ValueError(\"FOUR_ROWS_TWO_MONTHS_REQUIRED\")\nresult = {\"rows\": len(rows), \"monthly_totals\": {m: str(totals[m]) for m in months},\n          \"increase\": str(totals[months[1]] - totals[months[0]])}\nprint(json.dumps(result, sort_keys=True))\n",
+          "content_ref": "input/analysis-0f43432cb1dd4410a4f89de1479e175f.py",
+          "content_sha256": "67a53ac38da2186ad92a8620ff2f4d440b5f53352db225df284b2a1415d0c955",
+          "trust": "untrusted_material"
+        },
+        {
+          "ref": "input/composite-results-aa0141900c218dd9.json",
+          "sha256": "aa0141900c218dd947979d1c143c061a8de33354ade72904b593fccf23326808",
+          "content": "{\"increase\":\"10\",\"monthly_totals\":{\"2026-01\":\"30\",\"2026-02\":\"40\"},\"rows\":4}",
+          "content_ref": "input/composite-results-aa0141900c218dd9.json",
+          "content_sha256": "aa0141900c218dd947979d1c143c061a8de33354ade72904b593fccf23326808",
+          "trust": "untrusted_material"
+        }
+      ],
+      "last_budget": {
+        "allowed": true,
+        "reason": "OK",
+        "remaining_tokens": 299955
+      }
+    },
+    "planning_handoff": {
+      "planning_step_id": "0c0ad6434da848fe98d39d8d68087dea",
+      "previous_owner": "supervisor:50eb24ec73f143f9957fdf2af53fba80",
+      "workflow_owner": "workflow:0a3b11a15378441fb662430cdefcbd57",
+      "contract_sha256": "5c39b8bfa3f980f3676bc2da5e17cf7aeefbd48cfaeeab24e685b37be5568925"
+    },
+    "current_revision_id": "candidate-6844d8b3230e4c20a6ae1867607ca851",
+    "stale": false,
+    "publication_blocked": false,
+    "release_registry": {
+      "check_id": "release-dbd8e79380554b0a80e781ab27c7e96f",
+      "approval_id": "release-dbd8e79380554b0a80e781ab27c7e96f",
+      "artifact_version_id": "candidate-6844d8b3230e4c20a6ae1867607ca851",
+      "content_version_id": "candidate-6844d8b3230e4c20a6ae1867607ca851",
+      "route_snapshot_id": "75c9b3f0867741a19124046a5b1972ec"
+    },
+    "public_release": {
+      "revision_id": "candidate-6844d8b3230e4c20a6ae1867607ca851",
+      "approval_id": "release-dbd8e79380554b0a80e781ab27c7e96f",
+      "message_id": "797ded0759954346a09722a074a0c34c",
+      "sha256": "6f40a4d6af9f84a7b6274c7664c7391b6a7733bd99a52ae1b166e019ad5240ea",
+      "review_check_id": "A-review-3b31650a7f9e4bd0b11ccad509812ddb",
+      "dependency_fence": {
+        "task_id": "f123d830db7b4bb2b0258cd312975fca",
+        "attempt_id": "faa7093c7bf342e78d13ce989bb2abc3",
+        "graph_version": 7,
+        "revisions": {
+          "candidate-6844d8b3230e4c20a6ae1867607ca851": "6f40a4d6af9f84a7b6274c7664c7391b6a7733bd99a52ae1b166e019ad5240ea"
+        }
+      },
+      "review_snapshot": {
+        "contract_sha256": "5c39b8bfa3f980f3676bc2da5e17cf7aeefbd48cfaeeab24e685b37be5568925",
+        "review_sha256": "5e69d79deb8afddb6534f61d523f31735584e2b1af051f6b656b8062993a1e43",
+        "requires_bundle": true
+      },
+      "event_id": "df5474e0285742d28d62a0cd20b3da2a"
+    },
+    "native_document": {
+      "bundle_id": "bundle-8ac7977eb7ca493e9372cf120a6177ca",
+      "source_revision_id": "candidate-6844d8b3230e4c20a6ae1867607ca851",
+      "requested_formats": [
+        "markdown"
+      ],
+      "translation_revision_id": null
+    }
+  },
+  "steps": 4,
+  "usage_count": 4,
+  "translation_count": 0
+}

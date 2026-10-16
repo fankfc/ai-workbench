@@ -1,0 +1,148 @@
+{
+  "generated_at": "2026-10-14T03:33:23.158519+00:00",
+  "provider": "all",
+  "mode": "metadata_only",
+  "production_enabled": false,
+  "model_identity_verified": false,
+  "model_turn_submissions": 0,
+  "providers": {
+    "codex": {
+      "protocol_probe_completed": true,
+      "production_enabled": false,
+      "metadata": {
+        "actual_model_id": null,
+        "identity_status": "unknown",
+        "scope_enforced": false,
+        "production_enabled": false,
+        "model_turn_starts": 0,
+        "selection_source": "official thread/start configuration metadata; not per-turn execution telemetry",
+        "entry_verified": true,
+        "injected_transport": false,
+        "model_catalog": [
+          {
+            "id": "gpt-6.1-sol",
+            "model": "gpt-6.1-sol",
+            "is_default": true
+          },
+          {
+            "id": "gpt-6-astra",
+            "model": "gpt-6-astra",
+            "is_default": false
+          },
+          {
+            "id": "gpt-6-sol",
+            "model": "gpt-6-sol",
+            "is_default": false
+          },
+          {
+            "id": "gpt-6-luna",
+            "model": "gpt-6-luna",
+            "is_default": false
+          },
+          {
+            "id": "gpt-5.6-sol",
+            "model": "gpt-5.6-sol",
+            "is_default": false
+          },
+          {
+            "id": "gpt-5.6-terra",
+            "model": "gpt-5.6-terra",
+            "is_default": false
+          },
+          {
+            "id": "gpt-5.6-luna",
+            "model": "gpt-5.6-luna",
+            "is_default": false
+          },
+          {
+            "id": "gpt-5.5",
+            "model": "gpt-5.5",
+            "is_default": false
+          }
+        ],
+        "account": {
+          "logged_in": true,
+          "type": "chatgpt"
+        },
+        "selected_model": "gpt-6.1-sol",
+        "model_provider": "openai",
+        "thread_id": "01a13878-fdeb-7bb2-ab9a-8ab2cbf70910",
+        "ephemeral": true,
+        "model_access_verified": false,
+        "cleanup": {
+          "local_state": "exited",
+          "remote_state": "unknown",
+          "cleanup_complete": true,
+          "forced": true,
+          "output_limited": false,
+          "running": 0,
+          "open_handles": 0,
+          "temp_dirs": 0
+        },
+        "diagnostics": {
+          "server_starts": 1,
+          "model_turn_starts": 0,
+          "submitted_model_turns": 0,
+          "observed_model_activity": false,
+          "private_output_bytes_kept": 15154,
+          "private_stderr": "[omitted: private provider stderr]",
+          "unsupported_callbacks": [],
+          "notification_methods": [
+            "remoteControl/status/changed",
+            "account/updated",
+            "thread/started",
+            "mcpServer/startupStatus/updated",
+            "mcpServer/startupStatus/updated",
+            "mcpServer/startupStatus/updated",
+            "mcpServer/startupStatus/updated"
+          ],
+          "server_pid": 66592
+        }
+      }
+    },
+    "zcode": {
+      "protocol_probe_completed": true,
+      "production_enabled": false,
+      "metadata": {
+        "metadata_status": "observed",
+        "reason_code": "HOST_ACCOUNT_CONTEXT_REQUIRED",
+        "identity_status": "unknown",
+        "actual_model_id": null,
+        "actual_model_family": "unknown",
+        "available_models": [],
+        "current_model": null,
+        "session_id": "sess_ceed952b-c10b-4be8-9c22-15ec52ff4a42",
+        "state_revision": 0,
+        "model_turn_starts": 0,
+        "production_enabled": false,
+        "scope_enforced": false,
+        "credential_headers_applied_by_client": false,
+        "entry_verified": true,
+        "injected_transport": false,
+        "capabilities": {
+          "independent_plan_state": true
+        },
+        "session_close_confirmed": true,
+        "cleanup": {
+          "local_state": "exited",
+          "remote_state": "unknown",
+          "cleanup_complete": true,
+          "forced": true,
+          "output_limited": false,
+          "running": 0,
+          "open_handles": 0,
+          "temp_dirs": 0
+        }
+      }
+    }
+  },
+  "protocol_probe_completed": true,
+  "source_sha256": {
+    "scripts/probe_native_connections.py": "ee55c314041470557e727f9a46b89731f468b3d805ce646cbd20b43b0b21a0c9",
+    "services/orchestrator/app/providers/native_rpc.py": "702fdfe1de5d00b8b30a3628f8811f68f0d8d426caec5c9c4ac8cf828fac4c2e",
+    "services/orchestrator/app/providers/native_rpc_worker.py": "efd341daf662db5bbcc73c51bb545ced2759d7c683a7642b2d01231b6aba9419",
+    "services/orchestrator/app/providers/codex_protocol.py": "be3efaea44bc56fd821adbeb28642637466a5472e6daea95beacaaf5a30b4922",
+    "services/orchestrator/app/providers/zcode_protocol.py": "44e872526f4dbd5d61d481eecc00e41a7bd2542250168bcf0951cd4ecc6b8201"
+  },
+  "exit_code": 0
+}

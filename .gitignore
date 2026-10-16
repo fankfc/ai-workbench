@@ -1,0 +1,35 @@
+# Local tooling and installed dependencies
+.tools/
+.superpowers/
+.omx/
+.venv/
+**/.venv/
+node_modules/
+**/node_modules/
+
+# Test-run leftovers inside acceptance evidence dirs
+**/pytest-temp/
+
+# Build and test output
+dist/
+build/
+*.egg-info/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+test-results/
+playwright-report/
+artifacts/playwright/
+/release/staging/
+
+# Local secrets and editor state
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.DS_Store
+.idea/
+.vscode/

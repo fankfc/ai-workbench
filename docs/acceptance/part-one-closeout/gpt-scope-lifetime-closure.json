@@ -1,0 +1,177 @@
+{
+  "source": {
+    "tag": "rust-v0.160.0",
+    "resolved_commit": "a956835d020762cb2b570053af06f643a11c0ecc",
+    "tag_ref_url": "https://api.github.com/repos/openai/codex/git/ref/tags/rust-v0.160.0",
+    "commit_metadata_source": "official_codeload_archive_global_pax_comment",
+    "tag_api_last_status": "403_rate_limit_not_retried",
+    "archive_url": "https://codeload.github.com/openai/codex/tar.gz/refs/tags/rust-v0.160.0",
+    "archive_sha256": "e9ba182239bb984f1d24a57c8b3abb3da127e0a108e5f17d7a9038688cf4369c",
+    "archive_bytes": 16677782,
+    "extracted_source_root": "\\\\?\\C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\codex-source-complete\\source\\codex-rust-v0.160.0",
+    "extracted_file_count": 8775,
+    "expanded_declared_bytes": 86743610,
+    "auth_or_account_requests": 0,
+    "materialized_symlinks": [
+      {
+        "path": "codex-rust-v0.160.0/codex-rs/vendor/bubblewrap/LICENSE",
+        "target": "COPYING"
+      }
+    ],
+    "native_cli_or_model_starts": 0,
+    "exit_code": 0
+  },
+  "archive_regular_files": 8774,
+  "complete_tree_sha256": "88ec7551f41e1e4a955fb7647170d7859ecf76ede533db01b0e9ab83835999ff",
+  "policy_source_hashes_all_match": true,
+  "searches": {
+    "lifetime-calls.txt": {
+      "sha256": "a24b8b50d9eb9d2ca37dddc50a97dffe5a4f9953f5230b47fe6120efc4424d19",
+      "exit_code": 0
+    },
+    "lifetime-secondary-calls.txt": {
+      "sha256": "e33756063e2fddc3650dee2bdf8cf5f319e24cee1ed7a89a3a60181525e2dc70",
+      "exit_code": 0
+    },
+    "lifetime-entry-calls.txt": {
+      "sha256": "9504a855695405cc6a3f6750ddb870b4f36cf5b501c1a3bf23271cfd41e04bd9",
+      "exit_code": 0
+    }
+  },
+  "edges": [
+    {
+      "entry": "config write/reload",
+      "path": "app-server/src/request_processors/config_processor.rs",
+      "lines": "172-177, 356-387",
+      "boundary": "explicit client mutation; denied by sealed RPC",
+      "sha256": "66d0f303742fc268f9f4557cc01418c89c85854ff58f3feb7321e19a891b1db2",
+      "official_source": "https://github.com/openai/codex/blob/rust-v0.160.0/codex-rs/app-server/src/request_processors/config_processor.rs"
+    },
+    {
+      "entry": "MCP refresh",
+      "path": "app-server/src/request_processors/mcp_processor.rs",
+      "lines": "85-92",
+      "boundary": "explicit client refresh; denied by sealed RPC",
+      "sha256": "79823ea342ceb18927f4046920c8f647cea33f8cf3ae9b3621f1ad0f1062cff5",
+      "official_source": "https://github.com/openai/codex/blob/rust-v0.160.0/codex-rs/app-server/src/request_processors/mcp_processor.rs"
+    },
+    {
+      "entry": "MCP reload implementation",
+      "path": "app-server/src/mcp_refresh.rs",
+      "lines": "9-26",
+      "boundary": "loads next session layers only after explicit request",
+      "sha256": "67845457ac569be6f8c3b226e1a2cf16cdebb4956f7529bc990d888cac7255fa",
+      "official_source": "https://github.com/openai/codex/blob/rust-v0.160.0/codex-rs/app-server/src/mcp_refresh.rs"
+    },
+    {
+      "entry": "auth-triggered prewarm",
+      "path": "core/src/session/mcp_prewarm.rs",
+      "lines": "39-55",
+      "boundary": "auth-state change marks dirty; uses stored session config",
+      "sha256": "7cf5ad62e835c1f51399cbf7786b3adfb20cf4c4f02c0b37822035c2b1c00d23",
+      "official_source": "https://github.com/openai/codex/blob/rust-v0.160.0/codex-rs/core/src/session/mcp_prewarm.rs"
+    },
+    {
+      "entry": "desired MCP snapshot",
+      "path": "core/src/session/mcp_runtime.rs",
+      "lines": "68-104",
+      "boundary": "clones stored SessionConfiguration; does not load changed user TOML",
+      "sha256": "ff6c351e3af4f662c265a2f0c16e84da7815771913a493694eba0d99ec08d8eb",
+      "official_source": "https://github.com/openai/codex/blob/rust-v0.160.0/codex-rs/core/src/session/mcp_runtime.rs"
+    },
+    {
+      "entry": "per-turn configuration",
+      "path": "core/src/session/turn_context.rs",
+      "lines": "842-889",
+      "boundary": "clones original config; preserves original feature ceiling",
+      "sha256": "96c7e354170c784204d50cf3cd218133f9a906a887d9c06261f836f95dd0edd1",
+      "official_source": "https://github.com/openai/codex/blob/rust-v0.160.0/codex-rs/core/src/session/turn_context.rs"
+    },
+    {
+      "entry": "account login/logout cache callback",
+      "path": "app-server/src/request_processors/account_processor.rs",
+      "lines": "249-290, 896-915, 964-992",
+      "boundary": "fresh reload occurs through login/logout client mutation; sealed RPC denies",
+      "sha256": "a28e9125a67d6e972fefdab8d8b191d8ec38a3294019f0c77d5e2077c2991831",
+      "official_source": "https://github.com/openai/codex/blob/rust-v0.160.0/codex-rs/app-server/src/request_processors/account_processor.rs"
+    },
+    {
+      "entry": "plugin model installation",
+      "path": "core/src/tools/handlers/request_plugin_install.rs",
+      "lines": "360, 446",
+      "boundary": "tool unregistered when apps/plugins/tool_suggest false",
+      "sha256": "77d013494b34b30dd49ad0b23977f7ca2a4d76851fe21e9718d1ce9b03986012",
+      "official_source": "https://github.com/openai/codex/blob/rust-v0.160.0/codex-rs/core/src/tools/handlers/request_plugin_install.rs"
+    },
+    {
+      "entry": "MCP persistent approval",
+      "path": "core/src/mcp_tool_call.rs",
+      "lines": "2273, 2287-2321",
+      "boundary": "requires a registered MCP tool; exact server set disabled",
+      "sha256": "509b10168a9a1e99abd0f5722ad5bf377645dbb2e446ead6c324daef7a84af58",
+      "official_source": "https://github.com/openai/codex/blob/rust-v0.160.0/codex-rs/core/src/mcp_tool_call.rs"
+    },
+    {
+      "entry": "plugin background gates",
+      "path": "core-plugins/src/manager.rs",
+      "lines": "748-763, 813, 1563-1573",
+      "boundary": "plugins disabled yields empty outcome; remote refresh returns",
+      "sha256": "4d1ac59d49155bfe434b169243c53eab4099ccf2c3d2649ec5e273e255419153",
+      "official_source": "https://github.com/openai/codex/blob/rust-v0.160.0/codex-rs/core-plugins/src/manager.rs"
+    },
+    {
+      "entry": "skills watcher",
+      "path": "app-server/src/skills_watcher.rs",
+      "lines": "154-168",
+      "boundary": "invalidates skill cache/notification; not config or MCP reload",
+      "sha256": "da819589121bb78fce6aa72f0cf2a86908d821e5fb9c43fe0c799a5f960541dd",
+      "official_source": "https://github.com/openai/codex/blob/rust-v0.160.0/codex-rs/app-server/src/skills_watcher.rs"
+    },
+    {
+      "entry": "filesystem watcher",
+      "path": "app-server/src/fs_watch.rs",
+      "lines": "110-140",
+      "boundary": "emits path notification; no config reload",
+      "sha256": "1190ae572767e9b9ee5f516fed3b7df7116d95be97d64b5f019a8c6e29c0d1f5",
+      "official_source": "https://github.com/openai/codex/blob/rust-v0.160.0/codex-rs/app-server/src/fs_watch.rs"
+    },
+    {
+      "entry": "dynamic tool reply",
+      "path": "core/src/session/mod.rs",
+      "lines": "3355-3373",
+      "boundary": "one-shot pending response, not ClientRequest/config dispatch",
+      "sha256": "d05728bce8f6f3163d20ec4286bf964d7dfda27a39d4669b755e7a2e51849ecf",
+      "official_source": "https://github.com/openai/codex/blob/rust-v0.160.0/codex-rs/core/src/session/mod.rs"
+    },
+    {
+      "entry": "unknown tool dispatch",
+      "path": "core/src/tools/registry.rs",
+      "lines": "552-571",
+      "boundary": "unsupported tool response; no handler execution",
+      "sha256": "d2793cddbdc34ad8d849a991dafd5871a3ce8ded4b33c446b2c1934e1cee526b",
+      "official_source": "https://github.com/openai/codex/blob/rust-v0.160.0/codex-rs/core/src/tools/registry.rs"
+    },
+    {
+      "entry": "model-forced agent mode",
+      "path": "core/src/config/mod.rs",
+      "lines": "1586-1612",
+      "boundary": "agents.enabled=false is necessary in addition to two feature switches",
+      "sha256": "854f5a6b184714740500b8d3eae2bb04cb88172efccf11d38a74f2f6189c0341",
+      "official_source": "https://github.com/openai/codex/blob/rust-v0.160.0/codex-rs/core/src/config/mod.rs"
+    },
+    {
+      "entry": "model-forced code mode",
+      "path": "core/src/thread_manager.rs",
+      "lines": "532-539",
+      "boundary": "both typed CodeModeHost fields false select Disabled provider",
+      "sha256": "1c356242684633729042aaac6350295b759a8fe1fc05eff28b78895f6ff2fa9d",
+      "official_source": "https://github.com/openai/codex/blob/rust-v0.160.0/codex-rs/core/src/thread_manager.rs"
+    }
+  ],
+  "conclusion": "Conditional software model-tool boundary under fixed launch, 22 actual controls and sealed RPC; not OS sandbox attestation",
+  "actual_native_22_control_observation": false,
+  "native_cli_starts": 0,
+  "model_starts": 0,
+  "account_reads": 0,
+  "artifact_role": "full-source closure; local implementation is tested separately"
+}

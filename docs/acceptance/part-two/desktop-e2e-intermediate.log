@@ -1,0 +1,53 @@
+
+> ai-workbench@0.1.0 test:e2e
+> playwright test
+
+
+Running 19 tests using 1 worker
+
+(node:49944) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  1 tests\e2e\artifact-files.spec.ts:6:5 › product bundles preview and save three exact bilingual format pairs (14.6s)
+  ok  2 tests\e2e\artifact-files.spec.ts:15:5 › cancelled save and existing filenames never report a successful pair (15.8s)
+  x   3 tests\e2e\artifact-files.spec.ts:20:5 › default export directory is private and becomes a dialog starting location (5.7s)
+(node:57860) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  4 tests\e2e\chat-publication.spec.ts:2:5 › internal canaries never cross the public IPC boundary or briefly appear (10.1s)
+  ok  5 tests\e2e\composer-history.spec.ts:5:5 › IME enter does not submit, approved history survives reload and drafts remain per conversation (6.1s)
+  ok  6 tests\e2e\composer-history.spec.ts:11:5 › only a native selected attachment is imported and the complete material reaches the task (6.8s)
+  ok  7 tests\e2e\composer-history.spec.ts:14:5 › double click sends one client request and script text cannot execute (7.2s)
+  ok  8 tests\e2e\connections.spec.ts:2:5 › connection page keeps demonstrations distinct from verified real identities (5.9s)
+  ok  9 tests\e2e\host.spec.ts:6:5 › actual isolated Electron exposes only a business bridge (6.0s)
+  ok 10 tests\e2e\host.spec.ts:11:5 › disconnect keeps the draft and blocks sending (5.9s)
+  ok 11 tests\e2e\host.spec.ts:15:5 › default real mode keeps all unverified connections disabled (5.8s)
+  ok 12 tests\e2e\host.spec.ts:19:5 › second launch focuses the existing instance without starting another backend (6.2s)
+  ok 13 tests\e2e\layout.spec.ts:2:78 › layout fits 1440x900 (6.0s)
+  ok 14 tests\e2e\layout.spec.ts:2:78 › layout fits 1280x800 (5.9s)
+  ok 15 tests\e2e\layout.spec.ts:2:78 › layout fits 1024x768 (5.9s)
+  ok 16 tests\e2e\layout.spec.ts:2:78 › layout fits 320x768 (4.8s)
+  ok 17 tests\e2e\layout.spec.ts:9:5 › theme, large text and 200 percent zoom retain the composer (5.9s)
+  ok 18 tests\e2e\settings-usage.spec.ts:5:5 › usage has no invented savings, storage cleanup is previewed and diagnostics stay separate (5.5s)
+  ok 19 tests\e2e\settings-usage.spec.ts:8:5 › selected directory migration keeps the source and restarts the owned backend (9.0s)
+
+
+  1) tests\e2e\artifact-files.spec.ts:20:5 › default export directory is private and becomes a dialog starting location 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+      20 | test('default export directory is private and becomes a dialog starting location',async({desktop})=>{
+      21 |   const output=await mkdtemp(join(tmpdir(),'desktop-export-default-'));await desktop.app.evaluate(({dialog},output)=>{(dialog as any).showOpenDialog=async()=>({canceled:false,filePaths:[output]});},output);
+    > 22 |   await desktop.page.getByRole('button',{name:'设置',exact:true}).click();await desktop.page.getByRole('button',{name:'偏好',exact:true}).click();await desktop.page.getByRole('button',{name:'选择默认导出目录'}).click();const status=await desktop.page.evaluate(()=>window.workbench.getExportDirectory());expect(status.configured).toBe(true);expect(JSON.stringify(status)).not.toContain(output);expect(status.label).toContain('desktop-export-default-');
+         |                                                                                                                                                                                                                                                                                                                              ^
+      23 |   await desktop.page.reload();expect(await desktop.page.evaluate(()=>window.workbench.getExportDirectory())).toEqual(status);
+      24 |   const seed=await desktop.seedBundle();await desktop.page.evaluate(cid=>{location.hash='/chat/'+cid;},seed.cid);await expect(desktop.page.locator('.artifact-card')).toHaveCount(3);
+      25 |   await desktop.app.evaluate(({dialog})=>{(dialog as any).showOpenDialog=async(_window:any,options:any)=>{(globalThis as any).__exportDefault=options.defaultPath;return {canceled:true,filePaths:[]};};});await desktop.page.locator('.artifact-card').filter({hasText:'MARKDOWN'}).getByRole('button',{name:'保存两份'}).click();expect(await desktop.app.evaluate(()=>(globalThis as any).__exportDefault)).toBe(output);expect(await readdir(output)).toEqual([]);
+        at C:\Users\asd15\Documents\ChatGPT\ai\tests\e2e\artifact-files.spec.ts:22:318
+
+    Error Context: artifacts\playwright\artifact-files-default-exp-29079--a-dialog-starting-location\error-context.md
+
+  1 failed
+    tests\e2e\artifact-files.spec.ts:20:5 › default export directory is private and becomes a dialog starting location 
+  18 passed (2.3m)

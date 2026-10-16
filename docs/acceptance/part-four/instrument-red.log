@@ -1,0 +1,352 @@
+EEEEEEEEEEEEEEEEEEEEEEEEEEEEE                                            [100%]
+=================================== ERRORS ====================================
+_ ERROR at setup of test_verifier_and_reviewed_mapping_cover_all_forty_steps_and_eight_sections _
+
+    @pytest.fixture
+    def verifier():
+>       assert SCRIPT.is_file(), 'The phase-four current-run verification entry is missing'
+E       AssertionError: The phase-four current-run verification entry is missing
+E       assert False
+E        +  where False = is_file()
+E        +    where is_file = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/scripts/phase_four_verify.py').is_file
+
+tests\acceptance\test_runtime_sop.py:17: AssertionError
+_ ERROR at setup of test_bad_or_forged_mapping_cannot_validate[missing_item] __
+
+    @pytest.fixture
+    def verifier():
+>       assert SCRIPT.is_file(), 'The phase-four current-run verification entry is missing'
+E       AssertionError: The phase-four current-run verification entry is missing
+E       assert False
+E        +  where False = is_file()
+E        +    where is_file = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/scripts/phase_four_verify.py').is_file
+
+tests\acceptance\test_runtime_sop.py:17: AssertionError
+_ ERROR at setup of test_bad_or_forged_mapping_cannot_validate[duplicate_item] _
+
+    @pytest.fixture
+    def verifier():
+>       assert SCRIPT.is_file(), 'The phase-four current-run verification entry is missing'
+E       AssertionError: The phase-four current-run verification entry is missing
+E       assert False
+E        +  where False = is_file()
+E        +    where is_file = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/scripts/phase_four_verify.py').is_file
+
+tests\acceptance\test_runtime_sop.py:17: AssertionError
+_ ERROR at setup of test_bad_or_forged_mapping_cannot_validate[unknown_item] __
+
+    @pytest.fixture
+    def verifier():
+>       assert SCRIPT.is_file(), 'The phase-four current-run verification entry is missing'
+E       AssertionError: The phase-four current-run verification entry is missing
+E       assert False
+E        +  where False = is_file()
+E        +    where is_file = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/scripts/phase_four_verify.py').is_file
+
+tests\acceptance\test_runtime_sop.py:17: AssertionError
+__ ERROR at setup of test_bad_or_forged_mapping_cannot_validate[empty_tests] __
+
+    @pytest.fixture
+    def verifier():
+>       assert SCRIPT.is_file(), 'The phase-four current-run verification entry is missing'
+E       AssertionError: The phase-four current-run verification entry is missing
+E       assert False
+E        +  where False = is_file()
+E        +    where is_file = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/scripts/phase_four_verify.py').is_file
+
+tests\acceptance\test_runtime_sop.py:17: AssertionError
+_ ERROR at setup of test_bad_or_forged_mapping_cannot_validate[duplicate_test] _
+
+    @pytest.fixture
+    def verifier():
+>       assert SCRIPT.is_file(), 'The phase-four current-run verification entry is missing'
+E       AssertionError: The phase-four current-run verification entry is missing
+E       assert False
+E        +  where False = is_file()
+E        +    where is_file = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/scripts/phase_four_verify.py').is_file
+
+tests\acceptance\test_runtime_sop.py:17: AssertionError
+_ ERROR at setup of test_bad_or_forged_mapping_cannot_validate[invented_test] _
+
+    @pytest.fixture
+    def verifier():
+>       assert SCRIPT.is_file(), 'The phase-four current-run verification entry is missing'
+E       AssertionError: The phase-four current-run verification entry is missing
+E       assert False
+E        +  where False = is_file()
+E        +    where is_file = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/scripts/phase_four_verify.py').is_file
+
+tests\acceptance\test_runtime_sop.py:17: AssertionError
+_ ERROR at setup of test_bad_or_forged_mapping_cannot_validate[outside_test] __
+
+    @pytest.fixture
+    def verifier():
+>       assert SCRIPT.is_file(), 'The phase-four current-run verification entry is missing'
+E       AssertionError: The phase-four current-run verification entry is missing
+E       assert False
+E        +  where False = is_file()
+E        +    where is_file = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/scripts/phase_four_verify.py').is_file
+
+tests\acceptance\test_runtime_sop.py:17: AssertionError
+_ ERROR at setup of test_bad_or_forged_mapping_cannot_validate[unknown_field] _
+
+    @pytest.fixture
+    def verifier():
+>       assert SCRIPT.is_file(), 'The phase-four current-run verification entry is missing'
+E       AssertionError: The phase-four current-run verification entry is missing
+E       assert False
+E        +  where False = is_file()
+E        +    where is_file = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/scripts/phase_four_verify.py').is_file
+
+tests\acceptance\test_runtime_sop.py:17: AssertionError
+__ ERROR at setup of test_bad_or_forged_mapping_cannot_validate[no_external] __
+
+    @pytest.fixture
+    def verifier():
+>       assert SCRIPT.is_file(), 'The phase-four current-run verification entry is missing'
+E       AssertionError: The phase-four current-run verification entry is missing
+E       assert False
+E        +  where False = is_file()
+E        +    where is_file = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/scripts/phase_four_verify.py').is_file
+
+tests\acceptance\test_runtime_sop.py:17: AssertionError
+__ ERROR at setup of test_bad_or_forged_mapping_cannot_validate[sop_changed] __
+
+    @pytest.fixture
+    def verifier():
+>       assert SCRIPT.is_file(), 'The phase-four current-run verification entry is missing'
+E       AssertionError: The phase-four current-run verification entry is missing
+E       assert False
+E        +  where False = is_file()
+E        +    where is_file = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/scripts/phase_four_verify.py').is_file
+
+tests\acceptance\test_runtime_sop.py:17: AssertionError
+_ ERROR at setup of test_mapping_byte_tampering_is_rejected_even_when_json_remains_valid _
+
+    @pytest.fixture
+    def verifier():
+>       assert SCRIPT.is_file(), 'The phase-four current-run verification entry is missing'
+E       AssertionError: The phase-four current-run verification entry is missing
+E       assert False
+E        +  where False = is_file()
+E        +    where is_file = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/scripts/phase_four_verify.py').is_file
+
+tests\acceptance\test_runtime_sop.py:17: AssertionError
+_ ERROR at setup of test_missing_skipped_failed_or_duplicate_pytest_result_never_passes[missing] _
+
+    @pytest.fixture
+    def verifier():
+>       assert SCRIPT.is_file(), 'The phase-four current-run verification entry is missing'
+E       AssertionError: The phase-four current-run verification entry is missing
+E       assert False
+E        +  where False = is_file()
+E        +    where is_file = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/scripts/phase_four_verify.py').is_file
+
+tests\acceptance\test_runtime_sop.py:17: AssertionError
+_ ERROR at setup of test_missing_skipped_failed_or_duplicate_pytest_result_never_passes[skipped] _
+
+    @pytest.fixture
+    def verifier():
+>       assert SCRIPT.is_file(), 'The phase-four current-run verification entry is missing'
+E       AssertionError: The phase-four current-run verification entry is missing
+E       assert False
+E        +  where False = is_file()
+E        +    where is_file = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/scripts/phase_four_verify.py').is_file
+
+tests\acceptance\test_runtime_sop.py:17: AssertionError
+_ ERROR at setup of test_missing_skipped_failed_or_duplicate_pytest_result_never_passes[failed] _
+
+    @pytest.fixture
+    def verifier():
+>       assert SCRIPT.is_file(), 'The phase-four current-run verification entry is missing'
+E       AssertionError: The phase-four current-run verification entry is missing
+E       assert False
+E        +  where False = is_file()
+E        +    where is_file = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/scripts/phase_four_verify.py').is_file
+
+tests\acceptance\test_runtime_sop.py:17: AssertionError
+_ ERROR at setup of test_missing_skipped_failed_or_duplicate_pytest_result_never_passes[duplicate] _
+
+    @pytest.fixture
+    def verifier():
+>       assert SCRIPT.is_file(), 'The phase-four current-run verification entry is missing'
+E       AssertionError: The phase-four current-run verification entry is missing
+E       assert False
+E        +  where False = is_file()
+E        +    where is_file = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/scripts/phase_four_verify.py').is_file
+
+tests\acceptance\test_runtime_sop.py:17: AssertionError
+_ ERROR at setup of test_exact_current_pytest_nodeid_passes_but_similar_name_does_not _
+
+    @pytest.fixture
+    def verifier():
+>       assert SCRIPT.is_file(), 'The phase-four current-run verification entry is missing'
+E       AssertionError: The phase-four current-run verification entry is missing
+E       assert False
+E        +  where False = is_file()
+E        +    where is_file = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/scripts/phase_four_verify.py').is_file
+
+tests\acceptance\test_runtime_sop.py:17: AssertionError
+__ ERROR at setup of test_junit_declared_counts_cannot_hide_absent_testcases __
+
+    @pytest.fixture
+    def verifier():
+>       assert SCRIPT.is_file(), 'The phase-four current-run verification entry is missing'
+E       AssertionError: The phase-four current-run verification entry is missing
+E       assert False
+E        +  where False = is_file()
+E        +    where is_file = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/scripts/phase_four_verify.py').is_file
+
+tests\acceptance\test_runtime_sop.py:17: AssertionError
+_ ERROR at setup of test_playwright_noncurrent_or_incomplete_success_cannot_pass[retry] _
+
+    @pytest.fixture
+    def verifier():
+>       assert SCRIPT.is_file(), 'The phase-four current-run verification entry is missing'
+E       AssertionError: The phase-four current-run verification entry is missing
+E       assert False
+E        +  where False = is_file()
+E        +    where is_file = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/scripts/phase_four_verify.py').is_file
+
+tests\acceptance\test_runtime_sop.py:17: AssertionError
+_ ERROR at setup of test_playwright_noncurrent_or_incomplete_success_cannot_pass[skip] _
+
+    @pytest.fixture
+    def verifier():
+>       assert SCRIPT.is_file(), 'The phase-four current-run verification entry is missing'
+E       AssertionError: The phase-four current-run verification entry is missing
+E       assert False
+E        +  where False = is_file()
+E        +    where is_file = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/scripts/phase_four_verify.py').is_file
+
+tests\acceptance\test_runtime_sop.py:17: AssertionError
+_ ERROR at setup of test_playwright_noncurrent_or_incomplete_success_cannot_pass[failure] _
+
+    @pytest.fixture
+    def verifier():
+>       assert SCRIPT.is_file(), 'The phase-four current-run verification entry is missing'
+E       AssertionError: The phase-four current-run verification entry is missing
+E       assert False
+E        +  where False = is_file()
+E        +    where is_file = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/scripts/phase_four_verify.py').is_file
+
+tests\acceptance\test_runtime_sop.py:17: AssertionError
+_ ERROR at setup of test_playwright_noncurrent_or_incomplete_success_cannot_pass[duplicate] _
+
+    @pytest.fixture
+    def verifier():
+>       assert SCRIPT.is_file(), 'The phase-four current-run verification entry is missing'
+E       AssertionError: The phase-four current-run verification entry is missing
+E       assert False
+E        +  where False = is_file()
+E        +    where is_file = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/scripts/phase_four_verify.py').is_file
+
+tests\acceptance\test_runtime_sop.py:17: AssertionError
+_ ERROR at setup of test_playwright_noncurrent_or_incomplete_success_cannot_pass[empty] _
+
+    @pytest.fixture
+    def verifier():
+>       assert SCRIPT.is_file(), 'The phase-four current-run verification entry is missing'
+E       AssertionError: The phase-four current-run verification entry is missing
+E       assert False
+E        +  where False = is_file()
+E        +    where is_file = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/scripts/phase_four_verify.py').is_file
+
+tests\acceptance\test_runtime_sop.py:17: AssertionError
+_ ERROR at setup of test_playwright_noncurrent_or_incomplete_success_cannot_pass[global_error] _
+
+    @pytest.fixture
+    def verifier():
+>       assert SCRIPT.is_file(), 'The phase-four current-run verification entry is missing'
+E       AssertionError: The phase-four current-run verification entry is missing
+E       assert False
+E        +  where False = is_file()
+E        +    where is_file = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/scripts/phase_four_verify.py').is_file
+
+tests\acceptance\test_runtime_sop.py:17: AssertionError
+__ ERROR at setup of test_vitest_counts_and_duplicate_assertions_are_checked __
+
+    @pytest.fixture
+    def verifier():
+>       assert SCRIPT.is_file(), 'The phase-four current-run verification entry is missing'
+E       AssertionError: The phase-four current-run verification entry is missing
+E       assert False
+E        +  where False = is_file()
+E        +    where is_file = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/scripts/phase_four_verify.py').is_file
+
+tests\acceptance\test_runtime_sop.py:17: AssertionError
+_ ERROR at setup of test_local_coverage_never_grants_real_manual_or_optimization_acceptance _
+
+    @pytest.fixture
+    def verifier():
+>       assert SCRIPT.is_file(), 'The phase-four current-run verification entry is missing'
+E       AssertionError: The phase-four current-run verification entry is missing
+E       assert False
+E        +  where False = is_file()
+E        +    where is_file = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/scripts/phase_four_verify.py').is_file
+
+tests\acceptance\test_runtime_sop.py:17: AssertionError
+_ ERROR at setup of test_output_is_new_scoped_directory_and_never_reuses_prior_run _
+
+    @pytest.fixture
+    def verifier():
+>       assert SCRIPT.is_file(), 'The phase-four current-run verification entry is missing'
+E       AssertionError: The phase-four current-run verification entry is missing
+E       assert False
+E        +  where False = is_file()
+E        +    where is_file = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/scripts/phase_four_verify.py').is_file
+
+tests\acceptance\test_runtime_sop.py:17: AssertionError
+_ ERROR at setup of test_missing_or_malformed_report_is_failure_without_traceback_success _
+
+    @pytest.fixture
+    def verifier():
+>       assert SCRIPT.is_file(), 'The phase-four current-run verification entry is missing'
+E       AssertionError: The phase-four current-run verification entry is missing
+E       assert False
+E        +  where False = is_file()
+E        +    where is_file = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/scripts/phase_four_verify.py').is_file
+
+tests\acceptance\test_runtime_sop.py:17: AssertionError
+__ ERROR at setup of test_no_lane_is_explicit_mapping_only_and_not_completed __
+
+    @pytest.fixture
+    def verifier():
+>       assert SCRIPT.is_file(), 'The phase-four current-run verification entry is missing'
+E       AssertionError: The phase-four current-run verification entry is missing
+E       assert False
+E        +  where False = is_file()
+E        +    where is_file = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/scripts/phase_four_verify.py').is_file
+
+tests\acceptance\test_runtime_sop.py:17: AssertionError
+=========================== short test summary info ===========================
+ERROR tests/acceptance/test_runtime_sop.py::test_verifier_and_reviewed_mapping_cover_all_forty_steps_and_eight_sections
+ERROR tests/acceptance/test_runtime_sop.py::test_bad_or_forged_mapping_cannot_validate[missing_item]
+ERROR tests/acceptance/test_runtime_sop.py::test_bad_or_forged_mapping_cannot_validate[duplicate_item]
+ERROR tests/acceptance/test_runtime_sop.py::test_bad_or_forged_mapping_cannot_validate[unknown_item]
+ERROR tests/acceptance/test_runtime_sop.py::test_bad_or_forged_mapping_cannot_validate[empty_tests]
+ERROR tests/acceptance/test_runtime_sop.py::test_bad_or_forged_mapping_cannot_validate[duplicate_test]
+ERROR tests/acceptance/test_runtime_sop.py::test_bad_or_forged_mapping_cannot_validate[invented_test]
+ERROR tests/acceptance/test_runtime_sop.py::test_bad_or_forged_mapping_cannot_validate[outside_test]
+ERROR tests/acceptance/test_runtime_sop.py::test_bad_or_forged_mapping_cannot_validate[unknown_field]
+ERROR tests/acceptance/test_runtime_sop.py::test_bad_or_forged_mapping_cannot_validate[no_external]
+ERROR tests/acceptance/test_runtime_sop.py::test_bad_or_forged_mapping_cannot_validate[sop_changed]
+ERROR tests/acceptance/test_runtime_sop.py::test_mapping_byte_tampering_is_rejected_even_when_json_remains_valid
+ERROR tests/acceptance/test_runtime_sop.py::test_missing_skipped_failed_or_duplicate_pytest_result_never_passes[missing]
+ERROR tests/acceptance/test_runtime_sop.py::test_missing_skipped_failed_or_duplicate_pytest_result_never_passes[skipped]
+ERROR tests/acceptance/test_runtime_sop.py::test_missing_skipped_failed_or_duplicate_pytest_result_never_passes[failed]
+ERROR tests/acceptance/test_runtime_sop.py::test_missing_skipped_failed_or_duplicate_pytest_result_never_passes[duplicate]
+ERROR tests/acceptance/test_runtime_sop.py::test_exact_current_pytest_nodeid_passes_but_similar_name_does_not
+ERROR tests/acceptance/test_runtime_sop.py::test_junit_declared_counts_cannot_hide_absent_testcases
+ERROR tests/acceptance/test_runtime_sop.py::test_playwright_noncurrent_or_incomplete_success_cannot_pass[retry]
+ERROR tests/acceptance/test_runtime_sop.py::test_playwright_noncurrent_or_incomplete_success_cannot_pass[skip]
+ERROR tests/acceptance/test_runtime_sop.py::test_playwright_noncurrent_or_incomplete_success_cannot_pass[failure]
+ERROR tests/acceptance/test_runtime_sop.py::test_playwright_noncurrent_or_incomplete_success_cannot_pass[duplicate]
+ERROR tests/acceptance/test_runtime_sop.py::test_playwright_noncurrent_or_incomplete_success_cannot_pass[empty]
+ERROR tests/acceptance/test_runtime_sop.py::test_playwright_noncurrent_or_incomplete_success_cannot_pass[global_error]
+ERROR tests/acceptance/test_runtime_sop.py::test_vitest_counts_and_duplicate_assertions_are_checked
+ERROR tests/acceptance/test_runtime_sop.py::test_local_coverage_never_grants_real_manual_or_optimization_acceptance
+ERROR tests/acceptance/test_runtime_sop.py::test_output_is_new_scoped_directory_and_never_reuses_prior_run
+ERROR tests/acceptance/test_runtime_sop.py::test_missing_or_malformed_report_is_failure_without_traceback_success
+ERROR tests/acceptance/test_runtime_sop.py::test_no_lane_is_explicit_mapping_only_and_not_completed
+29 errors in 0.60s

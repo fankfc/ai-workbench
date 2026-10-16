@@ -1,0 +1,293 @@
+{
+  "at_utc": "2026-10-13T12:58:49.932339+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.13.0 (tags/v3.13.0:60403a5, Oct  7 2024, 09:38:07) [MSC v.1941 64 bit (AMD64)]",
+  "provider_calls": 0,
+  "mode": "real_windows_local_fixture",
+  "command": "services/orchestrator/.venv/Scripts/python.exe docs/acceptance/D011/verify.py",
+  "source_sha256": {
+    "services/orchestrator/app/runtime/processes.py": "3571e9f529f4d953a90ee75a222a1153bd5352ce6289d541ddcc4137a0d72f26",
+    "services/orchestrator/app/runtime/resources.py": "2b9b7c4019ca6f034d872b4c048af33cdc68e676eaca1c267f36ffbd70fecb18",
+    "services/orchestrator/app/runtime/leases.py": "465825fd98ef54497dae1cb339c8752fdb35c9271518f85819a8328e6d935413",
+    "tests/fixtures/process_worker.py": "5b454d4b3ccd2716899994e2ad09932c1a7aea64a5de3199c5a9a06e28878d4f",
+    "tests/integration/test_process_lifecycle.py": "9575df553a1148546905d9fbe48153c9c95f407731ca543f5466f4156eb0de2c"
+  },
+  "scenarios": [
+    {
+      "name": "cooperative",
+      "root_pid": 12084,
+      "workers": [
+        {
+          "pid": 12084,
+          "parent_pid": 54832,
+          "level": 0,
+          "cwd": "C:\\Users\\asd15\\AppData\\Local\\Temp\\D011-acceptance-7trvc_sp\\cooperative",
+          "literal": "",
+          "secret_inherited": false,
+          "temp": "C:\\Users\\asd15\\AppData\\Local\\Temp\\D011-acceptance-7trvc_sp\\cooperative\\.runtime-p0aosvh6",
+          "event": true
+        },
+        {
+          "pid": 37884,
+          "parent_pid": 51416,
+          "level": 2,
+          "cwd": "C:\\Users\\asd15\\AppData\\Local\\Temp\\D011-acceptance-7trvc_sp\\cooperative",
+          "literal": "",
+          "secret_inherited": false,
+          "temp": "C:\\Users\\asd15\\AppData\\Local\\Temp\\D011-acceptance-7trvc_sp\\cooperative\\.runtime-p0aosvh6",
+          "event": true
+        },
+        {
+          "pid": 51416,
+          "parent_pid": 12084,
+          "level": 1,
+          "cwd": "C:\\Users\\asd15\\AppData\\Local\\Temp\\D011-acceptance-7trvc_sp\\cooperative",
+          "literal": "",
+          "secret_inherited": false,
+          "temp": "C:\\Users\\asd15\\AppData\\Local\\Temp\\D011-acceptance-7trvc_sp\\cooperative\\.runtime-p0aosvh6",
+          "event": true
+        }
+      ],
+      "duration_seconds": 0.032296900055371225,
+      "result": {
+        "local_state": "cancelled",
+        "remote_state": "not_applicable",
+        "status": "cancelled",
+        "returncode": 0,
+        "pid": 12084,
+        "cooperative_requested": true,
+        "forced": false,
+        "output_bytes_seen": 302,
+        "output_bytes_kept": 302,
+        "output_truncated": false,
+        "resource_limit": null
+      },
+      "alive_after": [],
+      "temp_removed": true,
+      "resources_after": {
+        "running": 0,
+        "temp_dirs": 0,
+        "open_handles": 0,
+        "peak_reserved_handles": 9,
+        "active_processes": 0,
+        "failed_cleanups": 0,
+        "query_errors": []
+      },
+      "lease": {
+        "task_id": "cooperative",
+        "attempt_id": "a1",
+        "step_id": "default",
+        "pid": 12084,
+        "owner_pid": 54832,
+        "remote_id": null,
+        "cwd": "C:\\Users\\asd15\\AppData\\Local\\Temp\\D011-acceptance-7trvc_sp\\cooperative",
+        "temp_dir": "C:\\Users\\asd15\\AppData\\Local\\Temp\\D011-acceptance-7trvc_sp\\cooperative\\.runtime-p0aosvh6",
+        "local_state": "cancelled",
+        "remote_state": "not_applicable",
+        "started_at": "2026-10-13T12:58:50.141144+00:00",
+        "finished_at": "2026-10-13T12:58:50.648473+00:00",
+        "result_json": "{\"local_state\": \"cancelled\", \"remote_state\": \"not_applicable\", \"status\": \"cancelled\", \"returncode\": 0, \"pid\": 12084, \"cooperative_requested\": true, \"forced\": false, \"output_bytes_seen\": 302, \"output_bytes_kept\": 302, \"output_truncated\": false, \"resource_limit\": null}"
+      }
+    },
+    {
+      "name": "ignore_cooperative",
+      "root_pid": 9672,
+      "workers": [
+        {
+          "pid": 55708,
+          "parent_pid": 58028,
+          "level": 2,
+          "cwd": "C:\\Users\\asd15\\AppData\\Local\\Temp\\D011-acceptance-7trvc_sp\\ignore_cooperative",
+          "literal": "",
+          "secret_inherited": false,
+          "temp": "C:\\Users\\asd15\\AppData\\Local\\Temp\\D011-acceptance-7trvc_sp\\ignore_cooperative\\.runtime-kvmr67on",
+          "event": true
+        },
+        {
+          "pid": 58028,
+          "parent_pid": 9672,
+          "level": 1,
+          "cwd": "C:\\Users\\asd15\\AppData\\Local\\Temp\\D011-acceptance-7trvc_sp\\ignore_cooperative",
+          "literal": "",
+          "secret_inherited": false,
+          "temp": "C:\\Users\\asd15\\AppData\\Local\\Temp\\D011-acceptance-7trvc_sp\\ignore_cooperative\\.runtime-kvmr67on",
+          "event": true
+        },
+        {
+          "pid": 9672,
+          "parent_pid": 54832,
+          "level": 0,
+          "cwd": "C:\\Users\\asd15\\AppData\\Local\\Temp\\D011-acceptance-7trvc_sp\\ignore_cooperative",
+          "literal": "",
+          "secret_inherited": false,
+          "temp": "C:\\Users\\asd15\\AppData\\Local\\Temp\\D011-acceptance-7trvc_sp\\ignore_cooperative\\.runtime-kvmr67on",
+          "event": true
+        }
+      ],
+      "duration_seconds": 0.32161899999482557,
+      "result": {
+        "local_state": "cancelled",
+        "remote_state": "unknown",
+        "status": "cancel_pending_remote",
+        "returncode": 1,
+        "pid": 9672,
+        "cooperative_requested": true,
+        "forced": true,
+        "output_bytes_seen": 315,
+        "output_bytes_kept": 315,
+        "output_truncated": false,
+        "resource_limit": null
+      },
+      "alive_after": [],
+      "temp_removed": true,
+      "resources_after": {
+        "running": 0,
+        "temp_dirs": 0,
+        "open_handles": 0,
+        "peak_reserved_handles": 9,
+        "active_processes": 0,
+        "failed_cleanups": 0,
+        "query_errors": []
+      },
+      "lease": {
+        "task_id": "ignore_cooperative",
+        "attempt_id": "a1",
+        "step_id": "default",
+        "pid": 9672,
+        "owner_pid": 54832,
+        "remote_id": "remote-unknown-fixture",
+        "cwd": "C:\\Users\\asd15\\AppData\\Local\\Temp\\D011-acceptance-7trvc_sp\\ignore_cooperative",
+        "temp_dir": "C:\\Users\\asd15\\AppData\\Local\\Temp\\D011-acceptance-7trvc_sp\\ignore_cooperative\\.runtime-kvmr67on",
+        "local_state": "cancelled",
+        "remote_state": "unknown",
+        "started_at": "2026-10-13T12:58:50.670293+00:00",
+        "finished_at": "2026-10-13T12:58:51.460442+00:00",
+        "result_json": "{\"local_state\": \"cancelled\", \"remote_state\": \"unknown\", \"status\": \"cancel_pending_remote\", \"returncode\": 1, \"pid\": 9672, \"cooperative_requested\": true, \"forced\": true, \"output_bytes_seen\": 315, \"output_bytes_kept\": 315, \"output_truncated\": false, \"resource_limit\": null}"
+      }
+    },
+    {
+      "name": "parent_normal_exit",
+      "root_pid": 57044,
+      "workers": [
+        {
+          "pid": 44460,
+          "parent_pid": 52952,
+          "level": 2,
+          "cwd": "C:\\Users\\asd15\\AppData\\Local\\Temp\\D011-acceptance-7trvc_sp\\parent_normal_exit",
+          "literal": "",
+          "secret_inherited": false,
+          "temp": "C:\\Users\\asd15\\AppData\\Local\\Temp\\D011-acceptance-7trvc_sp\\parent_normal_exit\\.runtime-gr6_6gsu",
+          "event": true
+        },
+        {
+          "pid": 52952,
+          "parent_pid": 57044,
+          "level": 1,
+          "cwd": "C:\\Users\\asd15\\AppData\\Local\\Temp\\D011-acceptance-7trvc_sp\\parent_normal_exit",
+          "literal": "",
+          "secret_inherited": false,
+          "temp": "C:\\Users\\asd15\\AppData\\Local\\Temp\\D011-acceptance-7trvc_sp\\parent_normal_exit\\.runtime-gr6_6gsu",
+          "event": true
+        },
+        {
+          "pid": 57044,
+          "parent_pid": 54832,
+          "level": 0,
+          "cwd": "C:\\Users\\asd15\\AppData\\Local\\Temp\\D011-acceptance-7trvc_sp\\parent_normal_exit",
+          "literal": "",
+          "secret_inherited": false,
+          "temp": "C:\\Users\\asd15\\AppData\\Local\\Temp\\D011-acceptance-7trvc_sp\\parent_normal_exit\\.runtime-gr6_6gsu",
+          "event": true
+        }
+      ],
+      "duration_seconds": 0.016362399968784302,
+      "result": {
+        "local_state": "exited",
+        "remote_state": "not_applicable",
+        "status": "exited",
+        "returncode": 0,
+        "pid": 57044,
+        "cooperative_requested": false,
+        "forced": true,
+        "output_bytes_seen": 316,
+        "output_bytes_kept": 316,
+        "output_truncated": false,
+        "resource_limit": null
+      },
+      "alive_after": [],
+      "temp_removed": true,
+      "resources_after": {
+        "running": 0,
+        "temp_dirs": 0,
+        "open_handles": 0,
+        "peak_reserved_handles": 9,
+        "active_processes": 0,
+        "failed_cleanups": 0,
+        "query_errors": []
+      },
+      "lease": {
+        "task_id": "parent_normal_exit",
+        "attempt_id": "a1",
+        "step_id": "default",
+        "pid": 57044,
+        "owner_pid": 54832,
+        "remote_id": null,
+        "cwd": "C:\\Users\\asd15\\AppData\\Local\\Temp\\D011-acceptance-7trvc_sp\\parent_normal_exit",
+        "temp_dir": "C:\\Users\\asd15\\AppData\\Local\\Temp\\D011-acceptance-7trvc_sp\\parent_normal_exit\\.runtime-gr6_6gsu",
+        "local_state": "exited",
+        "remote_state": "not_applicable",
+        "started_at": "2026-10-13T12:58:51.484989+00:00",
+        "finished_at": "2026-10-13T12:58:51.943680+00:00",
+        "result_json": "{\"local_state\": \"exited\", \"remote_state\": \"not_applicable\", \"status\": \"exited\", \"returncode\": 0, \"pid\": 57044, \"cooperative_requested\": false, \"forced\": true, \"output_bytes_seen\": 316, \"output_bytes_kept\": 316, \"output_truncated\": false, \"resource_limit\": null}"
+      }
+    },
+    {
+      "name": "service_forced_exit",
+      "service_pid": 21696,
+      "service_returncode": 1,
+      "workers": [
+        {
+          "pid": 55400,
+          "parent_pid": 64596,
+          "level": 1,
+          "cwd": "C:\\Users\\asd15\\AppData\\Local\\Temp\\D011-acceptance-7trvc_sp\\service_exit",
+          "literal": "",
+          "secret_inherited": false,
+          "temp": "C:\\Users\\asd15\\AppData\\Local\\Temp\\D011-acceptance-7trvc_sp\\service_exit\\.runtime-18hj7lzj",
+          "event": true
+        },
+        {
+          "pid": 56608,
+          "parent_pid": 55400,
+          "level": 2,
+          "cwd": "C:\\Users\\asd15\\AppData\\Local\\Temp\\D011-acceptance-7trvc_sp\\service_exit",
+          "literal": "",
+          "secret_inherited": false,
+          "temp": "C:\\Users\\asd15\\AppData\\Local\\Temp\\D011-acceptance-7trvc_sp\\service_exit\\.runtime-18hj7lzj",
+          "event": true
+        },
+        {
+          "pid": 64596,
+          "parent_pid": 21696,
+          "level": 0,
+          "cwd": "C:\\Users\\asd15\\AppData\\Local\\Temp\\D011-acceptance-7trvc_sp\\service_exit",
+          "literal": "",
+          "secret_inherited": false,
+          "temp": "C:\\Users\\asd15\\AppData\\Local\\Temp\\D011-acceptance-7trvc_sp\\service_exit\\.runtime-18hj7lzj",
+          "event": true
+        }
+      ],
+      "alive_after": [],
+      "mechanism": "KILL_ON_JOB_CLOSE; Job handle never inherited",
+      "temporary_directory_recovery": "owner crashed; retained lease identifies temp dir for D012 recovery"
+    },
+    {
+      "name": "owner_death_after_CreateProcess_return",
+      "created_pid": 33916,
+      "alive_after": [],
+      "worker_entrypoint_executed": false,
+      "mechanism": "PROC_THREAD_ATTRIBUTE_JOB_LIST + CREATE_SUSPENDED + KILL_ON_JOB_CLOSE"
+    }
+  ],
+  "exit_code": 0
+}

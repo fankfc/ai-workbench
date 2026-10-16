@@ -1,0 +1,47 @@
+
+> ai-workbench@0.1.0 test:e2e
+> playwright test tests/e2e/task-profiles.spec.ts tests/e2e/review-regressions.spec.ts
+
+
+Running 8 tests using 1 worker
+
+(node:58600) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 1 tests\e2e\review-regressions.spec.ts:6:5 › disconnect retains displayed approved messages and published files (13.6s)
+  ok 2 tests\e2e\review-regressions.spec.ts:7:5 › late receipt preserves completed status and never pollutes another conversation (11.9s)
+  ok 3 tests\e2e\review-regressions.spec.ts:8:5 › usage dates represent local calendar boundaries including the final millisecond (4.4s)
+  ok 4 tests\e2e\review-regressions.spec.ts:9:5 › same-text historical replay cannot clear an unacknowledged nonce or chosen materials (8.3s)
+  ok 5 tests\e2e\task-profiles.spec.ts:10:5 › normal document GUI persists details and publishes requested native GPT file with no translator (7.0s)
+  ok 6 tests\e2e\task-profiles.spec.ts:11:5 › missing audience or formats freezes NEEDS_INPUT before any model step (5.1s)
+  ok 7 tests\e2e\task-profiles.spec.ts:12:5 › paper evidence and data refs and code workspace come only from chosen attachment IDs (6.3s)
+  x  8 tests\e2e\task-profiles.spec.ts:13:5 › CSV mixed submission freezes profile and requested formats instead of generic demo (35.1s)
+
+
+  1) tests\e2e\task-profiles.spec.ts:13:5 › CSV mixed submission freezes profile and requested formats instead of generic demo 
+
+    Error: expect(locator).toHaveCount(expected) failed
+
+    Locator:  locator('.artifact-card')
+    Expected: 4
+    Received: 0
+    Timeout:  30000ms
+
+    Call log:
+      - Expect "toHaveCount" locator('.artifact-card') with timeout 30000ms
+      - waiting for locator('.artifact-card')
+        62 × locator resolved to 0 elements
+           - unexpected value "0"
+
+
+      11 | test('missing audience or formats freezes NEEDS_INPUT before any model step',async({desktop})=>{const {page}=desktop;await page.getByLabel('任务类型').selectOption('document');await page.getByLabel('文档用途').fill('报告');await page.getByRole('textbox',{name:'消息输入'}).fill('资料不完整时先询问');await page.getByRole('button',{name:'发送',exact:true}).click();await expect(page.getByText(/缺少|补充/).first()).toBeVisible();const card=await snapshot(desktop);expect(card.state).toBe('NEEDS_INPUT');expect(card.checkpoint.task_profile.missing_inputs).toEqual(expect.arrayContaining(['audience','formats']));expect(card.steps).toBe(0);expect(card.usage_count).toBe(0);await page.getByRole("button",{name:"放弃此任务",exact:true}).click();await expect.poll(()=>page.evaluate(()=>window.workbench.getStorage())).toMatchObject({active_tasks:0});});
+      12 | test('paper evidence and data refs and code workspace come only from chosen attachment IDs',async({desktop})=>{const {page}=desktop;await upload(desktop,{'evidence.md':'# 证据\n原始来源。','data.csv':'month,category,amount\nJanuary,A,10\n'});await page.getByLabel('任务类型').selectOption('paper');await page.getByLabel('研究问题').fill('不同月份的数据有什么变化？');await page.getByLabel('证据：evidence.md',{exact:true}).check();await page.getByLabel('数据：data.csv',{exact:true}).check();await page.getByLabel('PDF',{exact:true}).check();await page.getByRole('textbox',{name:'消息输入'}).fill('基于所选材料回答研究问题。');await page.getByRole('button',{name:'发送',exact:true}).click();await expect(page.locator('.message.user')).toHaveCount(1);const card=await snapshot(desktop);expect(card.checkpoint.task_profile.inputs.evidence_refs[0]).toMatch(/^input\/attachment_[a-z0-9]+\.md$/);expect(card.checkpoint.task_profile.inputs.data_refs[0]).toMatch(/^input\/attachment_[a-z0-9]+\.csv$/);expect(card.checkpoint.requested_formats).toEqual(['pdf']);await page.getByRole('button',{name:'新建会话'}).click();await upload(desktop,{'project.txt':'def add(a,b): return a+b'});await page.getByLabel('任务类型').selectOption('code');await page.getByLabel('编程需求说明').fill('保留加法语义');await page.getByLabel('预期测试命令').fill('python -m pytest');await page.getByLabel('工作材料').selectOption({label:'project.txt'});await page.getByRole('textbox',{name:'消息输入'}).fill('按给定测试命令验证工作材料。');await page.getByRole('button',{name:'发送',exact:true}).click();await expect(page.locator('.message.user')).toHaveCount(1);const code=await snapshot(desktop);expect(code.checkpoint.task_profile.inputs).toMatchObject({requirements:'保留加法语义',test_command:'python -m pytest',workspace_ref:expect.stringMatching(/^input\/attachment_[a-z0-9]+\.txt$/)});});
+    > 13 | test('CSV mixed submission freezes profile and requested formats instead of generic demo',async({desktop},testInfo)=>{const {page}=desktop;await upload(desktop,{'sales.csv':'month,category,amount\nJanuary,A,10\nJanuary,B,20\nFebruary,A,15\nFebruary,B,25\n'});await page.getByLabel('Markdown',{exact:true}).check();await page.getByRole('textbox',{name:'消息输入'}).fill('请重新计算数据并交付报告、代码、数据和图。');await page.getByRole('button',{name:'发送',exact:true}).click();await expect(page.locator('.message.user')).toHaveCount(1);const card=await snapshot(desktop);expect(card.checkpoint.task_profile.inputs.data_refs[0]).toMatch(/^input\/attachment_[a-z0-9]+\.csv$/);expect(card.checkpoint.requested_formats).toEqual(['markdown']);await expect(page.locator('.artifact-card')).toHaveCount(4,{timeout:30000});const complete=await snapshot(desktop);expect(complete.state).toBe('PUBLISHED');expect(complete.translation_count).toBe(0);await writeFile(testInfo.outputPath('mixed-profile-snapshot.json'),JSON.stringify(complete,null,2));const png=await desktop.app.evaluate(async({BrowserWindow})=>(await BrowserWindow.getAllWindows()[0].webContents.capturePage()).toPNG().toString('base64'));await writeFile(testInfo.outputPath('mixed-published.png'),Buffer.from(png,'base64'));});
+         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ^
+      14 |
+        at C:\Users\asd15\Documents\ChatGPT\ai\tests\e2e\task-profiles.spec.ts:13:759
+
+    Error Context: artifacts\playwright\task-profiles-CSV-mixed-su-bff53-ats-instead-of-generic-demo\error-context.md
+
+  1 failed
+    tests\e2e\task-profiles.spec.ts:13:5 › CSV mixed submission freezes profile and requested formats instead of generic demo 
+  7 passed (1.5m)

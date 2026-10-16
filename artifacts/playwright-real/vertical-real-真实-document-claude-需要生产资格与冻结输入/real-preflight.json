@@ -1,0 +1,12 @@
+{
+  "domain": "document",
+  "family": "claude",
+  "provider_mode": "real",
+  "qualified_profiles": [],
+  "blockers": [
+    "claude 指导模型缺少生产资格",
+    "GLM 执行模型缺少生产资格"
+  ],
+  "model_calls": 0,
+  "status": "BLOCKED"
+}

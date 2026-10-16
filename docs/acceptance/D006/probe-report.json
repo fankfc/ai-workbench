@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "task_id": "D006",
+  "generated_at": "2026-10-13T11:43:03Z",
+  "adapter": "codex",
+  "status": "not_connected",
+  "completion_level": "route_decided_not_connected",
+  "reason_code": "TOOL_PERMISSION_POLICY_DENIED",
+  "identity_status": "unknown",
+  "actual_model_id": null,
+  "actual_model_family": "unknown",
+  "production_enabled": false,
+  "bounded_probe_enabled": false,
+  "cli_starts": 1,
+  "model_starts": 1,
+  "actual_provider_request_count": 1,
+  "actual_provider_request_count_scope": "top-level; provider-internal retry count not observable",
+  "session_id": "01a13504-aed8-70b3-b933-b8e5e898aace",
+  "usage": {
+    "input_tokens": 50369,
+    "cached_input_tokens": 37504,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 100,
+    "reasoning_output_tokens": 0
+  },
+  "usage_status": "observed",
+  "monetary_usage": null,
+  "resume_verified": false,
+  "cancellation_verified": false,
+  "remote_stop_confirmed": null,
+  "local_process_alive": false,
+  "attempt_refs": [
+    "docs/acceptance/D006/real-discovery.json"
+  ],
+  "artifact_hashes": {},
+  "required_tool_task_passed": false,
+  "offline_fixtures_are_not_real_verification": true,
+  "route_policy": "native",
+  "mandatory_translation_count": 0,
+  "translation_count_scope": "declared route policy; real end-to-end route not enabled"
+}
+

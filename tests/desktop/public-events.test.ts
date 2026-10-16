@@ -1,0 +1,8 @@
+import { describe, expect, it } from 'vitest';
+import { emptyPublicState, reducePublic } from '../../apps/desktop/src/renderer/chat/public-events';
+const frame=(kind:string,sequence:number,payload:any,turn='t')=>({schema_version:'1.0',event_id:'e'+sequence,conversation_id:'c',turn_id:turn,task_id:'task',attempt_id:'a',sequence,kind,payload});
+describe('public replay and cancellation',()=>{
+  it('deduplicates replay and keeps pending state private',()=>{const pending=frame('response.pending',1,{status:'pending'});const state=reducePublic(emptyPublicState(),pending,'c');expect(state.messages).toHaveLength(0);expect(reducePublic(state,pending,'c')).toBe(state);expect(reducePublic(state,{...pending,conversation_id:'other'},'c')).toBe(state);});
+  it('rejects an answer arriving after cancellation and never claims remote confirmation',()=>{let state=reducePublic(emptyPublicState(),frame('request.cancelled',1,{text:'取消请求已记录。',language:'zh-CN',cancel_requested:true,external_stop_confirmed:null}),'c');state=reducePublic(state,frame('answer.published',2,{message_id:'m',text:'迟到回答',language:'zh-CN',content_version_id:'v',approval_id:'p'}),'c');expect(state.messages).toHaveLength(0);expect(state.notice).toContain('等待停止确认');expect(state.notice).not.toContain('已停止');});
+  it('old turns do not replace the active next turn',()=>{let state=reducePublic(emptyPublicState(),frame('response.pending',1,{status:'pending'},'old'),'c');state=reducePublic(state,frame('response.pending',2,{status:'pending'},'new'),'c');state=reducePublic(state,frame('request.failed',3,{text:'连接暂不可用。',language:'zh-CN',error_code:'PROVIDER_UNAVAILABLE',action:'reconnect'},'old'),'c');expect(state.runs.new.status).toBe('pending');});
+});

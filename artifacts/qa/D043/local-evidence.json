@@ -1,0 +1,39 @@
+{
+  "card": "D043",
+  "case": "translation_corpus",
+  "command": [
+    "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\.venv\\Scripts\\python.exe",
+    "tests/support/scenario_driver.py",
+    "translation_corpus",
+    "--root",
+    "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\artifacts\\qa\\D043\\re7e8bdcc",
+    "--options",
+    "{\"case_id\": \"en-zh-negation-number\", \"candidate\": \"当差值小于 0.03 时允许发布。\"}"
+  ],
+  "exit_code": 0,
+  "time": "2026-10-15T02:00:20.968578+00:00",
+  "build_id": "cb98eed03df6bd4ffaa551d66a54c77198911cf5b3e763a1ef3c055f5ee54ca4",
+  "run_root": "artifacts/qa/D043/re7e8bdcc",
+  "result": {
+    "published": false,
+    "issue_codes": [
+      "HUMAN_REVIEW_MISSING",
+      "INDEPENDENT_HOLDOUT_MISSING",
+      "NEGATION_CHANGED",
+      "NUMBER_CHANGED",
+      "PROTECTED_SPAN_CHANGED",
+      "REAL_CLAUDE_SCENARIOS_UNVERIFIED"
+    ],
+    "reviewed_blocks": 0,
+    "expected_blocks": 60,
+    "translator_calls": 0,
+    "gpt_native_status": "NATIVE",
+    "product_evaluations": 63,
+    "critical_negative_rejected": 3,
+    "human_review_complete": false,
+    "holdout_sample_count": 0,
+    "automated_checks_only": true,
+    "provider_boundary": "fake",
+    "real_provider_verified": false
+  }
+}

@@ -1,0 +1,39 @@
+F...................F.F.                                                 [100%]
+================================== FAILURES ===================================
+__ test_completed_server_response_binds_actual_field_without_private_export ___
+
+    def test_completed_server_response_binds_actual_field_without_private_export():
+        result = project([line(event())])
+>       assert result["identity_status"] == "reported_verified"
+E       AssertionError: assert 'unknown' == 'reported_verified'
+E         
+E         - reported_verified
+E         + unknown
+
+.tools\gpt-sse-projection\test_projection.py:24: AssertionError
+__ test_valid_same_model_created_then_completed_is_unique_completed_receipt ___
+
+    def test_valid_same_model_created_then_completed_is_unique_completed_receipt():
+        result = project([line({"type": "response.created", "response": {"id": R, "model": "actual-server-model"}}), line(event())])
+>       assert result["identity_status"] == "reported_verified"
+E       AssertionError: assert 'unknown' == 'reported_verified'
+E         
+E         - reported_verified
+E         + unknown
+
+.tools\gpt-sse-projection\test_projection.py:56: AssertionError
+______________ test_limit_and_malformed_server_event_fail_closed ______________
+
+    def test_limit_and_malformed_server_event_fail_closed():
+        parser = SseProjection(max_bytes=4)
+        parser.feed(line(event()))
+>       assert parser.finish([RECEIPT], T, U)["reason_code"] == "SSE_CAPTURE_LIMIT"
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'reason_code'
+
+.tools\gpt-sse-projection\test_projection.py:66: KeyError
+=========================== short test summary info ===========================
+FAILED .tools/gpt-sse-projection/test_projection.py::test_completed_server_response_binds_actual_field_without_private_export
+FAILED .tools/gpt-sse-projection/test_projection.py::test_valid_same_model_created_then_completed_is_unique_completed_receipt
+FAILED .tools/gpt-sse-projection/test_projection.py::test_limit_and_malformed_server_event_fail_closed
+3 failed, 21 passed in 0.33s

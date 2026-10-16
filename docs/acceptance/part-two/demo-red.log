@@ -1,0 +1,139 @@
+F.                                                                       [100%]
+================================== FAILURES ===================================
+_____________ test_demo_submission_reaches_verified_public_answer _____________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-294/test_demo_submission_reaches_v0')
+
+    def test_demo_submission_reaches_verified_public_answer(tmp_path):
+        # Launcher chooses this private factory only for an explicit fake environment.
+        from app.runtime import demo_backend
+        app = create_app(AppSettings(tmp_path, 'fixture-demo-token', 'fake', False), backend_factory=demo_backend.build_demo_backend)
+>       with TestClient(app, headers={'Authorization': 'Bearer fixture-demo-token'}) as client:
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\integration\test_desktop_demo_backend.py:14: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+services\orchestrator\.venv\Lib\site-packages\starlette\testclient.py:511: in __enter__
+    portal.call(self.wait_startup)
+services\orchestrator\.venv\Lib\site-packages\anyio\from_thread.py:340: in call
+    return cast(T_Retval, self.start_task_soon(func, *args).result())
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py:456: in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py:401: in __get_result
+    raise self._exception
+services\orchestrator\.venv\Lib\site-packages\anyio\from_thread.py:265: in _call_func
+    retval = await retval_or_awaitable
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\.venv\Lib\site-packages\starlette\testclient.py:546: in wait_startup
+    await receive()
+services\orchestrator\.venv\Lib\site-packages\starlette\testclient.py:537: in receive
+    self.task.result()
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py:449: in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py:401: in __get_result
+    raise self._exception
+services\orchestrator\.venv\Lib\site-packages\anyio\from_thread.py:265: in _call_func
+    retval = await retval_or_awaitable
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\.venv\Lib\site-packages\starlette\testclient.py:527: in lifespan
+    await self.app(scope, self.stream_receive.receive, self.stream_send.send)
+services\orchestrator\.venv\Lib\site-packages\fastapi\applications.py:1203: in __call__
+    await lifespan(
+services\orchestrator\.venv\Lib\site-packages\fastapi\telemetry\_runtime.py:238: in lifespan
+    await app(scope, wrapped_receive, wrapped_send)
+services\orchestrator\.venv\Lib\site-packages\starlette\applications.py:96: in __call__
+    await self.middleware_stack(scope, receive, send)
+services\orchestrator\.venv\Lib\site-packages\starlette\middleware\errors.py:151: in __call__
+    await self.app(scope, receive, send)
+services\orchestrator\.venv\Lib\site-packages\fastapi\telemetry\_asgi.py:151: in __call__
+    await self.app(scope, receive, send)
+services\orchestrator\.venv\Lib\site-packages\starlette\middleware\base.py:103: in __call__
+    await self.app(scope, receive, send)
+services\orchestrator\.venv\Lib\site-packages\starlette\middleware\exceptions.py:49: in __call__
+    await self.app(scope, receive, send)
+services\orchestrator\.venv\Lib\site-packages\fastapi\middleware\asyncexitstack.py:18: in __call__
+    await self.app(scope, receive, send)
+services\orchestrator\.venv\Lib\site-packages\starlette\routing.py:676: in __call__
+    await self.middleware_stack(scope, receive, send)
+services\orchestrator\.venv\Lib\site-packages\fastapi\routing.py:2773: in app
+    await self.lifespan(scope, receive, send)
+services\orchestrator\.venv\Lib\site-packages\starlette\routing.py:654: in lifespan
+    async with self.lifespan_context(app) as maybe_state:
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\contextlib.py:214: in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\.venv\Lib\site-packages\fastapi\routing.py:247: in merged_lifespan
+    async with original_context(app) as maybe_original_state:
+               ^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\contextlib.py:214: in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\.venv\Lib\site-packages\fastapi\routing.py:247: in merged_lifespan
+    async with original_context(app) as maybe_original_state:
+               ^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\contextlib.py:214: in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\.venv\Lib\site-packages\fastapi\routing.py:247: in merged_lifespan
+    async with original_context(app) as maybe_original_state:
+               ^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\contextlib.py:214: in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\.venv\Lib\site-packages\fastapi\routing.py:247: in merged_lifespan
+    async with original_context(app) as maybe_original_state:
+               ^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\contextlib.py:214: in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\.venv\Lib\site-packages\fastapi\routing.py:247: in merged_lifespan
+    async with original_context(app) as maybe_original_state:
+               ^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\contextlib.py:214: in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\.venv\Lib\site-packages\fastapi\routing.py:247: in merged_lifespan
+    async with original_context(app) as maybe_original_state:
+               ^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\contextlib.py:214: in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\.venv\Lib\site-packages\fastapi\routing.py:247: in merged_lifespan
+    async with original_context(app) as maybe_original_state:
+               ^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\contextlib.py:214: in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\.venv\Lib\site-packages\fastapi\routing.py:247: in merged_lifespan
+    async with original_context(app) as maybe_original_state:
+               ^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\contextlib.py:214: in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\app\api\application.py:31: in lifespan
+    bindings=backend_factory(app)
+             ^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+app = <fastapi.applications.FastAPI object at 0x0000024F703EF230>
+
+    def build_demo_backend(app):
+        if app.state.settings.provider_mode != 'fake':
+            raise ValueError('EXPLICIT_DEMO_ENVIRONMENT_REQUIRED')
+>       raise ValueError('DEMO_BACKEND_NOT_IMPLEMENTED')
+E       ValueError: DEMO_BACKEND_NOT_IMPLEMENTED
+
+services\orchestrator\app\runtime\demo_backend.py:7: ValueError
+============================== warnings summary ===============================
+services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1
+  C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/integration/test_desktop_demo_backend.py::test_demo_submission_reaches_verified_public_answer
+1 failed, 1 passed, 1 warning in 1.39s

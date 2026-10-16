@@ -1,0 +1,17 @@
+{
+  "artifact_version": "D028-current-local-tree",
+  "cannot_complete": "D028 real and human acceptance remains open while direct dependency evidence is absent.",
+  "direct_evidence": [
+    "docs/acceptance/part-five/work-orders/D028-draft-v2/work-order.json",
+    "docs/acceptance/part-five/work-orders/D028-run-v2/process.log"
+  ],
+  "attempted_actions": [
+    "Read current D028 and direct dependency artifact indexes.",
+    "Ran the explicit local input-translation integration tests: actual exit 0.",
+    "Validated the local handoff without changing task statuses."
+  ],
+  "external_conditions": [
+    "Resolve D026/D027 missing direct artifacts and complete required real/human acceptance."
+  ],
+  "independent_tasks": []
+}

@@ -1,0 +1,277 @@
+{
+  "tests": {
+    "tests/desktop/artifact-files.test.ts::artifact save safety refuses paths, device names and corrupt bytes": [
+      "passed"
+    ],
+    "tests/desktop/artifact-files.test.ts::artifact save safety saves exact bytes and refuses an existing destination": [
+      "passed"
+    ],
+    "tests/desktop/artifact-files.test.ts::artifact save safety does not save the first member when the second path cannot be written": [
+      "passed"
+    ],
+    "tests/desktop/artifact-files.test.ts::artifact save safety reports the remaining saved filename when rollback is refused by the filesystem": [
+      "passed"
+    ],
+    "tests/desktop/backend.test.ts::startup identity fence does not accept old occupied port or wrong process identity": [
+      "passed"
+    ],
+    "tests/desktop/backend.test.ts::startup identity fence does not accept unready, invalid port or a different protocol": [
+      "passed"
+    ],
+    "tests/desktop/backend.test.ts::managed process lifecycle does not claim readiness for health-timeout": [
+      "passed"
+    ],
+    "tests/desktop/backend.test.ts::managed process lifecycle does not claim readiness for early-exit": [
+      "passed"
+    ],
+    "tests/desktop/backend.test.ts::managed process lifecycle does not claim readiness for old-port": [
+      "passed"
+    ],
+    "tests/desktop/backend.test.ts::managed process lifecycle authenticates a healthy owned process and checkpoints shutdown": [
+      "passed"
+    ],
+    "tests/desktop/backend.test.ts::managed process lifecycle does not spawn after shutdown cancels startup while the data directory is pending": [
+      "passed"
+    ],
+    "tests/desktop/backend.test.ts::managed process lifecycle rejects a new launch until stop finishes after an old launch has failed": [
+      "passed"
+    ],
+    "tests/desktop/backend.test.ts::managed process lifecycle shares one cleanup for concurrent stop callers": [
+      "passed"
+    ],
+    "tests/desktop/backend.test.ts::managed process lifecycle terminates the owned process even when the recovery journal cannot be written": [
+      "passed"
+    ],
+    "tests/desktop/backend.test.ts::managed process lifecycle a late exit from the previous child cannot disconnect its replacement": [
+      "passed"
+    ],
+    "tests/desktop/backend.test.ts::managed process lifecycle a failed tree cleanup is recorded and blocks a duplicate launch": [
+      "passed"
+    ],
+    "tests/desktop/backend.test.ts::managed process lifecycle does not forward provider or renderer secrets to Python": [
+      "passed"
+    ],
+    "tests/desktop/backup-ipc.test.ts::backup IPC uses owner dialogs and opaque backend references rejects renderer disk paths and wrong senders before opening a dialog": [
+      "passed"
+    ],
+    "tests/desktop/backup-ipc.test.ts::backup IPC uses owner dialogs and opaque backend references writes downloaded bytes once and never overwrites an existing save": [
+      "passed"
+    ],
+    "tests/desktop/backup-ipc.test.ts::backup IPC uses owner dialogs and opaque backend references confirms validated selected bytes, then switches via the managed restart": [
+      "passed"
+    ],
+    "tests/desktop/backup-ipc.test.ts::backup IPC uses owner dialogs and opaque backend references cancelled confirmation never invokes restore or restart": [
+      "passed"
+    ],
+    "tests/desktop/chat-forms.test.ts::freezes only user-supplied task details and immutable chosen attachment refs": [
+      "passed"
+    ],
+    "tests/desktop/chat-forms.test.ts::uses a mixed profile only for ready CSV, and never guesses a code test command": [
+      "passed"
+    ],
+    "tests/desktop/chat-forms.test.ts::receipt preserves every newer public terminal state and historical completion": [
+      "passed"
+    ],
+    "tests/desktop/chat-forms.test.ts::calendar end includes the final millisecond using the local next day": [
+      "passed"
+    ],
+    "tests/desktop/local-assets.test.ts::packaged local resource origin serves only fixed app assets": [
+      "passed"
+    ],
+    "tests/desktop/local-assets.test.ts::packaged local resource origin rejects other hosts, encoded escapes and ambient filesystem paths": [
+      "passed"
+    ],
+    "tests/desktop/preload.test.ts::narrow boundary allows bounded user profile fields and binds material refs to the submitted attachments": [
+      "passed"
+    ],
+    "tests/desktop/preload.test.ts::narrow boundary refuses renderer supplied file paths and arbitrary methods": [
+      "passed"
+    ],
+    "tests/desktop/preload.test.ts::narrow boundary refuses wrong window and subframe senders": [
+      "passed"
+    ],
+    "tests/desktop/preload.test.ts::narrow boundary drops internal events and public payloads with additional secrets": [
+      "passed"
+    ],
+    "tests/desktop/preload.test.ts::narrow boundary accepts native English clarification without allowing arbitrary languages or English internal errors": [
+      "passed"
+    ],
+    "tests/desktop/public-events.test.ts::public replay and cancellation deduplicates replay and keeps pending state private": [
+      "passed"
+    ],
+    "tests/desktop/public-events.test.ts::public replay and cancellation rejects an answer arriving after cancellation and never claims remote confirmation": [
+      "passed"
+    ],
+    "tests/desktop/public-events.test.ts::public replay and cancellation old turns do not replace the active next turn": [
+      "passed"
+    ],
+    "tests/release/packaged-runtime.test.ts::starts packaged Python from resources without development venv paths": [
+      "passed"
+    ],
+    "tests/release/update-coordinator.test.ts::recoverable main-process update coordinator with private trusted ports uses actual staged hashes/native observations and commits only after health": [
+      "passed"
+    ],
+    "tests/release/update-coordinator.test.ts::recoverable main-process update coordinator with private trusted ports rejects signature without changing authoritative version/schema/sequence or data": [
+      "passed"
+    ],
+    "tests/release/update-coordinator.test.ts::recoverable main-process update coordinator with private trusted ports rejects publisher without changing authoritative version/schema/sequence or data": [
+      "passed"
+    ],
+    "tests/release/update-coordinator.test.ts::recoverable main-process update coordinator with private trusted ports rejects hash without changing authoritative version/schema/sequence or data": [
+      "passed"
+    ],
+    "tests/release/update-coordinator.test.ts::recoverable main-process update coordinator with private trusted ports rejects replay without changing authoritative version/schema/sequence or data": [
+      "passed"
+    ],
+    "tests/release/update-coordinator.test.ts::recoverable main-process update coordinator with private trusted ports rejects downgrade without changing authoritative version/schema/sequence or data": [
+      "passed"
+    ],
+    "tests/release/update-coordinator.test.ts::recoverable main-process update coordinator with private trusted ports rejects channel without changing authoritative version/schema/sequence or data": [
+      "passed"
+    ],
+    "tests/release/update-coordinator.test.ts::recoverable main-process update coordinator with private trusted ports rejects schema without changing authoritative version/schema/sequence or data": [
+      "passed"
+    ],
+    "tests/release/update-coordinator.test.ts::recoverable main-process update coordinator with private trusted ports rejects checkpoint without changing authoritative version/schema/sequence or data": [
+      "passed"
+    ],
+    "tests/release/update-coordinator.test.ts::recoverable main-process update coordinator with private trusted ports rejects backup without changing authoritative version/schema/sequence or data": [
+      "passed"
+    ],
+    "tests/release/update-coordinator.test.ts::recoverable main-process update coordinator with private trusted ports install failure restores the trusted predecessor with its matching schema backup": [
+      "passed"
+    ],
+    "tests/release/update-coordinator.test.ts::recoverable main-process update coordinator with private trusted ports migration failure restores the trusted predecessor with its matching schema backup": [
+      "passed"
+    ],
+    "tests/release/update-coordinator.test.ts::recoverable main-process update coordinator with private trusted ports health failure restores the trusted predecessor with its matching schema backup": [
+      "passed"
+    ],
+    "tests/release/update-coordinator.test.ts::recoverable main-process update coordinator with private trusted ports recovers an interrupted STAGING journal without accepting a network downgrade": [
+      "passed"
+    ],
+    "tests/release/update-coordinator.test.ts::recoverable main-process update coordinator with private trusted ports recovers an interrupted VERIFYING journal without accepting a network downgrade": [
+      "passed"
+    ],
+    "tests/release/update-coordinator.test.ts::recoverable main-process update coordinator with private trusted ports recovers an interrupted QUIESCING journal without accepting a network downgrade": [
+      "passed"
+    ],
+    "tests/release/update-coordinator.test.ts::recoverable main-process update coordinator with private trusted ports recovers an interrupted BACKING_UP journal without accepting a network downgrade": [
+      "passed"
+    ],
+    "tests/release/update-coordinator.test.ts::recoverable main-process update coordinator with private trusted ports recovers an interrupted INSTALLING journal without accepting a network downgrade": [
+      "passed"
+    ],
+    "tests/release/update-coordinator.test.ts::recoverable main-process update coordinator with private trusted ports recovers an interrupted MIGRATING journal without accepting a network downgrade": [
+      "passed"
+    ],
+    "tests/release/update-coordinator.test.ts::recoverable main-process update coordinator with private trusted ports recovers an interrupted CHECKING_HEALTH journal without accepting a network downgrade": [
+      "passed"
+    ],
+    "tests/release/update-coordinator.test.ts::recoverable main-process update coordinator with private trusted ports recovers an interrupted COMMITTING journal without accepting a network downgrade": [
+      "passed"
+    ],
+    "tests/release/update-coordinator.test.ts::recoverable main-process update coordinator with private trusted ports refuses rollback when the locally captured predecessor or backup was tampered": [
+      "passed"
+    ],
+    "tests/release/update-coordinator.test.ts::recoverable main-process update coordinator with private trusted ports retains interrupted rollback progress and recovers it idempotently": [
+      "passed"
+    ],
+    "tests/release/update-coordinator.test.ts::recoverable main-process update coordinator with private trusted ports rejects a staged path outside the private download directory": [
+      "passed"
+    ],
+    "tests/release/update-coordinator.test.ts::recoverable main-process update coordinator with private trusted ports rejects a relabeled manifest even when the candidate Authenticode port says Valid": [
+      "passed"
+    ],
+    "tests/release/update-coordinator.test.ts::recoverable main-process update coordinator with private trusted ports rejects an authenticated old/incompatible vendor fixture: MANIFEST_REPLAY": [
+      "passed"
+    ],
+    "tests/release/update-coordinator.test.ts::recoverable main-process update coordinator with private trusted ports rejects an authenticated old/incompatible vendor fixture: NETWORK_DOWNGRADE_OR_REPLAY": [
+      "passed"
+    ],
+    "tests/release/update-coordinator.test.ts::recoverable main-process update coordinator with private trusted ports rejects an authenticated old/incompatible vendor fixture: CHANNEL_MISMATCH": [
+      "passed"
+    ],
+    "tests/release/update-coordinator.test.ts::recoverable main-process update coordinator with private trusted ports rejects an authenticated old/incompatible vendor fixture: SCHEMA_ROLLBACK_INCOMPATIBLE": [
+      "passed"
+    ],
+    "tests/release/update-coordinator.test.ts::recoverable main-process update coordinator with private trusted ports refuses a tampered captured backup before any rollback data write": [
+      "passed"
+    ],
+    "tests/release/update-coordinator.test.ts::recoverable main-process update coordinator with private trusted ports rejects a corrupt journal without installing or restoring data": [
+      "passed"
+    ],
+    "tests/release/update-coordinator.test.ts::recoverable main-process update coordinator with private trusted ports preserves committed authority and retries only task resume after a terminal resume failure": [
+      "passed"
+    ],
+    "tests/release/update-coordinator.test.ts::recoverable main-process update coordinator with private trusted ports preserves rejected authority and retries only task resume after a terminal resume failure": [
+      "passed"
+    ],
+    "tests/release/update-coordinator.test.ts::recoverable main-process update coordinator with private trusted ports preserves rolled-back authority and retries only task resume after a terminal resume failure": [
+      "passed"
+    ],
+    "tests/release/update-coordinator.test.ts::recoverable main-process update coordinator with private trusted ports recovers a crash during task resume after committed authority without reinstalling or restoring": [
+      "passed"
+    ],
+    "tests/release/update-coordinator.test.ts::recoverable main-process update coordinator with private trusted ports bounds resume recovery retries and retains the committed version for manual recovery": [
+      "passed"
+    ],
+    "tests/release/update-coordinator.test.ts::recoverable main-process update coordinator with private trusted ports recovers the actual filesystem cutpoint unpack_interrupt within the trusted installer transaction": [
+      "passed"
+    ],
+    "tests/release/update-coordinator.test.ts::recoverable main-process update coordinator with private trusted ports recovers the actual filesystem cutpoint replace_interrupt within the trusted installer transaction": [
+      "passed"
+    ],
+    "tests/release/update-coordinator.test.ts::recoverable main-process update coordinator with private trusted ports excludes a competing coordinator while a native operation is still in flight": [
+      "passed"
+    ],
+    "tests/release/update-coordinator.test.ts::recoverable main-process update coordinator with private trusted ports rolls back a failed authoritative commit even after the target pointer was written": [
+      "passed"
+    ],
+    "tests/release/updates.test.ts::update preflight rejects untrusted bytes before any install accepts byte and identity matched preflight only": [
+      "passed"
+    ],
+    "tests/release/updates.test.ts::update preflight rejects untrusted bytes before any install rejects publisher": [
+      "passed"
+    ],
+    "tests/release/updates.test.ts::update preflight rejects untrusted bytes before any install rejects signature": [
+      "passed"
+    ],
+    "tests/release/updates.test.ts::update preflight rejects untrusted bytes before any install rejects chain": [
+      "passed"
+    ],
+    "tests/release/updates.test.ts::update preflight rejects untrusted bytes before any install rejects timestamp": [
+      "passed"
+    ],
+    "tests/release/updates.test.ts::update preflight rejects untrusted bytes before any install rejects testCertificate": [
+      "passed"
+    ],
+    "tests/release/updates.test.ts::update preflight rejects untrusted bytes before any install rejects tamper": [
+      "passed"
+    ],
+    "tests/release/updates.test.ts::update preflight rejects untrusted bytes before any install rejects replay": [
+      "passed"
+    ],
+    "tests/release/updates.test.ts::update preflight rejects untrusted bytes before any install rejects downgrade": [
+      "passed"
+    ],
+    "tests/release/updates.test.ts::update preflight rejects untrusted bytes before any install rejects backup": [
+      "passed"
+    ],
+    "tests/release/updates.test.ts::update preflight rejects untrusted bytes before any install rejects checkpoint": [
+      "passed"
+    ],
+    "tests/release/updates.test.ts::update preflight rejects untrusted bytes before any install does not use authorized rollback to admit a downloaded downgrade": [
+      "passed"
+    ]
+  },
+  "issues": [],
+  "counts": {
+    "total": 88,
+    "passed": 88,
+    "failed": 0,
+    "skipped": 0,
+    "invalid": 0
+  },
+  "report_sha256": "681e227e4c4b3f9cb3d1cd3b9ad90f88ae977ac5901acb9969e9c348c7ffc57d"
+}

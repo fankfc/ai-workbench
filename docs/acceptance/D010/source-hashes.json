@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-10-13T13:39:44.151462+00:00",
+  "python": "3.13.0",
+  "sqlite": "3.45.3",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "interpreter": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\.venv\\Scripts\\python.exe",
+  "commit": null,
+  "mode": "isolated real SQLite/filesystem/subprocess; no external provider calls",
+  "command": "services/orchestrator/.venv/Scripts/python.exe docs/acceptance/D010/reproduce_evidence.py",
+  "exit_code": 0,
+  "sources": {
+    "services/orchestrator/app/runtime/state_machine.py": "371a3b88fcf8ffcee2560142a76b46c02b1bd95e3e86e0672bd459c5f5caebba",
+    "services/orchestrator/app/runtime/outbox.py": "54f3aa8040cd54d119d2c65cb2e05852ea6652e018ed56254f8ac05f2d8f4f85",
+    "services/orchestrator/app/runtime/recovery.py": "29b46c155ce629c71bc82a58867152af59afde14018ca2bf8284818733275bdd",
+    "tests/integration/test_state_machine.py": "1a577ef153265aa4e179770e0ef7845378fbbcf8cb7597c4063eb53e858c86f1",
+    "tests/integration/test_outbox.py": "4965eed9f99fa1fb34d9524d44e0938663011ed06e6b2b742603d6609d9a6a4f",
+    "tests/integration/test_recovery.py": "10fc3071099895cae735984a2cfa927b9e8cea84960c8bf77d1d763c369b047f",
+    "docs/acceptance/D010/reproduce_evidence.py": "b05b5059700c496f4ae4b410044b54e185b5eeec2eae5a0ecce2756e392549c3",
+    "services/orchestrator/app/storage/schema/0001_initial.sql": "63788dd70e69dcd9e3011dd41c18514bc5d72ed5d52cf9cc82e71061cd38fcc5"
+  }
+}

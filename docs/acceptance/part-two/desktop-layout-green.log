@@ -1,0 +1,16 @@
+
+> ai-workbench@0.1.0 test:e2e
+> playwright test tests/e2e/layout.spec.ts
+
+
+Running 5 tests using 1 worker
+
+(node:44688) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 1 tests\e2e\layout.spec.ts:3:78 › layout fits 1440x900 (4.7s)
+  ok 2 tests\e2e\layout.spec.ts:3:78 › layout fits 1280x800 (3.7s)
+  ok 3 tests\e2e\layout.spec.ts:3:78 › layout fits 1024x768 (3.6s)
+  ok 4 tests\e2e\layout.spec.ts:3:78 › layout fits 320x768 (4.6s)
+  ok 5 tests\e2e\layout.spec.ts:10:5 › theme, large text and 200 percent zoom retain the composer (4.7s)
+
+  5 passed (21.9s)

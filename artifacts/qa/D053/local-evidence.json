@@ -1,0 +1,29 @@
+{
+  "card": "D053",
+  "case": "signed_update",
+  "command": [
+    "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\.venv\\Scripts\\python.exe",
+    "tests/support/scenario_driver.py",
+    "signed_update",
+    "--root",
+    "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\artifacts\\qa\\D053\\re7d99c6b",
+    "--options",
+    "{\"fault\": \"invalid_publisher\"}"
+  ],
+  "exit_code": 0,
+  "time": "2026-10-15T02:00:54.904335+00:00",
+  "build_id": "cb98eed03df6bd4ffaa551d66a54c77198911cf5b3e763a1ef3c055f5ee54ca4",
+  "run_root": "artifacts/qa/D053/re7d99c6b",
+  "result": {
+    "update_state": "BLOCKED",
+    "active_version": "unknown",
+    "previous_version": "unknown",
+    "restored_schema": 0,
+    "expected_schema": 0,
+    "evidence_kind": "audit",
+    "blocked_reasons": [
+      "source_commit_missing",
+      "signed_update_missing"
+    ]
+  }
+}

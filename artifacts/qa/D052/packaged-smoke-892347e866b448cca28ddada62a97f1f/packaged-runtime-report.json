@@ -1,0 +1,13 @@
+{
+  "source_kind": "deterministic_packaged_smoke",
+  "installation_executed": false,
+  "signed_candidate_qualified": false,
+  "real_provider_calls": 0,
+  "provider_registry_entries": 0,
+  "backend_started": true,
+  "checkpoint_saved": true,
+  "process_cleanup_confirmed": true,
+  "runtime_sha256": "62ebc90a2884bb63a0cd67e789cafdd51e771eee043587e2354327b4ccc9bb05",
+  "service_pid": 29352,
+  "protocol_version": "1.0"
+}

@@ -1,0 +1,16 @@
+{
+  "time": "2026-10-14T05:56:45.419784+00:00",
+  "command": [
+    "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\.venv\\Scripts\\python.exe",
+    "-m",
+    "pytest",
+    "-q",
+    "tests/integration/test_native_planning.py",
+    "-k",
+    "planning_is_durable or failed_native",
+    "-q"
+  ],
+  "exit_code": 1,
+  "git_commit": null,
+  "log": "docs\\acceptance\\part-one-closeout\\native-planner-model-red.log"
+}

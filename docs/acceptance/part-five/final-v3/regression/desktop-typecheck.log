@@ -1,0 +1,8 @@
+
+> ai-workbench@0.1.0 typecheck:desktop
+> npm run typecheck --workspace @ai-workbench/desktop
+
+
+> @ai-workbench/desktop@0.1.0 typecheck
+> tsc --noEmit
+

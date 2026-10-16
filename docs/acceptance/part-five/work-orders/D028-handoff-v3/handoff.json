@@ -1,0 +1,74 @@
+{
+  "kind": "developer_handoff",
+  "schema_version": "1",
+  "task_id": "D028",
+  "status": "in_review",
+  "contract_version": "1",
+  "work_order_sha256": "021ada5551629b460021a634d3d9cc1e253f7c20dd3fd113c2c7e8be60eb5808",
+  "changed_files": [],
+  "changed_artifacts": [],
+  "requirement_ids": [
+    "R02",
+    "R07",
+    "R12",
+    "R15"
+  ],
+  "verification": [
+    {
+      "record_ref": "docs/acceptance/part-five/work-orders/D028-run-v3/record.json",
+      "record_sha256": "44d67338c8827b34aad8c0fe3c460e17c28e546d0ca1a24be43b9c110063ee7c",
+      "command": [
+        "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "tests/integration/test_input_translation.py",
+        "-q"
+      ],
+      "result_source": "actual_process_exit_and_test_report",
+      "evidence_ref": "docs/acceptance/part-five/work-orders/D028-run-v3/process.log"
+    }
+  ],
+  "unresolved_issues": [
+    "D026/D027 dependency and real/human acceptance remain open."
+  ],
+  "next_step": "Review current artifacts, command records, and dependency blockers.",
+  "review_requested": true,
+  "dependency_blockers": [
+    {
+      "code": "SOURCE_CARD_DIVERGENCE",
+      "task_id": "D028"
+    },
+    {
+      "code": "DEPENDENCY_NOT_DONE",
+      "task_id": "D026",
+      "status": "in_progress"
+    },
+    {
+      "code": "DEPENDENCY_ARTIFACT_MISSING",
+      "task_id": "D026",
+      "ref": "artifacts/acceptance/D026/route-snapshots.json"
+    },
+    {
+      "code": "DEPENDENCY_ARTIFACT_MISSING",
+      "task_id": "D026",
+      "ref": "artifacts/acceptance/D026/provider-calls.json"
+    },
+    {
+      "code": "DEPENDENCY_NOT_DONE",
+      "task_id": "D027",
+      "status": "in_progress"
+    },
+    {
+      "code": "DEPENDENCY_ARTIFACT_MISSING",
+      "task_id": "D027",
+      "ref": "artifacts/acceptance/D027/block-map.json"
+    },
+    {
+      "code": "DEPENDENCY_ARTIFACT_MISSING",
+      "task_id": "D027",
+      "ref": "artifacts/acceptance/D027/protected-diff.json"
+    }
+  ],
+  "task_completion_changed": false,
+  "authentication": "495280d6de0db8dbc4913bce14d95e267abda5cb64feffd44877b2e4df07ecbf"
+}

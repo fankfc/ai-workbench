@@ -1,0 +1,26 @@
+F                                                                        [100%]
+================================== FAILURES ===================================
+_____________ test_schema_script_strict_check_and_drift_rejection _____________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-8/test_schema_script_strict_chec0')
+
+    def test_schema_script_strict_check_and_drift_rejection(tmp_path):
+        script = ROOT / "scripts" / "check_contracts.py"
+        write = subprocess.run([sys.executable, str(script), "--write", "--schema-dir", str(tmp_path)], capture_output=True, text=True, check=False)
+        assert write.returncode == 0, write.stdout + write.stderr
+        strict = subprocess.run([sys.executable, str(script), "--strict", "--schema-dir", str(tmp_path)], capture_output=True, text=True, check=False)
+        assert strict.returncode == 0, strict.stdout + strict.stderr
+        schema = tmp_path / "public-events.schema.json"
+        data = json.loads(schema.read_text(encoding="utf-8"))
+        data["description"] = "DRIFT_CANARY"
+        schema.write_text(json.dumps(data), encoding="utf-8")
+        drift = subprocess.run([sys.executable, str(script), "--strict", "--schema-dir", str(tmp_path)], capture_output=True, text=True, check=False)
+>       assert drift.returncode != 0
+E       AssertionError: assert 0 != 0
+E        +  where 0 = CompletedProcess(args=['C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\.venv\\Scripts\\python.exe',...AppData\\Local\\Temp\\pytest-of-asd15\\pytest-8\\test_schema_script_strict_chec0'], returncode=0, stdout='', stderr='').returncode
+
+tests\contracts\test_schemas.py:282: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/contracts/test_schemas.py::test_schema_script_strict_check_and_drift_rejection
+1 failed, 73 deselected in 0.84s
+exit_code=1

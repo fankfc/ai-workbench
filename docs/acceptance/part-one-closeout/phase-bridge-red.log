@@ -1,0 +1,505 @@
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF                                          [100%]
+================================== FAILURES ===================================
+_ test_actual_final_content_becomes_candidate_and_usage_is_workflow_compatible _
+
+prepared = (WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-168/test_actual_final_content_beco0/task/attemp...0, 'output_tokens': 2}, source='reported', mode='request_total', cumulative_scope=None),), exit_code=0, finished=True))
+
+    def test_actual_final_content_becomes_candidate_and_usage_is_workflow_compatible(prepared):
+        events,runtime,bridge=run(prepared)
+>       assert bridge.scope_enforced is True
+E       assert False is True
+E        +  where False = <app.providers.phase_bridge.PhaseBridge object at 0x000001E604614EC0>.scope_enforced
+
+tests\contracts\test_phase_bridge.py:110: AssertionError
+________ test_candidate_missing_required_binding_is_rejected[task_id] _________
+
+prepared = (WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-168/test_candidate_missing_require0/task/attemp...0, 'output_tokens': 2}, source='reported', mode='request_total', cumulative_scope=None),), exit_code=0, finished=True))
+field = 'task_id'
+
+    @pytest.mark.parametrize('field',['task_id','attempt_id','contract_version','contract_sha256','request_id','deliverable_id','content'])
+    def test_candidate_missing_required_binding_is_rejected(prepared,field):
+        response=dict(prepared[4]); response.pop(field)
+        events,_,_=run(prepared,response=response)
+>       assert error(events)=='PHASE_RESPONSE_INVALID'
+E       AssertionError: assert 'PHASE_BRIDGE_NOT_IMPLEMENTED' == 'PHASE_RESPONSE_INVALID'
+E         
+E         - PHASE_RESPONSE_INVALID
+E         + PHASE_BRIDGE_NOT_IMPLEMENTED
+
+tests\contracts\test_phase_bridge.py:125: AssertionError
+_______ test_candidate_missing_required_binding_is_rejected[attempt_id] _______
+
+prepared = (WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-168/test_candidate_missing_require1/task/attemp...0, 'output_tokens': 2}, source='reported', mode='request_total', cumulative_scope=None),), exit_code=0, finished=True))
+field = 'attempt_id'
+
+    @pytest.mark.parametrize('field',['task_id','attempt_id','contract_version','contract_sha256','request_id','deliverable_id','content'])
+    def test_candidate_missing_required_binding_is_rejected(prepared,field):
+        response=dict(prepared[4]); response.pop(field)
+        events,_,_=run(prepared,response=response)
+>       assert error(events)=='PHASE_RESPONSE_INVALID'
+E       AssertionError: assert 'PHASE_BRIDGE_NOT_IMPLEMENTED' == 'PHASE_RESPONSE_INVALID'
+E         
+E         - PHASE_RESPONSE_INVALID
+E         + PHASE_BRIDGE_NOT_IMPLEMENTED
+
+tests\contracts\test_phase_bridge.py:125: AssertionError
+____ test_candidate_missing_required_binding_is_rejected[contract_version] ____
+
+prepared = (WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-168/test_candidate_missing_require2/task/attemp...0, 'output_tokens': 2}, source='reported', mode='request_total', cumulative_scope=None),), exit_code=0, finished=True))
+field = 'contract_version'
+
+    @pytest.mark.parametrize('field',['task_id','attempt_id','contract_version','contract_sha256','request_id','deliverable_id','content'])
+    def test_candidate_missing_required_binding_is_rejected(prepared,field):
+        response=dict(prepared[4]); response.pop(field)
+        events,_,_=run(prepared,response=response)
+>       assert error(events)=='PHASE_RESPONSE_INVALID'
+E       AssertionError: assert 'PHASE_BRIDGE_NOT_IMPLEMENTED' == 'PHASE_RESPONSE_INVALID'
+E         
+E         - PHASE_RESPONSE_INVALID
+E         + PHASE_BRIDGE_NOT_IMPLEMENTED
+
+tests\contracts\test_phase_bridge.py:125: AssertionError
+____ test_candidate_missing_required_binding_is_rejected[contract_sha256] _____
+
+prepared = (WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-168/test_candidate_missing_require3/task/attemp...0, 'output_tokens': 2}, source='reported', mode='request_total', cumulative_scope=None),), exit_code=0, finished=True))
+field = 'contract_sha256'
+
+    @pytest.mark.parametrize('field',['task_id','attempt_id','contract_version','contract_sha256','request_id','deliverable_id','content'])
+    def test_candidate_missing_required_binding_is_rejected(prepared,field):
+        response=dict(prepared[4]); response.pop(field)
+        events,_,_=run(prepared,response=response)
+>       assert error(events)=='PHASE_RESPONSE_INVALID'
+E       AssertionError: assert 'PHASE_BRIDGE_NOT_IMPLEMENTED' == 'PHASE_RESPONSE_INVALID'
+E         
+E         - PHASE_RESPONSE_INVALID
+E         + PHASE_BRIDGE_NOT_IMPLEMENTED
+
+tests\contracts\test_phase_bridge.py:125: AssertionError
+_______ test_candidate_missing_required_binding_is_rejected[request_id] _______
+
+prepared = (WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-168/test_candidate_missing_require4/task/attemp...0, 'output_tokens': 2}, source='reported', mode='request_total', cumulative_scope=None),), exit_code=0, finished=True))
+field = 'request_id'
+
+    @pytest.mark.parametrize('field',['task_id','attempt_id','contract_version','contract_sha256','request_id','deliverable_id','content'])
+    def test_candidate_missing_required_binding_is_rejected(prepared,field):
+        response=dict(prepared[4]); response.pop(field)
+        events,_,_=run(prepared,response=response)
+>       assert error(events)=='PHASE_RESPONSE_INVALID'
+E       AssertionError: assert 'PHASE_BRIDGE_NOT_IMPLEMENTED' == 'PHASE_RESPONSE_INVALID'
+E         
+E         - PHASE_RESPONSE_INVALID
+E         + PHASE_BRIDGE_NOT_IMPLEMENTED
+
+tests\contracts\test_phase_bridge.py:125: AssertionError
+_____ test_candidate_missing_required_binding_is_rejected[deliverable_id] _____
+
+prepared = (WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-168/test_candidate_missing_require5/task/attemp...0, 'output_tokens': 2}, source='reported', mode='request_total', cumulative_scope=None),), exit_code=0, finished=True))
+field = 'deliverable_id'
+
+    @pytest.mark.parametrize('field',['task_id','attempt_id','contract_version','contract_sha256','request_id','deliverable_id','content'])
+    def test_candidate_missing_required_binding_is_rejected(prepared,field):
+        response=dict(prepared[4]); response.pop(field)
+        events,_,_=run(prepared,response=response)
+>       assert error(events)=='PHASE_RESPONSE_INVALID'
+E       AssertionError: assert 'PHASE_BRIDGE_NOT_IMPLEMENTED' == 'PHASE_RESPONSE_INVALID'
+E         
+E         - PHASE_RESPONSE_INVALID
+E         + PHASE_BRIDGE_NOT_IMPLEMENTED
+
+tests\contracts\test_phase_bridge.py:125: AssertionError
+________ test_candidate_missing_required_binding_is_rejected[content] _________
+
+prepared = (WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-168/test_candidate_missing_require6/task/attemp...0, 'output_tokens': 2}, source='reported', mode='request_total', cumulative_scope=None),), exit_code=0, finished=True))
+field = 'content'
+
+    @pytest.mark.parametrize('field',['task_id','attempt_id','contract_version','contract_sha256','request_id','deliverable_id','content'])
+    def test_candidate_missing_required_binding_is_rejected(prepared,field):
+        response=dict(prepared[4]); response.pop(field)
+        events,_,_=run(prepared,response=response)
+>       assert error(events)=='PHASE_RESPONSE_INVALID'
+E       AssertionError: assert 'PHASE_BRIDGE_NOT_IMPLEMENTED' == 'PHASE_RESPONSE_INVALID'
+E         
+E         - PHASE_RESPONSE_INVALID
+E         + PHASE_BRIDGE_NOT_IMPLEMENTED
+
+tests\contracts\test_phase_bridge.py:125: AssertionError
+_ test_candidate_cannot_rebind_to_other_request_contract_or_target[attempt_id-old-attempt] _
+
+prepared = (WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-168/test_candidate_cannot_rebind_t0/task/attemp...0, 'output_tokens': 2}, source='reported', mode='request_total', cumulative_scope=None),), exit_code=0, finished=True))
+field = 'attempt_id', value = 'old-attempt'
+
+    @pytest.mark.parametrize('field,value',[('attempt_id','old-attempt'),('contract_sha256','0'*64),
+                                          ('request_id','old-request'),('deliverable_id','other')])
+    def test_candidate_cannot_rebind_to_other_request_contract_or_target(prepared,field,value):
+        response={**prepared[4],field:value}
+        events,_,_=run(prepared,response=response)
+>       assert error(events)=='PHASE_RESPONSE_BINDING_MISMATCH'
+E       AssertionError: assert 'PHASE_BRIDGE_NOT_IMPLEMENTED' == 'PHASE_RESPON...DING_MISMATCH'
+E         
+E         - PHASE_RESPONSE_BINDING_MISMATCH
+E         + PHASE_BRIDGE_NOT_IMPLEMENTED
+
+tests\contracts\test_phase_bridge.py:133: AssertionError
+_ test_candidate_cannot_rebind_to_other_request_contract_or_target[contract_sha256-0000000000000000000000000000000000000000000000000000000000000000] _
+
+prepared = (WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-168/test_candidate_cannot_rebind_t1/task/attemp...0, 'output_tokens': 2}, source='reported', mode='request_total', cumulative_scope=None),), exit_code=0, finished=True))
+field = 'contract_sha256'
+value = '0000000000000000000000000000000000000000000000000000000000000000'
+
+    @pytest.mark.parametrize('field,value',[('attempt_id','old-attempt'),('contract_sha256','0'*64),
+                                          ('request_id','old-request'),('deliverable_id','other')])
+    def test_candidate_cannot_rebind_to_other_request_contract_or_target(prepared,field,value):
+        response={**prepared[4],field:value}
+        events,_,_=run(prepared,response=response)
+>       assert error(events)=='PHASE_RESPONSE_BINDING_MISMATCH'
+E       AssertionError: assert 'PHASE_BRIDGE_NOT_IMPLEMENTED' == 'PHASE_RESPON...DING_MISMATCH'
+E         
+E         - PHASE_RESPONSE_BINDING_MISMATCH
+E         + PHASE_BRIDGE_NOT_IMPLEMENTED
+
+tests\contracts\test_phase_bridge.py:133: AssertionError
+_ test_candidate_cannot_rebind_to_other_request_contract_or_target[request_id-old-request] _
+
+prepared = (WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-168/test_candidate_cannot_rebind_t2/task/attemp...0, 'output_tokens': 2}, source='reported', mode='request_total', cumulative_scope=None),), exit_code=0, finished=True))
+field = 'request_id', value = 'old-request'
+
+    @pytest.mark.parametrize('field,value',[('attempt_id','old-attempt'),('contract_sha256','0'*64),
+                                          ('request_id','old-request'),('deliverable_id','other')])
+    def test_candidate_cannot_rebind_to_other_request_contract_or_target(prepared,field,value):
+        response={**prepared[4],field:value}
+        events,_,_=run(prepared,response=response)
+>       assert error(events)=='PHASE_RESPONSE_BINDING_MISMATCH'
+E       AssertionError: assert 'PHASE_BRIDGE_NOT_IMPLEMENTED' == 'PHASE_RESPON...DING_MISMATCH'
+E         
+E         - PHASE_RESPONSE_BINDING_MISMATCH
+E         + PHASE_BRIDGE_NOT_IMPLEMENTED
+
+tests\contracts\test_phase_bridge.py:133: AssertionError
+_ test_candidate_cannot_rebind_to_other_request_contract_or_target[deliverable_id-other] _
+
+prepared = (WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-168/test_candidate_cannot_rebind_t3/task/attemp...0, 'output_tokens': 2}, source='reported', mode='request_total', cumulative_scope=None),), exit_code=0, finished=True))
+field = 'deliverable_id', value = 'other'
+
+    @pytest.mark.parametrize('field,value',[('attempt_id','old-attempt'),('contract_sha256','0'*64),
+                                          ('request_id','old-request'),('deliverable_id','other')])
+    def test_candidate_cannot_rebind_to_other_request_contract_or_target(prepared,field,value):
+        response={**prepared[4],field:value}
+        events,_,_=run(prepared,response=response)
+>       assert error(events)=='PHASE_RESPONSE_BINDING_MISMATCH'
+E       AssertionError: assert 'PHASE_BRIDGE_NOT_IMPLEMENTED' == 'PHASE_RESPON...DING_MISMATCH'
+E         
+E         - PHASE_RESPONSE_BINDING_MISMATCH
+E         + PHASE_BRIDGE_NOT_IMPLEMENTED
+
+tests\contracts\test_phase_bridge.py:133: AssertionError
+__________ test_model_supplied_pass_or_extra_attributes_are_rejected __________
+
+prepared = (WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-168/test_model_supplied_pass_or_ex0/task/attemp...0, 'output_tokens': 2}, source='reported', mode='request_total', cumulative_scope=None),), exit_code=0, finished=True))
+
+    def test_model_supplied_pass_or_extra_attributes_are_rejected(prepared):
+        events,_,_=run(prepared,response={**prepared[4],'decision':'PASS'})
+>       assert error(events)=='PHASE_RESPONSE_INVALID'
+E       AssertionError: assert 'PHASE_BRIDGE_NOT_IMPLEMENTED' == 'PHASE_RESPONSE_INVALID'
+E         
+E         - PHASE_RESPONSE_INVALID
+E         + PHASE_BRIDGE_NOT_IMPLEMENTED
+
+tests\contracts\test_phase_bridge.py:138: AssertionError
+_____________ test_claimed_candidate_hash_must_equal_actual_bytes _____________
+
+prepared = (WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-168/test_claimed_candidate_hash_mu0/task/attemp...0, 'output_tokens': 2}, source='reported', mode='request_total', cumulative_scope=None),), exit_code=0, finished=True))
+
+    def test_claimed_candidate_hash_must_equal_actual_bytes(prepared):
+        events,_,_=run(prepared,response={**prepared[4],'byte_sha256':'0'*64})
+>       assert error(events)=='CANDIDATE_HASH_MISMATCH'
+E       AssertionError: assert 'PHASE_BRIDGE_NOT_IMPLEMENTED' == 'CANDIDATE_HASH_MISMATCH'
+E         
+E         - CANDIDATE_HASH_MISMATCH
+E         + PHASE_BRIDGE_NOT_IMPLEMENTED
+
+tests\contracts\test_phase_bridge.py:143: AssertionError
+_____________ test_file_candidate_uses_independent_captured_bytes _____________
+
+prepared = (WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-168/test_file_candidate_uses_indep0/task/attemp...0, 'output_tokens': 2}, source='reported', mode='request_total', cumulative_scope=None),), exit_code=0, finished=True))
+
+    def test_file_candidate_uses_independent_captured_bytes(prepared):
+        response=dict(prepared[4]); response.pop('content')
+        data='�ܿ�ʵ�ʲ���'.encode()
+        response.update(artifact_ref='b/result.txt',byte_sha256=sha(data))
+        capture=replace(prepared[-1],final_text=json.dumps(response),actual_artifacts={'b/result.txt':data})
+        events,_,_=run(prepared,capture=capture)
+>       assert next(e.payload['text'] for e in events if e.kind=='artifact.candidate')==data.decode()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       StopIteration
+
+tests\contracts\test_phase_bridge.py:152: StopIteration
+________ test_file_candidate_cannot_claim_other_bytes_or_missing_file _________
+
+prepared = (WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-168/test_file_candidate_cannot_cla0/task/attemp...0, 'output_tokens': 2}, source='reported', mode='request_total', cumulative_scope=None),), exit_code=0, finished=True))
+
+    def test_file_candidate_cannot_claim_other_bytes_or_missing_file(prepared):
+        response=dict(prepared[4]); response.pop('content')
+        response.update(artifact_ref='b/result.txt',byte_sha256=sha(b'claimed'))
+        capture=replace(prepared[-1],final_text=json.dumps(response),actual_artifacts={'b/result.txt':b'actual'})
+        events,_,_=run(prepared,capture=capture)
+>       assert error(events)=='CANDIDATE_HASH_MISMATCH'
+E       AssertionError: assert 'PHASE_BRIDGE_NOT_IMPLEMENTED' == 'CANDIDATE_HASH_MISMATCH'
+E         
+E         - CANDIDATE_HASH_MISMATCH
+E         + PHASE_BRIDGE_NOT_IMPLEMENTED
+
+tests\contracts\test_phase_bridge.py:160: AssertionError
+________ test_no_final_text_never_uses_delta_or_completion_as_content _________
+
+prepared = (WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-168/test_no_final_text_never_uses_0/task/attemp...0, 'output_tokens': 2}, source='reported', mode='request_total', cumulative_scope=None),), exit_code=0, finished=True))
+
+    def test_no_final_text_never_uses_delta_or_completion_as_content(prepared):
+        events,_,_=run(prepared,capture=replace(prepared[-1],final_text=None))
+>       assert error(events)=='FINAL_TEXT_REQUIRED'
+E       AssertionError: assert 'PHASE_BRIDGE_NOT_IMPLEMENTED' == 'FINAL_TEXT_REQUIRED'
+E         
+E         - FINAL_TEXT_REQUIRED
+E         + PHASE_BRIDGE_NOT_IMPLEMENTED
+
+tests\contracts\test_phase_bridge.py:165: AssertionError
+_________ test_full_private_content_is_preserved_without_public_delta _________
+
+prepared = (WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-168/test_full_private_content_is_p0/task/attemp...0, 'output_tokens': 2}, source='reported', mode='request_total', cumulative_scope=None),), exit_code=0, finished=True))
+
+    def test_full_private_content_is_preserved_without_public_delta(prepared):
+        content='�û����������� sk-fixture-private-token ��������'
+        events,_,_=run(prepared,response={**prepared[4],'content':content})
+>       assert next(e.payload['text'] for e in events if e.kind=='artifact.candidate')==content
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       StopIteration
+
+tests\contracts\test_phase_bridge.py:171: StopIteration
+___________ test_unknown_identity_is_rejected_before_runtime_start ____________
+
+prepared = (WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-168/test_unknown_identity_is_rejec0/task/attemp...0, 'output_tokens': 2}, source='reported', mode='request_total', cumulative_scope=None),), exit_code=0, finished=True))
+
+    def test_unknown_identity_is_rejected_before_runtime_start(prepared):
+        events,runtime,bridge=run(prepared,selected=provider(status='unknown'))
+>       assert error(events)=='PROVIDER_IDENTITY_UNVERIFIED'
+E       AssertionError: assert 'PHASE_BRIDGE_NOT_IMPLEMENTED' == 'PROVIDER_IDENTITY_UNVERIFIED'
+E         
+E         - PROVIDER_IDENTITY_UNVERIFIED
+E         + PHASE_BRIDGE_NOT_IMPLEMENTED
+
+tests\contracts\test_phase_bridge.py:177: AssertionError
+___________ test_scope_boolean_cannot_replace_verifiable_capability ___________
+
+prepared = (WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-168/test_scope_boolean_cannot_repl0/task/attemp...0, 'output_tokens': 2}, source='reported', mode='request_total', cumulative_scope=None),), exit_code=0, finished=True))
+
+    def test_scope_boolean_cannot_replace_verifiable_capability(prepared):
+        runtime=MemoryRuntime([]); runtime.scope_capability=None; runtime.scope_enforced=True
+        events,runtime,bridge=run(prepared,runtime=runtime)
+>       assert error(events)=='SCOPE_CAPABILITY_UNVERIFIED'
+E       AssertionError: assert 'PHASE_BRIDGE_NOT_IMPLEMENTED' == 'SCOPE_CAPABILITY_UNVERIFIED'
+E         
+E         - SCOPE_CAPABILITY_UNVERIFIED
+E         + PHASE_BRIDGE_NOT_IMPLEMENTED
+
+tests\contracts\test_phase_bridge.py:184: AssertionError
+____________ test_scope_verifier_returning_a_boolean_is_not_proof _____________
+
+prepared = (WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-168/test_scope_verifier_returning_0/task/attemp...0, 'output_tokens': 2}, source='reported', mode='request_total', cumulative_scope=None),), exit_code=0, finished=True))
+
+    def test_scope_verifier_returning_a_boolean_is_not_proof(prepared):
+        runtime=MemoryRuntime([])
+        runtime.scope_capability.require_verified=lambda _: True
+        events,runtime,bridge=run(prepared,runtime=runtime)
+>       assert error(events)=='SCOPE_CAPABILITY_UNVERIFIED'
+E       AssertionError: assert 'PHASE_BRIDGE_NOT_IMPLEMENTED' == 'SCOPE_CAPABILITY_UNVERIFIED'
+E         
+E         - SCOPE_CAPABILITY_UNVERIFIED
+E         + PHASE_BRIDGE_NOT_IMPLEMENTED
+
+tests\contracts\test_phase_bridge.py:192: AssertionError
+______________ test_duplicate_usage_receipts_do_not_double_count ______________
+
+prepared = (WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-168/test_duplicate_usage_receipts_0/task/attemp...0, 'output_tokens': 2}, source='reported', mode='request_total', cumulative_scope=None),), exit_code=0, finished=True))
+
+    def test_duplicate_usage_receipts_do_not_double_count(prepared):
+        receipt=prepared[-1].usage_receipts[0]
+        events,_,_=run(prepared,capture=replace(prepared[-1],usage_receipts=(receipt,receipt,replace(receipt,event_id='new-receipt'))))
+        usages=[e for e in events if e.kind=='provider.usage']
+>       assert len(usages)==1 and usages[0].payload['raw']['input_tokens']==10
+E       assert (0 == 1)
+E        +  where 0 = len([])
+
+tests\contracts\test_phase_bridge.py:200: AssertionError
+_____________ test_conflicting_same_sequence_usage_never_finishes _____________
+
+prepared = (WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-168/test_conflicting_same_sequence0/task/attemp...0, 'output_tokens': 2}, source='reported', mode='request_total', cumulative_scope=None),), exit_code=0, finished=True))
+
+    def test_conflicting_same_sequence_usage_never_finishes(prepared):
+        receipt=prepared[-1].usage_receipts[0]
+        events,_,_=run(prepared,capture=replace(prepared[-1],usage_receipts=(receipt,replace(receipt,event_id='conflict',raw={'input_tokens':20,'output_tokens':2}))))
+>       assert error(events)=='USAGE_RECEIPT_CONFLICT'
+E       AssertionError: assert 'PHASE_BRIDGE_NOT_IMPLEMENTED' == 'USAGE_RECEIPT_CONFLICT'
+E         
+E         - USAGE_RECEIPT_CONFLICT
+E         + PHASE_BRIDGE_NOT_IMPLEMENTED
+
+tests\contracts\test_phase_bridge.py:206: AssertionError
+_________ test_capture_observed_identity_must_match_pinned_connection _________
+
+prepared = (WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-168/test_capture_observed_identity0/task/attemp...0, 'output_tokens': 2}, source='reported', mode='request_total', cumulative_scope=None),), exit_code=0, finished=True))
+
+    def test_capture_observed_identity_must_match_pinned_connection(prepared):
+        altered=provider().model_copy(update={'connection_version':'changed'})
+        events,_,_=run(prepared,capture=replace(prepared[-1],observed_provider=altered))
+>       assert error(events)=='CAPTURE_IDENTITY_MISMATCH'
+E       AssertionError: assert 'PHASE_BRIDGE_NOT_IMPLEMENTED' == 'CAPTURE_IDENTITY_MISMATCH'
+E         
+E         - CAPTURE_IDENTITY_MISMATCH
+E         + PHASE_BRIDGE_NOT_IMPLEMENTED
+
+tests\contracts\test_phase_bridge.py:212: AssertionError
+___ test_review_is_bound_to_actual_revision_sources_and_mechanical_evidence ___
+
+prepared = (WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-168/test_review_is_bound_to_actual0/task/attemp...0, 'output_tokens': 2}, source='reported', mode='request_total', cumulative_scope=None),), exit_code=0, finished=True))
+
+    def test_review_is_bound_to_actual_revision_sources_and_mechanical_evidence(prepared):
+        events,_,_=run(review_prepared(prepared))
+>       review=next(e.payload for e in events if e.kind=='review.decision')
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       StopIteration
+
+tests\contracts\test_phase_bridge.py:238: StopIteration
+_ test_review_cannot_rebind_or_self_score_mechanical_checks[revision_id-old-revision] _
+
+prepared = (WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-168/test_review_cannot_rebind_or_s0/task/attemp...0, 'output_tokens': 2}, source='reported', mode='request_total', cumulative_scope=None),), exit_code=0, finished=True))
+field = 'revision_id', value = 'old-revision'
+
+    @pytest.mark.parametrize('field,value',[('revision_id','old-revision'),('byte_sha256','0'*64),
+                                          ('evidence_refs',[]),('source_refs',['other']),('criterion_results',{'C':True})])
+    def test_review_cannot_rebind_or_self_score_mechanical_checks(prepared,field,value):
+        current=review_prepared(prepared)
+        events,_,_=run(current,response={**current[4],field:value})
+>       assert error(events)=='REVIEW_BINDING_MISMATCH'
+E       AssertionError: assert 'PHASE_BRIDGE_NOT_IMPLEMENTED' == 'REVIEW_BINDING_MISMATCH'
+E         
+E         - REVIEW_BINDING_MISMATCH
+E         + PHASE_BRIDGE_NOT_IMPLEMENTED
+
+tests\contracts\test_phase_bridge.py:249: AssertionError
+_ test_review_cannot_rebind_or_self_score_mechanical_checks[byte_sha256-0000000000000000000000000000000000000000000000000000000000000000] _
+
+prepared = (WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-168/test_review_cannot_rebind_or_s1/task/attemp...0, 'output_tokens': 2}, source='reported', mode='request_total', cumulative_scope=None),), exit_code=0, finished=True))
+field = 'byte_sha256'
+value = '0000000000000000000000000000000000000000000000000000000000000000'
+
+    @pytest.mark.parametrize('field,value',[('revision_id','old-revision'),('byte_sha256','0'*64),
+                                          ('evidence_refs',[]),('source_refs',['other']),('criterion_results',{'C':True})])
+    def test_review_cannot_rebind_or_self_score_mechanical_checks(prepared,field,value):
+        current=review_prepared(prepared)
+        events,_,_=run(current,response={**current[4],field:value})
+>       assert error(events)=='REVIEW_BINDING_MISMATCH'
+E       AssertionError: assert 'PHASE_BRIDGE_NOT_IMPLEMENTED' == 'REVIEW_BINDING_MISMATCH'
+E         
+E         - REVIEW_BINDING_MISMATCH
+E         + PHASE_BRIDGE_NOT_IMPLEMENTED
+
+tests\contracts\test_phase_bridge.py:249: AssertionError
+_ test_review_cannot_rebind_or_self_score_mechanical_checks[evidence_refs-value2] _
+
+prepared = (WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-168/test_review_cannot_rebind_or_s2/task/attemp...0, 'output_tokens': 2}, source='reported', mode='request_total', cumulative_scope=None),), exit_code=0, finished=True))
+field = 'evidence_refs', value = []
+
+    @pytest.mark.parametrize('field,value',[('revision_id','old-revision'),('byte_sha256','0'*64),
+                                          ('evidence_refs',[]),('source_refs',['other']),('criterion_results',{'C':True})])
+    def test_review_cannot_rebind_or_self_score_mechanical_checks(prepared,field,value):
+        current=review_prepared(prepared)
+        events,_,_=run(current,response={**current[4],field:value})
+>       assert error(events)=='REVIEW_BINDING_MISMATCH'
+E       AssertionError: assert 'PHASE_BRIDGE_NOT_IMPLEMENTED' == 'REVIEW_BINDING_MISMATCH'
+E         
+E         - REVIEW_BINDING_MISMATCH
+E         + PHASE_BRIDGE_NOT_IMPLEMENTED
+
+tests\contracts\test_phase_bridge.py:249: AssertionError
+_ test_review_cannot_rebind_or_self_score_mechanical_checks[source_refs-value3] _
+
+prepared = (WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-168/test_review_cannot_rebind_or_s3/task/attemp...0, 'output_tokens': 2}, source='reported', mode='request_total', cumulative_scope=None),), exit_code=0, finished=True))
+field = 'source_refs', value = ['other']
+
+    @pytest.mark.parametrize('field,value',[('revision_id','old-revision'),('byte_sha256','0'*64),
+                                          ('evidence_refs',[]),('source_refs',['other']),('criterion_results',{'C':True})])
+    def test_review_cannot_rebind_or_self_score_mechanical_checks(prepared,field,value):
+        current=review_prepared(prepared)
+        events,_,_=run(current,response={**current[4],field:value})
+>       assert error(events)=='REVIEW_BINDING_MISMATCH'
+E       AssertionError: assert 'PHASE_BRIDGE_NOT_IMPLEMENTED' == 'REVIEW_BINDING_MISMATCH'
+E         
+E         - REVIEW_BINDING_MISMATCH
+E         + PHASE_BRIDGE_NOT_IMPLEMENTED
+
+tests\contracts\test_phase_bridge.py:249: AssertionError
+_ test_review_cannot_rebind_or_self_score_mechanical_checks[criterion_results-value4] _
+
+prepared = (WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-168/test_review_cannot_rebind_or_s4/task/attemp...0, 'output_tokens': 2}, source='reported', mode='request_total', cumulative_scope=None),), exit_code=0, finished=True))
+field = 'criterion_results', value = {'C': True}
+
+    @pytest.mark.parametrize('field,value',[('revision_id','old-revision'),('byte_sha256','0'*64),
+                                          ('evidence_refs',[]),('source_refs',['other']),('criterion_results',{'C':True})])
+    def test_review_cannot_rebind_or_self_score_mechanical_checks(prepared,field,value):
+        current=review_prepared(prepared)
+        events,_,_=run(current,response={**current[4],field:value})
+>       assert error(events)=='REVIEW_BINDING_MISMATCH'
+E       AssertionError: assert 'PHASE_BRIDGE_NOT_IMPLEMENTED' == 'REVIEW_BINDING_MISMATCH'
+E         
+E         - REVIEW_BINDING_MISMATCH
+E         + PHASE_BRIDGE_NOT_IMPLEMENTED
+
+tests\contracts\test_phase_bridge.py:249: AssertionError
+_______________ test_review_changed_evidence_bytes_are_rejected _______________
+
+prepared = (WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-168/test_review_changed_evidence_b0/task/attemp...0, 'output_tokens': 2}, source='reported', mode='request_total', cumulative_scope=None),), exit_code=0, finished=True))
+
+    def test_review_changed_evidence_bytes_are_rejected(prepared):
+        current=review_prepared(prepared)
+        (current[0]/'evidence'/'proof.json').write_bytes(b'{}')
+        events,_,_=run(current)
+>       assert error(events)=='REVIEW_EVIDENCE_INVALID'
+E       AssertionError: assert 'PHASE_BRIDGE_NOT_IMPLEMENTED' == 'REVIEW_EVIDENCE_INVALID'
+E         
+E         - REVIEW_EVIDENCE_INVALID
+E         + PHASE_BRIDGE_NOT_IMPLEMENTED
+
+tests\contracts\test_phase_bridge.py:256: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/contracts/test_phase_bridge.py::test_actual_final_content_becomes_candidate_and_usage_is_workflow_compatible
+FAILED tests/contracts/test_phase_bridge.py::test_candidate_missing_required_binding_is_rejected[task_id]
+FAILED tests/contracts/test_phase_bridge.py::test_candidate_missing_required_binding_is_rejected[attempt_id]
+FAILED tests/contracts/test_phase_bridge.py::test_candidate_missing_required_binding_is_rejected[contract_version]
+FAILED tests/contracts/test_phase_bridge.py::test_candidate_missing_required_binding_is_rejected[contract_sha256]
+FAILED tests/contracts/test_phase_bridge.py::test_candidate_missing_required_binding_is_rejected[request_id]
+FAILED tests/contracts/test_phase_bridge.py::test_candidate_missing_required_binding_is_rejected[deliverable_id]
+FAILED tests/contracts/test_phase_bridge.py::test_candidate_missing_required_binding_is_rejected[content]
+FAILED tests/contracts/test_phase_bridge.py::test_candidate_cannot_rebind_to_other_request_contract_or_target[attempt_id-old-attempt]
+FAILED tests/contracts/test_phase_bridge.py::test_candidate_cannot_rebind_to_other_request_contract_or_target[contract_sha256-0000000000000000000000000000000000000000000000000000000000000000]
+FAILED tests/contracts/test_phase_bridge.py::test_candidate_cannot_rebind_to_other_request_contract_or_target[request_id-old-request]
+FAILED tests/contracts/test_phase_bridge.py::test_candidate_cannot_rebind_to_other_request_contract_or_target[deliverable_id-other]
+FAILED tests/contracts/test_phase_bridge.py::test_model_supplied_pass_or_extra_attributes_are_rejected
+FAILED tests/contracts/test_phase_bridge.py::test_claimed_candidate_hash_must_equal_actual_bytes
+FAILED tests/contracts/test_phase_bridge.py::test_file_candidate_uses_independent_captured_bytes
+FAILED tests/contracts/test_phase_bridge.py::test_file_candidate_cannot_claim_other_bytes_or_missing_file
+FAILED tests/contracts/test_phase_bridge.py::test_no_final_text_never_uses_delta_or_completion_as_content
+FAILED tests/contracts/test_phase_bridge.py::test_full_private_content_is_preserved_without_public_delta
+FAILED tests/contracts/test_phase_bridge.py::test_unknown_identity_is_rejected_before_runtime_start
+FAILED tests/contracts/test_phase_bridge.py::test_scope_boolean_cannot_replace_verifiable_capability
+FAILED tests/contracts/test_phase_bridge.py::test_scope_verifier_returning_a_boolean_is_not_proof
+FAILED tests/contracts/test_phase_bridge.py::test_duplicate_usage_receipts_do_not_double_count
+FAILED tests/contracts/test_phase_bridge.py::test_conflicting_same_sequence_usage_never_finishes
+FAILED tests/contracts/test_phase_bridge.py::test_capture_observed_identity_must_match_pinned_connection
+FAILED tests/contracts/test_phase_bridge.py::test_review_is_bound_to_actual_revision_sources_and_mechanical_evidence
+FAILED tests/contracts/test_phase_bridge.py::test_review_cannot_rebind_or_self_score_mechanical_checks[revision_id-old-revision]
+FAILED tests/contracts/test_phase_bridge.py::test_review_cannot_rebind_or_self_score_mechanical_checks[byte_sha256-0000000000000000000000000000000000000000000000000000000000000000]
+FAILED tests/contracts/test_phase_bridge.py::test_review_cannot_rebind_or_self_score_mechanical_checks[evidence_refs-value2]
+FAILED tests/contracts/test_phase_bridge.py::test_review_cannot_rebind_or_self_score_mechanical_checks[source_refs-value3]
+FAILED tests/contracts/test_phase_bridge.py::test_review_cannot_rebind_or_self_score_mechanical_checks[criterion_results-value4]
+FAILED tests/contracts/test_phase_bridge.py::test_review_changed_evidence_bytes_are_rejected
+31 failed in 2.26s
+exit_code=1

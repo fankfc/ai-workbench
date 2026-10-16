@@ -1,0 +1,136 @@
+FFFFFF                                                                   [100%]
+================================== FAILURES ===================================
+_____ test_each_request_blocks_claude_before_original_context_is_written ______
+
+client = <starlette.testclient.TestClient object at 0x0000028D334E46E0>
+
+    def test_each_request_blocks_claude_before_original_context_is_written(client):
+        path, manager, workspace, contract = prepare(client)
+        with closing(Database(path).connect()) as connection:
+            connection.execute("""INSERT INTO provider_profiles(id,adapter,model_id,family,connection_id,
+                identity_status,connection_version) VALUES('fake-claude','fake','fixture-claude','claude',
+                'fake-claude','unknown','test-only')""")
+        b = FakeProvider(executions=CASES["pass"]["executions"])
+        a = FakeProvider(reviews=CASES["pass"]["reviews"])
+        workflow = Workflow(path, manager, b, validator, a, check_budget,
+            estimated_tokens={"B.execution": 64, "A.review": 64},
+            profile_ids={"A": "fake-gpt", "B": "fake-claude"})
+        result = asyncio.run(workflow.run(contract))
+>       assert result.state == "BLOCKED" and "CLAUDE_REQUEST_CONTEXT_GATE_MISSING" in result.reason_codes
+E       AssertionError: assert ('BLOCKED' == 'BLOCKED'
+E         
+E           BLOCKED and 'CLAUDE_REQUEST_CONTEXT_GATE_MISSING' in ('UNKNOWN_USAGE',))
+E        +  where ('UNKNOWN_USAGE',) = WorkflowResult(state='BLOCKED', current_revision_id='candidate-88fffdd0a2874d109a1f4b284692c207', review_check_id=None...equest_blocks_claud0\\workspaces\\tasks\\8c32940e10bd498a97bd1a8534bdd0bb\\592a59697c854ad599f693a373e071f1\\evidence').reason_codes
+
+tests\integration\test_agent_workflow.py:434: AssertionError
+_ test_accepted_remote_request_is_durable_before_stream_disconnect_and_never_retried _
+
+client = <starlette.testclient.TestClient object at 0x0000028D334F47D0>
+
+    def test_accepted_remote_request_is_durable_before_stream_disconnect_and_never_retried(client):
+        path, manager, _, contract = prepare(client)
+        b, a = AcceptedStreamFailure(path), FakeProvider()
+        workflow = Workflow(path, manager, b, validator, a, check_budget,
+            estimated_tokens={"B.execution": 64, "A.review": 64})
+        result = asyncio.run(workflow.run(contract))
+>       assert result.state == "BLOCKED" and "UNKNOWN_REMOTE" in result.reason_codes
+E       AssertionError: assert ('BLOCKED' == 'BLOCKED'
+E         
+E           BLOCKED and 'UNKNOWN_REMOTE' in ('CONNECTION_RETRY_LIMIT',))
+E        +  where ('CONNECTION_RETRY_LIMIT',) = WorkflowResult(state='BLOCKED', current_revision_id=None, review_check_id=None, quality_repairs=0, connection_retries=...ed_remote_request_i0\\workspaces\\tasks\\8cb32dac73f642abbdd7bb2964c443a8\\37366b1f669f4fc0978b9b1916601657\\evidence').reason_codes
+
+tests\integration\test_agent_workflow.py:480: AssertionError
+_ test_terminal_state_during_stream_failure_preserves_terminal_and_blocks_all_retries[False-FAILED] _
+
+client = <starlette.testclient.TestClient object at 0x0000028D334F6AD0>
+terminal_state = 'FAILED', accepted = False
+
+    @pytest.mark.parametrize("terminal_state", ["FAILED", "PUBLISHED"])
+    @pytest.mark.parametrize("accepted", [False, True])
+    def test_terminal_state_during_stream_failure_preserves_terminal_and_blocks_all_retries(client, terminal_state, accepted):
+        path, manager, _, contract = prepare(client)
+        b, a = AcceptedStreamFailure(path, accepted=accepted, terminal_state=terminal_state), FakeProvider()
+        workflow = Workflow(path, manager, b, validator, a, check_budget,
+            estimated_tokens={"B.execution": 64, "A.review": 64})
+        result = asyncio.run(workflow.run(contract))
+>       assert result.state == terminal_state and "TERMINAL_STATE_FENCE" in result.reason_codes
+E       AssertionError: assert ('FAILED' == 'FAILED'
+E         
+E           FAILED and 'TERMINAL_STATE_FENCE' in ('CONNECTION_RETRY_LIMIT',))
+E        +  where ('CONNECTION_RETRY_LIMIT',) = WorkflowResult(state='FAILED', current_revision_id=None, review_check_id=None, quality_repairs=0, connection_retries=3...al_state_during_str0\\workspaces\\tasks\\2ca7793151114bb19a15373a3337b7ab\\96a9a75682cf4982bd3f53bab8a9c4bc\\evidence').reason_codes
+
+tests\integration\test_agent_workflow.py:503: AssertionError
+_ test_terminal_state_during_stream_failure_preserves_terminal_and_blocks_all_retries[False-PUBLISHED] _
+
+client = <starlette.testclient.TestClient object at 0x0000028D3354C180>
+terminal_state = 'PUBLISHED', accepted = False
+
+    @pytest.mark.parametrize("terminal_state", ["FAILED", "PUBLISHED"])
+    @pytest.mark.parametrize("accepted", [False, True])
+    def test_terminal_state_during_stream_failure_preserves_terminal_and_blocks_all_retries(client, terminal_state, accepted):
+        path, manager, _, contract = prepare(client)
+        b, a = AcceptedStreamFailure(path, accepted=accepted, terminal_state=terminal_state), FakeProvider()
+        workflow = Workflow(path, manager, b, validator, a, check_budget,
+            estimated_tokens={"B.execution": 64, "A.review": 64})
+        result = asyncio.run(workflow.run(contract))
+>       assert result.state == terminal_state and "TERMINAL_STATE_FENCE" in result.reason_codes
+E       AssertionError: assert ('PUBLISHED' == 'PUBLISHED'
+E         
+E           PUBLISHED and 'TERMINAL_STATE_FENCE' in ('CONNECTION_RETRY_LIMIT',))
+E        +  where ('CONNECTION_RETRY_LIMIT',) = WorkflowResult(state='PUBLISHED', current_revision_id=None, review_check_id=None, quality_repairs=0, connection_retrie...al_state_during_str1\\workspaces\\tasks\\5716623dcf124e8da048cfc4c99a1598\\fc349c6fd158494caadcd06ecfd1ac1a\\evidence').reason_codes
+
+tests\integration\test_agent_workflow.py:503: AssertionError
+_ test_terminal_state_during_stream_failure_preserves_terminal_and_blocks_all_retries[True-FAILED] _
+
+client = <starlette.testclient.TestClient object at 0x0000028D3354E8B0>
+terminal_state = 'FAILED', accepted = True
+
+    @pytest.mark.parametrize("terminal_state", ["FAILED", "PUBLISHED"])
+    @pytest.mark.parametrize("accepted", [False, True])
+    def test_terminal_state_during_stream_failure_preserves_terminal_and_blocks_all_retries(client, terminal_state, accepted):
+        path, manager, _, contract = prepare(client)
+        b, a = AcceptedStreamFailure(path, accepted=accepted, terminal_state=terminal_state), FakeProvider()
+        workflow = Workflow(path, manager, b, validator, a, check_budget,
+            estimated_tokens={"B.execution": 64, "A.review": 64})
+        result = asyncio.run(workflow.run(contract))
+>       assert result.state == terminal_state and "TERMINAL_STATE_FENCE" in result.reason_codes
+E       AssertionError: assert ('FAILED' == 'FAILED'
+E         
+E           FAILED and 'TERMINAL_STATE_FENCE' in ('CONNECTION_RETRY_LIMIT',))
+E        +  where ('CONNECTION_RETRY_LIMIT',) = WorkflowResult(state='FAILED', current_revision_id=None, review_check_id=None, quality_repairs=0, connection_retries=3...al_state_during_str2\\workspaces\\tasks\\aaeecdd8af6444d395fc37c26aa1d045\\8e246eb5c4ce445698d4bd702ee3d3db\\evidence').reason_codes
+
+tests\integration\test_agent_workflow.py:503: AssertionError
+_ test_terminal_state_during_stream_failure_preserves_terminal_and_blocks_all_retries[True-PUBLISHED] _
+
+client = <starlette.testclient.TestClient object at 0x0000028D337D7890>
+terminal_state = 'PUBLISHED', accepted = True
+
+    @pytest.mark.parametrize("terminal_state", ["FAILED", "PUBLISHED"])
+    @pytest.mark.parametrize("accepted", [False, True])
+    def test_terminal_state_during_stream_failure_preserves_terminal_and_blocks_all_retries(client, terminal_state, accepted):
+        path, manager, _, contract = prepare(client)
+        b, a = AcceptedStreamFailure(path, accepted=accepted, terminal_state=terminal_state), FakeProvider()
+        workflow = Workflow(path, manager, b, validator, a, check_budget,
+            estimated_tokens={"B.execution": 64, "A.review": 64})
+        result = asyncio.run(workflow.run(contract))
+>       assert result.state == terminal_state and "TERMINAL_STATE_FENCE" in result.reason_codes
+E       AssertionError: assert ('PUBLISHED' == 'PUBLISHED'
+E         
+E           PUBLISHED and 'TERMINAL_STATE_FENCE' in ('CONNECTION_RETRY_LIMIT',))
+E        +  where ('CONNECTION_RETRY_LIMIT',) = WorkflowResult(state='PUBLISHED', current_revision_id=None, review_check_id=None, quality_repairs=0, connection_retrie...al_state_during_str3\\workspaces\\tasks\\94f717d33ca3416eb3b6026990713bba\\9cfd1a1e678f4805b43bac0fd8b70a1d\\evidence').reason_codes
+
+tests\integration\test_agent_workflow.py:503: AssertionError
+============================== warnings summary ===============================
+tests/integration/test_agent_workflow.py::test_each_request_blocks_claude_before_original_context_is_written
+  C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/integration/test_agent_workflow.py::test_each_request_blocks_claude_before_original_context_is_written
+FAILED tests/integration/test_agent_workflow.py::test_accepted_remote_request_is_durable_before_stream_disconnect_and_never_retried
+FAILED tests/integration/test_agent_workflow.py::test_terminal_state_during_stream_failure_preserves_terminal_and_blocks_all_retries[False-FAILED]
+FAILED tests/integration/test_agent_workflow.py::test_terminal_state_during_stream_failure_preserves_terminal_and_blocks_all_retries[False-PUBLISHED]
+FAILED tests/integration/test_agent_workflow.py::test_terminal_state_during_stream_failure_preserves_terminal_and_blocks_all_retries[True-FAILED]
+FAILED tests/integration/test_agent_workflow.py::test_terminal_state_during_stream_failure_preserves_terminal_and_blocks_all_retries[True-PUBLISHED]
+6 failed, 36 deselected, 1 warning in 4.98s

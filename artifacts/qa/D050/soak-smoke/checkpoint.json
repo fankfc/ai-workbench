@@ -1,0 +1,17 @@
+{
+  "sample": 3,
+  "time": "2026-10-14T14:52:26.326862+00:00",
+  "service_pid": 24784,
+  "elapsed_seconds": 7.021123200014699,
+  "end_to_end_ms": 3083.1259000115097,
+  "failure": null,
+  "successes": 3,
+  "failures": 0,
+  "provider_boundary": "fake",
+  "service_resources": {
+    "pid": 24784,
+    "rss_bytes": 67702784,
+    "handles": 195,
+    "threads": 9
+  }
+}

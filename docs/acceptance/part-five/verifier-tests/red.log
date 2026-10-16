@@ -1,0 +1,328 @@
+FEEEEEEEEEEEEEEEEEEEEEEEEEE                                              [100%]
+=================================== ERRORS ====================================
+___ ERROR at setup of test_reviewed_map_covers_exactly_ten_manual_sections ____
+
+    @pytest.fixture
+    def verifier():
+>       assert SCRIPT.is_file(), 'Stage-five has no current-run verification entry'
+E       AssertionError: Stage-five has no current-run verification entry
+E       assert False
+E        +  where False = is_file()
+E        +    where is_file = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/scripts/phase_five_verify.py').is_file
+
+tests\acceptance\test_work_order_protocol.py:20: AssertionError
+_ ERROR at setup of test_invalid_or_invented_protocol_map_fails_closed[missing_section] _
+
+    @pytest.fixture
+    def verifier():
+>       assert SCRIPT.is_file(), 'Stage-five has no current-run verification entry'
+E       AssertionError: Stage-five has no current-run verification entry
+E       assert False
+E        +  where False = is_file()
+E        +    where is_file = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/scripts/phase_five_verify.py').is_file
+
+tests\acceptance\test_work_order_protocol.py:20: AssertionError
+_ ERROR at setup of test_invalid_or_invented_protocol_map_fails_closed[duplicate_section] _
+
+    @pytest.fixture
+    def verifier():
+>       assert SCRIPT.is_file(), 'Stage-five has no current-run verification entry'
+E       AssertionError: Stage-five has no current-run verification entry
+E       assert False
+E        +  where False = is_file()
+E        +    where is_file = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/scripts/phase_five_verify.py').is_file
+
+tests\acceptance\test_work_order_protocol.py:20: AssertionError
+_ ERROR at setup of test_invalid_or_invented_protocol_map_fails_closed[empty_tests] _
+
+    @pytest.fixture
+    def verifier():
+>       assert SCRIPT.is_file(), 'Stage-five has no current-run verification entry'
+E       AssertionError: Stage-five has no current-run verification entry
+E       assert False
+E        +  where False = is_file()
+E        +    where is_file = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/scripts/phase_five_verify.py').is_file
+
+tests\acceptance\test_work_order_protocol.py:20: AssertionError
+_ ERROR at setup of test_invalid_or_invented_protocol_map_fails_closed[duplicate_test] _
+
+    @pytest.fixture
+    def verifier():
+>       assert SCRIPT.is_file(), 'Stage-five has no current-run verification entry'
+E       AssertionError: Stage-five has no current-run verification entry
+E       assert False
+E        +  where False = is_file()
+E        +    where is_file = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/scripts/phase_five_verify.py').is_file
+
+tests\acceptance\test_work_order_protocol.py:20: AssertionError
+_ ERROR at setup of test_invalid_or_invented_protocol_map_fails_closed[invented_test] _
+
+    @pytest.fixture
+    def verifier():
+>       assert SCRIPT.is_file(), 'Stage-five has no current-run verification entry'
+E       AssertionError: Stage-five has no current-run verification entry
+E       assert False
+E        +  where False = is_file()
+E        +    where is_file = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/scripts/phase_five_verify.py').is_file
+
+tests\acceptance\test_work_order_protocol.py:20: AssertionError
+_ ERROR at setup of test_invalid_or_invented_protocol_map_fails_closed[outside_test] _
+
+    @pytest.fixture
+    def verifier():
+>       assert SCRIPT.is_file(), 'Stage-five has no current-run verification entry'
+E       AssertionError: Stage-five has no current-run verification entry
+E       assert False
+E        +  where False = is_file()
+E        +    where is_file = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/scripts/phase_five_verify.py').is_file
+
+tests\acceptance\test_work_order_protocol.py:20: AssertionError
+_ ERROR at setup of test_invalid_or_invented_protocol_map_fails_closed[invented_parameter] _
+
+    @pytest.fixture
+    def verifier():
+>       assert SCRIPT.is_file(), 'Stage-five has no current-run verification entry'
+E       AssertionError: Stage-five has no current-run verification entry
+E       assert False
+E        +  where False = is_file()
+E        +    where is_file = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/scripts/phase_five_verify.py').is_file
+
+tests\acceptance\test_work_order_protocol.py:20: AssertionError
+_ ERROR at setup of test_invalid_or_invented_protocol_map_fails_closed[unknown_field] _
+
+    @pytest.fixture
+    def verifier():
+>       assert SCRIPT.is_file(), 'Stage-five has no current-run verification entry'
+E       AssertionError: Stage-five has no current-run verification entry
+E       assert False
+E        +  where False = is_file()
+E        +    where is_file = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/scripts/phase_five_verify.py').is_file
+
+tests\acceptance\test_work_order_protocol.py:20: AssertionError
+_ ERROR at setup of test_invalid_or_invented_protocol_map_fails_closed[no_limit] _
+
+    @pytest.fixture
+    def verifier():
+>       assert SCRIPT.is_file(), 'Stage-five has no current-run verification entry'
+E       AssertionError: Stage-five has no current-run verification entry
+E       assert False
+E        +  where False = is_file()
+E        +    where is_file = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/scripts/phase_five_verify.py').is_file
+
+tests\acceptance\test_work_order_protocol.py:20: AssertionError
+_ ERROR at setup of test_invalid_or_invented_protocol_map_fails_closed[changed_spec] _
+
+    @pytest.fixture
+    def verifier():
+>       assert SCRIPT.is_file(), 'Stage-five has no current-run verification entry'
+E       AssertionError: Stage-five has no current-run verification entry
+E       assert False
+E        +  where False = is_file()
+E        +    where is_file = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/scripts/phase_five_verify.py').is_file
+
+tests\acceptance\test_work_order_protocol.py:20: AssertionError
+_____ ERROR at setup of test_valid_json_edit_requires_mapping_reapproval ______
+
+    @pytest.fixture
+    def verifier():
+>       assert SCRIPT.is_file(), 'Stage-five has no current-run verification entry'
+E       AssertionError: Stage-five has no current-run verification entry
+E       assert False
+E        +  where False = is_file()
+E        +    where is_file = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/scripts/phase_five_verify.py').is_file
+
+tests\acceptance\test_work_order_protocol.py:20: AssertionError
+_ ERROR at setup of test_protocol_coverage_never_accepts_missing_skipped_failed_or_duplicate[missing] _
+
+    @pytest.fixture
+    def verifier():
+>       assert SCRIPT.is_file(), 'Stage-five has no current-run verification entry'
+E       AssertionError: Stage-five has no current-run verification entry
+E       assert False
+E        +  where False = is_file()
+E        +    where is_file = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/scripts/phase_five_verify.py').is_file
+
+tests\acceptance\test_work_order_protocol.py:20: AssertionError
+_ ERROR at setup of test_protocol_coverage_never_accepts_missing_skipped_failed_or_duplicate[skipped] _
+
+    @pytest.fixture
+    def verifier():
+>       assert SCRIPT.is_file(), 'Stage-five has no current-run verification entry'
+E       AssertionError: Stage-five has no current-run verification entry
+E       assert False
+E        +  where False = is_file()
+E        +    where is_file = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/scripts/phase_five_verify.py').is_file
+
+tests\acceptance\test_work_order_protocol.py:20: AssertionError
+_ ERROR at setup of test_protocol_coverage_never_accepts_missing_skipped_failed_or_duplicate[failed] _
+
+    @pytest.fixture
+    def verifier():
+>       assert SCRIPT.is_file(), 'Stage-five has no current-run verification entry'
+E       AssertionError: Stage-five has no current-run verification entry
+E       assert False
+E        +  where False = is_file()
+E        +    where is_file = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/scripts/phase_five_verify.py').is_file
+
+tests\acceptance\test_work_order_protocol.py:20: AssertionError
+_ ERROR at setup of test_protocol_coverage_never_accepts_missing_skipped_failed_or_duplicate[duplicate] _
+
+    @pytest.fixture
+    def verifier():
+>       assert SCRIPT.is_file(), 'Stage-five has no current-run verification entry'
+E       AssertionError: Stage-five has no current-run verification entry
+E       assert False
+E        +  where False = is_file()
+E        +    where is_file = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/scripts/phase_five_verify.py').is_file
+
+tests\acceptance\test_work_order_protocol.py:20: AssertionError
+___ ERROR at setup of test_role_resource_bytes_are_part_of_source_snapshot ____
+
+    @pytest.fixture
+    def verifier():
+>       assert SCRIPT.is_file(), 'Stage-five has no current-run verification entry'
+E       AssertionError: Stage-five has no current-run verification entry
+E       assert False
+E        +  where False = is_file()
+E        +    where is_file = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/scripts/phase_five_verify.py').is_file
+
+tests\acceptance\test_work_order_protocol.py:20: AssertionError
+_ ERROR at setup of test_wrapper_uses_only_its_fresh_child_and_seals_final_summary _
+
+    @pytest.fixture
+    def verifier():
+>       assert SCRIPT.is_file(), 'Stage-five has no current-run verification entry'
+E       AssertionError: Stage-five has no current-run verification entry
+E       assert False
+E        +  where False = is_file()
+E        +    where is_file = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/scripts/phase_five_verify.py').is_file
+
+tests\acceptance\test_work_order_protocol.py:20: AssertionError
+_ ERROR at setup of test_child_zero_exit_never_hides_absent_stale_or_damaged_evidence[missing_test] _
+
+    @pytest.fixture
+    def verifier():
+>       assert SCRIPT.is_file(), 'Stage-five has no current-run verification entry'
+E       AssertionError: Stage-five has no current-run verification entry
+E       assert False
+E        +  where False = is_file()
+E        +    where is_file = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/scripts/phase_five_verify.py').is_file
+
+tests\acceptance\test_work_order_protocol.py:20: AssertionError
+_ ERROR at setup of test_child_zero_exit_never_hides_absent_stale_or_damaged_evidence[foreign_source] _
+
+    @pytest.fixture
+    def verifier():
+>       assert SCRIPT.is_file(), 'Stage-five has no current-run verification entry'
+E       AssertionError: Stage-five has no current-run verification entry
+E       assert False
+E        +  where False = is_file()
+E        +    where is_file = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/scripts/phase_five_verify.py').is_file
+
+tests\acceptance\test_work_order_protocol.py:20: AssertionError
+_ ERROR at setup of test_child_zero_exit_never_hides_absent_stale_or_damaged_evidence[changed_child] _
+
+    @pytest.fixture
+    def verifier():
+>       assert SCRIPT.is_file(), 'Stage-five has no current-run verification entry'
+E       AssertionError: Stage-five has no current-run verification entry
+E       assert False
+E        +  where False = is_file()
+E        +    where is_file = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/scripts/phase_five_verify.py').is_file
+
+tests\acceptance\test_work_order_protocol.py:20: AssertionError
+_ ERROR at setup of test_child_zero_exit_never_hides_absent_stale_or_damaged_evidence[missing_report] _
+
+    @pytest.fixture
+    def verifier():
+>       assert SCRIPT.is_file(), 'Stage-five has no current-run verification entry'
+E       AssertionError: Stage-five has no current-run verification entry
+E       assert False
+E        +  where False = is_file()
+E        +    where is_file = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/scripts/phase_five_verify.py').is_file
+
+tests\acceptance\test_work_order_protocol.py:20: AssertionError
+_ ERROR at setup of test_child_zero_exit_never_hides_absent_stale_or_damaged_evidence[omitted_manifest_file] _
+
+    @pytest.fixture
+    def verifier():
+>       assert SCRIPT.is_file(), 'Stage-five has no current-run verification entry'
+E       AssertionError: Stage-five has no current-run verification entry
+E       assert False
+E        +  where False = is_file()
+E        +    where is_file = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/scripts/phase_five_verify.py').is_file
+
+tests\acceptance\test_work_order_protocol.py:20: AssertionError
+_ ERROR at setup of test_mapping_only_never_claims_execution_or_local_completion _
+
+    @pytest.fixture
+    def verifier():
+>       assert SCRIPT.is_file(), 'Stage-five has no current-run verification entry'
+E       AssertionError: Stage-five has no current-run verification entry
+E       assert False
+E        +  where False = is_file()
+E        +    where is_file = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/scripts/phase_five_verify.py').is_file
+
+tests\acceptance\test_work_order_protocol.py:20: AssertionError
+______ ERROR at setup of test_single_lane_cannot_complete_full_protocol _______
+
+    @pytest.fixture
+    def verifier():
+>       assert SCRIPT.is_file(), 'Stage-five has no current-run verification entry'
+E       AssertionError: Stage-five has no current-run verification entry
+E       assert False
+E        +  where False = is_file()
+E        +    where is_file = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/scripts/phase_five_verify.py').is_file
+
+tests\acceptance\test_work_order_protocol.py:20: AssertionError
+_ ERROR at setup of test_mapping_only_detects_source_changes_during_child_run _
+
+    @pytest.fixture
+    def verifier():
+>       assert SCRIPT.is_file(), 'Stage-five has no current-run verification entry'
+E       AssertionError: Stage-five has no current-run verification entry
+E       assert False
+E        +  where False = is_file()
+E        +    where is_file = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/scripts/phase_five_verify.py').is_file
+
+tests\acceptance\test_work_order_protocol.py:20: AssertionError
+================================== FAILURES ===================================
+__________________ test_phase_five_current_run_entry_exists ___________________
+
+    def test_phase_five_current_run_entry_exists():
+>       assert SCRIPT.is_file(), 'Stage-five has no current-run verification entry'
+E       AssertionError: Stage-five has no current-run verification entry
+E       assert False
+E        +  where False = is_file()
+E        +    where is_file = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/scripts/phase_five_verify.py').is_file
+
+tests\acceptance\test_work_order_protocol.py:15: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/acceptance/test_work_order_protocol.py::test_phase_five_current_run_entry_exists
+ERROR tests/acceptance/test_work_order_protocol.py::test_reviewed_map_covers_exactly_ten_manual_sections
+ERROR tests/acceptance/test_work_order_protocol.py::test_invalid_or_invented_protocol_map_fails_closed[missing_section]
+ERROR tests/acceptance/test_work_order_protocol.py::test_invalid_or_invented_protocol_map_fails_closed[duplicate_section]
+ERROR tests/acceptance/test_work_order_protocol.py::test_invalid_or_invented_protocol_map_fails_closed[empty_tests]
+ERROR tests/acceptance/test_work_order_protocol.py::test_invalid_or_invented_protocol_map_fails_closed[duplicate_test]
+ERROR tests/acceptance/test_work_order_protocol.py::test_invalid_or_invented_protocol_map_fails_closed[invented_test]
+ERROR tests/acceptance/test_work_order_protocol.py::test_invalid_or_invented_protocol_map_fails_closed[outside_test]
+ERROR tests/acceptance/test_work_order_protocol.py::test_invalid_or_invented_protocol_map_fails_closed[invented_parameter]
+ERROR tests/acceptance/test_work_order_protocol.py::test_invalid_or_invented_protocol_map_fails_closed[unknown_field]
+ERROR tests/acceptance/test_work_order_protocol.py::test_invalid_or_invented_protocol_map_fails_closed[no_limit]
+ERROR tests/acceptance/test_work_order_protocol.py::test_invalid_or_invented_protocol_map_fails_closed[changed_spec]
+ERROR tests/acceptance/test_work_order_protocol.py::test_valid_json_edit_requires_mapping_reapproval
+ERROR tests/acceptance/test_work_order_protocol.py::test_protocol_coverage_never_accepts_missing_skipped_failed_or_duplicate[missing]
+ERROR tests/acceptance/test_work_order_protocol.py::test_protocol_coverage_never_accepts_missing_skipped_failed_or_duplicate[skipped]
+ERROR tests/acceptance/test_work_order_protocol.py::test_protocol_coverage_never_accepts_missing_skipped_failed_or_duplicate[failed]
+ERROR tests/acceptance/test_work_order_protocol.py::test_protocol_coverage_never_accepts_missing_skipped_failed_or_duplicate[duplicate]
+ERROR tests/acceptance/test_work_order_protocol.py::test_role_resource_bytes_are_part_of_source_snapshot
+ERROR tests/acceptance/test_work_order_protocol.py::test_wrapper_uses_only_its_fresh_child_and_seals_final_summary
+ERROR tests/acceptance/test_work_order_protocol.py::test_child_zero_exit_never_hides_absent_stale_or_damaged_evidence[missing_test]
+ERROR tests/acceptance/test_work_order_protocol.py::test_child_zero_exit_never_hides_absent_stale_or_damaged_evidence[foreign_source]
+ERROR tests/acceptance/test_work_order_protocol.py::test_child_zero_exit_never_hides_absent_stale_or_damaged_evidence[changed_child]
+ERROR tests/acceptance/test_work_order_protocol.py::test_child_zero_exit_never_hides_absent_stale_or_damaged_evidence[missing_report]
+ERROR tests/acceptance/test_work_order_protocol.py::test_child_zero_exit_never_hides_absent_stale_or_damaged_evidence[omitted_manifest_file]
+ERROR tests/acceptance/test_work_order_protocol.py::test_mapping_only_never_claims_execution_or_local_completion
+ERROR tests/acceptance/test_work_order_protocol.py::test_single_lane_cannot_complete_full_protocol
+ERROR tests/acceptance/test_work_order_protocol.py::test_mapping_only_detects_source_changes_during_child_run
+1 failed, 26 errors in 0.83s

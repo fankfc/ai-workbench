@@ -1,0 +1,121 @@
+{
+  "generated_at": "2026-10-14T05:18:48.384677+00:00",
+  "review_mode": "read_only_metadata_helper_source_and_reports",
+  "checks": {
+    "21_canonical_typed_controls_match_frozen_helper": true,
+    "effective_mcp_same_set_one_explicitly_disabled": true,
+    "owned_ephemeral_empty_environments_both_read_and_start": true,
+    "only_fixed_metadata_rpc_zero_generation": true,
+    "two_metadata_servers_clean_and_remote_not_promoted": true,
+    "typed_host_configuration_both_explicit_false": true,
+    "helper_projection_and_preserved_before_evidence_match_author_freeze": true,
+    "no_raw_keys_argv_or_private_values_exported": true,
+    "scope_production_and_lifetime_remain_unqualified": true,
+    "all_111_frozen_sources_and_locks_unchanged": true,
+    "all_downloaded_lifetime_public_sources_match": true
+  },
+  "passed_count": 11,
+  "check_count": 11,
+  "report_sha256": "15704a7ee9a1ef8709308cd4db517d4eff830ab105ad257c8c48119a26b66730",
+  "author_verification_sha256": "43706482dd9aaac87a721fea6d3fb9a4eb5e146aa07dceed11e81eecf6179915",
+  "source_manifest": [
+    {
+      "path": "codex-rs/core/src/codex_thread.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/core/src/codex_thread.rs",
+      "size": 44440,
+      "sha256": "1d3c5b62bd86aba13362d73aadb2221bbb5362619f690c311ac69d4b31e29aa0"
+    },
+    {
+      "path": "codex-rs/app-server/src/message_processor.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/app-server/src/message_processor.rs",
+      "size": 79949,
+      "sha256": "f1a1bb0029e7c2f46de3048cbbc52b55ccca413dacb8ce67c63796372468318f"
+    },
+    {
+      "path": "codex-rs/app-server/src/plugin_config_reload.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/app-server/src/plugin_config_reload.rs",
+      "size": 964,
+      "sha256": "9c2057dc09d2e75d11f8216ee4c433c976cd2654b91ab1bc67f55a0af2076e50"
+    },
+    {
+      "path": "codex-rs/app-server/src/fs_watch.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/app-server/src/fs_watch.rs",
+      "size": 12801,
+      "sha256": "1190ae572767e9b9ee5f516fed3b7df7116d95be97d64b5f019a8c6e29c0d1f5"
+    },
+    {
+      "path": "codex-rs/app-server/src/codex_message_processor.rs",
+      "error": "HTTPError",
+      "reason": "HTTP Error 404: Not Found",
+      "initial_combined_download_exit_code": 1
+    },
+    {
+      "path": "codex-rs/app-server/src/codex_message_processor/mod.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/app-server/src/codex_message_processor/mod.rs",
+      "error": "HTTPError",
+      "reason": "HTTP Error 404: Not Found"
+    },
+    {
+      "path": "codex-rs/app-server/src/skills_watcher.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/app-server/src/skills_watcher.rs",
+      "size": 6130,
+      "sha256": "da819589121bb78fce6aa72f0cf2a86908d821e5fb9c43fe0c799a5f960541dd"
+    },
+    {
+      "path": "codex-rs/app-server/src/request_processors/config_processor.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/app-server/src/request_processors/config_processor.rs",
+      "size": 46283,
+      "sha256": "66d0f303742fc268f9f4557cc01418c89c85854ff58f3feb7321e19a891b1db2"
+    },
+    {
+      "path": "codex-rs/app-server/src/request_processors/mcp_processor.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/app-server/src/request_processors/mcp_processor.rs",
+      "size": 23950,
+      "sha256": "79823ea342ceb18927f4046920c8f647cea33f8cf3ae9b3621f1ad0f1062cff5"
+    },
+    {
+      "path": "codex-rs/app-server/src/request_processors/thread_processor.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/app-server/src/request_processors/thread_processor.rs",
+      "size": 251617,
+      "sha256": "786c0549e5c1b57421e03472f3b8c3519090849fb8401163f3da5cc2c55b66be"
+    },
+    {
+      "path": "codex-rs/app-server/src/request_processors/turn_processor.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/app-server/src/request_processors/turn_processor.rs",
+      "size": 67232,
+      "sha256": "0a1058134accb3f9285aa940708e109704b582b8fc35d04f1dfb84e1231fc1e0"
+    },
+    {
+      "path": "codex-rs/app-server/src/request_processors/plugins.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/app-server/src/request_processors/plugins.rs",
+      "size": 98561,
+      "sha256": "c697f618de05e6c65a4407910cca4c4c13c6adfdc12a12637f75451b4d60c214"
+    },
+    {
+      "path": "codex-rs/app-server/src/mcp_refresh.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/app-server/src/mcp_refresh.rs",
+      "size": 15916,
+      "sha256": "67845457ac569be6f8c3b226e1a2cf16cdebb4956f7529bc990d888cac7255fa"
+    },
+    {
+      "path": "codex-rs/core/src/session/mcp_refresh.rs",
+      "url": "https://raw.githubusercontent.com/openai/codex/rust-v0.160.0/codex-rs/core/src/session/mcp_refresh.rs",
+      "size": 1443,
+      "sha256": "f3d9d742e1b2991b6170c60aa1abc309bfefb3194e78558267338c7b86d160b1"
+    }
+  ],
+  "frozen_source_count": 111,
+  "frozen_mismatches": [],
+  "lifetime_conclusion": "explicit_mutation_refresh_callers_located_automatic_config_filewatch_closure_not_proven",
+  "verified_preconditions_are_runtime_scope_qualification": false,
+  "new_cli_starts": 0,
+  "new_model_submissions": 0,
+  "direct_auth_home_or_history_reads": 0,
+  "existing_green_test_reruns": 0,
+  "production_or_test_edits": 0,
+  "exit_code": 0,
+  "prior_author_verification_sha256": "8243090de0fa4658572267277675d3606cfcf5996f749983ae93120172b3fb71",
+  "author_wrapper_refreshed_at": "2026-10-14T05:27:01.974043+00:00",
+  "current_author_wrapper_checks": 13,
+  "current_author_wrapper_source_hashes_match": true
+}

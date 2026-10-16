@@ -1,0 +1,1252 @@
+........................................................................ [  4%]
+.............................FFFFF...................................... [  8%]
+........................................................................ [ 12%]
+........................................................................ [ 16%]
+........................................................................ [ 21%]
+........................................................................ [ 25%]
+........................................................................ [ 29%]
+........................................................................ [ 33%]
+........................................................................ [ 38%]
+........................................................................ [ 42%]
+........................................................................ [ 46%]
+........................................F....FFFF.F.F................... [ 50%]
+........................................................F............... [ 54%]
+........................................................................ [ 59%]
+..................................................FFFFF................. [ 63%]
+........................................................................ [ 67%]
+....................F................................................... [ 71%]
+........................................................................ [ 76%]
+........................................................................ [ 80%]
+........................................................................ [ 84%]
+........................................................................ [ 88%]
+.......................................FFFFFF........................... [ 93%]
+........................................................................ [ 97%]
+..............................................                           [100%]
+================================== FAILURES ===================================
+___ test_real_pair_bytes_and_answer_publish_once_in_one_transaction[claude] ___
+
+document_task = {'client': <starlette.testclient.TestClient object at 0x000002ADD3A6C440>, 'cid': 'eb621c0820e042dc91a94dee6ff9b7e7', 'task': 'd3fea6770af84af3b5d635fa6c2ad4ea', 'attempt': 'e42d8665e2a346a3ab205b11fc9cebce', ...}
+
+    @pytest.mark.parametrize('document_task',['claude'],indirect=True)
+    def test_real_pair_bytes_and_answer_publish_once_in_one_transaction(document_task):
+        from app.documents.publish import BundlePublisher
+>       ctx=document_task; ready=prepare_bilingual(ctx)
+                                 ^^^^^^^^^^^^^^^^^^^^^^
+
+tests\artifacts\test_atomic_publication.py:12: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\artifacts\helpers.py:101: in prepare_bilingual
+    asyncio.run(publisher.stage(ctx['task'],ctx['attempt'],'1.0',source,review))
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:194: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:118: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py:721: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.runtime.answer_publication.AnswerPublisher object at 0x000002ADD3A6F230>
+task_id = 'd3fea6770af84af3b5d635fa6c2ad4ea'
+attempt_id = 'e42d8665e2a346a3ab205b11fc9cebce', contract_version = '1.0'
+revision_id = 'canonical-232af56a3dac4f5db42a275f76715381'
+review_check_id = 'review-canonical-232af56a3dac4f5db42a275f76715381'
+complete = True, explicit_retry = False
+
+    async def stage(self,task_id,attempt_id,contract_version,revision_id,review_check_id,*,complete=True,explicit_retry=False):
+        if self.translation is None:
+            raise PublicationBlocked('CLAUDE_TRANSLATION_SERVICE_REQUIRED')
+        route=self.translation.router.lock(task_id,attempt_id)
+        if route.route_policy=='native':
+            return super().stage(task_id,attempt_id,contract_version,revision_id,review_check_id)
+        with closing(self.database.connect()) as connection:
+            task=self.translation.router.require_current(connection,route)
+            checkpoint=checkpoint_for(task)
+            if task['state']!='OUTPUT_PREPARING' or checkpoint.get('current_revision_id')!=revision_id or checkpoint.get('stale') or checkpoint.get('publication_blocked'):
+                raise PublicationBlocked('OUTPUT_STATE_OR_CURRENT_REVISION_REQUIRED')
+            review=self._source_review(connection,task,revision_id,review_check_id)
+        translated=await self.output.prepare(task_id,attempt_id,revision_id,complete=complete,explicit_retry=explicit_retry)
+        if translated.status!='READY':
+            with closing(self.database.connect()) as connection,transaction(connection):
+                task=self.translation.router.require_current(connection,route); checkpoint=checkpoint_for(task)
+                checkpoint['language_output']={'source_revision_id':revision_id,'job_id':translated.job_id,'status':translated.status}
+                connection.execute('UPDATE task_runs SET checkpoint_json=? WHERE task_id=? AND attempt_id=?',(json.dumps(checkpoint),task_id,attempt_id))
+                enqueue_event(connection,task_id,attempt_id,'input.required' if translated.status=='NEEDS_INPUT' else 'request.failed',
+                    {'prompt_code':'ambiguous_goal'} if translated.status=='NEEDS_INPUT' else {'error_code':'VALIDATION_FAILED'},
+                    deduplication_key=f'translation-failure:{translated.job_id}')
+>           raise PublicationBlocked('OUTPUT_TRANSLATION_'+translated.status)
+E           app.runtime.publication.PublicationBlocked: OUTPUT_TRANSLATION_FAILED
+
+services\orchestrator\app\runtime\answer_publication.py:79: PublicationBlocked
+_ test_half_v2_render_and_transaction_failure_leave_only_complete_v1_visible[claude] _
+
+document_task = {'client': <starlette.testclient.TestClient object at 0x000002ADD3D58E10>, 'cid': '041f7c471c9742f7881d9569ced1b41d', 'task': '7670a5c6c5b345cb97783b8d5c362bed', 'attempt': '2d9778d2159349b38ddf88eab5552e24', ...}
+
+    @pytest.mark.parametrize('document_task',['claude'],indirect=True)
+    def test_half_v2_render_and_transaction_failure_leave_only_complete_v1_visible(document_task):
+        from app.documents.publish import BundlePublisher
+        from app.documents.render import DocumentRenderer
+>       ctx=document_task; ready=prepare_bilingual(ctx)
+                                 ^^^^^^^^^^^^^^^^^^^^^^
+
+tests\artifacts\test_atomic_publication.py:37: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\artifacts\helpers.py:101: in prepare_bilingual
+    asyncio.run(publisher.stage(ctx['task'],ctx['attempt'],'1.0',source,review))
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:194: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:118: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py:721: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.runtime.answer_publication.AnswerPublisher object at 0x000002ADD3D5B390>
+task_id = '7670a5c6c5b345cb97783b8d5c362bed'
+attempt_id = '2d9778d2159349b38ddf88eab5552e24', contract_version = '1.0'
+revision_id = 'canonical-89b0efde438944ea8b8e9327250f9730'
+review_check_id = 'review-canonical-89b0efde438944ea8b8e9327250f9730'
+complete = True, explicit_retry = False
+
+    async def stage(self,task_id,attempt_id,contract_version,revision_id,review_check_id,*,complete=True,explicit_retry=False):
+        if self.translation is None:
+            raise PublicationBlocked('CLAUDE_TRANSLATION_SERVICE_REQUIRED')
+        route=self.translation.router.lock(task_id,attempt_id)
+        if route.route_policy=='native':
+            return super().stage(task_id,attempt_id,contract_version,revision_id,review_check_id)
+        with closing(self.database.connect()) as connection:
+            task=self.translation.router.require_current(connection,route)
+            checkpoint=checkpoint_for(task)
+            if task['state']!='OUTPUT_PREPARING' or checkpoint.get('current_revision_id')!=revision_id or checkpoint.get('stale') or checkpoint.get('publication_blocked'):
+                raise PublicationBlocked('OUTPUT_STATE_OR_CURRENT_REVISION_REQUIRED')
+            review=self._source_review(connection,task,revision_id,review_check_id)
+        translated=await self.output.prepare(task_id,attempt_id,revision_id,complete=complete,explicit_retry=explicit_retry)
+        if translated.status!='READY':
+            with closing(self.database.connect()) as connection,transaction(connection):
+                task=self.translation.router.require_current(connection,route); checkpoint=checkpoint_for(task)
+                checkpoint['language_output']={'source_revision_id':revision_id,'job_id':translated.job_id,'status':translated.status}
+                connection.execute('UPDATE task_runs SET checkpoint_json=? WHERE task_id=? AND attempt_id=?',(json.dumps(checkpoint),task_id,attempt_id))
+                enqueue_event(connection,task_id,attempt_id,'input.required' if translated.status=='NEEDS_INPUT' else 'request.failed',
+                    {'prompt_code':'ambiguous_goal'} if translated.status=='NEEDS_INPUT' else {'error_code':'VALIDATION_FAILED'},
+                    deduplication_key=f'translation-failure:{translated.job_id}')
+>           raise PublicationBlocked('OUTPUT_TRANSLATION_'+translated.status)
+E           app.runtime.publication.PublicationBlocked: OUTPUT_TRANSLATION_FAILED
+
+services\orchestrator\app\runtime\answer_publication.py:79: PublicationBlocked
+_ test_cancelled_missing_format_old_source_and_corrupt_blob_are_not_deliverable[claude] _
+
+document_task = {'client': <starlette.testclient.TestClient object at 0x000002ADD3D5BC50>, 'cid': '79950747bde84227ae5171ac2447fed5', 'task': '5333c33e3340419f97b7436514b1902f', 'attempt': '7c4602b2d08f4b4abc5a523289bda544', ...}
+
+    @pytest.mark.parametrize('document_task',['claude'],indirect=True)
+    def test_cancelled_missing_format_old_source_and_corrupt_blob_are_not_deliverable(document_task):
+        from app.documents.publish import BundlePublisher
+>       ctx=document_task; ready=prepare_bilingual(ctx)
+                                 ^^^^^^^^^^^^^^^^^^^^^^
+
+tests\artifacts\test_atomic_publication.py:62: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\artifacts\helpers.py:101: in prepare_bilingual
+    asyncio.run(publisher.stage(ctx['task'],ctx['attempt'],'1.0',source,review))
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:194: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:118: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py:721: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.runtime.answer_publication.AnswerPublisher object at 0x000002ADD3C45D10>
+task_id = '5333c33e3340419f97b7436514b1902f'
+attempt_id = '7c4602b2d08f4b4abc5a523289bda544', contract_version = '1.0'
+revision_id = 'canonical-6f53a9ff24ec451e9733952f931b15e2'
+review_check_id = 'review-canonical-6f53a9ff24ec451e9733952f931b15e2'
+complete = True, explicit_retry = False
+
+    async def stage(self,task_id,attempt_id,contract_version,revision_id,review_check_id,*,complete=True,explicit_retry=False):
+        if self.translation is None:
+            raise PublicationBlocked('CLAUDE_TRANSLATION_SERVICE_REQUIRED')
+        route=self.translation.router.lock(task_id,attempt_id)
+        if route.route_policy=='native':
+            return super().stage(task_id,attempt_id,contract_version,revision_id,review_check_id)
+        with closing(self.database.connect()) as connection:
+            task=self.translation.router.require_current(connection,route)
+            checkpoint=checkpoint_for(task)
+            if task['state']!='OUTPUT_PREPARING' or checkpoint.get('current_revision_id')!=revision_id or checkpoint.get('stale') or checkpoint.get('publication_blocked'):
+                raise PublicationBlocked('OUTPUT_STATE_OR_CURRENT_REVISION_REQUIRED')
+            review=self._source_review(connection,task,revision_id,review_check_id)
+        translated=await self.output.prepare(task_id,attempt_id,revision_id,complete=complete,explicit_retry=explicit_retry)
+        if translated.status!='READY':
+            with closing(self.database.connect()) as connection,transaction(connection):
+                task=self.translation.router.require_current(connection,route); checkpoint=checkpoint_for(task)
+                checkpoint['language_output']={'source_revision_id':revision_id,'job_id':translated.job_id,'status':translated.status}
+                connection.execute('UPDATE task_runs SET checkpoint_json=? WHERE task_id=? AND attempt_id=?',(json.dumps(checkpoint),task_id,attempt_id))
+                enqueue_event(connection,task_id,attempt_id,'input.required' if translated.status=='NEEDS_INPUT' else 'request.failed',
+                    {'prompt_code':'ambiguous_goal'} if translated.status=='NEEDS_INPUT' else {'error_code':'VALIDATION_FAILED'},
+                    deduplication_key=f'translation-failure:{translated.job_id}')
+>           raise PublicationBlocked('OUTPUT_TRANSLATION_'+translated.status)
+E           app.runtime.publication.PublicationBlocked: OUTPUT_TRANSLATION_FAILED
+
+services\orchestrator\app\runtime\answer_publication.py:79: PublicationBlocked
+_ test_download_scope_unpublished_and_changed_file_hash_are_enforced[claude] __
+
+document_task = {'client': <starlette.testclient.TestClient object at 0x000002ADD3A59480>, 'cid': '975f28ac057547c1b375110bcc7bc6d5', 'task': '8c127a2252a84f95adb8e04c77e4a625', 'attempt': '2e47342297c34357a0c22bc6098413eb', ...}
+
+    @pytest.mark.parametrize('document_task',['claude'],indirect=True)
+    def test_download_scope_unpublished_and_changed_file_hash_are_enforced(document_task):
+        from app.documents.publish import BundlePublisher
+>       ctx=document_task; ready=prepare_bilingual(ctx)
+                                 ^^^^^^^^^^^^^^^^^^^^^^
+
+tests\artifacts\test_atomic_publication.py:75: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\artifacts\helpers.py:101: in prepare_bilingual
+    asyncio.run(publisher.stage(ctx['task'],ctx['attempt'],'1.0',source,review))
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:194: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:118: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py:721: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.runtime.answer_publication.AnswerPublisher object at 0x000002ADD3BB4510>
+task_id = '8c127a2252a84f95adb8e04c77e4a625'
+attempt_id = '2e47342297c34357a0c22bc6098413eb', contract_version = '1.0'
+revision_id = 'canonical-1ea755a2cb5c4533b4c213b6da1c45c9'
+review_check_id = 'review-canonical-1ea755a2cb5c4533b4c213b6da1c45c9'
+complete = True, explicit_retry = False
+
+    async def stage(self,task_id,attempt_id,contract_version,revision_id,review_check_id,*,complete=True,explicit_retry=False):
+        if self.translation is None:
+            raise PublicationBlocked('CLAUDE_TRANSLATION_SERVICE_REQUIRED')
+        route=self.translation.router.lock(task_id,attempt_id)
+        if route.route_policy=='native':
+            return super().stage(task_id,attempt_id,contract_version,revision_id,review_check_id)
+        with closing(self.database.connect()) as connection:
+            task=self.translation.router.require_current(connection,route)
+            checkpoint=checkpoint_for(task)
+            if task['state']!='OUTPUT_PREPARING' or checkpoint.get('current_revision_id')!=revision_id or checkpoint.get('stale') or checkpoint.get('publication_blocked'):
+                raise PublicationBlocked('OUTPUT_STATE_OR_CURRENT_REVISION_REQUIRED')
+            review=self._source_review(connection,task,revision_id,review_check_id)
+        translated=await self.output.prepare(task_id,attempt_id,revision_id,complete=complete,explicit_retry=explicit_retry)
+        if translated.status!='READY':
+            with closing(self.database.connect()) as connection,transaction(connection):
+                task=self.translation.router.require_current(connection,route); checkpoint=checkpoint_for(task)
+                checkpoint['language_output']={'source_revision_id':revision_id,'job_id':translated.job_id,'status':translated.status}
+                connection.execute('UPDATE task_runs SET checkpoint_json=? WHERE task_id=? AND attempt_id=?',(json.dumps(checkpoint),task_id,attempt_id))
+                enqueue_event(connection,task_id,attempt_id,'input.required' if translated.status=='NEEDS_INPUT' else 'request.failed',
+                    {'prompt_code':'ambiguous_goal'} if translated.status=='NEEDS_INPUT' else {'error_code':'VALIDATION_FAILED'},
+                    deduplication_key=f'translation-failure:{translated.job_id}')
+>           raise PublicationBlocked('OUTPUT_TRANSLATION_'+translated.status)
+E           app.runtime.publication.PublicationBlocked: OUTPUT_TRANSLATION_FAILED
+
+services\orchestrator\app\runtime\answer_publication.py:79: PublicationBlocked
+____ test_renderer_claiming_pass_for_corrupt_bytes_cannot_publish[claude] _____
+
+document_task = {'client': <starlette.testclient.TestClient object at 0x000002ADD3BB55B0>, 'cid': '00b9bb7fe2ba42b0877d5cdf353fb815', 'task': '3da0f40cc9de4a27a45efee01e50fc38', 'attempt': '50d4bc51511d45cf93eb528f9bc8a21b', ...}
+
+    @pytest.mark.parametrize('document_task',['claude'],indirect=True)
+    def test_renderer_claiming_pass_for_corrupt_bytes_cannot_publish(document_task):
+        from app.documents.publish import BundlePublisher
+        from app.documents.render import RenderedDocument
+        from app.documents.model import digest
+>       ctx=document_task;ready=prepare_bilingual(ctx)
+                                ^^^^^^^^^^^^^^^^^^^^^^
+
+tests\artifacts\test_atomic_publication.py:98: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\artifacts\helpers.py:101: in prepare_bilingual
+    asyncio.run(publisher.stage(ctx['task'],ctx['attempt'],'1.0',source,review))
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:194: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:118: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py:721: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.runtime.answer_publication.AnswerPublisher object at 0x000002ADD3BB6780>
+task_id = '3da0f40cc9de4a27a45efee01e50fc38'
+attempt_id = '50d4bc51511d45cf93eb528f9bc8a21b', contract_version = '1.0'
+revision_id = 'canonical-228624eea8d944669ba7be787763c45e'
+review_check_id = 'review-canonical-228624eea8d944669ba7be787763c45e'
+complete = True, explicit_retry = False
+
+    async def stage(self,task_id,attempt_id,contract_version,revision_id,review_check_id,*,complete=True,explicit_retry=False):
+        if self.translation is None:
+            raise PublicationBlocked('CLAUDE_TRANSLATION_SERVICE_REQUIRED')
+        route=self.translation.router.lock(task_id,attempt_id)
+        if route.route_policy=='native':
+            return super().stage(task_id,attempt_id,contract_version,revision_id,review_check_id)
+        with closing(self.database.connect()) as connection:
+            task=self.translation.router.require_current(connection,route)
+            checkpoint=checkpoint_for(task)
+            if task['state']!='OUTPUT_PREPARING' or checkpoint.get('current_revision_id')!=revision_id or checkpoint.get('stale') or checkpoint.get('publication_blocked'):
+                raise PublicationBlocked('OUTPUT_STATE_OR_CURRENT_REVISION_REQUIRED')
+            review=self._source_review(connection,task,revision_id,review_check_id)
+        translated=await self.output.prepare(task_id,attempt_id,revision_id,complete=complete,explicit_retry=explicit_retry)
+        if translated.status!='READY':
+            with closing(self.database.connect()) as connection,transaction(connection):
+                task=self.translation.router.require_current(connection,route); checkpoint=checkpoint_for(task)
+                checkpoint['language_output']={'source_revision_id':revision_id,'job_id':translated.job_id,'status':translated.status}
+                connection.execute('UPDATE task_runs SET checkpoint_json=? WHERE task_id=? AND attempt_id=?',(json.dumps(checkpoint),task_id,attempt_id))
+                enqueue_event(connection,task_id,attempt_id,'input.required' if translated.status=='NEEDS_INPUT' else 'request.failed',
+                    {'prompt_code':'ambiguous_goal'} if translated.status=='NEEDS_INPUT' else {'error_code':'VALIDATION_FAILED'},
+                    deduplication_key=f'translation-failure:{translated.job_id}')
+>           raise PublicationBlocked('OUTPUT_TRANSLATION_'+translated.status)
+E           app.runtime.publication.PublicationBlocked: OUTPUT_TRANSLATION_FAILED
+
+services\orchestrator\app\runtime\answer_publication.py:79: PublicationBlocked
+___ test_actual_a_review_clarification_is_completely_translated_and_public ____
+
+client = <starlette.testclient.TestClient object at 0x000002ADDA323570>
+
+    def test_actual_a_review_clarification_is_completely_translated_and_public(client):
+        cid,task,attempt,svc,b,a,workflow,value=review_case(client)
+>       result=asyncio.run(workflow.run(value)); assert result.state=='NEEDS_INPUT'
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError: assert 'BLOCKED' == 'NEEDS_INPUT'
+E         
+E         - NEEDS_INPUT
+E         + BLOCKED
+
+tests\integration\test_clarification_translation.py:47: AssertionError
+_ test_clarification_failure_or_late_fence_never_exposes_english_or_template[cancel] _
+
+client = <starlette.testclient.TestClient object at 0x000002ADDA4DCD10>
+failure = 'cancel'
+
+    @pytest.mark.parametrize('failure',['echo','partial_echo','negation','cancel','identity'])
+    def test_clarification_failure_or_late_fence_never_exposes_english_or_template(client,failure):
+        cid,task,attempt,svc,b,a,workflow,value=review_case(client)
+        original=svc.translator.transform
+        def transform(request):
+            clarification=request.target_language=='zh-CN' and any('Do not delete' in block['source'] for block in request.blocks)
+            if clarification:
+                if failure=='cancel': client.post(f'/v1/tasks/{task}/cancel')
+                if failure=='identity': svc.router.check_identity(task,attempt,CLAUDE.model_copy(update={'connection_version':'drift'}))
+                if failure=='echo': return {block['block_id']:block['source'] for block in request.blocks}
+                if failure=='partial_echo': return {block['block_id']:'请确认。'+block['source'] for block in request.blocks}
+            return original(request)
+        svc.translator.transform=transform
+        if failure=='negation':
+            svc.checker.findings=lambda request:[dict(block_id=request.blocks[0]['block_id'],code='NEGATION_CHANGED',
+                severity='major',message='Negation removed',source_locator=request.blocks[0]['source_locator'])] if request.target_language=='zh-CN' else []
+        result=asyncio.run(workflow.run(value))
+>       assert result.state=={'cancel':'CANCELLED','identity':'PAUSED'}.get(failure,'BLOCKED')
+E       AssertionError: assert 'BLOCKED' == 'CANCELLED'
+E         
+E         - CANCELLED
+E         + BLOCKED
+
+tests\integration\test_clarification_translation.py:99: AssertionError
+_ test_clarification_failure_or_late_fence_never_exposes_english_or_template[identity] _
+
+client = <starlette.testclient.TestClient object at 0x000002ADDA51A250>
+failure = 'identity'
+
+    @pytest.mark.parametrize('failure',['echo','partial_echo','negation','cancel','identity'])
+    def test_clarification_failure_or_late_fence_never_exposes_english_or_template(client,failure):
+        cid,task,attempt,svc,b,a,workflow,value=review_case(client)
+        original=svc.translator.transform
+        def transform(request):
+            clarification=request.target_language=='zh-CN' and any('Do not delete' in block['source'] for block in request.blocks)
+            if clarification:
+                if failure=='cancel': client.post(f'/v1/tasks/{task}/cancel')
+                if failure=='identity': svc.router.check_identity(task,attempt,CLAUDE.model_copy(update={'connection_version':'drift'}))
+                if failure=='echo': return {block['block_id']:block['source'] for block in request.blocks}
+                if failure=='partial_echo': return {block['block_id']:'请确认。'+block['source'] for block in request.blocks}
+            return original(request)
+        svc.translator.transform=transform
+        if failure=='negation':
+            svc.checker.findings=lambda request:[dict(block_id=request.blocks[0]['block_id'],code='NEGATION_CHANGED',
+                severity='major',message='Negation removed',source_locator=request.blocks[0]['source_locator'])] if request.target_language=='zh-CN' else []
+        result=asyncio.run(workflow.run(value))
+>       assert result.state=={'cancel':'CANCELLED','identity':'PAUSED'}.get(failure,'BLOCKED')
+E       AssertionError: assert 'BLOCKED' == 'PAUSED'
+E         
+E         - PAUSED
+E         + BLOCKED
+
+tests\integration\test_clarification_translation.py:99: AssertionError
+_____ test_b_step_or_forged_input_required_cannot_publish_a_clarification _____
+
+client = <starlette.testclient.TestClient object at 0x000002ADDA557790>
+
+    def test_b_step_or_forged_input_required_cannot_publish_a_clarification(client):
+        from app.translation.clarification import ClarificationPublisher
+        from app.runtime.outbox import enqueue_event
+        cid,task,attempt,svc,b,a,workflow,value=review_case(client)
+        asyncio.run(workflow.run(value))
+        with closing(svc.database.connect()) as connection:
+>           b_step=connection.execute("SELECT id FROM steps WHERE role='B'").fetchone()[0]
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           TypeError: 'NoneType' object is not subscriptable
+
+tests\integration\test_clarification_translation.py:114: TypeError
+___ test_frozen_question_remains_visible_but_corrupt_source_or_qa_is_hidden ___
+
+client = <starlette.testclient.TestClient object at 0x000002ADDA608AF0>
+
+    def test_frozen_question_remains_visible_but_corrupt_source_or_qa_is_hidden(client):
+        cid,task,attempt,svc,b,a,workflow,value=review_case(client); asyncio.run(workflow.run(value))
+        svc.router.check_identity(task,attempt,CLAUDE.model_copy(update={'connection_version':'changed'}))
+        with closing(svc.database.connect()) as connection:
+>           assert len([event for event in public_events(connection,svc.store,cid) if event['kind']=='input.required'])==1
+E           assert 0 == 1
+E            +  where 0 = len([])
+
+tests\integration\test_clarification_translation.py:128: AssertionError
+___ test_approved_clarification_keeps_original_english_in_followup_history ____
+
+client = <starlette.testclient.TestClient object at 0x000002ADDA62A580>
+
+    def test_approved_clarification_keeps_original_english_in_followup_history(client):
+        cid,task,attempt,svc,b,a,workflow,value=review_case(client); asyncio.run(workflow.run(value))
+        _,next_task,next_attempt=claude_turn(client,conversation=cid,key='followup')
+        context=asyncio.run(InputPipeline(svc).prepare(next_task,next_attempt,workflow.workspaces.create(next_task,next_attempt)))
+>       assert context.status=='READY' and QUESTION in context.text and CHINESE not in context.text
+E       AssertionError: assert ('READY' == 'READY'
+E         
+E           READY and 'Do not delete the original files. Should I use only 2 source files, or wait for the missing appendix?' in 'user: Keep the original file.\n\nuser: Keep the original file.')
+E        +  where 'user: Keep the original file.\n\nuser: Keep the original file.' = InputContext(status='READY', text='user: Keep the original file.\n\nuser: Keep the original file.', job_ids=('36ed86a9...2fe7b6f1d5de', 'c8a941526f7745b492b653ad4e53c803'), english_views={}, full_scope=(), read_scope=(), clarification=None).text
+
+tests\integration\test_clarification_translation.py:162: AssertionError
+____ test_clarification_qa_byte_binding_cannot_be_replaced_by_generic_pass ____
+
+client = <starlette.testclient.TestClient object at 0x000002ADDA70CAF0>
+
+    def test_clarification_qa_byte_binding_cannot_be_replaced_by_generic_pass(client):
+        cid,task,attempt,svc,b,a,workflow,value=review_case(client); asyncio.run(workflow.run(value))
+        with closing(svc.database.connect()) as connection:
+>           frozen=json.loads(connection.execute("SELECT details_json FROM checks WHERE check_kind='clarification.publication'").fetchone()[0])
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           TypeError: 'NoneType' object is not subscriptable
+
+tests\integration\test_clarification_translation.py:183: TypeError
+_ test_upstream_change_invalidates_chart_report_translation_render_and_approval_but_preserves_published_history[claude] _
+
+document_task = {'client': <starlette.testclient.TestClient object at 0x000002ADDE7C4270>, 'cid': '1da11183e4ee4976b6204911ffecf3f8', 'task': 'd7b679a66a7444a7b2e4aaf113332f94', 'attempt': 'eaba736dd9ca4c73afbfb96dc9d8d45b', ...}
+
+    @pytest.mark.parametrize('document_task',['claude'],indirect=True)
+    def test_upstream_change_invalidates_chart_report_translation_render_and_approval_but_preserves_published_history(document_task):
+        ctx=document_task; client=ctx['client']; db=client.app.state.database.path
+        pipeline=CompositePipeline(db,WorkspaceManager(db.parent/'workspaces'))
+        v1=pipeline.run(ctx['task'],ctx['attempt'],b'month,category,amount\n2026-01,A,10\n2026-01,B,20\n2026-02,A,15\n2026-02,B,25\n')
+>       ready=prepare_bilingual(ctx,dependencies={k:v1[k] for k in ('computed_results','figures')})
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\integration\test_document_invalidation.py:20: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\artifacts\helpers.py:101: in prepare_bilingual
+    asyncio.run(publisher.stage(ctx['task'],ctx['attempt'],'1.0',source,review))
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:194: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:118: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py:721: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.runtime.answer_publication.AnswerPublisher object at 0x000002ADD3AD74D0>
+task_id = 'd7b679a66a7444a7b2e4aaf113332f94'
+attempt_id = 'eaba736dd9ca4c73afbfb96dc9d8d45b', contract_version = '1.0'
+revision_id = 'canonical-34024e3cfebe42bd84198c686aa55a0a'
+review_check_id = 'review-canonical-34024e3cfebe42bd84198c686aa55a0a'
+complete = True, explicit_retry = False
+
+    async def stage(self,task_id,attempt_id,contract_version,revision_id,review_check_id,*,complete=True,explicit_retry=False):
+        if self.translation is None:
+            raise PublicationBlocked('CLAUDE_TRANSLATION_SERVICE_REQUIRED')
+        route=self.translation.router.lock(task_id,attempt_id)
+        if route.route_policy=='native':
+            return super().stage(task_id,attempt_id,contract_version,revision_id,review_check_id)
+        with closing(self.database.connect()) as connection:
+            task=self.translation.router.require_current(connection,route)
+            checkpoint=checkpoint_for(task)
+            if task['state']!='OUTPUT_PREPARING' or checkpoint.get('current_revision_id')!=revision_id or checkpoint.get('stale') or checkpoint.get('publication_blocked'):
+                raise PublicationBlocked('OUTPUT_STATE_OR_CURRENT_REVISION_REQUIRED')
+            review=self._source_review(connection,task,revision_id,review_check_id)
+        translated=await self.output.prepare(task_id,attempt_id,revision_id,complete=complete,explicit_retry=explicit_retry)
+        if translated.status!='READY':
+            with closing(self.database.connect()) as connection,transaction(connection):
+                task=self.translation.router.require_current(connection,route); checkpoint=checkpoint_for(task)
+                checkpoint['language_output']={'source_revision_id':revision_id,'job_id':translated.job_id,'status':translated.status}
+                connection.execute('UPDATE task_runs SET checkpoint_json=? WHERE task_id=? AND attempt_id=?',(json.dumps(checkpoint),task_id,attempt_id))
+                enqueue_event(connection,task_id,attempt_id,'input.required' if translated.status=='NEEDS_INPUT' else 'request.failed',
+                    {'prompt_code':'ambiguous_goal'} if translated.status=='NEEDS_INPUT' else {'error_code':'VALIDATION_FAILED'},
+                    deduplication_key=f'translation-failure:{translated.job_id}')
+>           raise PublicationBlocked('OUTPUT_TRANSLATION_'+translated.status)
+E           app.runtime.publication.PublicationBlocked: OUTPUT_TRANSLATION_FAILED
+
+services\orchestrator\app\runtime\answer_publication.py:79: PublicationBlocked
+________ test_approved_claude_answer_can_reach_a_chinese_release_gate _________
+
+claude_answer = (<starlette.testclient.TestClient object at 0x000002ADDF761AE0>, 'd4a81fe8b1b642c2bd4d1ed03f4de83c', 'fc55cb69457749dc...d': 'bdbf355d2503486faa751591e57448fb', 'connection_version': '1', 'id': '800a1c5a314449bc8919ca64bb1c0b19', ...}, ...)
+
+    def test_approved_claude_answer_can_reach_a_chinese_release_gate(claude_answer):
+        client,conversation,task,attempt,root,route,machine = claude_answer
+        from app.runtime.answer_publication import AnswerPublisher
+        from translation.fakes import service
+        publisher = AnswerPublisher(client.app.state.database.path, root,service(client))
+>       approval = asyncio.run(publisher.stage(task,attempt,'1.0','en-answer','translation-review'))
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\integration\test_output_translation.py:56: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:194: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:118: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py:721: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.runtime.answer_publication.AnswerPublisher object at 0x000002ADDF7682F0>
+task_id = 'fc55cb69457749dc9283a85edf571815'
+attempt_id = 'bdbf355d2503486faa751591e57448fb', contract_version = '1.0'
+revision_id = 'en-answer', review_check_id = 'translation-review'
+complete = True, explicit_retry = False
+
+    async def stage(self,task_id,attempt_id,contract_version,revision_id,review_check_id,*,complete=True,explicit_retry=False):
+        if self.translation is None:
+            raise PublicationBlocked('CLAUDE_TRANSLATION_SERVICE_REQUIRED')
+        route=self.translation.router.lock(task_id,attempt_id)
+        if route.route_policy=='native':
+            return super().stage(task_id,attempt_id,contract_version,revision_id,review_check_id)
+        with closing(self.database.connect()) as connection:
+            task=self.translation.router.require_current(connection,route)
+            checkpoint=checkpoint_for(task)
+            if task['state']!='OUTPUT_PREPARING' or checkpoint.get('current_revision_id')!=revision_id or checkpoint.get('stale') or checkpoint.get('publication_blocked'):
+                raise PublicationBlocked('OUTPUT_STATE_OR_CURRENT_REVISION_REQUIRED')
+            review=self._source_review(connection,task,revision_id,review_check_id)
+        translated=await self.output.prepare(task_id,attempt_id,revision_id,complete=complete,explicit_retry=explicit_retry)
+        if translated.status!='READY':
+            with closing(self.database.connect()) as connection,transaction(connection):
+                task=self.translation.router.require_current(connection,route); checkpoint=checkpoint_for(task)
+                checkpoint['language_output']={'source_revision_id':revision_id,'job_id':translated.job_id,'status':translated.status}
+                connection.execute('UPDATE task_runs SET checkpoint_json=? WHERE task_id=? AND attempt_id=?',(json.dumps(checkpoint),task_id,attempt_id))
+                enqueue_event(connection,task_id,attempt_id,'input.required' if translated.status=='NEEDS_INPUT' else 'request.failed',
+                    {'prompt_code':'ambiguous_goal'} if translated.status=='NEEDS_INPUT' else {'error_code':'VALIDATION_FAILED'},
+                    deduplication_key=f'translation-failure:{translated.job_id}')
+>           raise PublicationBlocked('OUTPUT_TRANSLATION_'+translated.status)
+E           app.runtime.publication.PublicationBlocked: OUTPUT_TRANSLATION_FAILED
+
+services\orchestrator\app\runtime\answer_publication.py:79: PublicationBlocked
+__ test_three_failed_output_candidates_keep_english_internal_without_success __
+
+claude_answer = (<starlette.testclient.TestClient object at 0x000002ADDF7BF020>, '47eeee93f1fc4884afa78ce493e9ae50', 'dc552c1a2c6d4236...d': '633cb5d19f3b4718b6169e5a139ce4be', 'connection_version': '1', 'id': 'd6e8ba59a3314f45994c5cb19737b2bf', ...}, ...)
+
+    def test_three_failed_output_candidates_keep_english_internal_without_success(claude_answer):
+        from app.runtime.answer_publication import AnswerPublisher
+        from app.runtime.publication import PublicationBlocked
+        from translation.fakes import service
+        client,conversation,task,attempt,root,route,machine=claude_answer
+        translation=service(client,transform=lambda request:{})
+        publisher=AnswerPublisher(client.app.state.database.path,root,translation)
+        with pytest.raises(PublicationBlocked,match='TRANSLATION_FAILED'):
+            asyncio.run(publisher.stage(task,attempt,'1.0','en-answer','translation-review'))
+>       assert len(translation.translator.calls)==3
+E       assert 0 == 3
+E        +  where 0 = len([])
+E        +    where [] = <translation.fakes.FakeTranslationPort object at 0x000002ADDDD965F0>.calls
+E        +      where <translation.fakes.FakeTranslationPort object at 0x000002ADDDD965F0> = <app.translation.service.TranslationService object at 0x000002ADDF85C680>.translator
+
+tests\integration\test_output_translation.py:75: AssertionError
+_____________ test_cancelled_task_cannot_publish_late_translation _____________
+
+claude_answer = (<starlette.testclient.TestClient object at 0x000002ADDF87C380>, '87fc81963df24e3eae990f54bcce391a', '356d619bd4224497...d': '60dfd906366142549e030ae757d871a7', 'connection_version': '1', 'id': 'e569df78af9344b9a8070cad3daaff3f', ...}, ...)
+
+    def test_cancelled_task_cannot_publish_late_translation(claude_answer):
+        from app.runtime.answer_publication import AnswerPublisher
+        from translation.fakes import service
+        client,conversation,task,attempt,root,route,machine=claude_answer
+        publisher=AnswerPublisher(client.app.state.database.path,root,service(client))
+>       asyncio.run(publisher.stage(task,attempt,'1.0','en-answer','translation-review'))
+
+tests\integration\test_output_translation.py:85: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:194: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:118: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py:721: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.runtime.answer_publication.AnswerPublisher object at 0x000002ADDF84D160>
+task_id = '356d619bd4224497a946cd9f252ed143'
+attempt_id = '60dfd906366142549e030ae757d871a7', contract_version = '1.0'
+revision_id = 'en-answer', review_check_id = 'translation-review'
+complete = True, explicit_retry = False
+
+    async def stage(self,task_id,attempt_id,contract_version,revision_id,review_check_id,*,complete=True,explicit_retry=False):
+        if self.translation is None:
+            raise PublicationBlocked('CLAUDE_TRANSLATION_SERVICE_REQUIRED')
+        route=self.translation.router.lock(task_id,attempt_id)
+        if route.route_policy=='native':
+            return super().stage(task_id,attempt_id,contract_version,revision_id,review_check_id)
+        with closing(self.database.connect()) as connection:
+            task=self.translation.router.require_current(connection,route)
+            checkpoint=checkpoint_for(task)
+            if task['state']!='OUTPUT_PREPARING' or checkpoint.get('current_revision_id')!=revision_id or checkpoint.get('stale') or checkpoint.get('publication_blocked'):
+                raise PublicationBlocked('OUTPUT_STATE_OR_CURRENT_REVISION_REQUIRED')
+            review=self._source_review(connection,task,revision_id,review_check_id)
+        translated=await self.output.prepare(task_id,attempt_id,revision_id,complete=complete,explicit_retry=explicit_retry)
+        if translated.status!='READY':
+            with closing(self.database.connect()) as connection,transaction(connection):
+                task=self.translation.router.require_current(connection,route); checkpoint=checkpoint_for(task)
+                checkpoint['language_output']={'source_revision_id':revision_id,'job_id':translated.job_id,'status':translated.status}
+                connection.execute('UPDATE task_runs SET checkpoint_json=? WHERE task_id=? AND attempt_id=?',(json.dumps(checkpoint),task_id,attempt_id))
+                enqueue_event(connection,task_id,attempt_id,'input.required' if translated.status=='NEEDS_INPUT' else 'request.failed',
+                    {'prompt_code':'ambiguous_goal'} if translated.status=='NEEDS_INPUT' else {'error_code':'VALIDATION_FAILED'},
+                    deduplication_key=f'translation-failure:{translated.job_id}')
+>           raise PublicationBlocked('OUTPUT_TRANSLATION_'+translated.status)
+E           app.runtime.publication.PublicationBlocked: OUTPUT_TRANSLATION_FAILED
+
+services\orchestrator\app\runtime\answer_publication.py:79: PublicationBlocked
+_ test_frozen_translation_history_survives_staleness_but_cannot_publish_again _
+
+claude_answer = (<starlette.testclient.TestClient object at 0x000002ADDF82C380>, 'd1c7a02f166d44fe97d0fce02fa0ca25', 'd73728c9ef3142ab...d': 'f70fc710f0374a399b65a1277c686d37', 'connection_version': '1', 'id': '11d290d6760a40e9aa1ed7e5868fd125', ...}, ...)
+
+    def test_frozen_translation_history_survives_staleness_but_cannot_publish_again(claude_answer):
+        from app.runtime.answer_publication import AnswerPublisher,validate_translation_release
+        from translation.fakes import service
+        client,conversation,task,attempt,root,route,machine=claude_answer
+        publisher=AnswerPublisher(client.app.state.database.path,root,service(client))
+>       asyncio.run(publisher.stage(task,attempt,'1.0','en-answer','translation-review'))
+
+tests\integration\test_output_translation.py:95: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:194: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:118: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py:721: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.runtime.answer_publication.AnswerPublisher object at 0x000002ADD74353D0>
+task_id = 'd73728c9ef3142ab8f2a851eb7b4535d'
+attempt_id = 'f70fc710f0374a399b65a1277c686d37', contract_version = '1.0'
+revision_id = 'en-answer', review_check_id = 'translation-review'
+complete = True, explicit_retry = False
+
+    async def stage(self,task_id,attempt_id,contract_version,revision_id,review_check_id,*,complete=True,explicit_retry=False):
+        if self.translation is None:
+            raise PublicationBlocked('CLAUDE_TRANSLATION_SERVICE_REQUIRED')
+        route=self.translation.router.lock(task_id,attempt_id)
+        if route.route_policy=='native':
+            return super().stage(task_id,attempt_id,contract_version,revision_id,review_check_id)
+        with closing(self.database.connect()) as connection:
+            task=self.translation.router.require_current(connection,route)
+            checkpoint=checkpoint_for(task)
+            if task['state']!='OUTPUT_PREPARING' or checkpoint.get('current_revision_id')!=revision_id or checkpoint.get('stale') or checkpoint.get('publication_blocked'):
+                raise PublicationBlocked('OUTPUT_STATE_OR_CURRENT_REVISION_REQUIRED')
+            review=self._source_review(connection,task,revision_id,review_check_id)
+        translated=await self.output.prepare(task_id,attempt_id,revision_id,complete=complete,explicit_retry=explicit_retry)
+        if translated.status!='READY':
+            with closing(self.database.connect()) as connection,transaction(connection):
+                task=self.translation.router.require_current(connection,route); checkpoint=checkpoint_for(task)
+                checkpoint['language_output']={'source_revision_id':revision_id,'job_id':translated.job_id,'status':translated.status}
+                connection.execute('UPDATE task_runs SET checkpoint_json=? WHERE task_id=? AND attempt_id=?',(json.dumps(checkpoint),task_id,attempt_id))
+                enqueue_event(connection,task_id,attempt_id,'input.required' if translated.status=='NEEDS_INPUT' else 'request.failed',
+                    {'prompt_code':'ambiguous_goal'} if translated.status=='NEEDS_INPUT' else {'error_code':'VALIDATION_FAILED'},
+                    deduplication_key=f'translation-failure:{translated.job_id}')
+>           raise PublicationBlocked('OUTPUT_TRANSLATION_'+translated.status)
+E           app.runtime.publication.PublicationBlocked: OUTPUT_TRANSLATION_FAILED
+
+services\orchestrator\app\runtime\answer_publication.py:79: PublicationBlocked
+_ test_published_assistant_message_has_full_original_english_history_mapping __
+
+claude_answer = (<starlette.testclient.TestClient object at 0x000002ADDFDBD6A0>, 'c6bd32a3110f4a45a854a70282e0cad5', 'f1157e8beb39468b...d': '12ae9fa5a66c4d5faa3a42ade5e291e3', 'connection_version': '1', 'id': 'e8c30c3fe0124768a9f451d5c9528db0', ...}, ...)
+
+    def test_published_assistant_message_has_full_original_english_history_mapping(claude_answer):
+        from app.runtime.answer_publication import AnswerPublisher
+        from app.translation.history import BilingualHistory
+        from translation.fakes import service
+        client,conversation,task,attempt,root,route,machine=claude_answer
+        translation=service(client); publisher=AnswerPublisher(client.app.state.database.path,root,translation)
+>       asyncio.run(publisher.stage(task,attempt,'1.0','en-answer','translation-review'))
+
+tests\integration\test_output_translation.py:110: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:194: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:118: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py:721: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.runtime.answer_publication.AnswerPublisher object at 0x000002ADDEC18110>
+task_id = 'f1157e8beb39468b9c33619a84d05464'
+attempt_id = '12ae9fa5a66c4d5faa3a42ade5e291e3', contract_version = '1.0'
+revision_id = 'en-answer', review_check_id = 'translation-review'
+complete = True, explicit_retry = False
+
+    async def stage(self,task_id,attempt_id,contract_version,revision_id,review_check_id,*,complete=True,explicit_retry=False):
+        if self.translation is None:
+            raise PublicationBlocked('CLAUDE_TRANSLATION_SERVICE_REQUIRED')
+        route=self.translation.router.lock(task_id,attempt_id)
+        if route.route_policy=='native':
+            return super().stage(task_id,attempt_id,contract_version,revision_id,review_check_id)
+        with closing(self.database.connect()) as connection:
+            task=self.translation.router.require_current(connection,route)
+            checkpoint=checkpoint_for(task)
+            if task['state']!='OUTPUT_PREPARING' or checkpoint.get('current_revision_id')!=revision_id or checkpoint.get('stale') or checkpoint.get('publication_blocked'):
+                raise PublicationBlocked('OUTPUT_STATE_OR_CURRENT_REVISION_REQUIRED')
+            review=self._source_review(connection,task,revision_id,review_check_id)
+        translated=await self.output.prepare(task_id,attempt_id,revision_id,complete=complete,explicit_retry=explicit_retry)
+        if translated.status!='READY':
+            with closing(self.database.connect()) as connection,transaction(connection):
+                task=self.translation.router.require_current(connection,route); checkpoint=checkpoint_for(task)
+                checkpoint['language_output']={'source_revision_id':revision_id,'job_id':translated.job_id,'status':translated.status}
+                connection.execute('UPDATE task_runs SET checkpoint_json=? WHERE task_id=? AND attempt_id=?',(json.dumps(checkpoint),task_id,attempt_id))
+                enqueue_event(connection,task_id,attempt_id,'input.required' if translated.status=='NEEDS_INPUT' else 'request.failed',
+                    {'prompt_code':'ambiguous_goal'} if translated.status=='NEEDS_INPUT' else {'error_code':'VALIDATION_FAILED'},
+                    deduplication_key=f'translation-failure:{translated.job_id}')
+>           raise PublicationBlocked('OUTPUT_TRANSLATION_'+translated.status)
+E           app.runtime.publication.PublicationBlocked: OUTPUT_TRANSLATION_FAILED
+
+services\orchestrator\app\runtime\answer_publication.py:79: PublicationBlocked
+_ test_restart_finishes_staged_claude_answer_without_translation_or_english_leak _
+
+claude_answer = (<starlette.testclient.TestClient object at 0x000002ADE09F18C0>, '2d61835f96a344e3adfd5cd4d5d29878', '61aac639eb7a4f20...d': 'd85d05092d2c4a54a2c6f3e620e967ce', 'connection_version': '1', 'id': '8de70d5db1374e65bbe09bc081d91b2e', ...}, ...)
+
+    def test_restart_finishes_staged_claude_answer_without_translation_or_english_leak(claude_answer):
+        from app.runtime.answer_publication import AnswerPublisher
+        from translation.fakes import service
+        client, cid, task, attempt, root, _, machine = claude_answer
+        translation = service(client)
+        with closing(client.app.state.database.connect()) as connection:
+            details = json.loads(connection.execute("SELECT details_json FROM checks WHERE id='translation-review'").fetchone()[0])
+            details['evidence_root'] = str(root)
+            connection.execute("UPDATE checks SET details_json=? WHERE id='translation-review'", (json.dumps(details),))
+        publisher = AnswerPublisher(client.app.state.database.path, root, translation)
+>       asyncio.run(publisher.stage(task, attempt, '1.0', 'en-answer', 'translation-review'))
+
+tests\integration\test_startup_publication.py:115: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:194: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:118: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py:721: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.runtime.answer_publication.AnswerPublisher object at 0x000002ADE08978B0>
+task_id = '61aac639eb7a4f20b6a3abb42291d08d'
+attempt_id = 'd85d05092d2c4a54a2c6f3e620e967ce', contract_version = '1.0'
+revision_id = 'en-answer', review_check_id = 'translation-review'
+complete = True, explicit_retry = False
+
+    async def stage(self,task_id,attempt_id,contract_version,revision_id,review_check_id,*,complete=True,explicit_retry=False):
+        if self.translation is None:
+            raise PublicationBlocked('CLAUDE_TRANSLATION_SERVICE_REQUIRED')
+        route=self.translation.router.lock(task_id,attempt_id)
+        if route.route_policy=='native':
+            return super().stage(task_id,attempt_id,contract_version,revision_id,review_check_id)
+        with closing(self.database.connect()) as connection:
+            task=self.translation.router.require_current(connection,route)
+            checkpoint=checkpoint_for(task)
+            if task['state']!='OUTPUT_PREPARING' or checkpoint.get('current_revision_id')!=revision_id or checkpoint.get('stale') or checkpoint.get('publication_blocked'):
+                raise PublicationBlocked('OUTPUT_STATE_OR_CURRENT_REVISION_REQUIRED')
+            review=self._source_review(connection,task,revision_id,review_check_id)
+        translated=await self.output.prepare(task_id,attempt_id,revision_id,complete=complete,explicit_retry=explicit_retry)
+        if translated.status!='READY':
+            with closing(self.database.connect()) as connection,transaction(connection):
+                task=self.translation.router.require_current(connection,route); checkpoint=checkpoint_for(task)
+                checkpoint['language_output']={'source_revision_id':revision_id,'job_id':translated.job_id,'status':translated.status}
+                connection.execute('UPDATE task_runs SET checkpoint_json=? WHERE task_id=? AND attempt_id=?',(json.dumps(checkpoint),task_id,attempt_id))
+                enqueue_event(connection,task_id,attempt_id,'input.required' if translated.status=='NEEDS_INPUT' else 'request.failed',
+                    {'prompt_code':'ambiguous_goal'} if translated.status=='NEEDS_INPUT' else {'error_code':'VALIDATION_FAILED'},
+                    deduplication_key=f'translation-failure:{translated.job_id}')
+>           raise PublicationBlocked('OUTPUT_TRANSLATION_'+translated.status)
+E           app.runtime.publication.PublicationBlocked: OUTPUT_TRANSLATION_FAILED
+
+services\orchestrator\app\runtime\answer_publication.py:79: PublicationBlocked
+_______________ test_bilingual_v3_backup_restore_scenario[none] _______________
+
+tmp_path = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/.omx/qa/p4/ebe2f8e4/test_bilingual_v3_backup_resto0')
+fault = 'none'
+
+    @pytest.mark.parametrize('fault', ['none', 'missing_chinese_artifact', 'corrupt_database', 'hash_mismatch', 'disk_full', 'mixed_pair'])
+    def test_bilingual_v3_backup_restore_scenario(tmp_path, fault):
+        options = {'fault': fault}
+        jsonschema.validate(options, OPTIONS_SCHEMA)
+>       result = run(tmp_path, options)
+                 ^^^^^^^^^^^^^^^^^^^^^^
+
+tests\storage\test_backup_scenario.py:11: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\support\scenarios\backup_restore.py:84: in run
+    first = seed(modern, token, ['markdown', 'pdf'])
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\artifacts\seed_bundle.py:27: in seed
+    ready=prepare_bilingual(ctx)
+          ^^^^^^^^^^^^^^^^^^^^^^
+tests\artifacts\helpers.py:101: in prepare_bilingual
+    ???
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:194: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:118: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py:721: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.runtime.answer_publication.AnswerPublisher object at 0x000002ADE28CE990>
+task_id = '096c9feafde64342a7c731609ec72ef1'
+attempt_id = 'd1418339637142c6ac9be388f8efde6e', contract_version = '1.0'
+revision_id = 'canonical-5dab241e8fe14415a0a6bbeead359132'
+review_check_id = 'review-canonical-5dab241e8fe14415a0a6bbeead359132'
+complete = True, explicit_retry = False
+
+    async def stage(self,task_id,attempt_id,contract_version,revision_id,review_check_id,*,complete=True,explicit_retry=False):
+        if self.translation is None:
+            raise PublicationBlocked('CLAUDE_TRANSLATION_SERVICE_REQUIRED')
+        route=self.translation.router.lock(task_id,attempt_id)
+        if route.route_policy=='native':
+            return super().stage(task_id,attempt_id,contract_version,revision_id,review_check_id)
+        with closing(self.database.connect()) as connection:
+            task=self.translation.router.require_current(connection,route)
+            checkpoint=checkpoint_for(task)
+            if task['state']!='OUTPUT_PREPARING' or checkpoint.get('current_revision_id')!=revision_id or checkpoint.get('stale') or checkpoint.get('publication_blocked'):
+                raise PublicationBlocked('OUTPUT_STATE_OR_CURRENT_REVISION_REQUIRED')
+            review=self._source_review(connection,task,revision_id,review_check_id)
+        translated=await self.output.prepare(task_id,attempt_id,revision_id,complete=complete,explicit_retry=explicit_retry)
+        if translated.status!='READY':
+            with closing(self.database.connect()) as connection,transaction(connection):
+                task=self.translation.router.require_current(connection,route); checkpoint=checkpoint_for(task)
+                checkpoint['language_output']={'source_revision_id':revision_id,'job_id':translated.job_id,'status':translated.status}
+                connection.execute('UPDATE task_runs SET checkpoint_json=? WHERE task_id=? AND attempt_id=?',(json.dumps(checkpoint),task_id,attempt_id))
+                enqueue_event(connection,task_id,attempt_id,'input.required' if translated.status=='NEEDS_INPUT' else 'request.failed',
+                    {'prompt_code':'ambiguous_goal'} if translated.status=='NEEDS_INPUT' else {'error_code':'VALIDATION_FAILED'},
+                    deduplication_key=f'translation-failure:{translated.job_id}')
+>           raise PublicationBlocked('OUTPUT_TRANSLATION_'+translated.status)
+E           app.runtime.publication.PublicationBlocked: OUTPUT_TRANSLATION_FAILED
+
+services\orchestrator\app\runtime\answer_publication.py:79: PublicationBlocked
+_____ test_bilingual_v3_backup_restore_scenario[missing_chinese_artifact] _____
+
+tmp_path = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/.omx/qa/p4/ebe2f8e4/test_bilingual_v3_backup_resto1')
+fault = 'missing_chinese_artifact'
+
+    @pytest.mark.parametrize('fault', ['none', 'missing_chinese_artifact', 'corrupt_database', 'hash_mismatch', 'disk_full', 'mixed_pair'])
+    def test_bilingual_v3_backup_restore_scenario(tmp_path, fault):
+        options = {'fault': fault}
+        jsonschema.validate(options, OPTIONS_SCHEMA)
+>       result = run(tmp_path, options)
+                 ^^^^^^^^^^^^^^^^^^^^^^
+
+tests\storage\test_backup_scenario.py:11: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\support\scenarios\backup_restore.py:84: in run
+    first = seed(modern, token, ['markdown', 'pdf'])
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\artifacts\seed_bundle.py:27: in seed
+    ready=prepare_bilingual(ctx)
+          ^^^^^^^^^^^^^^^^^^^^^^
+tests\artifacts\helpers.py:101: in prepare_bilingual
+    ???
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:194: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:118: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py:721: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.runtime.answer_publication.AnswerPublisher object at 0x000002ADE2ACE0D0>
+task_id = 'afa0fae57eec477fb6e9889f3a8ee26c'
+attempt_id = 'b3e6848e48f548349612cf7f2f29d15c', contract_version = '1.0'
+revision_id = 'canonical-8afdc54591ae43f995f33fac886b97ef'
+review_check_id = 'review-canonical-8afdc54591ae43f995f33fac886b97ef'
+complete = True, explicit_retry = False
+
+    async def stage(self,task_id,attempt_id,contract_version,revision_id,review_check_id,*,complete=True,explicit_retry=False):
+        if self.translation is None:
+            raise PublicationBlocked('CLAUDE_TRANSLATION_SERVICE_REQUIRED')
+        route=self.translation.router.lock(task_id,attempt_id)
+        if route.route_policy=='native':
+            return super().stage(task_id,attempt_id,contract_version,revision_id,review_check_id)
+        with closing(self.database.connect()) as connection:
+            task=self.translation.router.require_current(connection,route)
+            checkpoint=checkpoint_for(task)
+            if task['state']!='OUTPUT_PREPARING' or checkpoint.get('current_revision_id')!=revision_id or checkpoint.get('stale') or checkpoint.get('publication_blocked'):
+                raise PublicationBlocked('OUTPUT_STATE_OR_CURRENT_REVISION_REQUIRED')
+            review=self._source_review(connection,task,revision_id,review_check_id)
+        translated=await self.output.prepare(task_id,attempt_id,revision_id,complete=complete,explicit_retry=explicit_retry)
+        if translated.status!='READY':
+            with closing(self.database.connect()) as connection,transaction(connection):
+                task=self.translation.router.require_current(connection,route); checkpoint=checkpoint_for(task)
+                checkpoint['language_output']={'source_revision_id':revision_id,'job_id':translated.job_id,'status':translated.status}
+                connection.execute('UPDATE task_runs SET checkpoint_json=? WHERE task_id=? AND attempt_id=?',(json.dumps(checkpoint),task_id,attempt_id))
+                enqueue_event(connection,task_id,attempt_id,'input.required' if translated.status=='NEEDS_INPUT' else 'request.failed',
+                    {'prompt_code':'ambiguous_goal'} if translated.status=='NEEDS_INPUT' else {'error_code':'VALIDATION_FAILED'},
+                    deduplication_key=f'translation-failure:{translated.job_id}')
+>           raise PublicationBlocked('OUTPUT_TRANSLATION_'+translated.status)
+E           app.runtime.publication.PublicationBlocked: OUTPUT_TRANSLATION_FAILED
+
+services\orchestrator\app\runtime\answer_publication.py:79: PublicationBlocked
+_________ test_bilingual_v3_backup_restore_scenario[corrupt_database] _________
+
+tmp_path = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/.omx/qa/p4/ebe2f8e4/test_bilingual_v3_backup_resto2')
+fault = 'corrupt_database'
+
+    @pytest.mark.parametrize('fault', ['none', 'missing_chinese_artifact', 'corrupt_database', 'hash_mismatch', 'disk_full', 'mixed_pair'])
+    def test_bilingual_v3_backup_restore_scenario(tmp_path, fault):
+        options = {'fault': fault}
+        jsonschema.validate(options, OPTIONS_SCHEMA)
+>       result = run(tmp_path, options)
+                 ^^^^^^^^^^^^^^^^^^^^^^
+
+tests\storage\test_backup_scenario.py:11: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\support\scenarios\backup_restore.py:84: in run
+    first = seed(modern, token, ['markdown', 'pdf'])
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\artifacts\seed_bundle.py:27: in seed
+    ready=prepare_bilingual(ctx)
+          ^^^^^^^^^^^^^^^^^^^^^^
+tests\artifacts\helpers.py:101: in prepare_bilingual
+    ???
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:194: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:118: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py:721: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.runtime.answer_publication.AnswerPublisher object at 0x000002ADE2A5D310>
+task_id = 'faa17b2f568748ecb33cdd9ee4aad743'
+attempt_id = '7a45f92c8be94bf5b9cfd10fc0497e05', contract_version = '1.0'
+revision_id = 'canonical-e8a8a657251d4e858930e120aa7b1e8f'
+review_check_id = 'review-canonical-e8a8a657251d4e858930e120aa7b1e8f'
+complete = True, explicit_retry = False
+
+    async def stage(self,task_id,attempt_id,contract_version,revision_id,review_check_id,*,complete=True,explicit_retry=False):
+        if self.translation is None:
+            raise PublicationBlocked('CLAUDE_TRANSLATION_SERVICE_REQUIRED')
+        route=self.translation.router.lock(task_id,attempt_id)
+        if route.route_policy=='native':
+            return super().stage(task_id,attempt_id,contract_version,revision_id,review_check_id)
+        with closing(self.database.connect()) as connection:
+            task=self.translation.router.require_current(connection,route)
+            checkpoint=checkpoint_for(task)
+            if task['state']!='OUTPUT_PREPARING' or checkpoint.get('current_revision_id')!=revision_id or checkpoint.get('stale') or checkpoint.get('publication_blocked'):
+                raise PublicationBlocked('OUTPUT_STATE_OR_CURRENT_REVISION_REQUIRED')
+            review=self._source_review(connection,task,revision_id,review_check_id)
+        translated=await self.output.prepare(task_id,attempt_id,revision_id,complete=complete,explicit_retry=explicit_retry)
+        if translated.status!='READY':
+            with closing(self.database.connect()) as connection,transaction(connection):
+                task=self.translation.router.require_current(connection,route); checkpoint=checkpoint_for(task)
+                checkpoint['language_output']={'source_revision_id':revision_id,'job_id':translated.job_id,'status':translated.status}
+                connection.execute('UPDATE task_runs SET checkpoint_json=? WHERE task_id=? AND attempt_id=?',(json.dumps(checkpoint),task_id,attempt_id))
+                enqueue_event(connection,task_id,attempt_id,'input.required' if translated.status=='NEEDS_INPUT' else 'request.failed',
+                    {'prompt_code':'ambiguous_goal'} if translated.status=='NEEDS_INPUT' else {'error_code':'VALIDATION_FAILED'},
+                    deduplication_key=f'translation-failure:{translated.job_id}')
+>           raise PublicationBlocked('OUTPUT_TRANSLATION_'+translated.status)
+E           app.runtime.publication.PublicationBlocked: OUTPUT_TRANSLATION_FAILED
+
+services\orchestrator\app\runtime\answer_publication.py:79: PublicationBlocked
+__________ test_bilingual_v3_backup_restore_scenario[hash_mismatch] ___________
+
+tmp_path = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/.omx/qa/p4/ebe2f8e4/test_bilingual_v3_backup_resto3')
+fault = 'hash_mismatch'
+
+    @pytest.mark.parametrize('fault', ['none', 'missing_chinese_artifact', 'corrupt_database', 'hash_mismatch', 'disk_full', 'mixed_pair'])
+    def test_bilingual_v3_backup_restore_scenario(tmp_path, fault):
+        options = {'fault': fault}
+        jsonschema.validate(options, OPTIONS_SCHEMA)
+>       result = run(tmp_path, options)
+                 ^^^^^^^^^^^^^^^^^^^^^^
+
+tests\storage\test_backup_scenario.py:11: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\support\scenarios\backup_restore.py:84: in run
+    first = seed(modern, token, ['markdown', 'pdf'])
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\artifacts\seed_bundle.py:27: in seed
+    ready=prepare_bilingual(ctx)
+          ^^^^^^^^^^^^^^^^^^^^^^
+tests\artifacts\helpers.py:101: in prepare_bilingual
+    ???
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:194: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:118: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py:721: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.runtime.answer_publication.AnswerPublisher object at 0x000002ADE2BE8320>
+task_id = '1aec8fa2b4cb4504ac28a66ef1895407'
+attempt_id = 'b14b629cd1bb40f08be668c45dfc2ea4', contract_version = '1.0'
+revision_id = 'canonical-6c200a0b67b8463eac4c561716cd4fc6'
+review_check_id = 'review-canonical-6c200a0b67b8463eac4c561716cd4fc6'
+complete = True, explicit_retry = False
+
+    async def stage(self,task_id,attempt_id,contract_version,revision_id,review_check_id,*,complete=True,explicit_retry=False):
+        if self.translation is None:
+            raise PublicationBlocked('CLAUDE_TRANSLATION_SERVICE_REQUIRED')
+        route=self.translation.router.lock(task_id,attempt_id)
+        if route.route_policy=='native':
+            return super().stage(task_id,attempt_id,contract_version,revision_id,review_check_id)
+        with closing(self.database.connect()) as connection:
+            task=self.translation.router.require_current(connection,route)
+            checkpoint=checkpoint_for(task)
+            if task['state']!='OUTPUT_PREPARING' or checkpoint.get('current_revision_id')!=revision_id or checkpoint.get('stale') or checkpoint.get('publication_blocked'):
+                raise PublicationBlocked('OUTPUT_STATE_OR_CURRENT_REVISION_REQUIRED')
+            review=self._source_review(connection,task,revision_id,review_check_id)
+        translated=await self.output.prepare(task_id,attempt_id,revision_id,complete=complete,explicit_retry=explicit_retry)
+        if translated.status!='READY':
+            with closing(self.database.connect()) as connection,transaction(connection):
+                task=self.translation.router.require_current(connection,route); checkpoint=checkpoint_for(task)
+                checkpoint['language_output']={'source_revision_id':revision_id,'job_id':translated.job_id,'status':translated.status}
+                connection.execute('UPDATE task_runs SET checkpoint_json=? WHERE task_id=? AND attempt_id=?',(json.dumps(checkpoint),task_id,attempt_id))
+                enqueue_event(connection,task_id,attempt_id,'input.required' if translated.status=='NEEDS_INPUT' else 'request.failed',
+                    {'prompt_code':'ambiguous_goal'} if translated.status=='NEEDS_INPUT' else {'error_code':'VALIDATION_FAILED'},
+                    deduplication_key=f'translation-failure:{translated.job_id}')
+>           raise PublicationBlocked('OUTPUT_TRANSLATION_'+translated.status)
+E           app.runtime.publication.PublicationBlocked: OUTPUT_TRANSLATION_FAILED
+
+services\orchestrator\app\runtime\answer_publication.py:79: PublicationBlocked
+____________ test_bilingual_v3_backup_restore_scenario[disk_full] _____________
+
+tmp_path = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/.omx/qa/p4/ebe2f8e4/test_bilingual_v3_backup_resto4')
+fault = 'disk_full'
+
+    @pytest.mark.parametrize('fault', ['none', 'missing_chinese_artifact', 'corrupt_database', 'hash_mismatch', 'disk_full', 'mixed_pair'])
+    def test_bilingual_v3_backup_restore_scenario(tmp_path, fault):
+        options = {'fault': fault}
+        jsonschema.validate(options, OPTIONS_SCHEMA)
+>       result = run(tmp_path, options)
+                 ^^^^^^^^^^^^^^^^^^^^^^
+
+tests\storage\test_backup_scenario.py:11: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\support\scenarios\backup_restore.py:84: in run
+    first = seed(modern, token, ['markdown', 'pdf'])
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\artifacts\seed_bundle.py:27: in seed
+    ready=prepare_bilingual(ctx)
+          ^^^^^^^^^^^^^^^^^^^^^^
+tests\artifacts\helpers.py:101: in prepare_bilingual
+    ???
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:194: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:118: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py:721: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.runtime.answer_publication.AnswerPublisher object at 0x000002ADE2B3A550>
+task_id = '02d5171b57f54a1fa6b4e4c720795a19'
+attempt_id = '255dbdda1f7d4e4eb83ec5fd52356349', contract_version = '1.0'
+revision_id = 'canonical-57f7e2d157964c5da3844503bc2c06ff'
+review_check_id = 'review-canonical-57f7e2d157964c5da3844503bc2c06ff'
+complete = True, explicit_retry = False
+
+    async def stage(self,task_id,attempt_id,contract_version,revision_id,review_check_id,*,complete=True,explicit_retry=False):
+        if self.translation is None:
+            raise PublicationBlocked('CLAUDE_TRANSLATION_SERVICE_REQUIRED')
+        route=self.translation.router.lock(task_id,attempt_id)
+        if route.route_policy=='native':
+            return super().stage(task_id,attempt_id,contract_version,revision_id,review_check_id)
+        with closing(self.database.connect()) as connection:
+            task=self.translation.router.require_current(connection,route)
+            checkpoint=checkpoint_for(task)
+            if task['state']!='OUTPUT_PREPARING' or checkpoint.get('current_revision_id')!=revision_id or checkpoint.get('stale') or checkpoint.get('publication_blocked'):
+                raise PublicationBlocked('OUTPUT_STATE_OR_CURRENT_REVISION_REQUIRED')
+            review=self._source_review(connection,task,revision_id,review_check_id)
+        translated=await self.output.prepare(task_id,attempt_id,revision_id,complete=complete,explicit_retry=explicit_retry)
+        if translated.status!='READY':
+            with closing(self.database.connect()) as connection,transaction(connection):
+                task=self.translation.router.require_current(connection,route); checkpoint=checkpoint_for(task)
+                checkpoint['language_output']={'source_revision_id':revision_id,'job_id':translated.job_id,'status':translated.status}
+                connection.execute('UPDATE task_runs SET checkpoint_json=? WHERE task_id=? AND attempt_id=?',(json.dumps(checkpoint),task_id,attempt_id))
+                enqueue_event(connection,task_id,attempt_id,'input.required' if translated.status=='NEEDS_INPUT' else 'request.failed',
+                    {'prompt_code':'ambiguous_goal'} if translated.status=='NEEDS_INPUT' else {'error_code':'VALIDATION_FAILED'},
+                    deduplication_key=f'translation-failure:{translated.job_id}')
+>           raise PublicationBlocked('OUTPUT_TRANSLATION_'+translated.status)
+E           app.runtime.publication.PublicationBlocked: OUTPUT_TRANSLATION_FAILED
+
+services\orchestrator\app\runtime\answer_publication.py:79: PublicationBlocked
+____________ test_bilingual_v3_backup_restore_scenario[mixed_pair] ____________
+
+tmp_path = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/.omx/qa/p4/ebe2f8e4/test_bilingual_v3_backup_resto5')
+fault = 'mixed_pair'
+
+    @pytest.mark.parametrize('fault', ['none', 'missing_chinese_artifact', 'corrupt_database', 'hash_mismatch', 'disk_full', 'mixed_pair'])
+    def test_bilingual_v3_backup_restore_scenario(tmp_path, fault):
+        options = {'fault': fault}
+        jsonschema.validate(options, OPTIONS_SCHEMA)
+>       result = run(tmp_path, options)
+                 ^^^^^^^^^^^^^^^^^^^^^^
+
+tests\storage\test_backup_scenario.py:11: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\support\scenarios\backup_restore.py:84: in run
+    first = seed(modern, token, ['markdown', 'pdf'])
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\artifacts\seed_bundle.py:27: in seed
+    ready=prepare_bilingual(ctx)
+          ^^^^^^^^^^^^^^^^^^^^^^
+tests\artifacts\helpers.py:101: in prepare_bilingual
+    ???
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:194: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:118: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py:721: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.runtime.answer_publication.AnswerPublisher object at 0x000002ADE2EDAED0>
+task_id = 'b0f888e473ae4246a89c5da1cc745625'
+attempt_id = 'f58bab01b8914ec7b97a285460346faf', contract_version = '1.0'
+revision_id = 'canonical-6339d39c5dc840d08443ee7ba13857c5'
+review_check_id = 'review-canonical-6339d39c5dc840d08443ee7ba13857c5'
+complete = True, explicit_retry = False
+
+    async def stage(self,task_id,attempt_id,contract_version,revision_id,review_check_id,*,complete=True,explicit_retry=False):
+        if self.translation is None:
+            raise PublicationBlocked('CLAUDE_TRANSLATION_SERVICE_REQUIRED')
+        route=self.translation.router.lock(task_id,attempt_id)
+        if route.route_policy=='native':
+            return super().stage(task_id,attempt_id,contract_version,revision_id,review_check_id)
+        with closing(self.database.connect()) as connection:
+            task=self.translation.router.require_current(connection,route)
+            checkpoint=checkpoint_for(task)
+            if task['state']!='OUTPUT_PREPARING' or checkpoint.get('current_revision_id')!=revision_id or checkpoint.get('stale') or checkpoint.get('publication_blocked'):
+                raise PublicationBlocked('OUTPUT_STATE_OR_CURRENT_REVISION_REQUIRED')
+            review=self._source_review(connection,task,revision_id,review_check_id)
+        translated=await self.output.prepare(task_id,attempt_id,revision_id,complete=complete,explicit_retry=explicit_retry)
+        if translated.status!='READY':
+            with closing(self.database.connect()) as connection,transaction(connection):
+                task=self.translation.router.require_current(connection,route); checkpoint=checkpoint_for(task)
+                checkpoint['language_output']={'source_revision_id':revision_id,'job_id':translated.job_id,'status':translated.status}
+                connection.execute('UPDATE task_runs SET checkpoint_json=? WHERE task_id=? AND attempt_id=?',(json.dumps(checkpoint),task_id,attempt_id))
+                enqueue_event(connection,task_id,attempt_id,'input.required' if translated.status=='NEEDS_INPUT' else 'request.failed',
+                    {'prompt_code':'ambiguous_goal'} if translated.status=='NEEDS_INPUT' else {'error_code':'VALIDATION_FAILED'},
+                    deduplication_key=f'translation-failure:{translated.job_id}')
+>           raise PublicationBlocked('OUTPUT_TRANSLATION_'+translated.status)
+E           app.runtime.publication.PublicationBlocked: OUTPUT_TRANSLATION_FAILED
+
+services\orchestrator\app\runtime\answer_publication.py:79: PublicationBlocked
+============================== warnings summary ===============================
+<frozen importlib._bootstrap>:488
+<frozen importlib._bootstrap>:488
+  <frozen importlib._bootstrap>:488: DeprecationWarning: builtin type SwigPyPacked has no __module__ attribute
+
+<frozen importlib._bootstrap>:488
+<frozen importlib._bootstrap>:488
+  <frozen importlib._bootstrap>:488: DeprecationWarning: builtin type SwigPyObject has no __module__ attribute
+
+<frozen importlib._bootstrap>:488
+  <frozen importlib._bootstrap>:488: DeprecationWarning: builtin type swigvarlink has no __module__ attribute
+
+services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1
+  C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/artifacts/test_atomic_publication.py::test_real_pair_bytes_and_answer_publish_once_in_one_transaction[claude] - app.runtime.publication.PublicationBlocked: OUTPUT_TRANSLATION_FAILED
+FAILED tests/artifacts/test_atomic_publication.py::test_half_v2_render_and_transaction_failure_leave_only_complete_v1_visible[claude] - app.runtime.publication.PublicationBlocked: OUTPUT_TRANSLATION_FAILED
+FAILED tests/artifacts/test_atomic_publication.py::test_cancelled_missing_format_old_source_and_corrupt_blob_are_not_deliverable[claude] - app.runtime.publication.PublicationBlocked: OUTPUT_TRANSLATION_FAILED
+FAILED tests/artifacts/test_atomic_publication.py::test_download_scope_unpublished_and_changed_file_hash_are_enforced[claude] - app.runtime.publication.PublicationBlocked: OUTPUT_TRANSLATION_FAILED
+FAILED tests/artifacts/test_atomic_publication.py::test_renderer_claiming_pass_for_corrupt_bytes_cannot_publish[claude] - app.runtime.publication.PublicationBlocked: OUTPUT_TRANSLATION_FAILED
+FAILED tests/integration/test_clarification_translation.py::test_actual_a_review_clarification_is_completely_translated_and_public - AssertionError: assert 'BLOCKED' == 'NEEDS_INPUT'
+  
+  - NEEDS_INPUT
+  + BLOCKED
+FAILED tests/integration/test_clarification_translation.py::test_clarification_failure_or_late_fence_never_exposes_english_or_template[cancel] - AssertionError: assert 'BLOCKED' == 'CANCELLED'
+  
+  - CANCELLED
+  + BLOCKED
+FAILED tests/integration/test_clarification_translation.py::test_clarification_failure_or_late_fence_never_exposes_english_or_template[identity] - AssertionError: assert 'BLOCKED' == 'PAUSED'
+  
+  - PAUSED
+  + BLOCKED
+FAILED tests/integration/test_clarification_translation.py::test_b_step_or_forged_input_required_cannot_publish_a_clarification - TypeError: 'NoneType' object is not subscriptable
+FAILED tests/integration/test_clarification_translation.py::test_frozen_question_remains_visible_but_corrupt_source_or_qa_is_hidden - assert 0 == 1
+ +  where 0 = len([])
+FAILED tests/integration/test_clarification_translation.py::test_approved_clarification_keeps_original_english_in_followup_history - AssertionError: assert ('READY' == 'READY'
+  
+    READY and 'Do not delete the original files. Should I use only 2 source files, or wait for the missing appendix?' in 'user: Keep the original file.\n\nuser: Keep the original file.')
+ +  where 'user: Keep the original file.\n\nuser: Keep the original file.' = InputContext(status='READY', text='user: Keep the original file.\n\nuser: Keep the original file.', job_ids=('36ed86a9...2fe7b6f1d5de', 'c8a941526f7745b492b653ad4e53c803'), english_views={}, full_scope=(), read_scope=(), clarification=None).text
+FAILED tests/integration/test_clarification_translation.py::test_clarification_qa_byte_binding_cannot_be_replaced_by_generic_pass - TypeError: 'NoneType' object is not subscriptable
+FAILED tests/integration/test_document_invalidation.py::test_upstream_change_invalidates_chart_report_translation_render_and_approval_but_preserves_published_history[claude] - app.runtime.publication.PublicationBlocked: OUTPUT_TRANSLATION_FAILED
+FAILED tests/integration/test_output_translation.py::test_approved_claude_answer_can_reach_a_chinese_release_gate - app.runtime.publication.PublicationBlocked: OUTPUT_TRANSLATION_FAILED
+FAILED tests/integration/test_output_translation.py::test_three_failed_output_candidates_keep_english_internal_without_success - assert 0 == 3
+ +  where 0 = len([])
+ +    where [] = <translation.fakes.FakeTranslationPort object at 0x000002ADDDD965F0>.calls
+ +      where <translation.fakes.FakeTranslationPort object at 0x000002ADDDD965F0> = <app.translation.service.TranslationService object at 0x000002ADDF85C680>.translator
+FAILED tests/integration/test_output_translation.py::test_cancelled_task_cannot_publish_late_translation - app.runtime.publication.PublicationBlocked: OUTPUT_TRANSLATION_FAILED
+FAILED tests/integration/test_output_translation.py::test_frozen_translation_history_survives_staleness_but_cannot_publish_again - app.runtime.publication.PublicationBlocked: OUTPUT_TRANSLATION_FAILED
+FAILED tests/integration/test_output_translation.py::test_published_assistant_message_has_full_original_english_history_mapping - app.runtime.publication.PublicationBlocked: OUTPUT_TRANSLATION_FAILED
+FAILED tests/integration/test_startup_publication.py::test_restart_finishes_staged_claude_answer_without_translation_or_english_leak - app.runtime.publication.PublicationBlocked: OUTPUT_TRANSLATION_FAILED
+FAILED tests/storage/test_backup_scenario.py::test_bilingual_v3_backup_restore_scenario[none] - app.runtime.publication.PublicationBlocked: OUTPUT_TRANSLATION_FAILED
+FAILED tests/storage/test_backup_scenario.py::test_bilingual_v3_backup_restore_scenario[missing_chinese_artifact] - app.runtime.publication.PublicationBlocked: OUTPUT_TRANSLATION_FAILED
+FAILED tests/storage/test_backup_scenario.py::test_bilingual_v3_backup_restore_scenario[corrupt_database] - app.runtime.publication.PublicationBlocked: OUTPUT_TRANSLATION_FAILED
+FAILED tests/storage/test_backup_scenario.py::test_bilingual_v3_backup_restore_scenario[hash_mismatch] - app.runtime.publication.PublicationBlocked: OUTPUT_TRANSLATION_FAILED
+FAILED tests/storage/test_backup_scenario.py::test_bilingual_v3_backup_restore_scenario[disk_full] - app.runtime.publication.PublicationBlocked: OUTPUT_TRANSLATION_FAILED
+FAILED tests/storage/test_backup_scenario.py::test_bilingual_v3_backup_restore_scenario[mixed_pair] - app.runtime.publication.PublicationBlocked: OUTPUT_TRANSLATION_FAILED
+25 failed, 1677 passed, 1 deselected, 6 warnings in 477.80s (0:07:57)
+<sys>:0: DeprecationWarning: builtin type swigvarlink has no __module__ attribute

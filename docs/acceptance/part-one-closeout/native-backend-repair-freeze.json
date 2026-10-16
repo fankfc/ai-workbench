@@ -1,0 +1,51 @@
+{
+  "time": "2026-10-14T07:28:47.666517+00:00",
+  "scope": "assembly lane owned source only",
+  "files": [
+    {
+      "path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\app\\runtime\\supervisor.py",
+      "sha256": "4367eb986fa6af34b554cd027958c504b13c1bfd60d1ad8c27279657b2166f50"
+    },
+    {
+      "path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\app\\runtime\\native_backend.py",
+      "sha256": "d102a34d1e124989d812166a575e0e2953c231c3c378505e3ebc6c27de9d827e"
+    },
+    {
+      "path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\tests\\integration\\test_native_backend_bindings.py",
+      "sha256": "069e8249364a4ab96b563214c2e36bcbe1b6607e3e594fe24d632dbe41ca1bc0"
+    }
+  ],
+  "verification": {
+    "exit_code": 0,
+    "passed": 135,
+    "warnings": 1,
+    "seconds": 16.39,
+    "log": "docs/acceptance/part-one-closeout/native-backend-bindings-final-green.log",
+    "command": [
+      "services/orchestrator/.venv/Scripts/python.exe",
+      "-m",
+      "pytest",
+      "tests/integration/test_native_backend_bindings.py",
+      "tests/integration/test_conversation_api.py",
+      "tests/integration/test_native_supervisor.py",
+      "tests/integration/test_native_planning.py",
+      "tests/integration/test_prepared_workflow.py",
+      "tests/integration/test_native_validation.py",
+      "tests/integration/test_native_publication.py",
+      "tests/integration/test_recovery.py",
+      "-q"
+    ]
+  },
+  "incomplete_rpc_cleanup_probe": {
+    "exit_code": 0,
+    "incomplete_rpc_cleanup_blocked": true,
+    "planning_cleanup_calls": 1,
+    "b_cleanup_calls": 1,
+    "a_cleanup_calls": 1
+  },
+  "external_model_operations": 0,
+  "native_cli_operations": 0,
+  "auth_operations": 0,
+  "network_operations": 0,
+  "automatic_restart_publication_port_added": false
+}

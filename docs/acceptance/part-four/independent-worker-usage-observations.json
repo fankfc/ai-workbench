@@ -1,0 +1,260 @@
+{
+  "kind": "independent_synthetic_queue_schedules",
+  "external_requests": 0,
+  "external_processes": 0,
+  "source_before": {
+    "services/orchestrator/app/providers/scoped_codex_worker.py": "92fd9440c70307c9c5b7e2c9be30489ea2c4454c760b086f06478d4f1b7210ab",
+    "services/orchestrator/app/providers/scoped_codex_runtime.py": "5c11428a50b13b68dd597eb235de2a7861d73f74760aa9f60db72727c4020c6e",
+    "services/orchestrator/app/providers/native_scope.py": "d7cfc429a6ff51160379c35cff00aaf38b1d883fbcbb8f74dfd99b12d1fa7613"
+  },
+  "source_after": {
+    "services/orchestrator/app/providers/scoped_codex_worker.py": "92fd9440c70307c9c5b7e2c9be30489ea2c4454c760b086f06478d4f1b7210ab",
+    "services/orchestrator/app/providers/scoped_codex_runtime.py": "5c11428a50b13b68dd597eb235de2a7861d73f74760aa9f60db72727c4020c6e",
+    "services/orchestrator/app/providers/native_scope.py": "d7cfc429a6ff51160379c35cff00aaf38b1d883fbcbb8f74dfd99b12d1fa7613"
+  },
+  "source_unchanged": true,
+  "worker_pin_matches": true,
+  "case_count": 7,
+  "all_checks_passed": true,
+  "results": [
+    {
+      "schedule": "identity_before_error",
+      "exit_code": 1,
+      "started_request_id": "resp_fixture",
+      "final_sse_identity": {
+        "response_id": "resp_fixture",
+        "actual_model_id": "gpt-fixture"
+      },
+      "final_raw_receipt_count": 1,
+      "final_receipt_count": 1,
+      "frames": [
+        {
+          "kind": "started",
+          "external_request_id": "resp_fixture",
+          "external_execution_id": "turn_fixture"
+        },
+        {
+          "kind": "interrupt_ack",
+          "acknowledged": true,
+          "remote_state": "unknown"
+        },
+        {
+          "kind": "usage",
+          "external_request_id": "resp_fixture",
+          "external_execution_id": "turn_fixture",
+          "actual_model_id": "gpt-fixture",
+          "identity_source": "official_response_completed_model",
+          "thread_id": "thread_fixture",
+          "usage": {
+            "input_tokens": 30,
+            "output_tokens": 3,
+            "total_tokens": 33,
+            "reasoning_output_tokens": 1
+          }
+        },
+        {
+          "kind": "error",
+          "reason_code": "UNSUPPORTED_EXECUTION_NOTIFICATION",
+          "remote_state": "unknown",
+          "accepted": true
+        }
+      ],
+      "known_total_tokens": 33,
+      "known_usage_expected": true
+    },
+    {
+      "schedule": "identity_during_failure_drain",
+      "exit_code": 1,
+      "started_request_id": "resp_fixture",
+      "final_sse_identity": {
+        "response_id": "resp_fixture",
+        "actual_model_id": "gpt-fixture"
+      },
+      "final_raw_receipt_count": 1,
+      "final_receipt_count": 1,
+      "frames": [
+        {
+          "kind": "interrupt_ack",
+          "acknowledged": true,
+          "remote_state": "unknown"
+        },
+        {
+          "kind": "started",
+          "external_request_id": "resp_fixture",
+          "external_execution_id": "turn_fixture"
+        },
+        {
+          "kind": "usage",
+          "external_request_id": "resp_fixture",
+          "external_execution_id": "turn_fixture",
+          "actual_model_id": "gpt-fixture",
+          "identity_source": "official_response_completed_model",
+          "thread_id": "thread_fixture",
+          "usage": {
+            "input_tokens": 30,
+            "output_tokens": 3,
+            "total_tokens": 33,
+            "reasoning_output_tokens": 1
+          }
+        },
+        {
+          "kind": "error",
+          "reason_code": "UNSUPPORTED_EXECUTION_NOTIFICATION",
+          "remote_state": "unknown",
+          "accepted": true
+        }
+      ],
+      "known_total_tokens": 33,
+      "known_usage_expected": true
+    },
+    {
+      "schedule": "identity_during_failure_drain",
+      "exit_code": 1,
+      "started_request_id": null,
+      "final_sse_identity": null,
+      "final_raw_receipt_count": 1,
+      "final_receipt_count": 1,
+      "frames": [
+        {
+          "kind": "interrupt_ack",
+          "acknowledged": true,
+          "remote_state": "unknown"
+        },
+        {
+          "kind": "started",
+          "external_request_id": null,
+          "external_execution_id": "turn_fixture"
+        },
+        {
+          "kind": "error",
+          "reason_code": "UNSUPPORTED_EXECUTION_NOTIFICATION",
+          "remote_state": "unknown",
+          "accepted": true
+        }
+      ],
+      "damage": "missing_identity",
+      "known_total_tokens": null,
+      "known_usage_expected": false
+    },
+    {
+      "schedule": "identity_during_failure_drain",
+      "exit_code": 1,
+      "started_request_id": null,
+      "final_sse_identity": null,
+      "final_raw_receipt_count": 1,
+      "final_receipt_count": 1,
+      "frames": [
+        {
+          "kind": "interrupt_ack",
+          "acknowledged": true,
+          "remote_state": "unknown"
+        },
+        {
+          "kind": "started",
+          "external_request_id": null,
+          "external_execution_id": "turn_fixture"
+        },
+        {
+          "kind": "error",
+          "reason_code": "UNSUPPORTED_EXECUTION_NOTIFICATION",
+          "remote_state": "unknown",
+          "accepted": true
+        }
+      ],
+      "damage": "missing_completed_model",
+      "known_total_tokens": null,
+      "known_usage_expected": false
+    },
+    {
+      "schedule": "identity_during_failure_drain",
+      "exit_code": 1,
+      "started_request_id": null,
+      "final_sse_identity": null,
+      "final_raw_receipt_count": 1,
+      "final_receipt_count": 1,
+      "frames": [
+        {
+          "kind": "interrupt_ack",
+          "acknowledged": true,
+          "remote_state": "unknown"
+        },
+        {
+          "kind": "started",
+          "external_request_id": null,
+          "external_execution_id": "turn_fixture"
+        },
+        {
+          "kind": "error",
+          "reason_code": "UNSUPPORTED_EXECUTION_NOTIFICATION",
+          "remote_state": "unknown",
+          "accepted": true
+        }
+      ],
+      "damage": "conflicting_models",
+      "known_total_tokens": null,
+      "known_usage_expected": false
+    },
+    {
+      "schedule": "identity_during_failure_drain",
+      "exit_code": 1,
+      "started_request_id": null,
+      "final_sse_identity": null,
+      "final_raw_receipt_count": 1,
+      "final_receipt_count": 1,
+      "frames": [
+        {
+          "kind": "interrupt_ack",
+          "acknowledged": true,
+          "remote_state": "unknown"
+        },
+        {
+          "kind": "started",
+          "external_request_id": null,
+          "external_execution_id": "turn_fixture"
+        },
+        {
+          "kind": "error",
+          "reason_code": "UNSUPPORTED_EXECUTION_NOTIFICATION",
+          "remote_state": "unknown",
+          "accepted": true
+        }
+      ],
+      "damage": "foreign_response",
+      "known_total_tokens": null,
+      "known_usage_expected": false
+    },
+    {
+      "schedule": "identity_during_failure_drain",
+      "exit_code": 1,
+      "started_request_id": null,
+      "final_sse_identity": {
+        "response_id": "resp_fixture",
+        "actual_model_id": "gpt-fixture"
+      },
+      "final_raw_receipt_count": 1,
+      "final_receipt_count": 1,
+      "frames": [
+        {
+          "kind": "interrupt_ack",
+          "acknowledged": true,
+          "remote_state": "unknown"
+        },
+        {
+          "kind": "started",
+          "external_request_id": null,
+          "external_execution_id": "turn_fixture"
+        },
+        {
+          "kind": "error",
+          "reason_code": "UNSUPPORTED_EXECUTION_NOTIFICATION",
+          "remote_state": "unknown",
+          "accepted": true
+        }
+      ],
+      "damage": "missing_created",
+      "known_total_tokens": null,
+      "known_usage_expected": false
+    }
+  ],
+  "scope": "Real module code under deterministic local queue schedules; no real provider identity or billing validation."
+}

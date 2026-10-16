@@ -1,0 +1,162 @@
+
+> ai-workbench@0.1.0 test:e2e:real
+> node tests/support/run-real-e2e.mjs
+
+
+Running 8 tests using 1 worker
+
+(node:17364) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  1 tests\e2e\vertical-real.spec.ts:8:70 › 真实 code / claude 需要生产资格与冻结输入 (4.8s)
+(node:27164) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  2 tests\e2e\vertical-real.spec.ts:8:70 › 真实 code / gpt 需要生产资格与冻结输入 (5.6s)
+(node:69440) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  3 tests\e2e\vertical-real.spec.ts:8:70 › 真实 paper / claude 需要生产资格与冻结输入 (4.5s)
+(node:27984) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  4 tests\e2e\vertical-real.spec.ts:8:70 › 真实 paper / gpt 需要生产资格与冻结输入 (4.6s)
+(node:65328) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  5 tests\e2e\vertical-real.spec.ts:8:70 › 真实 document / claude 需要生产资格与冻结输入 (5.4s)
+(node:18244) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  6 tests\e2e\vertical-real.spec.ts:8:70 › 真实 document / gpt 需要生产资格与冻结输入 (4.6s)
+(node:20900) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  7 tests\e2e\vertical-real.spec.ts:8:70 › 真实 composite / claude 需要生产资格与冻结输入 (4.6s)
+(node:38448) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  8 tests\e2e\vertical-real.spec.ts:8:70 › 真实 composite / gpt 需要生产资格与冻结输入 (5.8s)
+
+
+  1) tests\e2e\vertical-real.spec.ts:8:70 › 真实 code / claude 需要生产资格与冻结输入 ───────────────────────────
+
+    Error: 真实场景未通过：claude 指导模型缺少生产资格；GLM 执行模型缺少生产资格。未发送任务，模型调用为 0。
+
+      19 |     const blockers=[...(status.provider_mode!=='real'?['后端不是真实模式']:[]),...(!a?[`${family} 指导模型缺少生产资格`]:[]),...(!b?['GLM 执行模型缺少生产资格']:[])];
+      20 |     await writeFile(testInfo.outputPath('real-preflight.json'),JSON.stringify({domain,family,provider_mode:status.provider_mode,qualified_profiles:qualified.map(value=>({id:value.id,role:value.role,family:value.family,model_id:value.model_id,connection_version:value.connection_version})),blockers,model_calls:0,status:blockers.length?'BLOCKED':'QUALIFIED'},null,2));
+    > 21 |     if(blockers.length)throw new Error(`真实场景未通过：${blockers.join('；')}。未发送任务，模型调用为 0。`);
+         |                              ^
+      22 |     // This branch uses only the production bridge and actual public projection.
+      23 |     // Missing qualification never selects a demonstration profile or skips a test.
+      24 |     const text=await readFile(resolve(scenario.request),'utf8');const cid=await page.evaluate(()=>window.workbench.createConversation({title:'真实验收'}));
+        at C:\Users\asd15\Documents\ChatGPT\ai\tests\e2e\vertical-real.spec.ts:21:30
+
+    Error Context: artifacts\playwright-real\vertical-real-真实-code-claude-需要生产资格与冻结输入\error-context.md
+
+  2) tests\e2e\vertical-real.spec.ts:8:70 › 真实 code / gpt 需要生产资格与冻结输入 ──────────────────────────────
+
+    Error: 真实场景未通过：gpt 指导模型缺少生产资格；GLM 执行模型缺少生产资格。未发送任务，模型调用为 0。
+
+      19 |     const blockers=[...(status.provider_mode!=='real'?['后端不是真实模式']:[]),...(!a?[`${family} 指导模型缺少生产资格`]:[]),...(!b?['GLM 执行模型缺少生产资格']:[])];
+      20 |     await writeFile(testInfo.outputPath('real-preflight.json'),JSON.stringify({domain,family,provider_mode:status.provider_mode,qualified_profiles:qualified.map(value=>({id:value.id,role:value.role,family:value.family,model_id:value.model_id,connection_version:value.connection_version})),blockers,model_calls:0,status:blockers.length?'BLOCKED':'QUALIFIED'},null,2));
+    > 21 |     if(blockers.length)throw new Error(`真实场景未通过：${blockers.join('；')}。未发送任务，模型调用为 0。`);
+         |                              ^
+      22 |     // This branch uses only the production bridge and actual public projection.
+      23 |     // Missing qualification never selects a demonstration profile or skips a test.
+      24 |     const text=await readFile(resolve(scenario.request),'utf8');const cid=await page.evaluate(()=>window.workbench.createConversation({title:'真实验收'}));
+        at C:\Users\asd15\Documents\ChatGPT\ai\tests\e2e\vertical-real.spec.ts:21:30
+
+    Error Context: artifacts\playwright-real\vertical-real-真实-code-gpt-需要生产资格与冻结输入\error-context.md
+
+  3) tests\e2e\vertical-real.spec.ts:8:70 › 真实 paper / claude 需要生产资格与冻结输入 ──────────────────────────
+
+    Error: 真实场景未通过：claude 指导模型缺少生产资格；GLM 执行模型缺少生产资格。未发送任务，模型调用为 0。
+
+      19 |     const blockers=[...(status.provider_mode!=='real'?['后端不是真实模式']:[]),...(!a?[`${family} 指导模型缺少生产资格`]:[]),...(!b?['GLM 执行模型缺少生产资格']:[])];
+      20 |     await writeFile(testInfo.outputPath('real-preflight.json'),JSON.stringify({domain,family,provider_mode:status.provider_mode,qualified_profiles:qualified.map(value=>({id:value.id,role:value.role,family:value.family,model_id:value.model_id,connection_version:value.connection_version})),blockers,model_calls:0,status:blockers.length?'BLOCKED':'QUALIFIED'},null,2));
+    > 21 |     if(blockers.length)throw new Error(`真实场景未通过：${blockers.join('；')}。未发送任务，模型调用为 0。`);
+         |                              ^
+      22 |     // This branch uses only the production bridge and actual public projection.
+      23 |     // Missing qualification never selects a demonstration profile or skips a test.
+      24 |     const text=await readFile(resolve(scenario.request),'utf8');const cid=await page.evaluate(()=>window.workbench.createConversation({title:'真实验收'}));
+        at C:\Users\asd15\Documents\ChatGPT\ai\tests\e2e\vertical-real.spec.ts:21:30
+
+    Error Context: artifacts\playwright-real\vertical-real-真实-paper-claude-需要生产资格与冻结输入\error-context.md
+
+  4) tests\e2e\vertical-real.spec.ts:8:70 › 真实 paper / gpt 需要生产资格与冻结输入 ─────────────────────────────
+
+    Error: 真实场景未通过：gpt 指导模型缺少生产资格；GLM 执行模型缺少生产资格。未发送任务，模型调用为 0。
+
+      19 |     const blockers=[...(status.provider_mode!=='real'?['后端不是真实模式']:[]),...(!a?[`${family} 指导模型缺少生产资格`]:[]),...(!b?['GLM 执行模型缺少生产资格']:[])];
+      20 |     await writeFile(testInfo.outputPath('real-preflight.json'),JSON.stringify({domain,family,provider_mode:status.provider_mode,qualified_profiles:qualified.map(value=>({id:value.id,role:value.role,family:value.family,model_id:value.model_id,connection_version:value.connection_version})),blockers,model_calls:0,status:blockers.length?'BLOCKED':'QUALIFIED'},null,2));
+    > 21 |     if(blockers.length)throw new Error(`真实场景未通过：${blockers.join('；')}。未发送任务，模型调用为 0。`);
+         |                              ^
+      22 |     // This branch uses only the production bridge and actual public projection.
+      23 |     // Missing qualification never selects a demonstration profile or skips a test.
+      24 |     const text=await readFile(resolve(scenario.request),'utf8');const cid=await page.evaluate(()=>window.workbench.createConversation({title:'真实验收'}));
+        at C:\Users\asd15\Documents\ChatGPT\ai\tests\e2e\vertical-real.spec.ts:21:30
+
+    Error Context: artifacts\playwright-real\vertical-real-真实-paper-gpt-需要生产资格与冻结输入\error-context.md
+
+  5) tests\e2e\vertical-real.spec.ts:8:70 › 真实 document / claude 需要生产资格与冻结输入 ───────────────────────
+
+    Error: 真实场景未通过：claude 指导模型缺少生产资格；GLM 执行模型缺少生产资格。未发送任务，模型调用为 0。
+
+      19 |     const blockers=[...(status.provider_mode!=='real'?['后端不是真实模式']:[]),...(!a?[`${family} 指导模型缺少生产资格`]:[]),...(!b?['GLM 执行模型缺少生产资格']:[])];
+      20 |     await writeFile(testInfo.outputPath('real-preflight.json'),JSON.stringify({domain,family,provider_mode:status.provider_mode,qualified_profiles:qualified.map(value=>({id:value.id,role:value.role,family:value.family,model_id:value.model_id,connection_version:value.connection_version})),blockers,model_calls:0,status:blockers.length?'BLOCKED':'QUALIFIED'},null,2));
+    > 21 |     if(blockers.length)throw new Error(`真实场景未通过：${blockers.join('；')}。未发送任务，模型调用为 0。`);
+         |                              ^
+      22 |     // This branch uses only the production bridge and actual public projection.
+      23 |     // Missing qualification never selects a demonstration profile or skips a test.
+      24 |     const text=await readFile(resolve(scenario.request),'utf8');const cid=await page.evaluate(()=>window.workbench.createConversation({title:'真实验收'}));
+        at C:\Users\asd15\Documents\ChatGPT\ai\tests\e2e\vertical-real.spec.ts:21:30
+
+    Error Context: artifacts\playwright-real\vertical-real-真实-document-claude-需要生产资格与冻结输入\error-context.md
+
+  6) tests\e2e\vertical-real.spec.ts:8:70 › 真实 document / gpt 需要生产资格与冻结输入 ──────────────────────────
+
+    Error: 真实场景未通过：gpt 指导模型缺少生产资格；GLM 执行模型缺少生产资格。未发送任务，模型调用为 0。
+
+      19 |     const blockers=[...(status.provider_mode!=='real'?['后端不是真实模式']:[]),...(!a?[`${family} 指导模型缺少生产资格`]:[]),...(!b?['GLM 执行模型缺少生产资格']:[])];
+      20 |     await writeFile(testInfo.outputPath('real-preflight.json'),JSON.stringify({domain,family,provider_mode:status.provider_mode,qualified_profiles:qualified.map(value=>({id:value.id,role:value.role,family:value.family,model_id:value.model_id,connection_version:value.connection_version})),blockers,model_calls:0,status:blockers.length?'BLOCKED':'QUALIFIED'},null,2));
+    > 21 |     if(blockers.length)throw new Error(`真实场景未通过：${blockers.join('；')}。未发送任务，模型调用为 0。`);
+         |                              ^
+      22 |     // This branch uses only the production bridge and actual public projection.
+      23 |     // Missing qualification never selects a demonstration profile or skips a test.
+      24 |     const text=await readFile(resolve(scenario.request),'utf8');const cid=await page.evaluate(()=>window.workbench.createConversation({title:'真实验收'}));
+        at C:\Users\asd15\Documents\ChatGPT\ai\tests\e2e\vertical-real.spec.ts:21:30
+
+    Error Context: artifacts\playwright-real\vertical-real-真实-document-gpt-需要生产资格与冻结输入\error-context.md
+
+  7) tests\e2e\vertical-real.spec.ts:8:70 › 真实 composite / claude 需要生产资格与冻结输入 ──────────────────────
+
+    Error: 真实场景未通过：claude 指导模型缺少生产资格；GLM 执行模型缺少生产资格。未发送任务，模型调用为 0。
+
+      19 |     const blockers=[...(status.provider_mode!=='real'?['后端不是真实模式']:[]),...(!a?[`${family} 指导模型缺少生产资格`]:[]),...(!b?['GLM 执行模型缺少生产资格']:[])];
+      20 |     await writeFile(testInfo.outputPath('real-preflight.json'),JSON.stringify({domain,family,provider_mode:status.provider_mode,qualified_profiles:qualified.map(value=>({id:value.id,role:value.role,family:value.family,model_id:value.model_id,connection_version:value.connection_version})),blockers,model_calls:0,status:blockers.length?'BLOCKED':'QUALIFIED'},null,2));
+    > 21 |     if(blockers.length)throw new Error(`真实场景未通过：${blockers.join('；')}。未发送任务，模型调用为 0。`);
+         |                              ^
+      22 |     // This branch uses only the production bridge and actual public projection.
+      23 |     // Missing qualification never selects a demonstration profile or skips a test.
+      24 |     const text=await readFile(resolve(scenario.request),'utf8');const cid=await page.evaluate(()=>window.workbench.createConversation({title:'真实验收'}));
+        at C:\Users\asd15\Documents\ChatGPT\ai\tests\e2e\vertical-real.spec.ts:21:30
+
+    Error Context: artifacts\playwright-real\vertical-real-真实-composite-claude-需要生产资格与冻结输入\error-context.md
+
+  8) tests\e2e\vertical-real.spec.ts:8:70 › 真实 composite / gpt 需要生产资格与冻结输入 ─────────────────────────
+
+    Error: 真实场景未通过：gpt 指导模型缺少生产资格；GLM 执行模型缺少生产资格。未发送任务，模型调用为 0。
+
+      19 |     const blockers=[...(status.provider_mode!=='real'?['后端不是真实模式']:[]),...(!a?[`${family} 指导模型缺少生产资格`]:[]),...(!b?['GLM 执行模型缺少生产资格']:[])];
+      20 |     await writeFile(testInfo.outputPath('real-preflight.json'),JSON.stringify({domain,family,provider_mode:status.provider_mode,qualified_profiles:qualified.map(value=>({id:value.id,role:value.role,family:value.family,model_id:value.model_id,connection_version:value.connection_version})),blockers,model_calls:0,status:blockers.length?'BLOCKED':'QUALIFIED'},null,2));
+    > 21 |     if(blockers.length)throw new Error(`真实场景未通过：${blockers.join('；')}。未发送任务，模型调用为 0。`);
+         |                              ^
+      22 |     // This branch uses only the production bridge and actual public projection.
+      23 |     // Missing qualification never selects a demonstration profile or skips a test.
+      24 |     const text=await readFile(resolve(scenario.request),'utf8');const cid=await page.evaluate(()=>window.workbench.createConversation({title:'真实验收'}));
+        at C:\Users\asd15\Documents\ChatGPT\ai\tests\e2e\vertical-real.spec.ts:21:30
+
+    Error Context: artifacts\playwright-real\vertical-real-真实-composite-gpt-需要生产资格与冻结输入\error-context.md
+
+  8 failed
+    tests\e2e\vertical-real.spec.ts:8:70 › 真实 code / claude 需要生产资格与冻结输入 ────────────────────────────
+    tests\e2e\vertical-real.spec.ts:8:70 › 真实 code / gpt 需要生产资格与冻结输入 ───────────────────────────────
+    tests\e2e\vertical-real.spec.ts:8:70 › 真实 paper / claude 需要生产资格与冻结输入 ───────────────────────────
+    tests\e2e\vertical-real.spec.ts:8:70 › 真实 paper / gpt 需要生产资格与冻结输入 ──────────────────────────────
+    tests\e2e\vertical-real.spec.ts:8:70 › 真实 document / claude 需要生产资格与冻结输入 ────────────────────────
+    tests\e2e\vertical-real.spec.ts:8:70 › 真实 document / gpt 需要生产资格与冻结输入 ───────────────────────────
+    tests\e2e\vertical-real.spec.ts:8:70 › 真实 composite / claude 需要生产资格与冻结输入 ───────────────────────
+    tests\e2e\vertical-real.spec.ts:8:70 › 真实 composite / gpt 需要生产资格与冻结输入 ──────────────────────────

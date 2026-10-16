@@ -1,0 +1,26 @@
+{
+  "version": "1.0",
+  "build_id": "64bc5e858de1f6a58d2d1b055a1aaf5a8d7861e6f071fb0f392d37583caf04c5",
+  "run_id": null,
+  "created_at": "2026-10-14T15:16:43.039354+00:00",
+  "seed": 4317,
+  "encoding": "UTF-8",
+  "provider_boundary": "fake",
+  "files": [
+    {
+      "path": ".qa-run.json",
+      "size": 152,
+      "sha256": "7675367f0be6eb53d0a83f1c6053fbcbcb15afc57a9d76d1c6dc9a7a285d1729"
+    },
+    {
+      "path": "release_manifest.json",
+      "size": 635,
+      "sha256": "89f17d40ba58c552c6730c02264e99039b9f7d7e2b0dbc51c4cbe6a95e072b3c"
+    },
+    {
+      "path": "scenario-result.json",
+      "size": 637,
+      "sha256": "3929451e7a456fa6f7471471e0827aada5b167886f249bfebdf2c240e491835d"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "secret_leaks": [],
+  "contains_user_content": false,
+  "explicit_content_opt_in": false,
+  "reproducible_case": true,
+  "evidence_kind": "deterministic_product_probe",
+  "blocked_reasons": []
+}

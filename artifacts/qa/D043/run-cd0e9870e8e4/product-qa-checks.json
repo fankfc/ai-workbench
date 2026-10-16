@@ -1,0 +1,1844 @@
+{
+  "drafts": [
+    {
+      "case_id": "neg-num",
+      "ready": false,
+      "issue_codes": [
+        "PROTECTED_SPAN_CHANGED",
+        "SEMANTIC_CHECK_INCOMPLETE"
+      ],
+      "qa": {
+        "id": "neg-num:qa:draft",
+        "job_id": "neg-num",
+        "candidate_version": "draft",
+        "coverage_result": "pass",
+        "protected_span_result": "fail",
+        "numeric_entity_result": "fail",
+        "semantic_findings": [
+          {
+            "block_id": "b-0d29d570c8fea16f85d3",
+            "code": "PROTECTED_SPAN_CHANGED",
+            "severity": "major",
+            "message": "PROTECTED_SPAN_MISSING_DUPLICATED_REORDERED_OR_NEW:b-0d29d570c8fea16f85d3",
+            "source_locator": "text:chars=0-34"
+          },
+          {
+            "block_id": "b-0d29d570c8fea16f85d3",
+            "code": "SEMANTIC_CHECK_INCOMPLETE",
+            "severity": "major",
+            "message": "Separate semantic check completion is required.",
+            "source_locator": "text:chars=0-34"
+          }
+        ],
+        "severity": "major",
+        "verifier_model": null,
+        "check_version": "translation-qa:1.0",
+        "evidence_ref": "translation-candidate:neg-num:draft"
+      },
+      "reference_status": "unreviewed_draft"
+    },
+    {
+      "case_id": "uncertain",
+      "ready": false,
+      "issue_codes": [
+        "SEMANTIC_CHECK_INCOMPLETE"
+      ],
+      "qa": {
+        "id": "uncertain:qa:draft",
+        "job_id": "uncertain",
+        "candidate_version": "draft",
+        "coverage_result": "pass",
+        "protected_span_result": "pass",
+        "numeric_entity_result": "pass",
+        "semantic_findings": [
+          {
+            "block_id": "b-e8f0f5214ce1d21d6099",
+            "code": "SEMANTIC_CHECK_INCOMPLETE",
+            "severity": "major",
+            "message": "Separate semantic check completion is required.",
+            "source_locator": "text:chars=0-50"
+          }
+        ],
+        "severity": "major",
+        "verifier_model": null,
+        "check_version": "translation-qa:1.0",
+        "evidence_ref": "translation-candidate:uncertain:draft"
+      },
+      "reference_status": "unreviewed_draft"
+    },
+    {
+      "case_id": "valid",
+      "ready": false,
+      "issue_codes": [
+        "SEMANTIC_CHECK_INCOMPLETE"
+      ],
+      "qa": {
+        "id": "valid:qa:draft",
+        "job_id": "valid",
+        "candidate_version": "draft",
+        "coverage_result": "pass",
+        "protected_span_result": "pass",
+        "numeric_entity_result": "pass",
+        "semantic_findings": [
+          {
+            "block_id": "b-75eb4fa709496d6b3315",
+            "code": "SEMANTIC_CHECK_INCOMPLETE",
+            "severity": "major",
+            "message": "Separate semantic check completion is required.",
+            "source_locator": "text:chars=0-44"
+          }
+        ],
+        "severity": "major",
+        "verifier_model": null,
+        "check_version": "translation-qa:1.0",
+        "evidence_ref": "translation-candidate:valid:draft"
+      },
+      "reference_status": "unreviewed_draft"
+    },
+    {
+      "case_id": "code-draft-01",
+      "ready": false,
+      "issue_codes": [
+        "SEMANTIC_CHECK_INCOMPLETE"
+      ],
+      "qa": {
+        "id": "code-draft-01:qa:draft",
+        "job_id": "code-draft-01",
+        "candidate_version": "draft",
+        "coverage_result": "pass",
+        "protected_span_result": "pass",
+        "numeric_entity_result": "pass",
+        "semantic_findings": [
+          {
+            "block_id": "b-66426fcd6430c970ad25",
+            "code": "SEMANTIC_CHECK_INCOMPLETE",
+            "severity": "major",
+            "message": "Separate semantic check completion is required.",
+            "source_locator": "text:chars=0-72"
+          }
+        ],
+        "severity": "major",
+        "verifier_model": null,
+        "check_version": "translation-qa:1.0",
+        "evidence_ref": "translation-candidate:code-draft-01:draft"
+      },
+      "reference_status": "unreviewed_draft"
+    },
+    {
+      "case_id": "code-draft-02",
+      "ready": false,
+      "issue_codes": [
+        "SEMANTIC_CHECK_INCOMPLETE"
+      ],
+      "qa": {
+        "id": "code-draft-02:qa:draft",
+        "job_id": "code-draft-02",
+        "candidate_version": "draft",
+        "coverage_result": "pass",
+        "protected_span_result": "pass",
+        "numeric_entity_result": "pass",
+        "semantic_findings": [
+          {
+            "block_id": "b-ed87466c456e9749825c",
+            "code": "SEMANTIC_CHECK_INCOMPLETE",
+            "severity": "major",
+            "message": "Separate semantic check completion is required.",
+            "source_locator": "text:chars=0-71"
+          }
+        ],
+        "severity": "major",
+        "verifier_model": null,
+        "check_version": "translation-qa:1.0",
+        "evidence_ref": "translation-candidate:code-draft-02:draft"
+      },
+      "reference_status": "unreviewed_draft"
+    },
+    {
+      "case_id": "code-draft-03",
+      "ready": false,
+      "issue_codes": [
+        "SEMANTIC_CHECK_INCOMPLETE"
+      ],
+      "qa": {
+        "id": "code-draft-03:qa:draft",
+        "job_id": "code-draft-03",
+        "candidate_version": "draft",
+        "coverage_result": "pass",
+        "protected_span_result": "pass",
+        "numeric_entity_result": "pass",
+        "semantic_findings": [
+          {
+            "block_id": "b-2e563bbb7198b8ff474d",
+            "code": "SEMANTIC_CHECK_INCOMPLETE",
+            "severity": "major",
+            "message": "Separate semantic check completion is required.",
+            "source_locator": "text:chars=0-13"
+          }
+        ],
+        "severity": "major",
+        "verifier_model": null,
+        "check_version": "translation-qa:1.0",
+        "evidence_ref": "translation-candidate:code-draft-03:draft"
+      },
+      "reference_status": "unreviewed_draft"
+    },
+    {
+      "case_id": "code-draft-04",
+      "ready": false,
+      "issue_codes": [
+        "SEMANTIC_CHECK_INCOMPLETE"
+      ],
+      "qa": {
+        "id": "code-draft-04:qa:draft",
+        "job_id": "code-draft-04",
+        "candidate_version": "draft",
+        "coverage_result": "pass",
+        "protected_span_result": "pass",
+        "numeric_entity_result": "pass",
+        "semantic_findings": [
+          {
+            "block_id": "b-329ef3c14a733c122f06",
+            "code": "SEMANTIC_CHECK_INCOMPLETE",
+            "severity": "major",
+            "message": "Separate semantic check completion is required.",
+            "source_locator": "text:chars=0-60"
+          }
+        ],
+        "severity": "major",
+        "verifier_model": null,
+        "check_version": "translation-qa:1.0",
+        "evidence_ref": "translation-candidate:code-draft-04:draft"
+      },
+      "reference_status": "unreviewed_draft"
+    },
+    {
+      "case_id": "code-draft-05",
+      "ready": false,
+      "issue_codes": [
+        "SEMANTIC_CHECK_INCOMPLETE"
+      ],
+      "qa": {
+        "id": "code-draft-05:qa:draft",
+        "job_id": "code-draft-05",
+        "candidate_version": "draft",
+        "coverage_result": "pass",
+        "protected_span_result": "pass",
+        "numeric_entity_result": "pass",
+        "semantic_findings": [
+          {
+            "block_id": "b-55423f4db35da239f600",
+            "code": "SEMANTIC_CHECK_INCOMPLETE",
+            "severity": "major",
+            "message": "Separate semantic check completion is required.",
+            "source_locator": "text:chars=0-18"
+          }
+        ],
+        "severity": "major",
+        "verifier_model": null,
+        "check_version": "translation-qa:1.0",
+        "evidence_ref": "translation-candidate:code-draft-05:draft"
+      },
+      "reference_status": "unreviewed_draft"
+    },
+    {
+      "case_id": "code-draft-06",
+      "ready": false,
+      "issue_codes": [
+        "SEMANTIC_CHECK_INCOMPLETE"
+      ],
+      "qa": {
+        "id": "code-draft-06:qa:draft",
+        "job_id": "code-draft-06",
+        "candidate_version": "draft",
+        "coverage_result": "pass",
+        "protected_span_result": "pass",
+        "numeric_entity_result": "pass",
+        "semantic_findings": [
+          {
+            "block_id": "b-6b919e9663dd72eee64a",
+            "code": "SEMANTIC_CHECK_INCOMPLETE",
+            "severity": "major",
+            "message": "Separate semantic check completion is required.",
+            "source_locator": "text:chars=0-55"
+          }
+        ],
+        "severity": "major",
+        "verifier_model": null,
+        "check_version": "translation-qa:1.0",
+        "evidence_ref": "translation-candidate:code-draft-06:draft"
+      },
+      "reference_status": "unreviewed_draft"
+    },
+    {
+      "case_id": "code-draft-07",
+      "ready": false,
+      "issue_codes": [
+        "SEMANTIC_CHECK_INCOMPLETE"
+      ],
+      "qa": {
+        "id": "code-draft-07:qa:draft",
+        "job_id": "code-draft-07",
+        "candidate_version": "draft",
+        "coverage_result": "pass",
+        "protected_span_result": "pass",
+        "numeric_entity_result": "pass",
+        "semantic_findings": [
+          {
+            "block_id": "b-039961ba2d457f900ab4",
+            "code": "SEMANTIC_CHECK_INCOMPLETE",
+            "severity": "major",
+            "message": "Separate semantic check completion is required.",
+            "source_locator": "text:chars=0-42"
+          }
+        ],
+        "severity": "major",
+        "verifier_model": null,
+        "check_version": "translation-qa:1.0",
+        "evidence_ref": "translation-candidate:code-draft-07:draft"
+      },
+      "reference_status": "unreviewed_draft"
+    },
+    {
+      "case_id": "code-draft-08",
+      "ready": false,
+      "issue_codes": [
+        "SEMANTIC_CHECK_INCOMPLETE"
+      ],
+      "qa": {
+        "id": "code-draft-08:qa:draft",
+        "job_id": "code-draft-08",
+        "candidate_version": "draft",
+        "coverage_result": "pass",
+        "protected_span_result": "pass",
+        "numeric_entity_result": "pass",
+        "semantic_findings": [
+          {
+            "block_id": "b-57e58773a1cd3b06fe0a",
+            "code": "SEMANTIC_CHECK_INCOMPLETE",
+            "severity": "major",
+            "message": "Separate semantic check completion is required.",
+            "source_locator": "text:chars=0-44"
+          }
+        ],
+        "severity": "major",
+        "verifier_model": null,
+        "check_version": "translation-qa:1.0",
+        "evidence_ref": "translation-candidate:code-draft-08:draft"
+      },
+      "reference_status": "unreviewed_draft"
+    },
+    {
+      "case_id": "code-draft-09",
+      "ready": false,
+      "issue_codes": [
+        "SEMANTIC_CHECK_INCOMPLETE"
+      ],
+      "qa": {
+        "id": "code-draft-09:qa:draft",
+        "job_id": "code-draft-09",
+        "candidate_version": "draft",
+        "coverage_result": "pass",
+        "protected_span_result": "pass",
+        "numeric_entity_result": "pass",
+        "semantic_findings": [
+          {
+            "block_id": "b-97f77f92b050fd1f5dc5",
+            "code": "SEMANTIC_CHECK_INCOMPLETE",
+            "severity": "major",
+            "message": "Separate semantic check completion is required.",
+            "source_locator": "text:chars=0-27"
+          }
+        ],
+        "severity": "major",
+        "verifier_model": null,
+        "check_version": "translation-qa:1.0",
+        "evidence_ref": "translation-candidate:code-draft-09:draft"
+      },
+      "reference_status": "unreviewed_draft"
+    },
+    {
+      "case_id": "code-draft-10",
+      "ready": false,
+      "issue_codes": [
+        "SEMANTIC_CHECK_INCOMPLETE"
+      ],
+      "qa": {
+        "id": "code-draft-10:qa:draft",
+        "job_id": "code-draft-10",
+        "candidate_version": "draft",
+        "coverage_result": "pass",
+        "protected_span_result": "pass",
+        "numeric_entity_result": "pass",
+        "semantic_findings": [
+          {
+            "block_id": "b-9677d7c6d0bcbe5e5c42",
+            "code": "SEMANTIC_CHECK_INCOMPLETE",
+            "severity": "major",
+            "message": "Separate semantic check completion is required.",
+            "source_locator": "text:chars=0-54"
+          }
+        ],
+        "severity": "major",
+        "verifier_model": null,
+        "check_version": "translation-qa:1.0",
+        "evidence_ref": "translation-candidate:code-draft-10:draft"
+      },
+      "reference_status": "unreviewed_draft"
+    },
+    {
+      "case_id": "code-draft-11",
+      "ready": false,
+      "issue_codes": [
+        "SEMANTIC_CHECK_INCOMPLETE"
+      ],
+      "qa": {
+        "id": "code-draft-11:qa:draft",
+        "job_id": "code-draft-11",
+        "candidate_version": "draft",
+        "coverage_result": "pass",
+        "protected_span_result": "pass",
+        "numeric_entity_result": "pass",
+        "semantic_findings": [
+          {
+            "block_id": "b-ae9b6e8b1d61dab7b16c",
+            "code": "SEMANTIC_CHECK_INCOMPLETE",
+            "severity": "major",
+            "message": "Separate semantic check completion is required.",
+            "source_locator": "text:chars=0-15"
+          }
+        ],
+        "severity": "major",
+        "verifier_model": null,
+        "check_version": "translation-qa:1.0",
+        "evidence_ref": "translation-candidate:code-draft-11:draft"
+      },
+      "reference_status": "unreviewed_draft"
+    },
+    {
+      "case_id": "code-draft-12",
+      "ready": false,
+      "issue_codes": [
+        "SEMANTIC_CHECK_INCOMPLETE"
+      ],
+      "qa": {
+        "id": "code-draft-12:qa:draft",
+        "job_id": "code-draft-12",
+        "candidate_version": "draft",
+        "coverage_result": "pass",
+        "protected_span_result": "pass",
+        "numeric_entity_result": "pass",
+        "semantic_findings": [
+          {
+            "block_id": "b-06cc22c1f180f4b32be8",
+            "code": "SEMANTIC_CHECK_INCOMPLETE",
+            "severity": "major",
+            "message": "Separate semantic check completion is required.",
+            "source_locator": "text:chars=0-49"
+          }
+        ],
+        "severity": "major",
+        "verifier_model": null,
+        "check_version": "translation-qa:1.0",
+        "evidence_ref": "translation-candidate:code-draft-12:draft"
+      },
+      "reference_status": "unreviewed_draft"
+    },
+    {
+      "case_id": "code-draft-13",
+      "ready": false,
+      "issue_codes": [
+        "SEMANTIC_CHECK_INCOMPLETE"
+      ],
+      "qa": {
+        "id": "code-draft-13:qa:draft",
+        "job_id": "code-draft-13",
+        "candidate_version": "draft",
+        "coverage_result": "pass",
+        "protected_span_result": "pass",
+        "numeric_entity_result": "pass",
+        "semantic_findings": [
+          {
+            "block_id": "b-8429b3f39b1833912279",
+            "code": "SEMANTIC_CHECK_INCOMPLETE",
+            "severity": "major",
+            "message": "Separate semantic check completion is required.",
+            "source_locator": "text:chars=0-21"
+          }
+        ],
+        "severity": "major",
+        "verifier_model": null,
+        "check_version": "translation-qa:1.0",
+        "evidence_ref": "translation-candidate:code-draft-13:draft"
+      },
+      "reference_status": "unreviewed_draft"
+    },
+    {
+      "case_id": "code-draft-14",
+      "ready": false,
+      "issue_codes": [
+        "SEMANTIC_CHECK_INCOMPLETE"
+      ],
+      "qa": {
+        "id": "code-draft-14:qa:draft",
+        "job_id": "code-draft-14",
+        "candidate_version": "draft",
+        "coverage_result": "pass",
+        "protected_span_result": "pass",
+        "numeric_entity_result": "pass",
+        "semantic_findings": [
+          {
+            "block_id": "b-3ccddf051f709913df0e",
+            "code": "SEMANTIC_CHECK_INCOMPLETE",
+            "severity": "major",
+            "message": "Separate semantic check completion is required.",
+            "source_locator": "text:chars=0-46"
+          }
+        ],
+        "severity": "major",
+        "verifier_model": null,
+        "check_version": "translation-qa:1.0",
+        "evidence_ref": "translation-candidate:code-draft-14:draft"
+      },
+      "reference_status": "unreviewed_draft"
+    },
+    {
+      "case_id": "code-draft-15",
+      "ready": false,
+      "issue_codes": [
+        "SEMANTIC_CHECK_INCOMPLETE"
+      ],
+      "qa": {
+        "id": "code-draft-15:qa:draft",
+        "job_id": "code-draft-15",
+        "candidate_version": "draft",
+        "coverage_result": "pass",
+        "protected_span_result": "pass",
+        "numeric_entity_result": "pass",
+        "semantic_findings": [
+          {
+            "block_id": "b-65c99611ef7fdee7e51b",
+            "code": "SEMANTIC_CHECK_INCOMPLETE",
+            "severity": "major",
+            "message": "Separate semantic check completion is required.",
+            "source_locator": "text:chars=0-21"
+          }
+        ],
+        "severity": "major",
+        "verifier_model": null,
+        "check_version": "translation-qa:1.0",
+        "evidence_ref": "translation-candidate:code-draft-15:draft"
+      },
+      "reference_status": "unreviewed_draft"
+    },
+    {
+      "case_id": "code-draft-16",
+      "ready": false,
+      "issue_codes": [
+        "SEMANTIC_CHECK_INCOMPLETE"
+      ],
+      "qa": {
+        "id": "code-draft-16:qa:draft",
+        "job_id": "code-draft-16",
+        "candidate_version": "draft",
+        "coverage_result": "pass",
+        "protected_span_result": "pass",
+        "numeric_entity_result": "pass",
+        "semantic_findings": [
+          {
+            "block_id": "b-f6ddf20bd6f08115f7b4",
+            "code": "SEMANTIC_CHECK_INCOMPLETE",
+            "severity": "major",
+            "message": "Separate semantic check completion is required.",
+            "source_locator": "text:chars=0-59"
+          }
+        ],
+        "severity": "major",
+        "verifier_model": null,
+        "check_version": "translation-qa:1.0",
+        "evidence_ref": "translation-candidate:code-draft-16:draft"
+      },
+      "reference_status": "unreviewed_draft"
+    },
+    {
+      "case_id": "code-draft-17",
+      "ready": false,
+      "issue_codes": [
+        "SEMANTIC_CHECK_INCOMPLETE"
+      ],
+      "qa": {
+        "id": "code-draft-17:qa:draft",
+        "job_id": "code-draft-17",
+        "candidate_version": "draft",
+        "coverage_result": "pass",
+        "protected_span_result": "pass",
+        "numeric_entity_result": "pass",
+        "semantic_findings": [
+          {
+            "block_id": "b-b1f22cfc39615daa0aa1",
+            "code": "SEMANTIC_CHECK_INCOMPLETE",
+            "severity": "major",
+            "message": "Separate semantic check completion is required.",
+            "source_locator": "text:chars=0-17"
+          }
+        ],
+        "severity": "major",
+        "verifier_model": null,
+        "check_version": "translation-qa:1.0",
+        "evidence_ref": "translation-candidate:code-draft-17:draft"
+      },
+      "reference_status": "unreviewed_draft"
+    },
+    {
+      "case_id": "code-draft-18",
+      "ready": false,
+      "issue_codes": [
+        "SEMANTIC_CHECK_INCOMPLETE"
+      ],
+      "qa": {
+        "id": "code-draft-18:qa:draft",
+        "job_id": "code-draft-18",
+        "candidate_version": "draft",
+        "coverage_result": "pass",
+        "protected_span_result": "pass",
+        "numeric_entity_result": "pass",
+        "semantic_findings": [
+          {
+            "block_id": "b-1f37ced5df1e554abdfa",
+            "code": "SEMANTIC_CHECK_INCOMPLETE",
+            "severity": "major",
+            "message": "Separate semantic check completion is required.",
+            "source_locator": "text:chars=0-57"
+          }
+        ],
+        "severity": "major",
+        "verifier_model": null,
+        "check_version": "translation-qa:1.0",
+        "evidence_ref": "translation-candidate:code-draft-18:draft"
+      },
+      "reference_status": "unreviewed_draft"
+    },
+    {
+      "case_id": "code-draft-19",
+      "ready": false,
+      "issue_codes": [
+        "SEMANTIC_CHECK_INCOMPLETE"
+      ],
+      "qa": {
+        "id": "code-draft-19:qa:draft",
+        "job_id": "code-draft-19",
+        "candidate_version": "draft",
+        "coverage_result": "pass",
+        "protected_span_result": "pass",
+        "numeric_entity_result": "pass",
+        "semantic_findings": [
+          {
+            "block_id": "b-40d6bb7e8290b91247ff",
+            "code": "SEMANTIC_CHECK_INCOMPLETE",
+            "severity": "major",
+            "message": "Separate semantic check completion is required.",
+            "source_locator": "text:chars=0-20"
+          }
+        ],
+        "severity": "major",
+        "verifier_model": null,
+        "check_version": "translation-qa:1.0",
+        "evidence_ref": "translation-candidate:code-draft-19:draft"
+      },
+      "reference_status": "unreviewed_draft"
+    },
+    {
+      "case_id": "paper-draft-01",
+      "ready": false,
+      "issue_codes": [
+        "SEMANTIC_CHECK_INCOMPLETE"
+      ],
+      "qa": {
+        "id": "paper-draft-01:qa:draft",
+        "job_id": "paper-draft-01",
+        "candidate_version": "draft",
+        "coverage_result": "pass",
+        "protected_span_result": "pass",
+        "numeric_entity_result": "pass",
+        "semantic_findings": [
+          {
+            "block_id": "b-9aeccf103c56dea2cff8",
+            "code": "SEMANTIC_CHECK_INCOMPLETE",
+            "severity": "major",
+            "message": "Separate semantic check completion is required.",
+            "source_locator": "text:chars=0-50"
+          }
+        ],
+        "severity": "major",
+        "verifier_model": null,
+        "check_version": "translation-qa:1.0",
+        "evidence_ref": "translation-candidate:paper-draft-01:draft"
+      },
+      "reference_status": "unreviewed_draft"
+    },
+    {
+      "case_id": "paper-draft-02",
+      "ready": false,
+      "issue_codes": [
+        "PROTECTED_SPAN_CHANGED",
+        "SEMANTIC_CHECK_INCOMPLETE"
+      ],
+      "qa": {
+        "id": "paper-draft-02:qa:draft",
+        "job_id": "paper-draft-02",
+        "candidate_version": "draft",
+        "coverage_result": "pass",
+        "protected_span_result": "fail",
+        "numeric_entity_result": "fail",
+        "semantic_findings": [
+          {
+            "block_id": "b-c13d13978780e277156a",
+            "code": "PROTECTED_SPAN_CHANGED",
+            "severity": "major",
+            "message": "PROTECTED_SPAN_MISSING_DUPLICATED_REORDERED_OR_NEW:b-c13d13978780e277156a",
+            "source_locator": "text:chars=0-77"
+          },
+          {
+            "block_id": "b-c13d13978780e277156a",
+            "code": "SEMANTIC_CHECK_INCOMPLETE",
+            "severity": "major",
+            "message": "Separate semantic check completion is required.",
+            "source_locator": "text:chars=0-77"
+          }
+        ],
+        "severity": "major",
+        "verifier_model": null,
+        "check_version": "translation-qa:1.0",
+        "evidence_ref": "translation-candidate:paper-draft-02:draft"
+      },
+      "reference_status": "unreviewed_draft"
+    },
+    {
+      "case_id": "paper-draft-03",
+      "ready": false,
+      "issue_codes": [
+        "SEMANTIC_CHECK_INCOMPLETE"
+      ],
+      "qa": {
+        "id": "paper-draft-03:qa:draft",
+        "job_id": "paper-draft-03",
+        "candidate_version": "draft",
+        "coverage_result": "pass",
+        "protected_span_result": "pass",
+        "numeric_entity_result": "pass",
+        "semantic_findings": [
+          {
+            "block_id": "b-3d631b359083d760666d",
+            "code": "SEMANTIC_CHECK_INCOMPLETE",
+            "severity": "major",
+            "message": "Separate semantic check completion is required.",
+            "source_locator": "text:chars=0-21"
+          }
+        ],
+        "severity": "major",
+        "verifier_model": null,
+        "check_version": "translation-qa:1.0",
+        "evidence_ref": "translation-candidate:paper-draft-03:draft"
+      },
+      "reference_status": "unreviewed_draft"
+    },
+    {
+      "case_id": "paper-draft-04",
+      "ready": false,
+      "issue_codes": [
+        "SEMANTIC_CHECK_INCOMPLETE"
+      ],
+      "qa": {
+        "id": "paper-draft-04:qa:draft",
+        "job_id": "paper-draft-04",
+        "candidate_version": "draft",
+        "coverage_result": "pass",
+        "protected_span_result": "pass",
+        "numeric_entity_result": "pass",
+        "semantic_findings": [
+          {
+            "block_id": "b-b09a273097f6499495b4",
+            "code": "SEMANTIC_CHECK_INCOMPLETE",
+            "severity": "major",
+            "message": "Separate semantic check completion is required.",
+            "source_locator": "text:chars=0-49"
+          }
+        ],
+        "severity": "major",
+        "verifier_model": null,
+        "check_version": "translation-qa:1.0",
+        "evidence_ref": "translation-candidate:paper-draft-04:draft"
+      },
+      "reference_status": "unreviewed_draft"
+    },
+    {
+      "case_id": "paper-draft-05",
+      "ready": false,
+      "issue_codes": [
+        "SEMANTIC_CHECK_INCOMPLETE"
+      ],
+      "qa": {
+        "id": "paper-draft-05:qa:draft",
+        "job_id": "paper-draft-05",
+        "candidate_version": "draft",
+        "coverage_result": "pass",
+        "protected_span_result": "pass",
+        "numeric_entity_result": "pass",
+        "semantic_findings": [
+          {
+            "block_id": "b-8d2b5209a1b408f9c968",
+            "code": "SEMANTIC_CHECK_INCOMPLETE",
+            "severity": "major",
+            "message": "Separate semantic check completion is required.",
+            "source_locator": "text:chars=0-28"
+          }
+        ],
+        "severity": "major",
+        "verifier_model": null,
+        "check_version": "translation-qa:1.0",
+        "evidence_ref": "translation-candidate:paper-draft-05:draft"
+      },
+      "reference_status": "unreviewed_draft"
+    },
+    {
+      "case_id": "paper-draft-06",
+      "ready": false,
+      "issue_codes": [
+        "SEMANTIC_CHECK_INCOMPLETE"
+      ],
+      "qa": {
+        "id": "paper-draft-06:qa:draft",
+        "job_id": "paper-draft-06",
+        "candidate_version": "draft",
+        "coverage_result": "pass",
+        "protected_span_result": "pass",
+        "numeric_entity_result": "pass",
+        "semantic_findings": [
+          {
+            "block_id": "b-1fc7c1a6569f59595919",
+            "code": "SEMANTIC_CHECK_INCOMPLETE",
+            "severity": "major",
+            "message": "Separate semantic check completion is required.",
+            "source_locator": "text:chars=0-60"
+          }
+        ],
+        "severity": "major",
+        "verifier_model": null,
+        "check_version": "translation-qa:1.0",
+        "evidence_ref": "translation-candidate:paper-draft-06:draft"
+      },
+      "reference_status": "unreviewed_draft"
+    },
+    {
+      "case_id": "paper-draft-07",
+      "ready": false,
+      "issue_codes": [
+        "SEMANTIC_CHECK_INCOMPLETE"
+      ],
+      "qa": {
+        "id": "paper-draft-07:qa:draft",
+        "job_id": "paper-draft-07",
+        "candidate_version": "draft",
+        "coverage_result": "pass",
+        "protected_span_result": "pass",
+        "numeric_entity_result": "pass",
+        "semantic_findings": [
+          {
+            "block_id": "b-c2710659e2f71f3ce70a",
+            "code": "SEMANTIC_CHECK_INCOMPLETE",
+            "severity": "major",
+            "message": "Separate semantic check completion is required.",
+            "source_locator": "text:chars=0-17"
+          }
+        ],
+        "severity": "major",
+        "verifier_model": null,
+        "check_version": "translation-qa:1.0",
+        "evidence_ref": "translation-candidate:paper-draft-07:draft"
+      },
+      "reference_status": "unreviewed_draft"
+    },
+    {
+      "case_id": "paper-draft-08",
+      "ready": false,
+      "issue_codes": [
+        "SEMANTIC_CHECK_INCOMPLETE"
+      ],
+      "qa": {
+        "id": "paper-draft-08:qa:draft",
+        "job_id": "paper-draft-08",
+        "candidate_version": "draft",
+        "coverage_result": "pass",
+        "protected_span_result": "pass",
+        "numeric_entity_result": "pass",
+        "semantic_findings": [
+          {
+            "block_id": "b-720541a4bfee9085c6bb",
+            "code": "SEMANTIC_CHECK_INCOMPLETE",
+            "severity": "major",
+            "message": "Separate semantic check completion is required.",
+            "source_locator": "text:chars=0-69"
+          }
+        ],
+        "severity": "major",
+        "verifier_model": null,
+        "check_version": "translation-qa:1.0",
+        "evidence_ref": "translation-candidate:paper-draft-08:draft"
+      },
+      "reference_status": "unreviewed_draft"
+    },
+    {
+      "case_id": "paper-draft-09",
+      "ready": false,
+      "issue_codes": [
+        "SEMANTIC_CHECK_INCOMPLETE"
+      ],
+      "qa": {
+        "id": "paper-draft-09:qa:draft",
+        "job_id": "paper-draft-09",
+        "candidate_version": "draft",
+        "coverage_result": "pass",
+        "protected_span_result": "pass",
+        "numeric_entity_result": "pass",
+        "semantic_findings": [
+          {
+            "block_id": "b-7da96430854b08d771b9",
+            "code": "SEMANTIC_CHECK_INCOMPLETE",
+            "severity": "major",
+            "message": "Separate semantic check completion is required.",
+            "source_locator": "text:chars=0-17"
+          }
+        ],
+        "severity": "major",
+        "verifier_model": null,
+        "check_version": "translation-qa:1.0",
+        "evidence_ref": "translation-candidate:paper-draft-09:draft"
+      },
+      "reference_status": "unreviewed_draft"
+    },
+    {
+      "case_id": "paper-draft-10",
+      "ready": false,
+      "issue_codes": [
+        "SEMANTIC_CHECK_INCOMPLETE"
+      ],
+      "qa": {
+        "id": "paper-draft-10:qa:draft",
+        "job_id": "paper-draft-10",
+        "candidate_version": "draft",
+        "coverage_result": "pass",
+        "protected_span_result": "pass",
+        "numeric_entity_result": "pass",
+        "semantic_findings": [
+          {
+            "block_id": "b-08a91f6d05059c8d5ef9",
+            "code": "SEMANTIC_CHECK_INCOMPLETE",
+            "severity": "major",
+            "message": "Separate semantic check completion is required.",
+            "source_locator": "text:chars=0-49"
+          }
+        ],
+        "severity": "major",
+        "verifier_model": null,
+        "check_version": "translation-qa:1.0",
+        "evidence_ref": "translation-candidate:paper-draft-10:draft"
+      },
+      "reference_status": "unreviewed_draft"
+    },
+    {
+      "case_id": "paper-draft-11",
+      "ready": false,
+      "issue_codes": [
+        "SEMANTIC_CHECK_INCOMPLETE"
+      ],
+      "qa": {
+        "id": "paper-draft-11:qa:draft",
+        "job_id": "paper-draft-11",
+        "candidate_version": "draft",
+        "coverage_result": "pass",
+        "protected_span_result": "pass",
+        "numeric_entity_result": "pass",
+        "semantic_findings": [
+          {
+            "block_id": "b-b227a885dc98cca0aff4",
+            "code": "SEMANTIC_CHECK_INCOMPLETE",
+            "severity": "major",
+            "message": "Separate semantic check completion is required.",
+            "source_locator": "text:chars=0-24"
+          }
+        ],
+        "severity": "major",
+        "verifier_model": null,
+        "check_version": "translation-qa:1.0",
+        "evidence_ref": "translation-candidate:paper-draft-11:draft"
+      },
+      "reference_status": "unreviewed_draft"
+    },
+    {
+      "case_id": "paper-draft-12",
+      "ready": false,
+      "issue_codes": [
+        "SEMANTIC_CHECK_INCOMPLETE"
+      ],
+      "qa": {
+        "id": "paper-draft-12:qa:draft",
+        "job_id": "paper-draft-12",
+        "candidate_version": "draft",
+        "coverage_result": "pass",
+        "protected_span_result": "pass",
+        "numeric_entity_result": "pass",
+        "semantic_findings": [
+          {
+            "block_id": "b-fb54383d690f303f7fe2",
+            "code": "SEMANTIC_CHECK_INCOMPLETE",
+            "severity": "major",
+            "message": "Separate semantic check completion is required.",
+            "source_locator": "text:chars=0-65"
+          }
+        ],
+        "severity": "major",
+        "verifier_model": null,
+        "check_version": "translation-qa:1.0",
+        "evidence_ref": "translation-candidate:paper-draft-12:draft"
+      },
+      "reference_status": "unreviewed_draft"
+    },
+    {
+      "case_id": "paper-draft-13",
+      "ready": false,
+      "issue_codes": [
+        "SEMANTIC_CHECK_INCOMPLETE"
+      ],
+      "qa": {
+        "id": "paper-draft-13:qa:draft",
+        "job_id": "paper-draft-13",
+        "candidate_version": "draft",
+        "coverage_result": "pass",
+        "protected_span_result": "pass",
+        "numeric_entity_result": "pass",
+        "semantic_findings": [
+          {
+            "block_id": "b-c4b5cbabf99ea76de73a",
+            "code": "SEMANTIC_CHECK_INCOMPLETE",
+            "severity": "major",
+            "message": "Separate semantic check completion is required.",
+            "source_locator": "text:chars=0-18"
+          }
+        ],
+        "severity": "major",
+        "verifier_model": null,
+        "check_version": "translation-qa:1.0",
+        "evidence_ref": "translation-candidate:paper-draft-13:draft"
+      },
+      "reference_status": "unreviewed_draft"
+    },
+    {
+      "case_id": "paper-draft-14",
+      "ready": false,
+      "issue_codes": [
+        "SEMANTIC_CHECK_INCOMPLETE"
+      ],
+      "qa": {
+        "id": "paper-draft-14:qa:draft",
+        "job_id": "paper-draft-14",
+        "candidate_version": "draft",
+        "coverage_result": "pass",
+        "protected_span_result": "pass",
+        "numeric_entity_result": "pass",
+        "semantic_findings": [
+          {
+            "block_id": "b-595f60a269198f259dc7",
+            "code": "SEMANTIC_CHECK_INCOMPLETE",
+            "severity": "major",
+            "message": "Separate semantic check completion is required.",
+            "source_locator": "text:chars=0-54"
+          }
+        ],
+        "severity": "major",
+        "verifier_model": null,
+        "check_version": "translation-qa:1.0",
+        "evidence_ref": "translation-candidate:paper-draft-14:draft"
+      },
+      "reference_status": "unreviewed_draft"
+    },
+    {
+      "case_id": "paper-draft-15",
+      "ready": false,
+      "issue_codes": [
+        "SEMANTIC_CHECK_INCOMPLETE"
+      ],
+      "qa": {
+        "id": "paper-draft-15:qa:draft",
+        "job_id": "paper-draft-15",
+        "candidate_version": "draft",
+        "coverage_result": "pass",
+        "protected_span_result": "pass",
+        "numeric_entity_result": "pass",
+        "semantic_findings": [
+          {
+            "block_id": "b-446a44964b30394494bc",
+            "code": "SEMANTIC_CHECK_INCOMPLETE",
+            "severity": "major",
+            "message": "Separate semantic check completion is required.",
+            "source_locator": "text:chars=0-26"
+          }
+        ],
+        "severity": "major",
+        "verifier_model": null,
+        "check_version": "translation-qa:1.0",
+        "evidence_ref": "translation-candidate:paper-draft-15:draft"
+      },
+      "reference_status": "unreviewed_draft"
+    },
+    {
+      "case_id": "paper-draft-16",
+      "ready": false,
+      "issue_codes": [
+        "SEMANTIC_CHECK_INCOMPLETE"
+      ],
+      "qa": {
+        "id": "paper-draft-16:qa:draft",
+        "job_id": "paper-draft-16",
+        "candidate_version": "draft",
+        "coverage_result": "pass",
+        "protected_span_result": "pass",
+        "numeric_entity_result": "pass",
+        "semantic_findings": [
+          {
+            "block_id": "b-06f48103d95a70ce04d3",
+            "code": "SEMANTIC_CHECK_INCOMPLETE",
+            "severity": "major",
+            "message": "Separate semantic check completion is required.",
+            "source_locator": "text:chars=0-66"
+          }
+        ],
+        "severity": "major",
+        "verifier_model": null,
+        "check_version": "translation-qa:1.0",
+        "evidence_ref": "translation-candidate:paper-draft-16:draft"
+      },
+      "reference_status": "unreviewed_draft"
+    },
+    {
+      "case_id": "paper-draft-17",
+      "ready": false,
+      "issue_codes": [
+        "SEMANTIC_CHECK_INCOMPLETE"
+      ],
+      "qa": {
+        "id": "paper-draft-17:qa:draft",
+        "job_id": "paper-draft-17",
+        "candidate_version": "draft",
+        "coverage_result": "pass",
+        "protected_span_result": "pass",
+        "numeric_entity_result": "pass",
+        "semantic_findings": [
+          {
+            "block_id": "b-3523bfd352d6be3ef7d7",
+            "code": "SEMANTIC_CHECK_INCOMPLETE",
+            "severity": "major",
+            "message": "Separate semantic check completion is required.",
+            "source_locator": "text:chars=0-13"
+          }
+        ],
+        "severity": "major",
+        "verifier_model": null,
+        "check_version": "translation-qa:1.0",
+        "evidence_ref": "translation-candidate:paper-draft-17:draft"
+      },
+      "reference_status": "unreviewed_draft"
+    },
+    {
+      "case_id": "paper-draft-18",
+      "ready": false,
+      "issue_codes": [
+        "SEMANTIC_CHECK_INCOMPLETE"
+      ],
+      "qa": {
+        "id": "paper-draft-18:qa:draft",
+        "job_id": "paper-draft-18",
+        "candidate_version": "draft",
+        "coverage_result": "pass",
+        "protected_span_result": "pass",
+        "numeric_entity_result": "pass",
+        "semantic_findings": [
+          {
+            "block_id": "b-2cfc788b77d4a33900a1",
+            "code": "SEMANTIC_CHECK_INCOMPLETE",
+            "severity": "major",
+            "message": "Separate semantic check completion is required.",
+            "source_locator": "text:chars=0-71"
+          }
+        ],
+        "severity": "major",
+        "verifier_model": null,
+        "check_version": "translation-qa:1.0",
+        "evidence_ref": "translation-candidate:paper-draft-18:draft"
+      },
+      "reference_status": "unreviewed_draft"
+    },
+    {
+      "case_id": "paper-draft-19",
+      "ready": false,
+      "issue_codes": [
+        "SEMANTIC_CHECK_INCOMPLETE"
+      ],
+      "qa": {
+        "id": "paper-draft-19:qa:draft",
+        "job_id": "paper-draft-19",
+        "candidate_version": "draft",
+        "coverage_result": "pass",
+        "protected_span_result": "pass",
+        "numeric_entity_result": "pass",
+        "semantic_findings": [
+          {
+            "block_id": "b-1859add020be05da0ef8",
+            "code": "SEMANTIC_CHECK_INCOMPLETE",
+            "severity": "major",
+            "message": "Separate semantic check completion is required.",
+            "source_locator": "text:chars=0-16"
+          }
+        ],
+        "severity": "major",
+        "verifier_model": null,
+        "check_version": "translation-qa:1.0",
+        "evidence_ref": "translation-candidate:paper-draft-19:draft"
+      },
+      "reference_status": "unreviewed_draft"
+    },
+    {
+      "case_id": "document-draft-01",
+      "ready": false,
+      "issue_codes": [
+        "SEMANTIC_CHECK_INCOMPLETE"
+      ],
+      "qa": {
+        "id": "document-draft-01:qa:draft",
+        "job_id": "document-draft-01",
+        "candidate_version": "draft",
+        "coverage_result": "pass",
+        "protected_span_result": "pass",
+        "numeric_entity_result": "pass",
+        "semantic_findings": [
+          {
+            "block_id": "b-37e2ac6f86653310bb03",
+            "code": "SEMANTIC_CHECK_INCOMPLETE",
+            "severity": "major",
+            "message": "Separate semantic check completion is required.",
+            "source_locator": "text:chars=0-16"
+          }
+        ],
+        "severity": "major",
+        "verifier_model": null,
+        "check_version": "translation-qa:1.0",
+        "evidence_ref": "translation-candidate:document-draft-01:draft"
+      },
+      "reference_status": "unreviewed_draft"
+    },
+    {
+      "case_id": "document-draft-02",
+      "ready": false,
+      "issue_codes": [
+        "SEMANTIC_CHECK_INCOMPLETE"
+      ],
+      "qa": {
+        "id": "document-draft-02:qa:draft",
+        "job_id": "document-draft-02",
+        "candidate_version": "draft",
+        "coverage_result": "pass",
+        "protected_span_result": "pass",
+        "numeric_entity_result": "pass",
+        "semantic_findings": [
+          {
+            "block_id": "b-93320d6a0e8772d4f51f",
+            "code": "SEMANTIC_CHECK_INCOMPLETE",
+            "severity": "major",
+            "message": "Separate semantic check completion is required.",
+            "source_locator": "text:chars=0-43"
+          }
+        ],
+        "severity": "major",
+        "verifier_model": null,
+        "check_version": "translation-qa:1.0",
+        "evidence_ref": "translation-candidate:document-draft-02:draft"
+      },
+      "reference_status": "unreviewed_draft"
+    },
+    {
+      "case_id": "document-draft-03",
+      "ready": false,
+      "issue_codes": [
+        "SEMANTIC_CHECK_INCOMPLETE"
+      ],
+      "qa": {
+        "id": "document-draft-03:qa:draft",
+        "job_id": "document-draft-03",
+        "candidate_version": "draft",
+        "coverage_result": "pass",
+        "protected_span_result": "pass",
+        "numeric_entity_result": "pass",
+        "semantic_findings": [
+          {
+            "block_id": "b-366a80122b191d512b3a",
+            "code": "SEMANTIC_CHECK_INCOMPLETE",
+            "severity": "major",
+            "message": "Separate semantic check completion is required.",
+            "source_locator": "text:chars=0-11"
+          }
+        ],
+        "severity": "major",
+        "verifier_model": null,
+        "check_version": "translation-qa:1.0",
+        "evidence_ref": "translation-candidate:document-draft-03:draft"
+      },
+      "reference_status": "unreviewed_draft"
+    },
+    {
+      "case_id": "document-draft-04",
+      "ready": false,
+      "issue_codes": [
+        "SEMANTIC_CHECK_INCOMPLETE"
+      ],
+      "qa": {
+        "id": "document-draft-04:qa:draft",
+        "job_id": "document-draft-04",
+        "candidate_version": "draft",
+        "coverage_result": "pass",
+        "protected_span_result": "pass",
+        "numeric_entity_result": "pass",
+        "semantic_findings": [
+          {
+            "block_id": "b-779879a13353f248c3e4",
+            "code": "SEMANTIC_CHECK_INCOMPLETE",
+            "severity": "major",
+            "message": "Separate semantic check completion is required.",
+            "source_locator": "text:chars=0-56"
+          }
+        ],
+        "severity": "major",
+        "verifier_model": null,
+        "check_version": "translation-qa:1.0",
+        "evidence_ref": "translation-candidate:document-draft-04:draft"
+      },
+      "reference_status": "unreviewed_draft"
+    },
+    {
+      "case_id": "document-draft-05",
+      "ready": false,
+      "issue_codes": [
+        "SEMANTIC_CHECK_INCOMPLETE"
+      ],
+      "qa": {
+        "id": "document-draft-05:qa:draft",
+        "job_id": "document-draft-05",
+        "candidate_version": "draft",
+        "coverage_result": "pass",
+        "protected_span_result": "pass",
+        "numeric_entity_result": "pass",
+        "semantic_findings": [
+          {
+            "block_id": "b-86cdf7a14863d4728393",
+            "code": "SEMANTIC_CHECK_INCOMPLETE",
+            "severity": "major",
+            "message": "Separate semantic check completion is required.",
+            "source_locator": "text:chars=0-11"
+          }
+        ],
+        "severity": "major",
+        "verifier_model": null,
+        "check_version": "translation-qa:1.0",
+        "evidence_ref": "translation-candidate:document-draft-05:draft"
+      },
+      "reference_status": "unreviewed_draft"
+    },
+    {
+      "case_id": "document-draft-06",
+      "ready": false,
+      "issue_codes": [
+        "SEMANTIC_CHECK_INCOMPLETE"
+      ],
+      "qa": {
+        "id": "document-draft-06:qa:draft",
+        "job_id": "document-draft-06",
+        "candidate_version": "draft",
+        "coverage_result": "pass",
+        "protected_span_result": "pass",
+        "numeric_entity_result": "pass",
+        "semantic_findings": [
+          {
+            "block_id": "b-ba03f753ffe2f44fd06c",
+            "code": "SEMANTIC_CHECK_INCOMPLETE",
+            "severity": "major",
+            "message": "Separate semantic check completion is required.",
+            "source_locator": "text:chars=0-69"
+          }
+        ],
+        "severity": "major",
+        "verifier_model": null,
+        "check_version": "translation-qa:1.0",
+        "evidence_ref": "translation-candidate:document-draft-06:draft"
+      },
+      "reference_status": "unreviewed_draft"
+    },
+    {
+      "case_id": "document-draft-07",
+      "ready": false,
+      "issue_codes": [
+        "SEMANTIC_CHECK_INCOMPLETE"
+      ],
+      "qa": {
+        "id": "document-draft-07:qa:draft",
+        "job_id": "document-draft-07",
+        "candidate_version": "draft",
+        "coverage_result": "pass",
+        "protected_span_result": "pass",
+        "numeric_entity_result": "pass",
+        "semantic_findings": [
+          {
+            "block_id": "b-c5b5edca2e015c0dcabe",
+            "code": "SEMANTIC_CHECK_INCOMPLETE",
+            "severity": "major",
+            "message": "Separate semantic check completion is required.",
+            "source_locator": "text:chars=0-14"
+          }
+        ],
+        "severity": "major",
+        "verifier_model": null,
+        "check_version": "translation-qa:1.0",
+        "evidence_ref": "translation-candidate:document-draft-07:draft"
+      },
+      "reference_status": "unreviewed_draft"
+    },
+    {
+      "case_id": "document-draft-08",
+      "ready": false,
+      "issue_codes": [
+        "PROTECTED_SPAN_CHANGED",
+        "SEMANTIC_CHECK_INCOMPLETE"
+      ],
+      "qa": {
+        "id": "document-draft-08:qa:draft",
+        "job_id": "document-draft-08",
+        "candidate_version": "draft",
+        "coverage_result": "pass",
+        "protected_span_result": "fail",
+        "numeric_entity_result": "fail",
+        "semantic_findings": [
+          {
+            "block_id": "b-38b31ed454a9dac55308",
+            "code": "PROTECTED_SPAN_CHANGED",
+            "severity": "major",
+            "message": "PROTECTED_SPAN_MISSING_DUPLICATED_REORDERED_OR_NEW:b-38b31ed454a9dac55308",
+            "source_locator": "text:chars=0-80"
+          },
+          {
+            "block_id": "b-38b31ed454a9dac55308",
+            "code": "SEMANTIC_CHECK_INCOMPLETE",
+            "severity": "major",
+            "message": "Separate semantic check completion is required.",
+            "source_locator": "text:chars=0-80"
+          }
+        ],
+        "severity": "major",
+        "verifier_model": null,
+        "check_version": "translation-qa:1.0",
+        "evidence_ref": "translation-candidate:document-draft-08:draft"
+      },
+      "reference_status": "unreviewed_draft"
+    },
+    {
+      "case_id": "document-draft-09",
+      "ready": false,
+      "issue_codes": [
+        "SEMANTIC_CHECK_INCOMPLETE"
+      ],
+      "qa": {
+        "id": "document-draft-09:qa:draft",
+        "job_id": "document-draft-09",
+        "candidate_version": "draft",
+        "coverage_result": "pass",
+        "protected_span_result": "pass",
+        "numeric_entity_result": "pass",
+        "semantic_findings": [
+          {
+            "block_id": "b-30563145194f0cbc1642",
+            "code": "SEMANTIC_CHECK_INCOMPLETE",
+            "severity": "major",
+            "message": "Separate semantic check completion is required.",
+            "source_locator": "text:chars=0-21"
+          }
+        ],
+        "severity": "major",
+        "verifier_model": null,
+        "check_version": "translation-qa:1.0",
+        "evidence_ref": "translation-candidate:document-draft-09:draft"
+      },
+      "reference_status": "unreviewed_draft"
+    },
+    {
+      "case_id": "document-draft-10",
+      "ready": false,
+      "issue_codes": [
+        "SEMANTIC_CHECK_INCOMPLETE"
+      ],
+      "qa": {
+        "id": "document-draft-10:qa:draft",
+        "job_id": "document-draft-10",
+        "candidate_version": "draft",
+        "coverage_result": "pass",
+        "protected_span_result": "pass",
+        "numeric_entity_result": "pass",
+        "semantic_findings": [
+          {
+            "block_id": "b-e77fe6f1e243b6ea058c",
+            "code": "SEMANTIC_CHECK_INCOMPLETE",
+            "severity": "major",
+            "message": "Separate semantic check completion is required.",
+            "source_locator": "text:chars=0-60"
+          }
+        ],
+        "severity": "major",
+        "verifier_model": null,
+        "check_version": "translation-qa:1.0",
+        "evidence_ref": "translation-candidate:document-draft-10:draft"
+      },
+      "reference_status": "unreviewed_draft"
+    },
+    {
+      "case_id": "document-draft-11",
+      "ready": false,
+      "issue_codes": [
+        "SEMANTIC_CHECK_INCOMPLETE"
+      ],
+      "qa": {
+        "id": "document-draft-11:qa:draft",
+        "job_id": "document-draft-11",
+        "candidate_version": "draft",
+        "coverage_result": "pass",
+        "protected_span_result": "pass",
+        "numeric_entity_result": "pass",
+        "semantic_findings": [
+          {
+            "block_id": "b-f05279088aa216248596",
+            "code": "SEMANTIC_CHECK_INCOMPLETE",
+            "severity": "major",
+            "message": "Separate semantic check completion is required.",
+            "source_locator": "text:chars=0-17"
+          }
+        ],
+        "severity": "major",
+        "verifier_model": null,
+        "check_version": "translation-qa:1.0",
+        "evidence_ref": "translation-candidate:document-draft-11:draft"
+      },
+      "reference_status": "unreviewed_draft"
+    },
+    {
+      "case_id": "document-draft-12",
+      "ready": false,
+      "issue_codes": [
+        "SEMANTIC_CHECK_INCOMPLETE"
+      ],
+      "qa": {
+        "id": "document-draft-12:qa:draft",
+        "job_id": "document-draft-12",
+        "candidate_version": "draft",
+        "coverage_result": "pass",
+        "protected_span_result": "pass",
+        "numeric_entity_result": "pass",
+        "semantic_findings": [
+          {
+            "block_id": "b-b9435c6c77d127e81aed",
+            "code": "SEMANTIC_CHECK_INCOMPLETE",
+            "severity": "major",
+            "message": "Separate semantic check completion is required.",
+            "source_locator": "text:chars=0-57"
+          }
+        ],
+        "severity": "major",
+        "verifier_model": null,
+        "check_version": "translation-qa:1.0",
+        "evidence_ref": "translation-candidate:document-draft-12:draft"
+      },
+      "reference_status": "unreviewed_draft"
+    },
+    {
+      "case_id": "document-draft-13",
+      "ready": false,
+      "issue_codes": [
+        "SEMANTIC_CHECK_INCOMPLETE"
+      ],
+      "qa": {
+        "id": "document-draft-13:qa:draft",
+        "job_id": "document-draft-13",
+        "candidate_version": "draft",
+        "coverage_result": "pass",
+        "protected_span_result": "pass",
+        "numeric_entity_result": "pass",
+        "semantic_findings": [
+          {
+            "block_id": "b-4859a64e20d72bf0a9d6",
+            "code": "SEMANTIC_CHECK_INCOMPLETE",
+            "severity": "major",
+            "message": "Separate semantic check completion is required.",
+            "source_locator": "text:chars=0-18"
+          }
+        ],
+        "severity": "major",
+        "verifier_model": null,
+        "check_version": "translation-qa:1.0",
+        "evidence_ref": "translation-candidate:document-draft-13:draft"
+      },
+      "reference_status": "unreviewed_draft"
+    },
+    {
+      "case_id": "document-draft-14",
+      "ready": false,
+      "issue_codes": [
+        "SEMANTIC_CHECK_INCOMPLETE"
+      ],
+      "qa": {
+        "id": "document-draft-14:qa:draft",
+        "job_id": "document-draft-14",
+        "candidate_version": "draft",
+        "coverage_result": "pass",
+        "protected_span_result": "pass",
+        "numeric_entity_result": "pass",
+        "semantic_findings": [
+          {
+            "block_id": "b-83c80e7b9d242a6c62ef",
+            "code": "SEMANTIC_CHECK_INCOMPLETE",
+            "severity": "major",
+            "message": "Separate semantic check completion is required.",
+            "source_locator": "text:chars=0-59"
+          }
+        ],
+        "severity": "major",
+        "verifier_model": null,
+        "check_version": "translation-qa:1.0",
+        "evidence_ref": "translation-candidate:document-draft-14:draft"
+      },
+      "reference_status": "unreviewed_draft"
+    },
+    {
+      "case_id": "document-draft-15",
+      "ready": false,
+      "issue_codes": [
+        "SEMANTIC_CHECK_INCOMPLETE"
+      ],
+      "qa": {
+        "id": "document-draft-15:qa:draft",
+        "job_id": "document-draft-15",
+        "candidate_version": "draft",
+        "coverage_result": "pass",
+        "protected_span_result": "pass",
+        "numeric_entity_result": "pass",
+        "semantic_findings": [
+          {
+            "block_id": "b-c4f8091822ebc2f80ceb",
+            "code": "SEMANTIC_CHECK_INCOMPLETE",
+            "severity": "major",
+            "message": "Separate semantic check completion is required.",
+            "source_locator": "text:chars=0-17"
+          }
+        ],
+        "severity": "major",
+        "verifier_model": null,
+        "check_version": "translation-qa:1.0",
+        "evidence_ref": "translation-candidate:document-draft-15:draft"
+      },
+      "reference_status": "unreviewed_draft"
+    },
+    {
+      "case_id": "document-draft-16",
+      "ready": false,
+      "issue_codes": [
+        "SEMANTIC_CHECK_INCOMPLETE"
+      ],
+      "qa": {
+        "id": "document-draft-16:qa:draft",
+        "job_id": "document-draft-16",
+        "candidate_version": "draft",
+        "coverage_result": "pass",
+        "protected_span_result": "pass",
+        "numeric_entity_result": "pass",
+        "semantic_findings": [
+          {
+            "block_id": "b-5cd01e954e93f02c9d38",
+            "code": "SEMANTIC_CHECK_INCOMPLETE",
+            "severity": "major",
+            "message": "Separate semantic check completion is required.",
+            "source_locator": "text:chars=0-65"
+          }
+        ],
+        "severity": "major",
+        "verifier_model": null,
+        "check_version": "translation-qa:1.0",
+        "evidence_ref": "translation-candidate:document-draft-16:draft"
+      },
+      "reference_status": "unreviewed_draft"
+    },
+    {
+      "case_id": "document-draft-17",
+      "ready": false,
+      "issue_codes": [
+        "SEMANTIC_CHECK_INCOMPLETE"
+      ],
+      "qa": {
+        "id": "document-draft-17:qa:draft",
+        "job_id": "document-draft-17",
+        "candidate_version": "draft",
+        "coverage_result": "pass",
+        "protected_span_result": "pass",
+        "numeric_entity_result": "pass",
+        "semantic_findings": [
+          {
+            "block_id": "b-568867f45b15747f11b0",
+            "code": "SEMANTIC_CHECK_INCOMPLETE",
+            "severity": "major",
+            "message": "Separate semantic check completion is required.",
+            "source_locator": "text:chars=0-17"
+          }
+        ],
+        "severity": "major",
+        "verifier_model": null,
+        "check_version": "translation-qa:1.0",
+        "evidence_ref": "translation-candidate:document-draft-17:draft"
+      },
+      "reference_status": "unreviewed_draft"
+    },
+    {
+      "case_id": "document-draft-18",
+      "ready": false,
+      "issue_codes": [
+        "SEMANTIC_CHECK_INCOMPLETE"
+      ],
+      "qa": {
+        "id": "document-draft-18:qa:draft",
+        "job_id": "document-draft-18",
+        "candidate_version": "draft",
+        "coverage_result": "pass",
+        "protected_span_result": "pass",
+        "numeric_entity_result": "pass",
+        "semantic_findings": [
+          {
+            "block_id": "b-eaedd7dc6f2b8418513d",
+            "code": "SEMANTIC_CHECK_INCOMPLETE",
+            "severity": "major",
+            "message": "Separate semantic check completion is required.",
+            "source_locator": "text:chars=0-56"
+          }
+        ],
+        "severity": "major",
+        "verifier_model": null,
+        "check_version": "translation-qa:1.0",
+        "evidence_ref": "translation-candidate:document-draft-18:draft"
+      },
+      "reference_status": "unreviewed_draft"
+    },
+    {
+      "case_id": "document-draft-19",
+      "ready": false,
+      "issue_codes": [
+        "SEMANTIC_CHECK_INCOMPLETE"
+      ],
+      "qa": {
+        "id": "document-draft-19:qa:draft",
+        "job_id": "document-draft-19",
+        "candidate_version": "draft",
+        "coverage_result": "pass",
+        "protected_span_result": "pass",
+        "numeric_entity_result": "pass",
+        "semantic_findings": [
+          {
+            "block_id": "b-703af027cbbdfced6412",
+            "code": "SEMANTIC_CHECK_INCOMPLETE",
+            "severity": "major",
+            "message": "Separate semantic check completion is required.",
+            "source_locator": "text:chars=0-27"
+          }
+        ],
+        "severity": "major",
+        "verifier_model": null,
+        "check_version": "translation-qa:1.0",
+        "evidence_ref": "translation-candidate:document-draft-19:draft"
+      },
+      "reference_status": "unreviewed_draft"
+    }
+  ],
+  "known_negative_fixtures": [
+    {
+      "case_id": "neg-num",
+      "ready": false,
+      "issue_codes": [
+        "PROTECTED_SPAN_CHANGED",
+        "NEGATION_CHANGED",
+        "NUMBER_CHANGED"
+      ],
+      "qa": {
+        "id": "neg-num:qa:draft",
+        "job_id": "neg-num",
+        "candidate_version": "draft",
+        "coverage_result": "pass",
+        "protected_span_result": "fail",
+        "numeric_entity_result": "fail",
+        "semantic_findings": [
+          {
+            "block_id": "b-0d29d570c8fea16f85d3",
+            "code": "PROTECTED_SPAN_CHANGED",
+            "severity": "major",
+            "message": "PROTECTED_SPAN_MISSING_DUPLICATED_REORDERED_OR_NEW:b-0d29d570c8fea16f85d3",
+            "source_locator": "text:chars=0-34"
+          },
+          {
+            "block_id": "b-0d29d570c8fea16f85d3",
+            "code": "NEGATION_CHANGED",
+            "severity": "critical",
+            "message": "Explicit known adversarial fixture finding; not human or model evidence.",
+            "source_locator": "text:chars=0-34"
+          },
+          {
+            "block_id": "b-0d29d570c8fea16f85d3",
+            "code": "NUMBER_CHANGED",
+            "severity": "critical",
+            "message": "Explicit known adversarial fixture finding; not human or model evidence.",
+            "source_locator": "text:chars=0-34"
+          }
+        ],
+        "severity": "major",
+        "verifier_model": null,
+        "check_version": "translation-qa:1.0",
+        "evidence_ref": "translation-candidate:neg-num:draft"
+      },
+      "reference_status": "unreviewed_draft"
+    },
+    {
+      "case_id": "uncertain",
+      "ready": false,
+      "issue_codes": [
+        "UNCERTAINTY_CHANGED"
+      ],
+      "qa": {
+        "id": "uncertain:qa:draft",
+        "job_id": "uncertain",
+        "candidate_version": "draft",
+        "coverage_result": "pass",
+        "protected_span_result": "pass",
+        "numeric_entity_result": "pass",
+        "semantic_findings": [
+          {
+            "block_id": "b-e8f0f5214ce1d21d6099",
+            "code": "UNCERTAINTY_CHANGED",
+            "severity": "critical",
+            "message": "Explicit known adversarial fixture finding; not human or model evidence.",
+            "source_locator": "text:chars=0-50"
+          }
+        ],
+        "severity": "major",
+        "verifier_model": null,
+        "check_version": "translation-qa:1.0",
+        "evidence_ref": "translation-candidate:uncertain:draft"
+      },
+      "reference_status": "unreviewed_draft"
+    }
+  ]
+}

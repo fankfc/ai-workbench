@@ -1,0 +1,257 @@
+FFFFFFFFFFFFFFFFFFFF                                                     [100%]
+================================== FAILURES ===================================
+__________________ test_duplicate_request_total_counted_once __________________
+
+ledger = (<app.usage.ledger.UsageLedger object at 0x00000218739E2120>, '48772570e5ec449b924277ac2c132c2b', '32d752fc27dc4c17bc1cdb9cae1086da')
+
+    def test_duplicate_request_total_counted_once(ledger):
+        book,task,attempt=ledger
+        record(book,task,attempt)
+        record(book,task,attempt)
+        record(book,task,attempt,event_id='duplicate_bill',sequence=2)
+>       assert book.summary(task)['total_tokens']==120
+E       assert 0 == 120
+
+tests\unit\test_usage_ledger.py:25: AssertionError
+__________________ test_cumulative_120_to_200_and_late_lower __________________
+
+ledger = (<app.usage.ledger.UsageLedger object at 0x0000021873A060D0>, '5306e47598364767a3bb3f6d1270e3ee', '940dc535e4ba4e7991328e503ad3b4a5')
+
+    def test_cumulative_120_to_200_and_late_lower(ledger):
+        book,task,attempt=ledger
+        record(book,task,attempt,mode='cumulative')
+        record(book,task,attempt,mode='cumulative',raw={'total_tokens':200},sequence=2,event_id='event2')
+        record(book,task,attempt,mode='cumulative',raw={'total_tokens':100},sequence=1,event_id='late')
+>       assert book.summary(task)['total_tokens']==200
+E       assert 0 == 200
+
+tests\unit\test_usage_ledger.py:32: AssertionError
+___________________ test_incremental_events_and_duplicates ____________________
+
+ledger = (<app.usage.ledger.UsageLedger object at 0x0000021873A7C690>, '1b74f594572643299962f2f2851a99a8', '954693127553447eba0c272a5417ad20')
+
+    def test_incremental_events_and_duplicates(ledger):
+        book,task,attempt=ledger
+        record(book,task,attempt,mode='delta',raw={'total_tokens':30})
+        record(book,task,attempt,mode='delta',raw={'total_tokens':50},event_id='event2',sequence=2)
+        record(book,task,attempt,mode='delta',raw={'total_tokens':50},event_id='event2',sequence=2)
+>       assert book.summary(task)['total_tokens']==80
+E       assert 0 == 80
+
+tests\unit\test_usage_ledger.py:39: AssertionError
+____________ test_conflicting_duplicate_binding_or_event_rejected _____________
+
+ledger = (<app.usage.ledger.UsageLedger object at 0x0000021873A88050>, '7c39178a206445e1ac7391c61a46bb3d', '6948c60a9a774aa380f736e8d84bb0c2')
+
+    def test_conflicting_duplicate_binding_or_event_rejected(ledger):
+        book,task,attempt=ledger
+        record(book,task,attempt)
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests\unit\test_usage_ledger.py:44: Failed
+________________ test_gpt_cache_reasoning_are_subsets_of_total ________________
+
+    def test_gpt_cache_reasoning_are_subsets_of_total():
+        value=normalize_usage('gpt',{'input_tokens':100,'output_tokens':20,'input_tokens_details':{'cached_tokens':80},'output_tokens_details':{'reasoning_tokens':10}})
+>       assert value['total_tokens']==120
+E       assert 0 == 120
+
+tests\unit\test_usage_ledger.py:51: AssertionError
+____________________ test_claude_cache_mapping_is_explicit ____________________
+
+    def test_claude_cache_mapping_is_explicit():
+        value=normalize_usage('claude',{'input_tokens':20,'output_tokens':10,'cache_read_input_tokens':80,'cache_creation_input_tokens':5})
+>       assert value['total_tokens']==115
+E       assert 0 == 115
+
+tests\unit\test_usage_ledger.py:55: AssertionError
+_______________ test_missing_unrecognized_is_unknown[gpt-raw0] ________________
+
+provider = 'gpt', raw = {}
+
+    @pytest.mark.parametrize('provider,raw',[('gpt',{}),('gpt',{'input_tokens':10}),('unknown',{'total_tokens':99})])
+    def test_missing_unrecognized_is_unknown(provider,raw):
+        value=normalize_usage(provider,raw)
+>       assert value['total_tokens'] is None and value['source']=='unknown'
+E       assert (0 is None)
+
+tests\unit\test_usage_ledger.py:60: AssertionError
+_______________ test_missing_unrecognized_is_unknown[gpt-raw1] ________________
+
+provider = 'gpt', raw = {'input_tokens': 10}
+
+    @pytest.mark.parametrize('provider,raw',[('gpt',{}),('gpt',{'input_tokens':10}),('unknown',{'total_tokens':99})])
+    def test_missing_unrecognized_is_unknown(provider,raw):
+        value=normalize_usage(provider,raw)
+>       assert value['total_tokens'] is None and value['source']=='unknown'
+E       assert (0 is None)
+
+tests\unit\test_usage_ledger.py:60: AssertionError
+_____________ test_missing_unrecognized_is_unknown[unknown-raw2] ______________
+
+provider = 'unknown', raw = {'total_tokens': 99}
+
+    @pytest.mark.parametrize('provider,raw',[('gpt',{}),('gpt',{'input_tokens':10}),('unknown',{'total_tokens':99})])
+    def test_missing_unrecognized_is_unknown(provider,raw):
+        value=normalize_usage(provider,raw)
+>       assert value['total_tokens'] is None and value['source']=='unknown'
+E       assert (0 is None)
+
+tests\unit\test_usage_ledger.py:60: AssertionError
+_____________________ test_invalid_counts_rejected[True] ______________________
+
+bad = True
+
+    @pytest.mark.parametrize('bad',[True,-1,1.5,'120',float('nan')])
+    def test_invalid_counts_rejected(bad):
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests\unit\test_usage_ledger.py:64: Failed
+______________________ test_invalid_counts_rejected[-1] _______________________
+
+bad = -1
+
+    @pytest.mark.parametrize('bad',[True,-1,1.5,'120',float('nan')])
+    def test_invalid_counts_rejected(bad):
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests\unit\test_usage_ledger.py:64: Failed
+______________________ test_invalid_counts_rejected[1.5] ______________________
+
+bad = 1.5
+
+    @pytest.mark.parametrize('bad',[True,-1,1.5,'120',float('nan')])
+    def test_invalid_counts_rejected(bad):
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests\unit\test_usage_ledger.py:64: Failed
+______________________ test_invalid_counts_rejected[120] ______________________
+
+bad = '120'
+
+    @pytest.mark.parametrize('bad',[True,-1,1.5,'120',float('nan')])
+    def test_invalid_counts_rejected(bad):
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests\unit\test_usage_ledger.py:64: Failed
+______________________ test_invalid_counts_rejected[nan] ______________________
+
+bad = nan
+
+    @pytest.mark.parametrize('bad',[True,-1,1.5,'120',float('nan')])
+    def test_invalid_counts_rejected(bad):
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests\unit\test_usage_ledger.py:64: Failed
+_______________ test_all_real_requests_remain_in_totals[failed] _______________
+
+ledger = (<app.usage.ledger.UsageLedger object at 0x00000218739ACE90>, '750e8add213e450ea1bfd906bb48da64', 'cbbdfa0f4cfa4a3da1473b209860e5f6')
+status = 'failed'
+
+    @pytest.mark.parametrize('status',['failed','cancelled','completed'])
+    def test_all_real_requests_remain_in_totals(ledger,status):
+        book,task,attempt=ledger
+        record(book,task,attempt,status=status)
+>       assert book.summary(task)['total_tokens']==120
+E       assert 0 == 120
+
+tests\unit\test_usage_ledger.py:71: AssertionError
+_____________ test_all_real_requests_remain_in_totals[cancelled] ______________
+
+ledger = (<app.usage.ledger.UsageLedger object at 0x0000021871E6BAD0>, 'e7a5b6fe23984ecca37837e6b3bb805a', 'a27a7ab219724b6bacbb885710e58a23')
+status = 'cancelled'
+
+    @pytest.mark.parametrize('status',['failed','cancelled','completed'])
+    def test_all_real_requests_remain_in_totals(ledger,status):
+        book,task,attempt=ledger
+        record(book,task,attempt,status=status)
+>       assert book.summary(task)['total_tokens']==120
+E       assert 0 == 120
+
+tests\unit\test_usage_ledger.py:71: AssertionError
+_____________ test_all_real_requests_remain_in_totals[completed] ______________
+
+ledger = (<app.usage.ledger.UsageLedger object at 0x0000021873AB6E00>, 'a4bde2bcefa54ec8b0d44967c5c8ca75', '2254425cb67a47d6b3b54fbed234bee6')
+status = 'completed'
+
+    @pytest.mark.parametrize('status',['failed','cancelled','completed'])
+    def test_all_real_requests_remain_in_totals(ledger,status):
+        book,task,attempt=ledger
+        record(book,task,attempt,status=status)
+>       assert book.summary(task)['total_tokens']==120
+E       assert 0 == 120
+
+tests\unit\test_usage_ledger.py:71: AssertionError
+_______________ test_unknown_not_zero_and_persists_after_reopen _______________
+
+ledger = (<app.usage.ledger.UsageLedger object at 0x0000021873AC56A0>, '06d06f2910564e32bc4a79d9e5bf6bbf', '98cbcad5442749c1adc2e8928c3165bc')
+
+    def test_unknown_not_zero_and_persists_after_reopen(ledger):
+        book,task,attempt=ledger
+        record(book,task,attempt,raw={})
+        summary=UsageLedger(book.database_path).summary(task)
+>       assert summary['total_tokens'] is None and summary['unknown_requests']==1
+E       assert (0 is None)
+
+tests\unit\test_usage_ledger.py:78: AssertionError
+____________________ test_reserve_a_and_stop_before_start _____________________
+
+    def test_reserve_a_and_stop_before_start():
+        summary={'total_tokens':700,'known_lower_bound':700,'unknown_requests':0,'a_tokens':0}
+>       assert not check_budget(summary,total_tokens=1000,reserved_a_tokens=200,role='B',estimated_tokens=101)['allowed']
+E       assert not True
+
+tests\unit\test_usage_ledger.py:84: AssertionError
+________________ test_translation_takeover_and_review_counted _________________
+
+ledger = (<app.usage.ledger.UsageLedger object at 0x0000021873985A50>, '30c5e409991346aeb9ee8553babd0192', '49895c13f3ca4cbc9cd0659ddf6b98cf')
+
+    def test_translation_takeover_and_review_counted(ledger):
+        book,task,attempt=ledger
+        for index,(role,function) in enumerate([('B','execution'),('B','translation'),('A','review'),('A','takeover')]):
+            record(book,task,attempt,external_request_id=f'req{index}',event_id=f'e{index}',role=role,function=function)
+        summary=book.summary(task)
+>       assert summary['total_tokens']==480 and summary['a_tokens']==240
+E       assert (0 == 480)
+
+tests\unit\test_usage_ledger.py:95: AssertionError
+============================== warnings summary ===============================
+tests/unit/test_usage_ledger.py::test_duplicate_request_total_counted_once
+  C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/unit/test_usage_ledger.py::test_duplicate_request_total_counted_once
+FAILED tests/unit/test_usage_ledger.py::test_cumulative_120_to_200_and_late_lower
+FAILED tests/unit/test_usage_ledger.py::test_incremental_events_and_duplicates
+FAILED tests/unit/test_usage_ledger.py::test_conflicting_duplicate_binding_or_event_rejected
+FAILED tests/unit/test_usage_ledger.py::test_gpt_cache_reasoning_are_subsets_of_total
+FAILED tests/unit/test_usage_ledger.py::test_claude_cache_mapping_is_explicit
+FAILED tests/unit/test_usage_ledger.py::test_missing_unrecognized_is_unknown[gpt-raw0]
+FAILED tests/unit/test_usage_ledger.py::test_missing_unrecognized_is_unknown[gpt-raw1]
+FAILED tests/unit/test_usage_ledger.py::test_missing_unrecognized_is_unknown[unknown-raw2]
+FAILED tests/unit/test_usage_ledger.py::test_invalid_counts_rejected[True] - ...
+FAILED tests/unit/test_usage_ledger.py::test_invalid_counts_rejected[-1] - Fa...
+FAILED tests/unit/test_usage_ledger.py::test_invalid_counts_rejected[1.5] - F...
+FAILED tests/unit/test_usage_ledger.py::test_invalid_counts_rejected[120] - F...
+FAILED tests/unit/test_usage_ledger.py::test_invalid_counts_rejected[nan] - F...
+FAILED tests/unit/test_usage_ledger.py::test_all_real_requests_remain_in_totals[failed]
+FAILED tests/unit/test_usage_ledger.py::test_all_real_requests_remain_in_totals[cancelled]
+FAILED tests/unit/test_usage_ledger.py::test_all_real_requests_remain_in_totals[completed]
+FAILED tests/unit/test_usage_ledger.py::test_unknown_not_zero_and_persists_after_reopen
+FAILED tests/unit/test_usage_ledger.py::test_reserve_a_and_stop_before_start
+FAILED tests/unit/test_usage_ledger.py::test_translation_takeover_and_review_counted
+20 failed, 1 warning in 1.09s

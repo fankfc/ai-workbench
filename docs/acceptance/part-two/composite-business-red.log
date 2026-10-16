@@ -1,0 +1,41 @@
+..F                                                                      [100%]
+================================== FAILURES ===================================
+__ test_old_conclusion_cannot_pass_merely_by_putting_new_values_in_appendix ___
+
+document_task = {'client': <starlette.testclient.TestClient object at 0x00000184545C4690>, 'cid': '6f4c1372fd074b4a8fba255044fb1110', 'task': '76d3b0a12f5b4fc99d4d0c98c5d4b7c9', 'attempt': 'ec01a82e1cf149beb49d2cc61b1f0522', ...}
+
+    def test_old_conclusion_cannot_pass_merely_by_putting_new_values_in_appendix(document_task):
+        from types import SimpleNamespace
+        ctx=document_task; db=ctx['client'].app.state.database.path
+        pipeline=CompositePipeline(db,WorkspaceManager(db.parent/'workspaces'))
+        run=pipeline.run(ctx['task'],ctx['attempt'],SALES.replace(b',25',b',35'))
+        candidate=SimpleNamespace(contract=SimpleNamespace(task_id=ctx['task'],attempt_id=ctx['attempt'],
+            acceptance=[SimpleNamespace(id='AC1',semantic=False)]),content=b'January 30. February 40. Increase 10.\nAppendix 50 and 20.',byte_sha256='a'*64)
+        observed=pipeline.validator(run)(candidate)
+        assert observed[0]['passed'] is False
+        candidate.content=b'January 30. February 50. Increase 20.'
+>       assert pipeline.validator(run)(candidate)[0]['passed'] is True
+E       assert False is True
+
+tests\artifacts\test_composite_pipeline.py:38: AssertionError
+============================== warnings summary ===============================
+tests/artifacts/test_composite_pipeline.py::test_actual_subprocess_and_plot_bind_to_exact_csv_and_code
+  C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+tests/artifacts/test_composite_pipeline.py::test_actual_subprocess_and_plot_bind_to_exact_csv_and_code
+tests/artifacts/test_composite_pipeline.py::test_actual_subprocess_and_plot_bind_to_exact_csv_and_code
+  <frozen importlib._bootstrap>:488: DeprecationWarning: builtin type SwigPyPacked has no __module__ attribute
+
+tests/artifacts/test_composite_pipeline.py::test_actual_subprocess_and_plot_bind_to_exact_csv_and_code
+tests/artifacts/test_composite_pipeline.py::test_actual_subprocess_and_plot_bind_to_exact_csv_and_code
+  <frozen importlib._bootstrap>:488: DeprecationWarning: builtin type SwigPyObject has no __module__ attribute
+
+tests/artifacts/test_composite_pipeline.py::test_actual_subprocess_and_plot_bind_to_exact_csv_and_code
+  <frozen importlib._bootstrap>:488: DeprecationWarning: builtin type swigvarlink has no __module__ attribute
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/artifacts/test_composite_pipeline.py::test_old_conclusion_cannot_pass_merely_by_putting_new_values_in_appendix
+1 failed, 2 passed, 6 warnings in 1.88s
+<sys>:0: DeprecationWarning: builtin type swigvarlink has no __module__ attribute

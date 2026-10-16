@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "checked_at": "2026-10-14T13:49:32.559267+00:00",
+  "status": "PASS",
+  "complete": false,
+  "freeze_integrity_verified": true,
+  "product_acceptance_complete": false,
+  "new_real_model_calls": 0,
+  "full_product_regression_rerun": false,
+  "checks": {
+    "archive": {
+      "sha256": "3631386c237b21ac121a7d15cfe8324756af559123ae9ea09905ac06b98179d4",
+      "files": 515,
+      "workspace_matches": 515,
+      "zip_matches": 515
+    },
+    "final_source": {
+      "files": 286,
+      "matched": 286,
+      "sha256": "e0cafffec582c043ce435f622ce6543a379b4bbfcaf8787f009104e94b21e599",
+      "selection_unchanged": true
+    },
+    "preserved": {
+      "first_part_files": 18,
+      "first_part_tasks": 20,
+      "future_tasks": 20,
+      "historical_verification_sha256": "91065d02c28dbd616f082150715507b7d8cda64f7f142ca91a0d83f61e8c5c84"
+    },
+    "tasks": {
+      "cards": 20,
+      "states": {
+        "in_progress": 18,
+        "blocked": 2
+      },
+      "done": 0
+    },
+    "historical_tests": {
+      "junit": {
+        "tests": 1318,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "python_exit_code": 0
+    }
+  },
+  "errors": []
+}

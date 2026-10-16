@@ -1,0 +1,80 @@
+FFFFF                                                                    [100%]
+================================== FAILURES ===================================
+________ test_executable_route_must_match_bound_provider[provider_id] _________
+
+field = 'provider_id'
+
+    @pytest.mark.parametrize("field", ["provider_id", "model_id", "adapter_id", "connection_version", "identity_source"])
+    def test_executable_route_must_match_bound_provider(field):
+        sample = route_sample()
+        sample[field] = "other-binding"
+        route = assert_both_accept(RouteSnapshot, sample)
+>       with pytest.raises(ValueError, match="ROUTE_PROVIDER_MISMATCH"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests\contracts\test_schemas.py:162: Failed
+__________ test_executable_route_must_match_bound_provider[model_id] __________
+
+field = 'model_id'
+
+    @pytest.mark.parametrize("field", ["provider_id", "model_id", "adapter_id", "connection_version", "identity_source"])
+    def test_executable_route_must_match_bound_provider(field):
+        sample = route_sample()
+        sample[field] = "other-binding"
+        route = assert_both_accept(RouteSnapshot, sample)
+>       with pytest.raises(ValueError, match="ROUTE_PROVIDER_MISMATCH"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests\contracts\test_schemas.py:162: Failed
+_________ test_executable_route_must_match_bound_provider[adapter_id] _________
+
+field = 'adapter_id'
+
+    @pytest.mark.parametrize("field", ["provider_id", "model_id", "adapter_id", "connection_version", "identity_source"])
+    def test_executable_route_must_match_bound_provider(field):
+        sample = route_sample()
+        sample[field] = "other-binding"
+        route = assert_both_accept(RouteSnapshot, sample)
+>       with pytest.raises(ValueError, match="ROUTE_PROVIDER_MISMATCH"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests\contracts\test_schemas.py:162: Failed
+_____ test_executable_route_must_match_bound_provider[connection_version] _____
+
+field = 'connection_version'
+
+    @pytest.mark.parametrize("field", ["provider_id", "model_id", "adapter_id", "connection_version", "identity_source"])
+    def test_executable_route_must_match_bound_provider(field):
+        sample = route_sample()
+        sample[field] = "other-binding"
+        route = assert_both_accept(RouteSnapshot, sample)
+>       with pytest.raises(ValueError, match="ROUTE_PROVIDER_MISMATCH"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests\contracts\test_schemas.py:162: Failed
+______ test_executable_route_must_match_bound_provider[identity_source] _______
+
+field = 'identity_source'
+
+    @pytest.mark.parametrize("field", ["provider_id", "model_id", "adapter_id", "connection_version", "identity_source"])
+    def test_executable_route_must_match_bound_provider(field):
+        sample = route_sample()
+        sample[field] = "other-binding"
+        route = assert_both_accept(RouteSnapshot, sample)
+>       with pytest.raises(ValueError, match="ROUTE_PROVIDER_MISMATCH"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests\contracts\test_schemas.py:162: Failed
+=========================== short test summary info ===========================
+FAILED tests/contracts/test_schemas.py::test_executable_route_must_match_bound_provider[provider_id]
+FAILED tests/contracts/test_schemas.py::test_executable_route_must_match_bound_provider[model_id]
+FAILED tests/contracts/test_schemas.py::test_executable_route_must_match_bound_provider[adapter_id]
+FAILED tests/contracts/test_schemas.py::test_executable_route_must_match_bound_provider[connection_version]
+FAILED tests/contracts/test_schemas.py::test_executable_route_must_match_bound_provider[identity_source]
+5 failed, 69 deselected in 0.44s
+exit_code=1

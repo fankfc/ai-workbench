@@ -1,0 +1,88 @@
+.......................FFFF                                              [100%]
+================================== FAILURES ===================================
+_ test_terminal_transition_during_remote_query_prevents_verifier_and_state_resurrection[FAILED] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-111/test_terminal_transition_durin0')
+terminal = 'FAILED'
+
+    @pytest.mark.parametrize("terminal", ["FAILED","PUBLISHED"])
+    def test_terminal_transition_during_remote_query_prevents_verifier_and_state_resurrection(tmp_path,terminal):
+        path = existing_remote(tmp_path)
+        calls = []
+        def query(row):
+            connection = Database(path).connect()
+            connection.execute("UPDATE task_runs SET state=?", (terminal,))
+            connection.close()
+            return "completed"
+        recovered = Recovery(path).recover(query,verify_completed=lambda row:calls.append(row["state"]) or True)
+>       assert current(path)["state"] == terminal
+E       AssertionError: assert 'VALIDATING' == 'FAILED'
+E         
+E         - FAILED
+E         + VALIDATING
+
+tests\integration\test_recovery.py:258: AssertionError
+_ test_terminal_transition_during_remote_query_prevents_verifier_and_state_resurrection[PUBLISHED] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-111/test_terminal_transition_durin1')
+terminal = 'PUBLISHED'
+
+    @pytest.mark.parametrize("terminal", ["FAILED","PUBLISHED"])
+    def test_terminal_transition_during_remote_query_prevents_verifier_and_state_resurrection(tmp_path,terminal):
+        path = existing_remote(tmp_path)
+        calls = []
+        def query(row):
+            connection = Database(path).connect()
+            connection.execute("UPDATE task_runs SET state=?", (terminal,))
+            connection.close()
+            return "completed"
+        recovered = Recovery(path).recover(query,verify_completed=lambda row:calls.append(row["state"]) or True)
+>       assert current(path)["state"] == terminal
+E       AssertionError: assert 'VALIDATING' == 'PUBLISHED'
+E         
+E         - PUBLISHED
+E         + VALIDATING
+
+tests\integration\test_recovery.py:258: AssertionError
+_ test_terminal_transition_inside_verifier_is_preserved_by_final_transaction __
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-111/test_terminal_transition_insid0')
+
+    def test_terminal_transition_inside_verifier_is_preserved_by_final_transaction(tmp_path):
+        path = existing_remote(tmp_path)
+        def verify(row):
+            connection = Database(path).connect()
+            connection.execute("UPDATE task_runs SET state='FAILED'")
+            connection.close()
+            return True
+        result = Recovery(path).recover(lambda row:"completed",verify_completed=verify)
+>       assert current(path)["state"] == "FAILED" and result[0]["decision"] == "terminal_preserved"
+E       AssertionError: assert ('VALIDATING' == 'FAILED'
+E         
+E         - FAILED
+E         + VALIDATING)
+
+tests\integration\test_recovery.py:270: AssertionError
+_ test_duplicate_stable_key_arriving_before_gap_closes_is_kept_as_noop_sequence _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-111/test_duplicate_stable_key_arri0')
+
+    def test_duplicate_stable_key_arriving_before_gap_closes_is_kept_as_noop_sequence(tmp_path):
+        path = existing_remote(tmp_path)
+        records = [event(1,provider_event_id="stable",text="first"), event(3,provider_event_id="stable",text="first"),
+                   event(4,"provider.completed",result="done"),event(2,text="second")]
+        outcomes = [Recovery(path).ingest(record,"1.0") for record in records]
+>       assert [seq for outcome in outcomes for seq in outcome["applied_sequences"]] == [1,2,4]
+E       assert [1, 2] == [1, 2, 4]
+E         
+E         Right contains one more item: 4
+E         Use -v to get more diff
+
+tests\integration\test_recovery.py:278: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/integration/test_recovery.py::test_terminal_transition_during_remote_query_prevents_verifier_and_state_resurrection[FAILED]
+FAILED tests/integration/test_recovery.py::test_terminal_transition_during_remote_query_prevents_verifier_and_state_resurrection[PUBLISHED]
+FAILED tests/integration/test_recovery.py::test_terminal_transition_inside_verifier_is_preserved_by_final_transaction
+FAILED tests/integration/test_recovery.py::test_duplicate_stable_key_arriving_before_gap_closes_is_kept_as_noop_sequence
+4 failed, 23 passed in 1.36s
+EXIT_CODE=1

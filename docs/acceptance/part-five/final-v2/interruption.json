@@ -1,0 +1,10 @@
+{
+  "status": "interrupted",
+  "utc": "2026-10-15T05:34:47.586023+00:00",
+  "reason": "A completed diagnostic Electron test exposed a fixture synchronization race. Stopped this early Python rerun to fix it before a new frozen complete batch.",
+  "tests_complete": false,
+  "phase_five_local_verified": false,
+  "real_model_calls": 0,
+  "owned_tree_termination_confirmed": true,
+  "owned_root_pid": 43064
+}

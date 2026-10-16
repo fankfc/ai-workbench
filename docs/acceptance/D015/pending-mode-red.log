@@ -1,0 +1,112 @@
+.........................FFF                                             [100%]
+================================== FAILURES ===================================
+_ test_unknown_start_reservation_resolves_to_observed_wire_mode[request_total] _
+
+ledger = (<app.usage.ledger.UsageLedger object at 0x0000026CECA05850>, 'cc62655ae8cb4e95b0e844628dd0d676', '44fd27e6c95440a1ba5e03e48ab95185')
+mode = 'request_total'
+
+    @pytest.mark.parametrize('mode',['request_total','cumulative','delta'])
+    def test_unknown_start_reservation_resolves_to_observed_wire_mode(ledger,mode):
+        book,task,attempt=ledger
+>       record(book,task,attempt,mode='pending',source='unknown',raw={'usage_observed':False,'request_start_confirmed':False},status='running')
+
+tests\unit\test_usage_ledger.py:140: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\unit\test_usage_ledger.py:18: in record
+    return ledger.record(**args)
+           ^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.usage.ledger.UsageLedger object at 0x0000026CECA05850>
+task_id = 'cc62655ae8cb4e95b0e844628dd0d676'
+attempt_id = '44fd27e6c95440a1ba5e03e48ab95185'
+provider_profile_id = 'fake-gpt', external_request_id = 'req'
+event_id = 'event1', provider = 'gpt'
+raw = {'usage_observed': False, 'request_start_confirmed': False}
+source = 'unknown', mode = 'pending', sequence = 1, role = 'B'
+function = 'execution', domain = 'code', status = 'running'
+cumulative_scope = None
+
+    def record(self,*,task_id,attempt_id,provider_profile_id,external_request_id,event_id,provider,raw,source,mode,sequence,role,function,domain,status,cumulative_scope=None):
+        if role not in ('A','B') or function not in ('execution','translation','review','planning','takeover') or domain not in ('code','paper','document','mixed') or status not in ('running','completed','failed','cancelled') or mode not in ('request_total','cumulative','delta'):
+>           raise ValueError('INVALID_USAGE_CONTEXT')
+E           ValueError: INVALID_USAGE_CONTEXT
+
+services\orchestrator\app\usage\ledger.py:18: ValueError
+__ test_unknown_start_reservation_resolves_to_observed_wire_mode[cumulative] __
+
+ledger = (<app.usage.ledger.UsageLedger object at 0x0000026CECA071D0>, 'f6021e0364a04e439dbfe9bf18ad924f', '32ea0fe5ef9e4c22ade290ec55b2278d')
+mode = 'cumulative'
+
+    @pytest.mark.parametrize('mode',['request_total','cumulative','delta'])
+    def test_unknown_start_reservation_resolves_to_observed_wire_mode(ledger,mode):
+        book,task,attempt=ledger
+>       record(book,task,attempt,mode='pending',source='unknown',raw={'usage_observed':False,'request_start_confirmed':False},status='running')
+
+tests\unit\test_usage_ledger.py:140: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\unit\test_usage_ledger.py:18: in record
+    return ledger.record(**args)
+           ^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.usage.ledger.UsageLedger object at 0x0000026CECA071D0>
+task_id = 'f6021e0364a04e439dbfe9bf18ad924f'
+attempt_id = '32ea0fe5ef9e4c22ade290ec55b2278d'
+provider_profile_id = 'fake-gpt', external_request_id = 'req'
+event_id = 'event1', provider = 'gpt'
+raw = {'usage_observed': False, 'request_start_confirmed': False}
+source = 'unknown', mode = 'pending', sequence = 1, role = 'B'
+function = 'execution', domain = 'code', status = 'running'
+cumulative_scope = None
+
+    def record(self,*,task_id,attempt_id,provider_profile_id,external_request_id,event_id,provider,raw,source,mode,sequence,role,function,domain,status,cumulative_scope=None):
+        if role not in ('A','B') or function not in ('execution','translation','review','planning','takeover') or domain not in ('code','paper','document','mixed') or status not in ('running','completed','failed','cancelled') or mode not in ('request_total','cumulative','delta'):
+>           raise ValueError('INVALID_USAGE_CONTEXT')
+E           ValueError: INVALID_USAGE_CONTEXT
+
+services\orchestrator\app\usage\ledger.py:18: ValueError
+____ test_unknown_start_reservation_resolves_to_observed_wire_mode[delta] _____
+
+ledger = (<app.usage.ledger.UsageLedger object at 0x0000026CECA1BCD0>, '5ff20bc6c49b473f97f7bf55c6006501', 'a9c15a85ac224b438e9d06ae93539593')
+mode = 'delta'
+
+    @pytest.mark.parametrize('mode',['request_total','cumulative','delta'])
+    def test_unknown_start_reservation_resolves_to_observed_wire_mode(ledger,mode):
+        book,task,attempt=ledger
+>       record(book,task,attempt,mode='pending',source='unknown',raw={'usage_observed':False,'request_start_confirmed':False},status='running')
+
+tests\unit\test_usage_ledger.py:140: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\unit\test_usage_ledger.py:18: in record
+    return ledger.record(**args)
+           ^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.usage.ledger.UsageLedger object at 0x0000026CECA1BCD0>
+task_id = '5ff20bc6c49b473f97f7bf55c6006501'
+attempt_id = 'a9c15a85ac224b438e9d06ae93539593'
+provider_profile_id = 'fake-gpt', external_request_id = 'req'
+event_id = 'event1', provider = 'gpt'
+raw = {'usage_observed': False, 'request_start_confirmed': False}
+source = 'unknown', mode = 'pending', sequence = 1, role = 'B'
+function = 'execution', domain = 'code', status = 'running'
+cumulative_scope = None
+
+    def record(self,*,task_id,attempt_id,provider_profile_id,external_request_id,event_id,provider,raw,source,mode,sequence,role,function,domain,status,cumulative_scope=None):
+        if role not in ('A','B') or function not in ('execution','translation','review','planning','takeover') or domain not in ('code','paper','document','mixed') or status not in ('running','completed','failed','cancelled') or mode not in ('request_total','cumulative','delta'):
+>           raise ValueError('INVALID_USAGE_CONTEXT')
+E           ValueError: INVALID_USAGE_CONTEXT
+
+services\orchestrator\app\usage\ledger.py:18: ValueError
+============================== warnings summary ===============================
+tests/unit/test_usage_ledger.py::test_duplicate_request_total_counted_once
+  C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/unit/test_usage_ledger.py::test_unknown_start_reservation_resolves_to_observed_wire_mode[request_total]
+FAILED tests/unit/test_usage_ledger.py::test_unknown_start_reservation_resolves_to_observed_wire_mode[cumulative]
+FAILED tests/unit/test_usage_ledger.py::test_unknown_start_reservation_resolves_to_observed_wire_mode[delta]
+3 failed, 25 passed, 1 warning in 1.49s

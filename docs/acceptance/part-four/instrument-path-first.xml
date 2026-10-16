@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="2" time="2.308" timestamp="2026-10-15T10:40:41.767519+08:00" hostname="帆"><testcase classname="tests.acceptance.test_runtime_sop" name="test_short_pytest_root_is_scoped_and_never_overwrites_prior_run" time="0.041"><failure message="ValueError: PYTEST_TEMP_PATH_BUDGET_EXCEEDED">verifier = &lt;module 'phase_four_verify' from 'C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\scripts\\phase_four_verify.py'&gt;
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-514/test_short_pytest_root_is_scop0')
+
+    def test_short_pytest_root_is_scoped_and_never_overwrites_prior_run(verifier, tmp_path):
+&gt;       root = verifier.reserve_pytest_temp(repo=tmp_path, short_id='a1234567')
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\acceptance\test_runtime_sop.py:165: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+repo = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-514/test_short_pytest_root_is_scop0')
+short_id = 'a1234567'
+
+    def reserve_pytest_temp(*, repo=REPO, short_id=None):
+        """Reserve a fresh short root before pytest can perform basetemp cleanup.
+    
+        The case fixtures already reserve path budget for task/attempt/proof names;
+        nesting them below a timestamped report folder exceeds Windows MAX_PATH.
+        """
+        short_id = uuid4().hex[:8] if short_id is None else short_id
+        if not isinstance(short_id, str) or re.fullmatch(r'[0-9a-f]{8}', short_id) is None:
+            raise ValueError('PYTEST_TEMP_ID_INVALID')
+        root = Path(repo).resolve()
+        approved = root / '.omx/qa/p4'
+        target = approved / short_id
+        _reject_reparse(approved)
+        _reject_reparse(target)
+        if (not approved.resolve().is_relative_to(root) or target.resolve().parent != approved.resolve()
+                or not target.resolve().is_relative_to(root)):
+            raise ValueError('PYTEST_TEMP_OUTSIDE_APPROVED_ROOT')
+        # Leave at least 195 characters for existing pytest/scenario/task paths.
+        if os.name == 'nt' and len(str(target.resolve())) &gt; 64:
+&gt;           raise ValueError('PYTEST_TEMP_PATH_BUDGET_EXCEEDED')
+E           ValueError: PYTEST_TEMP_PATH_BUDGET_EXCEEDED
+
+scripts\phase_four_verify.py:314: ValueError</failure></testcase><testcase classname="tests.acceptance.test_runtime_sop" name="test_python_cli_uses_short_absolute_basetemp_and_reports_its_real_location" time="1.934" /></testsuite></testsuites>

@@ -1,0 +1,14 @@
+{
+  "time": "2026-10-13T15:35:13.861206+00:00",
+  "command": [
+    "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\.venv\\Scripts\\python.exe",
+    "-m",
+    "pytest",
+    "-q",
+    "tests/integration/test_agent_workflow.py::test_native_session_cumulative_meter_is_not_summed_as_request_totals",
+    "-q"
+  ],
+  "exit_code": 1,
+  "git_commit": null,
+  "log": "docs\\acceptance\\part-one-closeout\\workflow-cumulative-red.log"
+}

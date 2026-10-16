@@ -1,0 +1,80 @@
+{
+  "real_provider_starts": 0,
+  "actual_external_model_submissions": 0,
+  "production_files_changed_by_reviewer": false,
+  "source_hashes_before": {
+    "services/orchestrator/app/providers/scoped_codex_runtime.py": "cbf38fafe0bcb673e45be682b5804842de68a49a246299e70fa15e4ff1030a47",
+    "services/orchestrator/app/providers/scoped_codex_worker.py": "566eabf814a8501a645b553f0bb32087ccf8f024663f15b5c094776c40d7fb13",
+    "services/orchestrator/app/providers/native_scope.py": "2e071b65667854ae0b8a463f758c9232c0d6bab59c6c1c7b2b062be8a9c51f9c"
+  },
+  "source_hashes_after": {
+    "services/orchestrator/app/providers/scoped_codex_runtime.py": "cbf38fafe0bcb673e45be682b5804842de68a49a246299e70fa15e4ff1030a47",
+    "services/orchestrator/app/providers/scoped_codex_worker.py": "566eabf814a8501a645b553f0bb32087ccf8f024663f15b5c094776c40d7fb13",
+    "services/orchestrator/app/providers/native_scope.py": "2e071b65667854ae0b8a463f758c9232c0d6bab59c6c1c7b2b062be8a9c51f9c"
+  },
+  "results": {
+    "boot_failure": {
+      "errors": [
+        "FIXTURE_COMMAND_INVALID",
+        "UNKNOWN_REMOTE_UNRESOLVED"
+      ],
+      "states": [
+        {
+          "request": "first",
+          "state": "launching"
+        }
+      ],
+      "fixture_turns": 0,
+      "submitted_model_turns": 0
+    },
+    "ledger_handle_lifetime": {
+      "exclusive_read_after_runtime_close": {
+        "success": false,
+        "windows_error": 32
+      },
+      "exclusive_read_after_gc": {
+        "success": true,
+        "windows_error": 0
+      },
+      "reported_cleanup_complete": true,
+      "fixture_turns": 0
+    },
+    "trailing_usage": {
+      "error": "TRAILING_PROVIDER_ACTIVITY",
+      "fixture_emitted_total_tokens": 33,
+      "yielded_event_types": [
+        "PhaseStarted"
+      ],
+      "yielded_usage_receipts": 0,
+      "states": [
+        {
+          "request": "first",
+          "state": "unknown"
+        }
+      ],
+      "cleanup_complete": true
+    },
+    "thread_route_change": {
+      "error": null,
+      "fixture_returned_changed_thread_model": true,
+      "fixture_returned_changed_thread_provider": true,
+      "fixture_turns": 1,
+      "yielded_capture": true,
+      "cleanup_complete": true
+    },
+    "cancel_submission_race": {
+      "error": "LOCAL_CANCELLED_REMOTE_UNKNOWN",
+      "fixture_turns_before_cancel": 1,
+      "parent_observed_submissions_before_cancel": 0,
+      "states_after_cancel": [
+        {
+          "request": "first",
+          "state": "failed_before_submission"
+        }
+      ],
+      "next_request_allowed": true,
+      "total_fixture_turns": 2,
+      "cleanup_complete": true
+    }
+  }
+}

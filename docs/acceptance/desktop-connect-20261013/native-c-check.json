@@ -1,0 +1,40 @@
+{
+  "generated_at": "2026-10-13T15:02:31.513462+00:00",
+  "checker": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\desktop-connect-20261013\\verify_native_text_trial.py",
+  "checker_sha256": "85d9b440724bd56c8069ecc0d13d92f6e2087cc8cc688145f7e751d16a204be3",
+  "source_sha256": "7cea2394ee64d3d0974614d4b8b0a14a82d28dfbb87b0b53945154e7f38e9695",
+  "a_answer_sha256": "b533f51214f8c12c967fb3131488dda400a1fa983acd0ee409afa573bbe14e59",
+  "b_answer_sha256": "fbfa2feae945f948735fda95fcd71cd637a6432f239af43e7b3f1e59383fdb48",
+  "checked_values": [
+    1,
+    2,
+    3
+  ],
+  "computed": {
+    "count": 3,
+    "sum": 6,
+    "mean": 2.0
+  },
+  "checks": {
+    "A_completed": true,
+    "A_capture_hash_matches": true,
+    "A_capture_matches_report": true,
+    "A_values_match_recomputation": true,
+    "A_integer_fields": true,
+    "B_schema_keys": true,
+    "B_role_and_values": true,
+    "B_integer_fields": true,
+    "B_numeric_mean": true,
+    "B_values_match_recomputation": true,
+    "B_capture_hash_matches": true,
+    "B_capture_matches_report": true,
+    "B_prompt_hash_matches": true,
+    "B_UI_completion_observed": true,
+    "B_provenance_is_UI_capture": true,
+    "Production_remains_disabled": true
+  },
+  "passed": true,
+  "scope": "Local deterministic arithmetic and captured-evidence consistency only",
+  "model_identity_or_production_integration_verified": false,
+  "model_turns_started": 0
+}

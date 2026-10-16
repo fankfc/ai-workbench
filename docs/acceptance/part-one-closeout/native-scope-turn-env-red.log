@@ -1,0 +1,33 @@
+......................................................F................. [ 98%]
+.                                                                        [100%]
+================================== FAILURES ===================================
+___________________ test_second_top_level_turn_cannot_start ___________________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-239/test_second_top_level_turn_can0')
+
+    def test_second_top_level_turn_cannot_start(tmp_path):
+        enforcer, context = prepared(tmp_path)
+>       enforcer.authorize_rpc('turn/start', turn_params(tmp_path), context)
+
+tests\contracts\test_native_scope.py:151: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+services\orchestrator\app\providers\native_scope.py:241: in authorize_rpc
+    return self._authorize_rpc(method, params, owned_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\app\providers\native_scope.py:289: in _authorize_rpc
+    _keys(params, ('threadId', 'cwd', 'model', 'approvalPolicy', 'sandboxPolicy', 'effort', 'input', 'outputSchema'))
+services\orchestrator\app\providers\native_scope.py:74: in _keys
+    _error('NATIVE_FIXED_FIELDS_REQUIRED')
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = 'NATIVE_FIXED_FIELDS_REQUIRED'
+
+    def _error(code):
+>       raise NativeScopeError(code)
+E       app.providers.native_scope.NativeScopeError: NATIVE_FIXED_FIELDS_REQUIRED
+
+services\orchestrator\app\providers\native_scope.py:61: NativeScopeError
+=========================== short test summary info ===========================
+FAILED tests/contracts/test_native_scope.py::test_second_top_level_turn_cannot_start
+1 failed, 72 passed in 0.64s
+EXIT_CODE=1

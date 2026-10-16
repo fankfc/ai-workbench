@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Signed update intent; native signature is independently observed",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "channel",
+    "sequence",
+    "minCompatibleVersion",
+    "packageSha256",
+    "targetSchema",
+    "compatibleRollbackSchemas"
+  ],
+  "properties": {
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "channel": {
+      "enum": [
+        "stable",
+        "beta"
+      ]
+    },
+    "sequence": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "minCompatibleVersion": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "packageSha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "targetSchema": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "compatibleRollbackSchemas": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "minimum": 1
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    }
+  }
+}

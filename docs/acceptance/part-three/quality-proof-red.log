@@ -1,0 +1,47 @@
+..........FFF                                                            [100%]
+================================== FAILURES ===================================
+___________ test_real_claim_with_only_truthy_provenance_is_rejected ___________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-430/test_real_claim_with_only_trut0')
+
+    def test_real_claim_with_only_truthy_provenance_is_rejected(tmp_path):
+        module = evaluator()
+        claims = dict(source_kind='external', evidence_kind='real_evaluation', candidate_sha256='f'*64,
+            commit='a'*40, observed_at='2026-10-14T12:00:00Z', identity_reports=['verified'],
+            review_reports=['approved'], usage_reports=['complete'])
+        result = module.evaluate_eligibility({}, claims, {})
+        assert not result['eligible']
+>       assert 'CANDIDATE_OR_SOURCE_IDENTITY_INVALID' in result['blocked_reasons']
+E       AssertionError: assert 'CANDIDATE_OR_SOURCE_IDENTITY_INVALID' in ['COMPARISON_CONTRACT_INCOMPLETE', 'CONFIGURATION_NOT_REGISTERED', 'EVIDENCE_CONFIGURATION_MISMATCH', 'FAILURE_ACCOUNTING_UNREGISTERED', 'FORMAL_SAMPLE_COUNT_MISMATCH', 'FORMAL_SAMPLE_SIZE_UNREGISTERED', ...]
+
+tests\quality\test_optimization_gate.py:65: AssertionError
+________________ test_hashed_proof_rejects_parent_path_escape _________________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-430/test_hashed_proof_rejects_pare0')
+
+    def test_hashed_proof_rejects_parent_path_escape(tmp_path):
+        module = evaluator()
+        with pytest.raises(ValueError, match='PROOF_PATH_INVALID'):
+>           module.read_proof(tmp_path, {'path':'../outside.json', 'sha256':'a'*64,'size':1})
+            ^^^^^^^^^^^^^^^^^
+E           AttributeError: module 'app.quality.eligibility' has no attribute 'read_proof'
+
+tests\quality\test_optimization_gate.py:74: AttributeError
+___________________ test_hashed_proof_rejects_changed_bytes ___________________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-430/test_hashed_proof_rejects_chan0')
+
+    def test_hashed_proof_rejects_changed_bytes(tmp_path):
+        module = evaluator()
+        (tmp_path/'proof.json').write_text('{}', encoding='utf-8')
+        with pytest.raises(ValueError, match='PROOF_HASH_MISMATCH'):
+>           module.read_proof(tmp_path, {'path':'proof.json','sha256':'a'*64,'size':2})
+            ^^^^^^^^^^^^^^^^^
+E           AttributeError: module 'app.quality.eligibility' has no attribute 'read_proof'
+
+tests\quality\test_optimization_gate.py:81: AttributeError
+=========================== short test summary info ===========================
+FAILED tests/quality/test_optimization_gate.py::test_real_claim_with_only_truthy_provenance_is_rejected
+FAILED tests/quality/test_optimization_gate.py::test_hashed_proof_rejects_parent_path_escape
+FAILED tests/quality/test_optimization_gate.py::test_hashed_proof_rejects_changed_bytes
+3 failed, 10 passed in 0.23s

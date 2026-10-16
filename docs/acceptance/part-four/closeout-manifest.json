@@ -1,0 +1,127 @@
+{
+  "version": "1.0",
+  "build_id": "f5807a69331c3a2ee9108d527b6923e54f55b2219de35cd56cd01935534a0e7a",
+  "run_id": "20261015T033003612027Z-e2d02e03",
+  "created_at": "2026-10-15T03:45:35.162649+00:00",
+  "seed": 4317,
+  "encoding": "UTF-8",
+  "provider_boundary": "fake",
+  "files": [
+    {
+      "path": "docs/acceptance/part-four/backup-directory-commit-repair.md",
+      "size": 5887,
+      "sha256": "ea7e3bae192cdb7e068d5e14e07a78a2df28d24a7442d33475a7e198d37bf6ad"
+    },
+    {
+      "path": "docs/acceptance/part-four/delivery-proof-budget-analysis.md",
+      "size": 2032,
+      "sha256": "d4bfe99463e433aba9ffc533e8fcc720ecfa3c9140593f97056651f3f7cad368"
+    },
+    {
+      "path": "docs/acceptance/part-four/diagnostic-manifests.json",
+      "size": 2576,
+      "sha256": "b932b1946188c502aa6d2839f978be4cb70ccb45016a1ea94ff26a27c1cf6403"
+    },
+    {
+      "path": "docs/acceptance/part-four/final-evidence-integrity.json",
+      "size": 1983,
+      "sha256": "c302c9d721e7c7424ac6aee0e1d458c16066e9335a8f5cacdc083930f9ce9291"
+    },
+    {
+      "path": "docs/acceptance/part-four/final-v4/evidence-manifest.json",
+      "size": 23312,
+      "sha256": "1bb5d4192f7c75dd3d6e509c404f2a343e889f68ceb11f14ad38d626ef2b8066"
+    },
+    {
+      "path": "docs/acceptance/part-four/final-v4/verification.json",
+      "size": 57026,
+      "sha256": "bc4863a2d9c47bd751a53f1bf75de4efb4c8b08d2389171cc15156035e731705"
+    },
+    {
+      "path": "docs/acceptance/part-four/independent-backup-commit-review.md",
+      "size": 2712,
+      "sha256": "0f47f59638491b877a9521605cd88b594bede2843e4f53dce95dde147b34218c"
+    },
+    {
+      "path": "docs/acceptance/part-four/independent-cancellation-review.md",
+      "size": 7356,
+      "sha256": "508c50cc78a56df66019304cf59554fa1463c54968c41beaaccd6d7816ace6c5"
+    },
+    {
+      "path": "docs/acceptance/part-four/independent-directory-commit-probe.json",
+      "size": 1518,
+      "sha256": "80a131458a0a92df667774308954b5179336c5c5d8ea328a029906e650e9f780"
+    },
+    {
+      "path": "docs/acceptance/part-four/independent-directory-commit-probe.py",
+      "size": 5860,
+      "sha256": "49549868e9531998f078660a3a4e5bbcdacf66a56df0846441570e861f76ddcd"
+    },
+    {
+      "path": "docs/acceptance/part-four/independent-evidence-review.md",
+      "size": 5105,
+      "sha256": "c25204c6b8b42228888ce68e206ad0a606fe2698922e19d583f01885674ef960"
+    },
+    {
+      "path": "docs/acceptance/part-four/independent-startup-review.md",
+      "size": 6227,
+      "sha256": "f0ffb79681d641b7573f1248336df9c0c3d285be2bbb561cb470c68bb3071fee"
+    },
+    {
+      "path": "docs/acceptance/part-four/independent-worker-usage-observations.json",
+      "size": 8155,
+      "sha256": "b2196f3206aeeb031febd04da32fc27c6fed2f906997e470922af23166f53e11"
+    },
+    {
+      "path": "docs/acceptance/part-four/independent-worker-usage-review.md",
+      "size": 3181,
+      "sha256": "23ae94ad6b28d5f9dce425413d8b50087d7552dc0031b200dd645b837a9ee937"
+    },
+    {
+      "path": "docs/acceptance/part-four/preserved-baseline.json",
+      "size": 20192,
+      "sha256": "5b8b2fc8d89cf12fae34402d298da579e16e58ed1a23e94f199c63e96576198c"
+    },
+    {
+      "path": "docs/acceptance/part-four/preserved-final.json",
+      "size": 20397,
+      "sha256": "a3a520ee25c2e70d7f116802a74a060878dafa408f3824f1cbd0b6bfef29705a"
+    },
+    {
+      "path": "docs/acceptance/part-four/scoped-usage-race-repair.md",
+      "size": 6023,
+      "sha256": "4b8cd0d798ecb88ff38fe3f6b07a77d0aabdb453a9145f0935afb31c43355733"
+    },
+    {
+      "path": "docs/acceptance/part-four/windows-directory-commit-probe.json",
+      "size": 1692,
+      "sha256": "5e1a86fc18a1fe45e67c1f3aa5beb48c0ef95ea52e80ca3c042e4fafb2970abc"
+    },
+    {
+      "path": "docs/acceptance/part-four/windows-directory-commit-probe.py",
+      "size": 4719,
+      "sha256": "ba28fea3897d62414637a429f67a3352339759405d2458e874859fc8e6c194d2"
+    },
+    {
+      "path": "docs/acceptance/part-four-progress.json",
+      "size": 2070,
+      "sha256": "885f4f157aad41e0fafa128537a3238f733aff056e9a0a4483f855e563907904"
+    },
+    {
+      "path": "docs/acceptance/part-four-progress.md",
+      "size": 11164,
+      "sha256": "96de279572e07be9821de2bdb6474722240e6cf868d7471964dbdbd23343fe6f"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-15-runtime-sop-integration.md",
+      "size": 3668,
+      "sha256": "d77c0a73e4351b58a6831ddf44c70ffac88c406aa7cc3cd256176219b89615c3"
+    },
+    {
+      "path": "README.md",
+      "size": 2546,
+      "sha256": "d52d3c37ebd1f9028b1105167499adcf2c5c91f05d4ce4f71b7df7ff785b2bac"
+    }
+  ],
+  "scope": "Final handover documents and independent engineering reviews/probes. The separately sealed final-v4 manifest covers executed regression evidence; raw pytest workspaces remain outside both archives."
+}

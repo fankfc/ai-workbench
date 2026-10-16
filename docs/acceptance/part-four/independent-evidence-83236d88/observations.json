@@ -1,0 +1,25 @@
+{
+  "kind": "independent_local_helper_probe",
+  "external_requests": 0,
+  "production_claude_supported": false,
+  "observations": [
+    {
+      "family": "gpt",
+      "view": "raw",
+      "accepted": true,
+      "chinese_natural_text_in_prompt": true
+    },
+    {
+      "family": "claude",
+      "view": "qa_view",
+      "accepted": false,
+      "error": "REVIEW_EVIDENCE_INVALID"
+    },
+    {
+      "family": "claude",
+      "view": "raw",
+      "accepted": true,
+      "chinese_natural_text_in_prompt": true
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+F                                                                        [100%]
+================================== FAILURES ===================================
+_____ test_unqualified_route_has_a_generate_candidate_and_no_b_execution ______
+
+client = <starlette.testclient.TestClient object at 0x00000249E7035FD0>
+
+    def test_unqualified_route_has_a_generate_candidate_and_no_b_execution(client):
+        cid = client.post('/v1/conversations',json={'title':'A �������ʸ� fixture'}).json()['id']
+        tid = client.post(f'/v1/conversations/{cid}/turns',json=dict(text='������',provider_profile_id='fake-gpt',client_request_id='quality-route')).json()['task_id']
+        database=client.app.state.database
+        with closing(database.connect()) as connection:
+            row=connection.execute('SELECT * FROM task_runs WHERE task_id=?',(tid,)).fetchone()
+            attempt=row['attempt_id']; route=json.loads(row['route_snapshot_json'])
+        manager=WorkspaceManager(database.path.parent/'workspaces')
+        workspace=manager.create(tid,attempt)
+        source=workspace.ingest_source('source.txt',b'value = 6\n')
+        contract=make_contract(tid,attempt,route['id'])
+        contract['inputs']=[dict(id='source',ref='input/source.txt',sha256=hashlib.sha256(source.read_bytes()).hexdigest())]
+        b=FakeProvider(executions=[dict(text='value = 6\n',usage={'total_tokens':20})])
+        a=FakeProvider(takeovers=[dict(text='value = 6\n',usage={'total_tokens':30})],reviews=[dict(decision='PASS',criterion_results={'AC2':True},read_unit_ids=['body'],source_refs=['input/source.txt'],usage={'total_tokens':10})])
+        def validate(candidate):
+            assert candidate.content==b'value = 6\n'
+            return [dict(criterion_id='AC1',passed=True,evidence={'actual_sha256':candidate.byte_sha256})]
+        workflow=Workflow(database.path,manager,b,validate,a,check_budget,estimated_tokens={'B.execution':20,'A.takeover':30,'A.review':10})
+        workflow._production_a_led=True  # Private production assembly policy, tested using fake ports.
+        result=asyncio.run(workflow.run(contract))
+        assert result.state=='OUTPUT_PREPARING'
+>       assert b.starts==[]
+E       AssertionError: assert [AgentRequest...ersion='1.0')] == []
+E         
+E         Left contains one more item: AgentRequest(task_id='78ed97bf25264d03a7150f452db4d8b6', attempt_id='6d0c2b8fe2804bcaa98fd74d7efcd1cd', role='B', iden..._a_g0\\workspaces\\tasks\\78ed97bf25264d03a7150f452db4d8b6\\6d0c2b8fe2804bcaa98fd74d7efcd1cd\\b', policy_version='1.0')
+E         Use -v to get more diff
+
+tests\quality\test_conservative_native_route.py:35: AssertionError
+============================== warnings summary ===============================
+tests/quality/test_conservative_native_route.py::test_unqualified_route_has_a_generate_candidate_and_no_b_execution
+  C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/quality/test_conservative_native_route.py::test_unqualified_route_has_a_generate_candidate_and_no_b_execution
+1 failed, 1 warning in 1.32s

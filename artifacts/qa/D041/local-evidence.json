@@ -1,0 +1,35 @@
+{
+  "card": "D041",
+  "case": "driver_contract",
+  "command": [
+    "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\.venv\\Scripts\\python.exe",
+    "tests/support/scenario_driver.py",
+    "driver_contract",
+    "--root",
+    "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\artifacts\\qa\\D041\\rac36a545",
+    "--options",
+    "{}"
+  ],
+  "exit_code": 0,
+  "time": "2026-10-15T02:00:19.140232+00:00",
+  "build_id": "cb98eed03df6bd4ffaa551d66a54c77198911cf5b3e763a1ef3c055f5ee54ca4",
+  "run_root": "artifacts/qa/D041/rac36a545",
+  "result": {
+    "exit_code": 0,
+    "service_pid": 58776,
+    "evidence_files": [
+      "task.json",
+      "public-messages.json",
+      "service-identity.json",
+      "service-teardown.json"
+    ],
+    "manifest_valid": true,
+    "root_isolated": true,
+    "process_cleaned": true,
+    "run_id": "bffb9b9e3b2646f0841d572b5f735337",
+    "task_state": "PUBLISHED",
+    "answer_count": 1,
+    "provider_boundary": "fake",
+    "real_provider_verified": false
+  }
+}

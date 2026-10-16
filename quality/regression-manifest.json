@@ -1,0 +1,453 @@
+{
+  "version": "1.0",
+  "change_reason": "Initial phase-three inventory, preserves unverified real/manual acceptance",
+  "requirements_matrix_sha256": "d9eca804c1f1499b0b211e1d93866e63b0344214155f49e40236c27996bdb83b",
+  "cases": [
+    {
+      "case_id": "T01",
+      "path": "tests/integration/test_input_translation.py",
+      "owner": "翻译 QA",
+      "kind": "automatic",
+      "platform": "Python local",
+      "polarity": "positive_and_negative",
+      "requirements": [
+        "R07",
+        "R15"
+      ],
+      "mandatory": true,
+      "acceptance_status": "not_verified",
+      "evidence": [],
+      "command": "python -m pytest tests/integration/test_input_translation.py -q",
+      "source_row": "| T01 | Claude，中文问题含否定、条件、优先级 | A 收到完整英文等义请求；页面保留原中文；没有遗漏限定 |"
+    },
+    {
+      "case_id": "T02",
+      "path": "tests/translation/test_quality_cache.py",
+      "owner": "翻译 QA",
+      "kind": "automatic",
+      "platform": "Python local",
+      "polarity": "positive_and_negative",
+      "requirements": [
+        "R10"
+      ],
+      "mandatory": true,
+      "acceptance_status": "not_verified",
+      "evidence": [],
+      "command": "python -m pytest tests/translation/test_quality_cache.py -q",
+      "source_row": "| T02 | GPT，中文提问 | 无强制翻译作业；问题直接进入 A；中文回答正常呈现 |"
+    },
+    {
+      "case_id": "T03",
+      "path": "tests/unit/test_language_router.py",
+      "owner": "翻译 QA",
+      "kind": "automatic",
+      "platform": "Python local",
+      "polarity": "positive_and_negative",
+      "requirements": [
+        "R03"
+      ],
+      "mandatory": true,
+      "acceptance_status": "not_verified",
+      "evidence": [],
+      "command": "python -m pytest tests/unit/test_language_router.py -q",
+      "source_row": "| T03 | 同名 App 更换实际后端 | 路由以已核验模型身份为准；身份未知/不匹配时中文报错并停止 |"
+    },
+    {
+      "case_id": "T04",
+      "path": "tests/integration/test_route_snapshot.py",
+      "owner": "翻译 QA",
+      "kind": "automatic",
+      "platform": "Python local",
+      "polarity": "positive_and_negative",
+      "requirements": [
+        "R03",
+        "R12"
+      ],
+      "mandatory": true,
+      "acceptance_status": "not_verified",
+      "evidence": [],
+      "command": "python -m pytest tests/integration/test_route_snapshot.py -q",
+      "source_row": "| T04 | 运行中模型回退或用户切换 A | 当前路由不变更；暂停并建立新版本后恢复，不混用路由 |"
+    },
+    {
+      "case_id": "T05",
+      "path": "tests/integration/test_clarification_translation.py",
+      "owner": "翻译 QA",
+      "kind": "automatic",
+      "platform": "Python local",
+      "polarity": "positive_and_negative",
+      "requirements": [
+        "R07",
+        "R08",
+        "R15"
+      ],
+      "mandatory": true,
+      "acceptance_status": "not_verified",
+      "evidence": [],
+      "command": "python -m pytest tests/integration/test_clarification_translation.py -q",
+      "source_row": "| T05 | A 英文澄清，用户中文补充 | 只显示中文问题与中文回复；补充经过输入通道，先前约束完整保留 |"
+    },
+    {
+      "case_id": "T06",
+      "path": "tests/translation/test_segments.py",
+      "owner": "翻译 QA",
+      "kind": "automatic",
+      "platform": "Python local",
+      "polarity": "positive_and_negative",
+      "requirements": [
+        "R07",
+        "R15"
+      ],
+      "mandatory": true,
+      "acceptance_status": "not_verified",
+      "evidence": [],
+      "command": "python -m pytest tests/translation/test_segments.py -q",
+      "source_row": "| T06 | 代码、路径、公式、DOI、数字与自然语言混合 | 可执行片段及引用保持完整；自然语言忠实翻译；保护标记不出现在成品 |"
+    },
+    {
+      "case_id": "T07",
+      "path": "tests/artifacts/test_document_parse.py",
+      "owner": "翻译 QA",
+      "kind": "automatic",
+      "platform": "Python local",
+      "polarity": "positive_and_negative",
+      "requirements": [
+        "R09",
+        "R15"
+      ],
+      "mandatory": true,
+      "acceptance_status": "not_verified",
+      "evidence": [],
+      "command": "python -m pytest tests/artifacts/test_document_parse.py -q",
+      "source_row": "| T07 | 论文有脚注、表格、图注、附录及中文来源 | 完整块覆盖、双向定位、引文不捏造；不能把摘要当完整文件 |"
+    },
+    {
+      "case_id": "T08",
+      "path": "tests/translation/test_pipeline_contract.py",
+      "owner": "翻译 QA",
+      "kind": "automatic",
+      "platform": "Python local",
+      "polarity": "positive_and_negative",
+      "requirements": [
+        "R07",
+        "R15"
+      ],
+      "mandatory": true,
+      "acceptance_status": "not_verified",
+      "evidence": [],
+      "command": "python -m pytest tests/translation/test_pipeline_contract.py -q",
+      "source_row": "| T08 | 输入存在会改变需求的两种解释 | 生成中文必要澄清，未擅自选义、未先让 A 按猜测执行 |"
+    },
+    {
+      "case_id": "T09",
+      "path": "tests/translation/test_quality_cache.py",
+      "owner": "翻译 QA",
+      "kind": "automatic",
+      "platform": "Python local",
+      "polarity": "positive_and_negative",
+      "requirements": [
+        "R07",
+        "R14"
+      ],
+      "mandatory": true,
+      "acceptance_status": "not_verified",
+      "evidence": [],
+      "command": "python -m pytest tests/translation/test_quality_cache.py -q",
+      "source_row": "| T09 | 第 3 次输入翻译仍失败 | 不调用 A，中文失败说明；失败尝试及 B 用量可追踪 |"
+    },
+    {
+      "case_id": "T10",
+      "path": "tests/integration/test_output_translation.py",
+      "owner": "翻译 QA",
+      "kind": "automatic",
+      "platform": "Python local",
+      "polarity": "positive_and_negative",
+      "requirements": [
+        "R08",
+        "R12"
+      ],
+      "mandatory": true,
+      "acceptance_status": "not_verified",
+      "evidence": [],
+      "command": "python -m pytest tests/integration/test_output_translation.py -q",
+      "source_row": "| T10 | A 已完成，但输出翻译失败 | 英文内部稿保存；没有成功中文气泡或已完成标记；有限重试可恢复 |"
+    },
+    {
+      "case_id": "T11",
+      "path": "tests/artifacts/test_atomic_publication.py",
+      "owner": "翻译 QA",
+      "kind": "automatic",
+      "platform": "Python local",
+      "polarity": "positive_and_negative",
+      "requirements": [
+        "R09",
+        "R12"
+      ],
+      "mandatory": true,
+      "acceptance_status": "not_verified",
+      "evidence": [],
+      "command": "python -m pytest tests/artifacts/test_atomic_publication.py -q",
+      "source_row": "| T11 | 两份文档之一渲染失败、服务崩溃或下载重试 | 不出现半个成功配对；恢复后同一版本原子发布，幂等且不重复调用 A |"
+    },
+    {
+      "case_id": "T12",
+      "path": "tests/integration/test_dependency_invalidation.py",
+      "owner": "翻译 QA",
+      "kind": "automatic",
+      "platform": "Python local",
+      "polarity": "positive_and_negative",
+      "requirements": [
+        "R09",
+        "R12"
+      ],
+      "mandatory": true,
+      "acceptance_status": "not_verified",
+      "evidence": [],
+      "command": "python -m pytest tests/integration/test_dependency_invalidation.py -q",
+      "source_row": "| T12 | 原件 v3 修改后仍有 v2 译文缓存 | 旧译文标记失效；不发布 v3/v2 配对；重译并复验依赖 |"
+    },
+    {
+      "case_id": "T13",
+      "path": "tests/artifacts/test_canonical_provenance.py",
+      "owner": "翻译 QA",
+      "kind": "automatic",
+      "platform": "Python local",
+      "polarity": "positive_and_negative",
+      "requirements": [
+        "R09"
+      ],
+      "mandatory": true,
+      "acceptance_status": "not_verified",
+      "evidence": [],
+      "command": "python -m pytest tests/artifacts/test_canonical_provenance.py -q",
+      "source_row": "| T13 | B 写全文，A 只给 PASS | 不能标为 A 原文档；严格模式要求补齐 A 实际定稿，保留真实来源 |"
+    },
+    {
+      "case_id": "T14",
+      "path": "tests/artifacts/test_bilingual_generation.py",
+      "owner": "翻译 QA",
+      "kind": "automatic",
+      "platform": "Python local",
+      "polarity": "positive_and_negative",
+      "requirements": [
+        "R09"
+      ],
+      "mandatory": true,
+      "acceptance_status": "not_verified",
+      "evidence": [],
+      "command": "python -m pytest tests/artifacts/test_bilingual_generation.py -q",
+      "source_row": "| T14 | A 正文由 C 转为 Word/PDF | 内容来源与渲染来源分开记录；正文哈希关联明确；双语版面均验收 |"
+    },
+    {
+      "case_id": "T15",
+      "path": "tests/artifacts/test_render_layout.py",
+      "owner": "翻译 QA",
+      "kind": "automatic",
+      "platform": "Python local",
+      "polarity": "positive_and_negative",
+      "requirements": [
+        "R09"
+      ],
+      "mandatory": true,
+      "acceptance_status": "not_verified",
+      "evidence": [],
+      "command": "python -m pytest tests/artifacts/test_render_layout.py -q",
+      "source_row": "| T15 | 中文 Word 比英文多页或出现缺字 | 允许页数差；缺字、表格溢出、公式丢失必须修复后发布 |"
+    },
+    {
+      "case_id": "T16",
+      "path": "tests/integration/test_context_gateway.py",
+      "owner": "翻译 QA",
+      "kind": "automatic",
+      "platform": "Python local",
+      "polarity": "positive_and_negative",
+      "requirements": [
+        "R07",
+        "R11"
+      ],
+      "mandatory": true,
+      "acceptance_status": "not_verified",
+      "evidence": [],
+      "command": "python -m pytest tests/integration/test_context_gateway.py -q",
+      "source_row": "| T16 | 中文工具日志包含新约束或恶意指令 | 英文视图保留资料语义；不修改任务权限、验收标准或系统指令 |"
+    },
+    {
+      "case_id": "T17",
+      "path": "tests/artifacts/test_document_parse.py",
+      "owner": "翻译 QA",
+      "kind": "automatic",
+      "platform": "Python local",
+      "polarity": "positive_and_negative",
+      "requirements": [
+        "R07",
+        "R15"
+      ],
+      "mandatory": true,
+      "acceptance_status": "not_verified",
+      "evidence": [],
+      "command": "python -m pytest tests/artifacts/test_document_parse.py -q",
+      "source_row": "| T17 | OCR 无法判定“1/7”、负号或统计符号 | 不补造；标明位置并澄清，关键缺口未解决前不可完成 |"
+    },
+    {
+      "case_id": "T18",
+      "path": "tests/translation/test_late_receipts.py",
+      "owner": "翻译 QA",
+      "kind": "automatic",
+      "platform": "Python local",
+      "polarity": "positive_and_negative",
+      "requirements": [
+        "R08",
+        "R12"
+      ],
+      "mandatory": true,
+      "acceptance_status": "not_verified",
+      "evidence": [],
+      "command": "python -m pytest tests/translation/test_late_receipts.py -q",
+      "source_row": "| T18 | 两轮并发、迟到旧结果、取消后返回结果 | 按 turn/version 绑定；旧译文不能覆盖新答案；取消任务不自动发布 |"
+    },
+    {
+      "case_id": "T19",
+      "path": "tests/e2e/chat-publication.spec.ts",
+      "owner": "翻译 QA",
+      "kind": "automatic",
+      "platform": "Windows x64",
+      "polarity": "positive_and_negative",
+      "requirements": [
+        "R11"
+      ],
+      "mandatory": true,
+      "acceptance_status": "not_verified",
+      "evidence": [],
+      "command": "npx playwright test tests/e2e/chat-publication.spec.ts",
+      "source_row": "| T19 | 页面、实时流和普通消息接口审计 | 不出现内部英文回复及流程日志；只见中文对话和批准的双语附件 |"
+    },
+    {
+      "case_id": "T20",
+      "path": "tests/translation/test_glossary_content_cache.py",
+      "owner": "翻译 QA",
+      "kind": "automatic",
+      "platform": "Python local",
+      "polarity": "positive_and_negative",
+      "requirements": [
+        "R15"
+      ],
+      "mandatory": true,
+      "acceptance_status": "not_verified",
+      "evidence": [],
+      "command": "python -m pytest tests/translation/test_glossary_content_cache.py -q",
+      "source_row": "| T20 | 连续同领域与跨领域术语任务 | 合法复用同语境缓存；术语或上下文变化使旧缓存失效 |"
+    },
+    {
+      "case_id": "QUALITY_REAL",
+      "requirements": [
+        "R01",
+        "R02"
+      ],
+      "kind": "real_provider",
+      "path": "quality/evaluation-registration.json",
+      "owner": "评测负责人",
+      "command": "按 quality/evaluation-protocol.md 采集配对真实样本",
+      "platform": "Windows x64",
+      "polarity": "positive_and_negative",
+      "mandatory": true,
+      "acceptance_status": "not_verified",
+      "evidence": []
+    },
+    {
+      "case_id": "PROVIDER_REAL",
+      "requirements": [
+        "R03",
+        "R04"
+      ],
+      "kind": "real_provider",
+      "path": "docs/acceptance/part-two-freeze-20261014/unfinished-tasks.json",
+      "owner": "接入工程师",
+      "command": "执行 D004/D005/D020/D024/D040 真实接入验收",
+      "platform": "Windows x64",
+      "polarity": "positive_and_negative",
+      "mandatory": true,
+      "acceptance_status": "not_verified",
+      "evidence": []
+    },
+    {
+      "case_id": "JOURNEYS_REAL",
+      "requirements": [
+        "R05"
+      ],
+      "kind": "real_provider",
+      "path": "quality/real-journeys.json",
+      "owner": "产品验收负责人",
+      "command": "按 D055 运行四类真实任务",
+      "platform": "Windows x64",
+      "polarity": "positive_and_negative",
+      "mandatory": true,
+      "acceptance_status": "not_verified",
+      "evidence": []
+    },
+    {
+      "case_id": "GUI_MANUAL",
+      "requirements": [
+        "R06"
+      ],
+      "kind": "human",
+      "path": "quality/gui-manual-checks.csv",
+      "owner": "桌面 QA",
+      "command": "实际 IME/Narrator/多屏验收",
+      "platform": "Windows x64",
+      "polarity": "positive_and_negative",
+      "mandatory": true,
+      "acceptance_status": "not_verified",
+      "evidence": []
+    },
+    {
+      "case_id": "INSTALL_SIGNED",
+      "requirements": [
+        "R13"
+      ],
+      "kind": "human",
+      "path": "release/backup-restore-runbook.md",
+      "owner": "发布工程师",
+      "command": "执行 D051-D054 真实备份、签名、安装与回滚",
+      "platform": "Windows x64",
+      "polarity": "positive_and_negative",
+      "mandatory": true,
+      "acceptance_status": "not_verified",
+      "evidence": []
+    },
+    {
+      "case_id": "LEDGER_REAL",
+      "requirements": [
+        "R14"
+      ],
+      "kind": "real_provider",
+      "path": "quality/usage-reconciliation.csv",
+      "owner": "评测数据审核",
+      "command": "实际提供方回执与请求账本逐项对照",
+      "platform": "Windows x64",
+      "polarity": "positive_and_negative",
+      "mandatory": true,
+      "acceptance_status": "not_verified",
+      "evidence": []
+    },
+    {
+      "case_id": "TRANSLATION_HUMAN",
+      "requirements": [
+        "R07",
+        "R08",
+        "R09",
+        "R15"
+      ],
+      "kind": "human",
+      "path": "quality/translation-review-form.csv",
+      "owner": "双语领域评审",
+      "command": "两名独立评审复核 golden 与独立 holdout",
+      "platform": "Windows x64",
+      "polarity": "positive_and_negative",
+      "mandatory": true,
+      "acceptance_status": "not_verified",
+      "evidence": []
+    }
+  ],
+  "skip_policy": "skipped_xfail_missing_manual_or_real_remain_unverified",
+  "sha256": "b9eae2daa1d00dcfb780639685294278ff885b85408a421cd52150286bba5089"
+}

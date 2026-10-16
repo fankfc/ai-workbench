@@ -1,0 +1,136 @@
+{
+  "pass": {
+    "executions": [
+      {
+        "text": "中文合格候选",
+        "reported_complete": true,
+        "usage": {
+          "input_tokens": 10,
+          "output_tokens": 5
+        },
+        "language": "zh-CN"
+      }
+    ],
+    "reviews": [
+      {
+        "decision": "PASS",
+        "criterion_results": {
+          "AC2": true
+        },
+        "usage": {
+          "input_tokens": 12,
+          "output_tokens": 6
+        }
+      }
+    ]
+  },
+  "repair": {
+    "executions": [
+      {
+        "text": "FAIL 原始缺陷",
+        "reported_complete": true,
+        "usage": {
+          "input_tokens": 10,
+          "output_tokens": 5
+        },
+        "language": "zh-CN"
+      },
+      {
+        "text": "中文修复候选",
+        "reported_complete": true,
+        "usage": {
+          "input_tokens": 10,
+          "output_tokens": 5
+        },
+        "language": "zh-CN"
+      }
+    ],
+    "reviews": [
+      {
+        "decision": "REPAIR",
+        "issues": [
+          "mechanical-fail"
+        ],
+        "usage": {
+          "input_tokens": 12,
+          "output_tokens": 6
+        }
+      },
+      {
+        "decision": "PASS",
+        "criterion_results": {
+          "AC2": true
+        },
+        "usage": {
+          "input_tokens": 12,
+          "output_tokens": 6
+        }
+      }
+    ]
+  },
+  "no_progress": {
+    "executions": [
+      {
+        "text": "FAIL 第一整篇报告",
+        "reported_complete": true,
+        "usage": {
+          "input_tokens": 10,
+          "output_tokens": 5
+        },
+        "language": "zh-CN"
+      },
+      {
+        "text": "FAIL 重新生成整篇报告",
+        "reported_complete": true,
+        "usage": {
+          "input_tokens": 10,
+          "output_tokens": 5
+        },
+        "language": "zh-CN"
+      }
+    ],
+    "reviews": [
+      {
+        "decision": "REPAIR",
+        "issues": [
+          "same-defect"
+        ],
+        "usage": {
+          "input_tokens": 12,
+          "output_tokens": 6
+        }
+      },
+      {
+        "decision": "REPAIR",
+        "issues": [
+          "same-defect"
+        ],
+        "usage": {
+          "input_tokens": 12,
+          "output_tokens": 6
+        }
+      },
+      {
+        "decision": "PASS",
+        "criterion_results": {
+          "AC2": true
+        },
+        "usage": {
+          "input_tokens": 12,
+          "output_tokens": 6
+        }
+      }
+    ],
+    "takeovers": [
+      {
+        "text": "中文实际接管修复",
+        "reported_complete": true,
+        "usage": {
+          "input_tokens": 12,
+          "output_tokens": 6
+        },
+        "language": "zh-CN"
+      }
+    ]
+  }
+}

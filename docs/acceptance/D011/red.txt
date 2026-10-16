@@ -1,0 +1,18 @@
+FF                                                                       [100%]
+================================== FAILURES ===================================
+___________ test_native_argv_workspace_and_credentials_are_isolated ___________
+tests\integration\test_process_lifecycle.py:70: in test_native_argv_workspace_and_credentials_are_isolated
+    handle = manager.start("t1", "a1", command(root, "--literal", malicious, "--exit-code", "0"), root)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\app\runtime\processes.py:11: in start
+    raise NotImplementedError("PROCESS_LIFECYCLE_NOT_IMPLEMENTED")
+E   NotImplementedError: PROCESS_LIFECYCLE_NOT_IMPLEMENTED
+_________________ test_limits_require_positive_finite_budgets _________________
+tests\integration\test_process_lifecycle.py:210: in test_limits_require_positive_finite_budgets
+    with pytest.raises(ValueError, match="INVALID_RESOURCE_LIMIT"):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE ValueError
+=========================== short test summary info ===========================
+FAILED tests/integration/test_process_lifecycle.py::test_native_argv_workspace_and_credentials_are_isolated
+FAILED tests/integration/test_process_lifecycle.py::test_limits_require_positive_finite_budgets
+2 failed, 11 deselected in 0.30s

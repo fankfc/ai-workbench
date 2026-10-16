@@ -1,0 +1,27 @@
+[
+  {
+    "refs": [
+      "DOCS/SUPERPOWERS/PLANS/2026-10-13-EXECUTION/TASK-BOARD.JSON"
+    ],
+    "rejected": "WorkOrderError:EXACT_IMPLEMENTATION_FILE_SCOPE_REQUIRED"
+  },
+  {
+    "refs": [
+      ".OMX/WORK-ORDER-TRUST.KEY"
+    ],
+    "rejected": "WorkOrderError:EXACT_IMPLEMENTATION_FILE_SCOPE_REQUIRED"
+  },
+  {
+    "refs": [
+      "DOCS/SUPERPOWERS/PLANS/2026-10-13-EXECUTION/DATA/TASKS-02.JSON"
+    ],
+    "rejected": "WorkOrderError:EXACT_IMPLEMENTATION_FILE_SCOPE_REQUIRED"
+  },
+  {
+    "refs": [
+      "src/allowed.py",
+      "SRC/ALLOWED.PY"
+    ],
+    "rejected": "WorkOrderError:DUPLICATE_FILE_SCOPE"
+  }
+]

@@ -1,0 +1,24 @@
+{
+  "items": [
+    {
+      "id": "881614ee5c884ea9bb7aedb99632b6e9",
+      "turn_id": "881614ee5c884ea9bb7aedb99632b6e9",
+      "kind": "message.accepted",
+      "text": "请核对固定样本。",
+      "language": "zh-CN",
+      "attempt_id": "f9b7c99b8b484aef9768e5d914590ebf",
+      "content_version_id": null,
+      "historical": false
+    },
+    {
+      "id": "95ee5f276bc848238aa6169c27ac0eff",
+      "turn_id": "881614ee5c884ea9bb7aedb99632b6e9",
+      "kind": "request.failed",
+      "text": "模型连接暂不可用，请检查连接。",
+      "language": "zh-CN",
+      "attempt_id": "f9b7c99b8b484aef9768e5d914590ebf",
+      "content_version_id": null,
+      "historical": false
+    }
+  ]
+}

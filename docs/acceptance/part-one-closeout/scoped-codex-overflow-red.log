@@ -1,0 +1,19 @@
+F                                                                        [100%]
+================================== FAILURES ===================================
+________________ test_output_overflow_and_timeout_are_bounded _________________
+
+factory = <function factory.<locals>.create at 0x000001BDC6B5ADE0>
+
+    def test_output_overflow_and_timeout_are_bounded(factory):
+        runtime=factory('overflow',max_output_bytes=32768,timeout_seconds=12)
+        started=time.monotonic()
+        with pytest.raises(ScopedCodexError,match='OUTPUT_LIMIT'): asyncio.run(invoke(runtime))
+>       assert time.monotonic()-started<4
+E       assert (355364.3822662 - 355353.6593306) < 4
+E        +  where 355364.3822662 = <built-in function monotonic>()
+E        +    where <built-in function monotonic> = time.monotonic
+
+tests\contracts\test_scoped_codex_runtime.py:200: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/contracts/test_scoped_codex_runtime.py::test_output_overflow_and_timeout_are_bounded
+1 failed in 11.40s

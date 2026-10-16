@@ -1,0 +1,10 @@
+{
+  "command": [
+    "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\.venv\\Scripts\\python.exe",
+    "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\scripts\\check_contracts.py",
+    "--strict"
+  ],
+  "exit_code": 0,
+  "stdout": "CONTRACTS_OK:version=1.0;schemas=2\n",
+  "stderr": ""
+}

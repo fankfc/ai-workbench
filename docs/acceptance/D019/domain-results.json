@@ -1,0 +1,169 @@
+{
+  "execution_mode": "isolated real mechanical fixtures; no model providers",
+  "results": {
+    "code": [
+      {
+        "criterion_id": "code-run",
+        "revision_id": "code-fixture-v1",
+        "artifact_sha256": "ed5fb4dabb5ff2fa2bed5aee5688e2c3f28ddf2cf99865d3b7dc9e523d186a41",
+        "validator_id": "code",
+        "validator_version": "1.0",
+        "status": "pass",
+        "reason_code": "COMMAND_EXECUTED_SUCCESSFULLY",
+        "evidence_ref": "evidence/validator-code-f4d5574e35b24a14bd5bb763cf4cddbd.json",
+        "evidence_sha256": "a384d468722757db6c6d1de7c80ac0623f47219c0064eae79c2b9757b6c4259b",
+        "method": "native_code_execution",
+        "environment": {
+          "python": "3.13.0",
+          "platform": "win32",
+          "test_only": true,
+          "scope": "service-authored verification fixture"
+        },
+        "duration_ms": 126.37000001268461,
+        "pending_A_review": [],
+        "passed": true
+      }
+    ],
+    "paper": [
+      {
+        "criterion_id": "citation-structure",
+        "revision_id": "paper-fixture-v1",
+        "artifact_sha256": "b7ce8f2d5f793a0e2ee31f30724a60900fa879479e7e33d50e85e32c2d9ff828",
+        "validator_id": "paper",
+        "validator_version": "1.0",
+        "status": "pass",
+        "reason_code": "CITATION_STRUCTURE_VALID",
+        "evidence_ref": "evidence/validator-paper-925c9d827c584056a0b40ae7240cfcc1.json",
+        "evidence_sha256": "3900855fca513fbdd81044a50225efcd0043fd17d60f7932538f0f3bde4a2f51",
+        "method": "citation_structure_only",
+        "environment": {
+          "python": "3.13.0",
+          "platform": "win32",
+          "test_only": true
+        },
+        "duration_ms": 2.479099959600717,
+        "pending_A_review": [
+          "claim_support",
+          "bibliographic_authenticity",
+          "full_argument"
+        ],
+        "passed": true
+      },
+      {
+        "criterion_id": "recompute",
+        "revision_id": "paper-fixture-v1",
+        "artifact_sha256": "b7ce8f2d5f793a0e2ee31f30724a60900fa879479e7e33d50e85e32c2d9ff828",
+        "validator_id": "paper",
+        "validator_version": "1.0",
+        "status": "pass",
+        "reason_code": "DATA_RECOMPUTED_MATCH",
+        "evidence_ref": "evidence/validator-paper-30ccc582c82344f7898b787e6afccdd2.json",
+        "evidence_sha256": "d43af44166c04ef72250d841f1b0937628830c030aadd6944175048d68dca3cb",
+        "method": "csv_value_sum",
+        "environment": {
+          "python": "3.13.0",
+          "platform": "win32",
+          "test_only": true
+        },
+        "duration_ms": 3.1577000045217574,
+        "pending_A_review": [
+          "claim_support",
+          "bibliographic_authenticity",
+          "full_argument"
+        ],
+        "passed": true
+      },
+      {
+        "criterion_id": "claim-support",
+        "revision_id": "paper-fixture-v1",
+        "artifact_sha256": "b7ce8f2d5f793a0e2ee31f30724a60900fa879479e7e33d50e85e32c2d9ff828",
+        "validator_id": "paper",
+        "validator_version": "1.0",
+        "status": "not_verified",
+        "reason_code": "PENDING_A_REVIEW",
+        "evidence_ref": "evidence/validator-paper-1fec85e8a1fb460db7e3c0c2661a243c.json",
+        "evidence_sha256": "602b7c640869474d80d090212fe51bea4f6cf90623f25f20f36fe9a5cf37b913",
+        "method": "semantic_review_pending",
+        "environment": {
+          "python": "3.13.0",
+          "platform": "win32",
+          "test_only": true
+        },
+        "duration_ms": 0.004400033503770828,
+        "pending_A_review": [
+          "bounded domain fixture"
+        ],
+        "passed": false
+      }
+    ],
+    "document": [
+      {
+        "criterion_id": "source-consistency",
+        "revision_id": "document-fixture-v1",
+        "artifact_sha256": "e0d7d7cc3ddf71b020fb348705d7a604d40c790703a48de8494bc7c6eda64b00",
+        "validator_id": "document",
+        "validator_version": "1.0",
+        "status": "pass",
+        "reason_code": "DOCUMENT_STRUCTURE_AND_TOKENS_MATCH",
+        "evidence_ref": "evidence/validator-document-2815c46cf4c4415f91bf6e4aca6888fe.json",
+        "evidence_sha256": "7f60d71688fde67cfb30ecfe47794190e16b9790ad206302b2dfd42066441929",
+        "method": "document_structure_and_source_tokens",
+        "environment": {
+          "python": "3.13.0",
+          "platform": "win32",
+          "test_only": true
+        },
+        "duration_ms": 16.921799979172647,
+        "pending_A_review": [
+          "document_completeness",
+          "overall_design"
+        ],
+        "passed": true
+      },
+      {
+        "criterion_id": "render",
+        "revision_id": "document-fixture-v1",
+        "artifact_sha256": "e0d7d7cc3ddf71b020fb348705d7a604d40c790703a48de8494bc7c6eda64b00",
+        "validator_id": "document",
+        "validator_version": "1.0",
+        "status": "blocked",
+        "reason_code": "TOOL_UNAVAILABLE",
+        "evidence_ref": "evidence/validator-document-e6c006a4f91d4aeaa20311b1f97a7ada.json",
+        "evidence_sha256": "1dc9c4fed28a47964efba1f3b3fc865568c2203adcc44c1bd7d8eea4cb355a23",
+        "method": "native_document_renderer",
+        "environment": {
+          "python": "3.13.0",
+          "platform": "win32",
+          "test_only": true
+        },
+        "duration_ms": 0.008200004231184721,
+        "pending_A_review": [],
+        "passed": false
+      }
+    ],
+    "mixed": [
+      {
+        "criterion_id": "dependencies",
+        "revision_id": "report-v1",
+        "artifact_sha256": "98470085b09a0da99d3d3a8acd945adbd8ce008ac664173fc301f1c03ab14bce",
+        "validator_id": "mixed",
+        "validator_version": "1.0",
+        "status": "pass",
+        "reason_code": "DEPENDENCIES_CURRENT",
+        "evidence_ref": "evidence/validator-mixed-f77f47671d4f43a3bb8614fa4ab4ada6.json",
+        "evidence_sha256": "b133e32b3a865752630c3996ab59ea880ae5e71da487c68fb7044685ebe8ce72",
+        "method": "persisted_dependency_current",
+        "environment": {
+          "python": "3.13.0",
+          "platform": "win32",
+          "test_only": true
+        },
+        "duration_ms": 1.5121999895200133,
+        "pending_A_review": [
+          "overall_design"
+        ],
+        "passed": true
+      }
+    ]
+  }
+}

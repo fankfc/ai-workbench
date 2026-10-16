@@ -1,0 +1,29 @@
+F                                                                        [100%]
+================================== FAILURES ===================================
+_ test_native_published_bundle_does_not_force_translation_or_bilingual_pairs __
+
+    def test_native_published_bundle_does_not_force_translation_or_bilingual_pairs():
+        sample = deepcopy(RECORD_SAMPLES[DeliveryBundle])
+        sample.update(state="PUBLISHED", approval_id="approval-native", published_at=NOW,
+                      translation_version_ids=[], format_pairs=[], qa_ids=[])
+>       bundle = assert_both_accept(DeliveryBundle, sample)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_schemas.py:310: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.artifacts.DeliveryBundle'>
+sample = {'id': 'bundle', 'task_id': 't', 'turn_id': 'turn', 'spec_version': 'v1', ...}
+
+    def assert_both_accept(model, sample):
+>       value = model.model_validate_json(json.dumps(sample))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       pydantic_core._pydantic_core.ValidationError: 1 validation error for DeliveryBundle
+E         Value error, PUBLISHED_BUNDLE_MISSING_REFERENCES [type=value_error, input_value={'id': 'bundle', 'task_id...6-10-13T19:00:00+08:00'}, input_type=dict]
+E           For further information visit https://errors.pydantic.dev/2.14/v/value_error
+
+tests\contracts\test_schemas.py:69: ValidationError
+=========================== short test summary info ===========================
+FAILED tests/contracts/test_schemas.py::test_native_published_bundle_does_not_force_translation_or_bilingual_pairs
+1 failed, 86 deselected in 0.44s
+exit_code=1

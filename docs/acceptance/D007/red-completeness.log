@@ -1,0 +1,199 @@
+FFFFFFFFF                                                                [100%]
+================================== FAILURES ===================================
+_______________ test_ready_translation_requires_target_and_hash _______________
+
+    def test_ready_translation_requires_target_and_hash():
+        sample = deepcopy(RECORD_SAMPLES[TranslationBlock])
+        sample["translation_status"] = "READY"
+>       assert_both_reject(TranslationBlock, sample)
+
+tests\contracts\test_schemas.py:274: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.translation.TranslationBlock'>
+sample = {'job_id': 'j', 'block_id': 'block', 'source_locator': 'input.md:p1', 'source_sha256': 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', ...}
+
+    def assert_both_reject(model, sample):
+>       with pytest.raises(ValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValidationError
+
+tests\contracts\test_schemas.py:77: Failed
+_______ test_published_bundle_requires_complete_references[approval_id] _______
+
+fault = 'approval_id'
+
+    @pytest.mark.parametrize("fault", ["approval_id", "published_at", "format_pairs", "source_version_ids", "translation_version_ids", "qa_ids"])
+    def test_published_bundle_requires_complete_references(fault):
+        sample = deepcopy(RECORD_SAMPLES[DeliveryBundle])
+        sample.update(state="PUBLISHED", approval_id="approval1", published_at=NOW, qa_ids=["qa1"])
+        sample[fault] = None if fault in ("approval_id", "published_at") else []
+>       assert_both_reject(DeliveryBundle, sample)
+
+tests\contracts\test_schemas.py:282: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.artifacts.DeliveryBundle'>
+sample = {'id': 'bundle', 'task_id': 't', 'turn_id': 'turn', 'spec_version': 'v1', ...}
+
+    def assert_both_reject(model, sample):
+>       with pytest.raises(ValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValidationError
+
+tests\contracts\test_schemas.py:77: Failed
+______ test_published_bundle_requires_complete_references[published_at] _______
+
+fault = 'published_at'
+
+    @pytest.mark.parametrize("fault", ["approval_id", "published_at", "format_pairs", "source_version_ids", "translation_version_ids", "qa_ids"])
+    def test_published_bundle_requires_complete_references(fault):
+        sample = deepcopy(RECORD_SAMPLES[DeliveryBundle])
+        sample.update(state="PUBLISHED", approval_id="approval1", published_at=NOW, qa_ids=["qa1"])
+        sample[fault] = None if fault in ("approval_id", "published_at") else []
+>       assert_both_reject(DeliveryBundle, sample)
+
+tests\contracts\test_schemas.py:282: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.artifacts.DeliveryBundle'>
+sample = {'id': 'bundle', 'task_id': 't', 'turn_id': 'turn', 'spec_version': 'v1', ...}
+
+    def assert_both_reject(model, sample):
+>       with pytest.raises(ValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValidationError
+
+tests\contracts\test_schemas.py:77: Failed
+______ test_published_bundle_requires_complete_references[format_pairs] _______
+
+fault = 'format_pairs'
+
+    @pytest.mark.parametrize("fault", ["approval_id", "published_at", "format_pairs", "source_version_ids", "translation_version_ids", "qa_ids"])
+    def test_published_bundle_requires_complete_references(fault):
+        sample = deepcopy(RECORD_SAMPLES[DeliveryBundle])
+        sample.update(state="PUBLISHED", approval_id="approval1", published_at=NOW, qa_ids=["qa1"])
+        sample[fault] = None if fault in ("approval_id", "published_at") else []
+>       assert_both_reject(DeliveryBundle, sample)
+
+tests\contracts\test_schemas.py:282: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.artifacts.DeliveryBundle'>
+sample = {'id': 'bundle', 'task_id': 't', 'turn_id': 'turn', 'spec_version': 'v1', ...}
+
+    def assert_both_reject(model, sample):
+>       with pytest.raises(ValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValidationError
+
+tests\contracts\test_schemas.py:77: Failed
+___ test_published_bundle_requires_complete_references[source_version_ids] ____
+
+fault = 'source_version_ids'
+
+    @pytest.mark.parametrize("fault", ["approval_id", "published_at", "format_pairs", "source_version_ids", "translation_version_ids", "qa_ids"])
+    def test_published_bundle_requires_complete_references(fault):
+        sample = deepcopy(RECORD_SAMPLES[DeliveryBundle])
+        sample.update(state="PUBLISHED", approval_id="approval1", published_at=NOW, qa_ids=["qa1"])
+        sample[fault] = None if fault in ("approval_id", "published_at") else []
+>       assert_both_reject(DeliveryBundle, sample)
+
+tests\contracts\test_schemas.py:282: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.artifacts.DeliveryBundle'>
+sample = {'id': 'bundle', 'task_id': 't', 'turn_id': 'turn', 'spec_version': 'v1', ...}
+
+    def assert_both_reject(model, sample):
+>       with pytest.raises(ValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValidationError
+
+tests\contracts\test_schemas.py:77: Failed
+_ test_published_bundle_requires_complete_references[translation_version_ids] _
+
+fault = 'translation_version_ids'
+
+    @pytest.mark.parametrize("fault", ["approval_id", "published_at", "format_pairs", "source_version_ids", "translation_version_ids", "qa_ids"])
+    def test_published_bundle_requires_complete_references(fault):
+        sample = deepcopy(RECORD_SAMPLES[DeliveryBundle])
+        sample.update(state="PUBLISHED", approval_id="approval1", published_at=NOW, qa_ids=["qa1"])
+        sample[fault] = None if fault in ("approval_id", "published_at") else []
+>       assert_both_reject(DeliveryBundle, sample)
+
+tests\contracts\test_schemas.py:282: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.artifacts.DeliveryBundle'>
+sample = {'id': 'bundle', 'task_id': 't', 'turn_id': 'turn', 'spec_version': 'v1', ...}
+
+    def assert_both_reject(model, sample):
+>       with pytest.raises(ValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValidationError
+
+tests\contracts\test_schemas.py:77: Failed
+_________ test_published_bundle_requires_complete_references[qa_ids] __________
+
+fault = 'qa_ids'
+
+    @pytest.mark.parametrize("fault", ["approval_id", "published_at", "format_pairs", "source_version_ids", "translation_version_ids", "qa_ids"])
+    def test_published_bundle_requires_complete_references(fault):
+        sample = deepcopy(RECORD_SAMPLES[DeliveryBundle])
+        sample.update(state="PUBLISHED", approval_id="approval1", published_at=NOW, qa_ids=["qa1"])
+        sample[fault] = None if fault in ("approval_id", "published_at") else []
+>       assert_both_reject(DeliveryBundle, sample)
+
+tests\contracts\test_schemas.py:282: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.artifacts.DeliveryBundle'>
+sample = {'id': 'bundle', 'task_id': 't', 'turn_id': 'turn', 'spec_version': 'v1', ...}
+
+    def assert_both_reject(model, sample):
+>       with pytest.raises(ValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValidationError
+
+tests\contracts\test_schemas.py:77: Failed
+_ test_a_issued_artifact_requires_response_reference_without_proving_authorship _
+
+    def test_a_issued_artifact_requires_response_reference_without_proving_authorship():
+        sample = deepcopy(RECORD_SAMPLES[ArtifactVersion])
+        sample.update(canonical_issued_by="A", origin_authors=["A"], a_response_ref=None)
+>       assert_both_reject(ArtifactVersion, sample)
+
+tests\contracts\test_schemas.py:288: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.artifacts.ArtifactVersion'>
+sample = {'id': 'v1', 'task_id': 't', 'artifact_kind': 'markdown', 'language': 'en', ...}
+
+    def assert_both_reject(model, sample):
+>       with pytest.raises(ValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValidationError
+
+tests\contracts\test_schemas.py:77: Failed
+_______ test_route_execution_rechecks_policy_on_unvalidated_model_copy ________
+
+    def test_route_execution_rechecks_policy_on_unvalidated_model_copy():
+        route = RouteSnapshot.model_validate(route_sample()).model_copy(update={"route_policy": "native"})
+>       with pytest.raises(ValueError, match="MODEL_ROUTE_MISMATCH"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests\contracts\test_schemas.py:295: Failed
+=========================== short test summary info ===========================
+FAILED tests/contracts/test_schemas.py::test_ready_translation_requires_target_and_hash
+FAILED tests/contracts/test_schemas.py::test_published_bundle_requires_complete_references[approval_id]
+FAILED tests/contracts/test_schemas.py::test_published_bundle_requires_complete_references[published_at]
+FAILED tests/contracts/test_schemas.py::test_published_bundle_requires_complete_references[format_pairs]
+FAILED tests/contracts/test_schemas.py::test_published_bundle_requires_complete_references[source_version_ids]
+FAILED tests/contracts/test_schemas.py::test_published_bundle_requires_complete_references[translation_version_ids]
+FAILED tests/contracts/test_schemas.py::test_published_bundle_requires_complete_references[qa_ids]
+FAILED tests/contracts/test_schemas.py::test_a_issued_artifact_requires_response_reference_without_proving_authorship
+FAILED tests/contracts/test_schemas.py::test_route_execution_rechecks_policy_on_unvalidated_model_copy
+9 failed, 74 deselected in 0.43s
+exit_code=1

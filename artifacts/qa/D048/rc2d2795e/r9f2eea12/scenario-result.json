@@ -1,0 +1,55 @@
+{
+  "case": "backend_cancel_late",
+  "domain": "code",
+  "task_state": "CANCELLED",
+  "task_id": "343332d8f5664b52879dd8198426e328",
+  "attempt_id": "8c9a13c8c768447b98bf583872abae09",
+  "database_path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\artifacts\\qa\\D048\\rc2d2795e\\r9f2eea12\\workbench.sqlite3",
+  "artifact_path": null,
+  "public_answer_count": 0,
+  "public_messages": [
+    {
+      "id": "80f0f1da7307460b9e783c4fff8381d5",
+      "turn_id": "80f0f1da7307460b9e783c4fff8381d5",
+      "kind": "message.accepted",
+      "text": "核对固定材料并给出结果。",
+      "language": "zh-CN",
+      "attempt_id": "8c9a13c8c768447b98bf583872abae09",
+      "content_version_id": null,
+      "historical": false
+    },
+    {
+      "id": "f1d0a1c5c9e5439ea69c4a431031f88b",
+      "turn_id": "80f0f1da7307460b9e783c4fff8381d5",
+      "kind": "request.cancelled",
+      "text": "取消请求已记录。",
+      "language": "zh-CN",
+      "attempt_id": "8c9a13c8c768447b98bf583872abae09",
+      "content_version_id": null,
+      "historical": false
+    }
+  ],
+  "model_starts": 1,
+  "model_starts_after_cancel": 0,
+  "model_starts_after_restart": 0,
+  "recovery_decision": null,
+  "total_tokens": 15,
+  "request_count": 1,
+  "unknown_requests": 0,
+  "qualified_deliveries": 0,
+  "forced_translation_starts": 0,
+  "mechanical_check_count": 0,
+  "candidate_count": 0,
+  "artifact_count": 0,
+  "turn_count": 1,
+  "quality_repairs": 0,
+  "connection_retries": 0,
+  "publication_rejected": false,
+  "provider_boundary": "fake",
+  "real_provider_verified": false,
+  "reason_codes": [
+    "CANCELLED_FENCE"
+  ],
+  "restart_conservation": null,
+  "dependency_graph": null
+}

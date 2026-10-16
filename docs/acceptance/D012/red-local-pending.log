@@ -1,0 +1,95 @@
+................FF..FFF                                                  [100%]
+================================== FAILURES ===================================
+_ test_buffered_error_prevents_later_buffered_completion_from_resurrecting_failed_task _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-68/test_buffered_error_prevents_l0')
+
+    def test_buffered_error_prevents_later_buffered_completion_from_resurrecting_failed_task(tmp_path):
+        path = existing_remote(tmp_path)
+        Recovery(path).ingest(event(2,"provider.error",reason_code="failed"),"1.0")
+        Recovery(path).ingest(event(3,"provider.completed",PASS=True),"1.0")
+        accepted = Recovery(path).ingest(event(1),"1.0")
+>       assert accepted["applied_sequences"] == [1,2]
+E       assert [1, 2, 3] == [1, 2]
+E         
+E         Left contains one more item: 3
+E         Use -v to get more diff
+
+tests\integration\test_recovery.py:198: AssertionError
+____ test_stable_key_duplicate_that_closes_gap_drains_buffered_next_event _____
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-68/test_stable_key_duplicate_that0')
+
+    def test_stable_key_duplicate_that_closes_gap_drains_buffered_next_event(tmp_path):
+        path = existing_remote(tmp_path)
+        Recovery(path).ingest(event(1,provider_event_id="stable-1",text="first"),"1.0")
+        Recovery(path).ingest(event(3,"provider.completed",PASS=True),"1.0")
+        closing = Recovery(path).ingest(event(2,provider_event_id="stable-1",text="first"),"1.0")
+>       assert closing["decision"] == "duplicate" and closing["applied_sequences"] == [3]
+E       AssertionError: assert ('duplicate' == 'duplicate'
+E         
+E           duplicate and [] == [3]
+E         
+E         Right contains one more item: 3
+E         Use -v to get more diff)
+
+tests\integration\test_recovery.py:209: AssertionError
+_ test_unstarted_local_task_is_preserved_without_remote_query_or_new_request[RECEIVED] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-68/test_unstarted_local_task_is_p0')
+state = 'RECEIVED'
+
+    @pytest.mark.parametrize("state", ["RECEIVED","PLANNING","EXECUTING"])
+    def test_unstarted_local_task_is_preserved_without_remote_query_or_new_request(tmp_path,state):
+        path = initialize_runtime(tmp_path,state)
+        called = []
+        result = Recovery(path).recover(lambda row:called.append("query") or "unknown",lambda row:called.append("observe"))
+>       assert result[0]["decision"] == "local_pending"
+E       AssertionError: assert 'blocked_unknown' == 'local_pending'
+E         
+E         - local_pending
+E         + blocked_unknown
+
+tests\integration\test_recovery.py:243: AssertionError
+_ test_unstarted_local_task_is_preserved_without_remote_query_or_new_request[PLANNING] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-68/test_unstarted_local_task_is_p1')
+state = 'PLANNING'
+
+    @pytest.mark.parametrize("state", ["RECEIVED","PLANNING","EXECUTING"])
+    def test_unstarted_local_task_is_preserved_without_remote_query_or_new_request(tmp_path,state):
+        path = initialize_runtime(tmp_path,state)
+        called = []
+        result = Recovery(path).recover(lambda row:called.append("query") or "unknown",lambda row:called.append("observe"))
+>       assert result[0]["decision"] == "local_pending"
+E       AssertionError: assert 'blocked_unknown' == 'local_pending'
+E         
+E         - local_pending
+E         + blocked_unknown
+
+tests\integration\test_recovery.py:243: AssertionError
+_ test_unstarted_local_task_is_preserved_without_remote_query_or_new_request[EXECUTING] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-68/test_unstarted_local_task_is_p2')
+state = 'EXECUTING'
+
+    @pytest.mark.parametrize("state", ["RECEIVED","PLANNING","EXECUTING"])
+    def test_unstarted_local_task_is_preserved_without_remote_query_or_new_request(tmp_path,state):
+        path = initialize_runtime(tmp_path,state)
+        called = []
+        result = Recovery(path).recover(lambda row:called.append("query") or "unknown",lambda row:called.append("observe"))
+>       assert result[0]["decision"] == "local_pending"
+E       AssertionError: assert 'blocked_unknown' == 'local_pending'
+E         
+E         - local_pending
+E         + blocked_unknown
+
+tests\integration\test_recovery.py:243: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/integration/test_recovery.py::test_buffered_error_prevents_later_buffered_completion_from_resurrecting_failed_task
+FAILED tests/integration/test_recovery.py::test_stable_key_duplicate_that_closes_gap_drains_buffered_next_event
+FAILED tests/integration/test_recovery.py::test_unstarted_local_task_is_preserved_without_remote_query_or_new_request[RECEIVED]
+FAILED tests/integration/test_recovery.py::test_unstarted_local_task_is_preserved_without_remote_query_or_new_request[PLANNING]
+FAILED tests/integration/test_recovery.py::test_unstarted_local_task_is_preserved_without_remote_query_or_new_request[EXECUTING]
+5 failed, 18 passed in 1.13s
+EXIT_CODE=1

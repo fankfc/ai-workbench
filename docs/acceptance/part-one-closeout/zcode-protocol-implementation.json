@@ -1,0 +1,38 @@
+{
+  "at_utc": "2026-10-13T15:50:55.030454+00:00",
+  "owned_test_command": "services/orchestrator/.venv/Scripts/python.exe -m pytest tests/contracts/test_zcode_protocol.py -q",
+  "passed": 55,
+  "seconds": 1.66,
+  "actual_local_ndjson_fixture_processes": 4,
+  "actual_installed_provider_starts": 0,
+  "actual_model_starts": 0,
+  "real_zcode_authentication_verified": false,
+  "production_enabled": false,
+  "scope_enforced": false,
+  "shared_native_transport_final_freeze_pending": false,
+  "sha256": {
+    "services/orchestrator/app/providers/zcode_protocol.py": "44e872526f4dbd5d61d481eecc00e41a7bd2542250168bcf0951cd4ecc6b8201",
+    "tests/contracts/test_zcode_protocol.py": "2d421d4a7d46c219ec9d3415fe3bc499cd109e321b5364dbb84b7da5d16774f9",
+    "services/orchestrator/app/providers/native_rpc.py": "9ed00d6b564c5944b56008e16e2f2aa95f0f41d5a6fc790e314e286d8c49cc1b",
+    "docs/acceptance/part-one-closeout/zcode-protocol-green.log": "66212e07ef9d05c5e50538e865e2227a17a78b31db3dbbfad6a755e10b2a67a4",
+    "docs/acceptance/part-one-closeout/zcode-route-investigation.md": "646506f2f57cf20496e1e9729b96a3c55fdd1e22f3b5b146062c8aeb7aec0feb"
+  },
+  "transport_interface": {
+    "factory": "NativeRpcClient(command,cwd,metadata_methods,protocol_envelope,timeout_seconds,max_output_bytes)",
+    "start": "start()->self",
+    "request": "request(method,params,timeout=remaining)->dict",
+    "close": "close()->RpcCleanup",
+    "timeout_maximum_seconds": 60,
+    "byte_minimum": 1024,
+    "byte_maximum": 2000000
+  },
+  "shared_final_recheck": {
+    "checked_at": "2026-10-14T03:15:24.907335+00:00",
+    "passed": 97,
+    "seconds": 6.41,
+    "evidence": "docs/acceptance/part-one-closeout/native-connectors-green.log",
+    "reported_and_run_by": "process_d011",
+    "native_rpc_sha256": "702fdfe1de5d00b8b30a3628f8811f68f0d8d426caec5c9c4ac8cf828fac4c2e",
+    "owned_source_unchanged": true
+  }
+}

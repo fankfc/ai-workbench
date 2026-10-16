@@ -1,0 +1,17 @@
+F                                                                        [100%]
+================================== FAILURES ===================================
+______ test_upstream_data_change_invalidates_the_actual_composite_chain _______
+
+probe = <function probe.<locals>.run at 0x0000019516011C60>
+
+    def test_upstream_data_change_invalidates_the_actual_composite_chain(probe):
+        result=probe('backend_upstream_change',provider_mode='fake')
+        assert result['publication_rejected'] is True and result['public_answer_count']==0
+>       assert len(result['dependency_graph']['nodes'])==5
+E       AssertionError: assert 6 == 5
+E        +  where 6 = len({'mixed-data': {'revision_id': 'mx-data-3ba3dd95a8ec43048317937579edbed6', 'dependencies': {}, 'stale': False}, 'mixed...8c523b961069b1b', 'dependencies': {'mixed-result': 'mx-result-1236b80d2b8342fc8bd7539e71fb2740'}, 'stale': False}, ...})
+
+tests\integration\test_backend_vertical.py:90: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/integration/test_backend_vertical.py::test_upstream_data_change_invalidates_the_actual_composite_chain
+1 failed, 16 deselected in 2.10s

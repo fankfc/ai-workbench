@@ -1,0 +1,28 @@
+[
+  {
+    "refs": [
+      "DOCS/SUPERPOWERS/PLANS/2026-10-13-EXECUTION/TASK-BOARD.JSON"
+    ],
+    "accepted": [
+      "DOCS/SUPERPOWERS/PLANS/2026-10-13-EXECUTION/TASK-BOARD.JSON"
+    ]
+  },
+  {
+    "refs": [
+      ".OMX/WORK-ORDER-TRUST.KEY"
+    ],
+    "accepted": [
+      ".OMX/WORK-ORDER-TRUST.KEY"
+    ]
+  },
+  {
+    "refs": [
+      "src/allowed.py",
+      "SRC/ALLOWED.PY"
+    ],
+    "accepted": [
+      "SRC/ALLOWED.PY",
+      "src/allowed.py"
+    ]
+  }
+]

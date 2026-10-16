@@ -1,0 +1,102 @@
+{
+  "generated_at": "2026-10-14T04:19:06.075873+00:00",
+  "official_commit": "aac4755666d09fdcd70272fcf063c077a639015f",
+  "read_only_source_audit": true,
+  "source_checks": [
+    {
+      "path": "apps/zcode-cli/packages/core/src/runtime/helpers/tool-allowlist.ts",
+      "url": "https://raw.githubusercontent.com/zai-org/ZCode/aac4755666d09fdcd70272fcf063c077a639015f/apps/zcode-cli/packages/core/src/runtime/helpers/tool-allowlist.ts",
+      "local_sha256": "1bb5c94f05fb0e411d8a4a097cce645798a4384b08094b4741b91e9846dc6565",
+      "remote_sha256": "1bb5c94f05fb0e411d8a4a097cce645798a4384b08094b4741b91e9846dc6565",
+      "matches": true
+    },
+    {
+      "path": "apps/zcode-cli/packages/core/src/tool/handlers/index.ts",
+      "url": "https://raw.githubusercontent.com/zai-org/ZCode/aac4755666d09fdcd70272fcf063c077a639015f/apps/zcode-cli/packages/core/src/tool/handlers/index.ts",
+      "local_sha256": "467149c077688fb6daadfbda9cc129f407691255343c18865a42610714a35ade",
+      "remote_sha256": "467149c077688fb6daadfbda9cc129f407691255343c18865a42610714a35ade",
+      "matches": true
+    },
+    {
+      "path": "apps/zcode-cli/packages/core/src/mcp/index.ts",
+      "url": "https://raw.githubusercontent.com/zai-org/ZCode/aac4755666d09fdcd70272fcf063c077a639015f/apps/zcode-cli/packages/core/src/mcp/index.ts",
+      "local_sha256": "8e2288fa85abf7348a9d1821c28bf3a3b180518a1aef0d06bef7132fa930e8a6",
+      "remote_sha256": "8e2288fa85abf7348a9d1821c28bf3a3b180518a1aef0d06bef7132fa930e8a6",
+      "matches": true
+    },
+    {
+      "path": "apps/zcode-cli/packages/bootstrap/src/app/app-config-options.ts",
+      "url": "https://raw.githubusercontent.com/zai-org/ZCode/aac4755666d09fdcd70272fcf063c077a639015f/apps/zcode-cli/packages/bootstrap/src/app/app-config-options.ts",
+      "local_sha256": "3af8b5dc3e328c3af425f16f457fae000c5c00e508d896ad23fb59f46eb0bb7d",
+      "remote_sha256": "3af8b5dc3e328c3af425f16f457fae000c5c00e508d896ad23fb59f46eb0bb7d",
+      "matches": true
+    },
+    {
+      "path": "apps/zcode-cli/packages/bootstrap/src/zcode-protocol/server-operations.ts",
+      "url": "https://raw.githubusercontent.com/zai-org/ZCode/aac4755666d09fdcd70272fcf063c077a639015f/apps/zcode-cli/packages/bootstrap/src/zcode-protocol/server-operations.ts",
+      "local_sha256": "da8f76da383c460e1e4f392f576a81a83c264d056f6f587157c7d791fc62726c",
+      "remote_sha256": "da8f76da383c460e1e4f392f576a81a83c264d056f6f587157c7d791fc62726c",
+      "matches": true
+    },
+    {
+      "path": "apps/zcode-cli/packages/adapters/src/model/runner.ts",
+      "url": "https://raw.githubusercontent.com/zai-org/ZCode/aac4755666d09fdcd70272fcf063c077a639015f/apps/zcode-cli/packages/adapters/src/model/runner.ts",
+      "local_sha256": "eeaa3272e6d44de6a59437c4b0f550bdf39108fd2bb19856c0383ffc0426b1e5",
+      "remote_sha256": "eeaa3272e6d44de6a59437c4b0f550bdf39108fd2bb19856c0383ffc0426b1e5",
+      "matches": true
+    },
+    {
+      "path": "apps/zcode-cli/packages/adapters/src/model/runner-runtime.ts",
+      "url": "https://raw.githubusercontent.com/zai-org/ZCode/aac4755666d09fdcd70272fcf063c077a639015f/apps/zcode-cli/packages/adapters/src/model/runner-runtime.ts",
+      "local_sha256": "91c6e4589671610c3453e6bba91e729a46d2866e67b30f9fd1f9ba230ffa3b0a",
+      "remote_sha256": "91c6e4589671610c3453e6bba91e729a46d2866e67b30f9fd1f9ba230ffa3b0a",
+      "matches": true
+    },
+    {
+      "path": "apps/zcode-cli/packages/adapters/src/model/runner-generate.ts",
+      "url": "https://raw.githubusercontent.com/zai-org/ZCode/aac4755666d09fdcd70272fcf063c077a639015f/apps/zcode-cli/packages/adapters/src/model/runner-generate.ts",
+      "local_sha256": "61de2659bec5b21258852f3b613a50685ebe7a719ecfa8218e1d61e83e40e955",
+      "remote_sha256": "61de2659bec5b21258852f3b613a50685ebe7a719ecfa8218e1d61e83e40e955",
+      "matches": true
+    },
+    {
+      "path": "apps/zcode-cli/packages/adapters/src/model/runner-normalization.ts",
+      "url": "https://raw.githubusercontent.com/zai-org/ZCode/aac4755666d09fdcd70272fcf063c077a639015f/apps/zcode-cli/packages/adapters/src/model/runner-normalization.ts",
+      "local_sha256": "fdaa35f9134b9f7e2503dd31d42a69a531f19dae22e7f57f5c8f73d2570a8fac",
+      "remote_sha256": "fdaa35f9134b9f7e2503dd31d42a69a531f19dae22e7f57f5c8f73d2570a8fac",
+      "matches": true
+    },
+    {
+      "path": "apps/zcode-cli/packages/adapters/src/model/runner-debug.ts",
+      "url": "https://raw.githubusercontent.com/zai-org/ZCode/aac4755666d09fdcd70272fcf063c077a639015f/apps/zcode-cli/packages/adapters/src/model/runner-debug.ts",
+      "local_sha256": "6efc5da5239b53130c84bd75e397935eaf4f47a762160dc6f405dbd577c7a68c",
+      "remote_sha256": "6efc5da5239b53130c84bd75e397935eaf4f47a762160dc6f405dbd577c7a68c",
+      "matches": true
+    },
+    {
+      "path": "apps/zcode-cli/packages/contracts/src/model/index.ts",
+      "url": "https://raw.githubusercontent.com/zai-org/ZCode/aac4755666d09fdcd70272fcf063c077a639015f/apps/zcode-cli/packages/contracts/src/model/index.ts",
+      "local_sha256": "01cc5885cef27ccc170f17fa39f199c7e90b8ad18ea23d8b303b855d5a5bbbb8",
+      "remote_sha256": "01cc5885cef27ccc170f17fa39f199c7e90b8ad18ea23d8b303b855d5a5bbbb8",
+      "matches": true
+    },
+    {
+      "path": "packages/services/src/zcode-agent/zcodeAgentService.ts",
+      "url": "https://raw.githubusercontent.com/zai-org/ZCode/aac4755666d09fdcd70272fcf063c077a639015f/packages/services/src/zcode-agent/zcodeAgentService.ts",
+      "local_sha256": "a5f8a891e37bf7a39ab9a414ebc94744ce4af19f09fb55df920258bf9262e43f",
+      "remote_sha256": "a5f8a891e37bf7a39ab9a414ebc94744ce4af19f09fb55df920258bf9262e43f",
+      "matches": true
+    }
+  ],
+  "real_model_starts": 0,
+  "real_account_queries": 0,
+  "credential_file_reads": 0,
+  "production_source_edits": 0,
+  "test_edits": 0,
+  "product_tests_repeated": 0,
+  "builtin_empty_allowlist_source_confirmed": true,
+  "mcp_empty_allowlist_source_confirmed": true,
+  "actual_model_observed": false,
+  "configured_identity_promoted": false,
+  "os_scope_verified": false
+}

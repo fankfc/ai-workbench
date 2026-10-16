@@ -1,0 +1,51 @@
+FFF                                                                      [100%]
+================================== FAILURES ===================================
+___ test_configured_thread_model_never_becomes_verified_execution_identity ____
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-199/test_configured_thread_model_n0')
+
+    def test_configured_thread_model_never_becomes_verified_execution_identity(tmp_path):
+        result = CodexProtocolClient(["native.exe"], tmp_path, client_factory=ScriptedClient).metadata()
+        assert result["selected_model"] == "gpt-fixture"
+        assert result["actual_model_id"] is None and result["identity_status"] == "unknown"
+        assert result["scope_enforced"] is result["production_enabled"] is False
+        assert result["account"] == {"logged_in": True, "type": "chatgpt"}
+        assert "SECRET" not in str(result) and "private@example.com" not in str(result)
+        assert result["diagnostics"]["model_turn_starts"] == 0
+>       assert result["entry_verified"] is False and result["injected_transport"] is True
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'entry_verified'
+
+tests\contracts\test_codex_protocol.py:145: KeyError
+___ test_default_codex_connector_pins_the_official_executable_before_start ____
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-199/test_default_codex_connector_p0')
+
+    def test_default_codex_connector_pins_the_official_executable_before_start(tmp_path):
+>       with pytest.raises(NativeRpcError, match="CODEX_OFFICIAL_ENTRY_MISMATCH"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE NativeRpcError
+
+tests\contracts\test_codex_protocol.py:291: Failed
+________ test_default_codex_connector_rejects_changed_executable_hash _________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-199/test_default_codex_connector_r0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x00000240FAF9EB10>
+
+    def test_default_codex_connector_rejects_changed_executable_hash(tmp_path, monkeypatch):
+        import app.providers.codex_protocol as protocol
+        from pathlib import Path
+        import json
+        root = Path(__file__).resolve().parents[2]
+        entry = json.loads((root / "docs/acceptance/D006/supported-entry.json").read_text(encoding="utf-8"))
+        monkeypatch.setattr(protocol, "_executable_sha256", lambda path: "0" * 64, raising=False)
+>       with pytest.raises(NativeRpcError, match="CODEX_OFFICIAL_ENTRY_HASH_MISMATCH"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE NativeRpcError
+
+tests\contracts\test_codex_protocol.py:302: Failed
+=========================== short test summary info ===========================
+FAILED tests/contracts/test_codex_protocol.py::test_configured_thread_model_never_becomes_verified_execution_identity
+FAILED tests/contracts/test_codex_protocol.py::test_default_codex_connector_pins_the_official_executable_before_start
+FAILED tests/contracts/test_codex_protocol.py::test_default_codex_connector_rejects_changed_executable_hash
+3 failed, 31 deselected in 0.29s

@@ -1,0 +1,74 @@
+{
+  "build_id": "cb98eed03df6bd4ffaa551d66a54c77198911cf5b3e763a1ef3c055f5ee54ca4",
+  "qualification": false,
+  "provider_boundary": "fake",
+  "metrics": [
+    {
+      "metric": "input_echo",
+      "label": "输入回显",
+      "n": 200,
+      "p95_ms": 18.5,
+      "proposed_p95_ms": 100,
+      "observed_within_proposed_target": true
+    },
+    {
+      "metric": "ui_ack",
+      "label": "发送确认",
+      "n": 10,
+      "p95_ms": 862,
+      "proposed_p95_ms": 200,
+      "observed_within_proposed_target": false
+    },
+    {
+      "metric": "cancel_feedback",
+      "label": "取消反馈",
+      "n": 0,
+      "p95_ms": null,
+      "proposed_p95_ms": 500,
+      "observed_within_proposed_target": null
+    },
+    {
+      "metric": "state_visible",
+      "label": "状态可见",
+      "n": 10,
+      "p95_ms": 1206.6000000238419,
+      "proposed_p95_ms": 1000,
+      "observed_within_proposed_target": false
+    },
+    {
+      "metric": "cold_start",
+      "label": "启动",
+      "n": 3,
+      "p95_ms": 3405.263100000011,
+      "proposed_p95_ms": 3000,
+      "observed_within_proposed_target": false
+    }
+  ],
+  "exceeded_proposed_targets": [
+    "ui_ack",
+    "state_visible",
+    "cold_start"
+  ],
+  "raw_sources": [
+    {
+      "path": "artifacts/qa/D050/renderer-latency.json",
+      "sha256": "39174b835d096684532901fa5d3e81e443a69e404fe4294ea027854c8cfd43cb"
+    },
+    {
+      "path": "artifacts/qa/D050/desktop-lifecycle.json",
+      "sha256": "0ff7e9fe02043ffedaa42cd3e9d4bb4bcdd3861e09eb879f26c9a5acd429ae71"
+    },
+    {
+      "path": "quality/performance-profile.json",
+      "sha256": "d95003f92ad55321f3bade049be07b3b5bf0a52d6520c1dd952197e810a5ae05"
+    }
+  ],
+  "unmet_checks": [
+    "cancel_feedback",
+    "24h_soak",
+    "loaded_desktop_workload",
+    "hardware_power_baseline",
+    "30_desktop_cold_starts",
+    "100_lifecycle_cycles"
+  ]
+}

@@ -1,0 +1,24 @@
+.......................F                                                 [100%]
+================================== FAILURES ===================================
+___________ test_untested_published_state_does_not_qualify_delivery ___________
+
+ledger = (<app.usage.ledger.UsageLedger object at 0x00000169B53E58D0>, 'bc3127dcf28b4b188bfa812052e4c41d', '5dc86f2f8f114293b86de21a619cc138')
+client = <starlette.testclient.TestClient object at 0x00000169B540F8A0>
+
+    def test_untested_published_state_does_not_qualify_delivery(ledger,client):
+        book,task,attempt=ledger
+        with closing(client.app.state.database.connect()) as connection:
+            connection.execute("UPDATE task_runs SET state='PUBLISHED' WHERE task_id=?",(task,))
+>       assert book.summary(task)['qualified_deliveries']==0
+E       assert 1 == 0
+
+tests\unit\test_usage_ledger.py:127: AssertionError
+============================== warnings summary ===============================
+tests/unit/test_usage_ledger.py::test_duplicate_request_total_counted_once
+  C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/unit/test_usage_ledger.py::test_untested_published_state_does_not_qualify_delivery
+1 failed, 23 passed, 1 warning in 1.36s

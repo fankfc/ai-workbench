@@ -1,0 +1,14 @@
+{
+  "english_leaks": [],
+  "composition_submits": 0,
+  "focus_lost": false,
+  "unmet_checks": [
+    "real_windows_ime",
+    "narrator",
+    "multiple_monitor_scaling"
+  ],
+  "source": "artifacts\\qa\\D049\\gui-observations.json",
+  "automatic_checks_passed": true,
+  "provider_boundary": "fake",
+  "real_provider_verified": false
+}

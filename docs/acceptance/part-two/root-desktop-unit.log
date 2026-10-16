@@ -1,0 +1,13 @@
+
+> ai-workbench@0.1.0 test:desktop
+> vitest run tests/desktop
+
+
+ RUN  v5.0.4 C:/Users/asd15/Documents/ChatGPT/ai
+
+
+ Test Files  6 passed (6)
+      Tests  27 passed (27)
+   Start at  19:01:37
+   Duration  6.73s (tests 96%, import 2%, transform 1%, worker 1%)
+

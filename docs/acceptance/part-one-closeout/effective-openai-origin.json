@@ -1,0 +1,139 @@
+{
+  "generated_at": "2026-10-14T04:01:26.152534+00:00",
+  "server_starts": 1,
+  "submitted_model_turns": 0,
+  "scope_enforced": false,
+  "production_enabled": false,
+  "raw_config_or_account_exported": false,
+  "direct_auth_or_config_file_reads": false,
+  "effective_origin_status": "source_derived_configuration",
+  "effective_origin": null,
+  "rpc_calls": [
+    {
+      "method": "initialize",
+      "id": 1
+    },
+    {
+      "method": "initialized",
+      "id": null
+    },
+    {
+      "method": "config/read",
+      "id": 2
+    },
+    {
+      "method": "account/read",
+      "id": 3
+    }
+  ],
+  "environment": {
+    "OPENAI_BASE_URL": {
+      "present": false,
+      "is_set": false
+    },
+    "OPENAI_API_BASE": {
+      "present": false,
+      "is_set": false
+    },
+    "CHATGPT_BASE_URL": {
+      "present": false,
+      "is_set": false
+    },
+    "CODEX_CHATGPT_BASE_URL": {
+      "present": false,
+      "is_set": false
+    },
+    "CODEX_BASE_URL": {
+      "present": false,
+      "is_set": false
+    },
+    "OPENAI_API_KEY": {
+      "present": false
+    },
+    "OPENAI_ORGANIZATION": {
+      "present": false
+    },
+    "OPENAI_PROJECT": {
+      "present": false
+    }
+  },
+  "unexpected_model_activity": false,
+  "probe_sha256": "f441d74d6a2913896c9b8b494f88f0de779632639b371376da9fbcaeb044c14f",
+  "config_read_params": {
+    "cwd": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\gpt-origin-probe\\workspace",
+    "includeLayers": false
+  },
+  "runtime_version": "0.160.0",
+  "executable_sha256": "4b01d5920e6785614727443bbecf343f4dedbb7347052b72ba805aab6353ef01",
+  "selected_provider": null,
+  "selected_provider_explicit": false,
+  "provider_base_url": {
+    "is_set": false
+  },
+  "openai_base_url": {
+    "is_set": false
+  },
+  "chatgpt_base_url": {
+    "is_set": true,
+    "sensitive_components_present": false,
+    "official_public_origin": true,
+    "origin": "https://chatgpt.com",
+    "path": "/backend-api/"
+  },
+  "selected_provider_http_headers_configured": null,
+  "selected_provider_env_http_headers_configured": null,
+  "global_http_headers_configured": false,
+  "public_source_default_may_be_required": true,
+  "account": {
+    "logged_in": true,
+    "type": "chatgpt"
+  },
+  "reason_code": "EFFECTIVE_ORIGIN_NOT_EXPANDED",
+  "protocol_query_completed": true,
+  "resources_after": {
+    "running": 0,
+    "temp_dirs": 0,
+    "open_handles": 0,
+    "peak_reserved_handles": 9,
+    "active_processes": 0,
+    "failed_cleanups": 0,
+    "query_errors": []
+  },
+  "local_cleanup": {
+    "state": "cancelled",
+    "exit_code": 0,
+    "remote_state": "unknown",
+    "remote_stop_confirmed": false,
+    "raw_private_output_persisted": false,
+    "stdout_kept_bytes": 18478,
+    "stderr_kept_bytes": 0
+  },
+  "duration_seconds": 3.223,
+  "actual_inference_http_origin_observed": false,
+  "projection_boundary": "Only named public config fields were projected; absence from this API projection is not proof that every loaded runtime configuration field is absent.",
+  "selected_provider_header_observation_status": "not_resolved_because_selected_provider_is_null",
+  "source_derived_configuration": {
+    "provider_id": "openai",
+    "auth_mode": "chatgpt",
+    "model_inference_origin": "https://chatgpt.com",
+    "model_inference_path": "/backend-api/codex",
+    "source_tag": "rust-v0.160.0",
+    "actual_inference_http_origin_observed": false,
+    "basis": [
+      "fresh account/read type chatgpt",
+      "native thread/start previously returned modelProvider openai",
+      "effective config contains no explicit model_provider/openai_base_url value",
+      "endpoint environment variables absent",
+      "ConfigRead effective ConfigToml serialization preserves extra fields",
+      "Config loader defaults model_provider to openai",
+      "Chatgpt to_api_provider default CHATGPT_CODEX_BASE_URL"
+    ],
+    "source_urls": [
+      "https://github.com/openai/codex/blob/rust-v0.160.0/codex-rs/app-server/src/config_manager_service.rs",
+      "https://github.com/openai/codex/blob/rust-v0.160.0/codex-rs/app-server-protocol/src/protocol/v2/config.rs",
+      "https://github.com/openai/codex/blob/rust-v0.160.0/codex-rs/core/src/config/mod.rs",
+      "https://github.com/openai/codex/blob/rust-v0.160.0/codex-rs/model-provider-info/src/lib.rs"
+    ]
+  },
+  "new_named_route_not_started_by_this_zero_model_query": true
+}

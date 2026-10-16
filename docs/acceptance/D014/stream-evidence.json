@@ -1,0 +1,1000 @@
+{
+  "at_utc": "2026-10-13T13:17:02.214417+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.13.0 (tags/v3.13.0:60403a5, Oct  7 2024, 09:38:07) [MSC v.1941 64 bit (AMD64)]",
+  "mode": "actual local API/SQLite, synthetic external event streams",
+  "real_model_calls": 0,
+  "command": "services/orchestrator/.venv/Scripts/python.exe docs/acceptance/D014/verify-stream.py",
+  "source_sha256": {
+    "services/orchestrator/app/runtime/workflow.py": "fd0d743d2de7a0a8cca56b6c14ba77e8fbe64036c52cc6e913ee1061f90aa5ce",
+    "tests/integration/test_agent_workflow.py": "3b31a01b6ffcc1a6f24cab0a790626cb6e3e91401d14c38ecf130710e9013b1e",
+    "services/orchestrator/app/providers/fake.py": "abec8a68b99a0e269aa77143e41b528d71b312b334fa3d2772448941b2d2763e",
+    "docs/acceptance/D014/verify-stream.py": "0ff3f7980a078b45cce7426c18a26ac75ccc01ac212c9b85318f07d3a04335fc"
+  },
+  "scenarios": [
+    {
+      "name": "accepted_disconnect",
+      "result": {
+        "state": "BLOCKED",
+        "current_revision_id": null,
+        "review_check_id": null,
+        "quality_repairs": 0,
+        "connection_retries": 0,
+        "translation_retries": 0,
+        "reason_codes": [
+          "UNKNOWN_REMOTE"
+        ],
+        "evidence_root": "C:\\Users\\asd15\\AppData\\Local\\Temp\\D014-stream-acceptance-9py086gb\\accepted_disconnect\\workspaces\\tasks\\7d5b206ea91a430fa59544664f589729\\4ba80870088846b8ad9ff800436a4624\\evidence"
+      },
+      "task": {
+        "task_id": "7d5b206ea91a430fa59544664f589729",
+        "attempt_id": "4ba80870088846b8ad9ff800436a4624",
+        "turn_id": "73712258df65459796035286cb575fc1",
+        "provider_profile_id": "fake-gpt",
+        "contract_version": "1.0",
+        "state": "BLOCKED",
+        "attempt_number": 1,
+        "route_snapshot_json": "{\"adapter_id\": \"fake\", \"attempt_id\": \"4ba80870088846b8ad9ff800436a4624\", \"connection_version\": \"test-only\", \"id\": \"bffa4f5a602347f79ab94464a97357c0\", \"identity_source\": null, \"identity_status\": \"unknown\", \"locked_at\": \"2026-10-13T13:17:02.492998+00:00\", \"model_family\": \"gpt\", \"model_id\": \"fixture-gpt\", \"policy_version\": \"1.0\", \"provider_id\": \"fake-gpt\", \"route_policy\": \"native\", \"task_id\": \"7d5b206ea91a430fa59544664f589729\", \"test_only\": true, \"turn_id\": \"73712258df65459796035286cb575fc1\"}",
+        "external_request_id": "ongoing-request",
+        "external_execution_id": "ongoing-execution",
+        "pid": null,
+        "remote_status": "unknown",
+        "cancel_requested": 0,
+        "external_stop_confirmed": null,
+        "cancel_pending_remote": 0,
+        "last_sequence": 9,
+        "checkpoint_json": "{\"workflow\": {\"contract_sha256\": \"2be802d666822eae9ede17e0c753c81415d1f25ec14d39cf5d9210888d3a5b9b\", \"candidate_history\": [], \"current_revision_id\": null, \"review_check_id\": null, \"reviews\": [], \"takeover_leases\": [], \"repair\": {\"policy_version\": \"repair-1\", \"quality_repairs\": 0, \"connection_retries\": 0, \"translation_retries\": 0, \"no_progress\": 0, \"defect_streaks\": {}, \"history\": []}, \"reason_codes\": [\"UNKNOWN_REMOTE\"], \"upstream_versions\": {}, \"source_context\": [{\"ref\": \"input/source.txt\", \"sha256\": \"c085f4682fec4d92f3d33578d03c46056ab1bcba7ea957c58eeb22fc63709072\", \"content\": \"实际来源字节\", \"trust\": \"untrusted_material\"}], \"last_budget\": {\"allowed\": true, \"reason\": \"OK\", \"remaining_tokens\": 8000}}, \"task_contract\": {\"task_id\": \"7d5b206ea91a430fa59544664f589729\", \"attempt_id\": \"4ba80870088846b8ad9ff800436a4624\", \"contract_version\": \"1.0\", \"domain\": \"code\", \"model_family\": \"gpt\", \"route_snapshot_id\": \"bffa4f5a602347f79ab94464a97357c0\", \"objective\": \"Verify fixed source results\", \"method\": \"Check actual evidence\", \"inputs\": [{\"id\": \"input\", \"ref\": \"input/source.txt\", \"sha256\": \"c085f4682fec4d92f3d33578d03c46056ab1bcba7ea957c58eeb22fc63709072\"}], \"constraints\": [{\"id\": \"preserve\", \"text\": \"Preserve sources\", \"mandatory\": true}], \"deliverables\": [{\"id\": \"result\", \"kind\": \"code\", \"write_scope\": \"b/result\", \"require_a_canonical\": false}], \"acceptance\": [{\"id\": \"AC1\", \"mandatory\": true, \"verifier\": \"C\", \"evidence_type\": \"execution\", \"condition\": \"Actual immutable UTF-8 candidate parses with Python ast.parse\", \"semantic\": false}, {\"id\": \"AC2\", \"mandatory\": true, \"verifier\": \"A\", \"evidence_type\": \"review\", \"condition\": \"A judges source support\", \"semantic\": true}], \"dependencies\": [], \"budget\": {\"total_tokens\": 10000, \"reserved_a_tokens\": 2000}, \"b_write_scopes\": [\"b\"], \"a_responsibilities\": [\"problem_modeling\", \"core_reasoning\", \"method_choice\", \"evidence_judgment\", \"final_review\"], \"guidance_depth\": \"ordinary\", \"full_read_required\": false, \"source_unit_ids\": [\"body\"]}, \"active_external_request\": {\"external_request_id\": \"ongoing-request\", \"external_execution_id\": \"ongoing-execution\", \"step_id\": \"bc989596e717481a9f9d4b0d8dcbf5ae\", \"provider_profile_id\": \"fake-glm\", \"role\": \"B\", \"accepted\": true, \"status\": \"unknown\"}}",
+        "lease_owner": null,
+        "lease_expires_at": null,
+        "started_at": null,
+        "completed_at": null,
+        "created_at": "2026-10-13T13:17:02.492Z",
+        "updated_at": "2026-10-13T13:17:02.687Z"
+      },
+      "steps": [
+        {
+          "id": "bc989596e717481a9f9d4b0d8dcbf5ae",
+          "task_id": "7d5b206ea91a430fa59544664f589729",
+          "attempt_id": "4ba80870088846b8ad9ff800436a4624",
+          "step_key": "bc989596e717481a9f9d4b0d8dcbf5ae",
+          "role": "B",
+          "state": "UNKNOWN_REMOTE",
+          "contract_version": "1.0",
+          "provider_profile_id": "fake-glm",
+          "external_request_id": "bc989596e717481a9f9d4b0d8dcbf5ae",
+          "external_execution_id": "ongoing-execution",
+          "request_json": "{\"task_id\": \"7d5b206ea91a430fa59544664f589729\", \"attempt_id\": \"4ba80870088846b8ad9ff800436a4624\", \"role\": \"B\", \"identity\": {\"adapter\": \"fake\", \"model_id\": \"fixture-glm\", \"family\": \"glm\", \"connection_id\": \"fake-glm\"}, \"prompt_path\": \"C:\\\\Users\\\\asd15\\\\AppData\\\\Local\\\\Temp\\\\D014-stream-acceptance-9py086gb\\\\accepted_disconnect\\\\workspaces\\\\tasks\\\\7d5b206ea91a430fa59544664f589729\\\\4ba80870088846b8ad9ff800436a4624\\\\b\\\\prompts\\\\bc989596e717481a9f9d4b0d8dcbf5ae.json\", \"workspace\": \"C:\\\\Users\\\\asd15\\\\AppData\\\\Local\\\\Temp\\\\D014-stream-acceptance-9py086gb\\\\accepted_disconnect\\\\workspaces\\\\tasks\\\\7d5b206ea91a430fa59544664f589729\\\\4ba80870088846b8ad9ff800436a4624\\\\b\", \"policy_version\": \"1.0\"}",
+          "checkpoint_json": "{\"remote_execution\": {\"external_request_id\": \"ongoing-request\", \"external_execution_id\": \"ongoing-execution\", \"step_id\": \"bc989596e717481a9f9d4b0d8dcbf5ae\", \"provider_profile_id\": \"fake-glm\", \"role\": \"B\", \"accepted\": true, \"status\": \"unknown\"}, \"provider_events\": 2, \"cancel_requested\": false, \"failure\": \"ConnectionError\"}",
+          "started_at": "2026-10-13T13:17:02.636Z",
+          "completed_at": null,
+          "created_at": "2026-10-13T13:17:02.636Z"
+        }
+      ],
+      "artifacts": [],
+      "checks": [],
+      "B_starts": 1,
+      "A_starts": 0,
+      "observed_before_disconnect": [
+        {
+          "task": {
+            "task_id": "7d5b206ea91a430fa59544664f589729",
+            "attempt_id": "4ba80870088846b8ad9ff800436a4624",
+            "turn_id": "73712258df65459796035286cb575fc1",
+            "provider_profile_id": "fake-gpt",
+            "contract_version": "1.0",
+            "state": "EXECUTING",
+            "attempt_number": 1,
+            "route_snapshot_json": "{\"adapter_id\": \"fake\", \"attempt_id\": \"4ba80870088846b8ad9ff800436a4624\", \"connection_version\": \"test-only\", \"id\": \"bffa4f5a602347f79ab94464a97357c0\", \"identity_source\": null, \"identity_status\": \"unknown\", \"locked_at\": \"2026-10-13T13:17:02.492998+00:00\", \"model_family\": \"gpt\", \"model_id\": \"fixture-gpt\", \"policy_version\": \"1.0\", \"provider_id\": \"fake-gpt\", \"route_policy\": \"native\", \"task_id\": \"7d5b206ea91a430fa59544664f589729\", \"test_only\": true, \"turn_id\": \"73712258df65459796035286cb575fc1\"}",
+            "external_request_id": "ongoing-request",
+            "external_execution_id": "ongoing-execution",
+            "pid": null,
+            "remote_status": "running",
+            "cancel_requested": 0,
+            "external_stop_confirmed": null,
+            "cancel_pending_remote": 0,
+            "last_sequence": 6,
+            "checkpoint_json": "{\"workflow\": {\"contract_sha256\": \"2be802d666822eae9ede17e0c753c81415d1f25ec14d39cf5d9210888d3a5b9b\", \"candidate_history\": [], \"current_revision_id\": null, \"review_check_id\": null, \"reviews\": [], \"takeover_leases\": [], \"repair\": {\"policy_version\": \"repair-1\", \"quality_repairs\": 0, \"connection_retries\": 0, \"translation_retries\": 0, \"no_progress\": 0, \"defect_streaks\": {}, \"history\": []}, \"reason_codes\": [], \"upstream_versions\": {}, \"source_context\": [{\"ref\": \"input/source.txt\", \"sha256\": \"c085f4682fec4d92f3d33578d03c46056ab1bcba7ea957c58eeb22fc63709072\", \"content\": \"实际来源字节\", \"trust\": \"untrusted_material\"}], \"last_budget\": {\"allowed\": true, \"reason\": \"OK\", \"remaining_tokens\": 8000}}, \"task_contract\": {\"task_id\": \"7d5b206ea91a430fa59544664f589729\", \"attempt_id\": \"4ba80870088846b8ad9ff800436a4624\", \"contract_version\": \"1.0\", \"domain\": \"code\", \"model_family\": \"gpt\", \"route_snapshot_id\": \"bffa4f5a602347f79ab94464a97357c0\", \"objective\": \"Verify fixed source results\", \"method\": \"Check actual evidence\", \"inputs\": [{\"id\": \"input\", \"ref\": \"input/source.txt\", \"sha256\": \"c085f4682fec4d92f3d33578d03c46056ab1bcba7ea957c58eeb22fc63709072\"}], \"constraints\": [{\"id\": \"preserve\", \"text\": \"Preserve sources\", \"mandatory\": true}], \"deliverables\": [{\"id\": \"result\", \"kind\": \"code\", \"write_scope\": \"b/result\", \"require_a_canonical\": false}], \"acceptance\": [{\"id\": \"AC1\", \"mandatory\": true, \"verifier\": \"C\", \"evidence_type\": \"execution\", \"condition\": \"Actual immutable UTF-8 candidate parses with Python ast.parse\", \"semantic\": false}, {\"id\": \"AC2\", \"mandatory\": true, \"verifier\": \"A\", \"evidence_type\": \"review\", \"condition\": \"A judges source support\", \"semantic\": true}], \"dependencies\": [], \"budget\": {\"total_tokens\": 10000, \"reserved_a_tokens\": 2000}, \"b_write_scopes\": [\"b\"], \"a_responsibilities\": [\"problem_modeling\", \"core_reasoning\", \"method_choice\", \"evidence_judgment\", \"final_review\"], \"guidance_depth\": \"ordinary\", \"full_read_required\": false, \"source_unit_ids\": [\"body\"]}, \"active_external_request\": {\"external_request_id\": \"ongoing-request\", \"external_execution_id\": \"ongoing-execution\", \"step_id\": \"bc989596e717481a9f9d4b0d8dcbf5ae\", \"provider_profile_id\": \"fake-glm\", \"role\": \"B\", \"accepted\": true, \"status\": \"running\"}}",
+            "lease_owner": "workflow:f937b9b908e4423f81de6e57b972b945",
+            "lease_expires_at": "2026-10-13T13:47:02.532037+00:00",
+            "started_at": null,
+            "completed_at": null,
+            "created_at": "2026-10-13T13:17:02.492Z",
+            "updated_at": "2026-10-13T13:17:02.593Z"
+          },
+          "step": {
+            "id": "bc989596e717481a9f9d4b0d8dcbf5ae",
+            "task_id": "7d5b206ea91a430fa59544664f589729",
+            "attempt_id": "4ba80870088846b8ad9ff800436a4624",
+            "step_key": "bc989596e717481a9f9d4b0d8dcbf5ae",
+            "role": "B",
+            "state": "RUNNING",
+            "contract_version": "1.0",
+            "provider_profile_id": "fake-glm",
+            "external_request_id": "bc989596e717481a9f9d4b0d8dcbf5ae",
+            "external_execution_id": "ongoing-execution",
+            "request_json": "{\"task_id\": \"7d5b206ea91a430fa59544664f589729\", \"attempt_id\": \"4ba80870088846b8ad9ff800436a4624\", \"role\": \"B\", \"identity\": {\"adapter\": \"fake\", \"model_id\": \"fixture-glm\", \"family\": \"glm\", \"connection_id\": \"fake-glm\"}, \"prompt_path\": \"C:\\\\Users\\\\asd15\\\\AppData\\\\Local\\\\Temp\\\\D014-stream-acceptance-9py086gb\\\\accepted_disconnect\\\\workspaces\\\\tasks\\\\7d5b206ea91a430fa59544664f589729\\\\4ba80870088846b8ad9ff800436a4624\\\\b\\\\prompts\\\\bc989596e717481a9f9d4b0d8dcbf5ae.json\", \"workspace\": \"C:\\\\Users\\\\asd15\\\\AppData\\\\Local\\\\Temp\\\\D014-stream-acceptance-9py086gb\\\\accepted_disconnect\\\\workspaces\\\\tasks\\\\7d5b206ea91a430fa59544664f589729\\\\4ba80870088846b8ad9ff800436a4624\\\\b\", \"policy_version\": \"1.0\"}",
+            "checkpoint_json": "{\"remote_execution\": {\"external_request_id\": \"ongoing-request\", \"external_execution_id\": \"ongoing-execution\", \"step_id\": \"bc989596e717481a9f9d4b0d8dcbf5ae\", \"provider_profile_id\": \"fake-glm\", \"role\": \"B\", \"accepted\": true, \"status\": \"running\"}}",
+            "started_at": "2026-10-13T13:17:02.636Z",
+            "completed_at": null,
+            "created_at": "2026-10-13T13:17:02.636Z"
+          }
+        }
+      ],
+      "usage": {
+        "total_tokens": 15,
+        "known_lower_bound": 15,
+        "unknown_requests": 0,
+        "a_tokens": 0,
+        "qualified_deliveries": 0,
+        "tokens_per_delivery": null,
+        "requests": [
+          {
+            "attempt_id": "4ba80870088846b8ad9ff800436a4624",
+            "cumulative_scope": null,
+            "domain": "code",
+            "external_request_id": "bc989596e717481a9f9d4b0d8dcbf5ae",
+            "function": "execution",
+            "mode": "request_total",
+            "provider": "glm",
+            "provider_profile_id": "fake-glm",
+            "role": "B",
+            "task_id": "7d5b206ea91a430fa59544664f589729",
+            "status": "failed",
+            "source": "reported",
+            "total_tokens": 15,
+            "events": [
+              {
+                "cumulative_scope": null,
+                "event_id": "usage:bc989596e717481a9f9d4b0d8dcbf5ae:pending",
+                "mode": "pending",
+                "normalized": {
+                  "components": {},
+                  "mapping_version": "1.0",
+                  "source": "unknown",
+                  "total_tokens": null
+                },
+                "raw": {
+                  "request_start_confirmed": false,
+                  "usage_observed": false
+                },
+                "sequence": 1,
+                "sha256": "0df2c3a83be6fb484d2e6ba4e0e753d15e11f8167926b96ffe76664a92cc44e5",
+                "status": "running"
+              },
+              {
+                "cumulative_scope": null,
+                "event_id": "usage:bc989596e717481a9f9d4b0d8dcbf5ae:2",
+                "mode": "request_total",
+                "normalized": {
+                  "components": {
+                    "cached_tokens": null,
+                    "input_tokens": 10,
+                    "output_tokens": 5,
+                    "reasoning_tokens": null
+                  },
+                  "mapping_version": "1.0",
+                  "source": "reported",
+                  "total_tokens": 15
+                },
+                "raw": {
+                  "input_tokens": 10,
+                  "output_tokens": 5
+                },
+                "sequence": 3,
+                "sha256": "5e5bbee24300f421be5034baecb77f22c2bcc2df5ffa8ed28aa06e510ee47a25",
+                "status": "failed"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "terminal_failed",
+      "result": {
+        "state": "FAILED",
+        "current_revision_id": null,
+        "review_check_id": null,
+        "quality_repairs": 0,
+        "connection_retries": 0,
+        "translation_retries": 0,
+        "reason_codes": [
+          "TERMINAL_STATE_FENCE"
+        ],
+        "evidence_root": "C:\\Users\\asd15\\AppData\\Local\\Temp\\D014-stream-acceptance-9py086gb\\terminal_failed\\workspaces\\tasks\\2bb49ae7bb3d4ac59181904d221519f5\\5dd28775178a4c34b5bae940e0417eb0\\evidence"
+      },
+      "task": {
+        "task_id": "2bb49ae7bb3d4ac59181904d221519f5",
+        "attempt_id": "5dd28775178a4c34b5bae940e0417eb0",
+        "turn_id": "a2758a161eb14b5587a510b514bec55a",
+        "provider_profile_id": "fake-gpt",
+        "contract_version": "1.0",
+        "state": "FAILED",
+        "attempt_number": 1,
+        "route_snapshot_json": "{\"adapter_id\": \"fake\", \"attempt_id\": \"5dd28775178a4c34b5bae940e0417eb0\", \"connection_version\": \"test-only\", \"id\": \"687004a68b0946ea8d30565ec4d11247\", \"identity_source\": null, \"identity_status\": \"unknown\", \"locked_at\": \"2026-10-13T13:17:02.750573+00:00\", \"model_family\": \"gpt\", \"model_id\": \"fixture-gpt\", \"policy_version\": \"1.0\", \"provider_id\": \"fake-gpt\", \"route_policy\": \"native\", \"task_id\": \"2bb49ae7bb3d4ac59181904d221519f5\", \"test_only\": true, \"turn_id\": \"a2758a161eb14b5587a510b514bec55a\"}",
+        "external_request_id": "ongoing-request",
+        "external_execution_id": "ongoing-execution",
+        "pid": null,
+        "remote_status": "unknown",
+        "cancel_requested": 0,
+        "external_stop_confirmed": null,
+        "cancel_pending_remote": 0,
+        "last_sequence": 8,
+        "checkpoint_json": "{\"workflow\": {\"contract_sha256\": \"c459f05d0cf3f125f55ada7fe123e6eb1a8c9191b6c3ee63ead5841cb4ff8a2b\", \"candidate_history\": [], \"current_revision_id\": null, \"review_check_id\": null, \"reviews\": [], \"takeover_leases\": [], \"repair\": {\"policy_version\": \"repair-1\", \"quality_repairs\": 0, \"connection_retries\": 0, \"translation_retries\": 0, \"no_progress\": 0, \"defect_streaks\": {}, \"history\": []}, \"reason_codes\": [\"TERMINAL_STATE_FENCE\"], \"upstream_versions\": {}, \"source_context\": [{\"ref\": \"input/source.txt\", \"sha256\": \"c085f4682fec4d92f3d33578d03c46056ab1bcba7ea957c58eeb22fc63709072\", \"content\": \"实际来源字节\", \"trust\": \"untrusted_material\"}], \"last_budget\": {\"allowed\": true, \"reason\": \"OK\", \"remaining_tokens\": 8000}}, \"task_contract\": {\"task_id\": \"2bb49ae7bb3d4ac59181904d221519f5\", \"attempt_id\": \"5dd28775178a4c34b5bae940e0417eb0\", \"contract_version\": \"1.0\", \"domain\": \"code\", \"model_family\": \"gpt\", \"route_snapshot_id\": \"687004a68b0946ea8d30565ec4d11247\", \"objective\": \"Verify fixed source results\", \"method\": \"Check actual evidence\", \"inputs\": [{\"id\": \"input\", \"ref\": \"input/source.txt\", \"sha256\": \"c085f4682fec4d92f3d33578d03c46056ab1bcba7ea957c58eeb22fc63709072\"}], \"constraints\": [{\"id\": \"preserve\", \"text\": \"Preserve sources\", \"mandatory\": true}], \"deliverables\": [{\"id\": \"result\", \"kind\": \"code\", \"write_scope\": \"b/result\", \"require_a_canonical\": false}], \"acceptance\": [{\"id\": \"AC1\", \"mandatory\": true, \"verifier\": \"C\", \"evidence_type\": \"execution\", \"condition\": \"Actual immutable UTF-8 candidate parses with Python ast.parse\", \"semantic\": false}, {\"id\": \"AC2\", \"mandatory\": true, \"verifier\": \"A\", \"evidence_type\": \"review\", \"condition\": \"A judges source support\", \"semantic\": true}], \"dependencies\": [], \"budget\": {\"total_tokens\": 10000, \"reserved_a_tokens\": 2000}, \"b_write_scopes\": [\"b\"], \"a_responsibilities\": [\"problem_modeling\", \"core_reasoning\", \"method_choice\", \"evidence_judgment\", \"final_review\"], \"guidance_depth\": \"ordinary\", \"full_read_required\": false, \"source_unit_ids\": [\"body\"]}, \"active_external_request\": {\"external_request_id\": \"ongoing-request\", \"external_execution_id\": \"ongoing-execution\", \"step_id\": \"74ff09f9aa5143cba4430ab9e22fc194\", \"provider_profile_id\": \"fake-glm\", \"role\": \"B\", \"accepted\": true, \"status\": \"unknown\"}}",
+        "lease_owner": null,
+        "lease_expires_at": null,
+        "started_at": null,
+        "completed_at": null,
+        "created_at": "2026-10-13T13:17:02.750Z",
+        "updated_at": "2026-10-13T13:17:02.834Z"
+      },
+      "steps": [
+        {
+          "id": "74ff09f9aa5143cba4430ab9e22fc194",
+          "task_id": "2bb49ae7bb3d4ac59181904d221519f5",
+          "attempt_id": "5dd28775178a4c34b5bae940e0417eb0",
+          "step_key": "74ff09f9aa5143cba4430ab9e22fc194",
+          "role": "B",
+          "state": "UNKNOWN_REMOTE",
+          "contract_version": "1.0",
+          "provider_profile_id": "fake-glm",
+          "external_request_id": "74ff09f9aa5143cba4430ab9e22fc194",
+          "external_execution_id": "ongoing-execution",
+          "request_json": "{\"task_id\": \"2bb49ae7bb3d4ac59181904d221519f5\", \"attempt_id\": \"5dd28775178a4c34b5bae940e0417eb0\", \"role\": \"B\", \"identity\": {\"adapter\": \"fake\", \"model_id\": \"fixture-glm\", \"family\": \"glm\", \"connection_id\": \"fake-glm\"}, \"prompt_path\": \"C:\\\\Users\\\\asd15\\\\AppData\\\\Local\\\\Temp\\\\D014-stream-acceptance-9py086gb\\\\terminal_failed\\\\workspaces\\\\tasks\\\\2bb49ae7bb3d4ac59181904d221519f5\\\\5dd28775178a4c34b5bae940e0417eb0\\\\b\\\\prompts\\\\74ff09f9aa5143cba4430ab9e22fc194.json\", \"workspace\": \"C:\\\\Users\\\\asd15\\\\AppData\\\\Local\\\\Temp\\\\D014-stream-acceptance-9py086gb\\\\terminal_failed\\\\workspaces\\\\tasks\\\\2bb49ae7bb3d4ac59181904d221519f5\\\\5dd28775178a4c34b5bae940e0417eb0\\\\b\", \"policy_version\": \"1.0\"}",
+          "checkpoint_json": "{\"remote_execution\": {\"external_request_id\": \"ongoing-request\", \"external_execution_id\": \"ongoing-execution\", \"step_id\": \"74ff09f9aa5143cba4430ab9e22fc194\", \"provider_profile_id\": \"fake-glm\", \"role\": \"B\", \"accepted\": true, \"status\": \"unknown\"}, \"provider_events\": 2, \"cancel_requested\": false, \"failure\": \"ConnectionError\"}",
+          "started_at": "2026-10-13T13:17:02.873Z",
+          "completed_at": null,
+          "created_at": "2026-10-13T13:17:02.873Z"
+        }
+      ],
+      "artifacts": [],
+      "checks": [],
+      "B_starts": 1,
+      "A_starts": 0,
+      "observed_before_disconnect": [
+        {
+          "task": {
+            "task_id": "2bb49ae7bb3d4ac59181904d221519f5",
+            "attempt_id": "5dd28775178a4c34b5bae940e0417eb0",
+            "turn_id": "a2758a161eb14b5587a510b514bec55a",
+            "provider_profile_id": "fake-gpt",
+            "contract_version": "1.0",
+            "state": "EXECUTING",
+            "attempt_number": 1,
+            "route_snapshot_json": "{\"adapter_id\": \"fake\", \"attempt_id\": \"5dd28775178a4c34b5bae940e0417eb0\", \"connection_version\": \"test-only\", \"id\": \"687004a68b0946ea8d30565ec4d11247\", \"identity_source\": null, \"identity_status\": \"unknown\", \"locked_at\": \"2026-10-13T13:17:02.750573+00:00\", \"model_family\": \"gpt\", \"model_id\": \"fixture-gpt\", \"policy_version\": \"1.0\", \"provider_id\": \"fake-gpt\", \"route_policy\": \"native\", \"task_id\": \"2bb49ae7bb3d4ac59181904d221519f5\", \"test_only\": true, \"turn_id\": \"a2758a161eb14b5587a510b514bec55a\"}",
+            "external_request_id": "ongoing-request",
+            "external_execution_id": "ongoing-execution",
+            "pid": null,
+            "remote_status": "running",
+            "cancel_requested": 0,
+            "external_stop_confirmed": null,
+            "cancel_pending_remote": 0,
+            "last_sequence": 6,
+            "checkpoint_json": "{\"workflow\": {\"contract_sha256\": \"c459f05d0cf3f125f55ada7fe123e6eb1a8c9191b6c3ee63ead5841cb4ff8a2b\", \"candidate_history\": [], \"current_revision_id\": null, \"review_check_id\": null, \"reviews\": [], \"takeover_leases\": [], \"repair\": {\"policy_version\": \"repair-1\", \"quality_repairs\": 0, \"connection_retries\": 0, \"translation_retries\": 0, \"no_progress\": 0, \"defect_streaks\": {}, \"history\": []}, \"reason_codes\": [], \"upstream_versions\": {}, \"source_context\": [{\"ref\": \"input/source.txt\", \"sha256\": \"c085f4682fec4d92f3d33578d03c46056ab1bcba7ea957c58eeb22fc63709072\", \"content\": \"实际来源字节\", \"trust\": \"untrusted_material\"}], \"last_budget\": {\"allowed\": true, \"reason\": \"OK\", \"remaining_tokens\": 8000}}, \"task_contract\": {\"task_id\": \"2bb49ae7bb3d4ac59181904d221519f5\", \"attempt_id\": \"5dd28775178a4c34b5bae940e0417eb0\", \"contract_version\": \"1.0\", \"domain\": \"code\", \"model_family\": \"gpt\", \"route_snapshot_id\": \"687004a68b0946ea8d30565ec4d11247\", \"objective\": \"Verify fixed source results\", \"method\": \"Check actual evidence\", \"inputs\": [{\"id\": \"input\", \"ref\": \"input/source.txt\", \"sha256\": \"c085f4682fec4d92f3d33578d03c46056ab1bcba7ea957c58eeb22fc63709072\"}], \"constraints\": [{\"id\": \"preserve\", \"text\": \"Preserve sources\", \"mandatory\": true}], \"deliverables\": [{\"id\": \"result\", \"kind\": \"code\", \"write_scope\": \"b/result\", \"require_a_canonical\": false}], \"acceptance\": [{\"id\": \"AC1\", \"mandatory\": true, \"verifier\": \"C\", \"evidence_type\": \"execution\", \"condition\": \"Actual immutable UTF-8 candidate parses with Python ast.parse\", \"semantic\": false}, {\"id\": \"AC2\", \"mandatory\": true, \"verifier\": \"A\", \"evidence_type\": \"review\", \"condition\": \"A judges source support\", \"semantic\": true}], \"dependencies\": [], \"budget\": {\"total_tokens\": 10000, \"reserved_a_tokens\": 2000}, \"b_write_scopes\": [\"b\"], \"a_responsibilities\": [\"problem_modeling\", \"core_reasoning\", \"method_choice\", \"evidence_judgment\", \"final_review\"], \"guidance_depth\": \"ordinary\", \"full_read_required\": false, \"source_unit_ids\": [\"body\"]}, \"active_external_request\": {\"external_request_id\": \"ongoing-request\", \"external_execution_id\": \"ongoing-execution\", \"step_id\": \"74ff09f9aa5143cba4430ab9e22fc194\", \"provider_profile_id\": \"fake-glm\", \"role\": \"B\", \"accepted\": true, \"status\": \"running\"}}",
+            "lease_owner": "workflow:5ae59ecc086c4e92af71f0c0e57ff254",
+            "lease_expires_at": "2026-10-13T13:47:02.782114+00:00",
+            "started_at": null,
+            "completed_at": null,
+            "created_at": "2026-10-13T13:17:02.750Z",
+            "updated_at": "2026-10-13T13:17:02.834Z"
+          },
+          "step": {
+            "id": "74ff09f9aa5143cba4430ab9e22fc194",
+            "task_id": "2bb49ae7bb3d4ac59181904d221519f5",
+            "attempt_id": "5dd28775178a4c34b5bae940e0417eb0",
+            "step_key": "74ff09f9aa5143cba4430ab9e22fc194",
+            "role": "B",
+            "state": "RUNNING",
+            "contract_version": "1.0",
+            "provider_profile_id": "fake-glm",
+            "external_request_id": "74ff09f9aa5143cba4430ab9e22fc194",
+            "external_execution_id": "ongoing-execution",
+            "request_json": "{\"task_id\": \"2bb49ae7bb3d4ac59181904d221519f5\", \"attempt_id\": \"5dd28775178a4c34b5bae940e0417eb0\", \"role\": \"B\", \"identity\": {\"adapter\": \"fake\", \"model_id\": \"fixture-glm\", \"family\": \"glm\", \"connection_id\": \"fake-glm\"}, \"prompt_path\": \"C:\\\\Users\\\\asd15\\\\AppData\\\\Local\\\\Temp\\\\D014-stream-acceptance-9py086gb\\\\terminal_failed\\\\workspaces\\\\tasks\\\\2bb49ae7bb3d4ac59181904d221519f5\\\\5dd28775178a4c34b5bae940e0417eb0\\\\b\\\\prompts\\\\74ff09f9aa5143cba4430ab9e22fc194.json\", \"workspace\": \"C:\\\\Users\\\\asd15\\\\AppData\\\\Local\\\\Temp\\\\D014-stream-acceptance-9py086gb\\\\terminal_failed\\\\workspaces\\\\tasks\\\\2bb49ae7bb3d4ac59181904d221519f5\\\\5dd28775178a4c34b5bae940e0417eb0\\\\b\", \"policy_version\": \"1.0\"}",
+            "checkpoint_json": "{\"remote_execution\": {\"external_request_id\": \"ongoing-request\", \"external_execution_id\": \"ongoing-execution\", \"step_id\": \"74ff09f9aa5143cba4430ab9e22fc194\", \"provider_profile_id\": \"fake-glm\", \"role\": \"B\", \"accepted\": true, \"status\": \"running\"}}",
+            "started_at": "2026-10-13T13:17:02.873Z",
+            "completed_at": null,
+            "created_at": "2026-10-13T13:17:02.873Z"
+          }
+        }
+      ],
+      "usage": {
+        "total_tokens": 15,
+        "known_lower_bound": 15,
+        "unknown_requests": 0,
+        "a_tokens": 0,
+        "qualified_deliveries": 0,
+        "tokens_per_delivery": null,
+        "requests": [
+          {
+            "attempt_id": "5dd28775178a4c34b5bae940e0417eb0",
+            "cumulative_scope": null,
+            "domain": "code",
+            "external_request_id": "74ff09f9aa5143cba4430ab9e22fc194",
+            "function": "execution",
+            "mode": "request_total",
+            "provider": "glm",
+            "provider_profile_id": "fake-glm",
+            "role": "B",
+            "task_id": "2bb49ae7bb3d4ac59181904d221519f5",
+            "status": "failed",
+            "source": "reported",
+            "total_tokens": 15,
+            "events": [
+              {
+                "cumulative_scope": null,
+                "event_id": "usage:74ff09f9aa5143cba4430ab9e22fc194:pending",
+                "mode": "pending",
+                "normalized": {
+                  "components": {},
+                  "mapping_version": "1.0",
+                  "source": "unknown",
+                  "total_tokens": null
+                },
+                "raw": {
+                  "request_start_confirmed": false,
+                  "usage_observed": false
+                },
+                "sequence": 1,
+                "sha256": "643026b1a8c9136b5457ce762b7fc40a61f78b15d9f844fc19c193e453635aca",
+                "status": "running"
+              },
+              {
+                "cumulative_scope": null,
+                "event_id": "usage:74ff09f9aa5143cba4430ab9e22fc194:2",
+                "mode": "request_total",
+                "normalized": {
+                  "components": {
+                    "cached_tokens": null,
+                    "input_tokens": 10,
+                    "output_tokens": 5,
+                    "reasoning_tokens": null
+                  },
+                  "mapping_version": "1.0",
+                  "source": "reported",
+                  "total_tokens": 15
+                },
+                "raw": {
+                  "input_tokens": 10,
+                  "output_tokens": 5
+                },
+                "sequence": 3,
+                "sha256": "1485a54e3e8171435a7ec602b6f9fd68b54562cd98324bb485f9b35abaebca74",
+                "status": "failed"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "terminal_published",
+      "result": {
+        "state": "PUBLISHED",
+        "current_revision_id": null,
+        "review_check_id": null,
+        "quality_repairs": 0,
+        "connection_retries": 0,
+        "translation_retries": 0,
+        "reason_codes": [
+          "TERMINAL_STATE_FENCE"
+        ],
+        "evidence_root": "C:\\Users\\asd15\\AppData\\Local\\Temp\\D014-stream-acceptance-9py086gb\\terminal_published\\workspaces\\tasks\\eff56cb6383f42e3846a022a1ff9f7a0\\5659db7198a74e9dab0cf1d61db00cba\\evidence"
+      },
+      "task": {
+        "task_id": "eff56cb6383f42e3846a022a1ff9f7a0",
+        "attempt_id": "5659db7198a74e9dab0cf1d61db00cba",
+        "turn_id": "4d88d23e15f3498c85a8c957a2a45a38",
+        "provider_profile_id": "fake-gpt",
+        "contract_version": "1.0",
+        "state": "PUBLISHED",
+        "attempt_number": 1,
+        "route_snapshot_json": "{\"adapter_id\": \"fake\", \"attempt_id\": \"5659db7198a74e9dab0cf1d61db00cba\", \"connection_version\": \"test-only\", \"id\": \"4211bbfc49a34f4d90dbb10d5c54990d\", \"identity_source\": null, \"identity_status\": \"unknown\", \"locked_at\": \"2026-10-13T13:17:02.990859+00:00\", \"model_family\": \"gpt\", \"model_id\": \"fixture-gpt\", \"policy_version\": \"1.0\", \"provider_id\": \"fake-gpt\", \"route_policy\": \"native\", \"task_id\": \"eff56cb6383f42e3846a022a1ff9f7a0\", \"test_only\": true, \"turn_id\": \"4d88d23e15f3498c85a8c957a2a45a38\"}",
+        "external_request_id": "ongoing-request",
+        "external_execution_id": "ongoing-execution",
+        "pid": null,
+        "remote_status": "unknown",
+        "cancel_requested": 0,
+        "external_stop_confirmed": null,
+        "cancel_pending_remote": 0,
+        "last_sequence": 7,
+        "checkpoint_json": "{\"workflow\": {\"contract_sha256\": \"4356723644613b1e5b2c6bffd2556c2de3f6f05907cc9803890c2766f7971311\", \"candidate_history\": [], \"current_revision_id\": null, \"review_check_id\": null, \"reviews\": [], \"takeover_leases\": [], \"repair\": {\"policy_version\": \"repair-1\", \"quality_repairs\": 0, \"connection_retries\": 0, \"translation_retries\": 0, \"no_progress\": 0, \"defect_streaks\": {}, \"history\": []}, \"reason_codes\": [\"TERMINAL_STATE_FENCE\"], \"upstream_versions\": {}, \"source_context\": [{\"ref\": \"input/source.txt\", \"sha256\": \"c085f4682fec4d92f3d33578d03c46056ab1bcba7ea957c58eeb22fc63709072\", \"content\": \"实际来源字节\", \"trust\": \"untrusted_material\"}], \"last_budget\": {\"allowed\": true, \"reason\": \"OK\", \"remaining_tokens\": 8000}}, \"task_contract\": {\"task_id\": \"eff56cb6383f42e3846a022a1ff9f7a0\", \"attempt_id\": \"5659db7198a74e9dab0cf1d61db00cba\", \"contract_version\": \"1.0\", \"domain\": \"code\", \"model_family\": \"gpt\", \"route_snapshot_id\": \"4211bbfc49a34f4d90dbb10d5c54990d\", \"objective\": \"Verify fixed source results\", \"method\": \"Check actual evidence\", \"inputs\": [{\"id\": \"input\", \"ref\": \"input/source.txt\", \"sha256\": \"c085f4682fec4d92f3d33578d03c46056ab1bcba7ea957c58eeb22fc63709072\"}], \"constraints\": [{\"id\": \"preserve\", \"text\": \"Preserve sources\", \"mandatory\": true}], \"deliverables\": [{\"id\": \"result\", \"kind\": \"code\", \"write_scope\": \"b/result\", \"require_a_canonical\": false}], \"acceptance\": [{\"id\": \"AC1\", \"mandatory\": true, \"verifier\": \"C\", \"evidence_type\": \"execution\", \"condition\": \"Actual immutable UTF-8 candidate parses with Python ast.parse\", \"semantic\": false}, {\"id\": \"AC2\", \"mandatory\": true, \"verifier\": \"A\", \"evidence_type\": \"review\", \"condition\": \"A judges source support\", \"semantic\": true}], \"dependencies\": [], \"budget\": {\"total_tokens\": 10000, \"reserved_a_tokens\": 2000}, \"b_write_scopes\": [\"b\"], \"a_responsibilities\": [\"problem_modeling\", \"core_reasoning\", \"method_choice\", \"evidence_judgment\", \"final_review\"], \"guidance_depth\": \"ordinary\", \"full_read_required\": false, \"source_unit_ids\": [\"body\"]}, \"active_external_request\": {\"external_request_id\": \"ongoing-request\", \"external_execution_id\": \"ongoing-execution\", \"step_id\": \"a45b6b5fd41443b6a447286b3d3dc9be\", \"provider_profile_id\": \"fake-glm\", \"role\": \"B\", \"accepted\": true, \"status\": \"unknown\"}}",
+        "lease_owner": null,
+        "lease_expires_at": null,
+        "started_at": null,
+        "completed_at": null,
+        "created_at": "2026-10-13T13:17:02.990Z",
+        "updated_at": "2026-10-13T13:17:03.080Z"
+      },
+      "steps": [
+        {
+          "id": "a45b6b5fd41443b6a447286b3d3dc9be",
+          "task_id": "eff56cb6383f42e3846a022a1ff9f7a0",
+          "attempt_id": "5659db7198a74e9dab0cf1d61db00cba",
+          "step_key": "a45b6b5fd41443b6a447286b3d3dc9be",
+          "role": "B",
+          "state": "UNKNOWN_REMOTE",
+          "contract_version": "1.0",
+          "provider_profile_id": "fake-glm",
+          "external_request_id": "a45b6b5fd41443b6a447286b3d3dc9be",
+          "external_execution_id": "ongoing-execution",
+          "request_json": "{\"task_id\": \"eff56cb6383f42e3846a022a1ff9f7a0\", \"attempt_id\": \"5659db7198a74e9dab0cf1d61db00cba\", \"role\": \"B\", \"identity\": {\"adapter\": \"fake\", \"model_id\": \"fixture-glm\", \"family\": \"glm\", \"connection_id\": \"fake-glm\"}, \"prompt_path\": \"C:\\\\Users\\\\asd15\\\\AppData\\\\Local\\\\Temp\\\\D014-stream-acceptance-9py086gb\\\\terminal_published\\\\workspaces\\\\tasks\\\\eff56cb6383f42e3846a022a1ff9f7a0\\\\5659db7198a74e9dab0cf1d61db00cba\\\\b\\\\prompts\\\\a45b6b5fd41443b6a447286b3d3dc9be.json\", \"workspace\": \"C:\\\\Users\\\\asd15\\\\AppData\\\\Local\\\\Temp\\\\D014-stream-acceptance-9py086gb\\\\terminal_published\\\\workspaces\\\\tasks\\\\eff56cb6383f42e3846a022a1ff9f7a0\\\\5659db7198a74e9dab0cf1d61db00cba\\\\b\", \"policy_version\": \"1.0\"}",
+          "checkpoint_json": "{\"remote_execution\": {\"external_request_id\": \"ongoing-request\", \"external_execution_id\": \"ongoing-execution\", \"step_id\": \"a45b6b5fd41443b6a447286b3d3dc9be\", \"provider_profile_id\": \"fake-glm\", \"role\": \"B\", \"accepted\": true, \"status\": \"unknown\"}, \"provider_events\": 2, \"cancel_requested\": false, \"failure\": \"ConnectionError\"}",
+          "started_at": "2026-10-13T13:17:03.118Z",
+          "completed_at": null,
+          "created_at": "2026-10-13T13:17:03.118Z"
+        }
+      ],
+      "artifacts": [],
+      "checks": [],
+      "B_starts": 1,
+      "A_starts": 0,
+      "observed_before_disconnect": [
+        {
+          "task": {
+            "task_id": "eff56cb6383f42e3846a022a1ff9f7a0",
+            "attempt_id": "5659db7198a74e9dab0cf1d61db00cba",
+            "turn_id": "4d88d23e15f3498c85a8c957a2a45a38",
+            "provider_profile_id": "fake-gpt",
+            "contract_version": "1.0",
+            "state": "EXECUTING",
+            "attempt_number": 1,
+            "route_snapshot_json": "{\"adapter_id\": \"fake\", \"attempt_id\": \"5659db7198a74e9dab0cf1d61db00cba\", \"connection_version\": \"test-only\", \"id\": \"4211bbfc49a34f4d90dbb10d5c54990d\", \"identity_source\": null, \"identity_status\": \"unknown\", \"locked_at\": \"2026-10-13T13:17:02.990859+00:00\", \"model_family\": \"gpt\", \"model_id\": \"fixture-gpt\", \"policy_version\": \"1.0\", \"provider_id\": \"fake-gpt\", \"route_policy\": \"native\", \"task_id\": \"eff56cb6383f42e3846a022a1ff9f7a0\", \"test_only\": true, \"turn_id\": \"4d88d23e15f3498c85a8c957a2a45a38\"}",
+            "external_request_id": "ongoing-request",
+            "external_execution_id": "ongoing-execution",
+            "pid": null,
+            "remote_status": "running",
+            "cancel_requested": 0,
+            "external_stop_confirmed": null,
+            "cancel_pending_remote": 0,
+            "last_sequence": 6,
+            "checkpoint_json": "{\"workflow\": {\"contract_sha256\": \"4356723644613b1e5b2c6bffd2556c2de3f6f05907cc9803890c2766f7971311\", \"candidate_history\": [], \"current_revision_id\": null, \"review_check_id\": null, \"reviews\": [], \"takeover_leases\": [], \"repair\": {\"policy_version\": \"repair-1\", \"quality_repairs\": 0, \"connection_retries\": 0, \"translation_retries\": 0, \"no_progress\": 0, \"defect_streaks\": {}, \"history\": []}, \"reason_codes\": [], \"upstream_versions\": {}, \"source_context\": [{\"ref\": \"input/source.txt\", \"sha256\": \"c085f4682fec4d92f3d33578d03c46056ab1bcba7ea957c58eeb22fc63709072\", \"content\": \"实际来源字节\", \"trust\": \"untrusted_material\"}], \"last_budget\": {\"allowed\": true, \"reason\": \"OK\", \"remaining_tokens\": 8000}}, \"task_contract\": {\"task_id\": \"eff56cb6383f42e3846a022a1ff9f7a0\", \"attempt_id\": \"5659db7198a74e9dab0cf1d61db00cba\", \"contract_version\": \"1.0\", \"domain\": \"code\", \"model_family\": \"gpt\", \"route_snapshot_id\": \"4211bbfc49a34f4d90dbb10d5c54990d\", \"objective\": \"Verify fixed source results\", \"method\": \"Check actual evidence\", \"inputs\": [{\"id\": \"input\", \"ref\": \"input/source.txt\", \"sha256\": \"c085f4682fec4d92f3d33578d03c46056ab1bcba7ea957c58eeb22fc63709072\"}], \"constraints\": [{\"id\": \"preserve\", \"text\": \"Preserve sources\", \"mandatory\": true}], \"deliverables\": [{\"id\": \"result\", \"kind\": \"code\", \"write_scope\": \"b/result\", \"require_a_canonical\": false}], \"acceptance\": [{\"id\": \"AC1\", \"mandatory\": true, \"verifier\": \"C\", \"evidence_type\": \"execution\", \"condition\": \"Actual immutable UTF-8 candidate parses with Python ast.parse\", \"semantic\": false}, {\"id\": \"AC2\", \"mandatory\": true, \"verifier\": \"A\", \"evidence_type\": \"review\", \"condition\": \"A judges source support\", \"semantic\": true}], \"dependencies\": [], \"budget\": {\"total_tokens\": 10000, \"reserved_a_tokens\": 2000}, \"b_write_scopes\": [\"b\"], \"a_responsibilities\": [\"problem_modeling\", \"core_reasoning\", \"method_choice\", \"evidence_judgment\", \"final_review\"], \"guidance_depth\": \"ordinary\", \"full_read_required\": false, \"source_unit_ids\": [\"body\"]}, \"active_external_request\": {\"external_request_id\": \"ongoing-request\", \"external_execution_id\": \"ongoing-execution\", \"step_id\": \"a45b6b5fd41443b6a447286b3d3dc9be\", \"provider_profile_id\": \"fake-glm\", \"role\": \"B\", \"accepted\": true, \"status\": \"running\"}}",
+            "lease_owner": "workflow:dd2078f2821f4bfe9e985a7314d3df9f",
+            "lease_expires_at": "2026-10-13T13:47:03.024335+00:00",
+            "started_at": null,
+            "completed_at": null,
+            "created_at": "2026-10-13T13:17:02.990Z",
+            "updated_at": "2026-10-13T13:17:03.080Z"
+          },
+          "step": {
+            "id": "a45b6b5fd41443b6a447286b3d3dc9be",
+            "task_id": "eff56cb6383f42e3846a022a1ff9f7a0",
+            "attempt_id": "5659db7198a74e9dab0cf1d61db00cba",
+            "step_key": "a45b6b5fd41443b6a447286b3d3dc9be",
+            "role": "B",
+            "state": "RUNNING",
+            "contract_version": "1.0",
+            "provider_profile_id": "fake-glm",
+            "external_request_id": "a45b6b5fd41443b6a447286b3d3dc9be",
+            "external_execution_id": "ongoing-execution",
+            "request_json": "{\"task_id\": \"eff56cb6383f42e3846a022a1ff9f7a0\", \"attempt_id\": \"5659db7198a74e9dab0cf1d61db00cba\", \"role\": \"B\", \"identity\": {\"adapter\": \"fake\", \"model_id\": \"fixture-glm\", \"family\": \"glm\", \"connection_id\": \"fake-glm\"}, \"prompt_path\": \"C:\\\\Users\\\\asd15\\\\AppData\\\\Local\\\\Temp\\\\D014-stream-acceptance-9py086gb\\\\terminal_published\\\\workspaces\\\\tasks\\\\eff56cb6383f42e3846a022a1ff9f7a0\\\\5659db7198a74e9dab0cf1d61db00cba\\\\b\\\\prompts\\\\a45b6b5fd41443b6a447286b3d3dc9be.json\", \"workspace\": \"C:\\\\Users\\\\asd15\\\\AppData\\\\Local\\\\Temp\\\\D014-stream-acceptance-9py086gb\\\\terminal_published\\\\workspaces\\\\tasks\\\\eff56cb6383f42e3846a022a1ff9f7a0\\\\5659db7198a74e9dab0cf1d61db00cba\\\\b\", \"policy_version\": \"1.0\"}",
+            "checkpoint_json": "{\"remote_execution\": {\"external_request_id\": \"ongoing-request\", \"external_execution_id\": \"ongoing-execution\", \"step_id\": \"a45b6b5fd41443b6a447286b3d3dc9be\", \"provider_profile_id\": \"fake-glm\", \"role\": \"B\", \"accepted\": true, \"status\": \"running\"}}",
+            "started_at": "2026-10-13T13:17:03.118Z",
+            "completed_at": null,
+            "created_at": "2026-10-13T13:17:03.118Z"
+          }
+        }
+      ],
+      "usage": {
+        "total_tokens": 15,
+        "known_lower_bound": 15,
+        "unknown_requests": 0,
+        "a_tokens": 0,
+        "qualified_deliveries": 0,
+        "tokens_per_delivery": null,
+        "requests": [
+          {
+            "attempt_id": "5659db7198a74e9dab0cf1d61db00cba",
+            "cumulative_scope": null,
+            "domain": "code",
+            "external_request_id": "a45b6b5fd41443b6a447286b3d3dc9be",
+            "function": "execution",
+            "mode": "request_total",
+            "provider": "glm",
+            "provider_profile_id": "fake-glm",
+            "role": "B",
+            "task_id": "eff56cb6383f42e3846a022a1ff9f7a0",
+            "status": "failed",
+            "source": "reported",
+            "total_tokens": 15,
+            "events": [
+              {
+                "cumulative_scope": null,
+                "event_id": "usage:a45b6b5fd41443b6a447286b3d3dc9be:pending",
+                "mode": "pending",
+                "normalized": {
+                  "components": {},
+                  "mapping_version": "1.0",
+                  "source": "unknown",
+                  "total_tokens": null
+                },
+                "raw": {
+                  "request_start_confirmed": false,
+                  "usage_observed": false
+                },
+                "sequence": 1,
+                "sha256": "e55f0925cb700100f35d509da2de7d2173021e7ad6e570ef5c5d8ca2c57b9ba9",
+                "status": "running"
+              },
+              {
+                "cumulative_scope": null,
+                "event_id": "usage:a45b6b5fd41443b6a447286b3d3dc9be:2",
+                "mode": "request_total",
+                "normalized": {
+                  "components": {
+                    "cached_tokens": null,
+                    "input_tokens": 10,
+                    "output_tokens": 5,
+                    "reasoning_tokens": null
+                  },
+                  "mapping_version": "1.0",
+                  "source": "reported",
+                  "total_tokens": 15
+                },
+                "raw": {
+                  "input_tokens": 10,
+                  "output_tokens": 5
+                },
+                "sequence": 3,
+                "sha256": "13c27299940cf658051d4eda8285caa257d867413ec9e63f5375747b048580e6",
+                "status": "failed"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "claude_b_original_context",
+      "result": {
+        "state": "BLOCKED",
+        "current_revision_id": null,
+        "review_check_id": null,
+        "quality_repairs": 0,
+        "connection_retries": 0,
+        "translation_retries": 0,
+        "reason_codes": [
+          "CLAUDE_REQUEST_CONTEXT_GATE_MISSING"
+        ],
+        "evidence_root": "C:\\Users\\asd15\\AppData\\Local\\Temp\\D014-stream-acceptance-9py086gb\\claude_b_original_context\\workspaces\\tasks\\1eafd7326c71414786989bcd4db0d697\\a5e8c93c8c2245f7b44b732aa71d0c89\\evidence"
+      },
+      "task": {
+        "task_id": "1eafd7326c71414786989bcd4db0d697",
+        "attempt_id": "a5e8c93c8c2245f7b44b732aa71d0c89",
+        "turn_id": "ec4a488df8d34166ad7a6c795f89243f",
+        "provider_profile_id": "fake-gpt",
+        "contract_version": "1.0",
+        "state": "BLOCKED",
+        "attempt_number": 1,
+        "route_snapshot_json": "{\"adapter_id\": \"fake\", \"attempt_id\": \"a5e8c93c8c2245f7b44b732aa71d0c89\", \"connection_version\": \"test-only\", \"id\": \"9d63df55d60c40b0bb3ddb50b5e05f8d\", \"identity_source\": null, \"identity_status\": \"unknown\", \"locked_at\": \"2026-10-13T13:17:03.234912+00:00\", \"model_family\": \"gpt\", \"model_id\": \"fixture-gpt\", \"policy_version\": \"1.0\", \"provider_id\": \"fake-gpt\", \"route_policy\": \"native\", \"task_id\": \"1eafd7326c71414786989bcd4db0d697\", \"test_only\": true, \"turn_id\": \"ec4a488df8d34166ad7a6c795f89243f\"}",
+        "external_request_id": null,
+        "external_execution_id": null,
+        "pid": null,
+        "remote_status": "unknown",
+        "cancel_requested": 0,
+        "external_stop_confirmed": null,
+        "cancel_pending_remote": 0,
+        "last_sequence": 7,
+        "checkpoint_json": "{\"workflow\": {\"contract_sha256\": \"8ed25ba6e78bb5dfaa76030149b47980156b128404c6e35bf3312f9af45bcb3e\", \"candidate_history\": [], \"current_revision_id\": null, \"review_check_id\": null, \"reviews\": [], \"takeover_leases\": [], \"repair\": {\"policy_version\": \"repair-1\", \"quality_repairs\": 0, \"connection_retries\": 0, \"translation_retries\": 0, \"no_progress\": 0, \"defect_streaks\": {}, \"history\": []}, \"reason_codes\": [\"CLAUDE_REQUEST_CONTEXT_GATE_MISSING\"], \"upstream_versions\": {}, \"source_context\": [{\"ref\": \"input/source.txt\", \"sha256\": \"c085f4682fec4d92f3d33578d03c46056ab1bcba7ea957c58eeb22fc63709072\", \"content\": \"实际来源字节\", \"trust\": \"untrusted_material\"}], \"last_budget\": {\"allowed\": true, \"reason\": \"OK\", \"remaining_tokens\": 8000}}, \"task_contract\": {\"task_id\": \"1eafd7326c71414786989bcd4db0d697\", \"attempt_id\": \"a5e8c93c8c2245f7b44b732aa71d0c89\", \"contract_version\": \"1.0\", \"domain\": \"code\", \"model_family\": \"gpt\", \"route_snapshot_id\": \"9d63df55d60c40b0bb3ddb50b5e05f8d\", \"objective\": \"Verify fixed source results\", \"method\": \"Check actual evidence\", \"inputs\": [{\"id\": \"input\", \"ref\": \"input/source.txt\", \"sha256\": \"c085f4682fec4d92f3d33578d03c46056ab1bcba7ea957c58eeb22fc63709072\"}], \"constraints\": [{\"id\": \"preserve\", \"text\": \"Preserve sources\", \"mandatory\": true}], \"deliverables\": [{\"id\": \"result\", \"kind\": \"code\", \"write_scope\": \"b/result\", \"require_a_canonical\": false}], \"acceptance\": [{\"id\": \"AC1\", \"mandatory\": true, \"verifier\": \"C\", \"evidence_type\": \"execution\", \"condition\": \"Actual immutable UTF-8 candidate parses with Python ast.parse\", \"semantic\": false}, {\"id\": \"AC2\", \"mandatory\": true, \"verifier\": \"A\", \"evidence_type\": \"review\", \"condition\": \"A judges source support\", \"semantic\": true}], \"dependencies\": [], \"budget\": {\"total_tokens\": 10000, \"reserved_a_tokens\": 2000}, \"b_write_scopes\": [\"b\"], \"a_responsibilities\": [\"problem_modeling\", \"core_reasoning\", \"method_choice\", \"evidence_judgment\", \"final_review\"], \"guidance_depth\": \"ordinary\", \"full_read_required\": false, \"source_unit_ids\": [\"body\"]}}",
+        "lease_owner": null,
+        "lease_expires_at": null,
+        "started_at": null,
+        "completed_at": null,
+        "created_at": "2026-10-13T13:17:03.234Z",
+        "updated_at": "2026-10-13T13:17:03.340Z"
+      },
+      "steps": [],
+      "artifacts": [],
+      "checks": [],
+      "B_starts": 0,
+      "A_starts": 0,
+      "observed_before_disconnect": [],
+      "usage": {
+        "total_tokens": 0,
+        "known_lower_bound": 0,
+        "unknown_requests": 0,
+        "a_tokens": 0,
+        "qualified_deliveries": 0,
+        "tokens_per_delivery": null,
+        "requests": []
+      }
+    },
+    {
+      "name": "missing_ids_cancel",
+      "result": {
+        "state": "BLOCKED",
+        "current_revision_id": null,
+        "review_check_id": null,
+        "quality_repairs": 0,
+        "connection_retries": 0,
+        "translation_retries": 0,
+        "reason_codes": [
+          "UNKNOWN_REMOTE"
+        ],
+        "evidence_root": "C:\\Users\\asd15\\AppData\\Local\\Temp\\D014-stream-acceptance-9py086gb\\missing_ids_cancel\\workspaces\\tasks\\6d3e6299fdc043c5944502f97c7a3607\\99996d55c57f4d628b43b3bda7b52f5a\\evidence"
+      },
+      "task": {
+        "task_id": "6d3e6299fdc043c5944502f97c7a3607",
+        "attempt_id": "99996d55c57f4d628b43b3bda7b52f5a",
+        "turn_id": "a324e1db2d994e3eae6e7a8b214639b4",
+        "provider_profile_id": "fake-gpt",
+        "contract_version": "1.0",
+        "state": "CANCELLED",
+        "attempt_number": 1,
+        "route_snapshot_json": "{\"adapter_id\": \"fake\", \"attempt_id\": \"99996d55c57f4d628b43b3bda7b52f5a\", \"connection_version\": \"test-only\", \"id\": \"4ceebabc535c48b3a63deee94b10c689\", \"identity_source\": null, \"identity_status\": \"unknown\", \"locked_at\": \"2026-10-13T13:17:03.404728+00:00\", \"model_family\": \"gpt\", \"model_id\": \"fixture-gpt\", \"policy_version\": \"1.0\", \"provider_id\": \"fake-gpt\", \"route_policy\": \"native\", \"task_id\": \"6d3e6299fdc043c5944502f97c7a3607\", \"test_only\": true, \"turn_id\": \"a324e1db2d994e3eae6e7a8b214639b4\"}",
+        "external_request_id": null,
+        "external_execution_id": null,
+        "pid": null,
+        "remote_status": "unknown",
+        "cancel_requested": 1,
+        "external_stop_confirmed": null,
+        "cancel_pending_remote": 1,
+        "last_sequence": 9,
+        "checkpoint_json": "{\"workflow\": {\"contract_sha256\": \"78b1cb02d343620cd6f8081a3b883506f0c640436e0e59bd1b2f69938567fdda\", \"candidate_history\": [], \"current_revision_id\": null, \"review_check_id\": null, \"reviews\": [], \"takeover_leases\": [], \"repair\": {\"policy_version\": \"repair-1\", \"quality_repairs\": 0, \"connection_retries\": 0, \"translation_retries\": 0, \"no_progress\": 0, \"defect_streaks\": {}, \"history\": []}, \"reason_codes\": [\"UNKNOWN_REMOTE\"], \"upstream_versions\": {}, \"source_context\": [{\"ref\": \"input/source.txt\", \"sha256\": \"c085f4682fec4d92f3d33578d03c46056ab1bcba7ea957c58eeb22fc63709072\", \"content\": \"实际来源字节\", \"trust\": \"untrusted_material\"}], \"last_budget\": {\"allowed\": true, \"reason\": \"OK\", \"remaining_tokens\": 8000}}, \"task_contract\": {\"task_id\": \"6d3e6299fdc043c5944502f97c7a3607\", \"attempt_id\": \"99996d55c57f4d628b43b3bda7b52f5a\", \"contract_version\": \"1.0\", \"domain\": \"code\", \"model_family\": \"gpt\", \"route_snapshot_id\": \"4ceebabc535c48b3a63deee94b10c689\", \"objective\": \"Verify fixed source results\", \"method\": \"Check actual evidence\", \"inputs\": [{\"id\": \"input\", \"ref\": \"input/source.txt\", \"sha256\": \"c085f4682fec4d92f3d33578d03c46056ab1bcba7ea957c58eeb22fc63709072\"}], \"constraints\": [{\"id\": \"preserve\", \"text\": \"Preserve sources\", \"mandatory\": true}], \"deliverables\": [{\"id\": \"result\", \"kind\": \"code\", \"write_scope\": \"b/result\", \"require_a_canonical\": false}], \"acceptance\": [{\"id\": \"AC1\", \"mandatory\": true, \"verifier\": \"C\", \"evidence_type\": \"execution\", \"condition\": \"Actual immutable UTF-8 candidate parses with Python ast.parse\", \"semantic\": false}, {\"id\": \"AC2\", \"mandatory\": true, \"verifier\": \"A\", \"evidence_type\": \"review\", \"condition\": \"A judges source support\", \"semantic\": true}], \"dependencies\": [], \"budget\": {\"total_tokens\": 10000, \"reserved_a_tokens\": 2000}, \"b_write_scopes\": [\"b\"], \"a_responsibilities\": [\"problem_modeling\", \"core_reasoning\", \"method_choice\", \"evidence_judgment\", \"final_review\"], \"guidance_depth\": \"ordinary\", \"full_read_required\": false, \"source_unit_ids\": [\"body\"]}, \"active_external_request\": {\"external_request_id\": null, \"external_execution_id\": null, \"step_id\": \"9501582c924a4798872fc1514bf54a86\", \"provider_profile_id\": \"fake-glm\", \"role\": \"B\", \"accepted\": true, \"status\": \"unknown\"}}",
+        "lease_owner": null,
+        "lease_expires_at": null,
+        "started_at": null,
+        "completed_at": null,
+        "created_at": "2026-10-13T13:17:03.404Z",
+        "updated_at": "2026-10-13T13:17:03.554Z"
+      },
+      "steps": [
+        {
+          "id": "9501582c924a4798872fc1514bf54a86",
+          "task_id": "6d3e6299fdc043c5944502f97c7a3607",
+          "attempt_id": "99996d55c57f4d628b43b3bda7b52f5a",
+          "step_key": "9501582c924a4798872fc1514bf54a86",
+          "role": "B",
+          "state": "UNKNOWN_REMOTE",
+          "contract_version": "1.0",
+          "provider_profile_id": "fake-glm",
+          "external_request_id": "9501582c924a4798872fc1514bf54a86",
+          "external_execution_id": null,
+          "request_json": "{\"task_id\": \"6d3e6299fdc043c5944502f97c7a3607\", \"attempt_id\": \"99996d55c57f4d628b43b3bda7b52f5a\", \"role\": \"B\", \"identity\": {\"adapter\": \"fake\", \"model_id\": \"fixture-glm\", \"family\": \"glm\", \"connection_id\": \"fake-glm\"}, \"prompt_path\": \"C:\\\\Users\\\\asd15\\\\AppData\\\\Local\\\\Temp\\\\D014-stream-acceptance-9py086gb\\\\missing_ids_cancel\\\\workspaces\\\\tasks\\\\6d3e6299fdc043c5944502f97c7a3607\\\\99996d55c57f4d628b43b3bda7b52f5a\\\\b\\\\prompts\\\\9501582c924a4798872fc1514bf54a86.json\", \"workspace\": \"C:\\\\Users\\\\asd15\\\\AppData\\\\Local\\\\Temp\\\\D014-stream-acceptance-9py086gb\\\\missing_ids_cancel\\\\workspaces\\\\tasks\\\\6d3e6299fdc043c5944502f97c7a3607\\\\99996d55c57f4d628b43b3bda7b52f5a\\\\b\", \"policy_version\": \"1.0\"}",
+          "checkpoint_json": "{\"remote_execution\": {\"external_request_id\": null, \"external_execution_id\": null, \"step_id\": \"9501582c924a4798872fc1514bf54a86\", \"provider_profile_id\": \"fake-glm\", \"role\": \"B\", \"accepted\": true, \"status\": \"unknown\"}, \"provider_events\": 1, \"cancel_requested\": false, \"failure\": null}",
+          "started_at": "2026-10-13T13:17:03.519Z",
+          "completed_at": null,
+          "created_at": "2026-10-13T13:17:03.519Z"
+        }
+      ],
+      "artifacts": [],
+      "checks": [],
+      "B_starts": 1,
+      "A_starts": 0,
+      "observed_before_disconnect": [],
+      "usage": {
+        "total_tokens": null,
+        "known_lower_bound": 0,
+        "unknown_requests": 1,
+        "a_tokens": 0,
+        "qualified_deliveries": 0,
+        "tokens_per_delivery": null,
+        "requests": [
+          {
+            "attempt_id": "99996d55c57f4d628b43b3bda7b52f5a",
+            "cumulative_scope": null,
+            "domain": "code",
+            "external_request_id": "9501582c924a4798872fc1514bf54a86",
+            "function": "execution",
+            "mode": "request_total",
+            "provider": "glm",
+            "provider_profile_id": "fake-glm",
+            "role": "B",
+            "task_id": "6d3e6299fdc043c5944502f97c7a3607",
+            "status": "failed",
+            "source": "unknown",
+            "total_tokens": null,
+            "events": [
+              {
+                "cumulative_scope": null,
+                "event_id": "usage:9501582c924a4798872fc1514bf54a86:pending",
+                "mode": "pending",
+                "normalized": {
+                  "components": {},
+                  "mapping_version": "1.0",
+                  "source": "unknown",
+                  "total_tokens": null
+                },
+                "raw": {
+                  "request_start_confirmed": false,
+                  "usage_observed": false
+                },
+                "sequence": 1,
+                "sha256": "db4ee531eb22348538bb57ba7026ab8ced9ea96c724a5cefb35d1220a723a55e",
+                "status": "running"
+              },
+              {
+                "cumulative_scope": null,
+                "event_id": "usage:9501582c924a4798872fc1514bf54a86:1",
+                "mode": "request_total",
+                "normalized": {
+                  "components": {},
+                  "mapping_version": "1.0",
+                  "source": "unknown",
+                  "total_tokens": null
+                },
+                "raw": {},
+                "sequence": 2,
+                "sha256": "18d6741a95e6c1737b4d1dc55948c35b4fac1684c7d5178c6115dcc1335916c1",
+                "status": "failed"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "provider_completed_success",
+      "result": {
+        "state": "OUTPUT_PREPARING",
+        "current_revision_id": "candidate-b76f5ced2208441f82955affbdbf2c89",
+        "review_check_id": "A-review-63caf629fea54203bf34808a7b167fd4",
+        "quality_repairs": 0,
+        "connection_retries": 0,
+        "translation_retries": 0,
+        "reason_codes": [],
+        "evidence_root": "C:\\Users\\asd15\\AppData\\Local\\Temp\\D014-stream-acceptance-9py086gb\\provider_completed_success\\workspaces\\tasks\\a6c35043827f4c2a95bfe538b96150d9\\f3d2dad87c994c2c816eb096ef82f5ed\\evidence"
+      },
+      "task": {
+        "task_id": "a6c35043827f4c2a95bfe538b96150d9",
+        "attempt_id": "f3d2dad87c994c2c816eb096ef82f5ed",
+        "turn_id": "217e13948e2140b29f2dca8622b4116f",
+        "provider_profile_id": "fake-gpt",
+        "contract_version": "1.0",
+        "state": "OUTPUT_PREPARING",
+        "attempt_number": 1,
+        "route_snapshot_json": "{\"adapter_id\": \"fake\", \"attempt_id\": \"f3d2dad87c994c2c816eb096ef82f5ed\", \"connection_version\": \"test-only\", \"id\": \"aad51901cedf4fb8a1d838b3ebcb4373\", \"identity_source\": null, \"identity_status\": \"unknown\", \"locked_at\": \"2026-10-13T13:17:03.624760+00:00\", \"model_family\": \"gpt\", \"model_id\": \"fixture-gpt\", \"policy_version\": \"1.0\", \"provider_id\": \"fake-gpt\", \"route_policy\": \"native\", \"task_id\": \"a6c35043827f4c2a95bfe538b96150d9\", \"test_only\": true, \"turn_id\": \"217e13948e2140b29f2dca8622b4116f\"}",
+        "external_request_id": "remote-request-424d5f935a194626bea562246f6b1598",
+        "external_execution_id": "remote-execution-7a51969ad43c42f9a0ba5556873a79df",
+        "pid": null,
+        "remote_status": "completed",
+        "cancel_requested": 0,
+        "external_stop_confirmed": null,
+        "cancel_pending_remote": 0,
+        "last_sequence": 16,
+        "checkpoint_json": "{\"workflow\":{\"contract_sha256\":\"968adc9ec422e2d77d70d805d8b9c7fbb53abf87e887e2ea73d2271489a2126c\",\"candidate_history\":[{\"revision_id\":\"candidate-b76f5ced2208441f82955affbdbf2c89\",\"byte_sha256\":\"60e9f026310f80bf7c28b048feba20e940d1ee104fe9aa2164260ff1722b317d\",\"role\":\"B\",\"step_id\":\"424d5f935a194626bea562246f6b1598\",\"previous_revision_id\":null}],\"current_revision_id\":\"candidate-b76f5ced2208441f82955affbdbf2c89\",\"review_check_id\":\"A-review-63caf629fea54203bf34808a7b167fd4\",\"reviews\":[{\"contract\":{\"task_id\":\"a6c35043827f4c2a95bfe538b96150d9\",\"attempt_id\":\"f3d2dad87c994c2c816eb096ef82f5ed\",\"contract_version\":\"1.0\",\"domain\":\"code\",\"model_family\":\"gpt\",\"route_snapshot_id\":\"aad51901cedf4fb8a1d838b3ebcb4373\",\"objective\":\"Verify fixed source results\",\"method\":\"Check actual evidence\",\"inputs\":[{\"id\":\"input\",\"ref\":\"input/source.txt\",\"sha256\":\"c085f4682fec4d92f3d33578d03c46056ab1bcba7ea957c58eeb22fc63709072\"}],\"constraints\":[{\"id\":\"preserve\",\"text\":\"Preserve sources\",\"mandatory\":true}],\"deliverables\":[{\"id\":\"result\",\"kind\":\"code\",\"write_scope\":\"b/result\",\"require_a_canonical\":false}],\"acceptance\":[{\"id\":\"AC1\",\"mandatory\":true,\"verifier\":\"C\",\"evidence_type\":\"execution\",\"condition\":\"Actual immutable UTF-8 candidate parses with Python ast.parse\",\"semantic\":false},{\"id\":\"AC2\",\"mandatory\":true,\"verifier\":\"A\",\"evidence_type\":\"review\",\"condition\":\"A judges source support\",\"semantic\":true}],\"dependencies\":[],\"budget\":{\"total_tokens\":10000,\"reserved_a_tokens\":2000},\"b_write_scopes\":[\"b\"],\"a_responsibilities\":[\"problem_modeling\",\"core_reasoning\",\"method_choice\",\"evidence_judgment\",\"final_review\"],\"guidance_depth\":\"ordinary\",\"full_read_required\":false,\"source_unit_ids\":[\"body\"]},\"decision\":{\"task_id\":\"a6c35043827f4c2a95bfe538b96150d9\",\"attempt_id\":\"f3d2dad87c994c2c816eb096ef82f5ed\",\"contract_version\":\"1.0\",\"contract_sha256\":\"968adc9ec422e2d77d70d805d8b9c7fbb53abf87e887e2ea73d2271489a2126c\",\"reviewer\":\"A\",\"decision\":\"PASS\",\"revision_id\":\"candidate-b76f5ced2208441f82955affbdbf2c89\",\"evidence\":[{\"criterion_id\":\"AC1\",\"revision_id\":\"candidate-b76f5ced2208441f82955affbdbf2c89\",\"ref\":\"af2ae40c85bb4d0db07df2e56760c1e3.json\",\"sha256\":\"de933700240e79346210476a3b6097357f94f8e2ea5d2f6e1a0538b8e5d8c891\",\"verifier\":\"C\",\"passed\":true},{\"criterion_id\":\"AC2\",\"revision_id\":\"candidate-b76f5ced2208441f82955affbdbf2c89\",\"ref\":\"d751c6cb11094aa483b31845f8dfa7ca.json\",\"sha256\":\"ad137f2540ad85bb6b3e7fb1b39e0a226bac1885f7beeb1491380db0a0c0b290\",\"verifier\":\"A\",\"passed\":true}],\"read_unit_ids\":[],\"source_refs\":[\"input/source.txt\"],\"sampling_note\":null,\"canonical_author\":null,\"a_response_ref\":null,\"issues\":[]},\"gate\":{\"decision\":\"PASS\",\"eligible_for_output\":true,\"missing_criteria\":[],\"reason_codes\":[]},\"evidence_root\":\"C:\\\\Users\\\\asd15\\\\AppData\\\\Local\\\\Temp\\\\D014-stream-acceptance-9py086gb\\\\provider_completed_success\\\\workspaces\\\\tasks\\\\a6c35043827f4c2a95bfe538b96150d9\\\\f3d2dad87c994c2c816eb096ef82f5ed\\\\evidence\",\"a_step_id\":\"7a51969ad43c42f9a0ba5556873a79df\"}],\"takeover_leases\":[],\"repair\":{\"policy_version\":\"repair-1\",\"quality_repairs\":0,\"connection_retries\":0,\"translation_retries\":0,\"no_progress\":0,\"defect_streaks\":{},\"history\":[]},\"reason_codes\":[],\"upstream_versions\":{},\"source_context\":[{\"ref\":\"input/source.txt\",\"sha256\":\"c085f4682fec4d92f3d33578d03c46056ab1bcba7ea957c58eeb22fc63709072\",\"content\":\"实际来源字节\",\"trust\":\"untrusted_material\"}],\"last_budget\":{\"allowed\":true,\"reason\":\"OK\",\"remaining_tokens\":9985}},\"task_contract\":{\"task_id\":\"a6c35043827f4c2a95bfe538b96150d9\",\"attempt_id\":\"f3d2dad87c994c2c816eb096ef82f5ed\",\"contract_version\":\"1.0\",\"domain\":\"code\",\"model_family\":\"gpt\",\"route_snapshot_id\":\"aad51901cedf4fb8a1d838b3ebcb4373\",\"objective\":\"Verify fixed source results\",\"method\":\"Check actual evidence\",\"inputs\":[{\"id\":\"input\",\"ref\":\"input/source.txt\",\"sha256\":\"c085f4682fec4d92f3d33578d03c46056ab1bcba7ea957c58eeb22fc63709072\"}],\"constraints\":[{\"id\":\"preserve\",\"text\":\"Preserve sources\",\"mandatory\":true}],\"deliverables\":[{\"id\":\"result\",\"kind\":\"code\",\"write_scope\":\"b/result\",\"require_a_canonical\":false}],\"acceptance\":[{\"id\":\"AC1\",\"mandatory\":true,\"verifier\":\"C\",\"evidence_type\":\"execution\",\"condition\":\"Actual immutable UTF-8 candidate parses with Python ast.parse\",\"semantic\":false},{\"id\":\"AC2\",\"mandatory\":true,\"verifier\":\"A\",\"evidence_type\":\"review\",\"condition\":\"A judges source support\",\"semantic\":true}],\"dependencies\":[],\"budget\":{\"total_tokens\":10000,\"reserved_a_tokens\":2000},\"b_write_scopes\":[\"b\"],\"a_responsibilities\":[\"problem_modeling\",\"core_reasoning\",\"method_choice\",\"evidence_judgment\",\"final_review\"],\"guidance_depth\":\"ordinary\",\"full_read_required\":false,\"source_unit_ids\":[\"body\"]},\"active_external_request\":{\"external_request_id\":\"remote-request-7a51969ad43c42f9a0ba5556873a79df\",\"external_execution_id\":\"remote-execution-7a51969ad43c42f9a0ba5556873a79df\",\"step_id\":\"7a51969ad43c42f9a0ba5556873a79df\",\"provider_profile_id\":\"fake-gpt\",\"role\":\"A\",\"accepted\":true,\"status\":\"completed\"},\"dependency_graph\":{\"version\":1,\"nodes\":{\"answer\":{\"revision_id\":\"candidate-b76f5ced2208441f82955affbdbf2c89\",\"dependencies\":{},\"stale\":false}}},\"dependency_version\":1,\"current_revision_id\":\"candidate-b76f5ced2208441f82955affbdbf2c89\",\"stale\":false,\"publication_blocked\":false}",
+        "lease_owner": null,
+        "lease_expires_at": null,
+        "started_at": null,
+        "completed_at": null,
+        "created_at": "2026-10-13T13:17:03.624Z",
+        "updated_at": "2026-10-13T13:17:04.017Z"
+      },
+      "steps": [
+        {
+          "id": "424d5f935a194626bea562246f6b1598",
+          "task_id": "a6c35043827f4c2a95bfe538b96150d9",
+          "attempt_id": "f3d2dad87c994c2c816eb096ef82f5ed",
+          "step_key": "424d5f935a194626bea562246f6b1598",
+          "role": "B",
+          "state": "COMPLETED",
+          "contract_version": "1.0",
+          "provider_profile_id": "fake-glm",
+          "external_request_id": "424d5f935a194626bea562246f6b1598",
+          "external_execution_id": "remote-execution-424d5f935a194626bea562246f6b1598",
+          "request_json": "{\"task_id\": \"a6c35043827f4c2a95bfe538b96150d9\", \"attempt_id\": \"f3d2dad87c994c2c816eb096ef82f5ed\", \"role\": \"B\", \"identity\": {\"adapter\": \"fake\", \"model_id\": \"fixture-glm\", \"family\": \"glm\", \"connection_id\": \"fake-glm\"}, \"prompt_path\": \"C:\\\\Users\\\\asd15\\\\AppData\\\\Local\\\\Temp\\\\D014-stream-acceptance-9py086gb\\\\provider_completed_success\\\\workspaces\\\\tasks\\\\a6c35043827f4c2a95bfe538b96150d9\\\\f3d2dad87c994c2c816eb096ef82f5ed\\\\b\\\\prompts\\\\424d5f935a194626bea562246f6b1598.json\", \"workspace\": \"C:\\\\Users\\\\asd15\\\\AppData\\\\Local\\\\Temp\\\\D014-stream-acceptance-9py086gb\\\\provider_completed_success\\\\workspaces\\\\tasks\\\\a6c35043827f4c2a95bfe538b96150d9\\\\f3d2dad87c994c2c816eb096ef82f5ed\\\\b\", \"policy_version\": \"1.0\"}",
+          "checkpoint_json": "{\"remote_execution\": {\"external_request_id\": \"remote-request-424d5f935a194626bea562246f6b1598\", \"external_execution_id\": \"remote-execution-424d5f935a194626bea562246f6b1598\", \"step_id\": \"424d5f935a194626bea562246f6b1598\", \"provider_profile_id\": \"fake-glm\", \"role\": \"B\", \"accepted\": true, \"status\": \"completed\"}, \"provider_events\": 4, \"cancel_requested\": false, \"failure\": null}",
+          "started_at": "2026-10-13T13:17:03.751Z",
+          "completed_at": "2026-10-13T13:17:03.812Z",
+          "created_at": "2026-10-13T13:17:03.751Z"
+        },
+        {
+          "id": "7a51969ad43c42f9a0ba5556873a79df",
+          "task_id": "a6c35043827f4c2a95bfe538b96150d9",
+          "attempt_id": "f3d2dad87c994c2c816eb096ef82f5ed",
+          "step_key": "7a51969ad43c42f9a0ba5556873a79df",
+          "role": "A",
+          "state": "COMPLETED",
+          "contract_version": "1.0",
+          "provider_profile_id": "fake-gpt",
+          "external_request_id": "7a51969ad43c42f9a0ba5556873a79df",
+          "external_execution_id": "remote-execution-7a51969ad43c42f9a0ba5556873a79df",
+          "request_json": "{\"task_id\": \"a6c35043827f4c2a95bfe538b96150d9\", \"attempt_id\": \"f3d2dad87c994c2c816eb096ef82f5ed\", \"role\": \"A\", \"identity\": {\"adapter\": \"fake\", \"model_id\": \"fixture-gpt\", \"family\": \"gpt\", \"connection_id\": \"fake-gpt\"}, \"prompt_path\": \"C:\\\\Users\\\\asd15\\\\AppData\\\\Local\\\\Temp\\\\D014-stream-acceptance-9py086gb\\\\provider_completed_success\\\\workspaces\\\\tasks\\\\a6c35043827f4c2a95bfe538b96150d9\\\\f3d2dad87c994c2c816eb096ef82f5ed\\\\a\\\\prompts\\\\7a51969ad43c42f9a0ba5556873a79df.json\", \"workspace\": \"C:\\\\Users\\\\asd15\\\\AppData\\\\Local\\\\Temp\\\\D014-stream-acceptance-9py086gb\\\\provider_completed_success\\\\workspaces\\\\tasks\\\\a6c35043827f4c2a95bfe538b96150d9\\\\f3d2dad87c994c2c816eb096ef82f5ed\\\\a\", \"policy_version\": \"1.0\"}",
+          "checkpoint_json": "{\"remote_execution\": {\"external_request_id\": \"remote-request-7a51969ad43c42f9a0ba5556873a79df\", \"external_execution_id\": \"remote-execution-7a51969ad43c42f9a0ba5556873a79df\", \"step_id\": \"7a51969ad43c42f9a0ba5556873a79df\", \"provider_profile_id\": \"fake-gpt\", \"role\": \"A\", \"accepted\": true, \"status\": \"completed\"}, \"provider_events\": 4, \"cancel_requested\": false, \"failure\": null}",
+          "started_at": "2026-10-13T13:17:03.910Z",
+          "completed_at": "2026-10-13T13:17:03.971Z",
+          "created_at": "2026-10-13T13:17:03.910Z"
+        }
+      ],
+      "artifacts": [
+        {
+          "id": "candidate-b76f5ced2208441f82955affbdbf2c89",
+          "task_id": "a6c35043827f4c2a95bfe538b96150d9",
+          "attempt_id": "f3d2dad87c994c2c816eb096ef82f5ed",
+          "artifact_kind": "code",
+          "language": "zh-CN",
+          "immutable_uri": "blob:sha256:60e9f026310f80bf7c28b048feba20e940d1ee104fe9aa2164260ff1722b317d",
+          "byte_sha256": "60e9f026310f80bf7c28b048feba20e940d1ee104fe9aa2164260ff1722b317d",
+          "canonical_content_sha256": "60e9f026310f80bf7c28b048feba20e940d1ee104fe9aa2164260ff1722b317d",
+          "size_bytes": 18,
+          "source_version_id": null,
+          "origin_authors_json": "[\"B\"]",
+          "canonical_issued_by": "B",
+          "reviewed_by_json": "[]",
+          "rendered_by": "service",
+          "a_response_ref": null,
+          "dependencies_json": "[]",
+          "provenance_json": "{\"step_id\":\"424d5f935a194626bea562246f6b1598\",\"test_only\":true,\"authenticated_authorship\":false}",
+          "source_request_json": "{\"step_id\":\"424d5f935a194626bea562246f6b1598\",\"role\":\"B\"}",
+          "created_at": "2026-10-13T13:17:03.837Z"
+        }
+      ],
+      "checks": [
+        {
+          "id": "1ddc8eafd05c4c3f8aeaee8e5389075f",
+          "task_id": "a6c35043827f4c2a95bfe538b96150d9",
+          "attempt_id": "f3d2dad87c994c2c816eb096ef82f5ed",
+          "artifact_version_id": "candidate-b76f5ced2208441f82955affbdbf2c89",
+          "job_id": null,
+          "check_kind": "C.criterion",
+          "result": "pass",
+          "severity": "none",
+          "check_version": "1.0",
+          "verifier_model": null,
+          "evidence_ref": "C:\\Users\\asd15\\AppData\\Local\\Temp\\D014-stream-acceptance-9py086gb\\provider_completed_success\\workspaces\\tasks\\a6c35043827f4c2a95bfe538b96150d9\\f3d2dad87c994c2c816eb096ef82f5ed\\evidence\\af2ae40c85bb4d0db07df2e56760c1e3.json",
+          "details_json": "{\"criterion_id\": \"AC1\", \"revision_id\": \"candidate-b76f5ced2208441f82955affbdbf2c89\", \"byte_sha256\": \"60e9f026310f80bf7c28b048feba20e940d1ee104fe9aa2164260ff1722b317d\", \"passed\": true, \"verifier\": \"C\", \"details\": {\"actual_sha256\": \"60e9f026310f80bf7c28b048feba20e940d1ee104fe9aa2164260ff1722b317d\", \"parser\": \"python-ast\", \"error\": null}}",
+          "created_at": "2026-10-13T13:17:03.867Z"
+        },
+        {
+          "id": "3e0701bbc9124fe68889eeb26695b1f5",
+          "task_id": "a6c35043827f4c2a95bfe538b96150d9",
+          "attempt_id": "f3d2dad87c994c2c816eb096ef82f5ed",
+          "artifact_version_id": "candidate-b76f5ced2208441f82955affbdbf2c89",
+          "job_id": null,
+          "check_kind": "A.criterion",
+          "result": "pass",
+          "severity": "none",
+          "check_version": "1.0",
+          "verifier_model": null,
+          "evidence_ref": "C:\\Users\\asd15\\AppData\\Local\\Temp\\D014-stream-acceptance-9py086gb\\provider_completed_success\\workspaces\\tasks\\a6c35043827f4c2a95bfe538b96150d9\\f3d2dad87c994c2c816eb096ef82f5ed\\evidence\\d751c6cb11094aa483b31845f8dfa7ca.json",
+          "details_json": "{\"criterion_id\": \"AC2\", \"revision_id\": \"candidate-b76f5ced2208441f82955affbdbf2c89\", \"byte_sha256\": \"60e9f026310f80bf7c28b048feba20e940d1ee104fe9aa2164260ff1722b317d\", \"passed\": true, \"verifier\": \"A\", \"details\": {\"a_step_id\": \"7a51969ad43c42f9a0ba5556873a79df\", \"test_only\": true}}",
+          "created_at": "2026-10-13T13:17:03.993Z"
+        },
+        {
+          "id": "A-review-63caf629fea54203bf34808a7b167fd4",
+          "task_id": "a6c35043827f4c2a95bfe538b96150d9",
+          "attempt_id": "f3d2dad87c994c2c816eb096ef82f5ed",
+          "artifact_version_id": "candidate-b76f5ced2208441f82955affbdbf2c89",
+          "job_id": null,
+          "check_kind": "A.review",
+          "result": "pass",
+          "severity": "none",
+          "check_version": "1.0",
+          "verifier_model": "fixture",
+          "evidence_ref": null,
+          "details_json": "{\"contract\": {\"task_id\": \"a6c35043827f4c2a95bfe538b96150d9\", \"attempt_id\": \"f3d2dad87c994c2c816eb096ef82f5ed\", \"contract_version\": \"1.0\", \"domain\": \"code\", \"model_family\": \"gpt\", \"route_snapshot_id\": \"aad51901cedf4fb8a1d838b3ebcb4373\", \"objective\": \"Verify fixed source results\", \"method\": \"Check actual evidence\", \"inputs\": [{\"id\": \"input\", \"ref\": \"input/source.txt\", \"sha256\": \"c085f4682fec4d92f3d33578d03c46056ab1bcba7ea957c58eeb22fc63709072\"}], \"constraints\": [{\"id\": \"preserve\", \"text\": \"Preserve sources\", \"mandatory\": true}], \"deliverables\": [{\"id\": \"result\", \"kind\": \"code\", \"write_scope\": \"b/result\", \"require_a_canonical\": false}], \"acceptance\": [{\"id\": \"AC1\", \"mandatory\": true, \"verifier\": \"C\", \"evidence_type\": \"execution\", \"condition\": \"Actual immutable UTF-8 candidate parses with Python ast.parse\", \"semantic\": false}, {\"id\": \"AC2\", \"mandatory\": true, \"verifier\": \"A\", \"evidence_type\": \"review\", \"condition\": \"A judges source support\", \"semantic\": true}], \"dependencies\": [], \"budget\": {\"total_tokens\": 10000, \"reserved_a_tokens\": 2000}, \"b_write_scopes\": [\"b\"], \"a_responsibilities\": [\"problem_modeling\", \"core_reasoning\", \"method_choice\", \"evidence_judgment\", \"final_review\"], \"guidance_depth\": \"ordinary\", \"full_read_required\": false, \"source_unit_ids\": [\"body\"]}, \"decision\": {\"task_id\": \"a6c35043827f4c2a95bfe538b96150d9\", \"attempt_id\": \"f3d2dad87c994c2c816eb096ef82f5ed\", \"contract_version\": \"1.0\", \"contract_sha256\": \"968adc9ec422e2d77d70d805d8b9c7fbb53abf87e887e2ea73d2271489a2126c\", \"reviewer\": \"A\", \"decision\": \"PASS\", \"revision_id\": \"candidate-b76f5ced2208441f82955affbdbf2c89\", \"evidence\": [{\"criterion_id\": \"AC1\", \"revision_id\": \"candidate-b76f5ced2208441f82955affbdbf2c89\", \"ref\": \"af2ae40c85bb4d0db07df2e56760c1e3.json\", \"sha256\": \"de933700240e79346210476a3b6097357f94f8e2ea5d2f6e1a0538b8e5d8c891\", \"verifier\": \"C\", \"passed\": true}, {\"criterion_id\": \"AC2\", \"revision_id\": \"candidate-b76f5ced2208441f82955affbdbf2c89\", \"ref\": \"d751c6cb11094aa483b31845f8dfa7ca.json\", \"sha256\": \"ad137f2540ad85bb6b3e7fb1b39e0a226bac1885f7beeb1491380db0a0c0b290\", \"verifier\": \"A\", \"passed\": true}], \"read_unit_ids\": [], \"source_refs\": [\"input/source.txt\"], \"sampling_note\": null, \"canonical_author\": null, \"a_response_ref\": null, \"issues\": []}, \"gate\": {\"decision\": \"PASS\", \"eligible_for_output\": true, \"missing_criteria\": [], \"reason_codes\": []}, \"evidence_root\": \"C:\\\\Users\\\\asd15\\\\AppData\\\\Local\\\\Temp\\\\D014-stream-acceptance-9py086gb\\\\provider_completed_success\\\\workspaces\\\\tasks\\\\a6c35043827f4c2a95bfe538b96150d9\\\\f3d2dad87c994c2c816eb096ef82f5ed\\\\evidence\", \"a_step_id\": \"7a51969ad43c42f9a0ba5556873a79df\"}",
+          "created_at": "2026-10-13T13:17:04.004Z"
+        }
+      ],
+      "B_starts": 1,
+      "A_starts": 1,
+      "observed_before_disconnect": [],
+      "usage": {
+        "total_tokens": 33,
+        "known_lower_bound": 33,
+        "unknown_requests": 0,
+        "a_tokens": 18,
+        "qualified_deliveries": 0,
+        "tokens_per_delivery": null,
+        "requests": [
+          {
+            "attempt_id": "f3d2dad87c994c2c816eb096ef82f5ed",
+            "cumulative_scope": null,
+            "domain": "code",
+            "external_request_id": "424d5f935a194626bea562246f6b1598",
+            "function": "execution",
+            "mode": "request_total",
+            "provider": "glm",
+            "provider_profile_id": "fake-glm",
+            "role": "B",
+            "task_id": "a6c35043827f4c2a95bfe538b96150d9",
+            "status": "completed",
+            "source": "reported",
+            "total_tokens": 15,
+            "events": [
+              {
+                "cumulative_scope": null,
+                "event_id": "usage:424d5f935a194626bea562246f6b1598:pending",
+                "mode": "pending",
+                "normalized": {
+                  "components": {},
+                  "mapping_version": "1.0",
+                  "source": "unknown",
+                  "total_tokens": null
+                },
+                "raw": {
+                  "request_start_confirmed": false,
+                  "usage_observed": false
+                },
+                "sequence": 1,
+                "sha256": "2056b47c8cc882277552d29189317fdc1c6de9a657aafb3d3b656481a9c36fe4",
+                "status": "running"
+              },
+              {
+                "cumulative_scope": null,
+                "event_id": "usage:424d5f935a194626bea562246f6b1598:2",
+                "mode": "request_total",
+                "normalized": {
+                  "components": {
+                    "cached_tokens": null,
+                    "input_tokens": 10,
+                    "output_tokens": 5,
+                    "reasoning_tokens": null
+                  },
+                  "mapping_version": "1.0",
+                  "source": "reported",
+                  "total_tokens": 15
+                },
+                "raw": {
+                  "input_tokens": 10,
+                  "output_tokens": 5
+                },
+                "sequence": 3,
+                "sha256": "b035ebb89b0d927c2c2546bd59e3ce6fee5a881c98c8a23aaa5b59f7f1e25d97",
+                "status": "completed"
+              }
+            ]
+          },
+          {
+            "attempt_id": "f3d2dad87c994c2c816eb096ef82f5ed",
+            "cumulative_scope": null,
+            "domain": "code",
+            "external_request_id": "7a51969ad43c42f9a0ba5556873a79df",
+            "function": "review",
+            "mode": "request_total",
+            "provider": "gpt",
+            "provider_profile_id": "fake-gpt",
+            "role": "A",
+            "task_id": "a6c35043827f4c2a95bfe538b96150d9",
+            "status": "completed",
+            "source": "reported",
+            "total_tokens": 18,
+            "events": [
+              {
+                "cumulative_scope": null,
+                "event_id": "usage:7a51969ad43c42f9a0ba5556873a79df:pending",
+                "mode": "pending",
+                "normalized": {
+                  "components": {},
+                  "mapping_version": "1.0",
+                  "source": "unknown",
+                  "total_tokens": null
+                },
+                "raw": {
+                  "request_start_confirmed": false,
+                  "usage_observed": false
+                },
+                "sequence": 1,
+                "sha256": "f8042dc8b8923252b39884cd01b3a17cb4d82f11c4b34d15b7f440bed507ed93",
+                "status": "running"
+              },
+              {
+                "cumulative_scope": null,
+                "event_id": "usage:7a51969ad43c42f9a0ba5556873a79df:2",
+                "mode": "request_total",
+                "normalized": {
+                  "components": {
+                    "cached_tokens": null,
+                    "input_tokens": 12,
+                    "output_tokens": 6,
+                    "reasoning_tokens": null
+                  },
+                  "mapping_version": "1.0",
+                  "source": "reported",
+                  "total_tokens": 18
+                },
+                "raw": {
+                  "input_tokens": 12,
+                  "output_tokens": 6
+                },
+                "sequence": 3,
+                "sha256": "132d0ff6cb38106867e38e59acc87892b434f09cad375189f9b75dc9ccfa5d8b",
+                "status": "completed"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "exit_code": 0
+}

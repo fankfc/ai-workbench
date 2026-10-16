@@ -1,0 +1,1434 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.EXE",
+      "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--reporter=json",
+      "--output=C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\part-four\\final-v4\\electron-results"
+    ],
+    "configFile": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\playwright.config.ts",
+    "rootDir": "C:/Users/asd15/Documents/ChatGPT/ai/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": true,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Users/asd15/Documents/ChatGPT/ai/docs/acceptance/part-four/final-v4/electron-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "C:/Users/asd15/Documents/ChatGPT/ai/tests/e2e",
+        "testIgnore": [
+          "**/*-real.spec.ts",
+          "**/*.real.spec.ts",
+          "**/real_provider/**"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\part-four\\final-v4\\electron-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "",
+        "testDir": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\tests\\e2e",
+        "snapshotDir": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\tests\\e2e",
+        "testIgnore": [
+          "**/*-real.spec.ts",
+          "**/*.real.spec.ts",
+          "**/real_provider/**"
+        ],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 45000,
+        "use": {},
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": ""
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "accessibility.spec.ts",
+      "file": "accessibility.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "keyboard navigation and 200 percent zoom keep labelled composer visible",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4944,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T03:38:54.669Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "keyboard-observations",
+                      "contentType": "application/json",
+                      "body": "eyJhY3R1YWxfZWxlY3Ryb24iOnRydWUsImZvY3VzZWQiOnsidGFnIjoiQlVUVE9OIiwibGFiZWwiOm51bGwsInRleHQiOiLmt7vliqDmlofku7YifSwibmFycmF0b3JfdmVyaWZpZWQiOmZhbHNlLCJtdWx0aXBsZV9tb25pdG9yc192ZXJpZmllZCI6ZmFsc2V9"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ddd864604af8a6a0198f-5a580bbe2805ded9bde1",
+          "file": "accessibility.spec.ts",
+          "line": 3,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "artifact-files.spec.ts",
+      "file": "artifact-files.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "product bundles preview and save three exact bilingual format pairs",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 16455,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T03:38:59.645Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "720469fd1f35afe96cb1-59cb1e9c6f5a0ba63319",
+          "file": "artifact-files.spec.ts",
+          "line": 6,
+          "column": 5
+        },
+        {
+          "title": "cancelled save and existing filenames never report a successful pair",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 15032,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T03:39:16.109Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "720469fd1f35afe96cb1-f7c1fc4132b325d2108e",
+          "file": "artifact-files.spec.ts",
+          "line": 15,
+          "column": 5
+        },
+        {
+          "title": "default export directory is private and becomes a dialog starting location",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 16692,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T03:39:31.151Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "720469fd1f35afe96cb1-21e514d7c8789cd20168",
+          "file": "artifact-files.spec.ts",
+          "line": 20,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "backup-restore.spec.ts",
+      "file": "backup-restore.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "storage create entry saves a verified ZIP of the actual published chat",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7845,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T03:39:47.872Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9e7f78fb9870223d9a23-13011e84c196341229d7",
+          "file": "backup-restore.spec.ts",
+          "line": 40,
+          "column": 5
+        },
+        {
+          "title": "storage restore entry reopens saved history through an actual managed backend restart",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 13580,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T03:39:55.727Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9e7f78fb9870223d9a23-6ff2620a6076c8fdee94",
+          "file": "backup-restore.spec.ts",
+          "line": 55,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "chat-publication.spec.ts",
+      "file": "chat-publication.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "internal canaries never cross the public IPC boundary or briefly appear",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 9719,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T03:40:09.319Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6357bd0263fb71617539-3057d2159809d5dd5901",
+          "file": "chat-publication.spec.ts",
+          "line": 2,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "composer-history.spec.ts",
+      "file": "composer-history.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "IME enter does not submit, approved history survives reload and drafts remain per conversation",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6272,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T03:40:19.047Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2a4ba00346b595bac7bd-9b9ce15f4e51fed271d1",
+          "file": "composer-history.spec.ts",
+          "line": 5,
+          "column": 5
+        },
+        {
+          "title": "only a native selected attachment is imported and the complete material reaches the task",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6078,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T03:40:25.325Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2a4ba00346b595bac7bd-dd8797207149a4e6e9dd",
+          "file": "composer-history.spec.ts",
+          "line": 11,
+          "column": 5
+        },
+        {
+          "title": "double click sends one client request and script text cannot execute",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6106,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T03:40:31.408Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2a4ba00346b595bac7bd-2e634c116882c93f90be",
+          "file": "composer-history.spec.ts",
+          "line": 14,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "connections.spec.ts",
+      "file": "connections.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "connection page keeps demonstrations distinct from verified real identities",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4978,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T03:40:37.522Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b748afb17871306c20bc-4271b5f2ce97773fa94a",
+          "file": "connections.spec.ts",
+          "line": 2,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "host.spec.ts",
+      "file": "host.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "actual isolated Electron exposes only a business bridge",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4715,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T03:40:42.509Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "69cb82147222d773bdbe-99fdc1866fc27c3a6576",
+          "file": "host.spec.ts",
+          "line": 7,
+          "column": 5
+        },
+        {
+          "title": "disconnect keeps the draft and blocks sending",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5514,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T03:40:47.229Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "69cb82147222d773bdbe-e3658580fd6fd90bcaed",
+          "file": "host.spec.ts",
+          "line": 12,
+          "column": 5
+        },
+        {
+          "title": "default real mode keeps all unverified connections disabled",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5014,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T03:40:52.748Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "69cb82147222d773bdbe-7ee34bed1eeeb33c85dc",
+          "file": "host.spec.ts",
+          "line": 16,
+          "column": 5
+        },
+        {
+          "title": "second launch focuses the existing instance without starting another backend",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5378,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T03:40:57.767Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "69cb82147222d773bdbe-b3c2589a3c1550963dd8",
+          "file": "host.spec.ts",
+          "line": 20,
+          "column": 5
+        },
+        {
+          "title": "production bundle contains no test injection entry",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1809,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T03:41:03.151Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "69cb82147222d773bdbe-b3863fbdfb338ab43fd7",
+          "file": "host.spec.ts",
+          "line": 26,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "ime-and-layout.spec.ts",
+      "file": "ime-and-layout.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "composition and internal replay retain focus without transient leak",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 10401,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T03:41:04.970Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "gui-observations",
+                      "contentType": "application/json",
+                      "body": "eyJidWlsZF9pZCI6ImY1ODA3YTY5MzMxYzNhMmVlOTEwOGQ1MjdiNjkyM2U1NGY1NWIyMjE5ZGUzNWNkNTZjZDAxOTM1NTM0YTBlN2EiLCJhY3R1YWxfZWxlY3Ryb24iOnRydWUsImNvbXBvc2l0aW9uX3N1Ym1pdHMiOjAsImZvY3VzX2xvc3QiOmZhbHNlLCJlbmdsaXNoX2xlYWtzIjpbXSwiaW1lX21ldGhvZCI6InN5bnRoZXRpYyBjb21wb3NpdGlvbiBldmVudHM7IHJlYWwgV2luZG93cyBJTUUgcGVuZGluZyIsInByb3ZpZGVyX2JvdW5kYXJ5IjoiZmFrZSJ9"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cfb0009f149ac460dae1-f837938086add499d69f",
+          "file": "ime-and-layout.spec.ts",
+          "line": 3,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "layout.spec.ts",
+      "file": "layout.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "layout fits 1440x900",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4871,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T03:41:15.381Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9f98fd8c8d1538f5ebbb-aa74d7332593c80a5a0e",
+          "file": "layout.spec.ts",
+          "line": 3,
+          "column": 78
+        },
+        {
+          "title": "layout fits 1280x800",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4990,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T03:41:20.259Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9f98fd8c8d1538f5ebbb-36ef2f61869f8203d5f2",
+          "file": "layout.spec.ts",
+          "line": 3,
+          "column": 78
+        },
+        {
+          "title": "layout fits 1024x768",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4945,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T03:41:25.254Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9f98fd8c8d1538f5ebbb-8a9e2735c79209a5d07d",
+          "file": "layout.spec.ts",
+          "line": 3,
+          "column": 78
+        },
+        {
+          "title": "layout fits 320x768",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4787,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T03:41:30.204Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9f98fd8c8d1538f5ebbb-d4555bf54eea2412d5fc",
+          "file": "layout.spec.ts",
+          "line": 3,
+          "column": 78
+        },
+        {
+          "title": "theme, large text and 200 percent zoom retain the composer",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5012,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T03:41:34.996Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9f98fd8c8d1538f5ebbb-1928162fcd0d3f2ccbe2",
+          "file": "layout.spec.ts",
+          "line": 10,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "local-performance.spec.ts",
+      "file": "local-performance.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "record two hundred input echo samples in the actual renderer",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 17544,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T03:41:40.015Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "renderer-latency",
+                      "contentType": "application/json",
+                      "body": "eyJidWlsZF9pZCI6ImY1ODA3YTY5MzMxYzNhMmVlOTEwOGQ1MjdiNjkyM2U1NGY1NWIyMjE5ZGUzNWNkNTZjZDAxOTM1NTM0YTBlN2EiLCJhY3R1YWxfZWxlY3Ryb24iOnRydWUsImlucHV0X2VjaG9fc2FtcGxlc19tcyI6WzkuODk5OTk5OTc2MTU4MTQyLDYuNSw3LjkwMDAwMDAzNTc2Mjc4Nyw3LjgwMDAwMDAxMTkyMDkyOSw3LjgwMDAwMDAxMTkyMDkyOSw3LjEwMDAwMDAyMzg0MTg1OCw3LjA5OTk5OTk2NDIzNzIxMyw3LjE5OTk5OTk4ODA3OTA3MSw4LjEwMDAwMDAyMzg0MTg1OCw3LjY5OTk5OTk4ODA3OTA3MSw3LjEwMDAwMDAyMzg0MTg1OCw3Ljg5OTk5OTk3NjE1ODE0Miw3LjY5OTk5OTk4ODA3OTA3MSw4LjA5OTk5OTk2NDIzNzIxMyw4LjM5OTk5OTk3NjE1ODE0Miw2LjkwMDAwMDAzNTc2Mjc4Nyw3LjkwMDAwMDAzNTc2Mjc4Nyw3LjkwMDAwMDAzNTc2Mjc4Nyw3LjQwMDAwMDAzNTc2Mjc4Nyw4LDcuOTAwMDAwMDM1NzYyNzg3LDcuOTAwMDAwMDM1NzYyNzg3LDguMTAwMDAwMDIzODQxODU4LDcuNjk5OTk5OTg4MDc5MDcxLDcuMTAwMDAwMDIzODQxODU4LDcuODAwMDAwMDExOTIwOTI5LDcuOTAwMDAwMDM1NzYyNzg3LDcuODAwMDAwMDExOTIwOTI5LDguMTAwMDAwMDIzODQxODU4LDcuNjAwMDAwMDIzODQxODU4LDcuODk5OTk5OTc2MTU4MTQyLDcuNzk5OTk5OTUyMzE2Mjg0LDYuNSw4LjE5OTk5OTk4ODA3OTA3MSw3LjYwMDAwMDAyMzg0MTg1OCw4LjE5OTk5OTk4ODA3OTA3MSw4LjQwMDAwMDAzNTc2Mjc4Nyw3LjM5OTk5OTk3NjE1ODE0Miw4LjA5OTk5OTk2NDIzNzIxMyw4LjYwMDAwMDAyMzg0MTg1OCw3LjUsNy42OTk5OTk5ODgwNzkwNzEsOCw3LjY5OTk5OTk4ODA3OTA3MSw4LjE5OTk5OTk4ODA3OTA3MSw3LjUsNy41LDguMTk5OTk5OTg4MDc5MDcxLDcuODk5OTk5OTc2MTU4MTQyLDguMTk5OTk5OTg4MDc5MDcxLDguMDk5OTk5OTY0MjM3MjEzLDgsOC4xMDAwMDAwMjM4NDE4NTgsOC42OTk5OTk5ODgwNzkwNzEsNy4xOTk5OTk5ODgwNzkwNzEsMTEsMTQuMTAwMDAwMDIzODQxODU4LDcsOC4xOTk5OTk5ODgwNzkwNzEsNi40MDAwMDAwMzU3NjI3ODcsOC4zMDAwMDAwMTE5MjA5MjksNi44MDAwMDAwMTE5MjA5MjksMTEuNzk5OTk5OTUyMzE2Mjg0LDEzLjA5OTk5OTk2NDIzNzIxMyw3LjM5OTk5OTk3NjE1ODE0MiwxNC40MDAwMDAwMzU3NjI3ODcsMTEuNjAwMDAwMDIzODQxODU4LDcuMzk5OTk5OTc2MTU4MTQyLDYuNzk5OTk5OTUyMzE2Mjg0LDcuODAwMDAwMDExOTIwOTI5LDguNTk5OTk5OTY0MjM3MjEzLDUuOTAwMDAwMDM1NzYyNzg3LDcuNjk5OTk5OTg4MDc5MDcxLDcuMTAwMDAwMDIzODQxODU4LDguMzAwMDAwMDExOTIwOTI5LDguMjAwMDAwMDQ3NjgzNzE2LDgsNy4xMDAwMDAwMjM4NDE4NTgsNy44OTk5OTk5NzYxNTgxNDIsNy41LDguMTk5OTk5OTg4MDc5MDcxLDcuODk5OTk5OTc2MTU4MTQyLDcuODAwMDAwMDExOTIwOTI5LDguMDk5OTk5OTY0MjM3MjEzLDcuOTAwMDAwMDM1NzYyNzg3LDcuOTAwMDAwMDM1NzYyNzg3LDE5LjMwMDAwMDAxMTkyMDkzLDE3LjgwMDAwMDAxMTkyMDkzLDEzLjUsNy4wOTk5OTk5NjQyMzcyMTMsNyw4LDgsNy44MDAwMDAwMTE5MjA5MjksOS4wOTk5OTk5NjQyMzcyMTMsNy4wOTk5OTk5NjQyMzcyMTMsNy45MDAwMDAwMzU3NjI3ODcsNy44MDAwMDAwMTE5MjA5MjksNy4zMDAwMDAwMTE5MjA5MjksNy40MDAwMDAwMzU3NjI3ODcsOC4zMDAwMDAwMTE5MjA5MjksNi41OTk5OTk5NjQyMzcyMTMsOC4xOTk5OTk5ODgwNzkwNzEsNy41LDguMTAwMDAwMDIzODQxODU4LDEwLjEwMDAwMDAyMzg0MTg1OCw3LjA5OTk5OTk2NDIzNzIxMywxNS44MDAwMDAwMTE5MjA5MjksMTYuNzk5OTk5OTUyMzE2Mjg0LDcuNSwxNy4wOTk5OTk5NjQyMzcyMTMsNy4zOTk5OTk5NzYxNTgxNDIsMTkuMDk5OTk5OTY0MjM3MjEzLDcuNjk5OTk5OTg4MDc5MDcxLDE0LjY5OTk5OTk4ODA3OTA3MSw3LjMwMDAwMDAxMTkyMDkyOSw3Ljg5OTk5OTk3NjE1ODE0Miw3LDE5LDE0LjYwMDAwMDAyMzg0MTg1OCw5LjUsNS4zMDAwMDAwMTE5MjA5MjksNy40MDAwMDAwMzU3NjI3ODcsNy42MDAwMDAwMjM4NDE4NTgsNy4xOTk5OTk5ODgwNzkwNzEsNi42OTk5OTk5ODgwNzkwNzEsOC4xOTk5OTk5ODgwNzkwNzEsMTYuOTAwMDAwMDM1NzYyNzg3LDE2LDEwLjg5OTk5OTk3NjE1ODE0Miw3LjYwMDAwMDAyMzg0MTg1OCw4LjE5OTk5OTk4ODA3OTA3MSw3LjYwMDAwMDAyMzg0MTg1OCw3LjY5OTk5OTk4ODA3OTA3MSw4LjA5OTk5OTk2NDIzNzIxMyw4LjMwMDAwMDAxMTkyMDkyOSw3LjE5OTk5OTk4ODA3OTA3MSw3LjY5OTk5OTk4ODA3OTA3MSw4LjUsMTcuNSwxNS4wOTk5OTk5NjQyMzcyMTMsMTMuNjAwMDAwMDIzODQxODU4LDExLjUsNy44MDAwMDAwMTE5MjA5MjksOCw4LjE5OTk5OTk4ODA3OTA3MSwxNC44MDAwMDAwMTE5MjA5MjksOS44OTk5OTk5NzYxNTgxNDIsNyw3LjMwMDAwMDAxMTkyMDkyOSw4LDcuMzk5OTk5OTc2MTU4MTQyLDgsOC4wOTk5OTk5NjQyMzcyMTMsNy4zMDAwMDAwMTE5MjA5MjksOC4wOTk5OTk5NjQyMzcyMTMsOC42MDAwMDAwMjM4NDE4NTgsNy42OTk5OTk5ODgwNzkwNzEsMTUuNjk5OTk5OTg4MDc5MDcxLDkuODAwMDAwMDExOTIwOTI5LDE1LjUsNy4zMDAwMDAwMTE5MjA5MjksOC41OTk5OTk5NjQyMzcyMTMsNi45MDAwMDAwMzU3NjI3ODcsOC41LDcuNSw4LjgwMDAwMDAxMTkyMDkyOSwxNi44OTk5OTk5NzYxNTgxNDIsMTguMzk5OTk5OTc2MTU4MTQyLDEzLjUsNy40MDAwMDAwMzU3NjI3ODcsOC4wOTk5OTk5NjQyMzcyMTMsNy42MDAwMDAwMjM4NDE4NTgsOC4zMDAwMDAwMTE5MjA5MjksNy4zOTk5OTk5NzYxNTgxNDIsOSwxNi40MDAwMDAwMzU3NjI3ODcsNy42OTk5OTk5ODgwNzkwNzEsOC4zMDAwMDAwMTE5MjA5MjksNi41LDcuNjk5OTk5OTg4MDc5MDcxLDcuNzk5OTk5OTUyMzE2Mjg0LDE3LjMwMDAwMDAxMTkyMDkzLDguOTAwMDAwMDM1NzYyNzg3LDE4LjMwMDAwMDAxMTkyMDkzLDcuNSw4LjY5OTk5OTk4ODA3OTA3MSw3LjA5OTk5OTk2NDIzNzIxMyw4LDcuMzAwMDAwMDExOTIwOTI5LDcuMDk5OTk5OTY0MjM3MjEzLDE2LjQwMDAwMDAzNTc2Mjc4Nyw3LjkwMDAwMDAzNTc2Mjc4NywxNy44MDAwMDAwMTE5MjA5Myw3LjE5OTk5OTk4ODA3OTA3MSw4LDguMjAwMDAwMDQ3NjgzNzE2LDcuNjk5OTk5OTg4MDc5MDcxLDguMTk5OTk5OTg4MDc5MDcxLDguMTk5OTk5OTg4MDc5MDcxXSwidWlfYWNrX3NhbXBsZXNfbXMiOlsxMTkuMzAwMDAwMDExOTIwOTMsODUyLDg0MS45MDAwMDAwMzU3NjI4LDg1MC42MDAwMDAwMjM4NDE5LDgzOC44OTk5OTk5NzYxNTgxLDg0Ny4zMDAwMDAwMTE5MjA5LDg1Miw4MzYuNSw4NTEuMjAwMDAwMDQ3NjgzNyw4NTQuNjk5OTk5OTg4MDc5MV0sInN0YXRlX3Zpc2libGVfc2FtcGxlc19tcyI6WzE1OS42MDAwMDAwMjM4NDE4Niw5MDQuMzAwMDAwMDExOTIwOSw5NTAuMTAwMDAwMDIzODQxOSwxMDMxLjE5OTk5OTk4ODA3OSw5MzcuNjAwMDAwMDIzODQxOSw5NjAuNTk5OTk5OTY0MjM3MiwxMDAyLDk4OC41OTk5OTk5NjQyMzcyLDg5Ni42MDAwMDAwMjM4NDE5LDg3MS4zOTk5OTk5NzYxNTgxXSwicHJvdmlkZXJfYm91bmRhcnkiOiJmYWtlIiwibWV0aG9kIjoiUGxheXdyaWdodCBmaWxsIHBsdXMgbmV4dCBhbmltYXRpb24gZnJhbWU7IGluY2x1ZGVzIGRyaXZlciBvdmVyaGVhZCIsIm1pc3NpbmciOlsiY2FuY2VsIGZlZWRiYWNrIHNhbXBsZXMiLCIxMDAwMCB0YXNrIFVJIHdvcmtsb2FkIiwiMjRoIHNvYWsiXX0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "781c3ad57fe0fc0dfc55-f17ca110f39f5d1ade21",
+          "file": "local-performance.spec.ts",
+          "line": 6,
+          "column": 5
+        },
+        {
+          "title": "record bounded cold start and lifecycle samples",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 135000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 14258,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T03:41:57.566Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "desktop-lifecycle",
+                      "contentType": "application/json",
+                      "body": "eyJidWlsZF9pZCI6ImY1ODA3YTY5MzMxYzNhMmVlOTEwOGQ1MjdiNjkyM2U1NGY1NWIyMjE5ZGUzNWNkNTZjZDAxOTM1NTM0YTBlN2EiLCJhY3R1YWxfZWxlY3Ryb24iOnRydWUsImNvbGRfc3RhcnRfc2FtcGxlc19tcyI6WzM1MDAuNjQ5NDk5OTk5OTk5NSwzNDI5LjM5Mzg5OTk5OTk5NTUsMzM4OC40Mjk2MDAwMDAwMDNdLCJjeWNsZXMiOjMsImNsZWFudXAiOlt7InBpZCI6MjE2NDgsImNsZWFuZWQiOnRydWV9LHsicGlkIjo1MDAzMiwiY2xlYW5lZCI6dHJ1ZX0seyJwaWQiOjIxNTQwLCJjbGVhbmVkIjp0cnVlfSx7InBpZCI6NTU3NjAsImNsZWFuZWQiOnRydWV9LHsicGlkIjo2OTQyOCwiY2xlYW5lZCI6dHJ1ZX0seyJwaWQiOjQxNDg4LCJjbGVhbmVkIjp0cnVlfV0sInByb3ZpZGVyX2JvdW5kYXJ5IjoiZmFrZSIsIm1ldGhvZCI6ImZyZXNoIGlzb2xhdGVkIHVzZXItZGF0YSBsYXVuY2g7IGZpbGVzeXN0ZW0gYW5kIE9TIGNhY2hlcyBub3QgY2xlYXJlZCJ9"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "781c3ad57fe0fc0dfc55-7a0bb4c51322a0647b92",
+          "file": "local-performance.spec.ts",
+          "line": 41,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "review-regressions.spec.ts",
+      "file": "review-regressions.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "disconnect retains displayed approved messages and published files",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 13986,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T03:42:11.835Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "70295784855ab916a09e-dbd01f4e029b1658b404",
+          "file": "review-regressions.spec.ts",
+          "line": 6,
+          "column": 5
+        },
+        {
+          "title": "late receipt preserves completed status and never pollutes another conversation",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 13250,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T03:42:25.826Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "70295784855ab916a09e-df89b9d003d7e055a363",
+          "file": "review-regressions.spec.ts",
+          "line": 7,
+          "column": 5
+        },
+        {
+          "title": "usage dates represent local calendar boundaries including the final millisecond",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4791,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T03:42:39.081Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "70295784855ab916a09e-719ee947fa7f9d672c80",
+          "file": "review-regressions.spec.ts",
+          "line": 8,
+          "column": 5
+        },
+        {
+          "title": "same-text historical replay cannot clear an unacknowledged nonce or chosen materials",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 8354,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T03:42:43.877Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "70295784855ab916a09e-4befde7593bac00e8691",
+          "file": "review-regressions.spec.ts",
+          "line": 9,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "security-boundary.spec.ts",
+      "file": "security-boundary.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "untrusted renderer has no command or file authority; user script stays text",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6061,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T03:42:52.239Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "security-boundary",
+                      "contentType": "application/json",
+                      "body": "eyJhY3R1YWxfZWxlY3Ryb24iOnRydWUsInByb3ZpZGVyX2JvdW5kYXJ5IjoiZmFrZSIsImJvdW5kYXJ5Ijp7InJlcXVpcmUiOiJ1bmRlZmluZWQiLCJwcm9jZXNzIjoidW5kZWZpbmVkIiwiaW52b2tlIjoidW5kZWZpbmVkIiwicmVhZEZpbGUiOiJ1bmRlZmluZWQifSwiZXhlY3V0ZWRfcGF5bG9hZHMiOjB9"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "419e5be006d259b40f8b-56cfd912bd0c13325bb0",
+          "file": "security-boundary.spec.ts",
+          "line": 3,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "settings-usage.spec.ts",
+      "file": "settings-usage.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "usage has no invented savings, storage cleanup is previewed and diagnostics stay separate",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5117,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T03:42:58.306Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c128515602a34630a999-d268e08845f03393c4ca",
+          "file": "settings-usage.spec.ts",
+          "line": 5,
+          "column": 5
+        },
+        {
+          "title": "selected directory migration keeps the source and restarts the owned backend",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 10399,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T03:43:03.429Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c128515602a34630a999-5f55683b7fbdeb678fc6",
+          "file": "settings-usage.spec.ts",
+          "line": 8,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "task-profiles.spec.ts",
+      "file": "task-profiles.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "normal document GUI persists details and publishes requested native GPT file with no translator",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 8750,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T03:43:13.850Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b9a34ebf2b082ef07d68-24bffa3496e3c279886e",
+          "file": "task-profiles.spec.ts",
+          "line": 10,
+          "column": 5
+        },
+        {
+          "title": "missing audience or formats freezes NEEDS_INPUT before any model step",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5689,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T03:43:22.612Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b9a34ebf2b082ef07d68-dba64cc4d16f5205309b",
+          "file": "task-profiles.spec.ts",
+          "line": 11,
+          "column": 5
+        },
+        {
+          "title": "paper evidence and data refs and code workspace come only from chosen attachment IDs",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7744,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T03:43:28.311Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b9a34ebf2b082ef07d68-47807b30512153d4d9d9",
+          "file": "task-profiles.spec.ts",
+          "line": 12,
+          "column": 5
+        },
+        {
+          "title": "CSV mixed submission freezes profile and requested formats instead of generic demo",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 8643,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T03:43:36.063Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b9a34ebf2b082ef07d68-731ff5a877ef7d8db076",
+          "file": "task-profiles.spec.ts",
+          "line": 13,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-15T03:38:54.249Z",
+    "duration": 290519.299,
+    "expected": 35,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

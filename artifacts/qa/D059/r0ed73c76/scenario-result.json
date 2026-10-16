@@ -1,0 +1,11 @@
+{
+  "optimization_disabled": true,
+  "affected_publication_stopped": true,
+  "provider_switched": false,
+  "evidence_preserved": true,
+  "resume_requires_requalification": true,
+  "evidence_kind": "deterministic_product_probe",
+  "blocked_reasons": [
+    "desktop_drill_signed_rollback_and_real_model_requalification_not_executed"
+  ]
+}

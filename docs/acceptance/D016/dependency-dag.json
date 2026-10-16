@@ -1,0 +1,102 @@
+{
+  "before": {
+    "version": 7,
+    "nodes": {
+      "data": {
+        "revision_id": "data-v1",
+        "dependencies": {},
+        "stale": false
+      },
+      "code": {
+        "revision_id": "code-v1",
+        "dependencies": {
+          "data": "data-v1"
+        },
+        "stale": false
+      },
+      "result": {
+        "revision_id": "result-v1",
+        "dependencies": {
+          "code": "code-v1"
+        },
+        "stale": false
+      },
+      "figure": {
+        "revision_id": "figure-v1",
+        "dependencies": {
+          "result": "result-v1"
+        },
+        "stale": false
+      },
+      "report": {
+        "revision_id": "report-v1",
+        "dependencies": {
+          "figure": "figure-v1"
+        },
+        "stale": false
+      },
+      "translation": {
+        "revision_id": "translation-v1",
+        "dependencies": {
+          "report": "report-v1"
+        },
+        "stale": false
+      },
+      "independent": {
+        "revision_id": "independent-v1",
+        "dependencies": {},
+        "stale": false
+      }
+    }
+  },
+  "after": {
+    "version": 8,
+    "nodes": {
+      "data": {
+        "revision_id": "data-v2",
+        "dependencies": {},
+        "stale": false
+      },
+      "code": {
+        "revision_id": "code-v1",
+        "dependencies": {
+          "data": "data-v1"
+        },
+        "stale": true
+      },
+      "result": {
+        "revision_id": "result-v1",
+        "dependencies": {
+          "code": "code-v1"
+        },
+        "stale": true
+      },
+      "figure": {
+        "revision_id": "figure-v1",
+        "dependencies": {
+          "result": "result-v1"
+        },
+        "stale": true
+      },
+      "report": {
+        "revision_id": "report-v1",
+        "dependencies": {
+          "figure": "figure-v1"
+        },
+        "stale": true
+      },
+      "translation": {
+        "revision_id": "translation-v1",
+        "dependencies": {
+          "report": "report-v1"
+        },
+        "stale": true
+      },
+      "independent": {
+        "revision_id": "independent-v1",
+        "dependencies": {},
+        "stale": false
+      }
+    }
+  }
+}

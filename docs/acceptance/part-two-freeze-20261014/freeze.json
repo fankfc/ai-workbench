@@ -1,0 +1,142 @@
+{
+  "schema_version": "1.0",
+  "frozen_at": "2026-10-14T21:48:14.951505+08:00",
+  "timezone": "Asia/Shanghai",
+  "status": "frozen_partial",
+  "scope": "D021-D040",
+  "user_instruction": "冻结未完成的部分；重试",
+  "work_paused": true,
+  "complete": false,
+  "production_enabled": false,
+  "real_model_calls_during_phase_two": 0,
+  "new_real_model_calls_during_freeze": 0,
+  "commit": null,
+  "branch": "codex/part1-foundation",
+  "card_status_counts": {
+    "in_progress": 18,
+    "blocked": 2,
+    "done": 0
+  },
+  "frozen_cards": [
+    "D021",
+    "D022",
+    "D023",
+    "D024",
+    "D025",
+    "D026",
+    "D027",
+    "D028",
+    "D029",
+    "D030",
+    "D031",
+    "D032",
+    "D033",
+    "D034",
+    "D035",
+    "D036",
+    "D037",
+    "D038",
+    "D039",
+    "D040"
+  ],
+  "upstream_blockers": {
+    "D004": "Claude 实际接入与验收未完成；GPT 替代小试验有证据，新执行作用域/正式交接尚未验收。",
+    "D005": "账户与 SDK 鉴权检查成功，但真实 GLM SDK 生成请求 HTTP 405；根因未知，官方发行版主机验证集成仍待补。",
+    "D020": "实际 API→A 计划→B 候选→C→A→发布尚未完整通过；冻结回归另有 1 个异常路径用量测试失败。"
+  },
+  "additional_upstream_blocker": "GPT 当前 22 项限制及生命周期资格仍未完成。",
+  "first_part_freeze_preserved": true,
+  "future_tasks_preserved": "D041-D060 remain planned",
+  "historical_local_test_results": {
+    "status": "LOCAL_CORE_VERIFIED_REAL_ACCEPTANCE_BLOCKED",
+    "complete": false,
+    "real_model_calls": 0,
+    "git_commit": null,
+    "python": {
+      "tests": 1318,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": 1318,
+      "real_provider_deselected": 1,
+      "exit_code": 0,
+      "log": "final-python.log",
+      "junit": "final-python.xml"
+    },
+    "desktop": {
+      "unit_passed": 27,
+      "e2e_passed": 28,
+      "post_presentation_profile_e2e_passed": 4,
+      "typecheck_exit_code": 0,
+      "build_exit_code": 0,
+      "test_build_exit_code": 0
+    },
+    "backend_source_sha256": "30b7567c862172887774d62ec9a6fe03b7abf06047a36b65c5b6e126d469c697",
+    "source_sha256": "e0cafffec582c043ce435f622ce6543a379b4bbfcaf8787f009104e94b21e599",
+    "source_unchanged_during_verification": true,
+    "contract_check": {
+      "exit_code": 0,
+      "result": "CONTRACTS_OK:version=1.0;schemas=2"
+    },
+    "independent_review": {
+      "backend_original_findings": 6,
+      "desktop_original_findings": 4,
+      "all_original_findings_resolved": true,
+      "reviewed_fix_scope_remaining_important": 0
+    },
+    "real": {
+      "configured_profiles": 0,
+      "registered_runtimes": 0,
+      "vertical_cases_blocked": 8,
+      "full_real_acceptance_assembled": false
+    },
+    "task_statuses": {
+      "in_progress": 18,
+      "blocked": 2,
+      "done": 0
+    },
+    "quality_equivalence_claim": false,
+    "token_savings_claim": false,
+    "first_part_freeze_preserved": true,
+    "report": "docs/acceptance/part-two-progress.md",
+    "task_results": "task-results.json"
+  },
+  "tests_rerun_during_freeze": false,
+  "quality_equivalence_claim": false,
+  "token_savings_claim": false,
+  "source_reference": {
+    "path": "docs/acceptance/part-two/final-source-after.json",
+    "sha256": "e0cafffec582c043ce435f622ce6543a379b4bbfcaf8787f009104e94b21e599",
+    "file_count": 286
+  },
+  "preserved_state": "preserved-state.json",
+  "unfinished_tasks": "unfinished-tasks.json",
+  "archive_manifest": "archive-manifest.json",
+  "archive_scope": "当前源码、测试、构建配置/锁文件、规格/计划、运行手册与选定冻结/验收证据。",
+  "excluded": [
+    ".git",
+    ".venv",
+    "node_modules",
+    "dist",
+    "dist-test",
+    ".env",
+    "用户数据目录",
+    "生成的演示/测试数据库",
+    "安装工具与凭据"
+  ],
+  "restore_policy": "先校验 ZIP 与逐文件哈希；恢复到新目录，按锁文件重建环境。等待用户继续指令后推进遗留项，不覆盖当前工作区或第一部分冻结。",
+  "resume_order": [
+    "核对本冻结记录、ZIP、源码与证据哈希，确认逐卡剩余项。",
+    "补齐 D004/D005/D020 与 GPT 当前运行资格，并核验实际模型身份/回执/用量。",
+    "完成双语金标准和领域人工评审、Windows 输入法/无障碍及故障矩阵。",
+    "装配 D040 完整真实附件/产物/取消/重启断言并执行真实四域验收。",
+    "按原卡全部门槛复核后更新状态，保留本冻结历史。"
+  ],
+  "archive": {
+    "path": "docs/acceptance/part-two-freeze-20261014/part-two-unfinished-snapshot.zip",
+    "sha256": "3631386c237b21ac121a7d15cfe8324756af559123ae9ea09905ac06b98179d4",
+    "bytes": 1384529,
+    "payload_file_count": 515,
+    "zip_member_count": 516
+  }
+}

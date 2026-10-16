@@ -1,0 +1,52 @@
+{
+  "utc": "2026-10-15T05:32:16.515934+00:00",
+  "reason": "Whole-run failures were diagnosed before changing fixture configuration.",
+  "product_changes_for_regression_repair": [],
+  "test_changes": [
+    {
+      "path": "tests/support/contracts.py",
+      "change": "Claude successful fixture default30000; GPT10000; explicit budget overrides retained."
+    },
+    {
+      "path": "tests/integration/test_output_translation.py",
+      "change": "Use actual route model_family before computing review contract digest."
+    },
+    {
+      "path": "tests/e2e/local-performance.spec.ts",
+      "change": "Wait for current text and a previously unseen accepted task ID before measuring acknowledgement and reading persisted task state; no sleeps or timeout inflation."
+    }
+  ],
+  "diagnostics": {
+    "path": "final-v1",
+    "python": {
+      "passed": 1677,
+      "failed": 25,
+      "deselected": 1
+    },
+    "underlying_reason": "TRANSLATION_BUDGET_EXHAUSTED",
+    "source_version_policy": "Diagnostic only: test fixture source adjusted while this run finished; never use as final frozen-version success.",
+    "electron": {
+      "passed": 34,
+      "failed": 1,
+      "cause": "The performance fixture read message.accepted before the asynchronous event arrived."
+    }
+  },
+  "evidence": [
+    "full-regression-repair/artifacts-budget-observations.json",
+    "full-regression-repair/artifacts-central-green.xml",
+    "full-regression-repair/translation-budget-probe.txt",
+    "full-regression-repair/translation-green-shared-helper.txt",
+    "full-regression-repair/storage-green.xml",
+    "full-regression-repair/desktop-red.log",
+    "full-regression-repair/desktop-green.log"
+  ],
+  "production_budget_guard_changed": false,
+  "real_model_calls": 0,
+  "verification": "Fresh full final-v3 launched on frozen code and tests; its final result is authoritative, not the sum of targeted batches.",
+  "interrupted_batch": {
+    "path": "final-v2",
+    "complete": false,
+    "owned_tree_termination_confirmed": true,
+    "reason": "Stopped early after the diagnostic Electron race was identified; no completed test-count claim."
+  }
+}

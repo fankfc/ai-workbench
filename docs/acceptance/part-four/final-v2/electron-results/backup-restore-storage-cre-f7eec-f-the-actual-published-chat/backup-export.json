@@ -1,0 +1,20 @@
+{
+  "cid": "bc5cf032a5354ff294ff9efe6286f9c9",
+  "zip_sha256": "21484b9f8e672849cd2dcbcf79c738d5d2c31030070df365204e7e1c153aeb93",
+  "schema": 4,
+  "files": 10,
+  "all_hashes_verified": true,
+  "entries": [
+    "manifest.json",
+    "workbench.sqlite3",
+    "blobs/1c/1cbdd8d61a47b7971e975e458ed0b68093eb0f9dab3b634872fb8b263101cd6f",
+    "blobs/3a/3a313009dd1316e8eb818d117b172e4851cfd47a9f30015214c0858c95e2ecf7",
+    "tasks/f3a8de8d38984b4a8731c43b933fe87b/7992e50eb24e49bcb8862fb94c57c5d7/.source-manifest.json",
+    "tasks/f3a8de8d38984b4a8731c43b933fe87b/7992e50eb24e49bcb8862fb94c57c5d7/a/prompts/068c30d71d6e433da654be76267c9fd7.json",
+    "tasks/f3a8de8d38984b4a8731c43b933fe87b/7992e50eb24e49bcb8862fb94c57c5d7/b/demo.md",
+    "tasks/f3a8de8d38984b4a8731c43b933fe87b/7992e50eb24e49bcb8862fb94c57c5d7/b/prompts/946b3c0972ca4542ae9d9a452d0cffc0.json",
+    "tasks/f3a8de8d38984b4a8731c43b933fe87b/7992e50eb24e49bcb8862fb94c57c5d7/evidence/547abd29ed8f4b17bcd72990ec99ed83.json",
+    "tasks/f3a8de8d38984b4a8731c43b933fe87b/7992e50eb24e49bcb8862fb94c57c5d7/evidence/aa3172c6ea94477181b8b02437bc31c2.json",
+    "tasks/f3a8de8d38984b4a8731c43b933fe87b/7992e50eb24e49bcb8862fb94c57c5d7/input/user_request.txt"
+  ]
+}

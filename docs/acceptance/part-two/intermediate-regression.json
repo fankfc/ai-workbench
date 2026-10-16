@@ -1,0 +1,17 @@
+{
+  "time": "2026-10-14T08:17:50.721598+00:00",
+  "command": [
+    "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\.venv\\Scripts\\python.exe",
+    "-m",
+    "pytest",
+    "-q",
+    "tests/integration",
+    "tests/contracts",
+    "tests/providers",
+    "tests/translation",
+    "tests/artifacts"
+  ],
+  "exit_code": 4,
+  "git_commit": null,
+  "log": "docs\\acceptance\\part-two\\intermediate-regression.log"
+}

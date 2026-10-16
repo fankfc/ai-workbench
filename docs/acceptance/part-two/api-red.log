@@ -1,0 +1,157 @@
+FFFFFFFFFF                                                               [100%]
+================================== FAILURES ===================================
+___________ test_settings_never_claims_identity_from_configuration ____________
+
+client = <starlette.testclient.TestClient object at 0x000001E7838738C0>
+
+    def test_settings_never_claims_identity_from_configuration(client):
+        response = client.get('/v1/settings')
+>       assert response.status_code == 200
+E       assert 404 == 200
+E        +  where 404 = <Response [404 Not Found]>.status_code
+
+tests\integration\test_connection_settings.py:6: AssertionError
+________________ test_preferences_are_versioned_and_persistent ________________
+
+client = <starlette.testclient.TestClient object at 0x000001E7838E7D90>
+
+    def test_preferences_are_versioned_and_persistent(client):
+        initial = client.get('/v1/settings').json()
+>       body = {'expected_version': initial['version'], 'preferences': {'theme': 'dark', 'font_size': 22}}
+                                    ^^^^^^^^^^^^^^^^^^
+E       KeyError: 'version'
+
+tests\integration\test_connection_settings.py:15: KeyError
+_______________ test_probe_cannot_promote_unverified_connection _______________
+
+client = <starlette.testclient.TestClient object at 0x000001E7839E7110>
+
+    def test_probe_cannot_promote_unverified_connection(client):
+        response = client.post('/v1/settings/connections/fake-gpt/probe')
+>       assert response.status_code == 200
+E       assert 404 == 200
+E        +  where 404 = <Response [404 Not Found]>.status_code
+
+tests\integration\test_connection_settings.py:26: AssertionError
+______________ test_connection_version_is_checked_at_submission _______________
+
+client = <starlette.testclient.TestClient object at 0x000001E7838F2190>
+
+    def test_connection_version_is_checked_at_submission(client):
+        conversation = client.post('/v1/conversations', json={'title': '�汾'}).json()['id']
+        body = {'text': '���', 'provider_profile_id': 'fake-gpt', 'client_request_id': 'x', 'connection_version': 'obsolete'}
+>       assert client.post(f'/v1/conversations/{conversation}/turns', json=body).status_code == 409
+E       AssertionError: assert 422 == 409
+E        +  where 422 = <Response [422 Unprocessable Entity]>.status_code
+E        +    where <Response [422 Unprocessable Entity]> = post('/v1/conversations/a02118a0fb2643fda3986e65c7edac88/turns', json={'text': '���', 'provider_profile_id': 'fake-gpt', 'client_request_id': 'x', 'connection_version': 'obsolete'})
+E        +      where post = <starlette.testclient.TestClient object at 0x000001E7838F2190>.post
+
+tests\integration\test_connection_settings.py:35: AssertionError
+________ test_conversation_archive_is_reversible_and_search_is_literal ________
+
+client = <starlette.testclient.TestClient object at 0x000001E783A410F0>
+
+    def test_conversation_archive_is_reversible_and_search_is_literal(client):
+        first = client.post('/v1/conversations', json={'title': '����_100%'}).json()['id']
+        client.post('/v1/conversations', json={'title': '����X100x'})
+>       assert client.patch('/v1/conversations/' + first, json={'title': '����_100%', 'pinned': True, 'archived': True}).status_code == 200
+E       AssertionError: assert 404 == 200
+E        +  where 404 = <Response [404 Not Found]>.status_code
+E        +    where <Response [404 Not Found]> = patch(('/v1/conversations/' + '0f4f802ede4a47ac8a0cb33cc83578d1'), json={'title': '����_100%', 'pinned': True, 'archived': True})
+E        +      where patch = <starlette.testclient.TestClient object at 0x000001E783A410F0>.patch
+
+tests\integration\test_connection_settings.py:47: AssertionError
+_________________ test_authenticated_handshake_and_checkpoint _________________
+
+client = <starlette.testclient.TestClient object at 0x000001E783AD1910>
+
+    def test_authenticated_handshake_and_checkpoint(client):
+        health = client.get('/v1/health')
+>       assert health.status_code == 200
+E       assert 404 == 200
+E        +  where 404 = <Response [404 Not Found]>.status_code
+
+tests\integration\test_connection_settings.py:57: AssertionError
+__________ test_diagnostics_excludes_body_credentials_and_raw_usage ___________
+
+client = <starlette.testclient.TestClient object at 0x000001E783B2DD00>
+
+    def test_diagnostics_excludes_body_credentials_and_raw_usage(client):
+        cid = client.post('/v1/conversations', json={'title': 'PRIVATE_TITLE_CANARY'}).json()['id']
+        submitted = client.post(f'/v1/conversations/{cid}/turns', json={'text': 'PRIVATE_BODY_CANARY', 'provider_profile_id': 'fake-gpt', 'client_request_id': 'req'}).json()
+        with client.app.state.database.connect() as connection:
+            attempt = connection.execute('SELECT attempt_id FROM task_runs WHERE task_id=?', (submitted['task_id'],)).fetchone()[0]
+        UsageLedger(client.app.state.database.path).record(task_id=submitted['task_id'], attempt_id=attempt,
+            provider_profile_id='fake-gpt', external_request_id='r', event_id='e', provider='gpt',
+            raw={'total_tokens': 17, 'secret': 'RAW_SECRET_CANARY'}, source='reported', mode='request_total',
+            sequence=1, role='A', function='execution', domain='mixed', status='failed')
+        response = client.post('/v1/diagnostics/export')
+>       assert response.status_code == 200
+E       assert 404 == 200
+E        +  where 404 = <Response [404 Not Found]>.status_code
+
+tests\integration\test_diagnostics_export.py:18: AssertionError
+__________ test_usage_preserves_unknown_and_includes_failed_requests __________
+
+client = <starlette.testclient.TestClient object at 0x000001E783B73790>
+
+    def test_usage_preserves_unknown_and_includes_failed_requests(client):
+        cid = client.post('/v1/conversations', json={'title': '����'}).json()['id']
+        submitted = client.post(f'/v1/conversations/{cid}/turns', json={'text': '����', 'provider_profile_id': 'fake-gpt', 'client_request_id': 'req'}).json()
+        with client.app.state.database.connect() as connection:
+            attempt = connection.execute('SELECT attempt_id FROM task_runs WHERE task_id=?', (submitted['task_id'],)).fetchone()[0]
+        ledger = UsageLedger(client.app.state.database.path)
+        for request_id, raw in [('failed', {'total_tokens': 19}), ('unknown', {})]:
+            ledger.record(task_id=submitted['task_id'], attempt_id=attempt, provider_profile_id='fake-gpt',
+                external_request_id=request_id, event_id=request_id, provider='gpt', raw=raw,
+                source='reported' if raw else 'unknown', mode='request_total', sequence=1,
+                role='A', function='review', domain='mixed', status='failed')
+        response = client.get('/v1/usage')
+>       assert response.status_code == 200
+E       assert 404 == 200
+E        +  where 404 = <Response [404 Not Found]>.status_code
+
+tests\integration\test_diagnostics_export.py:38: AssertionError
+______ test_cleanup_preview_only_offers_unreferenced_blobs_and_is_fenced ______
+
+client = <starlette.testclient.TestClient object at 0x000001E783B746B0>
+
+    def test_cleanup_preview_only_offers_unreferenced_blobs_and_is_fenced(client):
+        store = client.app.state.blobs
+        orphan = store.put(b'private orphan')
+        preview = client.post('/v1/storage/cleanup-preview')
+>       assert preview.status_code == 200
+E       assert 404 == 200
+E        +  where 404 = <Response [404 Not Found]>.status_code
+
+tests\integration\test_storage_settings.py:5: AssertionError
+____________ test_storage_does_not_expose_paths_or_allow_traversal ____________
+
+client = <starlette.testclient.TestClient object at 0x000001E783C0CC00>
+
+    def test_storage_does_not_expose_paths_or_allow_traversal(client):
+>       assert client.get('/v1/storage').status_code == 200
+E       AssertionError: assert 404 == 200
+E        +  where 404 = <Response [404 Not Found]>.status_code
+E        +    where <Response [404 Not Found]> = get('/v1/storage')
+E        +      where get = <starlette.testclient.TestClient object at 0x000001E783C0CC00>.get
+
+tests\integration\test_storage_settings.py:20: AssertionError
+============================== warnings summary ===============================
+tests/integration/test_connection_settings.py::test_settings_never_claims_identity_from_configuration
+  C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/integration/test_connection_settings.py::test_settings_never_claims_identity_from_configuration
+FAILED tests/integration/test_connection_settings.py::test_preferences_are_versioned_and_persistent
+FAILED tests/integration/test_connection_settings.py::test_probe_cannot_promote_unverified_connection
+FAILED tests/integration/test_connection_settings.py::test_connection_version_is_checked_at_submission
+FAILED tests/integration/test_connection_settings.py::test_conversation_archive_is_reversible_and_search_is_literal
+FAILED tests/integration/test_connection_settings.py::test_authenticated_handshake_and_checkpoint
+FAILED tests/integration/test_diagnostics_export.py::test_diagnostics_excludes_body_credentials_and_raw_usage
+FAILED tests/integration/test_diagnostics_export.py::test_usage_preserves_unknown_and_includes_failed_requests
+FAILED tests/integration/test_storage_settings.py::test_cleanup_preview_only_offers_unreferenced_blobs_and_is_fenced
+FAILED tests/integration/test_storage_settings.py::test_storage_does_not_expose_paths_or_allow_traversal
+10 failed, 1 warning in 1.45s

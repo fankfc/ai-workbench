@@ -1,0 +1,16 @@
+{
+  "time": "2026-10-14T07:21:23.819864+00:00",
+  "command": [
+    "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\.venv\\Scripts\\python.exe",
+    "-m",
+    "pytest",
+    "-q",
+    "tests/contracts/test_scoped_runtime_repairs.py",
+    "tests/integration/test_native_planning.py",
+    "tests/contracts/test_phase_bridge.py",
+    "-q"
+  ],
+  "exit_code": 0,
+  "git_commit": null,
+  "log": "docs\\acceptance\\part-one-closeout\\native-bill-only-green.log"
+}

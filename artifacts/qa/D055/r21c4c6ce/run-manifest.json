@@ -1,0 +1,26 @@
+{
+  "version": "1.0",
+  "build_id": "64bc5e858de1f6a58d2d1b055a1aaf5a8d7861e6f071fb0f392d37583caf04c5",
+  "run_id": null,
+  "created_at": "2026-10-14T15:16:43.862335+00:00",
+  "seed": 4317,
+  "encoding": "UTF-8",
+  "provider_boundary": "fake",
+  "files": [
+    {
+      "path": ".qa-run.json",
+      "size": 154,
+      "sha256": "52c115761d5d4df8104b73717be69bd9f963cd40892feae86f3d012ad1148730"
+    },
+    {
+      "path": "real_journey_audit.json",
+      "size": 275,
+      "sha256": "e83a1475cc30325e84a0d2e14fcdc56b46570897451c3c29b642a58baca43d6a"
+    },
+    {
+      "path": "scenario-result.json",
+      "size": 277,
+      "sha256": "41c73d878939a504d8d225dc2d7988cf4cca241890c2c04b5f6df50af9df2bf1"
+    }
+  ]
+}

@@ -1,0 +1,111 @@
+{
+  "build_id": "987b3d9dcbabd26e39ff000b3dad6be806aa7473e64ce44c624f69d9fc986e5e",
+  "qa_source_id": "df0fdacb92a795c3770f99afa5c9869e04b6b773a0631ec36a4830bb22a1d38e",
+  "source_unchanged": false,
+  "checks": [
+    {
+      "name": "contracts",
+      "command": [
+        "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\.venv\\Scripts\\python.exe",
+        "scripts/check_contracts.py",
+        "--strict"
+      ],
+      "started_at": "2026-10-14T15:20:43.415156+00:00",
+      "ended_at": "2026-10-14T15:20:43.812129+00:00",
+      "exit_code": 0,
+      "log": "docs/acceptance/part-three/final/contracts.log"
+    },
+    {
+      "name": "python",
+      "command": [
+        "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "-q",
+        "-x",
+        "--junitxml=C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\part-three\\final\\python.xml"
+      ],
+      "started_at": "2026-10-14T15:20:43.812899+00:00",
+      "ended_at": "2026-10-14T15:26:26.631758+00:00",
+      "exit_code": 0,
+      "log": "docs/acceptance/part-three/final/python.log"
+    },
+    {
+      "name": "desktop-typecheck",
+      "command": [
+        "cmd.exe",
+        "/d",
+        "/c",
+        "npm",
+        "run",
+        "typecheck:desktop"
+      ],
+      "started_at": "2026-10-14T15:26:26.661823+00:00",
+      "ended_at": "2026-10-14T15:26:28.098660+00:00",
+      "exit_code": 0,
+      "log": "docs/acceptance/part-three/final/desktop-typecheck.log"
+    },
+    {
+      "name": "desktop-unit",
+      "command": [
+        "node",
+        "node_modules/vitest/vitest.mjs",
+        "run",
+        "tests/desktop",
+        "tests/release"
+      ],
+      "started_at": "2026-10-14T15:26:28.099448+00:00",
+      "ended_at": "2026-10-14T15:26:35.352534+00:00",
+      "exit_code": 0,
+      "log": "docs/acceptance/part-three/final/desktop-unit.log"
+    },
+    {
+      "name": "desktop-build",
+      "command": [
+        "cmd.exe",
+        "/d",
+        "/c",
+        "npm",
+        "run",
+        "build:desktop"
+      ],
+      "started_at": "2026-10-14T15:26:35.353248+00:00",
+      "ended_at": "2026-10-14T15:26:37.182290+00:00",
+      "exit_code": 0,
+      "log": "docs/acceptance/part-three/final/desktop-build.log"
+    },
+    {
+      "name": "desktop-test-build",
+      "command": [
+        "cmd.exe",
+        "/d",
+        "/c",
+        "npm",
+        "run",
+        "build:desktop:test"
+      ],
+      "started_at": "2026-10-14T15:26:37.183013+00:00",
+      "ended_at": "2026-10-14T15:26:38.993887+00:00",
+      "exit_code": 0,
+      "log": "docs/acceptance/part-three/final/desktop-test-build.log"
+    },
+    {
+      "name": "desktop-e2e",
+      "command": [
+        "node",
+        "node_modules/@playwright/test/cli.js",
+        "test",
+        "--reporter=json"
+      ],
+      "started_at": "2026-10-14T15:26:38.994593+00:00",
+      "ended_at": "2026-10-14T15:31:01.080522+00:00",
+      "exit_code": 1,
+      "log": "docs/acceptance/part-three/final/desktop-e2e.log"
+    }
+  ],
+  "all_executed_checks_passed": false,
+  "real_model_calls": 0,
+  "functional_release": false,
+  "optimization_goal_met": false,
+  "note": "Local mechanical regressions only; external and manual gates remain separate."
+}

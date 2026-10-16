@@ -1,0 +1,11 @@
+{
+  "previous_pid": 27120,
+  "current_pid": 9268,
+  "source_retained": true,
+  "original_turns": 2,
+  "restored_turns": 1,
+  "confirmation": {
+    "message": "已核验 10 个文件，数据库版本 4。",
+    "detail": "确认后将在独立目录恢复并重新连接本地服务。当前目录会保留。备份不含连接凭证，恢复后请重新核验模型连接。"
+  }
+}

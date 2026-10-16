@@ -1,0 +1,52 @@
+
+> ai-workbench@0.1.0 test:desktop
+> vitest run tests/desktop
+
+
+ RUN  v5.0.4 C:/Users/asd15/Documents/ChatGPT/ai
+
+ ❯ tests/desktop/artifact-files.test.ts (4 tests | 1 failed) 23ms
+   ❯ artifact save safety (4)
+     × reports the remaining saved filename when rollback is refused by the filesystem 9ms
+ ❯ tests/desktop/backend.test.ts (8 tests | 1 failed) 8782ms
+   ❯ managed process lifecycle (6)
+     × a late exit from the previous child cannot disconnect its replacement 3230ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/desktop/artifact-files.test.ts > artifact save safety > reports the remaining saved filename when rollback is refused by the filesystem
+AssertionError: promise resolved "[ 'en.md', 'zh.md' ]" instead of rejecting
+
+- Expected:
+Error {
+  "message": "rejected promise",
+}
+
++ Received:
+[
+  "en.md",
+  "zh.md",
+]
+
+ ❯ tests/desktop/artifact-files.test.ts:13:620
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  tests/desktop/backend.test.ts > managed process lifecycle > a late exit from the previous child cannot disconnect its replacement
+AssertionError: expected 'offline' to be 'ready' // Object.is equality
+
+Expected: "ready"
+Received: "offline"
+
+ ❯ tests/desktop/backend.test.ts:29:284
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  2 failed | 3 passed (5)
+      Tests  2 failed | 18 passed (20)
+   Start at  16:46:04
+   Duration  9.03s (tests 97%, import 1%, transform 1%)
+

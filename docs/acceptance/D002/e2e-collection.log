@@ -1,0 +1,10 @@
+
+> ai-workbench@0.1.0 test:e2e
+> playwright test --list
+
+
+Error: No tests found
+Listing tests:
+Total: 0 tests in 0 files
+exit_code=1
+expected=no product end-to-end tests exist in D002

@@ -1,0 +1,59 @@
+F......                                                                  [100%]
+================================== FAILURES ===================================
+_ test_failure_drain_binds_delayed_identity_without_accepting_ambiguous_usage[None] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-522/test_failure_drain_binds_delay0')
+damage = None
+
+    @pytest.mark.parametrize('damage', [None, 'duplicate_sse', 'duplicate_receipt', 'foreign_receipt',
+        'wrong_model', 'missing_created', 'missing_completion'])
+    def test_failure_drain_binds_delayed_identity_without_accepting_ambiguous_usage(tmp_path, damage):
+        """The stdout error can arrive before the independent stderr reader runs."""
+        value = worker.Worker(dict(action='invoke', timeout_seconds=6, max_output_bytes=2_000_000,
+            nonce='delayed_identity_fixture', expected_model='gpt-fixture'))
+        packets = []
+        value.emit = lambda kind, **fields: packets.append(dict(kind=kind, **fields))
+        peer = worker.PipePeer([], tmp_path, time.monotonic()+6, 2_000_000, lambda *_: None, 'restricted')
+        value.peer = peer
+        peer.notifications = value.notification
+        value.thread_id, value.turn_id = 'thread_fixture', 'turn_fixture'
+        value.submitted = value.accepted = True
+        receipt = dict(method='rawResponse/completed', params=dict(threadId=value.thread_id,
+            turnId=value.turn_id, responseId='resp_fixture', usage=dict(inputTokens=30, outputTokens=3,
+                totalTokens=33, reasoningOutputTokens=1)))
+        value.notification(receipt['method'], receipt['params'])
+        def trace(kind, model='gpt-fixture'):
+            event = dict(type=kind, response=dict(id='resp_fixture', object='response', status='completed', model=model))
+            return json.dumps(dict(target='codex_api::sse::responses', level='TRACE',
+                fields=dict(message='SSE event: '+json.dumps(event)))).encode()
+        delayed = []
+        if damage != 'missing_created':
+            delayed.append(('stderr', trace('response.created')))
+        if damage != 'missing_completion':
+            delayed.append(('stderr', trace('response.completed', 'foreign-model' if damage=='wrong_model' else 'gpt-fixture')))
+        if damage == 'duplicate_sse':
+            delayed.append(('stderr', trace('response.completed')))
+        if damage in ('duplicate_receipt', 'foreign_receipt'):
+            if damage == 'foreign_receipt':
+                receipt['params']['threadId'] = 'foreign_thread'
+            delayed.append(('stdout', json.dumps(receipt).encode()))
+        def finish_readers():
+            while delayed:
+                peer.frames.put(delayed.pop(0))
+        peer.close = finish_readers
+        peer.call = lambda *_: {}
+        value.observed = lambda *_: None
+        value.prepare = lambda: []
+        value.invoke = lambda _: peer.pump(wait=0)
+        peer.frames.put(('stdout', json.dumps(dict(method='error', params=dict(threadId=value.thread_id,
+            turnId=value.turn_id, message='PRIVATE_CANARY'))).encode()))
+        assert value.run() == 1
+        usages = [packet for packet in packets if packet['kind']=='usage']
+>       assert len(usages) == (1 if damage is None else 0)
+E       assert 0 == 1
+E        +  where 0 = len([])
+
+tests\contracts\test_scoped_worker_repairs.py:203: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/contracts/test_scoped_worker_repairs.py::test_failure_drain_binds_delayed_identity_without_accepting_ambiguous_usage[None]
+1 failed, 6 passed, 27 deselected in 1.22s

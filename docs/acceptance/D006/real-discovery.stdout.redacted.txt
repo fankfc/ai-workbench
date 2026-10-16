@@ -1,0 +1,5 @@
+{"type":"thread.started","thread_id":"01a13504-aed8-70b3-b933-b8e5e898aace"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"我会读取当前目录的 input.txt；当前环境为只读，无法创建 result.txt，我会在权限边界处停止。\n"}}
+{"type":"item.completed","item":{"id":"item_1","type":"agent_message","text":"读取 input.txt 被权限策略拒绝，已停止。当前环境为只读，未创建 result.txt。"}}
+{"type":"turn.completed","usage":{"input_tokens":50369,"cached_input_tokens":37504,"cache_write_input_tokens":0,"output_tokens":100,"reasoning_output_tokens":0}}

@@ -1,0 +1,42 @@
+{
+  "task_id": "D003",
+  "generated_at": "2026-10-13T10:47:10.6860046Z",
+  "source_revision": "uncommitted workspace; no Git commit created",
+  "files": [
+    {
+      "path": "services/orchestrator/app/providers/probe.py",
+      "bytes": 22263,
+      "sha256": "7b75a246eab2cd389d985db8462cdd16b5aa08153f50940d36f3a3620cf86cdb"
+    },
+    {
+      "path": "services/orchestrator/app/providers/__init__.py",
+      "bytes": 57,
+      "sha256": "2f7f5fbd25d0a4a8e931b3b94066f3675adb0a0b3dee0773576beff7e315144e"
+    },
+    {
+      "path": "scripts/probe_provider.py",
+      "bytes": 1503,
+      "sha256": "5b2df748ea939a00ec03ea5766e1cb3b2035ef029a97633b008c6f550e733a6f"
+    },
+    {
+      "path": "tests/contracts/test_readonly_probe.py",
+      "bytes": 14392,
+      "sha256": "0e74caa861ce7d633261cae999e0b3c6e8444a482e875bf243b5564640210378"
+    },
+    {
+      "path": "docs/acceptance/local-capabilities.json",
+      "bytes": 32613,
+      "sha256": "e5f5321a6c1b4aae9a199db92a1454f847856b2b1e97c8bff0d8b89fe6a0912b"
+    },
+    {
+      "path": "docs/acceptance/D003/probe-trace.json",
+      "bytes": 6429,
+      "sha256": "975e305f5c19ad97a4a01772f71b6c83cf2370c4fb4e8c318fde74123eec4db7"
+    },
+    {
+      "path": "docs/acceptance/D003/installation-metadata.json",
+      "bytes": 611,
+      "sha256": "31987f4edc829c19fa35267d17925686419bf03bb8a5d351f3473fcd43299cd4"
+    }
+  ]
+}

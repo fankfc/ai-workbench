@@ -1,0 +1,102 @@
+FFFFF                                                                    [100%]
+================================== FAILURES ===================================
+_ test_every_metadata_method_has_fixed_parameters_before_start[thread/start-params0] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-203/test_every_metadata_method_has0')
+method = 'thread/start'
+params = {'cwd': 'C:/outside', 'ephemeral': True, 'baseInstructions': 'private'}
+
+    @pytest.mark.parametrize("method,params", [("thread/start", {"cwd": "C:/outside", "ephemeral": True, "baseInstructions": "private"}),
+        ("model/list", {"limit": 999999999, "includeHidden": True, "extra": "private"}),
+        ("initialize", {"clientInfo": {"name": "unknown"}, "capabilities": {"requestAttestation": True}}),
+        ("initialized", {"extra": "private"}), ("runtime/capabilities", {"extra": "private"})])
+    def test_every_metadata_method_has_fixed_parameters_before_start(tmp_path, method, params):
+        client = NativeRpcClient(fixture_command(tmp_path), tmp_path, metadata_methods={method})
+>       with pytest.raises(NativeRpcError, match="METADATA_FIXED_PARAMS_REQUIRED"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError: Regex pattern did not match.
+E         Expected regex: 'METADATA_FIXED_PARAMS_REQUIRED'
+E         Actual message: 'RPC_NOT_RUNNING'
+
+tests\contracts\test_codex_protocol.py:328: AssertionError
+_ test_every_metadata_method_has_fixed_parameters_before_start[model/list-params1] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-203/test_every_metadata_method_has1')
+method = 'model/list'
+params = {'limit': 999999999, 'includeHidden': True, 'extra': 'private'}
+
+    @pytest.mark.parametrize("method,params", [("thread/start", {"cwd": "C:/outside", "ephemeral": True, "baseInstructions": "private"}),
+        ("model/list", {"limit": 999999999, "includeHidden": True, "extra": "private"}),
+        ("initialize", {"clientInfo": {"name": "unknown"}, "capabilities": {"requestAttestation": True}}),
+        ("initialized", {"extra": "private"}), ("runtime/capabilities", {"extra": "private"})])
+    def test_every_metadata_method_has_fixed_parameters_before_start(tmp_path, method, params):
+        client = NativeRpcClient(fixture_command(tmp_path), tmp_path, metadata_methods={method})
+>       with pytest.raises(NativeRpcError, match="METADATA_FIXED_PARAMS_REQUIRED"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError: Regex pattern did not match.
+E         Expected regex: 'METADATA_FIXED_PARAMS_REQUIRED'
+E         Actual message: 'RPC_NOT_RUNNING'
+
+tests\contracts\test_codex_protocol.py:328: AssertionError
+_ test_every_metadata_method_has_fixed_parameters_before_start[initialize-params2] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-203/test_every_metadata_method_has2')
+method = 'initialize'
+params = {'clientInfo': {'name': 'unknown'}, 'capabilities': {'requestAttestation': True}}
+
+    @pytest.mark.parametrize("method,params", [("thread/start", {"cwd": "C:/outside", "ephemeral": True, "baseInstructions": "private"}),
+        ("model/list", {"limit": 999999999, "includeHidden": True, "extra": "private"}),
+        ("initialize", {"clientInfo": {"name": "unknown"}, "capabilities": {"requestAttestation": True}}),
+        ("initialized", {"extra": "private"}), ("runtime/capabilities", {"extra": "private"})])
+    def test_every_metadata_method_has_fixed_parameters_before_start(tmp_path, method, params):
+        client = NativeRpcClient(fixture_command(tmp_path), tmp_path, metadata_methods={method})
+>       with pytest.raises(NativeRpcError, match="METADATA_FIXED_PARAMS_REQUIRED"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError: Regex pattern did not match.
+E         Expected regex: 'METADATA_FIXED_PARAMS_REQUIRED'
+E         Actual message: 'RPC_NOT_RUNNING'
+
+tests\contracts\test_codex_protocol.py:328: AssertionError
+_ test_every_metadata_method_has_fixed_parameters_before_start[initialized-params3] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-203/test_every_metadata_method_has3')
+method = 'initialized', params = {'extra': 'private'}
+
+    @pytest.mark.parametrize("method,params", [("thread/start", {"cwd": "C:/outside", "ephemeral": True, "baseInstructions": "private"}),
+        ("model/list", {"limit": 999999999, "includeHidden": True, "extra": "private"}),
+        ("initialize", {"clientInfo": {"name": "unknown"}, "capabilities": {"requestAttestation": True}}),
+        ("initialized", {"extra": "private"}), ("runtime/capabilities", {"extra": "private"})])
+    def test_every_metadata_method_has_fixed_parameters_before_start(tmp_path, method, params):
+        client = NativeRpcClient(fixture_command(tmp_path), tmp_path, metadata_methods={method})
+>       with pytest.raises(NativeRpcError, match="METADATA_FIXED_PARAMS_REQUIRED"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError: Regex pattern did not match.
+E         Expected regex: 'METADATA_FIXED_PARAMS_REQUIRED'
+E         Actual message: 'RPC_NOT_RUNNING'
+
+tests\contracts\test_codex_protocol.py:328: AssertionError
+_ test_every_metadata_method_has_fixed_parameters_before_start[runtime/capabilities-params4] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-203/test_every_metadata_method_has4')
+method = 'runtime/capabilities', params = {'extra': 'private'}
+
+    @pytest.mark.parametrize("method,params", [("thread/start", {"cwd": "C:/outside", "ephemeral": True, "baseInstructions": "private"}),
+        ("model/list", {"limit": 999999999, "includeHidden": True, "extra": "private"}),
+        ("initialize", {"clientInfo": {"name": "unknown"}, "capabilities": {"requestAttestation": True}}),
+        ("initialized", {"extra": "private"}), ("runtime/capabilities", {"extra": "private"})])
+    def test_every_metadata_method_has_fixed_parameters_before_start(tmp_path, method, params):
+        client = NativeRpcClient(fixture_command(tmp_path), tmp_path, metadata_methods={method})
+>       with pytest.raises(NativeRpcError, match="METADATA_FIXED_PARAMS_REQUIRED"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError: Regex pattern did not match.
+E         Expected regex: 'METADATA_FIXED_PARAMS_REQUIRED'
+E         Actual message: 'RPC_NOT_RUNNING'
+
+tests\contracts\test_codex_protocol.py:328: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/contracts/test_codex_protocol.py::test_every_metadata_method_has_fixed_parameters_before_start[thread/start-params0]
+FAILED tests/contracts/test_codex_protocol.py::test_every_metadata_method_has_fixed_parameters_before_start[model/list-params1]
+FAILED tests/contracts/test_codex_protocol.py::test_every_metadata_method_has_fixed_parameters_before_start[initialize-params2]
+FAILED tests/contracts/test_codex_protocol.py::test_every_metadata_method_has_fixed_parameters_before_start[initialized-params3]
+FAILED tests/contracts/test_codex_protocol.py::test_every_metadata_method_has_fixed_parameters_before_start[runtime/capabilities-params4]
+5 failed, 37 deselected in 0.34s

@@ -1,0 +1,16 @@
+FF                                                                       [100%]
+================================== FAILURES ===================================
+________ test_same_attempt_can_run_two_distinct_steps_and_records_both ________
+tests\integration\test_process_lifecycle.py:303: in test_same_attempt_can_run_two_distinct_steps_and_records_both
+    first = manager.start("multi", "a1", command(tmp_path, "--exit-code", "0"), tmp_path, step_id="B.execute")
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   TypeError: ProcessManager.start() got an unexpected keyword argument 'step_id'
+________ test_remote_unknown_cancel_blocks_new_step_until_confirmation ________
+tests\integration\test_process_lifecycle.py:316: in test_remote_unknown_cancel_blocks_new_step_until_confirmation
+    first = manager.start("remote", "a1", command(tmp_path), tmp_path, remote_id="remote-pending", step_id="B.execute")
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   TypeError: ProcessManager.start() got an unexpected keyword argument 'step_id'
+=========================== short test summary info ===========================
+FAILED tests/integration/test_process_lifecycle.py::test_same_attempt_can_run_two_distinct_steps_and_records_both
+FAILED tests/integration/test_process_lifecycle.py::test_remote_unknown_cancel_blocks_new_step_until_confirmation
+2 failed, 18 deselected in 0.65s

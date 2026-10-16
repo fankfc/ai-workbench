@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="21" skipped="0" tests="21" time="0.320" timestamp="2026-10-14T22:43:09.641088+08:00" hostname="帆"><testcase classname="tests.acceptance.test_requirement_coverage" name="test_missing_mandatory_case_blocks_completion" time="0.009"><failure message="AssertionError: coverage evaluator missing&#10;assert False&#10; +  where False = exists()&#10; +    where exists = WindowsPath('tests/support/scenarios/requirement_coverage.py').exists&#10; +      where WindowsPath('tests/support/scenarios/requirement_coverage.py') = Path('tests/support/scenarios/requirement_coverage.py')">tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-421/test_missing_mandatory_case_bl0')
+
+    def test_missing_mandatory_case_blocks_completion(tmp_path):
+&gt;       result = handler().run(tmp_path, {'remove_case': 'T13'})
+                 ^^^^^^^^^
+
+tests\acceptance\test_requirement_coverage.py:11: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def handler():
+&gt;       assert Path('tests/support/scenarios/requirement_coverage.py').exists(), 'coverage evaluator missing'
+E       AssertionError: coverage evaluator missing
+E       assert False
+E        +  where False = exists()
+E        +    where exists = WindowsPath('tests/support/scenarios/requirement_coverage.py').exists
+E        +      where WindowsPath('tests/support/scenarios/requirement_coverage.py') = Path('tests/support/scenarios/requirement_coverage.py')
+
+tests\acceptance\test_requirement_coverage.py:6: AssertionError</failure></testcase><testcase classname="tests.acceptance.test_requirement_coverage" name="test_matrix_retains_all_requirements_without_claiming_evidence" time="0.002"><failure message="AssertionError: coverage evaluator missing&#10;assert False&#10; +  where False = exists()&#10; +    where exists = WindowsPath('tests/support/scenarios/requirement_coverage.py').exists&#10; +      where WindowsPath('tests/support/scenarios/requirement_coverage.py') = Path('tests/support/scenarios/requirement_coverage.py')">tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-421/test_matrix_retains_all_requir0')
+
+    def test_matrix_retains_all_requirements_without_claiming_evidence(tmp_path):
+&gt;       result = handler().run(tmp_path, {})
+                 ^^^^^^^^^
+
+tests\acceptance\test_requirement_coverage.py:17: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def handler():
+&gt;       assert Path('tests/support/scenarios/requirement_coverage.py').exists(), 'coverage evaluator missing'
+E       AssertionError: coverage evaluator missing
+E       assert False
+E        +  where False = exists()
+E        +    where exists = WindowsPath('tests/support/scenarios/requirement_coverage.py').exists
+E        +      where WindowsPath('tests/support/scenarios/requirement_coverage.py') = Path('tests/support/scenarios/requirement_coverage.py')
+
+tests\acceptance\test_requirement_coverage.py:6: AssertionError</failure></testcase><testcase classname="tests.acceptance.test_requirement_coverage" name="test_unknown_removed_case_is_rejected" time="0.002"><failure message="AssertionError: coverage evaluator missing&#10;assert False&#10; +  where False = exists()&#10; +    where exists = WindowsPath('tests/support/scenarios/requirement_coverage.py').exists&#10; +      where WindowsPath('tests/support/scenarios/requirement_coverage.py') = Path('tests/support/scenarios/requirement_coverage.py')">tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-421/test_unknown_removed_case_is_r0')
+
+    def test_unknown_removed_case_is_rejected(tmp_path):
+        import pytest
+        with pytest.raises(ValueError, match='UNKNOWN_CASE'):
+&gt;           handler().run(tmp_path, {'remove_case': 'invented'})
+            ^^^^^^^^^
+
+tests\acceptance\test_requirement_coverage.py:28: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def handler():
+&gt;       assert Path('tests/support/scenarios/requirement_coverage.py').exists(), 'coverage evaluator missing'
+E       AssertionError: coverage evaluator missing
+E       assert False
+E        +  where False = exists()
+E        +    where exists = WindowsPath('tests/support/scenarios/requirement_coverage.py').exists
+E        +      where WindowsPath('tests/support/scenarios/requirement_coverage.py') = Path('tests/support/scenarios/requirement_coverage.py')
+
+tests\acceptance\test_requirement_coverage.py:6: AssertionError</failure></testcase><testcase classname="tests.translation.test_release_corpus" name="test_draft_references_do_not_count_as_approved_golden" time="0.002"><failure message="AssertionError: corpus evaluator missing&#10;assert False&#10; +  where False = exists()&#10; +    where exists = WindowsPath('tests/support/scenarios/translation_corpus.py').exists&#10; +      where WindowsPath('tests/support/scenarios/translation_corpus.py') = Path('tests/support/scenarios/translation_corpus.py')">tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-421/test_draft_references_do_not_c0')
+
+    def test_draft_references_do_not_count_as_approved_golden(tmp_path):
+&gt;       result = handler().run(tmp_path, {})
+                 ^^^^^^^^^
+
+tests\translation\test_release_corpus.py:12: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def handler():
+&gt;       assert Path('tests/support/scenarios/translation_corpus.py').exists(), 'corpus evaluator missing'
+E       AssertionError: corpus evaluator missing
+E       assert False
+E        +  where False = exists()
+E        +    where exists = WindowsPath('tests/support/scenarios/translation_corpus.py').exists
+E        +      where WindowsPath('tests/support/scenarios/translation_corpus.py') = Path('tests/support/scenarios/translation_corpus.py')
+
+tests\translation\test_release_corpus.py:7: AssertionError</failure></testcase><testcase classname="tests.translation.test_release_corpus" name="test_known_critical_error_is_blocked_by_product_checker" time="0.002"><failure message="AssertionError: corpus evaluator missing&#10;assert False&#10; +  where False = exists()&#10; +    where exists = WindowsPath('tests/support/scenarios/translation_corpus.py').exists&#10; +      where WindowsPath('tests/support/scenarios/translation_corpus.py') = Path('tests/support/scenarios/translation_corpus.py')">tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-421/test_known_critical_error_is_b0')
+
+    def test_known_critical_error_is_blocked_by_product_checker(tmp_path):
+&gt;       result = handler().run(tmp_path, {'fault': 'critical_semantic'})
+                 ^^^^^^^^^
+
+tests\translation\test_release_corpus.py:20: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def handler():
+&gt;       assert Path('tests/support/scenarios/translation_corpus.py').exists(), 'corpus evaluator missing'
+E       AssertionError: corpus evaluator missing
+E       assert False
+E        +  where False = exists()
+E        +    where exists = WindowsPath('tests/support/scenarios/translation_corpus.py').exists
+E        +      where WindowsPath('tests/support/scenarios/translation_corpus.py') = Path('tests/support/scenarios/translation_corpus.py')
+
+tests\translation\test_release_corpus.py:7: AssertionError</failure></testcase><testcase classname="tests.translation.test_release_corpus" name="test_corpus_preserves_original_ids_and_balanced_drafts" time="0.001"><failure message="AssertionError: assert 3 == 60&#10; +  where 3 = len([{'id': 'neg-num', 'direction': 'en-zh', 'source': 'Do not release when delta &lt; -0.03.', 'approved_reference': '当差值小于 ...ion': 'en-zh', 'source': 'Keep the original file. The estimate is 95%.', 'approved_reference': '保留原文件。估计值为 95%。', ...}])">def test_corpus_preserves_original_ids_and_balanced_drafts():
+        rows = [json.loads(line) for line in Path('tests/fixtures/translation/golden.jsonl').read_text(encoding='utf-8').splitlines()]
+&gt;       assert len(rows) == 60
+E       AssertionError: assert 3 == 60
+E        +  where 3 = len([{'id': 'neg-num', 'direction': 'en-zh', 'source': 'Do not release when delta &lt; -0.03.', 'approved_reference': '当差值小于 ...ion': 'en-zh', 'source': 'Keep the original file. The estimate is 95%.', 'approved_reference': '保留原文件。估计值为 95%。', ...}])
+
+tests\translation\test_release_corpus.py:28: AssertionError</failure></testcase><testcase classname="tests.quality.test_optimization_gate" name="test_absent_evidence_defaults_to_a_led" time="0.000"><failure message="AssertionError: eligibility evaluator missing&#10;assert False&#10; +  where False = exists()&#10; +    where exists = WindowsPath('services/orchestrator/app/quality/eligibility.py').exists&#10; +      where WindowsPath('services/orchestrator/app/quality/eligibility.py') = Path('services/orchestrator/app/quality/eligibility.py')">def test_absent_evidence_defaults_to_a_led():
+&gt;       result = evaluator().evaluate_eligibility({}, {}, {})
+                 ^^^^^^^^^^^
+
+tests\quality\test_optimization_gate.py:14: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def evaluator():
+&gt;       assert Path('services/orchestrator/app/quality/eligibility.py').exists(), 'eligibility evaluator missing'
+E       AssertionError: eligibility evaluator missing
+E       assert False
+E        +  where False = exists()
+E        +    where exists = WindowsPath('services/orchestrator/app/quality/eligibility.py').exists
+E        +      where WindowsPath('services/orchestrator/app/quality/eligibility.py') = Path('services/orchestrator/app/quality/eligibility.py')
+
+tests\quality\test_optimization_gate.py:9: AssertionError</failure></testcase><testcase classname="tests.quality.test_optimization_gate" name="test_bonferroni_accounts_for_all_layers_and_dimensions" time="0.000"><failure message="AssertionError: eligibility evaluator missing&#10;assert False&#10; +  where False = exists()&#10; +    where exists = WindowsPath('services/orchestrator/app/quality/eligibility.py').exists&#10; +      where WindowsPath('services/orchestrator/app/quality/eligibility.py') = Path('services/orchestrator/app/quality/eligibility.py')">def test_bonferroni_accounts_for_all_layers_and_dimensions():
+&gt;       module = evaluator()
+                 ^^^^^^^^^^^
+
+tests\quality\test_optimization_gate.py:21: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def evaluator():
+&gt;       assert Path('services/orchestrator/app/quality/eligibility.py').exists(), 'eligibility evaluator missing'
+E       AssertionError: eligibility evaluator missing
+E       assert False
+E        +  where False = exists()
+E        +    where exists = WindowsPath('services/orchestrator/app/quality/eligibility.py').exists
+E        +      where WindowsPath('services/orchestrator/app/quality/eligibility.py') = Path('services/orchestrator/app/quality/eligibility.py')
+
+tests\quality\test_optimization_gate.py:9: AssertionError</failure></testcase><testcase classname="tests.quality.test_optimization_gate" name="test_bounds_reject_invalid_scores[values0]" time="0.000"><failure message="AssertionError: eligibility evaluator missing&#10;assert False&#10; +  where False = exists()&#10; +    where exists = WindowsPath('services/orchestrator/app/quality/eligibility.py').exists&#10; +      where WindowsPath('services/orchestrator/app/quality/eligibility.py') = Path('services/orchestrator/app/quality/eligibility.py')">values = [nan]
+
+    @pytest.mark.parametrize('values', [[float('nan')], [float('inf')], [2], [True], []])
+    def test_bounds_reject_invalid_scores(values):
+        with pytest.raises(ValueError):
+&gt;           evaluator().lower_bound(values, lower=-1, upper=1, alpha=.05, comparisons=84)
+            ^^^^^^^^^^^
+
+tests\quality\test_optimization_gate.py:31: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def evaluator():
+&gt;       assert Path('services/orchestrator/app/quality/eligibility.py').exists(), 'eligibility evaluator missing'
+E       AssertionError: eligibility evaluator missing
+E       assert False
+E        +  where False = exists()
+E        +    where exists = WindowsPath('services/orchestrator/app/quality/eligibility.py').exists
+E        +      where WindowsPath('services/orchestrator/app/quality/eligibility.py') = Path('services/orchestrator/app/quality/eligibility.py')
+
+tests\quality\test_optimization_gate.py:9: AssertionError</failure></testcase><testcase classname="tests.quality.test_optimization_gate" name="test_bounds_reject_invalid_scores[values1]" time="0.000"><failure message="AssertionError: eligibility evaluator missing&#10;assert False&#10; +  where False = exists()&#10; +    where exists = WindowsPath('services/orchestrator/app/quality/eligibility.py').exists&#10; +      where WindowsPath('services/orchestrator/app/quality/eligibility.py') = Path('services/orchestrator/app/quality/eligibility.py')">values = [inf]
+
+    @pytest.mark.parametrize('values', [[float('nan')], [float('inf')], [2], [True], []])
+    def test_bounds_reject_invalid_scores(values):
+        with pytest.raises(ValueError):
+&gt;           evaluator().lower_bound(values, lower=-1, upper=1, alpha=.05, comparisons=84)
+            ^^^^^^^^^^^
+
+tests\quality\test_optimization_gate.py:31: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def evaluator():
+&gt;       assert Path('services/orchestrator/app/quality/eligibility.py').exists(), 'eligibility evaluator missing'
+E       AssertionError: eligibility evaluator missing
+E       assert False
+E        +  where False = exists()
+E        +    where exists = WindowsPath('services/orchestrator/app/quality/eligibility.py').exists
+E        +      where WindowsPath('services/orchestrator/app/quality/eligibility.py') = Path('services/orchestrator/app/quality/eligibility.py')
+
+tests\quality\test_optimization_gate.py:9: AssertionError</failure></testcase><testcase classname="tests.quality.test_optimization_gate" name="test_bounds_reject_invalid_scores[values2]" time="0.000"><failure message="AssertionError: eligibility evaluator missing&#10;assert False&#10; +  where False = exists()&#10; +    where exists = WindowsPath('services/orchestrator/app/quality/eligibility.py').exists&#10; +      where WindowsPath('services/orchestrator/app/quality/eligibility.py') = Path('services/orchestrator/app/quality/eligibility.py')">values = [2]
+
+    @pytest.mark.parametrize('values', [[float('nan')], [float('inf')], [2], [True], []])
+    def test_bounds_reject_invalid_scores(values):
+        with pytest.raises(ValueError):
+&gt;           evaluator().lower_bound(values, lower=-1, upper=1, alpha=.05, comparisons=84)
+            ^^^^^^^^^^^
+
+tests\quality\test_optimization_gate.py:31: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def evaluator():
+&gt;       assert Path('services/orchestrator/app/quality/eligibility.py').exists(), 'eligibility evaluator missing'
+E       AssertionError: eligibility evaluator missing
+E       assert False
+E        +  where False = exists()
+E        +    where exists = WindowsPath('services/orchestrator/app/quality/eligibility.py').exists
+E        +      where WindowsPath('services/orchestrator/app/quality/eligibility.py') = Path('services/orchestrator/app/quality/eligibility.py')
+
+tests\quality\test_optimization_gate.py:9: AssertionError</failure></testcase><testcase classname="tests.quality.test_optimization_gate" name="test_bounds_reject_invalid_scores[values3]" time="0.000"><failure message="AssertionError: eligibility evaluator missing&#10;assert False&#10; +  where False = exists()&#10; +    where exists = WindowsPath('services/orchestrator/app/quality/eligibility.py').exists&#10; +      where WindowsPath('services/orchestrator/app/quality/eligibility.py') = Path('services/orchestrator/app/quality/eligibility.py')">values = [True]
+
+    @pytest.mark.parametrize('values', [[float('nan')], [float('inf')], [2], [True], []])
+    def test_bounds_reject_invalid_scores(values):
+        with pytest.raises(ValueError):
+&gt;           evaluator().lower_bound(values, lower=-1, upper=1, alpha=.05, comparisons=84)
+            ^^^^^^^^^^^
+
+tests\quality\test_optimization_gate.py:31: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def evaluator():
+&gt;       assert Path('services/orchestrator/app/quality/eligibility.py').exists(), 'eligibility evaluator missing'
+E       AssertionError: eligibility evaluator missing
+E       assert False
+E        +  where False = exists()
+E        +    where exists = WindowsPath('services/orchestrator/app/quality/eligibility.py').exists
+E        +      where WindowsPath('services/orchestrator/app/quality/eligibility.py') = Path('services/orchestrator/app/quality/eligibility.py')
+
+tests\quality\test_optimization_gate.py:9: AssertionError</failure></testcase><testcase classname="tests.quality.test_optimization_gate" name="test_bounds_reject_invalid_scores[values4]" time="0.000"><failure message="AssertionError: eligibility evaluator missing&#10;assert False&#10; +  where False = exists()&#10; +    where exists = WindowsPath('services/orchestrator/app/quality/eligibility.py').exists&#10; +      where WindowsPath('services/orchestrator/app/quality/eligibility.py') = Path('services/orchestrator/app/quality/eligibility.py')">values = []
+
+    @pytest.mark.parametrize('values', [[float('nan')], [float('inf')], [2], [True], []])
+    def test_bounds_reject_invalid_scores(values):
+        with pytest.raises(ValueError):
+&gt;           evaluator().lower_bound(values, lower=-1, upper=1, alpha=.05, comparisons=84)
+            ^^^^^^^^^^^
+
+tests\quality\test_optimization_gate.py:31: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def evaluator():
+&gt;       assert Path('services/orchestrator/app/quality/eligibility.py').exists(), 'eligibility evaluator missing'
+E       AssertionError: eligibility evaluator missing
+E       assert False
+E        +  where False = exists()
+E        +    where exists = WindowsPath('services/orchestrator/app/quality/eligibility.py').exists
+E        +      where WindowsPath('services/orchestrator/app/quality/eligibility.py') = Path('services/orchestrator/app/quality/eligibility.py')
+
+tests\quality\test_optimization_gate.py:9: AssertionError</failure></testcase><testcase classname="tests.quality.test_optimization_gate" name="test_configuration_key_expires_on_model_or_policy_change" time="0.000"><failure message="AssertionError: eligibility evaluator missing&#10;assert False&#10; +  where False = exists()&#10; +    where exists = WindowsPath('services/orchestrator/app/quality/eligibility.py').exists&#10; +      where WindowsPath('services/orchestrator/app/quality/eligibility.py') = Path('services/orchestrator/app/quality/eligibility.py')">def test_configuration_key_expires_on_model_or_policy_change():
+&gt;       module = evaluator()
+                 ^^^^^^^^^^^
+
+tests\quality\test_optimization_gate.py:35: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def evaluator():
+&gt;       assert Path('services/orchestrator/app/quality/eligibility.py').exists(), 'eligibility evaluator missing'
+E       AssertionError: eligibility evaluator missing
+E       assert False
+E        +  where False = exists()
+E        +    where exists = WindowsPath('services/orchestrator/app/quality/eligibility.py').exists
+E        +      where WindowsPath('services/orchestrator/app/quality/eligibility.py') = Path('services/orchestrator/app/quality/eligibility.py')
+
+tests\quality\test_optimization_gate.py:9: AssertionError</failure></testcase><testcase classname="tests.quality.test_optimization_gate" name="test_test_samples_never_grant_real_qualification" time="0.002"><failure message="AssertionError: assert False&#10; +  where False = exists()&#10; +    where exists = WindowsPath('tests/support/scenarios/optimization_gate.py').exists&#10; +      where WindowsPath('tests/support/scenarios/optimization_gate.py') = Path('tests/support/scenarios/optimization_gate.py')">tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-421/test_test_samples_never_grant_0')
+
+    def test_test_samples_never_grant_real_qualification(tmp_path):
+&gt;       assert Path('tests/support/scenarios/optimization_gate.py').exists()
+E       AssertionError: assert False
+E        +  where False = exists()
+E        +    where exists = WindowsPath('tests/support/scenarios/optimization_gate.py').exists
+E        +      where WindowsPath('tests/support/scenarios/optimization_gate.py') = Path('tests/support/scenarios/optimization_gate.py')
+
+tests\quality\test_optimization_gate.py:43: AssertionError</failure></testcase><testcase classname="tests.quality.test_optimization_gate" name="test_good_quality_without_token_reduction_keeps_goal_open" time="0.002"><failure message="AssertionError: assert False&#10; +  where False = exists()&#10; +    where exists = WindowsPath('tests/support/scenarios/optimization_gate.py').exists&#10; +      where WindowsPath('tests/support/scenarios/optimization_gate.py') = Path('tests/support/scenarios/optimization_gate.py')">tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-421/test_good_quality_without_toke0')
+
+    def test_good_quality_without_token_reduction_keeps_goal_open(tmp_path):
+&gt;       assert Path('tests/support/scenarios/optimization_gate.py').exists()
+E       AssertionError: assert False
+E        +  where False = exists()
+E        +    where exists = WindowsPath('tests/support/scenarios/optimization_gate.py').exists
+E        +      where WindowsPath('tests/support/scenarios/optimization_gate.py') = Path('tests/support/scenarios/optimization_gate.py')
+
+tests\quality\test_optimization_gate.py:51: AssertionError</failure></testcase><testcase classname="tests.quality.test_protocol_freeze" name="test_draft_protocol_cannot_become_frozen_from_an_option" time="0.002"><failure message="AssertionError: protocol evaluator missing&#10;assert False&#10; +  where False = exists()&#10; +    where exists = WindowsPath('tests/support/scenarios/evaluation_protocol.py').exists&#10; +      where WindowsPath('tests/support/scenarios/evaluation_protocol.py') = Path('tests/support/scenarios/evaluation_protocol.py')">tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-421/test_draft_protocol_cannot_bec0')
+
+    def test_draft_protocol_cannot_become_frozen_from_an_option(tmp_path):
+&gt;       result = handler().run(tmp_path, {})
+                 ^^^^^^^^^
+
+tests\quality\test_protocol_freeze.py:11: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def handler():
+&gt;       assert Path('tests/support/scenarios/evaluation_protocol.py').exists(), 'protocol evaluator missing'
+E       AssertionError: protocol evaluator missing
+E       assert False
+E        +  where False = exists()
+E        +    where exists = WindowsPath('tests/support/scenarios/evaluation_protocol.py').exists
+E        +      where WindowsPath('tests/support/scenarios/evaluation_protocol.py') = Path('tests/support/scenarios/evaluation_protocol.py')
+
+tests\quality\test_protocol_freeze.py:6: AssertionError</failure></testcase><testcase classname="tests.quality.test_protocol_freeze" name="test_tuning_holdout_overlap_is_rejected" time="0.002"><failure message="AssertionError: protocol evaluator missing&#10;assert False&#10; +  where False = exists()&#10; +    where exists = WindowsPath('tests/support/scenarios/evaluation_protocol.py').exists&#10; +      where WindowsPath('tests/support/scenarios/evaluation_protocol.py') = Path('tests/support/scenarios/evaluation_protocol.py')">tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-421/test_tuning_holdout_overlap_is0')
+
+    def test_tuning_holdout_overlap_is_rejected(tmp_path):
+&gt;       result = handler().run(tmp_path, {'fault': 'tuning_in_holdout'})
+                 ^^^^^^^^^
+
+tests\quality\test_protocol_freeze.py:18: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def handler():
+&gt;       assert Path('tests/support/scenarios/evaluation_protocol.py').exists(), 'protocol evaluator missing'
+E       AssertionError: protocol evaluator missing
+E       assert False
+E        +  where False = exists()
+E        +    where exists = WindowsPath('tests/support/scenarios/evaluation_protocol.py').exists
+E        +      where WindowsPath('tests/support/scenarios/evaluation_protocol.py') = Path('tests/support/scenarios/evaluation_protocol.py')
+
+tests\quality\test_protocol_freeze.py:6: AssertionError</failure></testcase><testcase classname="tests.quality.test_protocol_freeze" name="test_registration_hash_tampering_invalidates_protocol" time="0.002"><failure message="AssertionError: protocol evaluator missing&#10;assert False&#10; +  where False = exists()&#10; +    where exists = WindowsPath('tests/support/scenarios/evaluation_protocol.py').exists&#10; +      where WindowsPath('tests/support/scenarios/evaluation_protocol.py') = Path('tests/support/scenarios/evaluation_protocol.py')">tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-421/test_registration_hash_tamperi0')
+
+    def test_registration_hash_tampering_invalidates_protocol(tmp_path):
+&gt;       result = handler().run(tmp_path, {'fault': 'registration_changed'})
+                 ^^^^^^^^^
+
+tests\quality\test_protocol_freeze.py:24: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def handler():
+&gt;       assert Path('tests/support/scenarios/evaluation_protocol.py').exists(), 'protocol evaluator missing'
+E       AssertionError: protocol evaluator missing
+E       assert False
+E        +  where False = exists()
+E        +    where exists = WindowsPath('tests/support/scenarios/evaluation_protocol.py').exists
+E        +      where WindowsPath('tests/support/scenarios/evaluation_protocol.py') = Path('tests/support/scenarios/evaluation_protocol.py')
+
+tests\quality\test_protocol_freeze.py:6: AssertionError</failure></testcase><testcase classname="tests.usage.test_ledger_reconciliation" name="test_duplicate_and_cumulative_samples_use_actual_ledger" time="0.002"><failure message="AssertionError: usage evaluator missing&#10;assert False&#10; +  where False = exists()&#10; +    where exists = WindowsPath('tests/support/scenarios/usage_reconciliation.py').exists&#10; +      where WindowsPath('tests/support/scenarios/usage_reconciliation.py') = Path('tests/support/scenarios/usage_reconciliation.py')">tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-421/test_duplicate_and_cumulative_0')
+
+    def test_duplicate_and_cumulative_samples_use_actual_ledger(tmp_path):
+&gt;       result = handler().run(tmp_path, {})
+                 ^^^^^^^^^
+
+tests\usage\test_ledger_reconciliation.py:11: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def handler():
+&gt;       assert Path('tests/support/scenarios/usage_reconciliation.py').exists(), 'usage evaluator missing'
+E       AssertionError: usage evaluator missing
+E       assert False
+E        +  where False = exists()
+E        +    where exists = WindowsPath('tests/support/scenarios/usage_reconciliation.py').exists
+E        +      where WindowsPath('tests/support/scenarios/usage_reconciliation.py') = Path('tests/support/scenarios/usage_reconciliation.py')
+
+tests\usage\test_ledger_reconciliation.py:6: AssertionError</failure></testcase><testcase classname="tests.usage.test_ledger_reconciliation" name="test_missing_usage_is_unknown_and_estimates_are_separate" time="0.002"><failure message="AssertionError: usage evaluator missing&#10;assert False&#10; +  where False = exists()&#10; +    where exists = WindowsPath('tests/support/scenarios/usage_reconciliation.py').exists&#10; +      where WindowsPath('tests/support/scenarios/usage_reconciliation.py') = Path('tests/support/scenarios/usage_reconciliation.py')">tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-421/test_missing_usage_is_unknown_0')
+
+    def test_missing_usage_is_unknown_and_estimates_are_separate(tmp_path):
+&gt;       result = handler().run(tmp_path, {'fault': 'missing_usage'})
+                 ^^^^^^^^^
+
+tests\usage\test_ledger_reconciliation.py:20: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def handler():
+&gt;       assert Path('tests/support/scenarios/usage_reconciliation.py').exists(), 'usage evaluator missing'
+E       AssertionError: usage evaluator missing
+E       assert False
+E        +  where False = exists()
+E        +    where exists = WindowsPath('tests/support/scenarios/usage_reconciliation.py').exists
+E        +      where WindowsPath('tests/support/scenarios/usage_reconciliation.py') = Path('tests/support/scenarios/usage_reconciliation.py')
+
+tests\usage\test_ledger_reconciliation.py:6: AssertionError</failure></testcase></testsuite></testsuites>

@@ -1,0 +1,13 @@
+F                                                                        [100%]
+================================== FAILURES ===================================
+_____________________ test_backend_package_is_importable ______________________
+
+    def test_backend_package_is_importable():
+>       import app
+E       ModuleNotFoundError: No module named 'app'
+
+tests\unit\test_package_bootstrap.py:2: ModuleNotFoundError
+=========================== short test summary info ===========================
+FAILED tests/unit/test_package_bootstrap.py::test_backend_package_is_importable
+1 failed in 0.17s
+exit_code=1

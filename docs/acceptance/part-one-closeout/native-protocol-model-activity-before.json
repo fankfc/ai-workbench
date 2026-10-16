@@ -1,0 +1,25 @@
+{
+  "at_utc": "2026-10-13T15:57:00.326930+00:00",
+  "mode": "in-memory incoming frames; zero launches/models/auth/UI",
+  "findings": [
+    {
+      "method": "item/agentMessage/delta",
+      "blocked": false,
+      "model_turn_starts": 0
+    },
+    {
+      "method": "model.streaming",
+      "blocked": false,
+      "model_turn_starts": 0
+    },
+    {
+      "method": "session/event",
+      "blocked": false,
+      "model_turn_starts": 0
+    }
+  ],
+  "source_sha256_before": "9ed00d6b564c5944b56008e16e2f2aa95f0f41d5a6fc790e314e286d8c49cc1b",
+  "source_sha256_after": "9ed00d6b564c5944b56008e16e2f2aa95f0f41d5a6fc790e314e286d8c49cc1b",
+  "primary_local_schema": ".tools/gpt-metadata-probe/schemas/ServerNotification.json",
+  "exit_code": 0
+}

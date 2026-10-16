@@ -1,0 +1,165 @@
+{
+  "missing_requirements": [],
+  "unresolved_mandatory": [
+    "R01",
+    "R02",
+    "R03",
+    "R04",
+    "R05",
+    "R06",
+    "R07",
+    "R08",
+    "R09",
+    "R10",
+    "R11",
+    "R12",
+    "R13",
+    "R14",
+    "R15"
+  ],
+  "release_complete": false,
+  "optimization_goal_met": false,
+  "mapped_requirements": 15,
+  "translation_cases": 20,
+  "regression_hash_valid": true,
+  "per_requirement": [
+    {
+      "requirement": "R01",
+      "gate": "optimization",
+      "issues": [
+        "ACCEPTANCE_EVIDENCE_MISSING:QUALITY_REAL"
+      ]
+    },
+    {
+      "requirement": "R02",
+      "gate": "optimization",
+      "issues": [
+        "ACCEPTANCE_EVIDENCE_MISSING:QUALITY_REAL"
+      ]
+    },
+    {
+      "requirement": "R03",
+      "gate": "functional",
+      "issues": [
+        "ACCEPTANCE_EVIDENCE_MISSING:T03",
+        "ACCEPTANCE_EVIDENCE_MISSING:T04",
+        "ACCEPTANCE_EVIDENCE_MISSING:PROVIDER_REAL"
+      ]
+    },
+    {
+      "requirement": "R04",
+      "gate": "functional",
+      "issues": [
+        "ACCEPTANCE_EVIDENCE_MISSING:PROVIDER_REAL"
+      ]
+    },
+    {
+      "requirement": "R05",
+      "gate": "functional",
+      "issues": [
+        "ACCEPTANCE_EVIDENCE_MISSING:JOURNEYS_REAL"
+      ]
+    },
+    {
+      "requirement": "R06",
+      "gate": "functional",
+      "issues": [
+        "ACCEPTANCE_EVIDENCE_MISSING:GUI_MANUAL"
+      ]
+    },
+    {
+      "requirement": "R07",
+      "gate": "functional",
+      "issues": [
+        "ACCEPTANCE_EVIDENCE_MISSING:T01",
+        "ACCEPTANCE_EVIDENCE_MISSING:T05",
+        "ACCEPTANCE_EVIDENCE_MISSING:T06",
+        "ACCEPTANCE_EVIDENCE_MISSING:T08",
+        "ACCEPTANCE_EVIDENCE_MISSING:T09",
+        "ACCEPTANCE_EVIDENCE_MISSING:T16",
+        "ACCEPTANCE_EVIDENCE_MISSING:T17",
+        "ACCEPTANCE_EVIDENCE_MISSING:TRANSLATION_HUMAN"
+      ]
+    },
+    {
+      "requirement": "R08",
+      "gate": "functional",
+      "issues": [
+        "ACCEPTANCE_EVIDENCE_MISSING:T05",
+        "ACCEPTANCE_EVIDENCE_MISSING:T10",
+        "ACCEPTANCE_EVIDENCE_MISSING:T18",
+        "ACCEPTANCE_EVIDENCE_MISSING:TRANSLATION_HUMAN"
+      ]
+    },
+    {
+      "requirement": "R09",
+      "gate": "functional",
+      "issues": [
+        "ACCEPTANCE_EVIDENCE_MISSING:T07",
+        "ACCEPTANCE_EVIDENCE_MISSING:T11",
+        "ACCEPTANCE_EVIDENCE_MISSING:T12",
+        "ACCEPTANCE_EVIDENCE_MISSING:T13",
+        "ACCEPTANCE_EVIDENCE_MISSING:T14",
+        "ACCEPTANCE_EVIDENCE_MISSING:T15",
+        "ACCEPTANCE_EVIDENCE_MISSING:TRANSLATION_HUMAN"
+      ]
+    },
+    {
+      "requirement": "R10",
+      "gate": "functional",
+      "issues": [
+        "ACCEPTANCE_EVIDENCE_MISSING:T02"
+      ]
+    },
+    {
+      "requirement": "R11",
+      "gate": "functional",
+      "issues": [
+        "ACCEPTANCE_EVIDENCE_MISSING:T16",
+        "ACCEPTANCE_EVIDENCE_MISSING:T19"
+      ]
+    },
+    {
+      "requirement": "R12",
+      "gate": "functional",
+      "issues": [
+        "ACCEPTANCE_EVIDENCE_MISSING:T04",
+        "ACCEPTANCE_EVIDENCE_MISSING:T10",
+        "ACCEPTANCE_EVIDENCE_MISSING:T11",
+        "ACCEPTANCE_EVIDENCE_MISSING:T12",
+        "ACCEPTANCE_EVIDENCE_MISSING:T18"
+      ]
+    },
+    {
+      "requirement": "R13",
+      "gate": "functional",
+      "issues": [
+        "ACCEPTANCE_EVIDENCE_MISSING:INSTALL_SIGNED"
+      ]
+    },
+    {
+      "requirement": "R14",
+      "gate": "functional",
+      "issues": [
+        "ACCEPTANCE_EVIDENCE_MISSING:T09",
+        "ACCEPTANCE_EVIDENCE_MISSING:LEDGER_REAL"
+      ]
+    },
+    {
+      "requirement": "R15",
+      "gate": "functional",
+      "issues": [
+        "ACCEPTANCE_EVIDENCE_MISSING:T01",
+        "ACCEPTANCE_EVIDENCE_MISSING:T05",
+        "ACCEPTANCE_EVIDENCE_MISSING:T06",
+        "ACCEPTANCE_EVIDENCE_MISSING:T07",
+        "ACCEPTANCE_EVIDENCE_MISSING:T08",
+        "ACCEPTANCE_EVIDENCE_MISSING:T17",
+        "ACCEPTANCE_EVIDENCE_MISSING:T20",
+        "ACCEPTANCE_EVIDENCE_MISSING:TRANSLATION_HUMAN"
+      ]
+    }
+  ],
+  "provider_boundary": "none",
+  "real_provider_verified": false
+}

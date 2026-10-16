@@ -1,0 +1,1261 @@
+[
+  {
+    "id": "D021",
+    "title": "Electron 宿主、隔离 preload 与本地服务生命周期",
+    "phase": "P1",
+    "requires": [
+      "D007",
+      "D009",
+      "D011",
+      "D012"
+    ],
+    "requirements": [
+      "R06",
+      "R12",
+      "R13"
+    ],
+    "owner": "客户端工程师；后端工程师复核生命周期",
+    "status": "in_progress",
+    "deliverables": [
+      "apps/desktop/src/main/index.ts",
+      "apps/desktop/src/main/backend.ts",
+      "apps/desktop/src/main/ipc.ts",
+      "apps/desktop/src/preload/index.ts",
+      "apps/desktop/src/shared/desktop-bridge.ts",
+      "tests/desktop/backend.test.ts",
+      "tests/desktop/preload.test.ts",
+      "tests/support/electron-fixture.ts"
+    ],
+    "test_commands": [
+      "npm exec vitest run -- tests/desktop/backend.test.ts tests/desktop/preload.test.ts"
+    ],
+    "evidence": [
+      "artifacts/acceptance/D021/lifecycle.json",
+      "artifacts/acceptance/D021/ipc-boundary.json",
+      "artifacts/acceptance/D021/process-tree.txt",
+      "docs/acceptance/part-two-progress.md",
+      "docs/acceptance/part-two/desktop-report.md",
+      "docs/acceptance/part-two/final-python.json",
+      "docs/acceptance/part-two/desktop-verification.json"
+    ],
+    "estimate_hours": 14,
+    "guide": "02-ui-translation-documents.md",
+    "status_updated_at": "2026-10-14T19:20:15.680614+08:00",
+    "execution_review": {
+      "local_implementation": "verified_supported_scope",
+      "implemented": "实际 Electron/Python 宿主、隔离 IPC、托管生命周期、健康身份、退出清理确认。",
+      "remaining": "完整 Windows 崩溃、健康故障及恢复矩阵尚未全部覆盖。",
+      "real_acceptance": "blocked_or_not_completed",
+      "human_acceptance": "not_completed_where_required",
+      "evidence": [
+        "docs/acceptance/part-two-progress.md",
+        "docs/acceptance/part-two/desktop-report.md",
+        "docs/acceptance/part-two/final-python.json",
+        "docs/acceptance/part-two/desktop-verification.json"
+      ]
+    },
+    "freeze": {
+      "status": "frozen_partial",
+      "frozen_at": "2026-10-14T21:48:14.951505+08:00",
+      "evidence": "docs/acceptance/part-two-freeze-20261014/freeze.json"
+    }
+  },
+  {
+    "id": "D022",
+    "title": "聊天基础布局、主题与设计 tokens",
+    "phase": "P1",
+    "requires": [
+      "D021"
+    ],
+    "requirements": [
+      "R06"
+    ],
+    "owner": "客户端工程师；产品与 QA 复核视觉",
+    "status": "in_progress",
+    "deliverables": [
+      "apps/desktop/src/renderer/App.tsx",
+      "apps/desktop/src/renderer/layout/AppShell.tsx",
+      "apps/desktop/src/renderer/components/Button.tsx",
+      "apps/desktop/src/renderer/components/InlineNotice.tsx",
+      "apps/desktop/src/renderer/styles/tokens.css",
+      "apps/desktop/src/renderer/styles/layout.css",
+      "tests/e2e/layout.spec.ts"
+    ],
+    "test_commands": [
+      "npm run test:e2e -- tests/e2e/layout.spec.ts"
+    ],
+    "evidence": [
+      "artifacts/acceptance/D022/layout-matrix.json",
+      "artifacts/acceptance/D022/screenshots/",
+      "artifacts/acceptance/D022/accessibility-notes.md",
+      "docs/acceptance/part-two-progress.md",
+      "docs/acceptance/part-two/desktop-report.md",
+      "docs/acceptance/part-two/final-python.json",
+      "docs/acceptance/part-two/desktop-verification.json"
+    ],
+    "estimate_hours": 10,
+    "guide": "02-ui-translation-documents.md",
+    "status_updated_at": "2026-10-14T19:20:15.680614+08:00",
+    "execution_review": {
+      "local_implementation": "verified_supported_scope",
+      "implemented": "主题/字体/响应布局、4 视口、200% 缩放与可见发送入口。",
+      "remaining": "Narrator 和全部视觉/键盘人工验收尚未完成。",
+      "real_acceptance": "blocked_or_not_completed",
+      "human_acceptance": "not_completed_where_required",
+      "evidence": [
+        "docs/acceptance/part-two-progress.md",
+        "docs/acceptance/part-two/desktop-report.md",
+        "docs/acceptance/part-two/final-python.json",
+        "docs/acceptance/part-two/desktop-verification.json"
+      ]
+    },
+    "freeze": {
+      "status": "frozen_partial",
+      "frozen_at": "2026-10-14T21:48:14.951505+08:00",
+      "evidence": "docs/acceptance/part-two-freeze-20261014/freeze.json"
+    }
+  },
+  {
+    "id": "D023",
+    "title": "会话历史、消息输入、中文输入法与附件",
+    "phase": "P1",
+    "requires": [
+      "D008",
+      "D009",
+      "D018",
+      "D021",
+      "D022"
+    ],
+    "requirements": [
+      "R06",
+      "R12"
+    ],
+    "owner": "客户端工程师；后端工程师复核幂等键",
+    "status": "in_progress",
+    "deliverables": [
+      "apps/desktop/src/renderer/chat/ChatPage.tsx",
+      "apps/desktop/src/renderer/chat/ConversationList.tsx",
+      "apps/desktop/src/renderer/chat/MessageList.tsx",
+      "apps/desktop/src/renderer/chat/Composer.tsx",
+      "apps/desktop/src/renderer/chat/AttachmentChip.tsx",
+      "apps/desktop/src/renderer/chat/drafts.ts",
+      "tests/e2e/composer-history.spec.ts",
+      "tests/fixtures/ui/messages.json",
+      "services/orchestrator/app/api/conversations.py",
+      "services/orchestrator/app/api/attachments.py",
+      "services/orchestrator/app/api/turns.py",
+      "services/orchestrator/app/api/application.py",
+      "services/orchestrator/app/storage/attachments.py",
+      "apps/desktop/src/main/attachments.ts",
+      "apps/desktop/src/main/ipc.ts",
+      "tests/integration/test_attachments_api.py"
+    ],
+    "test_commands": [
+      "python -m pytest tests/integration/test_attachments_api.py -q",
+      "npm run test:e2e -- tests/e2e/composer-history.spec.ts"
+    ],
+    "evidence": [
+      "artifacts/acceptance/D023/submission-ids.json",
+      "artifacts/acceptance/D023/ime-recording.webm",
+      "artifacts/acceptance/D023/history-recovery.json",
+      "docs/acceptance/part-two-progress.md",
+      "docs/acceptance/part-two/desktop-report.md",
+      "docs/acceptance/part-two/final-python.json",
+      "docs/acceptance/part-two/desktop-verification.json"
+    ],
+    "estimate_hours": 24,
+    "guide": "02-ui-translation-documents.md",
+    "status_updated_at": "2026-10-14T19:20:15.680614+08:00",
+    "execution_review": {
+      "local_implementation": "verified_supported_scope",
+      "implemented": "中文组合键、草稿/nonce/历史、同会话材料、会话操作与所有权竞态。",
+      "remaining": "真实 Windows IME 选字录屏及完整附件/历史边界矩阵尚未完成。",
+      "real_acceptance": "blocked_or_not_completed",
+      "human_acceptance": "not_completed_where_required",
+      "evidence": [
+        "docs/acceptance/part-two-progress.md",
+        "docs/acceptance/part-two/desktop-report.md",
+        "docs/acceptance/part-two/final-python.json",
+        "docs/acceptance/part-two/desktop-verification.json"
+      ]
+    },
+    "freeze": {
+      "status": "frozen_partial",
+      "frozen_at": "2026-10-14T21:48:14.951505+08:00",
+      "evidence": "docs/acceptance/part-two-freeze-20261014/freeze.json"
+    }
+  },
+  {
+    "id": "D024",
+    "title": "模型连接检测、A 选择与设置",
+    "phase": "P2",
+    "requires": [
+      "D007",
+      "D009",
+      "D020",
+      "D021",
+      "D022"
+    ],
+    "requirements": [
+      "R03",
+      "R04",
+      "R06",
+      "R12"
+    ],
+    "owner": "客户端工程师与接入工程师",
+    "status": "blocked",
+    "deliverables": [
+      "apps/desktop/src/renderer/settings/Connections.tsx",
+      "apps/desktop/src/renderer/chat/ModelSelector.tsx",
+      "apps/desktop/src/main/credentials.ts",
+      "services/orchestrator/app/api/settings.py",
+      "tests/e2e/connections.spec.ts",
+      "tests/integration/test_connection_settings.py",
+      "docs/acceptance/real-profile-ids.json"
+    ],
+    "test_commands": [
+      "python -m pytest tests/integration/test_connection_settings.py -q",
+      "npm run test:e2e -- tests/e2e/connections.spec.ts"
+    ],
+    "evidence": [
+      "artifacts/acceptance/D024/connection-matrix.json",
+      "artifacts/acceptance/D024/redacted-settings.json",
+      "artifacts/acceptance/D024/screenshots/",
+      "docs/acceptance/part-two-progress.md",
+      "docs/acceptance/part-two/desktop-report.md",
+      "docs/acceptance/part-two/final-python.json",
+      "docs/acceptance/part-two/desktop-verification.json"
+    ],
+    "estimate_hours": 12,
+    "guide": "02-ui-translation-documents.md",
+    "status_updated_at": "2026-10-14T19:20:15.680614+08:00",
+    "execution_review": {
+      "local_implementation": "verified_supported_scope",
+      "implemented": "实际注册与身份状态展示、版本化偏好、未资格连接禁止发送。",
+      "remaining": "D004/D005/D020 与 GPT 当前运行资格未完成，生产连接注册数为 0。",
+      "real_acceptance": "blocked_or_not_completed",
+      "human_acceptance": "not_completed_where_required",
+      "evidence": [
+        "docs/acceptance/part-two-progress.md",
+        "docs/acceptance/part-two/desktop-report.md",
+        "docs/acceptance/part-two/final-python.json",
+        "docs/acceptance/part-two/desktop-verification.json"
+      ]
+    },
+    "freeze": {
+      "status": "frozen_partial",
+      "frozen_at": "2026-10-14T21:48:14.951505+08:00",
+      "evidence": "docs/acceptance/part-two-freeze-20261014/freeze.json"
+    }
+  },
+  {
+    "id": "D025",
+    "title": "仅消费公开问答事件、真实取消与中文错误",
+    "phase": "P3",
+    "requires": [
+      "D010",
+      "D012",
+      "D018",
+      "D023",
+      "D024"
+    ],
+    "requirements": [
+      "R06",
+      "R08",
+      "R11",
+      "R12"
+    ],
+    "owner": "客户端工程师；后端与 QA 联合审查",
+    "status": "in_progress",
+    "deliverables": [
+      "apps/desktop/src/renderer/chat/public-events.ts",
+      "apps/desktop/src/renderer/chat/MessageList.tsx",
+      "apps/desktop/src/renderer/chat/RunNotice.tsx",
+      "tests/support/electron-fixture.ts",
+      "tests/e2e/chat-publication.spec.ts",
+      "tests/integration/test_public_chat_transport.py"
+    ],
+    "test_commands": [
+      "python -m pytest tests/integration/test_public_chat_transport.py -q",
+      "npm run test:e2e -- tests/e2e/chat-publication.spec.ts"
+    ],
+    "evidence": [
+      "artifacts/acceptance/D025/public-frames.json",
+      "artifacts/acceptance/D025/dom-mutations.json",
+      "artifacts/acceptance/D025/cancel-timeline.json",
+      "docs/acceptance/part-two-progress.md",
+      "docs/acceptance/part-two/desktop-report.md",
+      "docs/acceptance/part-two/final-python.json",
+      "docs/acceptance/part-two/desktop-verification.json"
+    ],
+    "estimate_hours": 14,
+    "guide": "02-ui-translation-documents.md",
+    "status_updated_at": "2026-10-14T19:20:15.680614+08:00",
+    "execution_review": {
+      "local_implementation": "verified_supported_scope",
+      "implemented": "后端公开投影/IPC/DOM 白名单、取消文案、迟到事件与回放。",
+      "remaining": "真实提供方取消确认、全部重连/澄清 GUI 矩阵待资格和验收。",
+      "real_acceptance": "blocked_or_not_completed",
+      "human_acceptance": "not_completed_where_required",
+      "evidence": [
+        "docs/acceptance/part-two-progress.md",
+        "docs/acceptance/part-two/desktop-report.md",
+        "docs/acceptance/part-two/final-python.json",
+        "docs/acceptance/part-two/desktop-verification.json"
+      ]
+    },
+    "freeze": {
+      "status": "frozen_partial",
+      "frozen_at": "2026-10-14T21:48:14.951505+08:00",
+      "evidence": "docs/acceptance/part-two-freeze-20261014/freeze.json"
+    }
+  },
+  {
+    "id": "D026",
+    "title": "锁定真实 model_family 的轮次语言路由",
+    "phase": "P3",
+    "requires": [
+      "D007",
+      "D008",
+      "D013",
+      "D024"
+    ],
+    "requirements": [
+      "R03",
+      "R07",
+      "R08",
+      "R10",
+      "R12"
+    ],
+    "owner": "后端工程师；接入工程师复核",
+    "status": "in_progress",
+    "deliverables": [
+      "services/orchestrator/app/translation/router.py",
+      "services/orchestrator/app/contracts/translation.py",
+      "services/orchestrator/app/storage/schema/0002_route_snapshots.sql",
+      "tests/unit/test_language_router.py",
+      "tests/integration/test_route_snapshot.py",
+      "services/orchestrator/app/providers/fake.py",
+      "services/orchestrator/app/api/application.py"
+    ],
+    "test_commands": [
+      "python -m pytest tests/unit/test_language_router.py tests/integration/test_route_snapshot.py -q"
+    ],
+    "evidence": [
+      "artifacts/acceptance/D026/route-snapshots.json",
+      "artifacts/acceptance/D026/provider-calls.json",
+      "docs/acceptance/part-two-progress.md",
+      "docs/acceptance/part-two/translation-report.md",
+      "docs/acceptance/part-two/final-python.json",
+      "docs/acceptance/part-two/desktop-verification.json"
+    ],
+    "estimate_hours": 10,
+    "guide": "02-ui-translation-documents.md",
+    "status_updated_at": "2026-10-14T19:20:15.680614+08:00",
+    "execution_review": {
+      "local_implementation": "verified_supported_scope",
+      "implemented": "不可变每轮身份/语言快照，漂移暂停与 GPT 强译零调用。",
+      "remaining": "实际生产 Claude/GPT 身份及配置版本切换资格仍依赖 D024。",
+      "real_acceptance": "blocked_or_not_completed",
+      "human_acceptance": "not_completed_where_required",
+      "evidence": [
+        "docs/acceptance/part-two-progress.md",
+        "docs/acceptance/part-two/translation-report.md",
+        "docs/acceptance/part-two/final-python.json",
+        "docs/acceptance/part-two/desktop-verification.json"
+      ]
+    },
+    "freeze": {
+      "status": "frozen_partial",
+      "frozen_at": "2026-10-14T21:48:14.951505+08:00",
+      "evidence": "docs/acceptance/part-two-freeze-20261014/freeze.json"
+    }
+  },
+  {
+    "id": "D027",
+    "title": "结构化分段及代码、数字、公式保护",
+    "phase": "P3",
+    "requires": [
+      "D007",
+      "D016",
+      "D026"
+    ],
+    "requirements": [
+      "R07",
+      "R08",
+      "R09",
+      "R15"
+    ],
+    "owner": "翻译后端工程师；领域评审复核保留规则",
+    "status": "in_progress",
+    "deliverables": [
+      "services/orchestrator/app/translation/segments.py",
+      "services/orchestrator/app/translation/protection.py",
+      "services/orchestrator/app/contracts/translation.py",
+      "tests/translation/test_segments.py",
+      "tests/fixtures/translation/protected.md"
+    ],
+    "test_commands": [
+      "python -m pytest tests/translation/test_segments.py -q"
+    ],
+    "evidence": [
+      "artifacts/acceptance/D027/block-map.json",
+      "artifacts/acceptance/D027/protected-diff.json",
+      "docs/acceptance/part-two-progress.md",
+      "docs/acceptance/part-two/translation-report.md",
+      "docs/acceptance/part-two/final-python.json",
+      "docs/acceptance/part-two/desktop-verification.json"
+    ],
+    "estimate_hours": 14,
+    "guide": "02-ui-translation-documents.md",
+    "status_updated_at": "2026-10-14T19:20:15.680614+08:00",
+    "execution_review": {
+      "local_implementation": "verified_supported_scope",
+      "implemented": "AST 块覆盖、代码/命令/数字/引用保护、还原与完整性门槛。",
+      "remaining": "双语领域人工语义评审及扩展格式保护能力待验收；不支持项目明确阻断。",
+      "real_acceptance": "blocked_or_not_completed",
+      "human_acceptance": "not_completed_where_required",
+      "evidence": [
+        "docs/acceptance/part-two-progress.md",
+        "docs/acceptance/part-two/translation-report.md",
+        "docs/acceptance/part-two/final-python.json",
+        "docs/acceptance/part-two/desktop-verification.json"
+      ]
+    },
+    "freeze": {
+      "status": "frozen_partial",
+      "frozen_at": "2026-10-14T21:48:14.951505+08:00",
+      "evidence": "docs/acceptance/part-two-freeze-20261014/freeze.json"
+    }
+  },
+  {
+    "id": "D028",
+    "title": "中文输入完整英译、追问与历史视图",
+    "phase": "P3",
+    "requires": [
+      "D012",
+      "D013",
+      "D017",
+      "D026",
+      "D027"
+    ],
+    "requirements": [
+      "R02",
+      "R07",
+      "R12",
+      "R15"
+    ],
+    "owner": "翻译后端工程师；调度工程师协作",
+    "status": "in_progress",
+    "deliverables": [
+      "services/orchestrator/app/translation/input_pipeline.py",
+      "services/orchestrator/app/translation/context_gateway.py",
+      "services/orchestrator/app/translation/prompts/input_translator.txt",
+      "services/orchestrator/app/translation/history.py",
+      "tests/integration/test_input_translation.py"
+    ],
+    "test_commands": [
+      "python -m pytest tests/integration/test_input_translation.py -q"
+    ],
+    "evidence": [
+      "artifacts/acceptance/D028/a-request-context.json",
+      "artifacts/acceptance/D028/input-block-coverage.json",
+      "artifacts/acceptance/D028/followup-map.json",
+      "docs/acceptance/part-two-progress.md",
+      "docs/acceptance/part-two/translation-report.md",
+      "docs/acceptance/part-two/final-python.json",
+      "docs/acceptance/part-two/desktop-verification.json"
+    ],
+    "estimate_hours": 16,
+    "guide": "02-ui-translation-documents.md",
+    "status_updated_at": "2026-10-14T19:20:15.680614+08:00",
+    "execution_review": {
+      "local_implementation": "verified_supported_scope",
+      "implemented": "完整原话/历史/材料英文视图、D017 网关与 source hash 固定。",
+      "remaining": "真实 Claude 首问/追问/资料英文对应及人工裁决未完成。",
+      "real_acceptance": "blocked_or_not_completed",
+      "human_acceptance": "not_completed_where_required",
+      "evidence": [
+        "docs/acceptance/part-two-progress.md",
+        "docs/acceptance/part-two/translation-report.md",
+        "docs/acceptance/part-two/final-python.json",
+        "docs/acceptance/part-two/desktop-verification.json"
+      ]
+    },
+    "freeze": {
+      "status": "frozen_partial",
+      "frozen_at": "2026-10-14T21:48:14.951505+08:00",
+      "evidence": "docs/acceptance/part-two-freeze-20261014/freeze.json"
+    }
+  },
+  {
+    "id": "D029",
+    "title": "翻译 QA、术语表、缓存与有限修复",
+    "phase": "P3",
+    "requires": [
+      "D014",
+      "D015",
+      "D027",
+      "D028"
+    ],
+    "requirements": [
+      "R02",
+      "R07",
+      "R08",
+      "R14",
+      "R15"
+    ],
+    "owner": "翻译后端工程师；双语评审与 QA",
+    "status": "in_progress",
+    "deliverables": [
+      "services/orchestrator/app/translation/quality.py",
+      "services/orchestrator/app/translation/glossary.py",
+      "services/orchestrator/app/translation/cache.py",
+      "services/orchestrator/app/translation/prompts/semantic_checker.txt",
+      "tests/translation/test_quality_cache.py",
+      "tests/fixtures/translation/golden.jsonl",
+      "tests/translation/test_pipeline_contract.py"
+    ],
+    "test_commands": [
+      "python -m pytest tests/translation/test_quality_cache.py -q",
+      "python -m pytest tests/translation/test_pipeline_contract.py -q"
+    ],
+    "evidence": [
+      "artifacts/acceptance/D029/translation-qa.json",
+      "artifacts/acceptance/D029/bilingual-review.csv",
+      "artifacts/acceptance/D029/cache-invalidation.json",
+      "artifacts/acceptance/D029/attempt-ledger.json",
+      "docs/acceptance/part-two-progress.md",
+      "docs/acceptance/part-two/translation-report.md",
+      "docs/acceptance/part-two/final-python.json",
+      "docs/acceptance/part-two/desktop-verification.json"
+    ],
+    "estimate_hours": 18,
+    "guide": "02-ui-translation-documents.md",
+    "status_updated_at": "2026-10-14T19:20:15.680614+08:00",
+    "execution_review": {
+      "local_implementation": "verified_supported_scope",
+      "implemented": "3 候选、独立 QA、预算/未知恢复、任务与术语内容隔离缓存、迟到用量留账。",
+      "remaining": "双语金标准人评未完成，独立模型检查不等同人工语义保证。",
+      "real_acceptance": "blocked_or_not_completed",
+      "human_acceptance": "not_completed_where_required",
+      "evidence": [
+        "docs/acceptance/part-two-progress.md",
+        "docs/acceptance/part-two/translation-report.md",
+        "docs/acceptance/part-two/final-python.json",
+        "docs/acceptance/part-two/desktop-verification.json"
+      ]
+    },
+    "freeze": {
+      "status": "frozen_partial",
+      "frozen_at": "2026-10-14T21:48:14.951505+08:00",
+      "evidence": "docs/acceptance/part-two-freeze-20261014/freeze.json"
+    }
+  },
+  {
+    "id": "D030",
+    "title": "英文回答完整中译与最终发布门槛",
+    "phase": "P3",
+    "requires": [
+      "D018",
+      "D025",
+      "D026",
+      "D029"
+    ],
+    "requirements": [
+      "R08",
+      "R10",
+      "R11",
+      "R12",
+      "R15"
+    ],
+    "owner": "翻译后端工程师；客户端工程师验证",
+    "status": "in_progress",
+    "deliverables": [
+      "services/orchestrator/app/translation/output_pipeline.py",
+      "services/orchestrator/app/translation/prompts/output_translator.txt",
+      "services/orchestrator/app/runtime/answer_publication.py",
+      "tests/integration/test_output_translation.py",
+      "tests/e2e/claude-answer.spec.ts"
+    ],
+    "test_commands": [
+      "python -m pytest tests/integration/test_output_translation.py -q",
+      "npm run test:e2e -- tests/e2e/claude-answer.spec.ts"
+    ],
+    "evidence": [
+      "artifacts/acceptance/D030/output-block-map.json",
+      "artifacts/acceptance/D030/publish-decisions.json",
+      "artifacts/acceptance/D030/chat-transcript.json",
+      "docs/acceptance/part-two-progress.md",
+      "docs/acceptance/part-two/translation-report.md",
+      "docs/acceptance/part-two/final-python.json",
+      "docs/acceptance/part-two/desktop-verification.json"
+    ],
+    "estimate_hours": 14,
+    "guide": "02-ui-translation-documents.md",
+    "status_updated_at": "2026-10-14T19:20:15.680614+08:00",
+    "execution_review": {
+      "local_implementation": "verified_supported_scope",
+      "implemented": "A 完整正文和必要澄清全文中译/QA/受信发布；GPT 原语言零译者。",
+      "remaining": "真实 Claude 完整中文答案/澄清 GUI 链及人工语义验收未完成。",
+      "real_acceptance": "blocked_or_not_completed",
+      "human_acceptance": "not_completed_where_required",
+      "evidence": [
+        "docs/acceptance/part-two-progress.md",
+        "docs/acceptance/part-two/translation-report.md",
+        "docs/acceptance/part-two/final-python.json",
+        "docs/acceptance/part-two/desktop-verification.json"
+      ]
+    },
+    "freeze": {
+      "status": "frozen_partial",
+      "frozen_at": "2026-10-14T21:48:14.951505+08:00",
+      "evidence": "docs/acceptance/part-two-freeze-20261014/freeze.json"
+    }
+  },
+  {
+    "id": "D031",
+    "title": "A 英文原件捕获与真实来源证据",
+    "phase": "P4",
+    "requires": [
+      "D007",
+      "D016",
+      "D026",
+      "D030"
+    ],
+    "requirements": [
+      "R01",
+      "R02",
+      "R09",
+      "R14"
+    ],
+    "owner": "文档后端工程师；接入与 QA 复核",
+    "status": "in_progress",
+    "deliverables": [
+      "services/orchestrator/app/documents/canonical.py",
+      "services/orchestrator/app/documents/provenance.py",
+      "services/orchestrator/app/contracts/artifacts.py",
+      "tests/artifacts/test_canonical_provenance.py",
+      "tests/fixtures/documents/a-response.jsonl"
+    ],
+    "test_commands": [
+      "python -m pytest tests/artifacts/test_canonical_provenance.py -q"
+    ],
+    "evidence": [
+      "artifacts/acceptance/D031/provenance.json",
+      "artifacts/acceptance/D031/raw-a-output.md",
+      "artifacts/acceptance/D031/canonical-sha256.txt",
+      "docs/acceptance/part-two-progress.md",
+      "docs/acceptance/part-two/documents-report.md",
+      "docs/acceptance/part-two/final-python.json",
+      "docs/acceptance/part-two/desktop-verification.json"
+    ],
+    "estimate_hours": 12,
+    "guide": "02-ui-translation-documents.md",
+    "status_updated_at": "2026-10-14T19:20:15.680614+08:00",
+    "execution_review": {
+      "local_implementation": "verified_supported_scope",
+      "implemented": "实际持久 A step/request/event/原始正文捕获，拒 B 假作者/PASS-only/截断。",
+      "remaining": "真实模型完整 A 输出和用量来源证据待上游资格；fixture 不替代真实来源。",
+      "real_acceptance": "blocked_or_not_completed",
+      "human_acceptance": "not_completed_where_required",
+      "evidence": [
+        "docs/acceptance/part-two-progress.md",
+        "docs/acceptance/part-two/documents-report.md",
+        "docs/acceptance/part-two/final-python.json",
+        "docs/acceptance/part-two/desktop-verification.json"
+      ]
+    },
+    "freeze": {
+      "status": "frozen_partial",
+      "frozen_at": "2026-10-14T21:48:14.951505+08:00",
+      "evidence": "docs/acceptance/part-two-freeze-20261014/freeze.json"
+    }
+  },
+  {
+    "id": "D032",
+    "title": "文档块模型与 PDF、DOCX、Markdown 输入解析",
+    "phase": "P4",
+    "requires": [
+      "D016",
+      "D019",
+      "D027",
+      "D031"
+    ],
+    "requirements": [
+      "R05",
+      "R07",
+      "R09",
+      "R15"
+    ],
+    "owner": "文档工程师；双语与领域评审",
+    "status": "in_progress",
+    "deliverables": [
+      "services/orchestrator/app/documents/model.py",
+      "services/orchestrator/app/documents/parse.py",
+      "services/orchestrator/app/documents/parsers/markdown.py",
+      "services/orchestrator/app/documents/parsers/docx.py",
+      "services/orchestrator/app/documents/parsers/pdf.py",
+      "tests/artifacts/test_document_parse.py",
+      "tests/fixtures/documents/structure-manifest.json",
+      "tests/fixtures/documents/build_fixtures.py"
+    ],
+    "test_commands": [
+      "python tests/fixtures/documents/build_fixtures.py --verify",
+      "python -m pytest tests/artifacts/test_document_parse.py -q"
+    ],
+    "evidence": [
+      "artifacts/acceptance/D032/parse-manifests.json",
+      "artifacts/acceptance/D032/source-location-map.json",
+      "artifacts/acceptance/D032/format-capabilities.json",
+      "docs/acceptance/part-two-progress.md",
+      "docs/acceptance/part-two/documents-report.md",
+      "docs/acceptance/part-two/final-python.json",
+      "docs/acceptance/part-two/desktop-verification.json"
+    ],
+    "estimate_hours": 18,
+    "guide": "02-ui-translation-documents.md",
+    "status_updated_at": "2026-10-14T19:20:15.680614+08:00",
+    "execution_review": {
+      "local_implementation": "verified_supported_scope",
+      "implemented": "MD/PDF/DOCX 真实解析、来源定位与明确未支持结构；原件/派生双哈希。",
+      "remaining": "复杂格式冻结样本及领域复核未完成，OCR/跨栏/复杂对象等明确阻断。",
+      "real_acceptance": "blocked_or_not_completed",
+      "human_acceptance": "not_completed_where_required",
+      "evidence": [
+        "docs/acceptance/part-two-progress.md",
+        "docs/acceptance/part-two/documents-report.md",
+        "docs/acceptance/part-two/final-python.json",
+        "docs/acceptance/part-two/desktop-verification.json"
+      ]
+    },
+    "freeze": {
+      "status": "frozen_partial",
+      "frozen_at": "2026-10-14T21:48:14.951505+08:00",
+      "evidence": "docs/acceptance/part-two-freeze-20261014/freeze.json"
+    }
+  },
+  {
+    "id": "D033",
+    "title": "英文原文与中文文档逐块配对生成",
+    "phase": "P4",
+    "requires": [
+      "D026",
+      "D029",
+      "D031",
+      "D032"
+    ],
+    "requirements": [
+      "R02",
+      "R09",
+      "R10",
+      "R15"
+    ],
+    "owner": "翻译与文档后端工程师",
+    "status": "in_progress",
+    "deliverables": [
+      "services/orchestrator/app/documents/translate.py",
+      "services/orchestrator/app/documents/pairs.py",
+      "services/orchestrator/app/contracts/artifacts.py",
+      "tests/artifacts/test_bilingual_generation.py",
+      "tests/fixtures/documents/bilingual-blocks.json"
+    ],
+    "test_commands": [
+      "python -m pytest tests/artifacts/test_bilingual_generation.py -q"
+    ],
+    "evidence": [
+      "artifacts/acceptance/D033/bilingual-block-map.json",
+      "artifacts/acceptance/D033/qa-by-block.json",
+      "artifacts/acceptance/D033/staging-pairs.json",
+      "docs/acceptance/part-two-progress.md",
+      "docs/acceptance/part-two/documents-report.md",
+      "docs/acceptance/part-two/final-python.json",
+      "docs/acceptance/part-two/desktop-verification.json"
+    ],
+    "estimate_hours": 14,
+    "guide": "02-ui-translation-documents.md",
+    "status_updated_at": "2026-10-14T19:20:15.680614+08:00",
+    "execution_review": {
+      "local_implementation": "verified_supported_scope",
+      "implemented": "逐块全文中文模型、源版本/覆盖/QA 严格配对及失效。",
+      "remaining": "真实双语全篇一致和人工语义裁决未完成。",
+      "real_acceptance": "blocked_or_not_completed",
+      "human_acceptance": "not_completed_where_required",
+      "evidence": [
+        "docs/acceptance/part-two-progress.md",
+        "docs/acceptance/part-two/documents-report.md",
+        "docs/acceptance/part-two/final-python.json",
+        "docs/acceptance/part-two/desktop-verification.json"
+      ]
+    },
+    "freeze": {
+      "status": "frozen_partial",
+      "frozen_at": "2026-10-14T21:48:14.951505+08:00",
+      "evidence": "docs/acceptance/part-two-freeze-20261014/freeze.json"
+    }
+  },
+  {
+    "id": "D034",
+    "title": "PDF、DOCX、Markdown 渲染与版面核验",
+    "phase": "P4",
+    "requires": [
+      "D019",
+      "D032",
+      "D033"
+    ],
+    "requirements": [
+      "R05",
+      "R09",
+      "R15"
+    ],
+    "owner": "文档工程师；视觉 QA",
+    "status": "in_progress",
+    "deliverables": [
+      "services/orchestrator/app/documents/render.py",
+      "services/orchestrator/app/documents/renderers/markdown.py",
+      "services/orchestrator/app/documents/renderers/docx.py",
+      "services/orchestrator/app/documents/renderers/pdf.py",
+      "services/orchestrator/app/validation/document_layout.py",
+      "tests/artifacts/test_render_layout.py",
+      "tests/fixtures/documents/layout-cases.json"
+    ],
+    "test_commands": [
+      "python -m pytest tests/artifacts/test_render_layout.py -q"
+    ],
+    "evidence": [
+      "artifacts/acceptance/D034/render-environment.json",
+      "artifacts/acceptance/D034/page-images/",
+      "artifacts/acceptance/D034/layout-review.csv",
+      "artifacts/acceptance/D034/render-checks.json",
+      "docs/acceptance/part-two-progress.md",
+      "docs/acceptance/part-two/documents-report.md",
+      "docs/acceptance/part-two/final-python.json",
+      "docs/acceptance/part-two/desktop-verification.json"
+    ],
+    "estimate_hours": 20,
+    "guide": "02-ui-translation-documents.md",
+    "status_updated_at": "2026-10-14T19:20:15.680614+08:00",
+    "execution_review": {
+      "local_implementation": "verified_supported_scope",
+      "implemented": "真实 MD/OOXML/PDF、字体/内容/页面、Word-compatible 派生预览验证。",
+      "remaining": "复杂多页视觉、跨机器字体/Office 能力及资源依赖资格未全部验收。",
+      "real_acceptance": "blocked_or_not_completed",
+      "human_acceptance": "not_completed_where_required",
+      "evidence": [
+        "docs/acceptance/part-two-progress.md",
+        "docs/acceptance/part-two/documents-report.md",
+        "docs/acceptance/part-two/final-python.json",
+        "docs/acceptance/part-two/desktop-verification.json"
+      ]
+    },
+    "freeze": {
+      "status": "frozen_partial",
+      "frozen_at": "2026-10-14T21:48:14.951505+08:00",
+      "evidence": "docs/acceptance/part-two-freeze-20261014/freeze.json"
+    }
+  },
+  {
+    "id": "D035",
+    "title": "双语文件原子发布、版本失效与恢复",
+    "phase": "P4",
+    "requires": [
+      "D010",
+      "D012",
+      "D016",
+      "D030",
+      "D031",
+      "D033",
+      "D034"
+    ],
+    "requirements": [
+      "R09",
+      "R11",
+      "R12"
+    ],
+    "owner": "后端工程师；可靠性 QA",
+    "status": "in_progress",
+    "deliverables": [
+      "services/orchestrator/app/documents/publish.py",
+      "services/orchestrator/app/documents/invalidation.py",
+      "services/orchestrator/app/api/artifacts.py",
+      "services/orchestrator/app/storage/schema/0003_delivery_bundles.sql",
+      "tests/artifacts/test_atomic_publication.py",
+      "tests/integration/test_document_invalidation.py",
+      "tests/artifacts/test_pair_contract.py"
+    ],
+    "test_commands": [
+      "python -m pytest tests/artifacts/test_atomic_publication.py tests/integration/test_document_invalidation.py -q",
+      "python -m pytest tests/artifacts/test_pair_contract.py -q"
+    ],
+    "evidence": [
+      "artifacts/acceptance/D035/visible-manifests.json",
+      "artifacts/acceptance/D035/crash-point-matrix.csv",
+      "artifacts/acceptance/D035/dependency-invalidation.json",
+      "docs/acceptance/part-two-progress.md",
+      "docs/acceptance/part-two/documents-report.md",
+      "docs/acceptance/part-two/final-python.json",
+      "docs/acceptance/part-two/desktop-verification.json"
+    ],
+    "estimate_hours": 18,
+    "guide": "02-ui-translation-documents.md",
+    "status_updated_at": "2026-10-14T19:20:15.680614+08:00",
+    "execution_review": {
+      "local_implementation": "verified_supported_scope",
+      "implemented": "同批准回答+完整文件事务发布、冻结来源/事件/哈希、历史版本保留。",
+      "remaining": "完整 Windows 崩溃/文件占用和真实提供方恢复矩阵未完成。",
+      "real_acceptance": "blocked_or_not_completed",
+      "human_acceptance": "not_completed_where_required",
+      "evidence": [
+        "docs/acceptance/part-two-progress.md",
+        "docs/acceptance/part-two/documents-report.md",
+        "docs/acceptance/part-two/final-python.json",
+        "docs/acceptance/part-two/desktop-verification.json"
+      ]
+    },
+    "freeze": {
+      "status": "frozen_partial",
+      "frozen_at": "2026-10-14T21:48:14.951505+08:00",
+      "evidence": "docs/acceptance/part-two-freeze-20261014/freeze.json"
+    }
+  },
+  {
+    "id": "D036",
+    "title": "文件卡、隔离预览、保存单份与双份",
+    "phase": "P4",
+    "requires": [
+      "D021",
+      "D022",
+      "D025",
+      "D034",
+      "D035"
+    ],
+    "requirements": [
+      "R06",
+      "R09",
+      "R11",
+      "R12"
+    ],
+    "owner": "客户端工程师；文档与安全 QA",
+    "status": "in_progress",
+    "deliverables": [
+      "apps/desktop/src/renderer/chat/ArtifactPair.tsx",
+      "apps/desktop/src/renderer/chat/ArtifactCard.tsx",
+      "apps/desktop/src/renderer/documents/DocumentPreview.tsx",
+      "apps/desktop/src/main/artifact-files.ts",
+      "apps/desktop/src/main/ipc.ts",
+      "tests/e2e/artifact-files.spec.ts"
+    ],
+    "test_commands": [
+      "npm run test:e2e -- tests/e2e/artifact-files.spec.ts"
+    ],
+    "evidence": [
+      "artifacts/acceptance/D036/saved-file-hashes.json",
+      "artifacts/acceptance/D036/screenshots/",
+      "artifacts/acceptance/D036/save-failures.json",
+      "docs/acceptance/part-two-progress.md",
+      "docs/acceptance/part-two/desktop-report.md",
+      "docs/acceptance/part-two/final-python.json",
+      "docs/acceptance/part-two/desktop-verification.json"
+    ],
+    "estimate_hours": 14,
+    "guide": "02-ui-translation-documents.md",
+    "status_updated_at": "2026-10-14T19:20:15.680614+08:00",
+    "execution_review": {
+      "local_implementation": "verified_supported_scope",
+      "implemented": "同版本文件卡、安全 MD/PDF/DOCX 预览、大小/SHA 保存与部分回滚提示。",
+      "remaining": "复杂多页/低空间/全部历史版本 GUI 与完整保存失败矩阵未完成。",
+      "real_acceptance": "blocked_or_not_completed",
+      "human_acceptance": "not_completed_where_required",
+      "evidence": [
+        "docs/acceptance/part-two-progress.md",
+        "docs/acceptance/part-two/desktop-report.md",
+        "docs/acceptance/part-two/final-python.json",
+        "docs/acceptance/part-two/desktop-verification.json"
+      ]
+    },
+    "freeze": {
+      "status": "frozen_partial",
+      "frozen_at": "2026-10-14T21:48:14.951505+08:00",
+      "evidence": "docs/acceptance/part-two-freeze-20261014/freeze.json"
+    }
+  },
+  {
+    "id": "D037",
+    "title": "独立用量、存储偏好与脱敏诊断页面",
+    "phase": "P4",
+    "requires": [
+      "D009",
+      "D015",
+      "D021",
+      "D022",
+      "D024",
+      "D035"
+    ],
+    "requirements": [
+      "R02",
+      "R06",
+      "R12",
+      "R14"
+    ],
+    "owner": "客户端与后端工程师；QA 核账",
+    "status": "in_progress",
+    "deliverables": [
+      "apps/desktop/src/renderer/settings/Usage.tsx",
+      "apps/desktop/src/renderer/settings/Storage.tsx",
+      "apps/desktop/src/renderer/settings/Preferences.tsx",
+      "apps/desktop/src/renderer/settings/Diagnostics.tsx",
+      "services/orchestrator/app/api/diagnostics.py",
+      "tests/e2e/settings-usage.spec.ts",
+      "tests/integration/test_diagnostics_export.py",
+      "services/orchestrator/app/api/usage.py",
+      "services/orchestrator/app/api/storage.py",
+      "services/orchestrator/app/api/settings.py",
+      "services/orchestrator/app/api/application.py",
+      "services/orchestrator/app/storage/cleanup.py",
+      "services/orchestrator/app/storage/relocate.py",
+      "apps/desktop/src/main/ipc.ts",
+      "tests/integration/test_storage_settings.py"
+    ],
+    "test_commands": [
+      "python -m pytest tests/integration/test_diagnostics_export.py tests/integration/test_storage_settings.py -q",
+      "npm run test:e2e -- tests/e2e/settings-usage.spec.ts"
+    ],
+    "evidence": [
+      "artifacts/acceptance/D037/usage-reconciliation.json",
+      "artifacts/acceptance/D037/redacted-diagnostics.zip",
+      "artifacts/acceptance/D037/screenshots/",
+      "docs/acceptance/part-two-progress.md",
+      "docs/acceptance/part-two/desktop-report.md",
+      "docs/acceptance/part-two/final-python.json",
+      "docs/acceptance/part-two/desktop-verification.json"
+    ],
+    "estimate_hours": 20,
+    "guide": "02-ui-translation-documents.md",
+    "status_updated_at": "2026-10-14T19:20:15.680614+08:00",
+    "execution_review": {
+      "local_implementation": "verified_supported_scope",
+      "implemented": "岗位/日期用量、未知口径、偏好、脱敏诊断、引用清理及验证副本迁移重启。",
+      "remaining": "活跃外部任务/低磁盘/重启失败完整 GUI 矩阵待补。",
+      "real_acceptance": "blocked_or_not_completed",
+      "human_acceptance": "not_completed_where_required",
+      "evidence": [
+        "docs/acceptance/part-two-progress.md",
+        "docs/acceptance/part-two/desktop-report.md",
+        "docs/acceptance/part-two/final-python.json",
+        "docs/acceptance/part-two/desktop-verification.json"
+      ]
+    },
+    "freeze": {
+      "status": "frozen_partial",
+      "frozen_at": "2026-10-14T21:48:14.951505+08:00",
+      "evidence": "docs/acceptance/part-two-freeze-20261014/freeze.json"
+    }
+  },
+  {
+    "id": "D038",
+    "title": "编程、论文与普通文档任务 profile 接入",
+    "phase": "P4",
+    "requires": [
+      "D013",
+      "D014",
+      "D019",
+      "D030",
+      "D035",
+      "D036"
+    ],
+    "requirements": [
+      "R01",
+      "R02",
+      "R05",
+      "R09",
+      "R15"
+    ],
+    "owner": "调度工程师；编程/学术/文档评审",
+    "status": "in_progress",
+    "deliverables": [
+      "services/orchestrator/app/profiles/registry.py",
+      "services/orchestrator/app/profiles/code.yaml",
+      "services/orchestrator/app/profiles/paper.yaml",
+      "services/orchestrator/app/profiles/document.yaml",
+      "tests/integration/test_task_profiles.py",
+      "tests/fixtures/profiles/requests.json"
+    ],
+    "test_commands": [
+      "python -m pytest tests/integration/test_task_profiles.py -q"
+    ],
+    "evidence": [
+      "artifacts/acceptance/D038/profile-contracts.json",
+      "artifacts/acceptance/D038/domain-review.md",
+      "artifacts/acceptance/D038/requirement-evidence-map.json",
+      "docs/acceptance/part-two-progress.md",
+      "docs/acceptance/part-two/desktop-report.md",
+      "docs/acceptance/part-two/final-python.json",
+      "docs/acceptance/part-two/desktop-verification.json"
+    ],
+    "estimate_hours": 18,
+    "guide": "02-ui-translation-documents.md",
+    "status_updated_at": "2026-10-14T19:20:15.680614+08:00",
+    "execution_review": {
+      "local_implementation": "verified_supported_scope",
+      "implemented": "GUI 任务字段/格式冻结、缺材料 A0、严格 profile 实际 C 与 A 语义门槛。",
+      "remaining": "真实三领域评审及通用合格执行端口未完成；首版数值/固定哈希端口有明确边界。",
+      "real_acceptance": "blocked_or_not_completed",
+      "human_acceptance": "not_completed_where_required",
+      "evidence": [
+        "docs/acceptance/part-two-progress.md",
+        "docs/acceptance/part-two/desktop-report.md",
+        "docs/acceptance/part-two/final-python.json",
+        "docs/acceptance/part-two/desktop-verification.json"
+      ]
+    },
+    "freeze": {
+      "status": "frozen_partial",
+      "frozen_at": "2026-10-14T21:48:14.951505+08:00",
+      "evidence": "docs/acceptance/part-two-freeze-20261014/freeze.json"
+    }
+  },
+  {
+    "id": "D039",
+    "title": "数据→代码→图表→报告的综合依赖用例",
+    "phase": "P4",
+    "requires": [
+      "D016",
+      "D019",
+      "D032",
+      "D034",
+      "D035",
+      "D038"
+    ],
+    "requirements": [
+      "R01",
+      "R05",
+      "R09",
+      "R12",
+      "R15"
+    ],
+    "owner": "数据/后端工程师；领域 QA",
+    "status": "in_progress",
+    "deliverables": [
+      "tests/fixtures/composite/sales.csv",
+      "tests/fixtures/composite/request.zh.md",
+      "tests/fixtures/composite/expected.json",
+      "tests/integration/test_composite_workflow.py",
+      "services/orchestrator/app/profiles/composite.yaml",
+      "tests/support/scenarios/composite.py"
+    ],
+    "test_commands": [
+      "python -m pytest tests/integration/test_composite_workflow.py -q"
+    ],
+    "evidence": [
+      "artifacts/acceptance/D039/reproduction-output.json",
+      "artifacts/acceptance/D039/dependency-graph.json",
+      "artifacts/acceptance/D039/bundle-v1.json",
+      "artifacts/acceptance/D039/bundle-v2.json",
+      "docs/acceptance/part-two-progress.md",
+      "docs/acceptance/part-two/documents-report.md",
+      "docs/acceptance/part-two/final-python.json",
+      "docs/acceptance/part-two/desktop-verification.json"
+    ],
+    "estimate_hours": 18,
+    "guide": "02-ui-translation-documents.md",
+    "status_updated_at": "2026-10-14T19:20:15.680614+08:00",
+    "execution_review": {
+      "local_implementation": "verified_supported_scope",
+      "implemented": "正常 API/GUI 实算固定 CSV、代码/图表/报告同依赖，v1/v2 下载一致。",
+      "remaining": "真实 A/B 与领域人评未完成；固定 Jan/Feb 四行用例已实算，不能推为任意分析。",
+      "real_acceptance": "blocked_or_not_completed",
+      "human_acceptance": "not_completed_where_required",
+      "evidence": [
+        "docs/acceptance/part-two-progress.md",
+        "docs/acceptance/part-two/documents-report.md",
+        "docs/acceptance/part-two/final-python.json",
+        "docs/acceptance/part-two/desktop-verification.json"
+      ]
+    },
+    "freeze": {
+      "status": "frozen_partial",
+      "frozen_at": "2026-10-14T21:48:14.951505+08:00",
+      "evidence": "docs/acceptance/part-two-freeze-20261014/freeze.json"
+    }
+  },
+  {
+    "id": "D040",
+    "title": "真实 GUI→A/B→验证→双语交付垂直贯通",
+    "phase": "P4",
+    "requires": [
+      "D020",
+      "D025",
+      "D026",
+      "D029",
+      "D030",
+      "D035",
+      "D036",
+      "D037",
+      "D038",
+      "D039"
+    ],
+    "requirements": [
+      "R01",
+      "R02",
+      "R03",
+      "R04",
+      "R05",
+      "R06",
+      "R07",
+      "R08",
+      "R09",
+      "R10",
+      "R11",
+      "R12",
+      "R14",
+      "R15"
+    ],
+    "owner": "集成负责人；QA 与领域评审共同验收",
+    "status": "blocked",
+    "deliverables": [
+      "tests/integration/test_vertical_real.py",
+      "tests/e2e/vertical-real.spec.ts",
+      "tests/support/scenarios/vertical_real.py",
+      "docs/acceptance/vertical-scenarios.json",
+      "docs/acceptance/vertical-report.md",
+      "tests/support/run-real-e2e.mjs",
+      "package.json"
+    ],
+    "test_commands": [
+      "python -m pytest -o addopts='' tests/integration/test_vertical_real.py -m real_provider -q",
+      "npm run test:e2e:real -- tests/e2e/vertical-real.spec.ts"
+    ],
+    "evidence": [
+      "artifacts/acceptance/D040/real-provider-calls.json",
+      "artifacts/acceptance/D040/public-transcript.json",
+      "artifacts/acceptance/D040/downloaded-manifests.json",
+      "artifacts/acceptance/D040/usage-ledger.json",
+      "docs/acceptance/vertical-report.md",
+      "docs/acceptance/part-two-progress.md",
+      "docs/acceptance/part-two/desktop-report.md",
+      "docs/acceptance/part-two/final-python.json",
+      "docs/acceptance/part-two/desktop-verification.json"
+    ],
+    "estimate_hours": 20,
+    "guide": "02-ui-translation-documents.md",
+    "status_updated_at": "2026-10-14T19:20:15.680614+08:00",
+    "execution_review": {
+      "local_implementation": "verified_supported_scope",
+      "implemented": "4 域冻结输入/预算/哈希及 8 条生产资格预检，缺资格不发送任务。",
+      "remaining": "生产资格 blocked；完整真实附件/产物/取消重启测试链尚待装配与真实验收。",
+      "real_acceptance": "blocked_or_not_completed",
+      "human_acceptance": "not_completed_where_required",
+      "evidence": [
+        "docs/acceptance/part-two-progress.md",
+        "docs/acceptance/part-two/desktop-report.md",
+        "docs/acceptance/part-two/final-python.json",
+        "docs/acceptance/part-two/desktop-verification.json"
+      ]
+    },
+    "freeze": {
+      "status": "frozen_partial",
+      "frozen_at": "2026-10-14T21:48:14.951505+08:00",
+      "evidence": "docs/acceptance/part-two-freeze-20261014/freeze.json"
+    }
+  }
+]

@@ -1,0 +1,28 @@
+
+Running 35 tests using 1 worker
+(node:42916) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node.EXE --trace-warnings ...` to show where the warning was created)
+······················F(node:31396) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node.EXE --trace-warnings ...` to show where the warning was created)
+············
+
+  1) tests\e2e\local-performance.spec.ts:6:5 › record two hundred input echo samples in the actual renderer 
+
+    Error: expect(received).toBeTruthy()
+
+    Received: undefined
+
+      25 |     const frames = await desktop.getPublicFrames();
+      26 |     const accepted = frames.filter((frame: any) => frame.kind === 'message.accepted').at(-1) as any;
+    > 27 |     expect(accepted?.task_id).toBeTruthy();
+         |                               ^
+      28 |     const state = await page.evaluate(async taskId => window.workbench.getTask({ taskId }), accepted.task_id);
+      29 |     expect(state.task_id).toBe(accepted.task_id);
+      30 |     stateSamples.push(await page.evaluate(start => performance.now() - start, started));
+        at C:\Users\asd15\Documents\ChatGPT\ai\tests\e2e\local-performance.spec.ts:27:31
+
+    Error Context: docs\acceptance\part-five\final-v1\regression\electron-results\local-performance-record-t-c1dec-ples-in-the-actual-renderer\error-context.md
+
+  1 failed
+    tests\e2e\local-performance.spec.ts:6:5 › record two hundred input echo samples in the actual renderer 
+  34 passed (5.3m)

@@ -1,0 +1,183 @@
+...FFF.............F.F.F                                                 [100%]
+================================== FAILURES ===================================
+_ test_json_mathematical_integer_semantics_match_python_and_schema[1.0-True-PublicEvent-sequence] _
+
+model = <class 'app.contracts.events.PublicEvent'>, field = 'sequence'
+value = 1.0, accepted = True
+
+    @pytest.mark.parametrize("model,field", INTEGER_FIELDS)
+    @pytest.mark.parametrize("value,accepted", [(1, True), (1.0, True), (True, False), ("1", False), (1.5, False), (float("inf"), False)])
+    def test_json_mathematical_integer_semantics_match_python_and_schema(model, field, value, accepted):
+        sample = integer_sample(model, field, value)
+        if accepted:
+>           record = assert_both_accept(model, sample)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_schemas.py:401: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.events.PublicEvent'>
+sample = {'schema_version': '1.0', 'event_id': 'e1', 'conversation_id': 'conv1', 'turn_id': 'turn1', ...}
+
+    def assert_both_accept(model, sample):
+>       value = model.model_validate_json(json.dumps(sample))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       pydantic_core._pydantic_core.ValidationError: 1 validation error for PublicEvent
+E       `answer.published`.sequence
+E         Input should be a valid integer [type=int_type, input_value=1.0, input_type=float]
+E           For further information visit https://errors.pydantic.dev/2.14/v/int_type
+
+tests\contracts\test_schemas.py:70: ValidationError
+_ test_json_mathematical_integer_semantics_match_python_and_schema[1.0-True-PublicEvent-artifact_size] _
+
+model = <class 'app.contracts.events.PublicEvent'>, field = 'artifact_size'
+value = 1.0, accepted = True
+
+    @pytest.mark.parametrize("model,field", INTEGER_FIELDS)
+    @pytest.mark.parametrize("value,accepted", [(1, True), (1.0, True), (True, False), ("1", False), (1.5, False), (float("inf"), False)])
+    def test_json_mathematical_integer_semantics_match_python_and_schema(model, field, value, accepted):
+        sample = integer_sample(model, field, value)
+        if accepted:
+>           record = assert_both_accept(model, sample)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_schemas.py:401: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.events.PublicEvent'>
+sample = {'schema_version': '1.0', 'event_id': 'e1', 'conversation_id': 'conv1', 'turn_id': 'turn1', ...}
+
+    def assert_both_accept(model, sample):
+>       value = model.model_validate_json(json.dumps(sample))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       pydantic_core._pydantic_core.ValidationError: 1 validation error for PublicEvent
+E       `artifacts.published`.payload.artifacts.0.size_bytes
+E         Input should be a valid integer [type=int_type, input_value=1.0, input_type=float]
+E           For further information visit https://errors.pydantic.dev/2.14/v/int_type
+
+tests\contracts\test_schemas.py:70: ValidationError
+_ test_json_mathematical_integer_semantics_match_python_and_schema[1.0-True-TranslationJob-attempt_count] _
+
+model = <class 'app.contracts.translation.TranslationJob'>
+field = 'attempt_count', value = 1.0, accepted = True
+
+    @pytest.mark.parametrize("model,field", INTEGER_FIELDS)
+    @pytest.mark.parametrize("value,accepted", [(1, True), (1.0, True), (True, False), ("1", False), (1.5, False), (float("inf"), False)])
+    def test_json_mathematical_integer_semantics_match_python_and_schema(model, field, value, accepted):
+        sample = integer_sample(model, field, value)
+        if accepted:
+>           record = assert_both_accept(model, sample)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_schemas.py:401: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.translation.TranslationJob'>
+sample = {'id': 'j', 'task_id': 't', 'turn_id': 'turn', 'source_ref': 'blob', ...}
+
+    def assert_both_accept(model, sample):
+>       value = model.model_validate_json(json.dumps(sample))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       pydantic_core._pydantic_core.ValidationError: 1 validation error for TranslationJob
+E       attempt_count
+E         Input should be a valid integer [type=int_type, input_value=1.0, input_type=float]
+E           For further information visit https://errors.pydantic.dev/2.14/v/int_type
+
+tests\contracts\test_schemas.py:70: ValidationError
+_ test_json_integer_constraints_still_apply_after_normalization[PublicEvent-artifact_size-0.0-True] _
+
+model = <class 'app.contracts.events.PublicEvent'>, field = 'artifact_size'
+value = 0.0, accepted = True
+
+    @pytest.mark.parametrize("model,field,value,accepted", [
+        (PublicEvent, "sequence", 0.0, False),
+        (PublicEvent, "artifact_size", 0.0, True),
+        (PublicEvent, "artifact_size", -1.0, False),
+        (TranslationJob, "attempt_count", 3.0, True),
+        (TranslationJob, "attempt_count", 4.0, False),
+    ])
+    def test_json_integer_constraints_still_apply_after_normalization(model, field, value, accepted):
+        sample = integer_sample(model, field, value)
+        if accepted:
+>           record = assert_both_accept(model, sample)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_schemas.py:421: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.events.PublicEvent'>
+sample = {'schema_version': '1.0', 'event_id': 'e1', 'conversation_id': 'conv1', 'turn_id': 'turn1', ...}
+
+    def assert_both_accept(model, sample):
+>       value = model.model_validate_json(json.dumps(sample))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       pydantic_core._pydantic_core.ValidationError: 1 validation error for PublicEvent
+E       `artifacts.published`.payload.artifacts.0.size_bytes
+E         Input should be a valid integer [type=int_type, input_value=0.0, input_type=float]
+E           For further information visit https://errors.pydantic.dev/2.14/v/int_type
+
+tests\contracts\test_schemas.py:70: ValidationError
+_ test_json_integer_constraints_still_apply_after_normalization[TranslationJob-attempt_count-3.0-True] _
+
+model = <class 'app.contracts.translation.TranslationJob'>
+field = 'attempt_count', value = 3.0, accepted = True
+
+    @pytest.mark.parametrize("model,field,value,accepted", [
+        (PublicEvent, "sequence", 0.0, False),
+        (PublicEvent, "artifact_size", 0.0, True),
+        (PublicEvent, "artifact_size", -1.0, False),
+        (TranslationJob, "attempt_count", 3.0, True),
+        (TranslationJob, "attempt_count", 4.0, False),
+    ])
+    def test_json_integer_constraints_still_apply_after_normalization(model, field, value, accepted):
+        sample = integer_sample(model, field, value)
+        if accepted:
+>           record = assert_both_accept(model, sample)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_schemas.py:421: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.translation.TranslationJob'>
+sample = {'id': 'j', 'task_id': 't', 'turn_id': 'turn', 'source_ref': 'blob', ...}
+
+    def assert_both_accept(model, sample):
+>       value = model.model_validate_json(json.dumps(sample))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       pydantic_core._pydantic_core.ValidationError: 1 validation error for TranslationJob
+E       attempt_count
+E         Input should be a valid integer [type=int_type, input_value=3.0, input_type=float]
+E           For further information visit https://errors.pydantic.dev/2.14/v/int_type
+
+tests\contracts\test_schemas.py:70: ValidationError
+_______ test_legacy_agent_event_normalizes_integral_float_to_frozen_int _______
+
+    def test_legacy_agent_event_normalizes_integral_float_to_frozen_int():
+>       event = AgentEvent("t", "a", 1.0, "model.delta", {})
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_schemas.py:428: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+<string>:8: in __init__
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = AgentEvent(task_id='t', attempt_id='a', sequence=1.0, kind='model.delta', payload={})
+
+    def __post_init__(self) -> None:
+>       InternalEventRecord.model_validate(asdict(self))
+E       pydantic_core._pydantic_core.ValidationError: 1 validation error for InternalEventRecord
+E       sequence
+E         Input should be a valid integer [type=int_type, input_value=1.0, input_type=float]
+E           For further information visit https://errors.pydantic.dev/2.14/v/int_type
+
+services\orchestrator\app\contracts\events.py:27: ValidationError
+=========================== short test summary info ===========================
+FAILED tests/contracts/test_schemas.py::test_json_mathematical_integer_semantics_match_python_and_schema[1.0-True-PublicEvent-sequence]
+FAILED tests/contracts/test_schemas.py::test_json_mathematical_integer_semantics_match_python_and_schema[1.0-True-PublicEvent-artifact_size]
+FAILED tests/contracts/test_schemas.py::test_json_mathematical_integer_semantics_match_python_and_schema[1.0-True-TranslationJob-attempt_count]
+FAILED tests/contracts/test_schemas.py::test_json_integer_constraints_still_apply_after_normalization[PublicEvent-artifact_size-0.0-True]
+FAILED tests/contracts/test_schemas.py::test_json_integer_constraints_still_apply_after_normalization[TranslationJob-attempt_count-3.0-True]
+FAILED tests/contracts/test_schemas.py::test_legacy_agent_event_normalizes_integral_float_to_frozen_int
+6 failed, 18 passed, 127 deselected in 0.70s
+exit_code=1

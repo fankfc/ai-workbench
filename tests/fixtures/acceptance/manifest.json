@@ -1,0 +1,8 @@
+{
+  "version": "1.0",
+  "seed": 4317,
+  "time_source": "UTC",
+  "encoding": "UTF-8",
+  "external_provider_fixture": "demo_backend-v1",
+  "real_provider_qualification": false
+}

@@ -1,0 +1,24 @@
+{
+  "items": [
+    {
+      "id": "9216ac08b92c46f2b8ceaf11529e92e0",
+      "turn_id": "9216ac08b92c46f2b8ceaf11529e92e0",
+      "kind": "message.accepted",
+      "text": "验收装置问题",
+      "language": "zh-CN",
+      "attempt_id": "43432f919ff8406096b4a42375017265",
+      "content_version_id": null,
+      "historical": false
+    },
+    {
+      "id": "bc7bb905acc042489b290a9cd29e92aa",
+      "turn_id": "9216ac08b92c46f2b8ceaf11529e92e0",
+      "kind": "answer.published",
+      "text": "# 演示回答\n\n桌面流程已运行。以下是收到的材料；本回答来自固定演示响应。\n\n验收装置问题",
+      "language": "zh-CN",
+      "attempt_id": "43432f919ff8406096b4a42375017265",
+      "content_version_id": "candidate-c3a7b913425a41cfa2c530a9b66ea46e",
+      "historical": false
+    }
+  ]
+}

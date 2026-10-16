@@ -1,0 +1,247 @@
+FFFFFFFFFFFF                                                             [100%]
+================================== FAILURES ===================================
+_____ test_candidates_checks_and_a_review_are_real_persisted_bound_bytes ______
+tests\integration\test_agent_workflow.py:56: in test_candidates_checks_and_a_review_are_real_persisted_bound_bytes
+    result, b, a = execute(prepared)
+                   ^^^^^^^^^^^^^^^^^
+tests\integration\test_agent_workflow.py:51: in execute
+    return asyncio.run(workflow.run(contract)), b, a
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:194: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:118: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py:721: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+services\orchestrator\app\runtime\workflow.py:23: in run
+    raise NotImplementedError("WORKFLOW_NOT_IMPLEMENTED")
+E   NotImplementedError: WORKFLOW_NOT_IMPLEMENTED
+______________ test_b_completion_without_candidate_never_passes _______________
+tests\integration\test_agent_workflow.py:75: in test_b_completion_without_candidate_never_passes
+    result, _, a = execute(prepared, override=case)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\integration\test_agent_workflow.py:51: in execute
+    return asyncio.run(workflow.run(contract)), b, a
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:194: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:118: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py:721: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+services\orchestrator\app\runtime\workflow.py:23: in run
+    raise NotImplementedError("WORKFLOW_NOT_IMPLEMENTED")
+E   NotImplementedError: WORKFLOW_NOT_IMPLEMENTED
+_____ test_failed_mechanical_check_cannot_be_overruled_by_unbound_a_pass ______
+tests\integration\test_agent_workflow.py:84: in test_failed_mechanical_check_cannot_be_overruled_by_unbound_a_pass
+    result, _, _ = execute(prepared, override=case)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\integration\test_agent_workflow.py:51: in execute
+    return asyncio.run(workflow.run(contract)), b, a
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:194: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:118: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py:721: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+services\orchestrator\app\runtime\workflow.py:23: in run
+    raise NotImplementedError("WORKFLOW_NOT_IMPLEMENTED")
+E   NotImplementedError: WORKFLOW_NOT_IMPLEMENTED
+__________ test_targeted_repair_creates_new_version_and_revalidates ___________
+tests\integration\test_agent_workflow.py:94: in test_targeted_repair_creates_new_version_and_revalidates
+    result, b, a = execute(prepared, "repair", validator_port=observed)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\integration\test_agent_workflow.py:51: in execute
+    return asyncio.run(workflow.run(contract)), b, a
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:194: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:118: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py:721: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+services\orchestrator\app\runtime\workflow.py:23: in run
+    raise NotImplementedError("WORKFLOW_NOT_IMPLEMENTED")
+E   NotImplementedError: WORKFLOW_NOT_IMPLEMENTED
+__ test_same_defect_in_changed_report_escalates_to_a_with_real_lease_handoff __
+tests\integration\test_agent_workflow.py:103: in test_same_defect_in_changed_report_escalates_to_a_with_real_lease_handoff
+    result, b, a = execute(prepared, "no_progress")
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\integration\test_agent_workflow.py:51: in execute
+    return asyncio.run(workflow.run(contract)), b, a
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:194: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:118: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py:721: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+services\orchestrator\app\runtime\workflow.py:23: in run
+    raise NotImplementedError("WORKFLOW_NOT_IMPLEMENTED")
+E   NotImplementedError: WORKFLOW_NOT_IMPLEMENTED
+_ test_a_nonpass_decisions_have_distinct_stopping_states[NEED_EVIDENCE-NEEDS_INPUT] _
+tests\integration\test_agent_workflow.py:118: in test_a_nonpass_decisions_have_distinct_stopping_states
+    result, _, _ = execute(prepared, override=inputs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\integration\test_agent_workflow.py:51: in execute
+    return asyncio.run(workflow.run(contract)), b, a
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:194: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:118: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py:721: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+services\orchestrator\app\runtime\workflow.py:23: in run
+    raise NotImplementedError("WORKFLOW_NOT_IMPLEMENTED")
+E   NotImplementedError: WORKFLOW_NOT_IMPLEMENTED
+___ test_a_nonpass_decisions_have_distinct_stopping_states[BLOCKED-BLOCKED] ___
+tests\integration\test_agent_workflow.py:118: in test_a_nonpass_decisions_have_distinct_stopping_states
+    result, _, _ = execute(prepared, override=inputs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\integration\test_agent_workflow.py:51: in execute
+    return asyncio.run(workflow.run(contract)), b, a
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:194: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:118: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py:721: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+services\orchestrator\app\runtime\workflow.py:23: in run
+    raise NotImplementedError("WORKFLOW_NOT_IMPLEMENTED")
+E   NotImplementedError: WORKFLOW_NOT_IMPLEMENTED
+__________ test_missing_budget_and_estimate_block_before_model_start __________
+tests\integration\test_agent_workflow.py:124: in test_missing_budget_and_estimate_block_before_model_start
+    result, b, a = execute(prepared, budget=None)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\integration\test_agent_workflow.py:51: in execute
+    return asyncio.run(workflow.run(contract)), b, a
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:194: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:118: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py:721: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+services\orchestrator\app\runtime\workflow.py:23: in run
+    raise NotImplementedError("WORKFLOW_NOT_IMPLEMENTED")
+E   NotImplementedError: WORKFLOW_NOT_IMPLEMENTED
+______ test_unknown_usage_blocks_next_request_instead_of_inventing_zero _______
+tests\integration\test_agent_workflow.py:132: in test_unknown_usage_blocks_next_request_instead_of_inventing_zero
+    result, b, a = execute(prepared, override=inputs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\integration\test_agent_workflow.py:51: in execute
+    return asyncio.run(workflow.run(contract)), b, a
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:194: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:118: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py:721: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+services\orchestrator\app\runtime\workflow.py:23: in run
+    raise NotImplementedError("WORKFLOW_NOT_IMPLEMENTED")
+E   NotImplementedError: WORKFLOW_NOT_IMPLEMENTED
+___ test_cancel_during_provider_response_blocks_late_candidate_and_a_start ____
+tests\integration\test_agent_workflow.py:142: in test_cancel_during_provider_response_blocks_late_candidate_and_a_start
+    result, b, a = execute(prepared, on_start=cancel)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\integration\test_agent_workflow.py:51: in execute
+    return asyncio.run(workflow.run(contract)), b, a
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:194: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:118: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py:721: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+services\orchestrator\app\runtime\workflow.py:23: in run
+    raise NotImplementedError("WORKFLOW_NOT_IMPLEMENTED")
+E   NotImplementedError: WORKFLOW_NOT_IMPLEMENTED
+______________ test_claude_formal_missing_gates_block_explicitly ______________
+tests\integration\test_agent_workflow.py:152: in test_claude_formal_missing_gates_block_explicitly
+    result, b, a = execute(prepared)
+                   ^^^^^^^^^^^^^^^^^
+tests\integration\test_agent_workflow.py:51: in execute
+    return asyncio.run(workflow.run(contract)), b, a
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:194: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:118: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py:721: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+services\orchestrator\app\runtime\workflow.py:23: in run
+    raise NotImplementedError("WORKFLOW_NOT_IMPLEMENTED")
+E   NotImplementedError: WORKFLOW_NOT_IMPLEMENTED
+_______________ test_request_missing_estimate_is_explicit_block _______________
+tests\integration\test_agent_workflow.py:160: in test_request_missing_estimate_is_explicit_block
+    result = asyncio.run(Workflow(path, manager, b, validator, a, check_budget).run(contract))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:194: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:118: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py:721: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+services\orchestrator\app\runtime\workflow.py:23: in run
+    raise NotImplementedError("WORKFLOW_NOT_IMPLEMENTED")
+E   NotImplementedError: WORKFLOW_NOT_IMPLEMENTED
+============================== warnings summary ===============================
+tests/integration/test_agent_workflow.py::test_candidates_checks_and_a_review_are_real_persisted_bound_bytes
+  C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/integration/test_agent_workflow.py::test_candidates_checks_and_a_review_are_real_persisted_bound_bytes
+FAILED tests/integration/test_agent_workflow.py::test_b_completion_without_candidate_never_passes
+FAILED tests/integration/test_agent_workflow.py::test_failed_mechanical_check_cannot_be_overruled_by_unbound_a_pass
+FAILED tests/integration/test_agent_workflow.py::test_targeted_repair_creates_new_version_and_revalidates
+FAILED tests/integration/test_agent_workflow.py::test_same_defect_in_changed_report_escalates_to_a_with_real_lease_handoff
+FAILED tests/integration/test_agent_workflow.py::test_a_nonpass_decisions_have_distinct_stopping_states[NEED_EVIDENCE-NEEDS_INPUT]
+FAILED tests/integration/test_agent_workflow.py::test_a_nonpass_decisions_have_distinct_stopping_states[BLOCKED-BLOCKED]
+FAILED tests/integration/test_agent_workflow.py::test_missing_budget_and_estimate_block_before_model_start
+FAILED tests/integration/test_agent_workflow.py::test_unknown_usage_blocks_next_request_instead_of_inventing_zero
+FAILED tests/integration/test_agent_workflow.py::test_cancel_during_provider_response_blocks_late_candidate_and_a_start
+FAILED tests/integration/test_agent_workflow.py::test_claude_formal_missing_gates_block_explicitly
+FAILED tests/integration/test_agent_workflow.py::test_request_missing_estimate_is_explicit_block
+12 failed, 1 warning in 1.76s

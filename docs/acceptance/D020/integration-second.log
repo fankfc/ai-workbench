@@ -1,0 +1,570 @@
+FFFFFFFFFFFFFF                                                           [100%]
+================================== FAILURES ===================================
+_ test_four_domains_integrate_actual_storage_validators_usage_and_publication[code] _
+
+probe = <function probe.<locals>.run at 0x000001620A1B0680>, domain = 'code'
+
+    @pytest.mark.parametrize('domain',['code','paper','document','mixed'])
+    def test_four_domains_integrate_actual_storage_validators_usage_and_publication(probe,domain):
+>       result=probe('backend_normal',provider_mode='fake',domain=domain)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\integration\test_backend_vertical.py:6: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+name = 'backend_normal', options = {'provider_mode': 'fake', 'domain': 'code'}
+
+    def run(name, **options):
+        result = subprocess.run([sys.executable, "tests/support/scenario_driver.py", name, "--root", str(tmp_path), "--options", json.dumps(options)], check=False, capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=120)
+        if result.returncode:
+>           raise AssertionError(f"Scenario exited {result.returncode}: {result.stderr[-6000:]}")
+E           AssertionError: Scenario exited 1: C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+E             from starlette.testclient import TestClient as TestClient  # noqa
+E           Traceback (most recent call last):
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\scenario_driver.py", line 235, in <module>
+E               main()
+E               ~~~~^^
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\scenario_driver.py", line 231, in main
+E               result=run_case(args.case,root,domain)
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\scenario_driver.py", line 82, in run_case
+E               source_path=workspace.ingest_source('source.txt',source_text.encode('utf-8'))
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\app\runtime\workspace.py", line 183, in ingest_source
+E               self._replace(path, content)
+E               ~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\app\runtime\workspace.py", line 164, in _replace
+E               with temporary.open("xb") as stream:
+E                    ~~~~~~~~~~~~~~^^^^^^
+E             File "C:\Users\asd15\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py", line 537, in open
+E               return io.open(self, mode, buffering, encoding, errors, newline)
+E                      ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\asd15\\AppData\\Local\\Temp\\pytest-of-asd15\\pytest-103\\test_four_domains_integrate_ac0\\backend_normal-code-3f6a870decad4e80a91bcad3c8f4c611\\workspaces\\tasks\\6e839d28d20d4c8b98aa681556f0d0d1\\edf5088d2043481487ff01f0aa45d201\\input\\.write-bd54fdf7ac404920ba1b0a50e4c81095'
+
+tests\conftest.py:20: AssertionError
+_ test_four_domains_integrate_actual_storage_validators_usage_and_publication[paper] _
+
+probe = <function probe.<locals>.run at 0x000001620A17B560>, domain = 'paper'
+
+    @pytest.mark.parametrize('domain',['code','paper','document','mixed'])
+    def test_four_domains_integrate_actual_storage_validators_usage_and_publication(probe,domain):
+>       result=probe('backend_normal',provider_mode='fake',domain=domain)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\integration\test_backend_vertical.py:6: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+name = 'backend_normal', options = {'provider_mode': 'fake', 'domain': 'paper'}
+
+    def run(name, **options):
+        result = subprocess.run([sys.executable, "tests/support/scenario_driver.py", name, "--root", str(tmp_path), "--options", json.dumps(options)], check=False, capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=120)
+        if result.returncode:
+>           raise AssertionError(f"Scenario exited {result.returncode}: {result.stderr[-6000:]}")
+E           AssertionError: Scenario exited 1: C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+E             from starlette.testclient import TestClient as TestClient  # noqa
+E           Traceback (most recent call last):
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\scenario_driver.py", line 235, in <module>
+E               main()
+E               ~~~~^^
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\scenario_driver.py", line 231, in main
+E               result=run_case(args.case,root,domain)
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\scenario_driver.py", line 82, in run_case
+E               source_path=workspace.ingest_source('source.txt',source_text.encode('utf-8'))
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\app\runtime\workspace.py", line 183, in ingest_source
+E               self._replace(path, content)
+E               ~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\app\runtime\workspace.py", line 164, in _replace
+E               with temporary.open("xb") as stream:
+E                    ~~~~~~~~~~~~~~^^^^^^
+E             File "C:\Users\asd15\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py", line 537, in open
+E               return io.open(self, mode, buffering, encoding, errors, newline)
+E                      ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\asd15\\AppData\\Local\\Temp\\pytest-of-asd15\\pytest-103\\test_four_domains_integrate_ac1\\backend_normal-paper-65cea76994924178b438b6281c1a582d\\workspaces\\tasks\\f4499334bb824427ba882938acd0fe23\\d153a37b91094370979467629144db59\\input\\.write-5345e6dfcf104e1b8c14ce98b70f922c'
+
+tests\conftest.py:20: AssertionError
+_ test_four_domains_integrate_actual_storage_validators_usage_and_publication[document] _
+
+probe = <function probe.<locals>.run at 0x000001620A17A700>, domain = 'document'
+
+    @pytest.mark.parametrize('domain',['code','paper','document','mixed'])
+    def test_four_domains_integrate_actual_storage_validators_usage_and_publication(probe,domain):
+>       result=probe('backend_normal',provider_mode='fake',domain=domain)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\integration\test_backend_vertical.py:6: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+name = 'backend_normal'
+options = {'provider_mode': 'fake', 'domain': 'document'}
+
+    def run(name, **options):
+        result = subprocess.run([sys.executable, "tests/support/scenario_driver.py", name, "--root", str(tmp_path), "--options", json.dumps(options)], check=False, capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=120)
+        if result.returncode:
+>           raise AssertionError(f"Scenario exited {result.returncode}: {result.stderr[-6000:]}")
+E           AssertionError: Scenario exited 1: C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+E             from starlette.testclient import TestClient as TestClient  # noqa
+E           Traceback (most recent call last):
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\scenario_driver.py", line 235, in <module>
+E               main()
+E               ~~~~^^
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\scenario_driver.py", line 231, in main
+E               result=run_case(args.case,root,domain)
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\scenario_driver.py", line 82, in run_case
+E               source_path=workspace.ingest_source('source.txt',source_text.encode('utf-8'))
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\app\runtime\workspace.py", line 183, in ingest_source
+E               self._replace(path, content)
+E               ~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\app\runtime\workspace.py", line 164, in _replace
+E               with temporary.open("xb") as stream:
+E                    ~~~~~~~~~~~~~~^^^^^^
+E             File "C:\Users\asd15\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py", line 537, in open
+E               return io.open(self, mode, buffering, encoding, errors, newline)
+E                      ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\asd15\\AppData\\Local\\Temp\\pytest-of-asd15\\pytest-103\\test_four_domains_integrate_ac2\\backend_normal-document-3754fe298a1b43919e4d3baffe277066\\workspaces\\tasks\\9ca930fadc1c401ab54bb0a943d760bb\\f7ae8370d5884e8d8c340892d4a73722\\input\\.write-00f29164be744a058647dd8b0d6ede0e'
+
+tests\conftest.py:20: AssertionError
+_ test_four_domains_integrate_actual_storage_validators_usage_and_publication[mixed] _
+
+probe = <function probe.<locals>.run at 0x000001620A17A520>, domain = 'mixed'
+
+    @pytest.mark.parametrize('domain',['code','paper','document','mixed'])
+    def test_four_domains_integrate_actual_storage_validators_usage_and_publication(probe,domain):
+>       result=probe('backend_normal',provider_mode='fake',domain=domain)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\integration\test_backend_vertical.py:6: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+name = 'backend_normal', options = {'provider_mode': 'fake', 'domain': 'mixed'}
+
+    def run(name, **options):
+        result = subprocess.run([sys.executable, "tests/support/scenario_driver.py", name, "--root", str(tmp_path), "--options", json.dumps(options)], check=False, capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=120)
+        if result.returncode:
+>           raise AssertionError(f"Scenario exited {result.returncode}: {result.stderr[-6000:]}")
+E           AssertionError: Scenario exited 1: C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+E             from starlette.testclient import TestClient as TestClient  # noqa
+E           Traceback (most recent call last):
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\scenario_driver.py", line 235, in <module>
+E               main()
+E               ~~~~^^
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\scenario_driver.py", line 231, in main
+E               result=run_case(args.case,root,domain)
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\scenario_driver.py", line 82, in run_case
+E               source_path=workspace.ingest_source('source.txt',source_text.encode('utf-8'))
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\app\runtime\workspace.py", line 183, in ingest_source
+E               self._replace(path, content)
+E               ~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\app\runtime\workspace.py", line 164, in _replace
+E               with temporary.open("xb") as stream:
+E                    ~~~~~~~~~~~~~~^^^^^^
+E             File "C:\Users\asd15\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py", line 537, in open
+E               return io.open(self, mode, buffering, encoding, errors, newline)
+E                      ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\asd15\\AppData\\Local\\Temp\\pytest-of-asd15\\pytest-103\\test_four_domains_integrate_ac3\\backend_normal-mixed-55a78a86dff24543b270806f59c88526\\workspaces\\tasks\\0d5f63fea7874f819c671d529bd3ea4a\\f0e5c3b9771f491d8daa20e46fac7548\\input\\.write-74ed7ef4c1af464c858f4607e4c5d8c0'
+
+tests\conftest.py:20: AssertionError
+_______________ test_cancel_blocks_late_answer_and_new_requests _______________
+
+probe = <function probe.<locals>.run at 0x000001620A1D1EE0>
+
+    def test_cancel_blocks_late_answer_and_new_requests(probe):
+>       result=probe('backend_cancel_late',provider_mode='fake')
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\integration\test_backend_vertical.py:17: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+name = 'backend_cancel_late', options = {'provider_mode': 'fake'}
+
+    def run(name, **options):
+        result = subprocess.run([sys.executable, "tests/support/scenario_driver.py", name, "--root", str(tmp_path), "--options", json.dumps(options)], check=False, capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=120)
+        if result.returncode:
+>           raise AssertionError(f"Scenario exited {result.returncode}: {result.stderr[-6000:]}")
+E           AssertionError: Scenario exited 1: C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+E             from starlette.testclient import TestClient as TestClient  # noqa
+E           Traceback (most recent call last):
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\scenario_driver.py", line 235, in <module>
+E               main()
+E               ~~~~^^
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\scenario_driver.py", line 231, in main
+E               result=run_case(args.case,root,domain)
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\scenario_driver.py", line 82, in run_case
+E               source_path=workspace.ingest_source('source.txt',source_text.encode('utf-8'))
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\app\runtime\workspace.py", line 183, in ingest_source
+E               self._replace(path, content)
+E               ~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\app\runtime\workspace.py", line 164, in _replace
+E               with temporary.open("xb") as stream:
+E                    ~~~~~~~~~~~~~~^^^^^^
+E             File "C:\Users\asd15\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py", line 537, in open
+E               return io.open(self, mode, buffering, encoding, errors, newline)
+E                      ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\asd15\\AppData\\Local\\Temp\\pytest-of-asd15\\pytest-103\\test_cancel_blocks_late_answer0\\backend_cancel_late-code-27c7659b30174c1cb9fbbfd575d35b7f\\workspaces\\tasks\\227e9f9a81f9462194971be18379fb41\\92063c283bce49b49c179d17795ad48e\\input\\.write-4fc8053acf75478c9704bd5aaf062187'
+
+tests\conftest.py:20: AssertionError
+______________________ test_repair_rechecks_new_revision ______________________
+
+probe = <function probe.<locals>.run at 0x000001620A1D27A0>
+
+    def test_repair_rechecks_new_revision(probe):
+>       result=probe('backend_repair',provider_mode='fake')
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\integration\test_backend_vertical.py:23: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+name = 'backend_repair', options = {'provider_mode': 'fake'}
+
+    def run(name, **options):
+        result = subprocess.run([sys.executable, "tests/support/scenario_driver.py", name, "--root", str(tmp_path), "--options", json.dumps(options)], check=False, capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=120)
+        if result.returncode:
+>           raise AssertionError(f"Scenario exited {result.returncode}: {result.stderr[-6000:]}")
+E           AssertionError: Scenario exited 1: C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+E             from starlette.testclient import TestClient as TestClient  # noqa
+E           Traceback (most recent call last):
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\scenario_driver.py", line 235, in <module>
+E               main()
+E               ~~~~^^
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\scenario_driver.py", line 231, in main
+E               result=run_case(args.case,root,domain)
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\scenario_driver.py", line 82, in run_case
+E               source_path=workspace.ingest_source('source.txt',source_text.encode('utf-8'))
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\app\runtime\workspace.py", line 183, in ingest_source
+E               self._replace(path, content)
+E               ~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\app\runtime\workspace.py", line 164, in _replace
+E               with temporary.open("xb") as stream:
+E                    ~~~~~~~~~~~~~~^^^^^^
+E             File "C:\Users\asd15\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py", line 537, in open
+E               return io.open(self, mode, buffering, encoding, errors, newline)
+E                      ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\asd15\\AppData\\Local\\Temp\\pytest-of-asd15\\pytest-103\\test_repair_rechecks_new_revis0\\backend_repair-code-8656836bc1934eb5bad11929571cf2d6\\workspaces\\tasks\\7252df2faf234cfa8fd57629af75ec1f\\b19e44fbc82f4734ae0f942d46fc075d\\input\\.write-35d3a548e43b4344a5924cf392f3f15f'
+
+tests\conftest.py:20: AssertionError
+____________________ test_missing_evidence_never_delivers _____________________
+
+probe = <function probe.<locals>.run at 0x000001620A17B600>
+
+    def test_missing_evidence_never_delivers(probe):
+>       result=probe('backend_need_evidence',provider_mode='fake')
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\integration\test_backend_vertical.py:29: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+name = 'backend_need_evidence', options = {'provider_mode': 'fake'}
+
+    def run(name, **options):
+        result = subprocess.run([sys.executable, "tests/support/scenario_driver.py", name, "--root", str(tmp_path), "--options", json.dumps(options)], check=False, capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=120)
+        if result.returncode:
+>           raise AssertionError(f"Scenario exited {result.returncode}: {result.stderr[-6000:]}")
+E           AssertionError: Scenario exited 1: C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+E             from starlette.testclient import TestClient as TestClient  # noqa
+E           Traceback (most recent call last):
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\scenario_driver.py", line 235, in <module>
+E               main()
+E               ~~~~^^
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\scenario_driver.py", line 231, in main
+E               result=run_case(args.case,root,domain)
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\scenario_driver.py", line 82, in run_case
+E               source_path=workspace.ingest_source('source.txt',source_text.encode('utf-8'))
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\app\runtime\workspace.py", line 183, in ingest_source
+E               self._replace(path, content)
+E               ~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\app\runtime\workspace.py", line 164, in _replace
+E               with temporary.open("xb") as stream:
+E                    ~~~~~~~~~~~~~~^^^^^^
+E             File "C:\Users\asd15\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py", line 537, in open
+E               return io.open(self, mode, buffering, encoding, errors, newline)
+E                      ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\asd15\\AppData\\Local\\Temp\\pytest-of-asd15\\pytest-103\\test_missing_evidence_never_de0\\backend_need_evidence-code-a1da7895207d420e984618a58fdde042\\workspaces\\tasks\\6502af3d53c1462797981bcac50efb26\\725a617c22774908b6ddc1116275dc91\\input\\.write-4795b222142f4a4b9aa4177a5d2a00c5'
+
+tests\conftest.py:20: AssertionError
+_________________ test_unknown_remote_restart_does_not_retry __________________
+
+probe = <function probe.<locals>.run at 0x000001620A1D28E0>
+
+    def test_unknown_remote_restart_does_not_retry(probe):
+>       result=probe('backend_restart',provider_mode='fake')
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\integration\test_backend_vertical.py:34: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+name = 'backend_restart', options = {'provider_mode': 'fake'}
+
+    def run(name, **options):
+        result = subprocess.run([sys.executable, "tests/support/scenario_driver.py", name, "--root", str(tmp_path), "--options", json.dumps(options)], check=False, capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=120)
+        if result.returncode:
+>           raise AssertionError(f"Scenario exited {result.returncode}: {result.stderr[-6000:]}")
+E           AssertionError: Scenario exited 1: C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+E             from starlette.testclient import TestClient as TestClient  # noqa
+E           Traceback (most recent call last):
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\scenario_driver.py", line 235, in <module>
+E               main()
+E               ~~~~^^
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\scenario_driver.py", line 231, in main
+E               result=run_case(args.case,root,domain)
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\scenario_driver.py", line 82, in run_case
+E               source_path=workspace.ingest_source('source.txt',source_text.encode('utf-8'))
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\app\runtime\workspace.py", line 183, in ingest_source
+E               self._replace(path, content)
+E               ~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\app\runtime\workspace.py", line 164, in _replace
+E               with temporary.open("xb") as stream:
+E                    ~~~~~~~~~~~~~~^^^^^^
+E             File "C:\Users\asd15\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py", line 537, in open
+E               return io.open(self, mode, buffering, encoding, errors, newline)
+E                      ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\asd15\\AppData\\Local\\Temp\\pytest-of-asd15\\pytest-103\\test_unknown_remote_restart_do0\\backend_restart-code-90c854604e6f4dcc989d473f70db28dd\\workspaces\\tasks\\a39f6b718fb44c7096fafd9aa614e125\\46f35110ffa9422d9189dafa74a5ab6e\\input\\.write-5a28a43557194438a4b0012d096e8f04'
+
+tests\conftest.py:20: AssertionError
+_________________ test_old_pass_rejected_after_version_change _________________
+
+probe = <function probe.<locals>.run at 0x000001620A1D3060>
+
+    def test_old_pass_rejected_after_version_change(probe):
+>       result=probe('backend_old_approval',provider_mode='fake')
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\integration\test_backend_vertical.py:40: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+name = 'backend_old_approval', options = {'provider_mode': 'fake'}
+
+    def run(name, **options):
+        result = subprocess.run([sys.executable, "tests/support/scenario_driver.py", name, "--root", str(tmp_path), "--options", json.dumps(options)], check=False, capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=120)
+        if result.returncode:
+>           raise AssertionError(f"Scenario exited {result.returncode}: {result.stderr[-6000:]}")
+E           AssertionError: Scenario exited 1: C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+E             from starlette.testclient import TestClient as TestClient  # noqa
+E           Traceback (most recent call last):
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\scenario_driver.py", line 235, in <module>
+E               main()
+E               ~~~~^^
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\scenario_driver.py", line 231, in main
+E               result=run_case(args.case,root,domain)
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\scenario_driver.py", line 82, in run_case
+E               source_path=workspace.ingest_source('source.txt',source_text.encode('utf-8'))
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\app\runtime\workspace.py", line 183, in ingest_source
+E               self._replace(path, content)
+E               ~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\app\runtime\workspace.py", line 164, in _replace
+E               with temporary.open("xb") as stream:
+E                    ~~~~~~~~~~~~~~^^^^^^
+E             File "C:\Users\asd15\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py", line 537, in open
+E               return io.open(self, mode, buffering, encoding, errors, newline)
+E                      ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\asd15\\AppData\\Local\\Temp\\pytest-of-asd15\\pytest-103\\test_old_pass_rejected_after_v0\\backend_old_approval-code-3dfcfbedfba24363bf23996105b7fcfb\\workspaces\\tasks\\ce695daded804b67b31280b3545645c2\\4280d43386eb4866a857d00bd7032791\\input\\.write-3f9b3fdeb29f488a8e660a9a886537d2'
+
+tests\conftest.py:20: AssertionError
+_________________ test_duplicate_api_and_usage_are_idempotent _________________
+
+probe = <function probe.<locals>.run at 0x000001620A1D3740>
+
+    def test_duplicate_api_and_usage_are_idempotent(probe):
+>       result=probe('backend_duplicate',provider_mode='fake')
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\integration\test_backend_vertical.py:44: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+name = 'backend_duplicate', options = {'provider_mode': 'fake'}
+
+    def run(name, **options):
+        result = subprocess.run([sys.executable, "tests/support/scenario_driver.py", name, "--root", str(tmp_path), "--options", json.dumps(options)], check=False, capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=120)
+        if result.returncode:
+>           raise AssertionError(f"Scenario exited {result.returncode}: {result.stderr[-6000:]}")
+E           AssertionError: Scenario exited 1: C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+E             from starlette.testclient import TestClient as TestClient  # noqa
+E           Traceback (most recent call last):
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\scenario_driver.py", line 235, in <module>
+E               main()
+E               ~~~~^^
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\scenario_driver.py", line 231, in main
+E               result=run_case(args.case,root,domain)
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\scenario_driver.py", line 82, in run_case
+E               source_path=workspace.ingest_source('source.txt',source_text.encode('utf-8'))
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\app\runtime\workspace.py", line 183, in ingest_source
+E               self._replace(path, content)
+E               ~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\app\runtime\workspace.py", line 164, in _replace
+E               with temporary.open("xb") as stream:
+E                    ~~~~~~~~~~~~~~^^^^^^
+E             File "C:\Users\asd15\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py", line 537, in open
+E               return io.open(self, mode, buffering, encoding, errors, newline)
+E                      ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\asd15\\AppData\\Local\\Temp\\pytest-of-asd15\\pytest-103\\test_duplicate_api_and_usage_a0\\backend_duplicate-code-003ed11e5e1a46cdbe638e717097b65d\\workspaces\\tasks\\0fb87e51f4e64a21809e594b52b27a4b\\ca1e3cb1e2394cca9f6e41cc97db0a13\\input\\.write-71da8284752f47d48615af04cee35179'
+
+tests\conftest.py:20: AssertionError
+__________________ test_budget_stops_actual_provider_starts ___________________
+
+probe = <function probe.<locals>.run at 0x000001620A1D3F60>
+
+    def test_budget_stops_actual_provider_starts(probe):
+>       result=probe('backend_budget',provider_mode='fake')
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\integration\test_backend_vertical.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+name = 'backend_budget', options = {'provider_mode': 'fake'}
+
+    def run(name, **options):
+        result = subprocess.run([sys.executable, "tests/support/scenario_driver.py", name, "--root", str(tmp_path), "--options", json.dumps(options)], check=False, capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=120)
+        if result.returncode:
+>           raise AssertionError(f"Scenario exited {result.returncode}: {result.stderr[-6000:]}")
+E           AssertionError: Scenario exited 1: C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+E             from starlette.testclient import TestClient as TestClient  # noqa
+E           Traceback (most recent call last):
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\scenario_driver.py", line 235, in <module>
+E               main()
+E               ~~~~^^
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\scenario_driver.py", line 231, in main
+E               result=run_case(args.case,root,domain)
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\scenario_driver.py", line 82, in run_case
+E               source_path=workspace.ingest_source('source.txt',source_text.encode('utf-8'))
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\app\runtime\workspace.py", line 183, in ingest_source
+E               self._replace(path, content)
+E               ~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\app\runtime\workspace.py", line 164, in _replace
+E               with temporary.open("xb") as stream:
+E                    ~~~~~~~~~~~~~~^^^^^^
+E             File "C:\Users\asd15\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py", line 537, in open
+E               return io.open(self, mode, buffering, encoding, errors, newline)
+E                      ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\asd15\\AppData\\Local\\Temp\\pytest-of-asd15\\pytest-103\\test_budget_stops_actual_provi0\\backend_budget-code-17ac425f3e6c40ff914a38316d5edac1\\workspaces\\tasks\\0de0e69167e0414fbdedd7866a413381\\256babbf37e34f9480e8ed514cf8cf35\\input\\.write-f10de64860824a3fa40c381bb5c5281b'
+
+tests\conftest.py:20: AssertionError
+_______________ test_connection_failure_is_bounded_and_counted ________________
+
+probe = <function probe.<locals>.run at 0x000001620A1D28E0>
+
+    def test_connection_failure_is_bounded_and_counted(probe):
+>       result=probe('backend_connection_failure',provider_mode='fake')
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\integration\test_backend_vertical.py:54: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+name = 'backend_connection_failure', options = {'provider_mode': 'fake'}
+
+    def run(name, **options):
+        result = subprocess.run([sys.executable, "tests/support/scenario_driver.py", name, "--root", str(tmp_path), "--options", json.dumps(options)], check=False, capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=120)
+        if result.returncode:
+>           raise AssertionError(f"Scenario exited {result.returncode}: {result.stderr[-6000:]}")
+E           AssertionError: Scenario exited 1: C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+E             from starlette.testclient import TestClient as TestClient  # noqa
+E           Traceback (most recent call last):
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\scenario_driver.py", line 235, in <module>
+E               main()
+E               ~~~~^^
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\scenario_driver.py", line 231, in main
+E               result=run_case(args.case,root,domain)
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\scenario_driver.py", line 81, in run_case
+E               workspace=manager.create(task_id,attempt_id)
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\app\runtime\workspace.py", line 51, in create
+E               self._workspaces[key] = TaskWorkspace(self.data_root / "tasks" / task_id / attempt_id)
+E                                       ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\app\runtime\workspace.py", line 79, in __init__
+E               area.mkdir(exist_ok=True)
+E               ~~~~~~~~~~^^^^^^^^^^^^^^^
+E             File "C:\Users\asd15\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py", line 722, in mkdir
+E               os.mkdir(self, mode)
+E               ~~~~~~~~^^^^^^^^^^^^
+E           FileNotFoundError: [WinError 206] �ļ�������չ��̫����: 'C:\\Users\\asd15\\AppData\\Local\\Temp\\pytest-of-asd15\\pytest-103\\test_connection_failure_is_bou0\\backend_connection_failure-code-3ce658ef51714539a35d715d57a192d5\\workspaces\\tasks\\7462f0ba71f8485b8b72bb9565a919b9\\5f515953c0b5430caf2da719699fb8c9\\translation'
+
+tests\conftest.py:20: AssertionError
+___________ test_claude_chinese_missing_gateway_blocks_before_start ___________
+
+probe = <function probe.<locals>.run at 0x000001620A1E4400>
+
+    def test_claude_chinese_missing_gateway_blocks_before_start(probe):
+>       result=probe('backend_language_gate',provider_mode='fake')
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\integration\test_backend_vertical.py:60: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+name = 'backend_language_gate', options = {'provider_mode': 'fake'}
+
+    def run(name, **options):
+        result = subprocess.run([sys.executable, "tests/support/scenario_driver.py", name, "--root", str(tmp_path), "--options", json.dumps(options)], check=False, capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=120)
+        if result.returncode:
+>           raise AssertionError(f"Scenario exited {result.returncode}: {result.stderr[-6000:]}")
+E           AssertionError: Scenario exited 1: C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+E             from starlette.testclient import TestClient as TestClient  # noqa
+E           Traceback (most recent call last):
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\scenario_driver.py", line 235, in <module>
+E               main()
+E               ~~~~^^
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\scenario_driver.py", line 231, in main
+E               result=run_case(args.case,root,domain)
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\scenario_driver.py", line 82, in run_case
+E               source_path=workspace.ingest_source('source.txt',source_text.encode('utf-8'))
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\app\runtime\workspace.py", line 183, in ingest_source
+E               self._replace(path, content)
+E               ~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\app\runtime\workspace.py", line 164, in _replace
+E               with temporary.open("xb") as stream:
+E                    ~~~~~~~~~~~~~~^^^^^^
+E             File "C:\Users\asd15\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py", line 537, in open
+E               return io.open(self, mode, buffering, encoding, errors, newline)
+E                      ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\asd15\\AppData\\Local\\Temp\\pytest-of-asd15\\pytest-103\\test_claude_chinese_missing_ga0\\backend_language_gate-code-99fcfafb2c4c4e03962bad16e32ab8f6\\workspaces\\tasks\\ae6776597a9f4c1f82a7dc7cf584ef46\\203626cb79d346febf8ef48d9eb5293d\\input\\.write-7320f6abdaee40039202e01cc67aca61'
+
+tests\conftest.py:20: AssertionError
+________________ test_vertical_suite_exports_all_four_domains _________________
+
+probe = <function probe.<locals>.run at 0x000001620A1E4A40>
+
+    def test_vertical_suite_exports_all_four_domains(probe):
+>       result=probe('backend_vertical',provider_mode='fake')
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\integration\test_backend_vertical.py:65: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+name = 'backend_vertical', options = {'provider_mode': 'fake'}
+
+    def run(name, **options):
+        result = subprocess.run([sys.executable, "tests/support/scenario_driver.py", name, "--root", str(tmp_path), "--options", json.dumps(options)], check=False, capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=120)
+        if result.returncode:
+>           raise AssertionError(f"Scenario exited {result.returncode}: {result.stderr[-6000:]}")
+E           AssertionError: Scenario exited 1: C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+E             from starlette.testclient import TestClient as TestClient  # noqa
+E           Traceback (most recent call last):
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\scenario_driver.py", line 235, in <module>
+E               main()
+E               ~~~~^^
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\scenario_driver.py", line 225, in main
+E               domains={value:run_case('backend_normal',root,value) for value in DOMAINS}
+E                              ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\scenario_driver.py", line 82, in run_case
+E               source_path=workspace.ingest_source('source.txt',source_text.encode('utf-8'))
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\app\runtime\workspace.py", line 183, in ingest_source
+E               self._replace(path, content)
+E               ~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\app\runtime\workspace.py", line 164, in _replace
+E               with temporary.open("xb") as stream:
+E                    ~~~~~~~~~~~~~~^^^^^^
+E             File "C:\Users\asd15\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py", line 537, in open
+E               return io.open(self, mode, buffering, encoding, errors, newline)
+E                      ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\asd15\\AppData\\Local\\Temp\\pytest-of-asd15\\pytest-103\\test_vertical_suite_exports_al0\\backend_normal-code-4cd7d7519d10455bbfef1059add34db8\\workspaces\\tasks\\1f60d6f5c8dc4823b64dc1f6362885ea\\e4f7f386e4164b1889502ba8ed38e056\\input\\.write-83db1b2fe5c44018807cd2e355a2456b'
+
+tests\conftest.py:20: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/integration/test_backend_vertical.py::test_four_domains_integrate_actual_storage_validators_usage_and_publication[code]
+FAILED tests/integration/test_backend_vertical.py::test_four_domains_integrate_actual_storage_validators_usage_and_publication[paper]
+FAILED tests/integration/test_backend_vertical.py::test_four_domains_integrate_actual_storage_validators_usage_and_publication[document]
+FAILED tests/integration/test_backend_vertical.py::test_four_domains_integrate_actual_storage_validators_usage_and_publication[mixed]
+FAILED tests/integration/test_backend_vertical.py::test_cancel_blocks_late_answer_and_new_requests
+FAILED tests/integration/test_backend_vertical.py::test_repair_rechecks_new_revision
+FAILED tests/integration/test_backend_vertical.py::test_missing_evidence_never_delivers
+FAILED tests/integration/test_backend_vertical.py::test_unknown_remote_restart_does_not_retry
+FAILED tests/integration/test_backend_vertical.py::test_old_pass_rejected_after_version_change
+FAILED tests/integration/test_backend_vertical.py::test_duplicate_api_and_usage_are_idempotent
+FAILED tests/integration/test_backend_vertical.py::test_budget_stops_actual_provider_starts
+FAILED tests/integration/test_backend_vertical.py::test_connection_failure_is_bounded_and_counted
+FAILED tests/integration/test_backend_vertical.py::test_claude_chinese_missing_gateway_blocks_before_start
+FAILED tests/integration/test_backend_vertical.py::test_vertical_suite_exports_all_four_domains
+14 failed in 11.71s

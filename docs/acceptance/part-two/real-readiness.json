@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-10-14T09:50:52.695907+00:00",
+  "provider_mode": "real",
+  "configured_connections": 0,
+  "available_profiles": [],
+  "registered_runtime_count": 0,
+  "model_calls": 0,
+  "ready": false,
+  "status": "BLOCKED",
+  "blockers": [
+    "D004_CLAUDE_RUNTIME_NOT_QUALIFIED",
+    "D005_GLM_GENERATION_NOT_QUALIFIED",
+    "D020_REAL_VERTICAL_NOT_ACCEPTED",
+    "GPT_CURRENT_LIFECYCLE_QUALIFICATION_MISSING"
+  ],
+  "real_profile_ids_recorded": false,
+  "evidence": "docs/acceptance/part-one-progress.md"
+}

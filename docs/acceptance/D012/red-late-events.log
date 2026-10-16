@@ -1,0 +1,59 @@
+................FF.................F                                     [100%]
+================================== FAILURES ===================================
+_ test_buffered_error_prevents_later_buffered_completion_from_resurrecting_failed_task _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-65/test_buffered_error_prevents_l0')
+
+    def test_buffered_error_prevents_later_buffered_completion_from_resurrecting_failed_task(tmp_path):
+        path = existing_remote(tmp_path)
+        Recovery(path).ingest(event(2,"provider.error",reason_code="failed"),"1.0")
+        Recovery(path).ingest(event(3,"provider.completed",PASS=True),"1.0")
+        accepted = Recovery(path).ingest(event(1),"1.0")
+>       assert accepted["applied_sequences"] == [1,2]
+E       assert [1, 2, 3] == [1, 2]
+E         
+E         Left contains one more item: 3
+E         Use -v to get more diff
+
+tests\integration\test_recovery.py:198: AssertionError
+____ test_stable_key_duplicate_that_closes_gap_drains_buffered_next_event _____
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-65/test_stable_key_duplicate_that0')
+
+    def test_stable_key_duplicate_that_closes_gap_drains_buffered_next_event(tmp_path):
+        path = existing_remote(tmp_path)
+        Recovery(path).ingest(event(1,provider_event_id="stable-1",text="first"),"1.0")
+        Recovery(path).ingest(event(3,"provider.completed",PASS=True),"1.0")
+        closing = Recovery(path).ingest(event(2,provider_event_id="stable-1",text="first"),"1.0")
+>       assert closing["decision"] == "duplicate" and closing["applied_sequences"] == [3]
+E       AssertionError: assert ('duplicate' == 'duplicate'
+E         
+E           duplicate and [] == [3]
+E         
+E         Right contains one more item: 3
+E         Use -v to get more diff)
+
+tests\integration\test_recovery.py:209: AssertionError
+__________ test_release_gate_refuses_missing_frozen_route_identifier __________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-65/test_release_gate_refuses_miss0')
+
+    def test_release_gate_refuses_missing_frozen_route_identifier(tmp_path):
+        path = initialize_runtime(tmp_path,"OUTPUT_PREPARING")
+        create_revision_and_gate(path)
+        connection = Database(path).connect()
+        connection.execute("DROP TRIGGER task_identity_immutable")
+        connection.execute("UPDATE task_runs SET route_snapshot_json='{}'")
+        try:
+            with transaction(connection):
+>               with pytest.raises(TransitionError,match="ROUTE"):
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E               Failed: DID NOT RAISE TransitionError
+
+tests\integration\test_state_machine.py:179: Failed
+=========================== short test summary info ===========================
+FAILED tests/integration/test_recovery.py::test_buffered_error_prevents_later_buffered_completion_from_resurrecting_failed_task
+FAILED tests/integration/test_recovery.py::test_stable_key_duplicate_that_closes_gap_drains_buffered_next_event
+FAILED tests/integration/test_state_machine.py::test_release_gate_refuses_missing_frozen_route_identifier
+3 failed, 33 passed in 1.66s
+EXIT_CODE=1

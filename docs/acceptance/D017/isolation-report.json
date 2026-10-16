@@ -1,0 +1,76 @@
+{
+  "at_utc": "2026-10-13T12:57:04.327058+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.13.0 (tags/v3.13.0:60403a5, Oct  7 2024, 09:38:07) [MSC v.1941 64 bit (AMD64)]",
+  "provider_calls": 0,
+  "mode": "local_filesystem_fixture",
+  "command": "services/orchestrator/.venv/Scripts/python.exe docs/acceptance/D017/verify.py",
+  "source_sha256": {
+    "services/orchestrator/app/runtime/workspace.py": "cce81355c4b4013099c689e177cb7e4ab15792fb773871a8e69f655ee939c383",
+    "services/orchestrator/app/runtime/context_gateway.py": "965264a213da5d999f0b187b8e5113dbf8e05bb4df147e4be5dfcda462b54b25",
+    "tests/integration/test_workspace.py": "dc67afb1affb2eb3a27c23b28b7a559cb4cb306c9e73ad7bff4f896c2e719436",
+    "tests/integration/test_context_gateway.py": "77b5c2fca1cd4fceb70a4907a030e7a245cc9e8a0f87d708a17108dc9d9581fc"
+  },
+  "checks": [
+    {
+      "path": "../outside.txt",
+      "result": "denied",
+      "reason": "PATH_SCOPE_INVALID"
+    },
+    {
+      "path": "input/%252e%252e/outside",
+      "result": "denied",
+      "reason": "PATH_SCOPE_INVALID"
+    },
+    {
+      "path": "input/file:ads",
+      "result": "denied",
+      "reason": "PATH_SCOPE_INVALID"
+    },
+    {
+      "path": "//server/share/file",
+      "result": "denied",
+      "reason": "PATH_SCOPE_INVALID"
+    },
+    {
+      "path": "a/PASS.json",
+      "result": "denied",
+      "reason": "ROLE_WRITE_DENIED"
+    },
+    {
+      "case": "old_B_lease_after_A_handoff",
+      "result": "denied",
+      "reason": "WRITE_LEASE_STALE"
+    },
+    {
+      "case": "Claude_missing_view",
+      "result": "blocked",
+      "reason": "ENGLISH_VIEW_REQUIRED"
+    },
+    {
+      "case": "GPT_native",
+      "sha256": "c87d8300b91138ed78da1fdb67929360a7c8838d432a1f0e31daf2030ab7d44e",
+      "trust": "untrusted_material",
+      "byte_preserved": true
+    },
+    {
+      "case": "real_windows_junction",
+      "result": "denied",
+      "reason": "REPARSE_POINT_DENIED",
+      "creation_exit_code": 0
+    },
+    {
+      "case": "required_os_sandbox",
+      "result": "blocked",
+      "reason": "OS_SANDBOX_UNVERIFIED"
+    },
+    {
+      "case": "ordinary_native_cli_boundary",
+      "exit_code": 0,
+      "peer_A_write_was_possible": true,
+      "service_policy": "external executor requiring enforced isolation remains blocked"
+    }
+  ],
+  "os_sandbox": "unverified; required external execution blocked",
+  "exit_code": 0
+}

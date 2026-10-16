@@ -1,0 +1,1 @@
+[{"kind":"model.delta","payload":{"text":"# Report\n\nJanuary 30. February 40. Increase 10.\n"},"provider_sequence":1},{"kind":"model.completed","payload":{"finish_reason":"stop","text":"# Report\n\nJanuary 30. February 40. Increase 10.\n"},"provider_sequence":2}]

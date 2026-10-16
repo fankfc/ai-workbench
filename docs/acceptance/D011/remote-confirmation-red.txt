@@ -1,0 +1,10 @@
+F                                                                        [100%]
+================================== FAILURES ===================================
+____________ test_remote_confirmation_requires_an_explicit_boolean ____________
+tests\integration\test_process_lifecycle.py:237: in test_remote_confirmation_requires_an_explicit_boolean
+    with pytest.raises(TypeError, match="REMOTE_CONFIRMATION_BOOLEAN_REQUIRED"):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE TypeError
+=========================== short test summary info ===========================
+FAILED tests/integration/test_process_lifecycle.py::test_remote_confirmation_requires_an_explicit_boolean
+1 failed, 16 deselected in 0.47s

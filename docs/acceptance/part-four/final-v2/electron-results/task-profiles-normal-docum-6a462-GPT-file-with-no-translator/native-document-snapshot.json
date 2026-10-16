@@ -1,0 +1,503 @@
+{
+  "state": "PUBLISHED",
+  "checkpoint": {
+    "request_domain": "document",
+    "task_profile": {
+      "status": "READY_FOR_A_CONTRACT",
+      "domain": "document",
+      "profile_version": "1acc917b4d2105e50c8ed30c3c153ede9ba5b8e4e468362ebff588340b670042",
+      "missing_inputs": [],
+      "model_started": false,
+      "language_policy": "native",
+      "require_a_canonical": false,
+      "require_bilingual_pair": false,
+      "require_a_confirmation": true,
+      "eligible_for_publication": false,
+      "version": "1acc917b4d2105e50c8ed30c3c153ede9ba5b8e4e468362ebff588340b670042",
+      "inputs": {
+        "audience": "内部研究组",
+        "purpose": "完整保留原文的内部报告",
+        "source_refs": [
+          "input/user_request.txt"
+        ],
+        "formats": [
+          "markdown"
+        ]
+      }
+    },
+    "requested_formats": [
+      "markdown"
+    ],
+    "supervisor": {
+      "owner_token": "supervisor:85718904de9448539fa1462119619a15",
+      "stage": "claimed",
+      "classification": "fixture"
+    },
+    "runtime_budget": {
+      "total_tokens": 300000,
+      "reserved_a_tokens": 60000
+    },
+    "a_planning": {
+      "status": "completed",
+      "owner_token": "supervisor:85718904de9448539fa1462119619a15",
+      "step_id": "7ca5993222134f8b952483b986c47fcb",
+      "contract_sha256": "3ac7130df94c15db80c2e72b1d515764e8d2904fa05fbab3f29018965e3bfd28",
+      "capture_sha256": "ab1179f78ebf8114bd6cdb7ff089fdd67b5dbb53ac0266896fcb98d26a2009e0",
+      "raw_response_ref": "blob:sha256:ab1179f78ebf8114bd6cdb7ff089fdd67b5dbb53ac0266896fcb98d26a2009e0",
+      "source_hashes": {
+        "input/user_request.txt": "7fbad7cd5ad0081c141775fe10b2eeb2746dd313fa2be02175c831cc3dbc8978"
+      },
+      "classification": "fixture",
+      "model_identity_observed": true,
+      "usage_observed": true
+    },
+    "active_external_request": {
+      "step_id": "7ca5993222134f8b952483b986c47fcb",
+      "provider_profile_id": "fake-gpt",
+      "role": "A",
+      "accepted": true,
+      "status": "completed",
+      "external_request_id": "demo-response-7ca5993222134f8b952483b986c47fcb",
+      "external_execution_id": "demo-execution-7ca5993222134f8b952483b986c47fcb"
+    },
+    "task_contract": {
+      "task_id": "d3c97a12770c43249228e79f1ebefe9e",
+      "attempt_id": "287d32c3901744adb9723e78f0d819f4",
+      "contract_version": "1.0",
+      "domain": "document",
+      "model_family": "gpt",
+      "route_snapshot_id": "80229083b6514d44a5fe7c5b236db7d6",
+      "objective": "演示产品流程；外部模型输出是固定测试响应。",
+      "method": "Preserve the full source in a marked demonstration answer.",
+      "inputs": [
+        {
+          "id": "USER-1",
+          "ref": "input/user_request.txt",
+          "sha256": "7fbad7cd5ad0081c141775fe10b2eeb2746dd313fa2be02175c831cc3dbc8978"
+        }
+      ],
+      "constraints": [
+        {
+          "id": "preserve",
+          "text": "Preserve source bytes and identify the response as a demonstration.",
+          "mandatory": true
+        }
+      ],
+      "deliverables": [
+        {
+          "id": "answer",
+          "kind": "document",
+          "write_scope": "b/demo.md",
+          "require_a_canonical": true
+        }
+      ],
+      "acceptance": [
+        {
+          "id": "source-preserved",
+          "mandatory": true,
+          "verifier": "C",
+          "evidence_type": "artifact",
+          "condition": "Actual source and immutable candidate hashes agree.",
+          "semantic": false
+        },
+        {
+          "id": "demo-review",
+          "mandatory": true,
+          "verifier": "A",
+          "evidence_type": "review",
+          "condition": "Fixture response is marked as a demo and preserves user requirements.",
+          "semantic": true
+        },
+        {
+          "id": "document.C1",
+          "mandatory": true,
+          "verifier": "C",
+          "evidence_type": "artifact",
+          "condition": "source_completeness",
+          "semantic": false
+        },
+        {
+          "id": "document.C2",
+          "mandatory": true,
+          "verifier": "C",
+          "evidence_type": "artifact",
+          "condition": "requested_formats_and_layout",
+          "semantic": false
+        },
+        {
+          "id": "document.A1",
+          "mandatory": true,
+          "verifier": "A",
+          "evidence_type": "review",
+          "condition": "factual_fidelity",
+          "semantic": true
+        },
+        {
+          "id": "document.A2",
+          "mandatory": true,
+          "verifier": "A",
+          "evidence_type": "review",
+          "condition": "audience_and_usability",
+          "semantic": true
+        }
+      ],
+      "dependencies": [],
+      "budget": {
+        "total_tokens": 300000,
+        "reserved_a_tokens": 60000
+      },
+      "b_write_scopes": [
+        "b"
+      ],
+      "a_responsibilities": [
+        "core_reasoning",
+        "evidence_judgment",
+        "final_review",
+        "method_choice",
+        "problem_modeling"
+      ],
+      "guidance_depth": "ordinary",
+      "full_read_required": true,
+      "source_unit_ids": [
+        "USER-1"
+      ]
+    },
+    "workflow": {
+      "contract_sha256": "3ac7130df94c15db80c2e72b1d515764e8d2904fa05fbab3f29018965e3bfd28",
+      "candidate_history": [
+        {
+          "revision_id": "candidate-6b16649c37b94ccd872b4493716a3d36",
+          "byte_sha256": "52aa8feca0a6e7064ea8c348544f099ce0c6bb46282266b43d83a5577eba32f6",
+          "role": "B",
+          "step_id": "82bfbb800c814e1396fa5be4b72b0b32",
+          "previous_revision_id": null
+        },
+        {
+          "revision_id": "candidate-5cdc586337a34626a77129b7b72a29ea",
+          "byte_sha256": "52aa8feca0a6e7064ea8c348544f099ce0c6bb46282266b43d83a5577eba32f6",
+          "role": "A",
+          "step_id": "e61e6de8d3d34a7ca0fbebfa200c4730",
+          "previous_revision_id": "candidate-6b16649c37b94ccd872b4493716a3d36"
+        }
+      ],
+      "current_revision_id": "candidate-5cdc586337a34626a77129b7b72a29ea",
+      "review_check_id": "A-review-c303319ffcf5448e848308aae1cbefc3",
+      "reviews": [
+        {
+          "contract": {
+            "task_id": "d3c97a12770c43249228e79f1ebefe9e",
+            "attempt_id": "287d32c3901744adb9723e78f0d819f4",
+            "contract_version": "1.0",
+            "domain": "document",
+            "model_family": "gpt",
+            "route_snapshot_id": "80229083b6514d44a5fe7c5b236db7d6",
+            "objective": "演示产品流程；外部模型输出是固定测试响应。",
+            "method": "Preserve the full source in a marked demonstration answer.",
+            "inputs": [
+              {
+                "id": "USER-1",
+                "ref": "input/user_request.txt",
+                "sha256": "7fbad7cd5ad0081c141775fe10b2eeb2746dd313fa2be02175c831cc3dbc8978"
+              }
+            ],
+            "constraints": [
+              {
+                "id": "preserve",
+                "text": "Preserve source bytes and identify the response as a demonstration.",
+                "mandatory": true
+              }
+            ],
+            "deliverables": [
+              {
+                "id": "answer",
+                "kind": "document",
+                "write_scope": "b/demo.md",
+                "require_a_canonical": true
+              }
+            ],
+            "acceptance": [
+              {
+                "id": "source-preserved",
+                "mandatory": true,
+                "verifier": "C",
+                "evidence_type": "artifact",
+                "condition": "Actual source and immutable candidate hashes agree.",
+                "semantic": false
+              },
+              {
+                "id": "demo-review",
+                "mandatory": true,
+                "verifier": "A",
+                "evidence_type": "review",
+                "condition": "Fixture response is marked as a demo and preserves user requirements.",
+                "semantic": true
+              },
+              {
+                "id": "document.C1",
+                "mandatory": true,
+                "verifier": "C",
+                "evidence_type": "artifact",
+                "condition": "source_completeness",
+                "semantic": false
+              },
+              {
+                "id": "document.C2",
+                "mandatory": true,
+                "verifier": "C",
+                "evidence_type": "artifact",
+                "condition": "requested_formats_and_layout",
+                "semantic": false
+              },
+              {
+                "id": "document.A1",
+                "mandatory": true,
+                "verifier": "A",
+                "evidence_type": "review",
+                "condition": "factual_fidelity",
+                "semantic": true
+              },
+              {
+                "id": "document.A2",
+                "mandatory": true,
+                "verifier": "A",
+                "evidence_type": "review",
+                "condition": "audience_and_usability",
+                "semantic": true
+              }
+            ],
+            "dependencies": [],
+            "budget": {
+              "total_tokens": 300000,
+              "reserved_a_tokens": 60000
+            },
+            "b_write_scopes": [
+              "b"
+            ],
+            "a_responsibilities": [
+              "core_reasoning",
+              "evidence_judgment",
+              "final_review",
+              "method_choice",
+              "problem_modeling"
+            ],
+            "guidance_depth": "ordinary",
+            "full_read_required": true,
+            "source_unit_ids": [
+              "USER-1"
+            ]
+          },
+          "decision": {
+            "task_id": "d3c97a12770c43249228e79f1ebefe9e",
+            "attempt_id": "287d32c3901744adb9723e78f0d819f4",
+            "contract_version": "1.0",
+            "contract_sha256": "3ac7130df94c15db80c2e72b1d515764e8d2904fa05fbab3f29018965e3bfd28",
+            "reviewer": "A",
+            "decision": "PASS",
+            "revision_id": "candidate-5cdc586337a34626a77129b7b72a29ea",
+            "evidence": [
+              {
+                "criterion_id": "source-preserved",
+                "revision_id": "candidate-5cdc586337a34626a77129b7b72a29ea",
+                "ref": "bf0beae2b1bc4c9b81245b9d385eca73.json",
+                "sha256": "2e0dd04076e0630b9e72d7ff69a5af950f2420b0da9f32ff6395226f373b21fc",
+                "verifier": "C",
+                "passed": true
+              },
+              {
+                "criterion_id": "document.C1",
+                "revision_id": "candidate-5cdc586337a34626a77129b7b72a29ea",
+                "ref": "b4b5e6d0285847238cdae28be08c6624.json",
+                "sha256": "f986ecb08a7eaef49227e0e64932f7d31358b07d938e17f5a45f5e268d30e5e2",
+                "verifier": "C",
+                "passed": true
+              },
+              {
+                "criterion_id": "document.C2",
+                "revision_id": "candidate-5cdc586337a34626a77129b7b72a29ea",
+                "ref": "d8da04129ead43949b004714c91cc4d5.json",
+                "sha256": "e1ae325b8d2a4e6042de87e7fd58e5692ce9f40f446fca771233b7b2581657d8",
+                "verifier": "C",
+                "passed": true
+              },
+              {
+                "criterion_id": "demo-review",
+                "revision_id": "candidate-5cdc586337a34626a77129b7b72a29ea",
+                "ref": "e16e34e7050349558a499460d8765a96.json",
+                "sha256": "cd4c12b87b1ced9a0d23397d6832ecf38c58341ad888613c7d3a6a75ebddf320",
+                "verifier": "A",
+                "passed": true
+              },
+              {
+                "criterion_id": "document.A1",
+                "revision_id": "candidate-5cdc586337a34626a77129b7b72a29ea",
+                "ref": "e8b4129de4574011a36e816177c12a3d.json",
+                "sha256": "93ba8bfe8b89ed1c51a68d1395a553e50fb08bfa46626f7a9de313b40548cde9",
+                "verifier": "A",
+                "passed": true
+              },
+              {
+                "criterion_id": "document.A2",
+                "revision_id": "candidate-5cdc586337a34626a77129b7b72a29ea",
+                "ref": "c31e36d943204b17830ffa66fbf90c66.json",
+                "sha256": "9418b0244ef17103e30789d7226593f4451fac0935606d44436bc1205fdd0325",
+                "verifier": "A",
+                "passed": true
+              }
+            ],
+            "read_unit_ids": [
+              "USER-1"
+            ],
+            "source_refs": [
+              "input/user_request.txt"
+            ],
+            "sampling_note": null,
+            "canonical_author": "A",
+            "a_response_ref": "e2eba7b5c09f439499725bf64ad946af",
+            "issues": []
+          },
+          "gate": {
+            "decision": "PASS",
+            "eligible_for_output": true,
+            "missing_criteria": [],
+            "reason_codes": []
+          },
+          "evidence_root": "C:\\Users\\asd15\\AppData\\Local\\Temp\\workbench-electron-Fo9kUN\\workbench\\tasks\\d3c97a12770c43249228e79f1ebefe9e\\287d32c3901744adb9723e78f0d819f4\\evidence",
+          "a_step_id": "e2eba7b5c09f439499725bf64ad946af"
+        }
+      ],
+      "takeover_leases": [
+        {
+          "before": {
+            "a": {
+              "epoch": 1,
+              "role": "A",
+              "token": "3a887d61a5584f50871a56b1dae3dd7d"
+            },
+            "b": {
+              "epoch": 1,
+              "role": "B",
+              "token": "f984407cb5574aaca2156dbe75540c0f"
+            }
+          },
+          "during": {
+            "a": {
+              "epoch": 1,
+              "role": "A",
+              "token": "3a887d61a5584f50871a56b1dae3dd7d"
+            },
+            "b": {
+              "epoch": 2,
+              "role": "A",
+              "token": "37ea12ef8651441b9e71bb9cca0a09ae"
+            }
+          },
+          "after": {
+            "a": {
+              "epoch": 1,
+              "role": "A",
+              "token": "3a887d61a5584f50871a56b1dae3dd7d"
+            },
+            "b": {
+              "epoch": 3,
+              "role": "B",
+              "token": "23a545ddd2fe46e78acf98c47ef059e3"
+            }
+          },
+          "snapshot_path": null
+        }
+      ],
+      "repair": {
+        "policy_version": "repair-1",
+        "quality_repairs": 0,
+        "connection_retries": 0,
+        "translation_retries": 0,
+        "no_progress": 0,
+        "defect_streaks": {},
+        "history": []
+      },
+      "reason_codes": [],
+      "upstream_versions": {},
+      "source_context": [
+        {
+          "ref": "input/user_request.txt",
+          "sha256": "7fbad7cd5ad0081c141775fe10b2eeb2746dd313fa2be02175c831cc3dbc8978",
+          "content": "请将本轮原文作为来源生成报告，并清楚标识演示内容。\n\nTask profile inputs (untrusted):\n{\"audience\": \"内部研究组\", \"formats\": [\"markdown\"], \"purpose\": \"完整保留原文的内部报告\", \"source_refs\": [\"input/user_request.txt\"]}",
+          "content_ref": "input/user_request.txt",
+          "content_sha256": "7fbad7cd5ad0081c141775fe10b2eeb2746dd313fa2be02175c831cc3dbc8978",
+          "trust": "untrusted_material"
+        }
+      ],
+      "last_budget": {
+        "allowed": true,
+        "reason": "OK",
+        "remaining_tokens": 299955
+      }
+    },
+    "planning_handoff": {
+      "planning_step_id": "7ca5993222134f8b952483b986c47fcb",
+      "previous_owner": "supervisor:85718904de9448539fa1462119619a15",
+      "workflow_owner": "workflow:731664f8efb446ee928b39d1f092ec92",
+      "contract_sha256": "3ac7130df94c15db80c2e72b1d515764e8d2904fa05fbab3f29018965e3bfd28"
+    },
+    "dependency_graph": {
+      "version": 3,
+      "nodes": {
+        "answer": {
+          "revision_id": "candidate-5cdc586337a34626a77129b7b72a29ea",
+          "dependencies": {},
+          "stale": false
+        },
+        "delivery.markdown.zh-CN": {
+          "revision_id": "render-5cd865a2268947efbed3e82853ee204a",
+          "dependencies": {
+            "answer": "candidate-5cdc586337a34626a77129b7b72a29ea"
+          },
+          "stale": false
+        }
+      }
+    },
+    "dependency_version": 3,
+    "current_revision_id": "candidate-5cdc586337a34626a77129b7b72a29ea",
+    "stale": false,
+    "publication_blocked": false,
+    "release_registry": {
+      "check_id": "release-95eba7a629bf4392b33dce0b65b6d858",
+      "approval_id": "release-95eba7a629bf4392b33dce0b65b6d858",
+      "artifact_version_id": "candidate-5cdc586337a34626a77129b7b72a29ea",
+      "content_version_id": "candidate-5cdc586337a34626a77129b7b72a29ea",
+      "route_snapshot_id": "80229083b6514d44a5fe7c5b236db7d6"
+    },
+    "public_release": {
+      "revision_id": "candidate-5cdc586337a34626a77129b7b72a29ea",
+      "approval_id": "release-95eba7a629bf4392b33dce0b65b6d858",
+      "message_id": "13e9921394454a4c92719a07fb663a97",
+      "sha256": "52aa8feca0a6e7064ea8c348544f099ce0c6bb46282266b43d83a5577eba32f6",
+      "review_check_id": "A-review-c303319ffcf5448e848308aae1cbefc3",
+      "dependency_fence": {
+        "task_id": "d3c97a12770c43249228e79f1ebefe9e",
+        "attempt_id": "287d32c3901744adb9723e78f0d819f4",
+        "graph_version": 3,
+        "revisions": {
+          "candidate-5cdc586337a34626a77129b7b72a29ea": "52aa8feca0a6e7064ea8c348544f099ce0c6bb46282266b43d83a5577eba32f6"
+        }
+      },
+      "review_snapshot": {
+        "contract_sha256": "3ac7130df94c15db80c2e72b1d515764e8d2904fa05fbab3f29018965e3bfd28",
+        "review_sha256": "ed70071aa8a62585cfefaa2574bad69ae3afba28e7e263e7f9e383c9969eeefd",
+        "requires_bundle": true
+      },
+      "event_id": "44081691bd8841db8ca5dba1731a3ce2"
+    },
+    "native_document": {
+      "bundle_id": "bundle-361793fe623944c5922d018c2eacfcb7",
+      "source_revision_id": "candidate-5cdc586337a34626a77129b7b72a29ea",
+      "requested_formats": [
+        "markdown"
+      ],
+      "translation_revision_id": null
+    }
+  },
+  "steps": 4,
+  "usage_count": 4,
+  "translation_count": 0
+}

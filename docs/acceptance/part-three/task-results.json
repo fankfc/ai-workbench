@@ -1,0 +1,393 @@
+{
+  "cards": [
+    {
+      "id": "D041",
+      "title": "扩展验收场景 driver 与可重复 fixtures",
+      "owner": "QA 自动化工程师",
+      "status": "in_progress",
+      "status_updated_at": "2026-10-15T10:01:17.345079+08:00",
+      "completion_level": "local_engineering_delivered_full_acceptance_open",
+      "local_implementation": "验收 driver、真实服务和哈希证据",
+      "remaining_acceptance": "D040真实运行资格及完整装置评审",
+      "verification": "docs/acceptance/part-three/final-v3/verification.json",
+      "evidence": "artifacts/qa/D041/local-evidence.json",
+      "real_model_calls": 0,
+      "functional_release": false,
+      "optimization_goal_met": false,
+      "next_action": "D040真实运行资格及完整装置评审",
+      "verification_commands": [
+        "python -m pytest tests/acceptance/test_scenario_driver.py -q"
+      ]
+    },
+    {
+      "id": "D042",
+      "title": "需求覆盖矩阵与版本化回归集",
+      "owner": "QA 负责人",
+      "status": "in_progress",
+      "status_updated_at": "2026-10-15T10:01:17.345079+08:00",
+      "completion_level": "local_engineering_delivered_full_acceptance_open",
+      "local_implementation": "R01–R15/T01–T20覆盖审计",
+      "remaining_acceptance": "独立人工和真实供应商证据、矩阵签署",
+      "verification": "docs/acceptance/part-three/final-v3/verification.json",
+      "evidence": "artifacts/qa/D042/local-evidence.json",
+      "real_model_calls": 0,
+      "functional_release": false,
+      "optimization_goal_met": false,
+      "next_action": "独立人工和真实供应商证据、矩阵签署",
+      "verification_commands": [
+        "python -m pytest tests/acceptance/test_requirement_coverage.py -q"
+      ]
+    },
+    {
+      "id": "D043",
+      "title": "双向翻译 golden、holdout 与人工复核",
+      "owner": "双语领域评审＋翻译 QA",
+      "status": "blocked",
+      "status_updated_at": "2026-10-15T10:01:17.345079+08:00",
+      "completion_level": "local_engineering_delivered_full_acceptance_open",
+      "local_implementation": "60例翻译草案与误译拦截验证",
+      "remaining_acceptance": "两名双语评审、60例独立holdout和真实双向翻译",
+      "verification": "docs/acceptance/part-three/final-v3/verification.json",
+      "evidence": "artifacts/qa/D043/local-evidence.json",
+      "real_model_calls": 0,
+      "functional_release": false,
+      "optimization_goal_met": false,
+      "next_action": "两名双语评审、60例独立holdout和真实双向翻译",
+      "verification_commands": [
+        "python -m pytest tests/translation/test_release_corpus.py -q"
+      ]
+    },
+    {
+      "id": "D044",
+      "title": "A 独立基准与协作盲评冻结协议",
+      "owner": "评测负责人＋独立领域评审",
+      "status": "blocked",
+      "status_updated_at": "2026-10-15T10:01:17.345079+08:00",
+      "completion_level": "local_engineering_delivered_full_acceptance_open",
+      "local_implementation": "十二层协议草案和污染审计",
+      "remaining_acceptance": "60例独立试点、功效样本量、正式评审及冻结签署",
+      "verification": "docs/acceptance/part-three/final-v3/verification.json",
+      "evidence": "artifacts/qa/D044/local-evidence.json",
+      "real_model_calls": 0,
+      "functional_release": false,
+      "optimization_goal_met": false,
+      "next_action": "60例独立试点、功效样本量、正式评审及冻结签署",
+      "verification_commands": [
+        "python -m pytest tests/quality/test_protocol_freeze.py -q"
+      ]
+    },
+    {
+      "id": "D045",
+      "title": "真实 A/B 用量账本核对",
+      "owner": "后端工程师＋评测数据审核",
+      "status": "in_progress",
+      "status_updated_at": "2026-10-15T10:01:17.345079+08:00",
+      "completion_level": "local_engineering_delivered_full_acceptance_open",
+      "local_implementation": "真实产品账本重放与unknown保留",
+      "remaining_acceptance": "真实逐请求供应商计量及口径审核",
+      "verification": "docs/acceptance/part-three/final-v3/verification.json",
+      "evidence": "artifacts/qa/D045/local-evidence.json",
+      "real_model_calls": 0,
+      "functional_release": false,
+      "optimization_goal_met": false,
+      "next_action": "真实逐请求供应商计量及口径审核",
+      "verification_commands": [
+        "python -m pytest tests/usage/test_ledger_reconciliation.py -q"
+      ]
+    },
+    {
+      "id": "D046",
+      "title": "联合质量/token 资格及保守路由",
+      "owner": "评测负责人＋调度工程师",
+      "status": "in_progress",
+      "status_updated_at": "2026-10-15T10:01:17.345079+08:00",
+      "completion_level": "local_engineering_delivered_full_acceptance_open",
+      "local_implementation": "联合统计门槛与生产A主导路由",
+      "remaining_acceptance": "真实配对评分/用量、按配置优化资格及合格配置的运行启用范围验收",
+      "verification": "docs/acceptance/part-three/final-v3/verification.json",
+      "evidence": "artifacts/qa/D046/local-evidence.json",
+      "real_model_calls": 0,
+      "functional_release": false,
+      "optimization_goal_met": false,
+      "next_action": "真实配对评分/用量、按配置优化资格及合格配置的运行启用范围验收",
+      "verification_commands": [
+        "python -m pytest tests/quality/test_optimization_gate.py -q"
+      ]
+    },
+    {
+      "id": "D047",
+      "title": "安全隔离、权限和日志泄漏验收",
+      "owner": "安全工程师＋桌面工程师",
+      "status": "in_progress",
+      "status_updated_at": "2026-10-15T10:01:17.345079+08:00",
+      "completion_level": "local_engineering_delivered_full_acceptance_open",
+      "local_implementation": "API、路径、IPC和DOM隔离检查",
+      "remaining_acceptance": "完整链接攻击矩阵及人工安全评审",
+      "verification": "docs/acceptance/part-three/final-v3/verification.json",
+      "evidence": "artifacts/qa/D047/local-evidence.json",
+      "real_model_calls": 0,
+      "functional_release": false,
+      "optimization_goal_met": false,
+      "next_action": "完整链接攻击矩阵及人工安全评审",
+      "verification_commands": [
+        "python -m pytest tests/security/test_boundaries.py -q",
+        "npx playwright test tests/e2e/security-boundary.spec.ts"
+      ]
+    },
+    {
+      "id": "D048",
+      "title": "故障恢复、重复通知与取消乱序压力",
+      "owner": "可靠性工程师",
+      "status": "in_progress",
+      "status_updated_at": "2026-10-15T10:01:17.345079+08:00",
+      "completion_level": "local_engineering_delivered_full_acceptance_open",
+      "local_implementation": "取消、千次重复、未知恢复和旧批准检查",
+      "remaining_acceptance": "全部崩溃断点、文件占用与真实远端取消",
+      "verification": "docs/acceptance/part-three/final-v3/verification.json",
+      "evidence": "artifacts/qa/D048/local-evidence.json",
+      "real_model_calls": 0,
+      "functional_release": false,
+      "optimization_goal_met": false,
+      "next_action": "全部崩溃断点、文件占用与真实远端取消",
+      "verification_commands": [
+        "python -m pytest tests/reliability/test_fault_matrix.py -q"
+      ]
+    },
+    {
+      "id": "D049",
+      "title": "GUI 无障碍、输入法、多屏缩放与视觉验收",
+      "owner": "桌面 QA＋可访问性评审",
+      "status": "in_progress",
+      "status_updated_at": "2026-10-15T10:01:17.345079+08:00",
+      "completion_level": "local_engineering_delivered_full_acceptance_open",
+      "local_implementation": "实际Electron合成输入法、键盘、缩放和瞬时泄漏检查",
+      "remaining_acceptance": "实际Windows IME、Narrator与多屏人工证据",
+      "verification": "docs/acceptance/part-three/final-v3/verification.json",
+      "evidence": "artifacts/qa/D049/local-evidence.json",
+      "real_model_calls": 0,
+      "functional_release": false,
+      "optimization_goal_met": false,
+      "next_action": "实际Windows IME、Narrator与多屏人工证据",
+      "verification_commands": [
+        "python -m pytest tests/acceptance/test_gui_evidence.py -q",
+        "npx playwright test tests/e2e/accessibility.spec.ts tests/e2e/ime-and-layout.spec.ts"
+      ]
+    },
+    {
+      "id": "D050",
+      "title": "本地性能、持续运行与资源泄漏",
+      "owner": "性能工程师",
+      "status": "in_progress",
+      "status_updated_at": "2026-10-15T10:01:17.345079+08:00",
+      "completion_level": "local_engineering_delivered_full_acceptance_open",
+      "local_implementation": "原始延迟采样、有界持续运行和桌面生命周期runner",
+      "remaining_acceptance": "短样本发送确认/状态可见/启动高于建议值，需分析优化；全部SLO样本/负载、硬件基线、完整24小时及资源矩阵",
+      "verification": "docs/acceptance/part-three/final-v3/verification.json",
+      "evidence": "artifacts/qa/D050/local-evidence.json",
+      "real_model_calls": 0,
+      "functional_release": false,
+      "optimization_goal_met": false,
+      "next_action": "短样本发送确认/状态可见/启动高于建议值，需分析优化；全部SLO样本/负载、硬件基线、完整24小时及资源矩阵",
+      "verification_commands": [
+        "python -m pytest tests/performance/test_local_slo.py -q",
+        "python tests/performance/soak_runner.py --hours 24 --seed 4317 --output artifacts/qa/D050/soak"
+      ]
+    },
+    {
+      "id": "D051",
+      "title": "一致性备份、恢复与数据迁移",
+      "owner": "存储工程师＋可靠性 QA",
+      "status": "in_progress",
+      "status_updated_at": "2026-10-15T10:01:17.345079+08:00",
+      "completion_level": "local_engineering_delivered_full_acceptance_open",
+      "local_implementation": "WAL一致备份、原件闭包、迁移、API和实际桌面恢复",
+      "remaining_acceptance": "第三方独立手册执行、签名旧程序与匹配旧schema回滚验收",
+      "verification": "docs/acceptance/part-three/final-v3/verification.json",
+      "evidence": "artifacts/qa/D051/local-evidence.json",
+      "real_model_calls": 0,
+      "functional_release": false,
+      "optimization_goal_met": false,
+      "next_action": "第三方独立手册执行、签名旧程序与匹配旧schema回滚验收",
+      "verification_commands": [
+        "python -m pytest tests/storage/test_backup_restore.py tests/storage/test_schema_migration.py -q"
+      ]
+    },
+    {
+      "id": "D052",
+      "title": "Windows 安装、打包与代码签名",
+      "owner": "发布工程师",
+      "status": "blocked",
+      "status_updated_at": "2026-10-15T10:01:17.345079+08:00",
+      "completion_level": "local_engineering_delivered_full_acceptance_open",
+      "local_implementation": "锁定打包、便携Python运行时和内部未签名安装包",
+      "remaining_acceptance": "合法签名、可信发布者及干净非管理员Windows安装",
+      "verification": "docs/acceptance/part-three/final-v3/verification.json",
+      "evidence": "artifacts/qa/D052/local-evidence.json",
+      "real_model_calls": 0,
+      "functional_release": false,
+      "optimization_goal_met": false,
+      "next_action": "合法签名、可信发布者及干净非管理员Windows安装",
+      "verification_commands": [
+        "python -m pytest tests/release/test_windows_install.py -q",
+        "powershell -NoProfile -File release/verify-installer.ps1 -Installer dist/AIBroker-Setup.exe"
+      ]
+    },
+    {
+      "id": "D053",
+      "title": "签名更新与可恢复回滚",
+      "owner": "发布工程师＋存储工程师",
+      "status": "blocked",
+      "status_updated_at": "2026-10-15T10:01:17.345079+08:00",
+      "completion_level": "local_engineering_delivered_full_acceptance_open",
+      "local_implementation": "受控更新协调器、持久日志、签名/清单前检及回滚故障矩阵",
+      "remaining_acceptance": "生产原生安装/清单签名端口、真实签名包升级和兼容schema回滚演练",
+      "verification": "docs/acceptance/part-three/final-v3/verification.json",
+      "evidence": "artifacts/qa/D053/local-evidence.json",
+      "real_model_calls": 0,
+      "functional_release": false,
+      "optimization_goal_met": false,
+      "next_action": "生产原生安装/清单签名端口、真实签名包升级和兼容schema回滚演练",
+      "verification_commands": [
+        "python -m pytest tests/release/test_update_rollback.py -q"
+      ]
+    },
+    {
+      "id": "D054",
+      "title": "CI、锁定依赖、SBOM 与发布清单",
+      "owner": "构建与发布工程师",
+      "status": "in_progress",
+      "status_updated_at": "2026-10-15T10:01:17.345079+08:00",
+      "completion_level": "local_engineering_delivered_full_acceptance_open",
+      "local_implementation": "Windows CI、依赖SBOM和候选清单审计",
+      "remaining_acceptance": "源码提交、干净构建复现、签名/许可证与完整外部证据",
+      "verification": "docs/acceptance/part-three/final-v3/verification.json",
+      "evidence": "artifacts/qa/D054/local-evidence.json",
+      "real_model_calls": 0,
+      "functional_release": false,
+      "optimization_goal_met": false,
+      "next_action": "源码提交、干净构建复现、签名/许可证与完整外部证据",
+      "verification_commands": [
+        "python -m pytest tests/release/test_release_manifest.py -q",
+        "python release/create-manifest.py --candidate dist/AIBroker-Setup.exe --output artifacts/qa/D054/release-manifest.json"
+      ]
+    },
+    {
+      "id": "D055",
+      "title": "四类真实任务最终验收演练",
+      "owner": "产品验收负责人＋领域专家",
+      "status": "blocked",
+      "status_updated_at": "2026-10-15T10:01:17.345079+08:00",
+      "completion_level": "local_engineering_delivered_full_acceptance_open",
+      "local_implementation": "四域真实材料入口及严格证据审计",
+      "remaining_acceptance": "当前真实模型身份、完整四域执行及领域人评",
+      "verification": "docs/acceptance/part-three/final-v3/verification.json",
+      "evidence": "artifacts/qa/D055/local-evidence.json",
+      "real_model_calls": 0,
+      "functional_release": false,
+      "optimization_goal_met": false,
+      "next_action": "当前真实模型身份、完整四域执行及领域人评",
+      "verification_commands": [
+        "python -m pytest tests/acceptance/test_real_journey_evidence.py -q"
+      ]
+    },
+    {
+      "id": "D056",
+      "title": "受控试用与用户反馈闭环",
+      "owner": "产品负责人＋支持工程师",
+      "status": "blocked",
+      "status_updated_at": "2026-10-15T10:01:17.345079+08:00",
+      "completion_level": "local_engineering_delivered_full_acceptance_open",
+      "local_implementation": "反馈脱敏、格式和试用手册",
+      "remaining_acceptance": "5工作日真实试用、缺陷关闭与报告者复核",
+      "verification": "docs/acceptance/part-three/final-v3/verification.json",
+      "evidence": "artifacts/qa/D056/local-evidence.json",
+      "real_model_calls": 0,
+      "functional_release": false,
+      "optimization_goal_met": false,
+      "next_action": "5工作日真实试用、缺陷关闭与报告者复核",
+      "verification_commands": [
+        "python -m pytest tests/release/test_feedback_bundle.py -q"
+      ]
+    },
+    {
+      "id": "D057",
+      "title": "正式发布评审与缺陷关闭",
+      "owner": "发布负责人＋产品/QA 联合评审",
+      "status": "blocked",
+      "status_updated_at": "2026-10-15T10:01:17.345079+08:00",
+      "completion_level": "local_engineering_delivered_full_acceptance_open",
+      "local_implementation": "功能和优化分离的发布决策",
+      "remaining_acceptance": "全部发布硬门槛、无P0/P1及产品/QA/发布三方签署",
+      "verification": "docs/acceptance/part-three/final-v3/verification.json",
+      "evidence": "artifacts/qa/D057/local-evidence.json",
+      "real_model_calls": 0,
+      "functional_release": false,
+      "optimization_goal_met": false,
+      "next_action": "全部发布硬门槛、无P0/P1及产品/QA/发布三方签署",
+      "verification_commands": [
+        "python -m pytest tests/release/test_go_no_go.py -q"
+      ]
+    },
+    {
+      "id": "D058",
+      "title": "日常监控、日志保留与术语维护",
+      "owner": "维护负责人",
+      "status": "in_progress",
+      "status_updated_at": "2026-10-15T10:01:17.345079+08:00",
+      "completion_level": "local_engineering_delivered_full_acceptance_open",
+      "local_implementation": "持久保留/保护、术语历史和缓存失效控制器",
+      "remaining_acceptance": "实际长期保留观察、每日备份/月度恢复及双语术语复核",
+      "verification": "docs/acceptance/part-three/final-v3/verification.json",
+      "evidence": "artifacts/qa/D058/local-evidence.json",
+      "real_model_calls": 0,
+      "functional_release": false,
+      "optimization_goal_met": false,
+      "next_action": "实际长期保留观察、每日备份/月度恢复及双语术语复核",
+      "verification_commands": [
+        "python -m pytest tests/operations/test_retention_glossary.py -q"
+      ]
+    },
+    {
+      "id": "D059",
+      "title": "事故响应、模型退化与优化回滚",
+      "owner": "事故负责人＋领域/安全评审",
+      "status": "in_progress",
+      "status_updated_at": "2026-10-15T10:01:17.345079+08:00",
+      "completion_level": "local_engineering_delivered_full_acceptance_open",
+      "local_implementation": "持久事故冻结、证据保护、发布阻断和重新资格检查",
+      "remaining_acceptance": "真实桌面事故演练、独立新样本资格及签名兼容回滚",
+      "verification": "docs/acceptance/part-three/final-v3/verification.json",
+      "evidence": "artifacts/qa/D059/local-evidence.json",
+      "real_model_calls": 0,
+      "functional_release": false,
+      "optimization_goal_met": false,
+      "next_action": "真实桌面事故演练、独立新样本资格及签名兼容回滚",
+      "verification_commands": [
+        "python -m pytest tests/operations/test_incident_rollback.py -q"
+      ]
+    },
+    {
+      "id": "D060",
+      "title": "终验交接与长期维护",
+      "owner": "项目负责人＋用户验收代表",
+      "status": "blocked",
+      "status_updated_at": "2026-10-15T10:01:17.345079+08:00",
+      "completion_level": "local_engineering_delivered_full_acceptance_open",
+      "local_implementation": "离线证据索引、交接与维护日历",
+      "remaining_acceptance": "干净机器第三方交接、功能/优化终验和签署",
+      "verification": "docs/acceptance/part-three/final-v3/verification.json",
+      "evidence": "artifacts/qa/D060/local-evidence.json",
+      "real_model_calls": 0,
+      "functional_release": false,
+      "optimization_goal_met": false,
+      "next_action": "干净机器第三方交接、功能/优化终验和签署",
+      "verification_commands": [
+        "python -m pytest tests/release/test_final_handover.py -q"
+      ]
+    }
+  ],
+  "overall_goal_complete": false,
+  "local_scope": "delivered_and_mechanically_verified",
+  "real_model_calls": 0,
+  "build_id": "cb98eed03df6bd4ffaa551d66a54c77198911cf5b3e763a1ef3c055f5ee54ca4"
+}

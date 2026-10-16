@@ -1,0 +1,46 @@
+FF                                                                       [100%]
+================================== FAILURES ===================================
+_______ test_short_pytest_root_is_scoped_and_never_overwrites_prior_run _______
+
+verifier = <module 'phase_four_verify' from 'C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\scripts\\phase_four_verify.py'>
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-513/test_short_pytest_root_is_scop0')
+
+    def test_short_pytest_root_is_scoped_and_never_overwrites_prior_run(verifier, tmp_path):
+>       root = verifier.reserve_pytest_temp(repo=tmp_path, short_id='a1234567')
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AttributeError: module 'phase_four_verify' has no attribute 'reserve_pytest_temp'
+
+tests\acceptance\test_runtime_sop.py:165: AttributeError
+_ test_python_cli_uses_short_absolute_basetemp_and_reports_its_real_location __
+
+verifier = <module 'phase_four_verify' from 'C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\scripts\\phase_four_verify.py'>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x00000228DCEF8FC0>
+
+    def test_python_cli_uses_short_absolute_basetemp_and_reports_its_real_location(verifier, monkeypatch):
+        import uuid
+        import shutil
+        output = REPO / 'docs/acceptance/part-four' / ('path-budget-selftest-' + uuid.uuid4().hex)
+        commands = []
+        def capture(name, command, output, environment):
+            commands.append((name, command))
+            return {'name': name, 'exit_code': 0}
+        monkeypatch.setattr(verifier, 'execute', capture)
+        raw_root = None
+        try:
+            assert verifier.main(['--python', '--output', str(output)]) == 1  # Mocked processes supply no evidence.
+            python = next(command for name, command in commands if name == 'python')
+            raw_root = Path(next(arg.split('=', 1)[1] for arg in python if arg.startswith('--basetemp=')))
+            assert raw_root.is_absolute()
+>           assert raw_root.parent == REPO.resolve() / '.omx/qa/p4'
+E           AssertionError: assert WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/docs/acceptance/part-four/path-budget-selftest-04e33496186d408dbd33c18644ed19f2') == (WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai') / '.omx/qa/p4')
+E            +  where WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/docs/acceptance/part-four/path-budget-selftest-04e33496186d408dbd33c18644ed19f2') = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/docs/acceptance/part-four/path-budget-selftest-04e33496186d408dbd33c18644ed19f2/pytest-temp').parent
+E            +  and   WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai') = resolve()
+E            +    where resolve = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai').resolve
+
+tests\acceptance\test_runtime_sop.py:191: AssertionError
+---------------------------- Captured stdout call -----------------------------
+{"output": "docs/acceptance/part-four/path-budget-selftest-04e33496186d408dbd33c18644ed19f2", "mode": "local_regression", "local_sop_passed": false, "full_sop_accepted": false, "source_unchanged": true}
+=========================== short test summary info ===========================
+FAILED tests/acceptance/test_runtime_sop.py::test_short_pytest_root_is_scoped_and_never_overwrites_prior_run
+FAILED tests/acceptance/test_runtime_sop.py::test_python_cli_uses_short_absolute_basetemp_and_reports_its_real_location
+2 failed in 2.55s

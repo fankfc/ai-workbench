@@ -1,0 +1,133 @@
+{
+  "schema_version": "1.0",
+  "spec_path": "docs/superpowers/plans/2026-10-13-execution/05-work-orders-and-prompts.md",
+  "spec_sha256": "94cb042be30a957eba118a73d0af0ae81b367e371b85bea08e7d7a5c0c2a03c0",
+  "coverage_scope": "Selected local work-order, role-prompt, translation-context, review/repair/handoff and fixed-program checks for the ten sections. Model outputs are explicit fixtures. This does not accept real providers, human quality, release readiness or optimization goals.",
+  "items": [
+    {
+      "id": "SEC01",
+      "title": "Single-task dispatch, direct dependencies and bounded executable arguments",
+      "tests": [
+        {"runner": "pytest", "id": "tests/contracts/test_work_orders.py::test_exact_card_full_actions_and_only_direct_artifact_context"},
+        {"runner": "pytest", "id": "tests/contracts/test_work_orders.py::test_source_data_cannot_expand_trusted_allowlist"},
+        {"runner": "pytest", "id": "tests/contracts/test_work_orders.py::test_record_measures_real_process_exit_and_does_not_parse_shell"},
+        {"runner": "pytest", "id": "tests/contracts/test_work_orders.py::test_windows_case_aliases_cannot_authorize_protected_files[board]"},
+        {"runner": "pytest", "id": "tests/contracts/test_work_orders.py::test_windows_scope_aliases_are_one_file_identity"},
+        {"runner": "pytest", "id": "tests/contracts/test_role_prompts.py::test_runtime_requests_include_versioned_roles_without_changing_contract[pass]"}
+      ],
+      "external_requirements": ["Local dispatch and scope checks do not prove actual external A/B execution or reopen frozen development cards."]
+    },
+    {
+      "id": "SEC02",
+      "title": "Development handoff with current files and actual process evidence",
+      "tests": [
+        {"runner": "pytest", "id": "tests/contracts/test_work_orders.py::test_handoff_accepts_measured_local_checks_without_finishing_task"},
+        {"runner": "pytest", "id": "tests/contracts/test_work_orders.py::test_handoff_declared_files_must_match_observed_allowlist_changes"},
+        {"runner": "pytest", "id": "tests/contracts/test_work_orders.py::test_real_nonzero_exit_never_becomes_accepted_handoff"},
+        {"runner": "pytest", "id": "tests/contracts/test_work_orders.py::test_handoff_rejects_wrong_binding_missing_stale_or_fabricated_evidence[fabricated_pass]"}
+      ],
+      "external_requirements": ["Measured local command records authorize an in-review handoff only; they cannot mark the frozen task board done or imply external acceptance."]
+    },
+    {
+      "id": "SEC03",
+      "title": "A planning role, stable acceptance criteria and explicit contract semantics",
+      "tests": [
+        {"runner": "pytest", "id": "tests/contracts/test_role_prompts.py::test_native_planning_loads_role_and_maps_concepts_to_existing_contract"},
+        {"runner": "pytest", "id": "tests/contracts/test_role_prompts.py::test_claude_planning_execution_review_and_takeover_have_english_roles"},
+        {"runner": "pytest", "id": "tests/unit/test_task_contracts.py::test_default_guidance_does_not_limit_a_calls"}
+      ],
+      "external_requirements": ["Fixture planning checks role delivery and existing contract mappings; semantic planning quality and A-independent quality equivalence remain unmeasured."]
+    },
+    {
+      "id": "SEC04",
+      "title": "B execution/repair roles, immutable constraints and bounded escalation",
+      "tests": [
+        {"runner": "pytest", "id": "tests/contracts/test_role_prompts.py::test_runtime_requests_include_versioned_roles_without_changing_contract[no_progress]"},
+        {"runner": "pytest", "id": "tests/integration/test_repair_work_orders.py::test_stable_defect_id_triggers_takeover_despite_changed_description"},
+        {"runner": "pytest", "id": "tests/integration/test_context_gateway.py::test_source_prompt_injection_cannot_modify_tool_scope"}
+      ],
+      "external_requirements": ["Actual service-created B requests are inspected with fixture responses; these tests do not establish real ZCode/GLM qualification or autonomous implementation quality."]
+    },
+    {
+      "id": "SEC05",
+      "title": "Faithful translator roles and execution-free input/output/clarification contexts",
+      "tests": [
+        {"runner": "pytest", "id": "tests/translation/test_role_prompt_contexts.py::test_translation_calls_attach_distinct_loaded_roles[input]"},
+        {"runner": "pytest", "id": "tests/translation/test_role_prompt_contexts.py::test_translation_calls_attach_distinct_loaded_roles[output]"},
+        {"runner": "pytest", "id": "tests/translation/test_role_prompt_contexts.py::test_translation_calls_attach_distinct_loaded_roles[clarification]"},
+        {"runner": "pytest", "id": "tests/translation/test_role_prompt_contexts.py::test_changed_role_instructions_invalidate_ready_jobs_and_cached_qa"},
+        {"runner": "pytest", "id": "tests/translation/test_role_prompt_contexts.py::test_translator_reported_source_issue_requires_input_even_when_checker_finds_none[AMBIGUITY]"},
+        {"runner": "pytest", "id": "tests/translation/test_role_prompt_contexts.py::test_malformed_translator_findings_fail_closed[foreign_block]"},
+        {"runner": "pytest", "id": "tests/translation/test_quality_cache.py::test_cache_context_glossary_model_and_source_are_part_of_key"}
+      ],
+      "external_requirements": ["Loaded prompt, cache and task-context checks use fixture translations; complete bilingual fidelity, domain samples and human review remain external acceptance work."]
+    },
+    {
+      "id": "SEC06",
+      "title": "Separate translation-check context without inherited findings or independence overclaim",
+      "tests": [
+        {"runner": "pytest", "id": "tests/translation/test_role_prompt_contexts.py::test_checker_does_not_receive_prior_candidate_findings"},
+        {"runner": "pytest", "id": "tests/translation/test_role_prompt_contexts.py::test_changed_checker_identity_invalidates_cached_semantic_qa[model_id]"},
+        {"runner": "pytest", "id": "tests/translation/test_quality_cache.py::test_separate_semantic_findings_block_and_ambiguity_requests_input"},
+        {"runner": "pytest", "id": "tests/translation/test_quality_cache.py::test_translation_and_checker_tokens_both_remain_in_usage"}
+      ],
+      "external_requirements": ["A separate B comparison context is automated QA; independent-model and human validation, frozen bilingual samples and ongoing spot checks are not supplied by this run."]
+    },
+    {
+      "id": "SEC07",
+      "title": "A actual-evidence review, structured scope/findings and four non-equivalent decisions",
+      "tests": [
+        {"runner": "pytest", "id": "tests/contracts/test_phase_bridge.py::test_native_review_preserves_structured_scope_and_repair_details"},
+        {"runner": "pytest", "id": "tests/contracts/test_phase_bridge.py::test_native_review_rejects_open_pass_or_invalid_defect_identity[open_pass]"},
+        {"runner": "pytest", "id": "tests/integration/test_repair_work_orders.py::test_open_structured_finding_prevents_pass_even_without_legacy_issues"},
+        {"runner": "pytest", "id": "tests/integration/test_agent_workflow.py::test_a_review_receives_actual_hash_bound_mechanical_observations"},
+        {"runner": "pytest", "id": "tests/unit/test_task_contracts.py::test_b_document_with_a_pass_is_not_a_canonical_original"}
+      ],
+      "external_requirements": ["Actual C proof bytes and fixture A decisions validate the review protocol; correctness of a real A assessment and complex authored documents still require their own evidence."]
+    },
+    {
+      "id": "SEC08",
+      "title": "C fixed evidence/version, invalidation, public projection, cancellation and usage rules",
+      "tests": [
+        {"runner": "pytest", "id": "tests/contracts/test_phase_prompt.py::test_review_prompt_carries_original_source_and_mechanical_evidence_without_granting_pass"},
+        {"runner": "pytest", "id": "tests/integration/test_dependency_invalidation.py::test_old_pass_approval_and_translation_unit_are_marked_stale"},
+        {"runner": "pytest", "id": "tests/integration/test_state_machine.py::test_release_gate_binds_current_revision_and_allows_ready_then_published"},
+        {"runner": "pytest", "id": "tests/usage/test_ledger_reconciliation.py::test_missing_usage_is_unknown_and_estimates_are_separate"},
+        {"runner": "vitest", "id": "tests/desktop/public-events.test.ts::public replay and cancellation deduplicates replay and keeps pending state private"},
+        {"runner": "vitest", "id": "tests/desktop/public-events.test.ts::public replay and cancellation rejects an answer arriving after cancellation and never claims remote confirmation"},
+        {"runner": "playwright", "id": "tests/e2e/host.spec.ts::actual isolated Electron exposes only a business bridge"}
+      ],
+      "external_requirements": ["Selected program and actual local Electron checks preserve existing gates; they do not replace the complete runtime SOP, real remote cancellation or signed release acceptance."]
+    },
+    {
+      "id": "SEC09",
+      "title": "Version-bound repair work orders with real failed evidence and stable defect identity",
+      "tests": [
+        {"runner": "pytest", "id": "tests/contracts/test_work_orders.py::test_repair_and_blocked_reports_require_retrievable_evidence[repair]"},
+        {"runner": "pytest", "id": "tests/integration/test_repair_work_orders.py::test_repair_request_contains_current_candidate_failure_proof_and_bounded_scope"},
+        {"runner": "pytest", "id": "tests/integration/test_repair_work_orders.py::test_foreign_or_duplicate_findings_block_before_another_execution"},
+        {"runner": "pytest", "id": "tests/integration/test_repair_work_orders.py::test_saved_repair_handoff_rejects_changed_scope_version_candidate_or_evidence"},
+        {"runner": "pytest", "id": "tests/integration/test_repair_work_orders.py::test_semantic_failure_proof_bytes_are_rechecked_before_repair"},
+        {"runner": "pytest", "id": "tests/integration/test_repair_work_orders.py::test_claude_repair_takeover_reuses_verified_english_proof_views"},
+        {"runner": "pytest", "id": "tests/integration/test_independent_repair_review.py::test_actual_failure_proof_is_current_at_every_repair_dispatch[repair]"},
+        {"runner": "pytest", "id": "tests/integration/test_independent_repair_review.py::test_actual_failure_proof_is_current_at_every_repair_dispatch[takeover]"},
+        {"runner": "pytest", "id": "tests/integration/test_repair_work_orders.py::test_legacy_issue_handoff_preserves_unknown_details_and_real_evidence"},
+        {"runner": "pytest", "id": "tests/contracts/test_phase_bridge.py::test_native_review_rejects_open_pass_or_invalid_defect_identity[foreign_requirement]"},
+        {"runner": "pytest", "id": "tests/contracts/test_phase_bridge.py::test_native_review_rejects_open_pass_or_invalid_defect_identity[duplicate_id]"}
+      ],
+      "external_requirements": ["Local repair journeys verify actual revisions/proofs and fixture decisions. They do not prove the full real-provider reproduction-to-final-delivery journey or semantic adequacy of every correction."]
+    },
+    {
+      "id": "SEC10",
+      "title": "Evidence-indexed blocking/handoff and honest public completion boundaries",
+      "tests": [
+        {"runner": "pytest", "id": "tests/contracts/test_work_orders.py::test_repair_and_blocked_reports_require_retrievable_evidence[blocked]"},
+        {"runner": "pytest", "id": "tests/contracts/test_work_orders.py::test_handoff_rejects_wrong_binding_missing_stale_or_fabricated_evidence[missing_evidence]"},
+        {"runner": "pytest", "id": "tests/acceptance/test_work_order_protocol.py::test_wrapper_uses_only_its_fresh_child_and_seals_final_summary"},
+        {"runner": "pytest", "id": "tests/acceptance/test_work_order_protocol.py::test_mapping_only_never_claims_execution_or_local_completion"},
+        {"runner": "pytest", "id": "tests/integration/test_public_projection.py::test_pending_and_error_are_fixed_public_templates"}
+      ],
+      "external_requirements": ["The handoff records retrievable current evidence and honest unresolved conditions; real recipient takeover, full product acceptance, human checks and optimization remain unverified."]
+    }
+  ]
+}

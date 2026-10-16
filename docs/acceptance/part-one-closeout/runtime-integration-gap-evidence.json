@@ -1,0 +1,85 @@
+{
+  "at_utc": "2026-10-13T15:17:35.841727+00:00",
+  "command": "services/orchestrator/.venv/Scripts/python.exe docs/acceptance/part-one-closeout/runtime-integration-gap-probe.py",
+  "scope": "Synthetic capture decoder only; no transport/CLI/API/workflow/model/UI/account action",
+  "real_model_starts": 0,
+  "source_hashes_before": {
+    "services/orchestrator/app/providers/base.py": "3512b8a5793bdb2c7275ba67b7ceb43d81f7b60b1b9a841a2c27a59c3d8f688e",
+    "services/orchestrator/app/providers/gpt.py": "d5c6504ae80e7df5086f2d1a5605edf6f21125cb35fb1f509303b380cbaba8fa",
+    "services/orchestrator/app/providers/zcode.py": "e01f027c5c04346e6ab3f0620add64c12a4a7ad7252b2ee05e91469999ae7049",
+    "services/orchestrator/app/runtime/workflow.py": "fd0d743d2de7a0a8cca56b6c14ba77e8fbe64036c52cc6e913ee1061f90aa5ce",
+    "services/orchestrator/app/api/application.py": "6aad58bcbbdf83820676d8326cf7b30193858dd11074db1accbe6f91644ef240",
+    "services/orchestrator/app/contracts/providers.py": "ab41820328b1640b8e7b72db2d6dad056b26bdb9234ebc3a89c2f5248eb8d890",
+    "tests/integration/test_backend_vertical.py": "fe975c61bb8d390812d1c0461a16b20c454c7c77b097b545f047bb6d574ebec3",
+    "tests/support/scenario_driver.py": "35e84bc3b46930057263db1f81fa6185f1138bc1406c50352497a7bf7a12c167"
+  },
+  "source_hashes_after": {
+    "services/orchestrator/app/providers/base.py": "3512b8a5793bdb2c7275ba67b7ceb43d81f7b60b1b9a841a2c27a59c3d8f688e",
+    "services/orchestrator/app/providers/gpt.py": "d5c6504ae80e7df5086f2d1a5605edf6f21125cb35fb1f509303b380cbaba8fa",
+    "services/orchestrator/app/providers/zcode.py": "e01f027c5c04346e6ab3f0620add64c12a4a7ad7252b2ee05e91469999ae7049",
+    "services/orchestrator/app/runtime/workflow.py": "fd0d743d2de7a0a8cca56b6c14ba77e8fbe64036c52cc6e913ee1061f90aa5ce",
+    "services/orchestrator/app/api/application.py": "6aad58bcbbdf83820676d8326cf7b30193858dd11074db1accbe6f91644ef240",
+    "services/orchestrator/app/contracts/providers.py": "ab41820328b1640b8e7b72db2d6dad056b26bdb9234ebc3a89c2f5248eb8d890",
+    "tests/integration/test_backend_vertical.py": "fe975c61bb8d390812d1c0461a16b20c454c7c77b097b545f047bb6d574ebec3",
+    "tests/support/scenario_driver.py": "35e84bc3b46930057263db1f81fa6185f1138bc1406c50352497a7bf7a12c167"
+  },
+  "source_unchanged": true,
+  "cases": [
+    {
+      "adapter": "codex",
+      "synthetic_decode_success": true,
+      "identity_status": "verified",
+      "emitted_kinds": [
+        "provider.started",
+        "provider.identity",
+        "model.delta",
+        "provider.usage",
+        "provider.completed"
+      ],
+      "candidate_events": 0,
+      "review_events": 0,
+      "usage_payload": {
+        "status": "observed",
+        "usage": {
+          "input_tokens": 10,
+          "output_tokens": 2
+        }
+      },
+      "workflow_expected_raw_present": false,
+      "started_payload": {
+        "external_execution_id": "synthetic-execution"
+      },
+      "actual_request_id_emitted": false,
+      "scope_enforced_attribute": null,
+      "resume_supported": false
+    },
+    {
+      "adapter": "zcode",
+      "synthetic_decode_success": true,
+      "identity_status": "verified",
+      "emitted_kinds": [
+        "provider.started",
+        "provider.identity",
+        "provider.usage",
+        "provider.completed"
+      ],
+      "candidate_events": 0,
+      "review_events": 0,
+      "usage_payload": {
+        "status": "observed",
+        "usage": {
+          "input_tokens": 10,
+          "output_tokens": 2
+        }
+      },
+      "workflow_expected_raw_present": false,
+      "started_payload": {
+        "external_execution_id": "synthetic-execution"
+      },
+      "actual_request_id_emitted": false,
+      "scope_enforced_attribute": null,
+      "resume_supported": false
+    }
+  ],
+  "exit_code": 0
+}

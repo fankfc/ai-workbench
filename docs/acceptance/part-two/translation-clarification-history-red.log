@@ -1,0 +1,26 @@
+F                                                                        [100%]
+================================== FAILURES ===================================
+___ test_approved_clarification_keeps_original_english_in_followup_history ____
+
+client = <starlette.testclient.TestClient object at 0x00000265EF0B1FD0>
+
+    def test_approved_clarification_keeps_original_english_in_followup_history(client):
+        cid,task,attempt,svc,b,a,workflow,value=review_case(client); asyncio.run(workflow.run(value))
+        _,next_task,next_attempt=claude_turn(client,conversation=cid,key='followup')
+        context=asyncio.run(InputPipeline(svc).prepare(next_task,next_attempt,workflow.workspaces.create(next_task,next_attempt)))
+>       assert context.status=='READY' and QUESTION in context.text and CHINESE not in context.text
+E       AssertionError: assert ('READY' == 'READY'
+E         
+E           READY and 'Do not delete the original files. Should I use only 2 source files, or wait for the missing appendix?' in 'user: Keep the original file.\n\nuser: Keep the original file.')
+E        +  where 'user: Keep the original file.\n\nuser: Keep the original file.' = InputContext(status='READY', text='user: Keep the original file.\n\nuser: Keep the original file.', job_ids=('fde0bba2be9a475bb38d68bafb40c0c0',), english_views={}, full_scope=(), read_scope=(), clarification=None).text
+
+tests\integration\test_clarification_translation.py:161: AssertionError
+============================== warnings summary ===============================
+tests/integration/test_clarification_translation.py::test_approved_clarification_keeps_original_english_in_followup_history
+  C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/integration/test_clarification_translation.py::test_approved_clarification_keeps_original_english_in_followup_history
+1 failed, 1 warning in 2.22s

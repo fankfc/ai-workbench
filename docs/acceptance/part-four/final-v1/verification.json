@@ -1,0 +1,1459 @@
+{
+  "schema_version": "1.0",
+  "run_id": "20261015T023435289259Z-ca6324e0",
+  "mode": "local_regression",
+  "environment": {
+    "python": "3.13.0 (tags/v3.13.0:60403a5, Oct  7 2024, 09:38:07) [MSC v.1941 64 bit (AMD64)]",
+    "executable": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\.venv\\Scripts\\python.exe",
+    "platform": "win32"
+  },
+  "provider_boundary": "fake",
+  "real_model_calls": 0,
+  "source_before": {
+    "build_id": "11b462c2ff70929a5be34de07db1c9c5032ac3d83e58b46750901b9b50e0f907",
+    "qa_source_id": "e3d75b145a84c4b8cced885727e2e3c9eb3633b31e44a5daa2fa7dccdc68a8cd",
+    "mapping_sha256": "baf0b0940999c9163d5cbe038227b152320082e1895b2121270fcbcce600f9ea",
+    "sop_sha256": "c62590793932ee97c6a88f07b27062433e4dcbeab8093d42178ad22c6837c311"
+  },
+  "source_after": {
+    "build_id": "b2acc5e823885796b35a91ea27a75de51d954b545160d5aa724ca62e8d99dfcb",
+    "qa_source_id": "f3d8fe388936ced2335440ab9d8294b9d1ee08f6639cf3281304fbdf9756f716",
+    "mapping_sha256": "baf0b0940999c9163d5cbe038227b152320082e1895b2121270fcbcce600f9ea",
+    "sop_sha256": "c62590793932ee97c6a88f07b27062433e4dcbeab8093d42178ad22c6837c311"
+  },
+  "source_unchanged": false,
+  "checks": [
+    {
+      "name": "contracts",
+      "command": [
+        "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\.venv\\Scripts\\python.exe",
+        "scripts/check_contracts.py",
+        "--strict"
+      ],
+      "cwd": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai",
+      "started_at": "2026-10-15T02:34:35.733911+00:00",
+      "ended_at": "2026-10-15T02:34:36.073033+00:00",
+      "exit_code": 0,
+      "log": "docs/acceptance/part-four/final-v1/contracts.log",
+      "launch_error": null
+    },
+    {
+      "name": "python",
+      "command": [
+        "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "-q",
+        "-m",
+        "not real_provider",
+        "--junitxml=C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\part-four\\final-v1\\python.xml",
+        "--basetemp=C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\part-four\\final-v1\\pytest-temp"
+      ],
+      "cwd": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai",
+      "started_at": "2026-10-15T02:34:36.073770+00:00",
+      "ended_at": "2026-10-15T02:41:36.049147+00:00",
+      "exit_code": 1,
+      "log": "docs/acceptance/part-four/final-v1/python.log",
+      "launch_error": null
+    },
+    {
+      "name": "desktop-typecheck",
+      "command": [
+        "cmd.exe",
+        "/d",
+        "/c",
+        "npm",
+        "run",
+        "typecheck:desktop"
+      ],
+      "cwd": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai",
+      "started_at": "2026-10-15T02:41:36.107053+00:00",
+      "ended_at": "2026-10-15T02:41:37.540129+00:00",
+      "exit_code": 0,
+      "log": "docs/acceptance/part-four/final-v1/desktop-typecheck.log",
+      "launch_error": null
+    },
+    {
+      "name": "desktop-unit",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "node_modules/vitest/vitest.mjs",
+        "run",
+        "tests/desktop",
+        "tests/release",
+        "--reporter=json",
+        "--outputFile=C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\part-four\\final-v1\\desktop-unit-report.json"
+      ],
+      "cwd": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai",
+      "started_at": "2026-10-15T02:41:37.541256+00:00",
+      "ended_at": "2026-10-15T02:41:51.671956+00:00",
+      "exit_code": 0,
+      "log": "docs/acceptance/part-four/final-v1/desktop-unit.log",
+      "launch_error": null
+    },
+    {
+      "name": "desktop-build",
+      "command": [
+        "cmd.exe",
+        "/d",
+        "/c",
+        "npm",
+        "run",
+        "build:desktop"
+      ],
+      "cwd": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai",
+      "started_at": "2026-10-15T02:41:51.692510+00:00",
+      "ended_at": "2026-10-15T02:41:53.500743+00:00",
+      "exit_code": 0,
+      "log": "docs/acceptance/part-four/final-v1/desktop-build.log",
+      "launch_error": null
+    },
+    {
+      "name": "desktop-test-build",
+      "command": [
+        "cmd.exe",
+        "/d",
+        "/c",
+        "npm",
+        "run",
+        "build:desktop:test"
+      ],
+      "cwd": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai",
+      "started_at": "2026-10-15T02:41:53.501553+00:00",
+      "ended_at": "2026-10-15T02:41:55.258739+00:00",
+      "exit_code": 0,
+      "log": "docs/acceptance/part-four/final-v1/desktop-test-build.log",
+      "launch_error": null
+    },
+    {
+      "name": "desktop-e2e",
+      "command": [
+        "C:\\Program Files\\nodejs\\node.EXE",
+        "node_modules/@playwright/test/cli.js",
+        "test",
+        "--reporter=json",
+        "--output=C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\part-four\\final-v1\\electron-results"
+      ],
+      "cwd": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai",
+      "started_at": "2026-10-15T02:41:55.259589+00:00",
+      "ended_at": "2026-10-15T02:46:41.806956+00:00",
+      "exit_code": 0,
+      "log": "docs/acceptance/part-four/final-v1/desktop-e2e.log",
+      "launch_error": null
+    }
+  ],
+  "counts": {
+    "pytest": {
+      "total": 1561,
+      "passed": 1533,
+      "failed": 28,
+      "skipped": 0,
+      "invalid": 0
+    },
+    "vitest": {
+      "total": 88,
+      "passed": 88,
+      "failed": 0,
+      "skipped": 0,
+      "invalid": 0
+    },
+    "playwright": {
+      "total": 35,
+      "passed": 35,
+      "failed": 0,
+      "skipped": 0,
+      "invalid": 0
+    }
+  },
+  "report_issues": {
+    "pytest": [
+      "NONPASS_TEST_RESULT",
+      "PYTHON_PROCESS_FAILED"
+    ],
+    "vitest": [],
+    "playwright": []
+  },
+  "coverage": [
+    {
+      "id": "S01",
+      "title": "单实例及服务唯一性",
+      "local_status": "passed",
+      "tests": [
+        {
+          "runner": "playwright",
+          "id": "tests/e2e/host.spec.ts::second launch focuses the existing instance without starting another backend",
+          "status": "passed"
+        }
+      ],
+      "local_scope": "selected_local_mechanical_checks",
+      "full_step_accepted": false,
+      "manual_status": "not_verified",
+      "external_status": "not_verified",
+      "optimization_status": "not_verified",
+      "external_requirements": [
+        "尚未在干净非管理员Windows上验证实际安装包的多进程启动、升级后单实例与崩溃重开。"
+      ]
+    },
+    {
+      "id": "S02",
+      "title": "数据库迁移和工作目录",
+      "local_status": "failed",
+      "tests": [
+        {
+          "runner": "pytest",
+          "id": "tests/storage/test_schema_migration.py::test_old_program_rejects_new_schema_without_writing",
+          "status": "invalid_report"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/storage/test_schema_migration.py::test_v3_backup_upgrade_and_matching_rollback",
+          "status": "invalid_report"
+        }
+      ],
+      "local_scope": "selected_local_mechanical_checks",
+      "full_step_accepted": false,
+      "manual_status": "not_verified",
+      "external_status": "not_verified",
+      "optimization_status": "not_verified",
+      "external_requirements": [
+        "尚未完成真实旧版本数据规模、低磁盘/文件占用迁移及匹配旧程序/schema的跨版本回滚矩阵。"
+      ]
+    },
+    {
+      "id": "S03",
+      "title": "回环认证、启动令牌和renderer隔离",
+      "local_status": "passed",
+      "tests": [
+        {
+          "runner": "playwright",
+          "id": "tests/e2e/host.spec.ts::actual isolated Electron exposes only a business bridge",
+          "status": "passed"
+        },
+        {
+          "runner": "vitest",
+          "id": "tests/desktop/backend.test.ts::startup identity fence does not accept old occupied port or wrong process identity",
+          "status": "passed"
+        }
+      ],
+      "local_scope": "selected_local_mechanical_checks",
+      "full_step_accepted": false,
+      "manual_status": "not_verified",
+      "external_status": "not_verified",
+      "optimization_status": "not_verified",
+      "external_requirements": [
+        "尚未对正式安装包完成独立安全评审、真实凭证存储与完整回环/IPC攻击矩阵。"
+      ]
+    },
+    {
+      "id": "S04",
+      "title": "恢复公开历史，不回放内部消息",
+      "local_status": "failed",
+      "tests": [
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_public_projection.py::test_history_and_sse_share_default_deny[model.delta]",
+          "status": "invalid_report"
+        }
+      ],
+      "local_scope": "selected_local_mechanical_checks",
+      "full_step_accepted": false,
+      "manual_status": "not_verified",
+      "external_status": "not_verified",
+      "optimization_status": "not_verified",
+      "external_requirements": [
+        "尚未验证真实生产历史、全部异常事件和大规模会话恢复；本轮仅消费明确公开投影测试。"
+      ]
+    },
+    {
+      "id": "S05",
+      "title": "恢复既有未终结任务和外部请求",
+      "local_status": "failed",
+      "tests": [
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_conversation_api.py::test_startup_reconciles_existing_external_request_without_model_retry",
+          "status": "invalid_report"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_startup_publication.py::test_restart_finishes_staged_native_publication_without_models",
+          "status": "invalid_report"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_startup_publication.py::test_restart_finishes_staged_claude_answer_without_translation_or_english_leak",
+          "status": "invalid_report"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_startup_publication.py::test_restart_atomically_finishes_staged_file_bundle[False]",
+          "status": "invalid_report"
+        }
+      ],
+      "local_scope": "selected_local_mechanical_checks",
+      "full_step_accepted": false,
+      "manual_status": "not_verified",
+      "external_status": "not_verified",
+      "optimization_status": "not_verified",
+      "external_requirements": [
+        "尚未取得真实Claude/GPT进程崩溃后从READY回答及三格式文件组恢复的供应商和GUI连续证据。"
+      ]
+    },
+    {
+      "id": "S06",
+      "title": "未知远端状态禁止重复提交",
+      "local_status": "failed",
+      "tests": [
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_recovery.py::test_unknown_remote_with_expired_lease_is_blocked_and_not_retried_after_restart",
+          "status": "invalid_report"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_startup_publication.py::test_restart_never_publishes_damaged_or_cancelled_staged_release[cancelled]",
+          "status": "invalid_report"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_startup_publication.py::test_restart_never_publishes_damaged_or_cancelled_staged_release[unconfirmed_remote]",
+          "status": "invalid_report"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_startup_publication.py::test_restart_never_publishes_damaged_or_cancelled_staged_release[bytes_changed]",
+          "status": "invalid_report"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_startup_publication.py::test_restart_never_publishes_damaged_or_cancelled_staged_release[proof_changed]",
+          "status": "invalid_report"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_startup_publication.py::test_restart_never_publishes_damaged_or_cancelled_staged_release[foreign_owner]",
+          "status": "invalid_report"
+        }
+      ],
+      "local_scope": "selected_local_mechanical_checks",
+      "full_step_accepted": false,
+      "manual_status": "not_verified",
+      "external_status": "not_verified",
+      "optimization_status": "not_verified",
+      "external_requirements": [
+        "尚未取得真实供应商查询中、网络断开、远端结果未知及全部崩溃断点的恢复/不重发证据。"
+      ]
+    },
+    {
+      "id": "S07",
+      "title": "历史和草稿恢复，不重复用户消息",
+      "local_status": "failed",
+      "tests": [
+        {
+          "runner": "playwright",
+          "id": "tests/e2e/composer-history.spec.ts::IME enter does not submit, approved history survives reload and drafts remain per conversation",
+          "status": "passed"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_startup_publication.py::test_restart_finishes_staged_native_publication_without_models",
+          "status": "invalid_report"
+        }
+      ],
+      "local_scope": "selected_local_mechanical_checks",
+      "full_step_accepted": false,
+      "manual_status": "not_verified",
+      "external_status": "not_verified",
+      "optimization_status": "not_verified",
+      "external_requirements": [
+        "尚未完成真实Windows IME、人工关闭/重启客户端和真实长任务恢复的完整操作录像。"
+      ]
+    },
+    {
+      "id": "S08",
+      "title": "未核验连接不可执行",
+      "local_status": "failed",
+      "tests": [
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_conversation_api.py::test_unverified_connection_not_executable",
+          "status": "invalid_report"
+        },
+        {
+          "runner": "playwright",
+          "id": "tests/e2e/connections.spec.ts::connection page keeps demonstrations distinct from verified real identities",
+          "status": "passed"
+        }
+      ],
+      "local_scope": "selected_local_mechanical_checks",
+      "full_step_accepted": false,
+      "manual_status": "not_verified",
+      "external_status": "not_verified",
+      "optimization_status": "not_verified",
+      "external_requirements": [
+        "当前生产连接无完整身份/生命周期资格；Claude、GPT与GLM的实际能力检测仍待核验。"
+      ]
+    },
+    {
+      "id": "S09",
+      "title": "中文输入和附件接收",
+      "local_status": "passed",
+      "tests": [
+        {
+          "runner": "playwright",
+          "id": "tests/e2e/composer-history.spec.ts::only a native selected attachment is imported and the complete material reaches the task",
+          "status": "passed"
+        }
+      ],
+      "local_scope": "selected_local_mechanical_checks",
+      "full_step_accepted": false,
+      "manual_status": "not_verified",
+      "external_status": "not_verified",
+      "optimization_status": "not_verified",
+      "external_requirements": [
+        "尚未完成真实Windows输入法、扫描件/OCR、全部受限文档类型和真实任务附件接收验收。"
+      ]
+    },
+    {
+      "id": "S10",
+      "title": "提交稳定标识及幂等",
+      "local_status": "failed",
+      "tests": [
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_conversation_api.py::test_idempotent_turn_and_conflicting_key",
+          "status": "invalid_report"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_conversation_api.py::test_concurrent_idempotency",
+          "status": "invalid_report"
+        }
+      ],
+      "local_scope": "selected_local_mechanical_checks",
+      "full_step_accepted": false,
+      "manual_status": "not_verified",
+      "external_status": "not_verified",
+      "optimization_status": "not_verified",
+      "external_requirements": [
+        "尚未完成真实远端接收前后断线、客户端重复发送和服务重启的全断点并发矩阵。"
+      ]
+    },
+    {
+      "id": "S11",
+      "title": "原话及附件原件持久化",
+      "local_status": "failed",
+      "tests": [
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_attachment_api.py::test_upload_references_are_scoped_and_bytes_are_immutable",
+          "status": "invalid_report"
+        }
+      ],
+      "local_scope": "selected_local_mechanical_checks",
+      "full_step_accepted": false,
+      "manual_status": "not_verified",
+      "external_status": "not_verified",
+      "optimization_status": "not_verified",
+      "external_requirements": [
+        "尚未完成磁盘不足、文件占用、进程突然终止下的原件/附件落盘及收执一致性矩阵。"
+      ]
+    },
+    {
+      "id": "S12",
+      "title": "模型身份和冻结路由",
+      "local_status": "failed",
+      "tests": [
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_route_snapshot.py::test_route_snapshot_is_persisted_immutable_and_identity_change_pauses",
+          "status": "invalid_report"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_agent_workflow.py::test_a_family_mismatch_blocks_before_wrong_model_receives_prompt",
+          "status": "invalid_report"
+        }
+      ],
+      "local_scope": "selected_local_mechanical_checks",
+      "full_step_accepted": false,
+      "manual_status": "not_verified",
+      "external_status": "not_verified",
+      "optimization_status": "not_verified",
+      "external_requirements": [
+        "Claude实际身份及GPT当前生命周期资格未验收；真实身份中途变化的接管矩阵仍开放。"
+      ]
+    },
+    {
+      "id": "S13",
+      "title": "材料解析和OCR歧义阻断",
+      "local_status": "failed",
+      "tests": [
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_input_translation.py::test_critical_ocr_ambiguity_and_unsupported_pdf_never_prepare_a_context",
+          "status": "invalid_report"
+        }
+      ],
+      "local_scope": "selected_local_mechanical_checks",
+      "full_step_accepted": false,
+      "manual_status": "not_verified",
+      "external_status": "not_verified",
+      "optimization_status": "not_verified",
+      "external_requirements": [
+        "扫描/OCR、跨栏PDF、复杂DOCX及歧义原图核对仍有限制，缺人工内容完整性裁决。"
+      ]
+    },
+    {
+      "id": "S14",
+      "title": "完整中英输入翻译和保护片段",
+      "local_status": "failed",
+      "tests": [
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_input_translation.py::test_scoped_markdown_material_uses_runtime_gateway_and_keeps_original",
+          "status": "invalid_report"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_context_gateway.py::test_protected_code_and_formula_bytes_remain_exact",
+          "status": "invalid_report"
+        }
+      ],
+      "local_scope": "selected_local_mechanical_checks",
+      "full_step_accepted": false,
+      "manual_status": "not_verified",
+      "external_status": "not_verified",
+      "optimization_status": "not_verified",
+      "external_requirements": [
+        "尚未取得实际GLM对独立中文任务及全部材料的双向完整翻译记录和双语人工裁决。"
+      ]
+    },
+    {
+      "id": "S15",
+      "title": "翻译覆盖、语义检查和有界候选",
+      "local_status": "failed",
+      "tests": [
+        {
+          "runner": "pytest",
+          "id": "tests/translation/test_quality_cache.py::test_omitted_block_and_known_semantic_error_fail_after_three_candidates",
+          "status": "invalid_report"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_input_translation.py::test_input_coverage_failure_returns_no_a_request_text",
+          "status": "invalid_report"
+        }
+      ],
+      "local_scope": "selected_local_mechanical_checks",
+      "full_step_accepted": false,
+      "manual_status": "not_verified",
+      "external_status": "not_verified",
+      "optimization_status": "not_verified",
+      "external_requirements": [
+        "尚无两名双语评审审核的独立holdout及真实限流/语义错误修复矩阵，不能证明通用忠实度。"
+      ]
+    },
+    {
+      "id": "S16",
+      "title": "冻结受信英文上下文",
+      "local_status": "failed",
+      "tests": [
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_context_gateway.py::test_claude_receives_only_registered_checked_view",
+          "status": "invalid_report"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_context_gateway.py::test_gateway_takes_immutable_record_snapshot",
+          "status": "invalid_report"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_agent_workflow.py::test_claude_review_receives_verified_english_observations_with_original_proof_binding",
+          "status": "invalid_report"
+        }
+      ],
+      "local_scope": "selected_local_mechanical_checks",
+      "full_step_accepted": false,
+      "manual_status": "not_verified",
+      "external_status": "not_verified",
+      "optimization_status": "not_verified",
+      "external_requirements": [
+        "尚未用真实Claude读取全部必要证据并由领域评审确认上下文足以支持决定。"
+      ]
+    },
+    {
+      "id": "S17",
+      "title": "A规划持久化并计量",
+      "local_status": "failed",
+      "tests": [
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_native_planning.py::test_actual_fixture_a_planning_is_durable_and_metered",
+          "status": "invalid_report"
+        }
+      ],
+      "local_scope": "selected_local_mechanical_checks",
+      "full_step_accepted": false,
+      "manual_status": "not_verified",
+      "external_status": "not_verified",
+      "optimization_status": "not_verified",
+      "external_requirements": [
+        "尚未取得真实A规划、合同完整性和领域决策质量相对独立A基线的评审记录。"
+      ]
+    },
+    {
+      "id": "S18",
+      "title": "持久任务书和调度交接",
+      "local_status": "failed",
+      "tests": [
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_prepared_workflow.py::test_planning_lease_is_transferred_once_without_resetting_task",
+          "status": "invalid_report"
+        }
+      ],
+      "local_scope": "selected_local_mechanical_checks",
+      "full_step_accepted": false,
+      "manual_status": "not_verified",
+      "external_status": "not_verified",
+      "optimization_status": "not_verified",
+      "external_requirements": [
+        "尚未完成真实供应商长任务、进程崩溃和多轮合同变更下的持久调度矩阵。"
+      ]
+    },
+    {
+      "id": "S19",
+      "title": "B执行范围与保守生产路由边界",
+      "local_status": "failed",
+      "tests": [
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_agent_workflow.py::test_candidates_checks_and_a_review_are_real_persisted_bound_bytes",
+          "status": "invalid_report"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/quality/test_conservative_native_route.py::test_unqualified_route_has_a_generate_candidate_and_no_b_execution",
+          "status": "invalid_report"
+        }
+      ],
+      "local_scope": "selected_local_mechanical_checks",
+      "full_step_accepted": false,
+      "manual_status": "not_verified",
+      "external_status": "not_verified",
+      "optimization_status": "not_verified",
+      "external_requirements": [
+        "生产保守路由仍由A生成候选；真实ZCode/GLM执行及质量/token资格未核验，fixture B路径不代表生产已启用。"
+      ]
+    },
+    {
+      "id": "S20",
+      "title": "固定成果版本的机械检查",
+      "local_status": "failed",
+      "tests": [
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_agent_workflow.py::test_failed_mechanical_check_cannot_be_overruled_by_unbound_a_pass",
+          "status": "invalid_report"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_agent_workflow.py::test_a_review_receives_actual_hash_bound_mechanical_observations",
+          "status": "invalid_report"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_agent_workflow.py::test_invalid_mechanical_proof_blocks_before_a_review[missing]",
+          "status": "invalid_report"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_agent_workflow.py::test_invalid_mechanical_proof_blocks_before_a_review[changed]",
+          "status": "invalid_report"
+        }
+      ],
+      "local_scope": "selected_local_mechanical_checks",
+      "full_step_accepted": false,
+      "manual_status": "not_verified",
+      "external_status": "not_verified",
+      "optimization_status": "not_verified",
+      "external_requirements": [
+        "尚未取得真实外部代码执行端口资格及完整成果/工具矩阵；固定本地程序不能代表任意模型代码安全执行。"
+      ]
+    },
+    {
+      "id": "S21",
+      "title": "定点修复和新版本检查",
+      "local_status": "failed",
+      "tests": [
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_agent_workflow.py::test_targeted_repair_creates_new_version_and_revalidates",
+          "status": "invalid_report"
+        }
+      ],
+      "local_scope": "selected_local_mechanical_checks",
+      "full_step_accepted": false,
+      "manual_status": "not_verified",
+      "external_status": "not_verified",
+      "optimization_status": "not_verified",
+      "external_requirements": [
+        "尚未由领域评审核对真实B返修的准确性、修改范围和全部依赖的复验充分性。"
+      ]
+    },
+    {
+      "id": "S22",
+      "title": "重复缺陷升级A",
+      "local_status": "failed",
+      "tests": [
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_agent_workflow.py::test_same_defect_in_changed_report_escalates_to_a_with_real_lease_handoff",
+          "status": "invalid_report"
+        }
+      ],
+      "local_scope": "selected_local_mechanical_checks",
+      "full_step_accepted": false,
+      "manual_status": "not_verified",
+      "external_status": "not_verified",
+      "optimization_status": "not_verified",
+      "external_requirements": [
+        "尚未完成真实A关键指导对方法/架构/结论分歧的独立质量评审和限额触发矩阵。"
+      ]
+    },
+    {
+      "id": "S23",
+      "title": "成果、证据和版本绑定交接",
+      "local_status": "failed",
+      "tests": [
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_agent_workflow.py::test_reported_old_revision_cannot_be_rebound_into_a_approval",
+          "status": "invalid_report"
+        }
+      ],
+      "local_scope": "selected_local_mechanical_checks",
+      "full_step_accepted": false,
+      "manual_status": "not_verified",
+      "external_status": "not_verified",
+      "optimization_status": "not_verified",
+      "external_requirements": [
+        "尚未对真实供应商的跨产物需求映射、已知缺口和交接版本进行完整人工核验。"
+      ]
+    },
+    {
+      "id": "S24",
+      "title": "A验收和缺证据停止",
+      "local_status": "failed",
+      "tests": [
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_agent_workflow.py::test_failed_mechanical_check_cannot_be_overruled_by_unbound_a_pass",
+          "status": "invalid_report"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_clarification_translation.py::test_actual_a_review_clarification_is_completely_translated_and_public",
+          "status": "invalid_report"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_agent_workflow.py::test_a_review_receives_actual_hash_bound_mechanical_observations",
+          "status": "invalid_report"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_agent_workflow.py::test_claude_review_receives_verified_english_observations_with_original_proof_binding",
+          "status": "invalid_report"
+        }
+      ],
+      "local_scope": "selected_local_mechanical_checks",
+      "full_step_accepted": false,
+      "manual_status": "not_verified",
+      "external_status": "not_verified",
+      "optimization_status": "not_verified",
+      "external_requirements": [
+        "尚未取得真实A读取实际全部必要成果/证据的记录及独立领域验收，模型自评不替代。"
+      ]
+    },
+    {
+      "id": "S25",
+      "title": "完整A定稿，拒绝B加PASS冒充",
+      "local_status": "failed",
+      "tests": [
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_native_publication.py::test_required_a_canonical_cannot_be_satisfied_by_b_blob_and_a_pass",
+          "status": "invalid_report"
+        }
+      ],
+      "local_scope": "selected_local_mechanical_checks",
+      "full_step_accepted": false,
+      "manual_status": "not_verified",
+      "external_status": "not_verified",
+      "optimization_status": "not_verified",
+      "external_requirements": [
+        "尚未取得真实A生成完整最终英文正文和截断/分段输出的全范围供应商证据。"
+      ]
+    },
+    {
+      "id": "S26",
+      "title": "不可变A原件、生成证据及hash",
+      "local_status": "failed",
+      "tests": [
+        {
+          "runner": "pytest",
+          "id": "tests/artifacts/test_canonical_provenance.py::test_capture_keeps_raw_stream_body_hash_and_immutable_provenance",
+          "status": "invalid_report"
+        }
+      ],
+      "local_scope": "selected_local_mechanical_checks",
+      "full_step_accepted": false,
+      "manual_status": "not_verified",
+      "external_status": "not_verified",
+      "optimization_status": "not_verified",
+      "external_requirements": [
+        "尚未核验真实CLI/API的原始响应、事件、产物来源闭包和全部断点下的不可变捕获。"
+      ]
+    },
+    {
+      "id": "S27",
+      "title": "完整中文文档逐块生成",
+      "local_status": "failed",
+      "tests": [
+        {
+          "runner": "pytest",
+          "id": "tests/artifacts/test_bilingual_generation.py::test_every_translatable_block_uses_real_translation_jobs_and_qa[claude]",
+          "status": "invalid_report"
+        }
+      ],
+      "local_scope": "selected_local_mechanical_checks",
+      "full_step_accepted": false,
+      "manual_status": "not_verified",
+      "external_status": "not_verified",
+      "optimization_status": "not_verified",
+      "external_requirements": [
+        "尚无真实GLM对A完整正文及复杂文档的翻译、人评和术语冲突裁决。"
+      ]
+    },
+    {
+      "id": "S28",
+      "title": "中译失败不公开英文兜底",
+      "local_status": "failed",
+      "tests": [
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_output_translation.py::test_three_failed_output_candidates_keep_english_internal_without_success",
+          "status": "invalid_report"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_output_translation.py::test_cancelled_task_cannot_publish_late_translation",
+          "status": "invalid_report"
+        }
+      ],
+      "local_scope": "selected_local_mechanical_checks",
+      "full_step_accepted": false,
+      "manual_status": "not_verified",
+      "external_status": "not_verified",
+      "optimization_status": "not_verified",
+      "external_requirements": [
+        "尚无独立双语holdout、人审及真实中译失败/重试/断线后的完整发布阻断记录。"
+      ]
+    },
+    {
+      "id": "S29",
+      "title": "三格式两语言实际文件和预览",
+      "local_status": "failed",
+      "tests": [
+        {
+          "runner": "playwright",
+          "id": "tests/e2e/artifact-files.spec.ts::product bundles preview and save three exact bilingual format pairs",
+          "status": "passed"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/artifacts/test_render_layout.py::test_private_hidden_word_actually_renders_chinese_docx_pages",
+          "status": "invalid_report"
+        }
+      ],
+      "local_scope": "selected_local_mechanical_checks",
+      "full_step_accepted": false,
+      "manual_status": "not_verified",
+      "external_status": "not_verified",
+      "optimization_status": "not_verified",
+      "external_requirements": [
+        "尚未覆盖跨机器字体/Office可用性、复杂表/公式/脚注、多页布局和全部人工视觉核验。"
+      ]
+    },
+    {
+      "id": "S30",
+      "title": "同版本批准下原子发布",
+      "local_status": "failed",
+      "tests": [
+        {
+          "runner": "pytest",
+          "id": "tests/artifacts/test_atomic_publication.py::test_real_pair_bytes_and_answer_publish_once_in_one_transaction[claude]",
+          "status": "invalid_report"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/artifacts/test_atomic_publication.py::test_half_v2_render_and_transaction_failure_leave_only_complete_v1_visible[claude]",
+          "status": "invalid_report"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_startup_publication.py::test_restart_atomically_finishes_staged_file_bundle[True]",
+          "status": "invalid_report"
+        }
+      ],
+      "local_scope": "selected_local_mechanical_checks",
+      "full_step_accepted": false,
+      "manual_status": "not_verified",
+      "external_status": "not_verified",
+      "optimization_status": "not_verified",
+      "external_requirements": [
+        "尚未完成真实三格式双语组、低磁盘/文件占用及全部提交崩溃断点的连续GUI发布矩阵。"
+      ]
+    },
+    {
+      "id": "S31",
+      "title": "公开答案与文件，后台增量不泄漏",
+      "local_status": "passed",
+      "tests": [
+        {
+          "runner": "playwright",
+          "id": "tests/e2e/chat-publication.spec.ts::internal canaries never cross the public IPC boundary or briefly appear",
+          "status": "passed"
+        }
+      ],
+      "local_scope": "selected_local_mechanical_checks",
+      "full_step_accepted": false,
+      "manual_status": "not_verified",
+      "external_status": "not_verified",
+      "optimization_status": "not_verified",
+      "external_requirements": [
+        "尚未在真实提供方运行、断线重连及全部错误回放下完成人工瞬时泄漏/文件辨认验收。"
+      ]
+    },
+    {
+      "id": "S32",
+      "title": "全部请求用量归一化，未知不记零",
+      "local_status": "failed",
+      "tests": [
+        {
+          "runner": "pytest",
+          "id": "tests/usage/test_ledger_reconciliation.py::test_duplicate_and_cumulative_samples_use_actual_ledger",
+          "status": "invalid_report"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/usage/test_ledger_reconciliation.py::test_missing_usage_is_unknown_and_estimates_are_separate",
+          "status": "invalid_report"
+        }
+      ],
+      "local_scope": "selected_local_mechanical_checks",
+      "full_step_accepted": false,
+      "manual_status": "not_verified",
+      "external_status": "not_verified",
+      "optimization_status": "not_verified",
+      "external_requirements": [
+        "尚无真实提供方逐请求账单核对、失败/返修完整计量及未知值人工口径审核。"
+      ]
+    },
+    {
+      "id": "S33",
+      "title": "GPT输入、材料和配置持久化",
+      "local_status": "failed",
+      "tests": [
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_native_planning.py::test_api_request_domain_is_durable_and_idempotent",
+          "status": "invalid_report"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_input_translation.py::test_native_material_is_kept_in_full_input_scope_without_translation",
+          "status": "invalid_report"
+        }
+      ],
+      "local_scope": "selected_local_mechanical_checks",
+      "full_step_accepted": false,
+      "manual_status": "not_verified",
+      "external_status": "not_verified",
+      "optimization_status": "not_verified",
+      "external_requirements": [
+        "尚未取得实际GPT连接身份及真实附件/配置提交、崩溃恢复的连续记录。"
+      ]
+    },
+    {
+      "id": "S34",
+      "title": "GPT身份核验和native路由冻结",
+      "local_status": "failed",
+      "tests": [
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_route_snapshot.py::test_restart_reads_same_route_snapshot_bytes",
+          "status": "invalid_report"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_agent_workflow.py::test_a_family_mismatch_blocks_before_wrong_model_receives_prompt",
+          "status": "invalid_report"
+        }
+      ],
+      "local_scope": "selected_local_mechanical_checks",
+      "full_step_accepted": false,
+      "manual_status": "not_verified",
+      "external_status": "not_verified",
+      "optimization_status": "not_verified",
+      "external_requirements": [
+        "实际GPT当前连接与生命周期资格仍开放，不能由fake-gpt快照授予真实可执行身份。"
+      ]
+    },
+    {
+      "id": "S35",
+      "title": "GPT原语言需求不强制翻译",
+      "local_status": "failed",
+      "tests": [
+        {
+          "runner": "pytest",
+          "id": "tests/translation/test_quality_cache.py::test_direct_gpt_never_constructs_forced_translation_job",
+          "status": "invalid_report"
+        }
+      ],
+      "local_scope": "selected_local_mechanical_checks",
+      "full_step_accepted": false,
+      "manual_status": "not_verified",
+      "external_status": "not_verified",
+      "optimization_status": "not_verified",
+      "external_requirements": [
+        "尚未在实际GPT请求审计中证明普通对话零强制翻译，并区分用户显式翻译任务。"
+      ]
+    },
+    {
+      "id": "S36",
+      "title": "GPT规划与必要指导",
+      "local_status": "failed",
+      "tests": [
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_native_planning.py::test_actual_fixture_a_planning_is_durable_and_metered",
+          "status": "invalid_report"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_agent_workflow.py::test_same_defect_in_changed_report_escalates_to_a_with_real_lease_handoff",
+          "status": "invalid_report"
+        }
+      ],
+      "local_scope": "selected_local_mechanical_checks",
+      "full_step_accepted": false,
+      "manual_status": "not_verified",
+      "external_status": "not_verified",
+      "optimization_status": "not_verified",
+      "external_requirements": [
+        "尚无实际GPT规划和关键指导的领域质量评审与完整请求计量。"
+      ]
+    },
+    {
+      "id": "S37",
+      "title": "GPT执行、检查和修复",
+      "local_status": "failed",
+      "tests": [
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_agent_workflow.py::test_targeted_repair_creates_new_version_and_revalidates",
+          "status": "invalid_report"
+        }
+      ],
+      "local_scope": "selected_local_mechanical_checks",
+      "full_step_accepted": false,
+      "manual_status": "not_verified",
+      "external_status": "not_verified",
+      "optimization_status": "not_verified",
+      "external_requirements": [
+        "尚无真实ZCode/GLM在GPT任务中的执行、机械复验与返修闭环资格。"
+      ]
+    },
+    {
+      "id": "S38",
+      "title": "GPT原语言验收及最终回答",
+      "local_status": "failed",
+      "tests": [
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_native_publication.py::test_native_release_reads_approved_bytes_and_is_idempotent",
+          "status": "invalid_report"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_clarification_translation.py::test_gpt_english_planning_question_is_native_and_calls_translator_zero",
+          "status": "invalid_report"
+        }
+      ],
+      "local_scope": "selected_local_mechanical_checks",
+      "full_step_accepted": false,
+      "manual_status": "not_verified",
+      "external_status": "not_verified",
+      "optimization_status": "not_verified",
+      "external_requirements": [
+        "尚未对实际GPT原语言最终回答、全文验收覆盖和关键结论完成人工领域裁决。"
+      ]
+    },
+    {
+      "id": "S39",
+      "title": "GPT单语言文件与回答发布",
+      "local_status": "failed",
+      "tests": [
+        {
+          "runner": "pytest",
+          "id": "tests/artifacts/test_native_bundle_gate.py::test_gpt_bundle_and_answer_share_original_native_gates_and_no_translator",
+          "status": "invalid_report"
+        }
+      ],
+      "local_scope": "selected_local_mechanical_checks",
+      "full_step_accepted": false,
+      "manual_status": "not_verified",
+      "external_status": "not_verified",
+      "optimization_status": "not_verified",
+      "external_requirements": [
+        "尚未完成实际GPT三格式单语言文件、完整性、GUI预览保存及恢复矩阵。"
+      ]
+    },
+    {
+      "id": "S40",
+      "title": "GPT强制译者调用数为零并保留用量",
+      "local_status": "failed",
+      "tests": [
+        {
+          "runner": "pytest",
+          "id": "tests/artifacts/test_bilingual_generation.py::test_gpt_without_explicit_bilingual_request_calls_no_translator",
+          "status": "invalid_report"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/translation/test_quality_cache.py::test_direct_gpt_never_constructs_forced_translation_job",
+          "status": "invalid_report"
+        }
+      ],
+      "local_scope": "selected_local_mechanical_checks",
+      "full_step_accepted": false,
+      "manual_status": "not_verified",
+      "external_status": "not_verified",
+      "optimization_status": "not_verified",
+      "external_requirements": [
+        "尚无实际GPT逐请求译者计数/调用审计及真实账单对账；显式翻译任务需另行验收。"
+      ]
+    },
+    {
+      "id": "SEC05",
+      "title": "追问、纠正、模型切换和旧批准失效",
+      "local_status": "failed",
+      "tests": [
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_input_translation.py::test_two_round_history_preserves_first_prohibition_without_backtranslation",
+          "status": "invalid_report"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_input_translation.py::test_switch_from_gpt_to_claude_builds_english_history_from_original_chinese",
+          "status": "invalid_report"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_document_invalidation.py::test_upstream_change_invalidates_chart_report_translation_render_and_approval_but_preserves_published_history[claude]",
+          "status": "invalid_report"
+        }
+      ],
+      "local_scope": "selected_local_mechanical_checks",
+      "full_step_accepted": false,
+      "manual_status": "not_verified",
+      "external_status": "not_verified",
+      "optimization_status": "not_verified",
+      "external_requirements": [
+        "尚未覆盖真实运行中的接管、Claude/GPT双向切换、复杂追问和全部旧批准失效矩阵。"
+      ]
+    },
+    {
+      "id": "SEC06",
+      "title": "Markdown、DOCX、PDF制作和完整配对",
+      "local_status": "failed",
+      "tests": [
+        {
+          "runner": "playwright",
+          "id": "tests/e2e/artifact-files.spec.ts::product bundles preview and save three exact bilingual format pairs",
+          "status": "passed"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/artifacts/test_render_layout.py::test_markdown_roundtrip_keeps_ast_structure_and_unsafe_resources_block",
+          "status": "invalid_report"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/artifacts/test_render_layout.py::test_pdf_preserves_source_citation_link_as_actual_annotation",
+          "status": "invalid_report"
+        }
+      ],
+      "local_scope": "selected_local_mechanical_checks",
+      "full_step_accepted": false,
+      "manual_status": "not_verified",
+      "external_status": "not_verified",
+      "optimization_status": "not_verified",
+      "external_requirements": [
+        "复杂Markdown数学/脚注/列表、DOCX公式/修订/复杂表、扫描/OCR PDF及跨机器渲染仍受限并待人工核验。"
+      ]
+    },
+    {
+      "id": "SEC07",
+      "title": "四类业务任务的输入与语义验收门槛",
+      "local_status": "failed",
+      "tests": [
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_task_profiles.py::test_profile_semantic_review_cannot_be_replaced_by_a_build",
+          "status": "invalid_report"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_task_profiles.py::test_requested_profile_missing_inputs_stops_before_planning",
+          "status": "invalid_report"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_native_composite_submission.py::test_normal_api_composite_submission_recomputes_two_versions_and_downloads_extras",
+          "status": "invalid_report"
+        }
+      ],
+      "local_scope": "selected_local_mechanical_checks",
+      "full_step_accepted": false,
+      "manual_status": "not_verified",
+      "external_status": "not_verified",
+      "optimization_status": "not_verified",
+      "external_requirements": [
+        "尚未完成四域真实用户旅程及独立领域人评；引用结构、AST及fixture不能证明研究结论和实际代码质量。"
+      ]
+    },
+    {
+      "id": "SEC08",
+      "title": "综合数据、代码、图表、报告两版本演练",
+      "local_status": "failed",
+      "tests": [
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_composite_workflow.py::test_csv_code_chart_a_canonical_translation_files_and_reply_have_two_real_recomputed_versions[claude]",
+          "status": "invalid_report"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_native_composite_submission.py::test_normal_api_composite_stale_conclusion_is_rejected_before_publication",
+          "status": "invalid_report"
+        }
+      ],
+      "local_scope": "selected_local_mechanical_checks",
+      "full_step_accepted": false,
+      "manual_status": "not_verified",
+      "external_status": "not_verified",
+      "optimization_status": "not_verified",
+      "external_requirements": [
+        "本轮固定CSV两版本仅证明本地依赖和计算机制；真实四域材料、可复现完整双语PDF/DOCX包及第三方复现仍待验收。"
+      ]
+    },
+    {
+      "id": "SEC09",
+      "title": "异常、取消和未知状态恢复",
+      "local_status": "failed",
+      "tests": [
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_recovery.py::test_unknown_remote_with_expired_lease_is_blocked_and_not_retried_after_restart",
+          "status": "invalid_report"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_agent_workflow.py::test_b_completion_without_candidate_never_passes",
+          "status": "invalid_report"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_output_translation.py::test_three_failed_output_candidates_keep_english_internal_without_success",
+          "status": "invalid_report"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/reliability/test_fault_matrix.py::test_cancel_then_thousand_late_successes_never_publish",
+          "status": "invalid_report"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_native_supervisor.py::test_cancel_ends_unresponsive_local_wait_and_allows_next_task_without_remote_restart[returned]",
+          "status": "invalid_report"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_native_supervisor.py::test_cancel_ends_unresponsive_local_wait_and_allows_next_task_without_remote_restart[failed]",
+          "status": "invalid_report"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_native_supervisor.py::test_shutdown_interrupts_local_wait_without_requeueing_the_claim",
+          "status": "invalid_report"
+        },
+        {
+          "runner": "vitest",
+          "id": "tests/desktop/backend.test.ts::managed process lifecycle terminates the owned process even when the recovery journal cannot be written",
+          "status": "passed"
+        }
+      ],
+      "local_scope": "selected_local_mechanical_checks",
+      "full_step_accepted": false,
+      "manual_status": "not_verified",
+      "external_status": "not_verified",
+      "optimization_status": "not_verified",
+      "external_requirements": [
+        "尚未完成真实限流、低磁盘、文件占用、全部崩溃断点、远端停止及客户端关闭策略矩阵；本轮只覆盖列出的局部故障。"
+      ]
+    },
+    {
+      "id": "SEC10",
+      "title": "发布前版本、原件、取消、字节和公开边界检查",
+      "local_status": "failed",
+      "tests": [
+        {
+          "runner": "pytest",
+          "id": "tests/artifacts/test_atomic_publication.py::test_cancelled_missing_format_old_source_and_corrupt_blob_are_not_deliverable[claude]",
+          "status": "invalid_report"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_native_publication.py::test_changed_evidence_after_stage_blocks_publish",
+          "status": "invalid_report"
+        },
+        {
+          "runner": "playwright",
+          "id": "tests/e2e/chat-publication.spec.ts::internal canaries never cross the public IPC boundary or briefly appear",
+          "status": "passed"
+        }
+      ],
+      "local_scope": "selected_local_mechanical_checks",
+      "full_step_accepted": false,
+      "manual_status": "not_verified",
+      "external_status": "not_verified",
+      "optimization_status": "not_verified",
+      "external_requirements": [
+        "尚未导入绑定正式候选及真实身份/人评的全发布证据，10项SOP核对不能由所选本地负例自动全部授予终验资格。"
+      ]
+    },
+    {
+      "id": "SEC11",
+      "title": "A上下文、缓存和用量规则，优化资格分离",
+      "local_status": "failed",
+      "tests": [
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_context_gateway.py::test_claude_receives_only_registered_checked_view",
+          "status": "invalid_report"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/translation/test_quality_cache.py::test_cache_context_glossary_model_and_source_are_part_of_key",
+          "status": "invalid_report"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/translation/test_quality_cache.py::test_translation_and_checker_tokens_both_remain_in_usage",
+          "status": "invalid_report"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/quality/test_conservative_native_route.py::test_unqualified_route_has_a_generate_candidate_and_no_b_execution",
+          "status": "invalid_report"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_agent_workflow.py::test_a_review_receives_actual_hash_bound_mechanical_observations",
+          "status": "invalid_report"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_agent_workflow.py::test_claude_review_receives_verified_english_observations_with_original_proof_binding",
+          "status": "invalid_report"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/contracts/test_phase_prompt.py::test_review_prompt_carries_original_source_and_mechanical_evidence_without_granting_pass",
+          "status": "invalid_report"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/contracts/test_phase_prompt.py::test_native_text_bridge_explicitly_rejects_unimplemented_claude_route",
+          "status": "invalid_report"
+        }
+      ],
+      "local_scope": "selected_local_mechanical_checks",
+      "full_step_accepted": false,
+      "manual_status": "not_verified",
+      "external_status": "not_verified",
+      "optimization_status": "not_verified",
+      "external_requirements": [
+        "尚无独立试点/holdout、正式统计冻结、真实A/B逐请求用量及配对质量评审，不能报告质量等效或节省率。"
+      ]
+    },
+    {
+      "id": "SEC12",
+      "title": "返修交接、复算、失效和最终同版本发布",
+      "local_status": "failed",
+      "tests": [
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_agent_workflow.py::test_targeted_repair_creates_new_version_and_revalidates",
+          "status": "invalid_report"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_agent_workflow.py::test_same_defect_in_changed_report_escalates_to_a_with_real_lease_handoff",
+          "status": "invalid_report"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_composite_workflow.py::test_old_report_conclusion_cannot_be_overruled_by_fixture_a_pass[claude]",
+          "status": "invalid_report"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/artifacts/test_atomic_publication.py::test_real_pair_bytes_and_answer_publish_once_in_one_transaction[claude]",
+          "status": "invalid_report"
+        }
+      ],
+      "local_scope": "selected_local_mechanical_checks",
+      "full_step_accepted": false,
+      "manual_status": "not_verified",
+      "external_status": "not_verified",
+      "optimization_status": "not_verified",
+      "external_requirements": [
+        "所选测试分别验证返修、原件、依赖失效和发布机制，尚非同一真实提供方从I-007修复到v3完整双语文件的一次连续演练。"
+      ]
+    }
+  ],
+  "mapping_valid": true,
+  "coverage_scope": "Selected local mechanical checks only, using fixture providers and real product APIs/storage/rendering/Electron as mapped. A local passed row is not full acceptance of that SOP step or section; external/manual requirements stay open.",
+  "all_executed_checks_passed": false,
+  "evidence_manifest_scope": "Command logs/reports, source/map/SOP snapshots and Electron results. Raw pytest DB/proof/artifact files under pytest-temp are retained but excluded from the sealed manifest; this is not an independently hashed archive of every workflow artifact.",
+  "raw_pytest_artifacts": {
+    "path": "docs/acceptance/part-four/final-v1/pytest-temp",
+    "exists": true,
+    "included_in_manifest": false
+  },
+  "local_sop_passed": false,
+  "full_sop_accepted": false,
+  "functional_release": false,
+  "real_provider_accepted": false,
+  "manual_acceptance": false,
+  "optimization_goal_met": false,
+  "note": "Only exact tests executed once without skip/retry in this new run count as local coverage. Real providers, human reviews and optimization remain unverified. Partial lane selection cannot pass the complete SOP."
+}

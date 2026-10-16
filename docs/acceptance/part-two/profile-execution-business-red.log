@@ -1,0 +1,52 @@
+FFF                                                                      [100%]
+================================== FAILURES ===================================
+___ test_frozen_document_profile_has_real_source_and_complete_format_checks ___
+
+client = <starlette.testclient.TestClient object at 0x0000020798D42CF0>
+
+    def test_frozen_document_profile_has_real_source_and_complete_format_checks(client):
+        candidate,_=case(client,'document',DOC)
+        results=NativeRegistryValidator(client.app.state.database.path)(candidate)
+>       assert len(results)==2 and all(r['passed'] for r in results)
+E       AssertionError: assert (2 == 2 and False)
+E        +  where 2 = len([{'criterion_id': 'document.C1', 'passed': False, 'evidence': {'status': 'not_verified', 'reason_code': 'MECHANICAL_ME...0eee8b7de504c3bb4e6c7846742efa096d294f87afe53b09a0c343', 'revision_id': 'candidate-9a9eea2ee285431bb131641214bab362'}}])
+E        +  and   False = all(<generator object test_frozen_document_profile_has_real_source_and_complete_format_checks.<locals>.<genexpr> at 0x000002079904B5E0>)
+
+tests\integration\test_native_profile_checks.py:75: AssertionError
+______ test_paper_trace_and_statistics_use_actual_pinned_sources_and_csv ______
+
+client = <starlette.testclient.TestClient object at 0x0000020799025950>
+
+    def test_paper_trace_and_statistics_use_actual_pinned_sources_and_csv(client):
+        candidate,_=case(client,'paper',PAPER)
+        results=NativeRegistryValidator(client.app.state.database.path)(candidate)
+>       assert len(results)==2 and all(r['passed'] for r in results)
+E       AssertionError: assert (2 == 2 and False)
+E        +  where 2 = len([{'criterion_id': 'paper.C1', 'passed': False, 'evidence': {'status': 'not_verified', 'reason_code': 'MECHANICAL_METHO...ccfd20fe98bdf0404d29ab48ce25ddd09639e623af4532526aace0', 'revision_id': 'candidate-326a5ddc3a0b42b8b5c0cf75750cbf5d'}}])
+E        +  and   False = all(<generator object test_paper_trace_and_statistics_use_actual_pinned_sources_and_csv.<locals>.<genexpr> at 0x00000207990A25A0>)
+
+tests\integration\test_native_profile_checks.py:109: AssertionError
+_ test_code_without_qualified_port_is_explicitly_unavailable_even_when_python_parses _
+
+client = <starlette.testclient.TestClient object at 0x00000207990D1810>
+
+    def test_code_without_qualified_port_is_explicitly_unavailable_even_when_python_parses(client):
+        candidate,_=case(client,'code',GOOD_CODE)
+        results=NativeRegistryValidator(client.app.state.database.path)(candidate)
+        assert len(results)==2 and all(not r['passed'] for r in results)
+>       assert all(r['evidence']['reason_code']=='EXECUTION_PORT_UNAVAILABLE' for r in results)
+E       assert False
+E        +  where False = all(<generator object test_code_without_qualified_port_is_explicitly_unavailable_even_when_python_parses.<locals>.<genexpr> at 0x0000020799126190>)
+
+tests\integration\test_native_profile_checks.py:128: AssertionError
+============================== warnings summary ===============================
+tests/integration/test_native_profile_checks.py::test_frozen_document_profile_has_real_source_and_complete_format_checks
+  C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/integration/test_native_profile_checks.py::test_frozen_document_profile_has_real_source_and_complete_format_checks
+FAILED tests/integration/test_native_profile_checks.py::test_paper_trace_and_statistics_use_actual_pinned_sources_and_csv
+FAILED tests/integration/test_native_profile_checks.py::test_code_without_qualified_port_is_explicitly_unavailable_even_when_python_parses
+3 failed, 7 deselected, 1 warning in 2.14s

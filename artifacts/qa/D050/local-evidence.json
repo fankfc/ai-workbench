@@ -1,0 +1,73 @@
+{
+  "card": "D050",
+  "case": "local_performance",
+  "command": [
+    "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\.venv\\Scripts\\python.exe",
+    "tests/support/scenario_driver.py",
+    "local_performance",
+    "--root",
+    "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\artifacts\\qa\\D050\\re2ab79db",
+    "--options",
+    "{\"history_tasks\": 10000, \"active_tasks\": 1}"
+  ],
+  "exit_code": 0,
+  "time": "2026-10-15T02:00:47.432201+00:00",
+  "build_id": "cb98eed03df6bd4ffaa551d66a54c77198911cf5b3e763a1ef3c055f5ee54ca4",
+  "run_root": "artifacts/qa/D050/re2ab79db",
+  "result": {
+    "input_echo_p95_ms": 18.5,
+    "ui_ack_p95_ms": 862,
+    "cancel_feedback_p95_ms": null,
+    "state_visible_p95_ms": 1206.6000000238419,
+    "cold_start_p95_ms": 3405.263100000011,
+    "orphan_pids": [],
+    "latency_components": {
+      "local_api_history_p95_ms": 27.488599997013807,
+      "backend_startup_single_ms": 1298.3768999692984,
+      "external_model_wait_ms": null,
+      "history_tasks": 10000,
+      "samples_ms": [
+        17.618699988815933,
+        14.925399969797581,
+        3.3248999970965087,
+        27.51500002341345,
+        14.49009997304529,
+        3.2296000281348825,
+        2.6963999844156206,
+        2.653000003192574,
+        22.241299971938133,
+        18.22239998728037,
+        12.581299990415573,
+        16.22210000641644,
+        15.986800019163638,
+        4.831800004467368,
+        26.609199994709343,
+        17.65470003010705,
+        15.541200002189726,
+        2.8874999843537807,
+        26.27749997191131,
+        16.37490000575781,
+        17.655299976468086,
+        13.794200029224157,
+        15.480200003366917,
+        14.527800027281046,
+        16.8785999994725,
+        14.796099974773824,
+        3.3475999953225255,
+        27.488599997013807,
+        17.49200001358986,
+        13.864499982446432
+      ]
+    },
+    "unmet_checks": [
+      "cancel_feedback",
+      "24h_soak",
+      "loaded_desktop_workload",
+      "hardware_power_baseline",
+      "30_desktop_cold_starts",
+      "100_lifecycle_cycles"
+    ],
+    "provider_boundary": "fake",
+    "real_provider_verified": false
+  }
+}

@@ -1,0 +1,616 @@
+{
+  "version": "1.0",
+  "build_id": "c6d7cca918e8191838f2870cfcdb9006f36879df1b4663499c08fcb0f810d73e",
+  "run_id": "20261015T052132125897Z-d6dc3038",
+  "created_at": "2026-10-15T05:35:44.489240+00:00",
+  "seed": 4317,
+  "encoding": "UTF-8",
+  "provider_boundary": "fake",
+  "files": [
+    {
+      "path": "playwright-observations.json",
+      "size": 4972,
+      "sha256": "d521cbc860350289d00bc290e172e36f9f6143106fe11bbbfa459db4ad6cc5c1"
+    },
+    {
+      "path": "pytest-observations.json",
+      "size": 247273,
+      "sha256": "1af83260519eeaad1d4cff465c23c22a5655d6c7406a95c8faed8eb16e7816c9"
+    },
+    {
+      "path": "source-after.json",
+      "size": 2247,
+      "sha256": "d8a2e9d66e79f550340a3437896698317129d955461036d6602464383360ec5d"
+    },
+    {
+      "path": "source-before.json",
+      "size": 2247,
+      "sha256": "d75aeff1c1d419fde9c0df3446e3e59b49117a0667936209771eec032d6dcc40"
+    },
+    {
+      "path": "summary.md",
+      "size": 366,
+      "sha256": "87ba7af34a2946624cc2c1c430d819c91358054c46a53b28568bb2986f34d593"
+    },
+    {
+      "path": "verification.json",
+      "size": 29606,
+      "sha256": "9151daae407da3d5b8356da5326a78083786d0c5ce23f76bf8bd8069983da482"
+    },
+    {
+      "path": "vitest-observations.json",
+      "size": 16758,
+      "sha256": "70cad5ff20af2b6620eeaaa8904ac5c0150e96dd46b5e0f6bb4f912e69ac675c"
+    },
+    {
+      "path": "work-orders-and-prompts.md",
+      "size": 9831,
+      "sha256": "94cb042be30a957eba118a73d0af0ae81b367e371b85bea08e7d7a5c0c2a03c0"
+    },
+    {
+      "path": "work-orders.json",
+      "size": 12244,
+      "sha256": "68a418544c0460e4d7a57c657dba74ec5bf441a08560bdd6980e7fe548bdd2ab"
+    },
+    {
+      "path": "regression/contracts.json",
+      "size": 478,
+      "sha256": "2e8000a886401ea931ed57e4068e5415b619a89f493e564ca842823e394f2b1c"
+    },
+    {
+      "path": "regression/contracts.log",
+      "size": 36,
+      "sha256": "4167353118eadafc7064d2db34f78acc1185fb9ff86266af92c96ded32dcf700"
+    },
+    {
+      "path": "regression/desktop-build.json",
+      "size": 417,
+      "sha256": "086cbf449af6ca4be6e2ca0a9f6e701aebac63dcf8606b58925440404ee94624"
+    },
+    {
+      "path": "regression/desktop-build.log",
+      "size": 989,
+      "sha256": "440a1694b9f537245ac849d808588f123c3ad05afe7b4720fab20f449434adc4"
+    },
+    {
+      "path": "regression/desktop-e2e-report.json",
+      "size": 47144,
+      "sha256": "f9632198aa333b14ce7ddabc46a5e114e5c1f5593916127d7985b06c18b9b776"
+    },
+    {
+      "path": "regression/desktop-e2e.json",
+      "size": 582,
+      "sha256": "c1a8ffbb1d8c068b0492378b3dfdc2c0e3d730c34913976b3e52e653f2bb52e3"
+    },
+    {
+      "path": "regression/desktop-e2e.log",
+      "size": 1566,
+      "sha256": "36398f3751bf2cbf180f6b4673e9670a7994a06306faedaa842e9b4363c4b834"
+    },
+    {
+      "path": "regression/desktop-test-build.json",
+      "size": 432,
+      "sha256": "539b2eec9ba1d28bb282e4b832c50f28747efd4d146213c5663a56ed48b15aea"
+    },
+    {
+      "path": "regression/desktop-test-build.log",
+      "size": 1065,
+      "sha256": "e60db6b4642e324476761d66118687e65c00d31910886954828ed823b8fce557"
+    },
+    {
+      "path": "regression/desktop-typecheck.json",
+      "size": 429,
+      "sha256": "055acc292e66cf471299371d76016b289a79beffa7b1b7dfdd152aabeb4e4b24"
+    },
+    {
+      "path": "regression/desktop-typecheck.log",
+      "size": 152,
+      "sha256": "564f140b6f2d4d85dc9e27a791f4784f3b0b098932d89a144674e92fa0297072"
+    },
+    {
+      "path": "regression/desktop-unit-report.json",
+      "size": 36102,
+      "sha256": "7d348a02d76d30b88d90a3405e8d722cad785967885ec9f757f142e1e31ddf13"
+    },
+    {
+      "path": "regression/desktop-unit.json",
+      "size": 633,
+      "sha256": "0bee5ec5ba968756fb29d3489d1af606a07ad34657bc43de49d95cfef95cd3df"
+    },
+    {
+      "path": "regression/desktop-unit.log",
+      "size": 130,
+      "sha256": "2ed961215b47dcbe330b520a1a46fc50604f5b54ed3673b05c3bb2b1bda78152"
+    },
+    {
+      "path": "regression/evidence-manifest.json",
+      "size": 23547,
+      "sha256": "eaf04546f80bf7fb4c02cbc5b370e5aa1f36c9710e57abea3a803d70585f566e"
+    },
+    {
+      "path": "regression/playwright-observations.json",
+      "size": 5006,
+      "sha256": "01e11fcb2cf2b27bb50ffa885bc0d330abcbd231b461ee4bc33a585bd956a366"
+    },
+    {
+      "path": "regression/pytest-observations.json",
+      "size": 247303,
+      "sha256": "0aaf625aaba7417129aae01e797d9e39978ec0bd761db8be0b2d6a97021e6e70"
+    },
+    {
+      "path": "regression/python.json",
+      "size": 701,
+      "sha256": "719eb3aeeb66343fb9a261c9588100df6961d8a9b672efa0dc4a30c0d443a6ec"
+    },
+    {
+      "path": "regression/python.log",
+      "size": 90253,
+      "sha256": "cdfff043d0dfba3ded0aefd2ec905328982bbeb1d0f9ae1448d0a93dc8712b28"
+    },
+    {
+      "path": "regression/python.xml",
+      "size": 340329,
+      "sha256": "69be89254ceb1af34feb6e8b9c9e293a0e3b757f46259e19a3003e52beea02cf"
+    },
+    {
+      "path": "regression/runtime-sop.json",
+      "size": 34819,
+      "sha256": "47e74ebdc52378b7ebd5e4d059ce5cb8b5baf31aa91b19977999c47548e856f9"
+    },
+    {
+      "path": "regression/runtime-sop.md",
+      "size": 18209,
+      "sha256": "c62590793932ee97c6a88f07b27062433e4dcbeab8093d42178ad22c6837c311"
+    },
+    {
+      "path": "regression/source-after.json",
+      "size": 349,
+      "sha256": "06d7d44f45e718f86d25a9f890a24ff1850ecfcd5c5c16ff8931ecc7b48d7778"
+    },
+    {
+      "path": "regression/source-before.json",
+      "size": 349,
+      "sha256": "b3bf23094412c13a5b1919be4e72bb9e409393628f1dd25c90e3357f7552bff8"
+    },
+    {
+      "path": "regression/verification.json",
+      "size": 58207,
+      "sha256": "413c34975cea48a57282135f6bda740ce13c2aa4982ba414c7980c18018dc2e4"
+    },
+    {
+      "path": "regression/vitest-observations.json",
+      "size": 16758,
+      "sha256": "70cad5ff20af2b6620eeaaa8904ac5c0150e96dd46b5e0f6bb4f912e69ac675c"
+    },
+    {
+      "path": "regression/electron-results/.last-run.json",
+      "size": 96,
+      "sha256": "d896e84479a62b7107ccb983fffcf725b5cb76c0e36aca47bf5a0c9356aff6d0"
+    },
+    {
+      "path": "regression/electron-results/accessibility-keyboard-nav-ed6ba-p-labelled-composer-visible/electron.log",
+      "size": 145,
+      "sha256": "b1bf1607f1a0be3af4ad6cf53cbfa0428b373e7a24a4b8427808128c0f5453af"
+    },
+    {
+      "path": "regression/electron-results/accessibility-keyboard-nav-ed6ba-p-labelled-composer-visible/fixture.json",
+      "size": 150,
+      "sha256": "216964306bba96a43823110b39f10e55916a1f8a4531990a001eee327ded1b5f"
+    },
+    {
+      "path": "regression/electron-results/accessibility-keyboard-nav-ed6ba-p-labelled-composer-visible/keyboard-zoom.png",
+      "size": 21874,
+      "sha256": "e6c37a28c0102dd14086ce0303b3d2bc9bf120b8c0a6d23a1509dc4d0a9f433d"
+    },
+    {
+      "path": "regression/electron-results/artifact-files-cancelled-s-0b7a2-er-report-a-successful-pair/electron.log",
+      "size": 446,
+      "sha256": "67843299840439183eaf1dece46bf5119e2c6f9bb0e68479d9c4b6b8f4c6107b"
+    },
+    {
+      "path": "regression/electron-results/artifact-files-cancelled-s-0b7a2-er-report-a-successful-pair/fixture.json",
+      "size": 150,
+      "sha256": "792da9d9609ce7668695b43d60be693b3c894598721baed958f16691c711af4f"
+    },
+    {
+      "path": "regression/electron-results/artifact-files-default-exp-29079--a-dialog-starting-location/electron.log",
+      "size": 144,
+      "sha256": "413c785ee50830c22b49816e3f265b2a48e17f9862f680987eddf6958ebb1128"
+    },
+    {
+      "path": "regression/electron-results/artifact-files-default-exp-29079--a-dialog-starting-location/fixture.json",
+      "size": 150,
+      "sha256": "d3309c9b64e2a2de9f01f8bff286e93da3c21ff5d8f452eaefb10df6d346af06"
+    },
+    {
+      "path": "regression/electron-results/artifact-files-product-bun-045e3-xact-bilingual-format-pairs/artifact-pairs.png",
+      "size": 156926,
+      "sha256": "2a0a12cd90a773ba0be62d1266bb420fe2e1cd1c6e8d347c97c7b3bd366c2dea"
+    },
+    {
+      "path": "regression/electron-results/artifact-files-product-bun-045e3-xact-bilingual-format-pairs/electron.log",
+      "size": 145,
+      "sha256": "9d0382a80d2ddcca329fd38f6e338c66b61120bb94eab625399aa1f83de5b60a"
+    },
+    {
+      "path": "regression/electron-results/artifact-files-product-bun-045e3-xact-bilingual-format-pairs/fixture.json",
+      "size": 150,
+      "sha256": "f8888c00c6d11c569665b54cd3037da81b04639a148de9400c956750b2eaf532"
+    },
+    {
+      "path": "regression/electron-results/artifact-files-product-bun-045e3-xact-bilingual-format-pairs/preview-docx.png",
+      "size": 89569,
+      "sha256": "3e06d3d459ddd964e0b54ef75b6283b49d5a4b1d8a323c57ac2d36904a9ed5cd"
+    },
+    {
+      "path": "regression/electron-results/artifact-files-product-bun-045e3-xact-bilingual-format-pairs/preview-pdf.png",
+      "size": 82758,
+      "sha256": "f56f2d59f908f70f3a6deaf0e627d607a88c3368e81b98ca685f73b5def1dca8"
+    },
+    {
+      "path": "regression/electron-results/artifact-files-product-bun-045e3-xact-bilingual-format-pairs/saved-file-hashes.json",
+      "size": 1523,
+      "sha256": "cad434368986ac3c594c5d16003bfc289e43eb992276b36a3a534e95cf142733"
+    },
+    {
+      "path": "regression/electron-results/backup-restore-storage-cre-f7eec-f-the-actual-published-chat/backup-created.png",
+      "size": 131876,
+      "sha256": "4e2f8f3872da595a223d9ecadba4f20f6044ab6f3622b638a8f7eeefed237d8f"
+    },
+    {
+      "path": "regression/electron-results/backup-restore-storage-cre-f7eec-f-the-actual-published-chat/backup-export.json",
+      "size": 1217,
+      "sha256": "37ba7f9e295c01629a54db1a656b0660da06f41a2702b257143d308527d9170f"
+    },
+    {
+      "path": "regression/electron-results/backup-restore-storage-cre-f7eec-f-the-actual-published-chat/electron.log",
+      "size": 145,
+      "sha256": "568baf3f381bbbc0d2d61f199a1b37e67a0ae5d14ae3d4f9e605068479ec6ae3"
+    },
+    {
+      "path": "regression/electron-results/backup-restore-storage-cre-f7eec-f-the-actual-published-chat/fixture.json",
+      "size": 150,
+      "sha256": "316175fafb7f925ff85617f049cbe722976c1b404279ae779937b10fff789bc6"
+    },
+    {
+      "path": "regression/electron-results/backup-restore-storage-res-6f62b-ual-managed-backend-restart/electron.log",
+      "size": 145,
+      "sha256": "2626d1c3f8e69de8bbc044bdf74508a586cd6ce830bf8052b8d7802b94088d1f"
+    },
+    {
+      "path": "regression/electron-results/backup-restore-storage-res-6f62b-ual-managed-backend-restart/fixture.json",
+      "size": 150,
+      "sha256": "2a35eeaa711d01e82e6bc85e8b80eb92e22526b688ca9ff27feb5ffe71d6cf77"
+    },
+    {
+      "path": "regression/electron-results/backup-restore-storage-res-6f62b-ual-managed-backend-restart/history-restored.png",
+      "size": 110150,
+      "sha256": "60bcf6cf313b3f35dc6ad9bb3b7fb46c3c8e9b894284e94e73bb63c661166a78"
+    },
+    {
+      "path": "regression/electron-results/backup-restore-storage-res-6f62b-ual-managed-backend-restart/restore-managed-restart.json",
+      "size": 383,
+      "sha256": "5414881c525205f9f23d2adc3ea1176eee5d2895171bf33f04d42095d21ce30c"
+    },
+    {
+      "path": "regression/electron-results/chat-publication-internal--0f4ad--boundary-or-briefly-appear/electron.log",
+      "size": 145,
+      "sha256": "9bec427d8f306e52484b16e221e286888cfef3d63722c96172f2ff849e8963e0"
+    },
+    {
+      "path": "regression/electron-results/chat-publication-internal--0f4ad--boundary-or-briefly-appear/fixture.json",
+      "size": 150,
+      "sha256": "13e4e37e90f61cc21b6c38b94300353d9eac0841c9ddf6d2b462f96a587d5fc9"
+    },
+    {
+      "path": "regression/electron-results/composer-history-double-cl-74fb5--script-text-cannot-execute/electron.log",
+      "size": 145,
+      "sha256": "9c16aeabb8a977fc3bfe72d233c414d19a5eb8dc90e376a5217870a39458462e"
+    },
+    {
+      "path": "regression/electron-results/composer-history-double-cl-74fb5--script-text-cannot-execute/fixture.json",
+      "size": 150,
+      "sha256": "556f1ff779773900a581ad12f32128ce792bc694e478d454291e367333cb18a8"
+    },
+    {
+      "path": "regression/electron-results/composer-history-IME-enter-59fd2-fts-remain-per-conversation/electron.log",
+      "size": 145,
+      "sha256": "08d519ce0c7b9e89781eb04abddc19376831609e845779d03d49e947d2cbf44c"
+    },
+    {
+      "path": "regression/electron-results/composer-history-IME-enter-59fd2-fts-remain-per-conversation/fixture.json",
+      "size": 150,
+      "sha256": "b6e045ef3ed0cf4ac43280cab693aee091bf97ad346211af5f0262d4915704bf"
+    },
+    {
+      "path": "regression/electron-results/composer-history-only-a-na-2c4c3-e-material-reaches-the-task/electron.log",
+      "size": 145,
+      "sha256": "a98d298949a1a48db2a14c710f4c0d8509ff68e8033f7ed60e6fbfc1bac1b34a"
+    },
+    {
+      "path": "regression/electron-results/composer-history-only-a-na-2c4c3-e-material-reaches-the-task/fixture.json",
+      "size": 150,
+      "sha256": "52308e342202666b8ba5afd6e43f2cc1134f89c433c9cb277747ad3e501ca87f"
+    },
+    {
+      "path": "regression/electron-results/connections-connection-pag-796a3-om-verified-real-identities/electron.log",
+      "size": 145,
+      "sha256": "ac670bd697849d9b1dc909ea0bf145544ff947da2768249f129ca8d09b46386d"
+    },
+    {
+      "path": "regression/electron-results/connections-connection-pag-796a3-om-verified-real-identities/fixture.json",
+      "size": 150,
+      "sha256": "dabe651d698824bdf7bf9798893a1aab5ad42c1d5f3185d0231ecb587b1b6ad6"
+    },
+    {
+      "path": "regression/electron-results/host-actual-isolated-Electron-exposes-only-a-business-bridge/electron.log",
+      "size": 145,
+      "sha256": "33cbef0f4edde0711246e7bd70c45691e4418b20555ca79103e979582b570e14"
+    },
+    {
+      "path": "regression/electron-results/host-actual-isolated-Electron-exposes-only-a-business-bridge/fixture.json",
+      "size": 150,
+      "sha256": "a5cedc63f7546c9523bbaf120ec9b461093329db1cdc69b07ca5660c441e98a9"
+    },
+    {
+      "path": "regression/electron-results/host-disconnect-keeps-the-draft-and-blocks-sending/electron.log",
+      "size": 145,
+      "sha256": "32bf62d6b573e32ab65b29072f9ef085a08f36b72804b924f4dac7d5cbd1a544"
+    },
+    {
+      "path": "regression/electron-results/host-disconnect-keeps-the-draft-and-blocks-sending/fixture.json",
+      "size": 150,
+      "sha256": "06c10e0ce9e5bf035b6512a7859c6f15738ab591a1aa915fb1ad073b3c26a622"
+    },
+    {
+      "path": "regression/electron-results/host-second-launch-focuses-dad63-ut-starting-another-backend/electron.log",
+      "size": 145,
+      "sha256": "a1a3c9e394c39572c6d48ae3b1c9ea5afdc1bc0c0f8e0135f0681f076bc0b3bb"
+    },
+    {
+      "path": "regression/electron-results/host-second-launch-focuses-dad63-ut-starting-another-backend/fixture.json",
+      "size": 150,
+      "sha256": "8e9290be9bca81bde97f65d516892b10c8df44f76805796b5ac40f594db215ba"
+    },
+    {
+      "path": "regression/electron-results/ime-and-layout-composition-13bb8-ocus-without-transient-leak/composition-and-replay.png",
+      "size": 97627,
+      "sha256": "fdf87f367ed86513558d5e389d530ff69125261dba9ced1268c969f94865a304"
+    },
+    {
+      "path": "regression/electron-results/ime-and-layout-composition-13bb8-ocus-without-transient-leak/electron.log",
+      "size": 145,
+      "sha256": "1764a8319fc50cfdf8c5bf067252e9379e82bc5ea43a45f009f0e5448818cae4"
+    },
+    {
+      "path": "regression/electron-results/ime-and-layout-composition-13bb8-ocus-without-transient-leak/fixture.json",
+      "size": 150,
+      "sha256": "7085328aa1cf55c8c68840774252fcd3a5b7df2207817da170553688f3411361"
+    },
+    {
+      "path": "regression/electron-results/layout-layout-fits-1024x768/electron.log",
+      "size": 145,
+      "sha256": "bff125801331bf96f124bf39dbd57a67e1b1e6c05645b733b420f920cf65915a"
+    },
+    {
+      "path": "regression/electron-results/layout-layout-fits-1024x768/fixture.json",
+      "size": 150,
+      "sha256": "d33f5186a1450a7ad7f44fe61f57cb444c944c2469a40c59a8a459e95229b139"
+    },
+    {
+      "path": "regression/electron-results/layout-layout-fits-1024x768/layout-1024.png",
+      "size": 54894,
+      "sha256": "ac6e6db23329176e42a76784e77b31ecfa2ce40c67fe23cc62293ab13f9fb9ca"
+    },
+    {
+      "path": "regression/electron-results/layout-layout-fits-1280x800/electron.log",
+      "size": 145,
+      "sha256": "4df04121462163428188603e9840b2b4c7216dab5e9291a6186c5073448438f0"
+    },
+    {
+      "path": "regression/electron-results/layout-layout-fits-1280x800/fixture.json",
+      "size": 150,
+      "sha256": "3e233d908389aeccd592773b43a7bd217e1d8ac8898fa1a57d90315ac1c8d4c5"
+    },
+    {
+      "path": "regression/electron-results/layout-layout-fits-1280x800/layout-1280.png",
+      "size": 76033,
+      "sha256": "ed6262e6acbe30a21f7f4a53cf41c57625ae941cb020c30f055857196ded3968"
+    },
+    {
+      "path": "regression/electron-results/layout-layout-fits-1440x900/electron.log",
+      "size": 145,
+      "sha256": "cce42e90d43ee7be1a200bf22ee3d52189fc1ef28a8cf27e46d34faa6f9a5e4f"
+    },
+    {
+      "path": "regression/electron-results/layout-layout-fits-1440x900/fixture.json",
+      "size": 150,
+      "sha256": "45e9944c7f19b318c842ad67d76bed28942dfe84bbcd434938883c5d9b0c4488"
+    },
+    {
+      "path": "regression/electron-results/layout-layout-fits-1440x900/layout-1440.png",
+      "size": 77513,
+      "sha256": "1e92d40e34887766b35221426c37ed1b9b8c8f506e05d51dc6a933f4c1cc0b01"
+    },
+    {
+      "path": "regression/electron-results/layout-layout-fits-320x768/electron.log",
+      "size": 145,
+      "sha256": "4d556b759809b8c29ef4ff76ab2268f841eb1e2868c68e47ee0b050c55b31ae4"
+    },
+    {
+      "path": "regression/electron-results/layout-layout-fits-320x768/fixture.json",
+      "size": 150,
+      "sha256": "42414d40323e9aa7cbbc97e0758945be80fc86e86ac16efe921fb654469f6c67"
+    },
+    {
+      "path": "regression/electron-results/layout-layout-fits-320x768/layout-320.png",
+      "size": 47623,
+      "sha256": "4c739bcc85bda7f5c280c3d8dfeef0fff04b7ae5fece8dbf6f9e05a72782e956"
+    },
+    {
+      "path": "regression/electron-results/layout-theme-large-text-an-bc835-nt-zoom-retain-the-composer/dark-22-200percent.png",
+      "size": 117543,
+      "sha256": "a899f61648cab5ee92145011218be8c87b272811a30a45811539002f8a9d5fd0"
+    },
+    {
+      "path": "regression/electron-results/layout-theme-large-text-an-bc835-nt-zoom-retain-the-composer/electron.log",
+      "size": 145,
+      "sha256": "5cc05132e9afdae663156bf3a524c8c5dc1ed175c5611971aa398524643107f9"
+    },
+    {
+      "path": "regression/electron-results/layout-theme-large-text-an-bc835-nt-zoom-retain-the-composer/fixture.json",
+      "size": 150,
+      "sha256": "72fa5ddeab6c1bc20f4b96baba6096f40ab44fa2145b3a29a0c7833bd697a81f"
+    },
+    {
+      "path": "regression/electron-results/layout-theme-large-text-an-bc835-nt-zoom-retain-the-composer/zoom-bounds.json",
+      "size": 165,
+      "sha256": "57470ff2196a5607d5a276f2afd8248d05e330ae23282e3468a98553d82926ce"
+    },
+    {
+      "path": "regression/electron-results/local-performance-record-t-c1dec-ples-in-the-actual-renderer/electron.log",
+      "size": 145,
+      "sha256": "493685d76aa9a5db566ae6a920051867718ec7ec5b059e59f88b981cf411717e"
+    },
+    {
+      "path": "regression/electron-results/local-performance-record-t-c1dec-ples-in-the-actual-renderer/error-context.md",
+      "size": 7666,
+      "sha256": "6ccb20d5bc5462c02b01814cf52dc137be68fb77ff76d16da03f1ae38f1dbb8e"
+    },
+    {
+      "path": "regression/electron-results/local-performance-record-t-c1dec-ples-in-the-actual-renderer/fixture.json",
+      "size": 150,
+      "sha256": "2c4ba531eb3b915a0d86cad4bac1884286851223a62f95dcfc8b51e2f9f947cb"
+    },
+    {
+      "path": "regression/electron-results/review-regressions-disconn-7f20f-essages-and-published-files/electron.log",
+      "size": 144,
+      "sha256": "38ba03d1683e2d95b4de944deda799a4646adf4e7dfe30c3b52fedde689d57d8"
+    },
+    {
+      "path": "regression/electron-results/review-regressions-disconn-7f20f-essages-and-published-files/fixture.json",
+      "size": 150,
+      "sha256": "8882cafa0f177228833f76639b667bf01beb06891cb3abf41909e5aef09f76f8"
+    },
+    {
+      "path": "regression/electron-results/review-regressions-late-re-c826f-llutes-another-conversation/electron.log",
+      "size": 145,
+      "sha256": "d89bddcd55ce318da2d69b904cec316e3e846ad99a94c5991ccb9d562609040a"
+    },
+    {
+      "path": "regression/electron-results/review-regressions-late-re-c826f-llutes-another-conversation/fixture.json",
+      "size": 150,
+      "sha256": "3cc987ae59f685820f777a0659c976e1641c9180040954c01afdf3fceb4a1050"
+    },
+    {
+      "path": "regression/electron-results/review-regressions-same-te-8a6cf-d-nonce-or-chosen-materials/electron.log",
+      "size": 437,
+      "sha256": "5fbfeb0f6b70b2ee9b3ec24037d6a3bf2fbceb1368ec551f92ed7d73be6ccf00"
+    },
+    {
+      "path": "regression/electron-results/review-regressions-same-te-8a6cf-d-nonce-or-chosen-materials/fixture.json",
+      "size": 150,
+      "sha256": "37bae0097ec0907ebc6a9e9d3ddc6012fec88e26af7ed9cab42b7cc5afbb388b"
+    },
+    {
+      "path": "regression/electron-results/review-regressions-usage-d-9be2d-uding-the-final-millisecond/electron.log",
+      "size": 145,
+      "sha256": "cef41b8ee7dfccf11f1397d95f22ba55430178f753389acce06308abb34bce2a"
+    },
+    {
+      "path": "regression/electron-results/review-regressions-usage-d-9be2d-uding-the-final-millisecond/fixture.json",
+      "size": 150,
+      "sha256": "c37a6ba818666f8396edd93cd9b8a1e2ce9c7e8789eac68e593aaaf7be84d4de"
+    },
+    {
+      "path": "regression/electron-results/security-boundary-untruste-7befd-rity-user-script-stays-text/electron.log",
+      "size": 144,
+      "sha256": "338f9c9ff0c990db53d945ca4bd3bd8a78939a8c2a5d9ab4ad30897959300c4a"
+    },
+    {
+      "path": "regression/electron-results/security-boundary-untruste-7befd-rity-user-script-stays-text/fixture.json",
+      "size": 150,
+      "sha256": "022cf6780c57ba15f6c4b1458c00d1afa411081028cdb8b6f8eb1610c55f4431"
+    },
+    {
+      "path": "regression/electron-results/settings-usage-selected-di-53509--restarts-the-owned-backend/electron.log",
+      "size": 145,
+      "sha256": "26e2e1582f6bc6d913abdff0654a7abffc265f98342c8b801122cd8c6dc585f3"
+    },
+    {
+      "path": "regression/electron-results/settings-usage-selected-di-53509--restarts-the-owned-backend/fixture.json",
+      "size": 150,
+      "sha256": "35563dd13615c0231dab844a5560b5788bcf403b9746400b8c9ff194b14c2aa9"
+    },
+    {
+      "path": "regression/electron-results/settings-usage-usage-has-n-7bb68-d-diagnostics-stay-separate/electron.log",
+      "size": 145,
+      "sha256": "cd7cfa24f5d79e84816f7c428384a4a09f1594ec8ca1fad55367c8428c0217b0"
+    },
+    {
+      "path": "regression/electron-results/settings-usage-usage-has-n-7bb68-d-diagnostics-stay-separate/fixture.json",
+      "size": 150,
+      "sha256": "f1fddbcb54aac3826a3cbc36874bae3e094f362ee95befece0cde7210dea82ff"
+    },
+    {
+      "path": "regression/electron-results/task-profiles-CSV-mixed-su-bff53-ats-instead-of-generic-demo/electron.log",
+      "size": 145,
+      "sha256": "961fe87ae11fd68c332d44aedd13fa81f5e3866d27dfca3f94f1c216cf72674a"
+    },
+    {
+      "path": "regression/electron-results/task-profiles-CSV-mixed-su-bff53-ats-instead-of-generic-demo/fixture.json",
+      "size": 150,
+      "sha256": "963e75b08d444692019155c423ec2dc89cf5948ea7f3d4d0edc695860520bc15"
+    },
+    {
+      "path": "regression/electron-results/task-profiles-CSV-mixed-su-bff53-ats-instead-of-generic-demo/mixed-profile-snapshot.json",
+      "size": 30992,
+      "sha256": "590691f50eb2c688d9b024480deb1b27ba22adffd2bff3cfac78f21cd9a8f931"
+    },
+    {
+      "path": "regression/electron-results/task-profiles-CSV-mixed-su-bff53-ats-instead-of-generic-demo/mixed-published.png",
+      "size": 135364,
+      "sha256": "9ef04202b4fe63ca42588f222e4126867716aefc94c66ad723e7e5221985be14"
+    },
+    {
+      "path": "regression/electron-results/task-profiles-missing-audi-7aa13-INPUT-before-any-model-step/electron.log",
+      "size": 145,
+      "sha256": "ec3318b2a23b6c22a9e7ecc8ec2fc0524e5f8a6a90dc90359583078095c33f4e"
+    },
+    {
+      "path": "regression/electron-results/task-profiles-missing-audi-7aa13-INPUT-before-any-model-step/fixture.json",
+      "size": 150,
+      "sha256": "f9ae92ea99daa0cc06a265be054c0d109ad070b956d97412d6f12d625964341b"
+    },
+    {
+      "path": "regression/electron-results/task-profiles-normal-docum-6a462-GPT-file-with-no-translator/electron.log",
+      "size": 145,
+      "sha256": "45982fb0e83a5c4fd734cee439d069dac82d2dd55d7c4132c3340cd9055b1b38"
+    },
+    {
+      "path": "regression/electron-results/task-profiles-normal-docum-6a462-GPT-file-with-no-translator/fixture.json",
+      "size": 150,
+      "sha256": "a213e240ca19aa4411c5419e3a0a0cded35ccaa2a18afd1e522f00d6df4a7284"
+    },
+    {
+      "path": "regression/electron-results/task-profiles-normal-docum-6a462-GPT-file-with-no-translator/native-document-snapshot.json",
+      "size": 22254,
+      "sha256": "2dc8b59f8ce50bd841c1cb8092b97f21a5801dd87d4c3eb10705f2550b443bda"
+    },
+    {
+      "path": "regression/electron-results/task-profiles-normal-docum-6a462-GPT-file-with-no-translator/native-document.png",
+      "size": 138481,
+      "sha256": "c7e73344fe57eea21bc6083aa1c233b3923df4778b6d113d1a5373e804956df8"
+    },
+    {
+      "path": "regression/electron-results/task-profiles-paper-eviden-2cfcf--from-chosen-attachment-IDs/electron.log",
+      "size": 145,
+      "sha256": "78762cf2a903dc4ed8c752f699268c3ab3105abda5529b1a6b9cd9366335430c"
+    },
+    {
+      "path": "regression/electron-results/task-profiles-paper-eviden-2cfcf--from-chosen-attachment-IDs/fixture.json",
+      "size": 150,
+      "sha256": "a051a9d3f4a97eefaad40e13bf0d70cd3b69e6bb30261fd3c3096e176bc684a7"
+    }
+  ]
+}

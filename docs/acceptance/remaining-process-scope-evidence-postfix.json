@@ -1,0 +1,65 @@
+{
+  "generated_at": "2026-10-13T12:29:22.098340+00:00",
+  "mode": "isolated local workers/SQLite/files; no provider calls",
+  "python": "3.13.0",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "interpreter": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\.venv\\Scripts\\python.exe",
+  "command": "services/orchestrator/.venv/Scripts/python.exe docs/acceptance/remaining-process-scope-probe.py --postfix",
+  "source_hashes": {
+    "services/orchestrator/app/runtime/processes.py": "3571e9f529f4d953a90ee75a222a1153bd5352ce6289d541ddcc4137a0d72f26",
+    "services/orchestrator/app/runtime/resources.py": "2b9b7c4019ca6f034d872b4c048af33cdc68e676eaca1c267f36ffbd70fecb18",
+    "services/orchestrator/app/runtime/leases.py": "465825fd98ef54497dae1cb339c8752fdb35c9271518f85819a8328e6d935413",
+    "services/orchestrator/app/runtime/workspace.py": "cce81355c4b4013099c689e177cb7e4ab15792fb773871a8e69f655ee939c383",
+    "services/orchestrator/app/runtime/context_gateway.py": "965264a213da5d999f0b187b8e5113dbf8e05bb4df147e4be5dfcda462b54b25"
+  },
+  "results": {
+    "new_step_after_unknown_normal_exit": {
+      "prior": {
+        "local_state": "exited",
+        "remote_state": "unknown",
+        "status": "exited",
+        "returncode": 0,
+        "pid": 63644,
+        "cooperative_requested": false,
+        "forced": true,
+        "output_bytes_seen": 318,
+        "output_bytes_kept": 318,
+        "output_truncated": false,
+        "resource_limit": null
+      },
+      "new_step_started": false,
+      "new_step": null,
+      "blocked_reason": "REMOTE_EXECUTION_UNCONFIRMED"
+    },
+    "new_step_after_service_crash": {
+      "service_exit": 84,
+      "old_worker_alive": false,
+      "old_local_state": "running",
+      "old_remote_state": "unknown",
+      "new_step_started": false,
+      "blocked_reason": "REMOTE_EXECUTION_UNCONFIRMED"
+    },
+    "monitor_error_cleanup": {
+      "wait_error": "PROCESS_CLEANUP_FAILED",
+      "temp_exists": false,
+      "reported_resources": {
+        "running": 0,
+        "temp_dirs": 0,
+        "open_handles": 0,
+        "peak_reserved_handles": 9,
+        "active_processes": 0,
+        "failed_cleanups": 1,
+        "query_errors": []
+      },
+      "ledger_local_state": "cleanup_failed"
+    },
+    "mutable_registered_english_proof": {
+      "before_reason": "NON_ENGLISH_NATURAL_LANGUAGE",
+      "after_content": null,
+      "after_language": null,
+      "after_reason": "NON_ENGLISH_NATURAL_LANGUAGE",
+      "same_registered_validation_id": "registered-proof",
+      "protected_spans_runtime_type": "tuple"
+    }
+  }
+}

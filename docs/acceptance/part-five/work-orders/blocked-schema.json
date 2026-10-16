@@ -1,0 +1,56 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "artifact_version": {
+      "minLength": 1,
+      "title": "Artifact Version",
+      "type": "string"
+    },
+    "cannot_complete": {
+      "minLength": 1,
+      "title": "Cannot Complete",
+      "type": "string"
+    },
+    "direct_evidence": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "title": "Direct Evidence",
+      "type": "array"
+    },
+    "attempted_actions": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "title": "Attempted Actions",
+      "type": "array"
+    },
+    "external_conditions": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "title": "External Conditions",
+      "type": "array"
+    },
+    "independent_tasks": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Independent Tasks",
+      "type": "array"
+    }
+  },
+  "required": [
+    "artifact_version",
+    "cannot_complete",
+    "direct_evidence",
+    "attempted_actions",
+    "external_conditions",
+    "independent_tasks"
+  ],
+  "title": "BlockedPayload",
+  "type": "object"
+}

@@ -1,0 +1,126 @@
+{
+  "version": "1.0",
+  "build_id": "64bc5e858de1f6a58d2d1b055a1aaf5a8d7861e6f071fb0f392d37583caf04c5",
+  "run_id": null,
+  "created_at": "2026-10-14T15:15:33.394249+00:00",
+  "seed": 4317,
+  "encoding": "UTF-8",
+  "provider_boundary": "fake",
+  "files": [
+    {
+      "path": ".qa-run.json",
+      "size": 151,
+      "sha256": "bf56caa737316544c2c913b01d4615ae32db985239318b011f3170957aec883e"
+    },
+    {
+      "path": "evidence-manifest.json",
+      "size": 895,
+      "sha256": "0d1c1566182d59b9e22f586b1107708f7c04c7d50b88f75e1ea8aaae081ecb22"
+    },
+    {
+      "path": "public-messages.json",
+      "size": 847,
+      "sha256": "aef4cd12ef72db17f75fa29939a71abaddefa9caa7328316e9bccb4dc3e7ea73"
+    },
+    {
+      "path": "scenario-result.json",
+      "size": 433,
+      "sha256": "e754d7a3725c5b28d4fc300fe4b1f132cff82dd9b7631bf14697757df9121857"
+    },
+    {
+      "path": "service-identity.json",
+      "size": 133,
+      "sha256": "69135f303628749a6a12f8d2f3646e54dbbe487d3ea9363a86189b1791c78ace"
+    },
+    {
+      "path": "service-leases.sqlite3",
+      "size": 12288,
+      "sha256": "c902cad913bca71db4227a9327d051febdd4abf4954bcc3bd63fd3e8f19f579c"
+    },
+    {
+      "path": "service-teardown.json",
+      "size": 87,
+      "sha256": "e0ffdafc3b4dd2b834e9bbb96ff8cb2d2bf6b494503a9ab76e42571817a43ea2"
+    },
+    {
+      "path": "service.stderr.log",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "task.json",
+      "size": 182,
+      "sha256": "65697a767f68aafcaf98e7e6bac14be85aff1e0461fca14fd369b19461bd0f69"
+    },
+    {
+      "path": "service-data/workbench.sqlite3",
+      "size": 397312,
+      "sha256": "2f5b67334d14c45670d5188d9f916e67c20a130211423f7f45d57a76d26a51a0"
+    },
+    {
+      "path": "service-data/workbench.sqlite3-shm",
+      "size": 32768,
+      "sha256": "fd4c9fda9cd3f9ae7c962b0ddf37232294d55580e1aa165aa06129b8549389eb"
+    },
+    {
+      "path": "service-data/workbench.sqlite3-wal",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "service-data/tasks/f76ce9ffe5584a478dc560f009f7b7ec/4498793caaf246fdb8460f9a546a01c8/.lease-lock",
+      "size": 1,
+      "sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+    },
+    {
+      "path": "service-data/tasks/f76ce9ffe5584a478dc560f009f7b7ec/4498793caaf246fdb8460f9a546a01c8/.source-manifest.json",
+      "size": 94,
+      "sha256": "e5fcf796af61f02acef11f036b3ede89262570f2a538f9f99b737b498f88e81e"
+    },
+    {
+      "path": "service-data/tasks/f76ce9ffe5584a478dc560f009f7b7ec/4498793caaf246fdb8460f9a546a01c8/.write-leases.json",
+      "size": 94,
+      "sha256": "c6a18be3da702612dab19b12593b24f221211599dfd4c6c2df73849a6f3b8133"
+    },
+    {
+      "path": "service-data/tasks/f76ce9ffe5584a478dc560f009f7b7ec/4498793caaf246fdb8460f9a546a01c8/b/demo.md",
+      "size": 123,
+      "sha256": "d21589c953bddb2c22757da2f933307d43a5418c9a05c98b4e3dc435a4a99d9b"
+    },
+    {
+      "path": "service-data/tasks/f76ce9ffe5584a478dc560f009f7b7ec/4498793caaf246fdb8460f9a546a01c8/evidence/71fac361bbcc45d9bf18c2a39c1cd623.json",
+      "size": 351,
+      "sha256": "72bd2e3fabbbd90fac10f29d0abda9dac21a8ca792da6b73e847a04c5606a26a"
+    },
+    {
+      "path": "service-data/tasks/f76ce9ffe5584a478dc560f009f7b7ec/4498793caaf246fdb8460f9a546a01c8/evidence/f51fac9d8540495eb60365c1237a59f5.json",
+      "size": 289,
+      "sha256": "d73a356e90ebfae73d22ff07f260b9a71e1ef5f7755683bc33fa3ae0395e0a87"
+    },
+    {
+      "path": "service-data/tasks/f76ce9ffe5584a478dc560f009f7b7ec/4498793caaf246fdb8460f9a546a01c8/input/user_request.txt",
+      "size": 18,
+      "sha256": "1595625c31f90f870b8c315a10dc23d7b452ba14191ccfd7a0996d9d15547f70"
+    },
+    {
+      "path": "service-data/tasks/f76ce9ffe5584a478dc560f009f7b7ec/4498793caaf246fdb8460f9a546a01c8/b/prompts/ddaf5924685e4399a7ac6fd199337f72.json",
+      "size": 2010,
+      "sha256": "1cffca847cc767a668bdf218140249f945b9fa889e29ffb69513c0ad46226d46"
+    },
+    {
+      "path": "service-data/tasks/f76ce9ffe5584a478dc560f009f7b7ec/4498793caaf246fdb8460f9a546a01c8/a/prompts/10db8482d2184876a4db3aa2593e5a32.json",
+      "size": 3531,
+      "sha256": "3e8eb6e0add515bf8ac48e37a05a0253e554e7c8b6ba52c73ec5a689aa3ad5ee"
+    },
+    {
+      "path": "service-data/blobs/00/0007f0a4c5922f82a4f78819cb779fb01424f8cdfee3a138da4726b5f0608e21",
+      "size": 1465,
+      "sha256": "0007f0a4c5922f82a4f78819cb779fb01424f8cdfee3a138da4726b5f0608e21"
+    },
+    {
+      "path": "service-data/blobs/d2/d21589c953bddb2c22757da2f933307d43a5418c9a05c98b4e3dc435a4a99d9b",
+      "size": 123,
+      "sha256": "d21589c953bddb2c22757da2f933307d43a5418c9a05c98b4e3dc435a4a99d9b"
+    }
+  ]
+}

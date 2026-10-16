@@ -1,0 +1,50 @@
+.F                                                                       [100%]
+================================== FAILURES ===================================
+___ test_actual_failure_proof_is_current_at_every_repair_dispatch[takeover] ___
+
+client = <starlette.testclient.TestClient object at 0x000001659A97B250>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000001659A6CFE10>
+dispatch = 'takeover'
+
+    @pytest.mark.parametrize("dispatch", ["repair", "takeover"])
+    def test_actual_failure_proof_is_current_at_every_repair_dispatch(client, monkeypatch, dispatch):
+        from app.runtime import review_handoff
+    
+        original = review_handoff.repair_work_order
+        calls = 0
+    
+        def changed_after_capture(contract, decision, candidate, evidence_root, check_id):
+            nonlocal calls
+            order = original(contract, decision, candidate, evidence_root, check_id)
+            calls += 1
+            target_call = 1 if dispatch == "repair" else 2
+            if calls == target_call:
+                proof = Path(evidence_root) / order["mechanical_observations"][0]["ref"]
+                proof.write_bytes(b'{}')
+            return order
+    
+        monkeypatch.setattr(review_handoff, "repair_work_order", changed_after_capture)
+        reviews = [dict(decision="REPAIR", findings=[finding()]), approved()]
+        if dispatch == "takeover":
+            reviews.insert(1, dict(decision="REPAIR", findings=[finding("Same unresolved defect")]))
+        case = responses(reviews)
+        if dispatch == "takeover":
+            case["executions"][1]["text"] = "FAIL still invalid syntax"
+        result, b, a = execute(prepare(client), override=case)
+>       assert result.state == "BLOCKED", result.reason_codes
+E       AssertionError: ()
+E       assert 'OUTPUT_PREPARING' == 'BLOCKED'
+E         
+E         - BLOCKED
+E         + OUTPUT_PREPARING
+
+tests\integration\test_independent_repair_review.py:35: AssertionError
+============================== warnings summary ===============================
+tests/integration/test_independent_repair_review.py::test_actual_failure_proof_is_current_at_every_repair_dispatch[repair]
+  C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/integration/test_independent_repair_review.py::test_actual_failure_proof_is_current_at_every_repair_dispatch[takeover]
+1 failed, 1 passed, 1 warning in 3.79s

@@ -1,0 +1,24 @@
+{
+  "time": "2026-10-13T13:31:17.028338+00:00",
+  "git_commit": null,
+  "branch": "codex/part1-foundation",
+  "python": "3.13.0",
+  "sqlite": "3.45.3",
+  "provider_mode": "fake",
+  "real_model_starts": 0,
+  "tests": "tests/unit/test_task_contracts.py",
+  "test_count": 40,
+  "result": "pass",
+  "publication_authorized": false,
+  "full_read_actual_provider": "not_verified",
+  "canonical_authorship_actual_provider": "not_verified",
+  "a_call_limit": null,
+  "escalation": [
+    "ambiguity",
+    "evidence_gap",
+    "assumption_failed",
+    "method_changed",
+    "capability_missing",
+    "no_progress"
+  ]
+}

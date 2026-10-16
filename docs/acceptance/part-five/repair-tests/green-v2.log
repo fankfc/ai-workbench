@@ -1,0 +1,29 @@
+..........FF............................................................ [ 43%]
+........................................................................ [ 86%]
+.......................                                                  [100%]
+================================== FAILURES ===================================
+_ test_claude_review_receives_verified_english_observations_with_original_proof_binding _
+tests\integration\test_agent_workflow.py:148: in test_claude_review_receives_verified_english_observations_with_original_proof_binding
+    assert result.state == 'OUTPUT_PREPARING', result.reason_codes
+E   AssertionError: ('CLAUDE_INPUT_TRANSLATION_NOT_READY',)
+E   assert 'BLOCKED' == 'OUTPUT_PREPARING'
+E     
+E     - OUTPUT_PREPARING
+E     + BLOCKED
+_ test_claude_numeric_proof_keeps_translation_qa_and_fixed_budget_gate[10000] _
+tests\integration\test_agent_workflow.py:203: in test_claude_numeric_proof_keeps_translation_qa_and_fixed_budget_gate
+    assert result.reason_codes == ('CLAUDE_REVIEW_EVIDENCE_TRANSLATION_NOT_READY',)
+E   AssertionError: assert ('CLAUDE_INPU...N_NOT_READY',) == ('CLAUDE_REVI...N_NOT_READY',)
+E     
+E     At index 0 diff: 'CLAUDE_INPUT_TRANSLATION_NOT_READY' != 'CLAUDE_REVIEW_EVIDENCE_TRANSLATION_NOT_READY'
+E     Use -v to get more diff
+============================== warnings summary ===============================
+tests/integration/test_repair_work_orders.py::test_repair_request_contains_current_candidate_failure_proof_and_bounded_scope
+  C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/integration/test_agent_workflow.py::test_claude_review_receives_verified_english_observations_with_original_proof_binding
+FAILED tests/integration/test_agent_workflow.py::test_claude_numeric_proof_keeps_translation_qa_and_fixed_budget_gate[10000]
+2 failed, 165 passed, 1 warning in 37.92s

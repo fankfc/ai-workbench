@@ -1,0 +1,76 @@
+{
+  "stable_key_duplicate_before_gap": {
+    "ingest_results": [
+      {
+        "decision": "accepted",
+        "applied_sequences": [
+          1
+        ],
+        "provider_last_sequence": 1
+      },
+      {
+        "decision": "duplicate",
+        "applied_sequences": [],
+        "provider_last_sequence": 1
+      },
+      {
+        "decision": "gap",
+        "applied_sequences": [],
+        "provider_last_sequence": 1
+      },
+      {
+        "decision": "accepted",
+        "applied_sequences": [
+          2,
+          4
+        ],
+        "provider_last_sequence": 4
+      }
+    ],
+    "final_state": "VALIDATING",
+    "checkpoint": {
+      "provider_completion_pending": true,
+      "provider_event_buffer": {},
+      "provider_event_history": {
+        "1": "fe5f21046812b3c30aa7b01d0aed281e32068a3aab39c609ecfe23c2ab4fa922",
+        "2": "16ab8ed6d9728ff8dc1c0b27561f05369c24004905bd82a9d983341818098e60",
+        "3": "5ab107080bfd46405b702f540e9986181e5ecac7d7e4f77ef53c677306482032",
+        "4": "e0eb1651f29b2d2617ddc6426c62cb83446e92cebe0180c0d62087dfb23dc323"
+      },
+      "provider_last_sequence": 4,
+      "provider_stable_keys": {
+        "stable": "345c7d692b22d2d9509209725f79533587beed2619d91cf62fbeb5d58f212c3f"
+      }
+    },
+    "expected_provider_last_sequence": 4,
+    "actual_provider_last_sequence": 4
+  },
+  "terminal_during_query_FAILED": {
+    "expected_terminal_state": "FAILED",
+    "actual_final_state": "FAILED",
+    "verifier_callback_states": [],
+    "recovery_result": [
+      {
+        "task_id": "task1",
+        "attempt_id": "a1",
+        "remote_status": "completed",
+        "decision": "terminal_preserved",
+        "state": "FAILED"
+      }
+    ]
+  },
+  "terminal_during_query_PUBLISHED": {
+    "expected_terminal_state": "PUBLISHED",
+    "actual_final_state": "PUBLISHED",
+    "verifier_callback_states": [],
+    "recovery_result": [
+      {
+        "task_id": "task1",
+        "attempt_id": "a1",
+        "remote_status": "completed",
+        "decision": "terminal_preserved",
+        "state": "PUBLISHED"
+      }
+    ]
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "at_utc": "2026-10-14T03:21:01.946860+00:00",
+  "scope": "Only newly expanded entry-script branches",
+  "mode": "Actual default negative ZCode constructor plus explicit in-memory metadata fixtures; native start spy forbids launch",
+  "actual_native_provider_starts": 0,
+  "actual_model_starts": 0,
+  "auth_or_ui_operations": 0,
+  "launcher_attempts": 0,
+  "checks": [
+    {
+      "name": "new-zcode-script-negative-entry",
+      "passed": true,
+      "reason_code": "SUPPORTED_PROTOCOL_ENTRY_REQUIRED",
+      "exit_code": 1,
+      "launcher_attempts": 0
+    },
+    {
+      "name": "zcode-private-config-reference-restored-after-error",
+      "passed": true
+    },
+    {
+      "name": "expanded-all-mode-projects-both-providers-without-qualifying-model",
+      "passed": true,
+      "exit_code": 0,
+      "provider_names": [
+        "codex",
+        "zcode"
+      ],
+      "synthetic_only": true
+    },
+    {
+      "name": "expanded-script-fails-cleanup-failed",
+      "passed": true,
+      "exit_code": 1,
+      "synthetic_only": true
+    },
+    {
+      "name": "expanded-script-fails-unknown-model-count",
+      "passed": true,
+      "exit_code": 1,
+      "synthetic_only": true
+    },
+    {
+      "name": "nonsecret-config-reference-restored-after-all-cases",
+      "passed": true
+    }
+  ],
+  "passed_count": 6,
+  "check_count": 6,
+  "source_hashes_before": {
+    "scripts/probe_native_connections.py": "bc40b86257c246772a4b49413796aeb0dd9110d8fa91c18a1e49f15725b9902d",
+    "services/orchestrator/app/providers/native_rpc.py": "702fdfe1de5d00b8b30a3628f8811f68f0d8d426caec5c9c4ac8cf828fac4c2e",
+    "services/orchestrator/app/providers/native_rpc_worker.py": "efd341daf662db5bbcc73c51bb545ced2759d7c683a7642b2d01231b6aba9419",
+    "services/orchestrator/app/providers/codex_protocol.py": "be3efaea44bc56fd821adbeb28642637466a5472e6daea95beacaaf5a30b4922",
+    "services/orchestrator/app/providers/zcode_protocol.py": "44e872526f4dbd5d61d481eecc00e41a7bd2542250168bcf0951cd4ecc6b8201"
+  },
+  "source_hashes_after": {
+    "scripts/probe_native_connections.py": "bc40b86257c246772a4b49413796aeb0dd9110d8fa91c18a1e49f15725b9902d",
+    "services/orchestrator/app/providers/native_rpc.py": "702fdfe1de5d00b8b30a3628f8811f68f0d8d426caec5c9c4ac8cf828fac4c2e",
+    "services/orchestrator/app/providers/native_rpc_worker.py": "efd341daf662db5bbcc73c51bb545ced2759d7c683a7642b2d01231b6aba9419",
+    "services/orchestrator/app/providers/codex_protocol.py": "be3efaea44bc56fd821adbeb28642637466a5472e6daea95beacaaf5a30b4922",
+    "services/orchestrator/app/providers/zcode_protocol.py": "44e872526f4dbd5d61d481eecc00e41a7bd2542250168bcf0951cd4ecc6b8201"
+  },
+  "source_unchanged": true,
+  "command": "services/orchestrator/.venv/Scripts/python.exe docs/acceptance/part-one-closeout/native-script-independent-review.py",
+  "exit_code": 0
+}

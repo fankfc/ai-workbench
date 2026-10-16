@@ -1,0 +1,24 @@
+{
+  "provider_boundary": "fixture",
+  "real_model_calls": 0,
+  "result_status": "NEEDS_INPUT",
+  "translator_findings": [
+    {
+      "block_id": "b-ce6f85510fe0d891b8eb",
+      "code": "AMBIGUITY",
+      "severity": "major",
+      "message": "Translator cannot resolve a material source ambiguity.",
+      "source_locator": "text:chars=0-6"
+    }
+  ],
+  "saved_qa_findings": [
+    {
+      "block_id": "b-ce6f85510fe0d891b8eb",
+      "code": "AMBIGUITY",
+      "severity": "major",
+      "message": "Translator cannot resolve a material source ambiguity.",
+      "source_locator": "text:chars=0-6"
+    }
+  ],
+  "checker_calls": 1
+}

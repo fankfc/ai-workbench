@@ -1,0 +1,3 @@
+# D006 route review
+
+The route decision is complete; real connectivity is not verified. The existing Codex CLI is the candidate because it has an official non-interactive entry and a saved ChatGPT login. The actual task was denied by local tool policy, produced no artifact and supplied no structured response model metadata. Consequently all production and bounded-probe registrations remain disabled after this experimental evidence collection. API permission is not inferred from subscription or CLI login. Native language policy is recorded with zero mandatory translation; it is not active for this disconnected route.

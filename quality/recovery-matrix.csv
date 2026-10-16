@@ -1,0 +1,5 @@
+case,automatic_check,scope,status,remaining
+cancel_late_duplicates,tests/reliability/test_fault_matrix.py,1000 fake provider completions,implemented,real remote stop verification
+unknown_restart,tests/reliability/test_fault_matrix.py,real SQLite recovery,implemented,real provider query
+old_approval,tests/reliability/test_fault_matrix.py,real publication gate,implemented,crash cutpoints
+upstream_change,tests/reliability/test_fault_matrix.py,real revision graph,implemented,file lock and full crash matrix

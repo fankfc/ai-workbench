@@ -1,0 +1,212 @@
+{
+  "task_id": "D007",
+  "contract_version": "1.0",
+  "recorded_at": "2026-10-13T19:11:47.0325842+08:00",
+  "timezone": "Asia/Shanghai",
+  "reviewer": "Codex",
+  "human_signoff": "not_claimed",
+  "status": "implemented_and_locally_verified",
+  "real_provider_status": "not_verified",
+  "translation_service_status": "not_implemented_by_D007",
+  "publication_gate_status": "not_implemented_by_D007",
+  "a_provenance_capture_status": "not_implemented_by_D007",
+  "git_commit": null,
+  "git_note": "git rev-parse --verify HEAD exited 1: fatal: Needed a single revision; no commit created",
+  "environment": {
+    "os": "Windows",
+    "powershell": "7.6.5",
+    "python": "3.13.0",
+    "pydantic": "2.14.1",
+    "pytest": "9.1.1",
+    "jsonschema": "4.26.0",
+    "interpreter": "services/orchestrator/.venv/Scripts/python.exe",
+    "provider_mode": "no_provider_invocations",
+    "rfc3339_validator_test_only": "0.1.4",
+    "six_test_only": "1.17.0",
+    "date_time_checker_registered": true
+  },
+  "legacy_dataclass_fields": {
+    "ProviderIdentity": [
+      "adapter",
+      "model_id",
+      "family",
+      "connection_id"
+    ],
+    "AgentRequest": [
+      "task_id",
+      "attempt_id",
+      "role",
+      "identity",
+      "prompt_path",
+      "workspace",
+      "policy_version"
+    ],
+    "AgentEvent": [
+      "task_id",
+      "attempt_id",
+      "sequence",
+      "kind",
+      "payload"
+    ]
+  },
+  "public_event_kinds": [
+    "message.accepted",
+    "response.pending",
+    "answer.published",
+    "artifacts.published",
+    "request.failed",
+    "request.cancelled",
+    "input.required"
+  ],
+  "tests": {
+    "command": "& .\\services\\orchestrator\\.venv\\Scripts\\python.exe -m pytest tests/contracts/test_schemas.py -q --color=no",
+    "exit_code": 0,
+    "passed": 163,
+    "failed": 0,
+    "duration_seconds": 2.32,
+    "log": "docs/acceptance/D007/green.log",
+    "scope": "local Python/Pydantic and JSON Schema contract fixtures, no real providers"
+  },
+  "strict_check": {
+    "command": "& .\\services\\orchestrator\\.venv\\Scripts\\python.exe scripts/check_contracts.py --strict",
+    "exit_code": 0,
+    "output": "CONTRACTS_OK:version=1.0;schemas=2",
+    "log": "docs/acceptance/D007/strict.log"
+  },
+  "schemas": [
+    {
+      "path": "packages/contracts/provider.schema.json",
+      "sha256": "9fa15008a7db0abf51b1b879479fc4d6bb73172ac6a314cef6d8e99700451d9e",
+      "draft": "2020-12"
+    },
+    {
+      "path": "packages/contracts/public-events.schema.json",
+      "sha256": "e52dfa8d5ae55acc90b11112e2016c1062117229c1299cb777105f00990f0cb1",
+      "draft": "2020-12"
+    }
+  ],
+  "red_evidence": [
+    {
+      "log": "docs/acceptance/D007/red.log",
+      "exit_code": 1,
+      "failed": 56,
+      "passed": 11,
+      "deselected": 2,
+      "reason": "permissive executable stubs did not reject invalid identity, missing fields, internal payload leakage and disorder"
+    },
+    {
+      "log": "docs/acceptance/D007/red-binding.log",
+      "exit_code": 1,
+      "failed": 5,
+      "reason": "permissive stub did not reject route/provider evidence mismatches"
+    },
+    {
+      "log": "docs/acceptance/D007/red-schema-drift.log",
+      "exit_code": 1,
+      "failed": 1,
+      "reason": "strict-check stub returned success after schema drift"
+    },
+    {
+      "log": "docs/acceptance/D007/red-completeness.log",
+      "exit_code": 1,
+      "failed": 9,
+      "reason": "Observed 9 initial failures; three unconditional bilingual-array expectations were rejected by independent review. Final common completion references retain approval/time/source checks; Claude pair gates belong to route-aware D035."
+    },
+    {
+      "log": "docs/acceptance/D007/red-cancel-flag.log",
+      "exit_code": 1,
+      "failed": 1,
+      "passed": 2,
+      "reason": "Literal[True] accepted integer 1; fixed by StrictBool and const/validator"
+    },
+    {
+      "log": "docs/acceptance/D007/red-native-bundle.log",
+      "exit_code": 1,
+      "failed": 1,
+      "reason": "Native published bundle was wrongly rejected by unconditional translation/pair/QA nonempty requirements; fixed without deleting required array fields."
+    },
+    {
+      "log": "docs/acceptance/D007/red-time-hash.log",
+      "exit_code": 1,
+      "failed": 16,
+      "passed": 27,
+      "deselected": 84,
+      "reason": "Actual timestamp coercion/space/newline and SHA256 trailing-newline disagreement; date-time checker registration passed after D002 dependency sync."
+    },
+    {
+      "log": "docs/acceptance/D007/red-json-integers.log",
+      "exit_code": 1,
+      "failed": 6,
+      "passed": 18,
+      "deselected": 127,
+      "reason": "Integral float JSON numbers were accepted by integer schema but rejected by strict Python integers; now normalize finite integral values in JSON and Python dict modes."
+    },
+    {
+      "log": "docs/acceptance/D007/red-offset-range.log",
+      "exit_code": 1,
+      "failed": 6,
+      "passed": 6,
+      "deselected": 151,
+      "reason": "Shared timestamp parser normalized out-of-range offset minutes +00:60/+00:99; lexically reject range violations before datetime parsing."
+    }
+  ],
+  "unverified_followups": [
+    "D004-D006: actual identity_source and installed provider capabilities; metadata fixture is not real verification",
+    "D018: resolve real approval/version, route, translation and cancellation state before publishing",
+    "D031 and artifact publisher: capture and verify actual full A authored canonical source, bytes, translation/rendering and atomic pairs",
+    "D012: persist/deduplicate/recover event history; a single schema cannot detect disorder",
+    "Translation/GUI/quality cards: actual bilingual semantics and transient UI leakage, performance, optimization eligibility"
+  ],
+  "implementation_hashes": [
+    {
+      "path": "services/orchestrator/app/contracts/__init__.py",
+      "sha256": "f0a32c4cdf2a1472c58b8b2a97c41d4c5d0378690d2773a2cbae5abce6381a24"
+    },
+    {
+      "path": "services/orchestrator/app/contracts/providers.py",
+      "sha256": "ab41820328b1640b8e7b72db2d6dad056b26bdb9234ebc3a89c2f5248eb8d890"
+    },
+    {
+      "path": "services/orchestrator/app/contracts/events.py",
+      "sha256": "7a0272a6047284668b04a5bb085dd87f2b8d481f481772ce7a288168590a4773"
+    },
+    {
+      "path": "services/orchestrator/app/contracts/translation.py",
+      "sha256": "8d435fe7d0a471618352dbdddb75f88fdcc5373c9c7b2ce302b6c3aff47068e4"
+    },
+    {
+      "path": "services/orchestrator/app/contracts/artifacts.py",
+      "sha256": "e4b41d2cd4fc14aa11a8e941a525b6e711a838e1e360ae60f0789ccfa4dee558"
+    },
+    {
+      "path": "services/orchestrator/app/providers/base.py",
+      "sha256": "3512b8a5793bdb2c7275ba67b7ceb43d81f7b60b1b9a841a2c27a59c3d8f688e"
+    },
+    {
+      "path": "scripts/check_contracts.py",
+      "sha256": "86ed58b7f098f13739e13e3ae45ff3d698cda2c9d8041016e11cc635d6d388e4"
+    },
+    {
+      "path": "tests/contracts/test_schemas.py",
+      "sha256": "51c9f9a87b3554255935026af5d1e70966ff9c9b194453b1742ab5db05b5a20a"
+    }
+  ],
+  "boundary_verification": {
+    "passed": 67,
+    "failed": 0,
+    "exit_code": 0,
+    "log": "docs/acceptance/D007/green-boundaries.log",
+    "integer_semantics": "finite integral JSON numbers normalize to int; bool/string/fraction/nonfinite rejected",
+    "time_semantics": "wire RFC3339 string with timezone or Python aware datetime; no numeric coercion",
+    "sha256_semantics": "exactly 64 lowercase hexadecimal characters",
+    "scope_note": "First date/hash/integer fix wave; final 163-test full suite supersedes this historical 67-test selection."
+  },
+  "offset_range_verification": {
+    "passed": 12,
+    "failed": 0,
+    "exit_code": 0,
+    "log": "docs/acceptance/D007/green-offset-range.log",
+    "scope": "All three time fields reject +00:60/+00:99/+24:00 and accept +23:59; regex ranges enforce hours/minutes/seconds before parser normalization",
+    "source_edits_stopped": true
+  }
+}

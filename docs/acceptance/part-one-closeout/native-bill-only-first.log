@@ -1,0 +1,29 @@
+....F                                                                    [100%]
+================================== FAILURES ===================================
+_____ test_planning_failed_transport_keeps_authenticated_reported_billing _____
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-274/test_planning_failed_transport0')
+
+    def test_planning_failed_transport_keeps_authenticated_reported_billing(tmp_path):
+        import asyncio
+        app, manager, task, attempt, owner = unplanned_case(tmp_path)
+        planner = NativeTaskPlanner(app.state.database.path, manager, FixturePlannerRuntime('billable_failure'),
+            allow_fixture=True, estimated_tokens=24)
+        with pytest.raises(PlanningBlocked):
+            asyncio.run(planner.plan(task, attempt, owner))
+        with closing(app.state.database.connect()) as connection:
+            usage = json.loads(connection.execute('SELECT details_json FROM usage_entries').fetchone()[0])
+            state = connection.execute('SELECT state FROM task_runs').fetchone()[0]
+        assert state == 'BLOCKED'
+>       assert usage['total_tokens'] == 15 and usage['source'] == 'reported' and usage['status'] == 'failed'
+E       assert (None == 15)
+
+tests\integration\test_native_planning.py:246: AssertionError
+============================== warnings summary ===============================
+services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1
+  C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/integration/test_native_planning.py::test_planning_failed_transport_keeps_authenticated_reported_billing

@@ -1,0 +1,15 @@
+{
+  "time": "2026-10-14T08:22:47.268137+00:00",
+  "command": [
+    "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\.venv\\Scripts\\python.exe",
+    "-m",
+    "pytest",
+    "-q",
+    "tests/integration/test_task_profiles.py",
+    "tests/integration/test_conversations.py",
+    "tests/integration/test_storage_relocation.py"
+  ],
+  "exit_code": 4,
+  "git_commit": null,
+  "log": "docs\\acceptance\\part-two\\profile-submission-green.log"
+}

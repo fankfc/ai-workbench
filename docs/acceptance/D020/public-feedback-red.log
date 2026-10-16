@@ -1,0 +1,46 @@
+FFF                                                                      [100%]
+================================== FAILURES ===================================
+____________________ test_missing_evidence_never_delivers _____________________
+
+probe = <function probe.<locals>.run at 0x0000017828859080>
+
+    def test_missing_evidence_never_delivers(probe):
+        result=probe('backend_need_evidence',provider_mode='fake')
+        assert result['task_state'] in ('NEEDS_INPUT','BLOCKED')
+        assert result['public_answer_count']==0
+>       assert any(m['kind']=='input.required' and m['language']=='zh-CN' for m in result['public_messages'])
+E       assert False
+E        +  where False = any(<generator object test_missing_evidence_never_delivers.<locals>.<genexpr> at 0x00000178287B7920>)
+
+tests\integration\test_backend_vertical.py:32: AssertionError
+__________________ test_budget_stops_actual_provider_starts ___________________
+
+probe = <function probe.<locals>.run at 0x0000017828817F60>
+
+    def test_budget_stops_actual_provider_starts(probe):
+        result=probe('backend_budget',provider_mode='fake')
+        assert result['task_state']=='BLOCKED'
+        assert result['model_starts']==0 and result['public_answer_count']==0
+>       assert any(m['kind']=='request.failed' and m['language']=='zh-CN' for m in result['public_messages'])
+E       assert False
+E        +  where False = any(<generator object test_budget_stops_actual_provider_starts.<locals>.<genexpr> at 0x000001782882BED0>)
+
+tests\integration\test_backend_vertical.py:53: AssertionError
+___________ test_claude_chinese_missing_gateway_blocks_before_start ___________
+
+probe = <function probe.<locals>.run at 0x0000017828817920>
+
+    def test_claude_chinese_missing_gateway_blocks_before_start(probe):
+        result=probe('backend_language_gate',provider_mode='fake')
+        assert result['task_state']=='BLOCKED'
+        assert result['model_starts']==0 and result['public_answer_count']==0
+>       assert any(m['kind']=='request.failed' and m['language']=='zh-CN' for m in result['public_messages'])
+E       assert False
+E        +  where False = any(<generator object test_claude_chinese_missing_gateway_blocks_before_start.<locals>.<genexpr> at 0x00000178288285F0>)
+
+tests\integration\test_backend_vertical.py:65: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/integration/test_backend_vertical.py::test_missing_evidence_never_delivers
+FAILED tests/integration/test_backend_vertical.py::test_budget_stops_actual_provider_starts
+FAILED tests/integration/test_backend_vertical.py::test_claude_chinese_missing_gateway_blocks_before_start
+3 failed in 3.54s

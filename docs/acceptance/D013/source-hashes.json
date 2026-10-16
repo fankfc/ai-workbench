@@ -1,0 +1,16 @@
+{
+  "time": "2026-10-13T13:31:17.028338+00:00",
+  "git_commit": null,
+  "branch": "codex/part1-foundation",
+  "python": "3.13.0",
+  "sqlite": "3.45.3",
+  "provider_mode": "fake",
+  "real_model_starts": 0,
+  "hashes": {
+    "services/orchestrator/app/contracts/tasks.py": "32831ea24aeedeee861e4e35ebd40e4bea38ba20e4ce0f3385c65b808372f765",
+    "services/orchestrator/app/runtime/escalation.py": "ba8dd3112c2f26b65c84f544b81ac9ccde27eeb6f9ebec60b762c00a989c1a16",
+    "prompts/a_contract.md": "de62509a5e124a8a5c9e3b0c4dcc683704f80249a4977bc67a57b395a089f2a4",
+    "prompts/b_execute.md": "cfac67cf16e240418291ded2c197f3dbb5bc0a4a66af8e75a030a01923370357",
+    "tests/unit/test_task_contracts.py": "f7b449074ea2ed4d1ddb258fd216219824bfcb56c8ab76f53d415eb0e2f07d57"
+  }
+}

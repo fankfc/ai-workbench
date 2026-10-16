@@ -1,0 +1,20 @@
+{
+  "cid": "98fd862ab10243c59a9a65abb433b48a",
+  "zip_sha256": "578d273ae1c82d77f453c2670068d947ca860d408b657e1a2c239dcfbaa69d53",
+  "schema": 4,
+  "files": 10,
+  "all_hashes_verified": true,
+  "entries": [
+    "manifest.json",
+    "workbench.sqlite3",
+    "blobs/00/0068d6f3df93330818c2944748b704d01cbad6210cd38b3fd29cd3ef90209da3",
+    "blobs/1c/1cbdd8d61a47b7971e975e458ed0b68093eb0f9dab3b634872fb8b263101cd6f",
+    "tasks/f7d1a8f2581a42c09808ed016c20ff68/99a49425883c4af886d3c2e89f53a60d/.source-manifest.json",
+    "tasks/f7d1a8f2581a42c09808ed016c20ff68/99a49425883c4af886d3c2e89f53a60d/a/prompts/fbba4a6ab6f44fef981ae55a39751dec.json",
+    "tasks/f7d1a8f2581a42c09808ed016c20ff68/99a49425883c4af886d3c2e89f53a60d/b/demo.md",
+    "tasks/f7d1a8f2581a42c09808ed016c20ff68/99a49425883c4af886d3c2e89f53a60d/b/prompts/00fe021d3ff749f2a85f8d5433c56b9b.json",
+    "tasks/f7d1a8f2581a42c09808ed016c20ff68/99a49425883c4af886d3c2e89f53a60d/evidence/04864c60547b4a1fb9bb4a07d263c1aa.json",
+    "tasks/f7d1a8f2581a42c09808ed016c20ff68/99a49425883c4af886d3c2e89f53a60d/evidence/8268877d33454b099cb056fc3db3beb9.json",
+    "tasks/f7d1a8f2581a42c09808ed016c20ff68/99a49425883c4af886d3c2e89f53a60d/input/user_request.txt"
+  ]
+}

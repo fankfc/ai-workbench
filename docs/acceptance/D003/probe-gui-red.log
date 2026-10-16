@@ -1,0 +1,148 @@
+......................FF.......FFFF.........F.                           [100%]
+================================== FAILURES ===================================
+_________ test_node_version_keeps_the_major_component_after_v_prefix __________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-6/test_node_version_keeps_the_ma0')
+
+    def test_node_version_keeps_the_major_component_after_v_prefix(tmp_path):
+        executable = tmp_path / "node.exe"
+        executable.touch()
+        result = run_readonly_command("node", executable, ["--version"], runner=lambda args, **kwargs: subprocess.CompletedProcess(args, 0, "v24.19.0\n", ""))
+>       assert result.get("version") == "24.19.0"
+E       AssertionError: assert '19.0' == '24.19.0'
+E         
+E         - 24.19.0
+E         + 19.0
+
+tests\contracts\test_readonly_probe.py:160: AssertionError
+__________ test_usage_help_heading_is_not_token_measurement_evidence __________
+
+fake_cli = (WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-6/test_usage_help_heading_is_not0/codex.exe'), ...ng_is_not0\\codex.exe', '--help'], {'shell': False, 'stdin': -3, 'capture_output': True, 'text': True, ...})], [], ...)
+
+    def test_usage_help_heading_is_not_token_measurement_evidence(fake_cli):
+        result = run_readonly_command("codex", fake_cli[0], ["--help"], runner=fake_cli[-1])
+>       assert "usage" not in {item["capability"] for item in result.get("help_summary", [])}
+E       AssertionError: assert 'usage' not in {'model_selection', 'non_interactive', 'resume', 'usage', 'working_directory'}
+
+tests\contracts\test_readonly_probe.py:165: AssertionError
+_ test_executor_identity_must_bind_to_selected_profile[expected_family-claude] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-6/test_executor_identity_must_bi0')
+field = 'expected_family', value = 'claude'
+
+    @pytest.mark.parametrize("field,value", [("expected_family", "claude"), ("adapter", "claude_code"), ("connection_id", "other-connection"), ("response_model_id", "other-model")])
+    def test_executor_identity_must_bind_to_selected_profile(tmp_path, field, value):
+        starts = []
+        selected = profile(requested_runs=3, connection_id="test-connection", model_id="gpt-test")
+        def execute(p, index):
+            starts.append(index)
+            changes = {"expected_family": "gpt", "observed_family": "gpt", "response_model_id": "gpt-test", "adapter": "codex", field: value}
+            if field == "expected_family":
+                changes["observed_family"] = value
+            return identity_report(tmp_path, **changes)
+        result = run_profile(selected, execute=True, max_runs=3, executors={"codex": registered_executor(tmp_path, execute)})
+>       assert result.get("status") == "blocked"
+E       AssertionError: assert 'verified' == 'blocked'
+E         
+E         - blocked
+E         + verified
+
+tests\contracts\test_readonly_probe.py:229: AssertionError
+__ test_executor_identity_must_bind_to_selected_profile[adapter-claude_code] __
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-6/test_executor_identity_must_bi1')
+field = 'adapter', value = 'claude_code'
+
+    @pytest.mark.parametrize("field,value", [("expected_family", "claude"), ("adapter", "claude_code"), ("connection_id", "other-connection"), ("response_model_id", "other-model")])
+    def test_executor_identity_must_bind_to_selected_profile(tmp_path, field, value):
+        starts = []
+        selected = profile(requested_runs=3, connection_id="test-connection", model_id="gpt-test")
+        def execute(p, index):
+            starts.append(index)
+            changes = {"expected_family": "gpt", "observed_family": "gpt", "response_model_id": "gpt-test", "adapter": "codex", field: value}
+            if field == "expected_family":
+                changes["observed_family"] = value
+            return identity_report(tmp_path, **changes)
+        result = run_profile(selected, execute=True, max_runs=3, executors={"codex": registered_executor(tmp_path, execute)})
+>       assert result.get("status") == "blocked"
+E       AssertionError: assert 'verified' == 'blocked'
+E         
+E         - blocked
+E         + verified
+
+tests\contracts\test_readonly_probe.py:229: AssertionError
+_ test_executor_identity_must_bind_to_selected_profile[connection_id-other-connection] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-6/test_executor_identity_must_bi2')
+field = 'connection_id', value = 'other-connection'
+
+    @pytest.mark.parametrize("field,value", [("expected_family", "claude"), ("adapter", "claude_code"), ("connection_id", "other-connection"), ("response_model_id", "other-model")])
+    def test_executor_identity_must_bind_to_selected_profile(tmp_path, field, value):
+        starts = []
+        selected = profile(requested_runs=3, connection_id="test-connection", model_id="gpt-test")
+        def execute(p, index):
+            starts.append(index)
+            changes = {"expected_family": "gpt", "observed_family": "gpt", "response_model_id": "gpt-test", "adapter": "codex", field: value}
+            if field == "expected_family":
+                changes["observed_family"] = value
+            return identity_report(tmp_path, **changes)
+        result = run_profile(selected, execute=True, max_runs=3, executors={"codex": registered_executor(tmp_path, execute)})
+>       assert result.get("status") == "blocked"
+E       AssertionError: assert 'verified' == 'blocked'
+E         
+E         - blocked
+E         + verified
+
+tests\contracts\test_readonly_probe.py:229: AssertionError
+_ test_executor_identity_must_bind_to_selected_profile[response_model_id-other-model] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-6/test_executor_identity_must_bi3')
+field = 'response_model_id', value = 'other-model'
+
+    @pytest.mark.parametrize("field,value", [("expected_family", "claude"), ("adapter", "claude_code"), ("connection_id", "other-connection"), ("response_model_id", "other-model")])
+    def test_executor_identity_must_bind_to_selected_profile(tmp_path, field, value):
+        starts = []
+        selected = profile(requested_runs=3, connection_id="test-connection", model_id="gpt-test")
+        def execute(p, index):
+            starts.append(index)
+            changes = {"expected_family": "gpt", "observed_family": "gpt", "response_model_id": "gpt-test", "adapter": "codex", field: value}
+            if field == "expected_family":
+                changes["observed_family"] = value
+            return identity_report(tmp_path, **changes)
+        result = run_profile(selected, execute=True, max_runs=3, executors={"codex": registered_executor(tmp_path, execute)})
+>       assert result.get("status") == "blocked"
+E       AssertionError: assert 'verified' == 'blocked'
+E         
+E         - blocked
+E         + verified
+
+tests\contracts\test_readonly_probe.py:229: AssertionError
+_______ test_known_gui_path_is_read_as_file_metadata_and_never_launched _______
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-6/test_known_gui_path_is_read_as0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x0000026AC4A0C2B0>
+
+    def test_known_gui_path_is_read_as_file_metadata_and_never_launched(tmp_path, monkeypatch):
+        executable = tmp_path / "ZCode.exe"
+        executable.write_bytes(b"not-a-native-test-process")
+        def forbidden_launch(*args, **kwargs):
+            raise AssertionError("GUI executable must never be launched")
+        monkeypatch.setattr("app.providers.probe.run_readonly_command", forbidden_launch)
+        report = collect_local_capabilities(tmp_path / "local-capabilities.json", discover=False, known_gui_paths={"zcode_gui": executable})
+        installed = next(item for item in report.get("capabilities", []) if item["tool"] == "zcode_gui" and item["capability"] == "installed")
+>       assert installed["path"] == str(executable.resolve())
+E       AssertionError: assert None == 'C:\\Users\\asd15\\AppData\\Local\\Temp\\pytest-of-asd15\\pytest-6\\test_known_gui_path_is_read_as0\\ZCode.exe'
+E        +  where 'C:\\Users\\asd15\\AppData\\Local\\Temp\\pytest-of-asd15\\pytest-6\\test_known_gui_path_is_read_as0\\ZCode.exe' = str(WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-6/test_known_gui_path_is_read_as0/ZCode.exe'))
+E        +    where WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-6/test_known_gui_path_is_read_as0/ZCode.exe') = resolve()
+E        +      where resolve = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-6/test_known_gui_path_is_read_as0/ZCode.exe').resolve
+
+tests\contracts\test_readonly_probe.py:280: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/contracts/test_readonly_probe.py::test_node_version_keeps_the_major_component_after_v_prefix
+FAILED tests/contracts/test_readonly_probe.py::test_usage_help_heading_is_not_token_measurement_evidence
+FAILED tests/contracts/test_readonly_probe.py::test_executor_identity_must_bind_to_selected_profile[expected_family-claude]
+FAILED tests/contracts/test_readonly_probe.py::test_executor_identity_must_bind_to_selected_profile[adapter-claude_code]
+FAILED tests/contracts/test_readonly_probe.py::test_executor_identity_must_bind_to_selected_profile[connection_id-other-connection]
+FAILED tests/contracts/test_readonly_probe.py::test_executor_identity_must_bind_to_selected_profile[response_model_id-other-model]
+FAILED tests/contracts/test_readonly_probe.py::test_known_gui_path_is_read_as_file_metadata_and_never_launched
+7 failed, 39 passed in 0.79s

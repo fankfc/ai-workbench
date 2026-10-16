@@ -1,0 +1,13 @@
+{
+  "time": "2026-10-14T03:46:16.161042+00:00",
+  "command": [
+    "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\.venv\\Scripts\\python.exe",
+    "-m",
+    "pytest",
+    "-q",
+    "--junitxml=docs/acceptance/part-one-closeout/local-full-junit.xml"
+  ],
+  "exit_code": 0,
+  "git_commit": null,
+  "log": "docs\\acceptance\\part-one-closeout\\local-full-test.log"
+}

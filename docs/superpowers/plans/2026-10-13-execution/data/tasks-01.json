@@ -1,0 +1,1309 @@
+[
+  {
+    "id": "D001",
+    "title": "需求及非目标冻结",
+    "phase": "F0 范围冻结",
+    "requires": [],
+    "requirements": [
+      "R01",
+      "R02",
+      "R03",
+      "R04",
+      "R05",
+      "R06",
+      "R07",
+      "R08",
+      "R09",
+      "R10",
+      "R11",
+      "R12",
+      "R13",
+      "R14",
+      "R15"
+    ],
+    "owner": "产品负责人 + 技术负责人",
+    "status": "done",
+    "deliverables": [
+      "docs/decisions/requirements-v1.json",
+      "docs/decisions/scope-v1.md",
+      "docs/decisions/decision-log.md"
+    ],
+    "test_commands": [
+      "Get-Content -Raw docs/decisions/requirements-v1.json | ConvertFrom-Json | Select-Object -ExpandProperty requirements"
+    ],
+    "evidence": [
+      "docs/acceptance/D001/scope-review.md",
+      "docs/acceptance/D001/implementation-report.md",
+      "docs/acceptance/backend-handoff.json"
+    ],
+    "estimate_hours": 4,
+    "guide": "01-foundation-runtime.md",
+    "status_updated_at": "2026-10-13T21:31:17.381600+08:00",
+    "execution_review": {
+      "local_implementation": "verified",
+      "real_acceptance": "not_required_for_this_card",
+      "reviewer": "Codex root with independent native peer probes",
+      "evidence": "docs/acceptance/D001/implementation-report.md",
+      "aggregate_evidence": "docs/acceptance/backend-handoff.json",
+      "formal_merge_review": "not_run; no merge or PR performed",
+      "commit": null,
+      "commit_note": "原仓库无初始提交，工作区保留源码和哈希证据。"
+    },
+    "completion_level": "card_scope_verified",
+    "planned_deliverables": [
+      "docs/decisions/requirements-v1.json",
+      "docs/decisions/scope-v1.md",
+      "docs/decisions/decision-log.md"
+    ],
+    "planned_test_commands": [
+      "Get-Content -Raw docs/decisions/requirements-v1.json | ConvertFrom-Json | Select-Object -ExpandProperty requirements"
+    ],
+    "freeze": {
+      "status": "frozen_partial",
+      "frozen_at": "2026-10-14T15:36:21.487680+08:00",
+      "evidence": "docs\\acceptance\\part-one-freeze-20261014\\freeze.json"
+    }
+  },
+  {
+    "id": "D002",
+    "title": "项目工程与依赖锁",
+    "phase": "F1 工程基础",
+    "requires": [
+      "D001"
+    ],
+    "requirements": [
+      "R12",
+      "R13"
+    ],
+    "owner": "后端工程师 + 桌面工程师",
+    "status": "done",
+    "deliverables": [
+      "package.json",
+      "package-lock.json",
+      "apps/desktop/package.json",
+      "services/orchestrator/pyproject.toml",
+      "services/orchestrator/uv.lock",
+      "services/orchestrator/app/__init__.py",
+      "pytest.ini",
+      "tests/unit/test_package_bootstrap.py",
+      "docs/runbooks/development.md"
+    ],
+    "test_commands": [
+      "uv sync --project services/orchestrator --locked --extra test",
+      "& .\\services\\orchestrator\\.venv\\Scripts\\python.exe -m pytest tests/unit/test_package_bootstrap.py -q",
+      "npm ci"
+    ],
+    "evidence": [
+      "docs/acceptance/D002/runtime-versions.json",
+      "docs/acceptance/D002/bootstrap.log",
+      "docs/acceptance/D002/implementation-report.md",
+      "docs/acceptance/backend-handoff.json"
+    ],
+    "estimate_hours": 6,
+    "guide": "01-foundation-runtime.md",
+    "status_updated_at": "2026-10-13T21:31:17.381600+08:00",
+    "execution_review": {
+      "local_implementation": "verified",
+      "real_acceptance": "not_required_for_this_card",
+      "reviewer": "Codex root with independent native peer probes",
+      "evidence": "docs/acceptance/D002/implementation-report.md",
+      "aggregate_evidence": "docs/acceptance/backend-handoff.json",
+      "formal_merge_review": "not_run; no merge or PR performed",
+      "commit": null,
+      "commit_note": "原仓库无初始提交，工作区保留源码和哈希证据。"
+    },
+    "completion_level": "card_scope_verified",
+    "planned_deliverables": [
+      "package.json",
+      "package-lock.json",
+      "apps/desktop/package.json",
+      "services/orchestrator/pyproject.toml",
+      "services/orchestrator/uv.lock",
+      "services/orchestrator/app/__init__.py",
+      "pytest.ini",
+      "tests/unit/test_package_bootstrap.py",
+      "docs/runbooks/development.md"
+    ],
+    "planned_test_commands": [
+      "uv sync --project services/orchestrator --locked --extra test",
+      "& .\\services\\orchestrator\\.venv\\Scripts\\python.exe -m pytest tests/unit/test_package_bootstrap.py -q",
+      "npm ci"
+    ],
+    "freeze": {
+      "status": "frozen_partial",
+      "frozen_at": "2026-10-14T15:36:21.487680+08:00",
+      "evidence": "docs\\acceptance\\part-one-freeze-20261014\\freeze.json"
+    }
+  },
+  {
+    "id": "D003",
+    "title": "本机只读能力探测",
+    "phase": "F1 工程基础",
+    "requires": [
+      "D002"
+    ],
+    "requirements": [
+      "R03",
+      "R04",
+      "R13",
+      "R14"
+    ],
+    "owner": "接入工程师",
+    "status": "done",
+    "deliverables": [
+      "services/orchestrator/app/providers/probe.py",
+      "scripts/probe_provider.py",
+      "tests/contracts/test_readonly_probe.py",
+      "docs/acceptance/local-capabilities.json"
+    ],
+    "test_commands": [
+      "python -m app.providers.probe --read-only --output docs/acceptance/local-capabilities.json",
+      "python -m pytest tests/contracts/test_readonly_probe.py -q"
+    ],
+    "evidence": [
+      "docs/acceptance/D003/probe-trace.json",
+      "docs/acceptance/local-capabilities.json",
+      "docs/acceptance/D003/implementation-report.md",
+      "docs/acceptance/backend-handoff.json"
+    ],
+    "estimate_hours": 6,
+    "guide": "01-foundation-runtime.md",
+    "status_updated_at": "2026-10-13T21:31:17.381600+08:00",
+    "execution_review": {
+      "local_implementation": "verified",
+      "real_acceptance": "not_required_for_this_card",
+      "reviewer": "Codex root with independent native peer probes",
+      "evidence": "docs/acceptance/D003/implementation-report.md",
+      "aggregate_evidence": "docs/acceptance/backend-handoff.json",
+      "formal_merge_review": "not_run; no merge or PR performed",
+      "commit": null,
+      "commit_note": "原仓库无初始提交，工作区保留源码和哈希证据。"
+    },
+    "completion_level": "card_scope_verified",
+    "planned_deliverables": [
+      "services/orchestrator/app/providers/probe.py",
+      "scripts/probe_provider.py",
+      "tests/contracts/test_readonly_probe.py",
+      "docs/acceptance/local-capabilities.json"
+    ],
+    "planned_test_commands": [
+      "python -m app.providers.probe --read-only --output docs/acceptance/local-capabilities.json",
+      "python -m pytest tests/contracts/test_readonly_probe.py -q"
+    ],
+    "freeze": {
+      "status": "frozen_partial",
+      "frozen_at": "2026-10-14T15:36:21.487680+08:00",
+      "evidence": "docs\\acceptance\\part-one-freeze-20261014\\freeze.json"
+    }
+  },
+  {
+    "id": "D004",
+    "title": "Claude 真实适配验证",
+    "phase": "F2 真实入口验证",
+    "requires": [
+      "D003"
+    ],
+    "requirements": [
+      "R03",
+      "R12",
+      "R14"
+    ],
+    "owner": "接入工程师 + QA",
+    "status": "blocked",
+    "deliverables": [
+      "services/orchestrator/app/providers/claude_code.py",
+      "docs/acceptance/profiles/claude.json",
+      "tests/contracts/test_claude_adapter.py",
+      "docs/acceptance/claude-capabilities.json"
+    ],
+    "test_commands": [
+      "python scripts/probe_provider.py --profile docs/acceptance/profiles/claude.json --execute --max-runs 3 --output docs/acceptance/D004",
+      "python -m pytest tests/contracts/test_claude_adapter.py -q",
+      "python -m pytest -o addopts='' tests/contracts/test_claude_adapter.py -m real_provider -q"
+    ],
+    "evidence": [
+      "docs/acceptance/D004/probe-report.json",
+      "docs/acceptance/D004/artifact-hashes.json",
+      "docs/acceptance/claude-capabilities.json",
+      "docs/acceptance/D004/implementation-report.md",
+      "docs/acceptance/backend-handoff.json"
+    ],
+    "estimate_hours": 12,
+    "guide": "01-foundation-runtime.md",
+    "status_updated_at": "2026-10-14T15:36:21.487680+08:00",
+    "blocker": {
+      "reason": "Claude 实际接入与验收未完成；GPT 替代小试验有证据，新执行作用域/正式交接尚未验收。",
+      "evidence": "docs\\acceptance\\part-one-freeze-20261014\\freeze.json",
+      "next_action": "随最后统一联调解决；用户已冻结本部分，停止新的真实试验。"
+    },
+    "completion_level": "adapter_implemented_real_blocked",
+    "block_reason": "Claude 实际接入与验收未完成；GPT 替代小试验有证据，新执行作用域/正式交接尚未验收。",
+    "execution_review": {
+      "local_implementation": "verified",
+      "real_acceptance": "blocked",
+      "reviewer": "Codex root with independent native peer probes",
+      "evidence": "docs/acceptance/D004/implementation-report.md",
+      "aggregate_evidence": "docs/acceptance/backend-handoff.json",
+      "formal_merge_review": "not_run; no merge or PR performed",
+      "commit": null,
+      "commit_note": "原仓库无初始提交，工作区保留源码和哈希证据。"
+    },
+    "planned_deliverables": [
+      "services/orchestrator/app/providers/claude_code.py",
+      "docs/acceptance/profiles/claude.json",
+      "tests/contracts/test_claude_adapter.py",
+      "docs/acceptance/claude-capabilities.json"
+    ],
+    "planned_test_commands": [
+      "python scripts/probe_provider.py --profile docs/acceptance/profiles/claude.json --execute --max-runs 3 --output docs/acceptance/D004",
+      "python -m pytest tests/contracts/test_claude_adapter.py -q",
+      "python -m pytest -o addopts='' tests/contracts/test_claude_adapter.py -m real_provider -q"
+    ],
+    "freeze": {
+      "status": "frozen_partial",
+      "frozen_at": "2026-10-14T15:36:21.487680+08:00",
+      "evidence": "docs\\acceptance\\part-one-freeze-20261014\\freeze.json"
+    }
+  },
+  {
+    "id": "D005",
+    "title": "ZCode 真实适配验证",
+    "phase": "F2 真实入口验证",
+    "requires": [
+      "D003"
+    ],
+    "requirements": [
+      "R04",
+      "R12",
+      "R14"
+    ],
+    "owner": "接入工程师 + QA",
+    "status": "blocked",
+    "deliverables": [
+      "services/orchestrator/app/providers/zcode.py",
+      "docs/acceptance/profiles/zcode.json",
+      "tests/contracts/test_zcode_adapter.py",
+      "docs/acceptance/zcode-capabilities.json"
+    ],
+    "test_commands": [
+      "python scripts/probe_provider.py --profile docs/acceptance/profiles/zcode.json --execute --max-runs 3 --output docs/acceptance/D005",
+      "python -m pytest tests/contracts/test_zcode_adapter.py -q",
+      "python -m pytest -o addopts='' tests/contracts/test_zcode_adapter.py -m real_provider -q"
+    ],
+    "evidence": [
+      "docs/acceptance/D005/probe-report.json",
+      "docs/acceptance/D005/session-matrix.md",
+      "docs/acceptance/zcode-capabilities.json",
+      "docs/acceptance/D005/implementation-report.md",
+      "docs/acceptance/backend-handoff.json"
+    ],
+    "estimate_hours": 14,
+    "guide": "01-foundation-runtime.md",
+    "status_updated_at": "2026-10-14T15:36:21.487680+08:00",
+    "blocker": {
+      "reason": "账户与 SDK 鉴权检查成功，但真实 GLM SDK 生成请求 HTTP 405；根因未知，官方发行版主机验证集成仍待补。",
+      "evidence": "docs\\acceptance\\part-one-freeze-20261014\\freeze.json",
+      "next_action": "随最后统一联调解决；用户已冻结本部分，停止新的真实试验。"
+    },
+    "completion_level": "adapter_implemented_real_blocked",
+    "block_reason": "账户与 SDK 鉴权检查成功，但真实 GLM SDK 生成请求 HTTP 405；根因未知，官方发行版主机验证集成仍待补。",
+    "execution_review": {
+      "local_implementation": "verified",
+      "real_acceptance": "blocked",
+      "reviewer": "Codex root with independent native peer probes",
+      "evidence": "docs/acceptance/D005/implementation-report.md",
+      "aggregate_evidence": "docs/acceptance/backend-handoff.json",
+      "formal_merge_review": "not_run; no merge or PR performed",
+      "commit": null,
+      "commit_note": "原仓库无初始提交，工作区保留源码和哈希证据。"
+    },
+    "planned_deliverables": [
+      "services/orchestrator/app/providers/zcode.py",
+      "docs/acceptance/profiles/zcode.json",
+      "tests/contracts/test_zcode_adapter.py",
+      "docs/acceptance/zcode-capabilities.json"
+    ],
+    "planned_test_commands": [
+      "python scripts/probe_provider.py --profile docs/acceptance/profiles/zcode.json --execute --max-runs 3 --output docs/acceptance/D005",
+      "python -m pytest tests/contracts/test_zcode_adapter.py -q",
+      "python -m pytest -o addopts='' tests/contracts/test_zcode_adapter.py -m real_provider -q"
+    ],
+    "freeze": {
+      "status": "frozen_partial",
+      "frozen_at": "2026-10-14T15:36:21.487680+08:00",
+      "evidence": "docs\\acceptance\\part-one-freeze-20261014\\freeze.json"
+    }
+  },
+  {
+    "id": "D006",
+    "title": "GPT 路线和真实适配验证",
+    "phase": "F2 真实入口验证",
+    "requires": [
+      "D003"
+    ],
+    "requirements": [
+      "R03",
+      "R10",
+      "R12",
+      "R14"
+    ],
+    "owner": "接入工程师 + 产品负责人",
+    "status": "done",
+    "deliverables": [
+      "services/orchestrator/app/providers/gpt.py",
+      "docs/decisions/gpt-route.md",
+      "docs/acceptance/profiles/gpt.json",
+      "tests/contracts/test_gpt_adapter.py",
+      "docs/acceptance/gpt-capabilities.json"
+    ],
+    "test_commands": [
+      "python -m pytest tests/contracts/test_gpt_adapter.py -q",
+      "python scripts/probe_provider.py --profile docs/acceptance/profiles/gpt.json --execute --max-runs 3 --output docs/acceptance/D006",
+      "python -m pytest -o addopts='' tests/contracts/test_gpt_adapter.py -m real_provider -q"
+    ],
+    "evidence": [
+      "docs/acceptance/D006/route-review.md",
+      "docs/acceptance/D006/probe-report.json",
+      "docs/acceptance/gpt-capabilities.json",
+      "docs/acceptance/D006/implementation-report.md",
+      "docs/acceptance/backend-handoff.json"
+    ],
+    "estimate_hours": 8,
+    "guide": "01-foundation-runtime.md",
+    "status_updated_at": "2026-10-13T21:31:17.381600+08:00",
+    "status_note": "前置基础卡已验收；此卡尚未实施或真实验证。",
+    "completion_level": "route_decided_not_connected",
+    "execution_review": {
+      "local_implementation": "verified",
+      "real_acceptance": "not_connected",
+      "reviewer": "Codex root with independent native peer probes",
+      "evidence": "docs/acceptance/D006/implementation-report.md",
+      "aggregate_evidence": "docs/acceptance/backend-handoff.json",
+      "formal_merge_review": "not_run; no merge or PR performed",
+      "commit": null,
+      "commit_note": "原仓库无初始提交，工作区保留源码和哈希证据。"
+    },
+    "planned_deliverables": [
+      "services/orchestrator/app/providers/gpt.py",
+      "docs/decisions/gpt-route.md",
+      "docs/acceptance/profiles/gpt.json",
+      "tests/contracts/test_gpt_adapter.py",
+      "docs/acceptance/gpt-capabilities.json"
+    ],
+    "planned_test_commands": [
+      "python -m pytest tests/contracts/test_gpt_adapter.py -q",
+      "python scripts/probe_provider.py --profile docs/acceptance/profiles/gpt.json --execute --max-runs 3 --output docs/acceptance/D006",
+      "python -m pytest -o addopts='' tests/contracts/test_gpt_adapter.py -m real_provider -q"
+    ],
+    "freeze": {
+      "status": "frozen_partial",
+      "frozen_at": "2026-10-14T15:36:21.487680+08:00",
+      "evidence": "docs\\acceptance\\part-one-freeze-20261014\\freeze.json"
+    }
+  },
+  {
+    "id": "D007",
+    "title": "统一内部与公开协议",
+    "phase": "F3 后端合同",
+    "requires": [
+      "D001",
+      "D002",
+      "D003"
+    ],
+    "requirements": [
+      "R03",
+      "R04",
+      "R07",
+      "R08",
+      "R09",
+      "R10",
+      "R11",
+      "R12",
+      "R14",
+      "R15"
+    ],
+    "owner": "后端架构工程师",
+    "status": "done",
+    "deliverables": [
+      "services/orchestrator/app/contracts/providers.py",
+      "services/orchestrator/app/contracts/events.py",
+      "services/orchestrator/app/contracts/translation.py",
+      "services/orchestrator/app/contracts/artifacts.py",
+      "services/orchestrator/app/providers/base.py",
+      "packages/contracts/public-events.schema.json",
+      "packages/contracts/provider.schema.json",
+      "scripts/check_contracts.py",
+      "tests/contracts/test_schemas.py"
+    ],
+    "test_commands": [
+      "python -m pytest tests/contracts/test_schemas.py -q",
+      "python scripts/check_contracts.py --strict"
+    ],
+    "evidence": [
+      "docs/acceptance/D007/contracts-report.json",
+      "docs/acceptance/D007/contract-review.md",
+      "docs/acceptance/D007/implementation-report.md",
+      "docs/acceptance/backend-handoff.json"
+    ],
+    "estimate_hours": 8,
+    "guide": "01-foundation-runtime.md",
+    "status_updated_at": "2026-10-13T21:31:17.381600+08:00",
+    "execution_review": {
+      "local_implementation": "verified",
+      "real_acceptance": "not_required_for_this_card",
+      "reviewer": "Codex root with independent native peer probes",
+      "evidence": "docs/acceptance/D007/implementation-report.md",
+      "aggregate_evidence": "docs/acceptance/backend-handoff.json",
+      "formal_merge_review": "not_run; no merge or PR performed",
+      "commit": null,
+      "commit_note": "原仓库无初始提交，工作区保留源码和哈希证据。"
+    },
+    "completion_level": "card_scope_verified",
+    "planned_deliverables": [
+      "services/orchestrator/app/contracts/providers.py",
+      "services/orchestrator/app/contracts/events.py",
+      "services/orchestrator/app/contracts/translation.py",
+      "services/orchestrator/app/contracts/artifacts.py",
+      "services/orchestrator/app/providers/base.py",
+      "packages/contracts/public-events.schema.json",
+      "packages/contracts/provider.schema.json",
+      "scripts/check_contracts.py",
+      "tests/contracts/test_schemas.py"
+    ],
+    "planned_test_commands": [
+      "python -m pytest tests/contracts/test_schemas.py -q",
+      "python scripts/check_contracts.py --strict"
+    ],
+    "freeze": {
+      "status": "frozen_partial",
+      "frozen_at": "2026-10-14T15:36:21.487680+08:00",
+      "evidence": "docs\\acceptance\\part-one-freeze-20261014\\freeze.json"
+    }
+  },
+  {
+    "id": "D008",
+    "title": "数据库迁移和源文件存储",
+    "phase": "F3 后端合同",
+    "requires": [
+      "D002",
+      "D007"
+    ],
+    "requirements": [
+      "R09",
+      "R12",
+      "R13",
+      "R14"
+    ],
+    "owner": "后端存储工程师",
+    "status": "done",
+    "deliverables": [
+      "services/orchestrator/app/storage/database.py",
+      "services/orchestrator/app/storage/migrations.py",
+      "services/orchestrator/app/storage/blobs.py",
+      "services/orchestrator/app/storage/schema/0001_initial.sql",
+      "tests/integration/test_storage.py"
+    ],
+    "test_commands": [
+      "python -m pytest tests/integration/test_storage.py -q"
+    ],
+    "evidence": [
+      "docs/acceptance/D008/migration-report.json",
+      "docs/acceptance/D008/storage-faults.json",
+      "docs/acceptance/D008/implementation-report.md",
+      "docs/acceptance/backend-handoff.json"
+    ],
+    "estimate_hours": 12,
+    "guide": "01-foundation-runtime.md",
+    "status_updated_at": "2026-10-13T21:31:17.381600+08:00",
+    "status_note": "前置基础卡已验收；此卡尚未实施或真实验证。",
+    "completion_level": "card_scope_verified",
+    "execution_review": {
+      "local_implementation": "verified",
+      "real_acceptance": "not_required_for_this_card",
+      "reviewer": "Codex root with independent native peer probes",
+      "evidence": "docs/acceptance/D008/implementation-report.md",
+      "aggregate_evidence": "docs/acceptance/backend-handoff.json",
+      "formal_merge_review": "not_run; no merge or PR performed",
+      "commit": null,
+      "commit_note": "原仓库无初始提交，工作区保留源码和哈希证据。"
+    },
+    "planned_deliverables": [
+      "services/orchestrator/app/storage/database.py",
+      "services/orchestrator/app/storage/migrations.py",
+      "services/orchestrator/app/storage/blobs.py",
+      "services/orchestrator/app/storage/schema/0001_initial.sql",
+      "tests/integration/test_storage.py"
+    ],
+    "planned_test_commands": [
+      "python -m pytest tests/integration/test_storage.py -q"
+    ],
+    "freeze": {
+      "status": "frozen_partial",
+      "frozen_at": "2026-10-14T15:36:21.487680+08:00",
+      "evidence": "docs\\acceptance\\part-one-freeze-20261014\\freeze.json"
+    }
+  },
+  {
+    "id": "D009",
+    "title": "会话和任务 API",
+    "phase": "F4 持久运行时",
+    "requires": [
+      "D007",
+      "D008"
+    ],
+    "requirements": [
+      "R03",
+      "R06",
+      "R11",
+      "R12",
+      "R13"
+    ],
+    "owner": "后端 API 工程师",
+    "status": "done",
+    "deliverables": [
+      "services/orchestrator/app/config.py",
+      "services/orchestrator/app/api/application.py",
+      "services/orchestrator/app/api/conversations.py",
+      "services/orchestrator/app/api/turns.py",
+      "services/orchestrator/app/api/tasks.py",
+      "tests/conftest.py",
+      "tests/integration/test_conversation_api.py"
+    ],
+    "test_commands": [
+      "python -m pytest tests/integration/test_conversation_api.py -q"
+    ],
+    "evidence": [
+      "docs/acceptance/D009/openapi.json",
+      "docs/acceptance/D009/api-report.json",
+      "docs/acceptance/D009/implementation-report.md",
+      "docs/acceptance/backend-handoff.json"
+    ],
+    "estimate_hours": 10,
+    "guide": "01-foundation-runtime.md",
+    "status_updated_at": "2026-10-13T21:31:17.381600+08:00",
+    "completion_level": "card_scope_verified",
+    "execution_review": {
+      "local_implementation": "verified",
+      "real_acceptance": "not_required_for_this_card",
+      "reviewer": "Codex root with independent native peer probes",
+      "evidence": "docs/acceptance/D009/implementation-report.md",
+      "aggregate_evidence": "docs/acceptance/backend-handoff.json",
+      "formal_merge_review": "not_run; no merge or PR performed",
+      "commit": null,
+      "commit_note": "原仓库无初始提交，工作区保留源码和哈希证据。"
+    },
+    "planned_deliverables": [
+      "services/orchestrator/app/config.py",
+      "services/orchestrator/app/api/application.py",
+      "services/orchestrator/app/api/conversations.py",
+      "services/orchestrator/app/api/turns.py",
+      "services/orchestrator/app/api/tasks.py",
+      "tests/conftest.py",
+      "tests/integration/test_conversation_api.py"
+    ],
+    "planned_test_commands": [
+      "python -m pytest tests/integration/test_conversation_api.py -q"
+    ],
+    "freeze": {
+      "status": "frozen_partial",
+      "frozen_at": "2026-10-14T15:36:21.487680+08:00",
+      "evidence": "docs\\acceptance\\part-one-freeze-20261014\\freeze.json"
+    }
+  },
+  {
+    "id": "D010",
+    "title": "状态转换与事务 outbox",
+    "phase": "F4 持久运行时",
+    "requires": [
+      "D008",
+      "D009"
+    ],
+    "requirements": [
+      "R11",
+      "R12"
+    ],
+    "owner": "后端运行时工程师",
+    "status": "done",
+    "deliverables": [
+      "services/orchestrator/app/runtime/state_machine.py",
+      "services/orchestrator/app/runtime/outbox.py",
+      "tests/integration/test_state_machine.py",
+      "tests/integration/test_outbox.py"
+    ],
+    "test_commands": [
+      "services/orchestrator/.venv/Scripts/python.exe -m pytest tests/integration/test_state_machine.py tests/integration/test_outbox.py -q"
+    ],
+    "evidence": [
+      "docs/acceptance/D010/state-matrix.json",
+      "docs/acceptance/D010/crash-traces.json",
+      "docs/acceptance/D010/implementation-report.md",
+      "docs/acceptance/backend-handoff.json"
+    ],
+    "estimate_hours": 14,
+    "guide": "01-foundation-runtime.md",
+    "status_updated_at": "2026-10-13T21:31:17.381600+08:00",
+    "completion_level": "card_scope_verified",
+    "execution_review": {
+      "local_implementation": "verified",
+      "real_acceptance": "not_required_for_this_card",
+      "reviewer": "Codex root with independent native peer probes",
+      "evidence": "docs/acceptance/D010/implementation-report.md",
+      "aggregate_evidence": "docs/acceptance/backend-handoff.json",
+      "formal_merge_review": "not_run; no merge or PR performed",
+      "commit": null,
+      "commit_note": "原仓库无初始提交，工作区保留源码和哈希证据。"
+    },
+    "planned_deliverables": [
+      "services/orchestrator/app/runtime/state_machine.py",
+      "services/orchestrator/app/runtime/outbox.py",
+      "services/orchestrator/app/runtime/scheduler.py",
+      "tests/integration/test_state_outbox.py"
+    ],
+    "planned_test_commands": [
+      "python -m pytest tests/integration/test_state_outbox.py -q"
+    ],
+    "freeze": {
+      "status": "frozen_partial",
+      "frozen_at": "2026-10-14T15:36:21.487680+08:00",
+      "evidence": "docs\\acceptance\\part-one-freeze-20261014\\freeze.json"
+    }
+  },
+  {
+    "id": "D011",
+    "title": "进程启动取消与资源管理",
+    "phase": "F4 持久运行时",
+    "requires": [
+      "D002",
+      "D007"
+    ],
+    "requirements": [
+      "R03",
+      "R04",
+      "R12",
+      "R13"
+    ],
+    "owner": "Windows 运行时工程师",
+    "status": "done",
+    "deliverables": [
+      "services/orchestrator/app/runtime/processes.py",
+      "services/orchestrator/app/runtime/resources.py",
+      "services/orchestrator/app/runtime/leases.py",
+      "tests/integration/test_process_lifecycle.py",
+      "tests/fixtures/process_worker.py"
+    ],
+    "test_commands": [
+      "python -m pytest tests/integration/test_process_lifecycle.py -m windows -q"
+    ],
+    "evidence": [
+      "docs/acceptance/D011/process-tree.json",
+      "docs/acceptance/D011/resource-report.json",
+      "docs/acceptance/D011/implementation-report.md",
+      "docs/acceptance/backend-handoff.json"
+    ],
+    "estimate_hours": 12,
+    "guide": "01-foundation-runtime.md",
+    "status_updated_at": "2026-10-13T21:31:17.381600+08:00",
+    "status_note": "前置基础卡已验收；此卡尚未实施或真实验证。",
+    "completion_level": "card_scope_verified",
+    "execution_review": {
+      "local_implementation": "verified",
+      "real_acceptance": "not_required_for_this_card",
+      "reviewer": "Codex root with independent native peer probes",
+      "evidence": "docs/acceptance/D011/implementation-report.md",
+      "aggregate_evidence": "docs/acceptance/backend-handoff.json",
+      "formal_merge_review": "not_run; no merge or PR performed",
+      "commit": null,
+      "commit_note": "原仓库无初始提交，工作区保留源码和哈希证据。"
+    },
+    "planned_deliverables": [
+      "services/orchestrator/app/runtime/processes.py",
+      "services/orchestrator/app/runtime/resources.py",
+      "services/orchestrator/app/runtime/leases.py",
+      "tests/integration/test_process_lifecycle.py",
+      "tests/fixtures/process_worker.py"
+    ],
+    "planned_test_commands": [
+      "python -m pytest tests/integration/test_process_lifecycle.py -m windows -q"
+    ],
+    "freeze": {
+      "status": "frozen_partial",
+      "frozen_at": "2026-10-14T15:36:21.487680+08:00",
+      "evidence": "docs\\acceptance\\part-one-freeze-20261014\\freeze.json"
+    }
+  },
+  {
+    "id": "D012",
+    "title": "重启恢复、去重与未知远端状态",
+    "phase": "F4 持久运行时",
+    "requires": [
+      "D010",
+      "D011"
+    ],
+    "requirements": [
+      "R12",
+      "R14"
+    ],
+    "owner": "后端运行时工程师 + QA",
+    "status": "done",
+    "deliverables": [
+      "services/orchestrator/app/runtime/recovery.py",
+      "tests/integration/test_recovery.py"
+    ],
+    "test_commands": [
+      "python -m pytest tests/integration/test_recovery.py -q"
+    ],
+    "evidence": [
+      "docs/acceptance/D012/recovery-report.json",
+      "docs/acceptance/D012/remote-unknown-trace.json",
+      "docs/acceptance/D012/implementation-report.md",
+      "docs/acceptance/backend-handoff.json"
+    ],
+    "estimate_hours": 16,
+    "guide": "01-foundation-runtime.md",
+    "status_updated_at": "2026-10-13T21:31:17.381600+08:00",
+    "completion_level": "card_scope_verified",
+    "execution_review": {
+      "local_implementation": "verified",
+      "real_acceptance": "not_required_for_this_card",
+      "reviewer": "Codex root with independent native peer probes",
+      "evidence": "docs/acceptance/D012/implementation-report.md",
+      "aggregate_evidence": "docs/acceptance/backend-handoff.json",
+      "formal_merge_review": "not_run; no merge or PR performed",
+      "commit": null,
+      "commit_note": "原仓库无初始提交，工作区保留源码和哈希证据。"
+    },
+    "planned_deliverables": [
+      "services/orchestrator/app/runtime/recovery.py",
+      "services/orchestrator/app/runtime/deduplication.py",
+      "tests/integration/test_recovery.py",
+      "tests/fixtures/recovery_events.json"
+    ],
+    "planned_test_commands": [
+      "python -m pytest tests/integration/test_recovery.py -q"
+    ],
+    "freeze": {
+      "status": "frozen_partial",
+      "frozen_at": "2026-10-14T15:36:21.487680+08:00",
+      "evidence": "docs\\acceptance\\part-one-freeze-20261014\\freeze.json"
+    }
+  },
+  {
+    "id": "D013",
+    "title": "A/B 任务合同及判断触发",
+    "phase": "F5 任务执行",
+    "requires": [
+      "D001",
+      "D007",
+      "D008"
+    ],
+    "requirements": [
+      "R01",
+      "R02",
+      "R05",
+      "R09"
+    ],
+    "owner": "智能体工作流工程师 + 领域评审",
+    "status": "done",
+    "deliverables": [
+      "services/orchestrator/app/contracts/tasks.py",
+      "services/orchestrator/app/runtime/escalation.py",
+      "prompts/a_contract.md",
+      "prompts/b_execute.md",
+      "tests/unit/test_task_contracts.py"
+    ],
+    "test_commands": [
+      "python -m pytest tests/unit/test_task_contracts.py -q"
+    ],
+    "evidence": [
+      "docs/acceptance/D013/contracts.json",
+      "docs/acceptance/D013/escalation-matrix.md",
+      "docs/acceptance/D013/implementation-report.md",
+      "docs/acceptance/backend-handoff.json"
+    ],
+    "estimate_hours": 10,
+    "guide": "01-foundation-runtime.md",
+    "status_updated_at": "2026-10-13T21:31:17.381600+08:00",
+    "completion_level": "card_scope_verified",
+    "execution_review": {
+      "local_implementation": "verified",
+      "real_acceptance": "not_required_for_this_card",
+      "reviewer": "Codex root with independent native peer probes",
+      "evidence": "docs/acceptance/D013/implementation-report.md",
+      "aggregate_evidence": "docs/acceptance/backend-handoff.json",
+      "formal_merge_review": "not_run; no merge or PR performed",
+      "commit": null,
+      "commit_note": "原仓库无初始提交，工作区保留源码和哈希证据。"
+    },
+    "planned_deliverables": [
+      "services/orchestrator/app/contracts/tasks.py",
+      "services/orchestrator/app/runtime/escalation.py",
+      "services/orchestrator/app/prompts/a_contract.md",
+      "services/orchestrator/app/prompts/b_execute.md",
+      "tests/unit/test_task_contracts.py"
+    ],
+    "planned_test_commands": [
+      "python -m pytest tests/unit/test_task_contracts.py -q"
+    ],
+    "freeze": {
+      "status": "frozen_partial",
+      "frozen_at": "2026-10-14T15:36:21.487680+08:00",
+      "evidence": "docs\\acceptance\\part-one-freeze-20261014\\freeze.json"
+    }
+  },
+  {
+    "id": "D014",
+    "title": "执行和返修循环",
+    "phase": "F5 任务执行",
+    "requires": [
+      "D010",
+      "D011",
+      "D012",
+      "D013"
+    ],
+    "requirements": [
+      "R01",
+      "R02",
+      "R04",
+      "R05",
+      "R12"
+    ],
+    "owner": "智能体工作流工程师",
+    "status": "done",
+    "deliverables": [
+      "services/orchestrator/app/runtime/workflow.py",
+      "services/orchestrator/app/runtime/repair.py",
+      "services/orchestrator/app/providers/fake.py",
+      "tests/integration/test_agent_workflow.py",
+      "tests/fixtures/workflow_cases.json"
+    ],
+    "test_commands": [
+      "python -m pytest tests/integration/test_agent_workflow.py -q"
+    ],
+    "evidence": [
+      "docs/acceptance/D014/workflow-traces.json",
+      "docs/acceptance/D014/repair-evidence.json",
+      "docs/acceptance/D014/implementation-report.md",
+      "docs/acceptance/backend-handoff.json"
+    ],
+    "estimate_hours": 16,
+    "guide": "01-foundation-runtime.md",
+    "status_updated_at": "2026-10-13T21:31:17.381600+08:00",
+    "completion_level": "card_scope_verified",
+    "execution_review": {
+      "local_implementation": "verified",
+      "real_acceptance": "not_required_for_this_card",
+      "reviewer": "Codex root with independent native peer probes",
+      "evidence": "docs/acceptance/D014/implementation-report.md",
+      "aggregate_evidence": "docs/acceptance/backend-handoff.json",
+      "formal_merge_review": "not_run; no merge or PR performed",
+      "commit": null,
+      "commit_note": "原仓库无初始提交，工作区保留源码和哈希证据。"
+    },
+    "planned_deliverables": [
+      "services/orchestrator/app/runtime/workflow.py",
+      "services/orchestrator/app/runtime/repair.py",
+      "services/orchestrator/app/providers/fake.py",
+      "tests/integration/test_agent_workflow.py",
+      "tests/fixtures/workflow_cases.json"
+    ],
+    "planned_test_commands": [
+      "python -m pytest tests/integration/test_agent_workflow.py -q"
+    ],
+    "freeze": {
+      "status": "frozen_partial",
+      "frozen_at": "2026-10-14T15:36:21.487680+08:00",
+      "evidence": "docs\\acceptance\\part-one-freeze-20261014\\freeze.json"
+    }
+  },
+  {
+    "id": "D015",
+    "title": "用量归一化与预算",
+    "phase": "F5 任务执行",
+    "requires": [
+      "D007",
+      "D008",
+      "D014"
+    ],
+    "requirements": [
+      "R02",
+      "R14"
+    ],
+    "owner": "后端计量工程师",
+    "status": "done",
+    "deliverables": [
+      "services/orchestrator/app/usage/normalization.py",
+      "services/orchestrator/app/usage/ledger.py",
+      "services/orchestrator/app/usage/budgets.py",
+      "tests/unit/test_usage_ledger.py"
+    ],
+    "test_commands": [
+      "python -m pytest tests/unit/test_usage_ledger.py -q"
+    ],
+    "evidence": [
+      "docs/acceptance/D015/usage-fixtures.json",
+      "docs/acceptance/D015/budget-report.json",
+      "docs/acceptance/D015/implementation-report.md",
+      "docs/acceptance/backend-handoff.json"
+    ],
+    "estimate_hours": 10,
+    "guide": "01-foundation-runtime.md",
+    "status_updated_at": "2026-10-13T21:31:17.381600+08:00",
+    "completion_level": "card_scope_verified",
+    "execution_review": {
+      "local_implementation": "verified",
+      "real_acceptance": "not_required_for_this_card",
+      "reviewer": "Codex root with independent native peer probes",
+      "evidence": "docs/acceptance/D015/implementation-report.md",
+      "aggregate_evidence": "docs/acceptance/backend-handoff.json",
+      "formal_merge_review": "not_run; no merge or PR performed",
+      "commit": null,
+      "commit_note": "原仓库无初始提交，工作区保留源码和哈希证据。"
+    },
+    "planned_deliverables": [
+      "services/orchestrator/app/usage/normalization.py",
+      "services/orchestrator/app/usage/ledger.py",
+      "services/orchestrator/app/usage/budgets.py",
+      "tests/unit/test_usage_ledger.py"
+    ],
+    "planned_test_commands": [
+      "python -m pytest tests/unit/test_usage_ledger.py -q"
+    ],
+    "freeze": {
+      "status": "frozen_partial",
+      "frozen_at": "2026-10-14T15:36:21.487680+08:00",
+      "evidence": "docs\\acceptance\\part-one-freeze-20261014\\freeze.json"
+    }
+  },
+  {
+    "id": "D016",
+    "title": "依赖版本失效",
+    "phase": "F5 任务执行",
+    "requires": [
+      "D008",
+      "D013",
+      "D014"
+    ],
+    "requirements": [
+      "R05",
+      "R09",
+      "R12"
+    ],
+    "owner": "后端版本工程师",
+    "status": "done",
+    "deliverables": [
+      "services/orchestrator/app/runtime/dependencies.py",
+      "services/orchestrator/app/storage/revisions.py",
+      "tests/integration/test_dependency_invalidation.py"
+    ],
+    "test_commands": [
+      "python -m pytest tests/integration/test_dependency_invalidation.py -q"
+    ],
+    "evidence": [
+      "docs/acceptance/D016/dependency-dag.json",
+      "docs/acceptance/D016/invalidation-report.json",
+      "docs/acceptance/D016/implementation-report.md",
+      "docs/acceptance/backend-handoff.json"
+    ],
+    "estimate_hours": 10,
+    "guide": "01-foundation-runtime.md",
+    "status_updated_at": "2026-10-13T21:31:17.381600+08:00",
+    "completion_level": "card_scope_verified",
+    "execution_review": {
+      "local_implementation": "verified",
+      "real_acceptance": "not_required_for_this_card",
+      "reviewer": "Codex root with independent native peer probes",
+      "evidence": "docs/acceptance/D016/implementation-report.md",
+      "aggregate_evidence": "docs/acceptance/backend-handoff.json",
+      "formal_merge_review": "not_run; no merge or PR performed",
+      "commit": null,
+      "commit_note": "原仓库无初始提交，工作区保留源码和哈希证据。"
+    },
+    "planned_deliverables": [
+      "services/orchestrator/app/runtime/dependencies.py",
+      "services/orchestrator/app/storage/revisions.py",
+      "tests/integration/test_dependency_invalidation.py"
+    ],
+    "planned_test_commands": [
+      "python -m pytest tests/integration/test_dependency_invalidation.py -q"
+    ],
+    "freeze": {
+      "status": "frozen_partial",
+      "frozen_at": "2026-10-14T15:36:21.487680+08:00",
+      "evidence": "docs\\acceptance\\part-one-freeze-20261014\\freeze.json"
+    }
+  },
+  {
+    "id": "D017",
+    "title": "文件读取与执行作用域",
+    "phase": "F5 任务执行",
+    "requires": [
+      "D011",
+      "D013"
+    ],
+    "requirements": [
+      "R07",
+      "R09",
+      "R11",
+      "R12",
+      "R13"
+    ],
+    "owner": "后端边界工程师",
+    "status": "done",
+    "deliverables": [
+      "services/orchestrator/app/runtime/workspace.py",
+      "services/orchestrator/app/runtime/context_gateway.py",
+      "tests/integration/test_workspace.py",
+      "tests/integration/test_context_gateway.py"
+    ],
+    "test_commands": [
+      "services/orchestrator/.venv/Scripts/python.exe -m pytest tests/integration/test_workspace.py tests/integration/test_context_gateway.py -q"
+    ],
+    "evidence": [
+      "docs/acceptance/D017/scope-matrix.json",
+      "docs/acceptance/D017/isolation-report.json",
+      "docs/acceptance/D017/implementation-report.md",
+      "docs/acceptance/backend-handoff.json"
+    ],
+    "estimate_hours": 12,
+    "guide": "01-foundation-runtime.md",
+    "status_updated_at": "2026-10-13T21:31:17.381600+08:00",
+    "completion_level": "card_scope_verified",
+    "execution_review": {
+      "local_implementation": "verified",
+      "real_acceptance": "not_required_for_this_card",
+      "reviewer": "Codex root with independent native peer probes",
+      "evidence": "docs/acceptance/D017/implementation-report.md",
+      "aggregate_evidence": "docs/acceptance/backend-handoff.json",
+      "formal_merge_review": "not_run; no merge or PR performed",
+      "commit": null,
+      "commit_note": "原仓库无初始提交，工作区保留源码和哈希证据。"
+    },
+    "planned_deliverables": [
+      "services/orchestrator/app/runtime/scopes.py",
+      "services/orchestrator/app/runtime/context_gateway.py",
+      "services/orchestrator/app/runtime/write_leases.py",
+      "tests/integration/test_task_scopes.py"
+    ],
+    "planned_test_commands": [
+      "python -m pytest tests/integration/test_task_scopes.py -q"
+    ],
+    "freeze": {
+      "status": "frozen_partial",
+      "frozen_at": "2026-10-14T15:36:21.487680+08:00",
+      "evidence": "docs\\acceptance\\part-one-freeze-20261014\\freeze.json"
+    }
+  },
+  {
+    "id": "D018",
+    "title": "公开事件投影",
+    "phase": "F6 后端集成",
+    "requires": [
+      "D007",
+      "D009",
+      "D010"
+    ],
+    "requirements": [
+      "R06",
+      "R08",
+      "R09",
+      "R10",
+      "R11",
+      "R12"
+    ],
+    "owner": "后端 API 工程师 + 桌面联调工程师",
+    "status": "done",
+    "deliverables": [
+      "services/orchestrator/app/runtime/public_projection.py",
+      "services/orchestrator/app/api/public_events.py",
+      "tests/integration/test_public_projection.py"
+    ],
+    "test_commands": [
+      "python -m pytest tests/integration/test_public_projection.py -q"
+    ],
+    "evidence": [
+      "docs/acceptance/D018/public-payloads.json",
+      "docs/acceptance/D018/leakage-report.json",
+      "docs/acceptance/D018/implementation-report.md",
+      "docs/acceptance/backend-handoff.json"
+    ],
+    "estimate_hours": 10,
+    "guide": "01-foundation-runtime.md",
+    "status_updated_at": "2026-10-13T21:31:17.381600+08:00",
+    "completion_level": "card_scope_verified",
+    "execution_review": {
+      "local_implementation": "verified",
+      "real_acceptance": "not_required_for_this_card",
+      "reviewer": "Codex root with independent native peer probes",
+      "evidence": "docs/acceptance/D018/implementation-report.md",
+      "aggregate_evidence": "docs/acceptance/backend-handoff.json",
+      "formal_merge_review": "not_run; no merge or PR performed",
+      "commit": null,
+      "commit_note": "原仓库无初始提交，工作区保留源码和哈希证据。"
+    },
+    "planned_deliverables": [
+      "services/orchestrator/app/runtime/public_projection.py",
+      "services/orchestrator/app/api/public_events.py",
+      "tests/integration/test_public_projection.py"
+    ],
+    "planned_test_commands": [
+      "python -m pytest tests/integration/test_public_projection.py -q"
+    ],
+    "freeze": {
+      "status": "frozen_partial",
+      "frozen_at": "2026-10-14T15:36:21.487680+08:00",
+      "evidence": "docs\\acceptance\\part-one-freeze-20261014\\freeze.json"
+    }
+  },
+  {
+    "id": "D019",
+    "title": "领域验证器注册",
+    "phase": "F6 后端集成",
+    "requires": [
+      "D013",
+      "D016",
+      "D017"
+    ],
+    "requirements": [
+      "R01",
+      "R05",
+      "R09",
+      "R12"
+    ],
+    "owner": "领域验证工程师",
+    "status": "done",
+    "deliverables": [
+      "services/orchestrator/app/validation/base.py",
+      "services/orchestrator/app/validation/registry.py",
+      "services/orchestrator/app/validation/code.py",
+      "services/orchestrator/app/validation/paper.py",
+      "services/orchestrator/app/validation/document.py",
+      "tests/integration/test_validation_registry.py"
+    ],
+    "test_commands": [
+      "python -m pytest tests/integration/test_validation_registry.py -q"
+    ],
+    "evidence": [
+      "docs/acceptance/D019/validator-capabilities.json",
+      "docs/acceptance/D019/domain-results.json",
+      "docs/acceptance/D019/implementation-report.md",
+      "docs/acceptance/backend-handoff.json"
+    ],
+    "estimate_hours": 12,
+    "guide": "01-foundation-runtime.md",
+    "status_updated_at": "2026-10-13T21:31:17.381600+08:00",
+    "completion_level": "card_scope_verified",
+    "execution_review": {
+      "local_implementation": "verified",
+      "real_acceptance": "not_required_for_this_card",
+      "reviewer": "Codex root with independent native peer probes",
+      "evidence": "docs/acceptance/D019/implementation-report.md",
+      "aggregate_evidence": "docs/acceptance/backend-handoff.json",
+      "formal_merge_review": "not_run; no merge or PR performed",
+      "commit": null,
+      "commit_note": "原仓库无初始提交，工作区保留源码和哈希证据。"
+    },
+    "planned_deliverables": [
+      "services/orchestrator/app/validation/base.py",
+      "services/orchestrator/app/validation/registry.py",
+      "services/orchestrator/app/validation/code.py",
+      "services/orchestrator/app/validation/paper.py",
+      "services/orchestrator/app/validation/document.py",
+      "tests/integration/test_validation_registry.py"
+    ],
+    "planned_test_commands": [
+      "python -m pytest tests/integration/test_validation_registry.py -q"
+    ],
+    "freeze": {
+      "status": "frozen_partial",
+      "frozen_at": "2026-10-14T15:36:21.487680+08:00",
+      "evidence": "docs\\acceptance\\part-one-freeze-20261014\\freeze.json"
+    }
+  },
+  {
+    "id": "D020",
+    "title": "后端垂直集成",
+    "phase": "F6 后端集成",
+    "requires": [
+      "D004",
+      "D005",
+      "D012",
+      "D014",
+      "D015",
+      "D016",
+      "D017",
+      "D018",
+      "D019"
+    ],
+    "requirements": [
+      "R01",
+      "R02",
+      "R03",
+      "R04",
+      "R05",
+      "R07",
+      "R08",
+      "R09",
+      "R10",
+      "R11",
+      "R12",
+      "R14"
+    ],
+    "owner": "后端负责人 + QA",
+    "status": "blocked",
+    "deliverables": [
+      "tests/support/scenario_driver.py",
+      "tests/integration/test_backend_vertical.py",
+      "tests/fixtures/vertical_cases.json",
+      "docs/runbooks/backend-operations.md",
+      "docs/acceptance/backend-handoff.json"
+    ],
+    "test_commands": [
+      "python -m pytest tests/integration/test_backend_vertical.py -q",
+      "python tests/support/scenario_driver.py backend_vertical --root artifacts/qa/D020 --options '{\"provider_mode\":\"fake\"}'",
+      "python -m pytest -o addopts='' tests/integration/test_backend_vertical.py -m real_provider -q"
+    ],
+    "evidence": [
+      "docs/acceptance/D020/vertical-report.json",
+      "docs/acceptance/D020/request-ledger.json",
+      "docs/acceptance/backend-handoff.json",
+      "docs/acceptance/D020/implementation-report.md"
+    ],
+    "estimate_hours": 14,
+    "guide": "01-foundation-runtime.md",
+    "status_updated_at": "2026-10-14T15:36:21.487680+08:00",
+    "completion_level": "local_integration_verified_real_blocked",
+    "block_reason": "实际 API→A 计划→B 候选→C→A→发布尚未完整通过；冻结回归另有 1 个异常路径用量测试失败。",
+    "execution_review": {
+      "local_implementation": "verified",
+      "real_acceptance": "blocked",
+      "reviewer": "Codex root with independent native peer probes",
+      "evidence": "docs/acceptance/D020/implementation-report.md",
+      "aggregate_evidence": "docs/acceptance/backend-handoff.json",
+      "formal_merge_review": "not_run; no merge or PR performed",
+      "commit": null,
+      "commit_note": "原仓库无初始提交，工作区保留源码和哈希证据。"
+    },
+    "planned_deliverables": [
+      "tests/support/scenario_driver.py",
+      "tests/integration/test_backend_vertical.py",
+      "tests/fixtures/vertical_cases.json",
+      "docs/runbooks/backend-operations.md",
+      "docs/acceptance/backend-handoff.json"
+    ],
+    "planned_test_commands": [
+      "python -m pytest tests/integration/test_backend_vertical.py -q",
+      "python tests/support/scenario_driver.py backend_vertical --root artifacts/qa/D020 --options '{\"provider_mode\":\"fake\"}'",
+      "python -m pytest -o addopts='' tests/integration/test_backend_vertical.py -m real_provider -q"
+    ],
+    "freeze": {
+      "status": "frozen_partial",
+      "frozen_at": "2026-10-14T15:36:21.487680+08:00",
+      "evidence": "docs\\acceptance\\part-one-freeze-20261014\\freeze.json"
+    },
+    "blocker": {
+      "reason": "实际 API→A 计划→B 候选→C→A→发布尚未完整通过；冻结回归另有 1 个异常路径用量测试失败。",
+      "evidence": "docs\\acceptance\\part-one-freeze-20261014\\freeze.json",
+      "next_action": "随最后统一联调解决；用户已冻结本部分，停止新的真实试验。"
+    }
+  }
+]

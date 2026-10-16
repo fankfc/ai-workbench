@@ -1,0 +1,38 @@
+.................................................FF....                  [100%]
+================================== FAILURES ===================================
+_ test_default_transport_requires_the_pinned_official_app_server_entry[command0] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-195/test_default_transport_require0')
+command = ['arbitrary-native.exe', 'metadata-server']
+
+    @pytest.mark.parametrize("command", [
+        ["arbitrary-native.exe", "metadata-server"],
+        ["C:/Program Files/nodejs/node.exe", "D:/zcode/resources/glm/zcode.cjs",
+         "app-server", "--cwd", "<wrong-path>", "--no-color", "--verbose"],
+    ])
+    def test_default_transport_requires_the_pinned_official_app_server_entry(tmp_path, command):
+>       with pytest.raises(ZCodeProtocolError, match="SUPPORTED_PROTOCOL_ENTRY_REQUIRED"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ZCodeProtocolError
+
+tests\contracts\test_zcode_protocol.py:242: Failed
+_ test_default_transport_requires_the_pinned_official_app_server_entry[command1] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-195/test_default_transport_require1')
+command = ['C:/Program Files/nodejs/node.exe', 'D:/zcode/resources/glm/zcode.cjs', 'app-server', '--cwd', '<wrong-path>', '--no-color', ...]
+
+    @pytest.mark.parametrize("command", [
+        ["arbitrary-native.exe", "metadata-server"],
+        ["C:/Program Files/nodejs/node.exe", "D:/zcode/resources/glm/zcode.cjs",
+         "app-server", "--cwd", "<wrong-path>", "--no-color", "--verbose"],
+    ])
+    def test_default_transport_requires_the_pinned_official_app_server_entry(tmp_path, command):
+>       with pytest.raises(ZCodeProtocolError, match="SUPPORTED_PROTOCOL_ENTRY_REQUIRED"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ZCodeProtocolError
+
+tests\contracts\test_zcode_protocol.py:242: Failed
+=========================== short test summary info ===========================
+FAILED tests/contracts/test_zcode_protocol.py::test_default_transport_requires_the_pinned_official_app_server_entry[command0]
+FAILED tests/contracts/test_zcode_protocol.py::test_default_transport_requires_the_pinned_official_app_server_entry[command1]
+2 failed, 53 passed in 1.84s

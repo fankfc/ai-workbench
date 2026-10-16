@@ -1,0 +1,326 @@
+[
+  {
+    "case": "test_cancelled_missing_format_0",
+    "budget": {
+      "total_tokens": 10000,
+      "reserved_a_tokens": 2000
+    },
+    "jobs": [
+      {
+        "direction": "en->zh-CN",
+        "status": "READY",
+        "clarification": null,
+        "purpose": "document_block"
+      },
+      {
+        "direction": "en->zh-CN",
+        "status": "READY",
+        "clarification": null,
+        "purpose": "document_block"
+      },
+      {
+        "direction": "en->zh-CN",
+        "status": "FAILED",
+        "clarification": "TRANSLATION_BUDGET_EXHAUSTED",
+        "purpose": "output"
+      }
+    ]
+  },
+  {
+    "case": "test_cancelled_missing_format_current",
+    "budget": {
+      "total_tokens": 10000,
+      "reserved_a_tokens": 2000
+    },
+    "jobs": [
+      {
+        "direction": "en->zh-CN",
+        "status": "READY",
+        "clarification": null,
+        "purpose": "document_block"
+      },
+      {
+        "direction": "en->zh-CN",
+        "status": "READY",
+        "clarification": null,
+        "purpose": "document_block"
+      },
+      {
+        "direction": "en->zh-CN",
+        "status": "FAILED",
+        "clarification": "TRANSLATION_BUDGET_EXHAUSTED",
+        "purpose": "output"
+      }
+    ]
+  },
+  {
+    "case": "test_download_scope_unpublishe0",
+    "budget": {
+      "total_tokens": 10000,
+      "reserved_a_tokens": 2000
+    },
+    "jobs": [
+      {
+        "direction": "en->zh-CN",
+        "status": "READY",
+        "clarification": null,
+        "purpose": "document_block"
+      },
+      {
+        "direction": "en->zh-CN",
+        "status": "READY",
+        "clarification": null,
+        "purpose": "document_block"
+      },
+      {
+        "direction": "en->zh-CN",
+        "status": "FAILED",
+        "clarification": "TRANSLATION_BUDGET_EXHAUSTED",
+        "purpose": "output"
+      }
+    ]
+  },
+  {
+    "case": "test_download_scope_unpublishecurrent",
+    "budget": {
+      "total_tokens": 10000,
+      "reserved_a_tokens": 2000
+    },
+    "jobs": [
+      {
+        "direction": "en->zh-CN",
+        "status": "READY",
+        "clarification": null,
+        "purpose": "document_block"
+      },
+      {
+        "direction": "en->zh-CN",
+        "status": "READY",
+        "clarification": null,
+        "purpose": "document_block"
+      },
+      {
+        "direction": "en->zh-CN",
+        "status": "FAILED",
+        "clarification": "TRANSLATION_BUDGET_EXHAUSTED",
+        "purpose": "output"
+      }
+    ]
+  },
+  {
+    "case": "test_half_v2_render_and_transa0",
+    "budget": {
+      "total_tokens": 10000,
+      "reserved_a_tokens": 2000
+    },
+    "jobs": [
+      {
+        "direction": "en->zh-CN",
+        "status": "READY",
+        "clarification": null,
+        "purpose": "document_block"
+      },
+      {
+        "direction": "en->zh-CN",
+        "status": "READY",
+        "clarification": null,
+        "purpose": "document_block"
+      },
+      {
+        "direction": "en->zh-CN",
+        "status": "FAILED",
+        "clarification": "TRANSLATION_BUDGET_EXHAUSTED",
+        "purpose": "output"
+      }
+    ]
+  },
+  {
+    "case": "test_half_v2_render_and_transacurrent",
+    "budget": {
+      "total_tokens": 10000,
+      "reserved_a_tokens": 2000
+    },
+    "jobs": [
+      {
+        "direction": "en->zh-CN",
+        "status": "READY",
+        "clarification": null,
+        "purpose": "document_block"
+      },
+      {
+        "direction": "en->zh-CN",
+        "status": "READY",
+        "clarification": null,
+        "purpose": "document_block"
+      },
+      {
+        "direction": "en->zh-CN",
+        "status": "FAILED",
+        "clarification": "TRANSLATION_BUDGET_EXHAUSTED",
+        "purpose": "output"
+      }
+    ]
+  },
+  {
+    "case": "test_real_pair_bytes_and_answe0",
+    "budget": {
+      "total_tokens": 10000,
+      "reserved_a_tokens": 2000
+    },
+    "jobs": [
+      {
+        "direction": "en->zh-CN",
+        "status": "READY",
+        "clarification": null,
+        "purpose": "document_block"
+      },
+      {
+        "direction": "en->zh-CN",
+        "status": "READY",
+        "clarification": null,
+        "purpose": "document_block"
+      },
+      {
+        "direction": "en->zh-CN",
+        "status": "FAILED",
+        "clarification": "TRANSLATION_BUDGET_EXHAUSTED",
+        "purpose": "output"
+      }
+    ]
+  },
+  {
+    "case": "test_real_pair_bytes_and_answecurrent",
+    "budget": {
+      "total_tokens": 10000,
+      "reserved_a_tokens": 2000
+    },
+    "jobs": [
+      {
+        "direction": "en->zh-CN",
+        "status": "READY",
+        "clarification": null,
+        "purpose": "document_block"
+      },
+      {
+        "direction": "en->zh-CN",
+        "status": "READY",
+        "clarification": null,
+        "purpose": "document_block"
+      },
+      {
+        "direction": "en->zh-CN",
+        "status": "FAILED",
+        "clarification": "TRANSLATION_BUDGET_EXHAUSTED",
+        "purpose": "output"
+      }
+    ]
+  },
+  {
+    "case": "test_renderer_claiming_pass_fo0",
+    "budget": {
+      "total_tokens": 10000,
+      "reserved_a_tokens": 2000
+    },
+    "jobs": [
+      {
+        "direction": "en->zh-CN",
+        "status": "READY",
+        "clarification": null,
+        "purpose": "document_block"
+      },
+      {
+        "direction": "en->zh-CN",
+        "status": "READY",
+        "clarification": null,
+        "purpose": "document_block"
+      },
+      {
+        "direction": "en->zh-CN",
+        "status": "FAILED",
+        "clarification": "TRANSLATION_BUDGET_EXHAUSTED",
+        "purpose": "output"
+      }
+    ]
+  },
+  {
+    "case": "test_renderer_claiming_pass_focurrent",
+    "budget": {
+      "total_tokens": 10000,
+      "reserved_a_tokens": 2000
+    },
+    "jobs": [
+      {
+        "direction": "en->zh-CN",
+        "status": "READY",
+        "clarification": null,
+        "purpose": "document_block"
+      },
+      {
+        "direction": "en->zh-CN",
+        "status": "READY",
+        "clarification": null,
+        "purpose": "document_block"
+      },
+      {
+        "direction": "en->zh-CN",
+        "status": "FAILED",
+        "clarification": "TRANSLATION_BUDGET_EXHAUSTED",
+        "purpose": "output"
+      }
+    ]
+  },
+  {
+    "case": "test_upstream_change_invalidat0",
+    "budget": {
+      "total_tokens": 10000,
+      "reserved_a_tokens": 2000
+    },
+    "jobs": [
+      {
+        "direction": "en->zh-CN",
+        "status": "READY",
+        "clarification": null,
+        "purpose": "document_block"
+      },
+      {
+        "direction": "en->zh-CN",
+        "status": "READY",
+        "clarification": null,
+        "purpose": "document_block"
+      },
+      {
+        "direction": "en->zh-CN",
+        "status": "FAILED",
+        "clarification": "TRANSLATION_BUDGET_EXHAUSTED",
+        "purpose": "output"
+      }
+    ]
+  },
+  {
+    "case": "test_upstream_change_invalidatcurrent",
+    "budget": {
+      "total_tokens": 10000,
+      "reserved_a_tokens": 2000
+    },
+    "jobs": [
+      {
+        "direction": "en->zh-CN",
+        "status": "READY",
+        "clarification": null,
+        "purpose": "document_block"
+      },
+      {
+        "direction": "en->zh-CN",
+        "status": "READY",
+        "clarification": null,
+        "purpose": "document_block"
+      },
+      {
+        "direction": "en->zh-CN",
+        "status": "FAILED",
+        "clarification": "TRANSLATION_BUDGET_EXHAUSTED",
+        "purpose": "output"
+      }
+    ]
+  }
+]

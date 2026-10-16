@@ -1,0 +1,103 @@
+{
+  "generated_at": "2026-10-13T15:05:25.982041+00:00",
+  "user_direction": "没有Claude就先拿gpt进行试验",
+  "pilot_passed": true,
+  "scope": "Actual GPT CLI guidance -> actual ZCode GUI B reply -> deterministic local C -> actual GPT CLI arithmetic review; agent transferred inline text",
+  "source": {
+    "task_name": "固定样本",
+    "values": [
+      1,
+      2,
+      3
+    ],
+    "source_kind": "Assistant-selected fixed, nonsensitive inline sample for user-authorized GPT experiment",
+    "source_language": "zh-CN",
+    "external_files": [],
+    "scope": "Arithmetic text pilot; no user research data"
+  },
+  "result": {
+    "count": 3,
+    "sum": 6,
+    "mean": 2
+  },
+  "review_verdict": "PASS",
+  "review_issues_zh": [
+    "B 的“人工推算完成”表述不成立：B 是模型，该回复不能称为人工作业。",
+    "B 声称未读取外部文件、未运行命令或代码、未联网，但完整内部工具轨迹不可用；未观察到工具条目不足以独立证明这些表述。",
+    "证据未独立核实实际响应模型身份，也不支持试验已完成生产接入；生产接入未测试或启用，原 D020 验收仍未完成。"
+  ],
+  "actual_top_level_model_turn_submissions": 3,
+  "actual_GPT_completed_turns": 2,
+  "actual_B_completed_UI_replies": 1,
+  "provider_internal_or_title_turns": "unknown; GUI title changed automatically",
+  "model_selection": {
+    "A": "Existing authenticated Codex CLI, GPT route; exact response model ID unavailable",
+    "B_UI": "GLM-5.3",
+    "actual_response_model_ids_verified": false
+  },
+  "GPT_reported_usage": {
+    "input_tokens": 54630,
+    "cached_input_tokens": 0,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 505,
+    "reasoning_output_tokens": 24
+  },
+  "GPT_total_input_plus_output_tokens": 55135,
+  "reasoning_usage_note": "reasoning_output_tokens is a reported subfield; do not add it again to output_tokens",
+  "GLM_billed_usage": null,
+  "GLM_context_meter": {
+    "used": 24669,
+    "capacity": 1000000,
+    "kind": "UI context occupancy; not billed usage"
+  },
+  "monetary_usage": "unknown",
+  "budget_enforcement": "Three submitted top-level pilot turns, no retries. Initial guidance helper is not a durable cross-run budget enforcer; review helper refuses repeats.",
+  "configuration_note": "No explicit account/configuration/security setting edits performed by these helpers; account file byte invariance was not independently audited",
+  "artifact_origin": {
+    "A": "CLI output-last-message capture",
+    "B": "UI accessibility text capture",
+    "C": "Actual local Python recomputation",
+    "review": "CLI output-last-message capture"
+  },
+  "independent_full_B_internal_tool_trace_available": false,
+  "frozen_backend_source_count": 101,
+  "changed_frozen_backend_sources": [],
+  "production_enabled": false,
+  "original_D004_Claude_verified": false,
+  "original_D005_headless_ZCode_verified": false,
+  "original_D020_acceptance_passed": false,
+  "original_part_one_complete": false,
+  "original_card_completion": "17/20; unchanged by text pilot",
+  "checks": {
+    "A_actual_completed_text_turn": true,
+    "A_answer_bytes_hash_matches": true,
+    "B_answer_bytes_hash_matches": true,
+    "B_prompt_bytes_hash_matches": true,
+    "source_bytes_hash_matches": true,
+    "C_checker_bytes_hash_matches": true,
+    "C_16_checks_passed": true,
+    "C_fixed_source_recomputed": true,
+    "review_actual_completed": true,
+    "review_answer_bytes_hash_matches": true,
+    "review_b_binding_matches": true,
+    "review_c_binding_matches": true,
+    "review_arithmetic_PASS": true,
+    "top_level_submissions_within_budget": true,
+    "production_and_original_D020_not_promoted": true,
+    "frozen_backend_sources_unchanged": true
+  },
+  "evidence_sha256": {
+    "gpt-native-answer.json": "b533f51214f8c12c967fb3131488dda400a1fa983acd0ee409afa573bbe14e59",
+    "gpt-native-trial.json": "65ef9afc137fb54a29bc3568a417675403041c8dcd542c7298b216a57a331b1e",
+    "glm-b-answer.json": "fbfa2feae945f948735fda95fcd71cd637a6432f239af43e7b3f1e59383fdb48",
+    "glm-b-trial.json": "e611c0b8a91280c963821c536436185621100967cd61f0f8ce48d520438515a4",
+    "glm-b-prompt.txt": "972e92fb6f98c3df556f62e335a6b549b86d72a2c6fad474e53f8155a3eb631b",
+    "native-trial-source.json": "7cea2394ee64d3d0974614d4b8b0a14a82d28dfbb87b0b53945154e7f38e9695",
+    "native-c-check.json": "6ca626a4fe216b8f8e2783ec5274ceaec57a847ae21b6a505a3adb3033ac735b",
+    "gpt-review-answer.json": "bdecd300afa8052143865c26646ee6a1a45b3b9fd0f6971534c1c20b54d48741",
+    "gpt-review-trial.json": "33e23ce8de3621f2902d9e65693ebd671824268f83a438afb024139621a908b9",
+    "native-trial-budget.json": "4800a4296a95ce78b843d3b6f0fe6ecb4a17ffc6c944cac1108acbe4dbb29430",
+    "verify_native_text_trial.py": "85d9b440724bd56c8069ecc0d13d92f6e2087cc8cc688145f7e751d16a204be3",
+    "finalize_native_text_trial.py": "b6516979ae7277fa73b87928278e1f2fc87c2f96bde6ca5164ff37a76dc0aea5"
+  }
+}

@@ -1,0 +1,50 @@
+FFFFF                                                                    [100%]
+================================== FAILURES ===================================
+_ test_a_live_profile_change_cannot_drift_from_frozen_route[model_id-other-gpt] _
+tests\integration\test_agent_workflow.py:404: in test_a_live_profile_change_cannot_drift_from_frozen_route
+    assert result.state == "BLOCKED" and "A_MODEL_ROUTE_MISMATCH" in result.reason_codes
+E   AssertionError: assert ('OUTPUT_PREPARING' == 'BLOCKED'
+E     
+E     - BLOCKED
+E     + OUTPUT_PREPARING)
+_ test_a_live_profile_change_cannot_drift_from_frozen_route[adapter-other-adapter] _
+tests\integration\test_agent_workflow.py:404: in test_a_live_profile_change_cannot_drift_from_frozen_route
+    assert result.state == "BLOCKED" and "A_MODEL_ROUTE_MISMATCH" in result.reason_codes
+E   AssertionError: assert ('OUTPUT_PREPARING' == 'BLOCKED'
+E     
+E     - BLOCKED
+E     + OUTPUT_PREPARING)
+_ test_a_live_profile_change_cannot_drift_from_frozen_route[connection_version-changed-version] _
+tests\integration\test_agent_workflow.py:404: in test_a_live_profile_change_cannot_drift_from_frozen_route
+    assert result.state == "BLOCKED" and "A_MODEL_ROUTE_MISMATCH" in result.reason_codes
+E   AssertionError: assert ('OUTPUT_PREPARING' == 'BLOCKED'
+E     
+E     - BLOCKED
+E     + OUTPUT_PREPARING)
+_ test_a_live_profile_change_cannot_drift_from_frozen_route[identity_source-different-source] _
+tests\integration\test_agent_workflow.py:404: in test_a_live_profile_change_cannot_drift_from_frozen_route
+    assert result.state == "BLOCKED" and "A_MODEL_ROUTE_MISMATCH" in result.reason_codes
+E   AssertionError: assert ('OUTPUT_PREPARING' == 'BLOCKED'
+E     
+E     - BLOCKED
+E     + OUTPUT_PREPARING)
+____________ test_a_cannot_select_different_profile_of_same_family ____________
+tests\integration\test_agent_workflow.py:417: in test_a_cannot_select_different_profile_of_same_family
+    assert result.state == "BLOCKED" and "A_MODEL_ROUTE_MISMATCH" in result.reason_codes
+E   AssertionError: assert ('OUTPUT_PREPARING' == 'BLOCKED'
+E     
+E     - BLOCKED
+E     + OUTPUT_PREPARING)
+============================== warnings summary ===============================
+tests/integration/test_agent_workflow.py::test_a_live_profile_change_cannot_drift_from_frozen_route[model_id-other-gpt]
+  C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/integration/test_agent_workflow.py::test_a_live_profile_change_cannot_drift_from_frozen_route[model_id-other-gpt]
+FAILED tests/integration/test_agent_workflow.py::test_a_live_profile_change_cannot_drift_from_frozen_route[adapter-other-adapter]
+FAILED tests/integration/test_agent_workflow.py::test_a_live_profile_change_cannot_drift_from_frozen_route[connection_version-changed-version]
+FAILED tests/integration/test_agent_workflow.py::test_a_live_profile_change_cannot_drift_from_frozen_route[identity_source-different-source]
+FAILED tests/integration/test_agent_workflow.py::test_a_cannot_select_different_profile_of_same_family
+5 failed, 31 deselected, 1 warning in 6.16s

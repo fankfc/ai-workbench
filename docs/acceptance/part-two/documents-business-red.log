@@ -1,0 +1,65 @@
+FF                                                                       [100%]
+================================== FAILURES ===================================
+___ test_published_bundle_list_is_an_actual_authenticated_business_endpoint ___
+
+client = <starlette.testclient.TestClient object at 0x0000017283554050>
+
+    def test_published_bundle_list_is_an_actual_authenticated_business_endpoint(client):
+        conversation = client.post('/v1/conversations', json={'title': 'documents'}).json()['id']
+        response = client.get(f'/v1/conversations/{conversation}/bundles')
+>       assert response.status_code == 200
+E       assert 404 == 200
+E        +  where 404 = <Response [404 Not Found]>.status_code
+
+tests\artifacts\test_boundary_red.py:19: AssertionError
+_____ test_a_pass_does_not_become_complete_a_document_by_adding_metadata ______
+
+client = <starlette.testclient.TestClient object at 0x000001728357DA90>
+
+    def test_a_pass_does_not_become_complete_a_document_by_adding_metadata(client):
+        conversation = client.post('/v1/conversations', json={'title': 'documents'}).json()['id']
+        task = client.post(f'/v1/conversations/{conversation}/turns', json={
+            'text': 'Write the full report', 'provider_profile_id': 'fake-gpt', 'client_request_id': 'one'
+        }).json()['task_id']
+        root = client.app.state.settings.data_root / 'evidence'
+        with closing(client.app.state.database.connect()) as connection:
+            row = connection.execute('SELECT * FROM task_runs WHERE task_id=?', (task,)).fetchone()
+            attempt = row['attempt_id']
+            route = json.loads(row['route_snapshot_json'])
+            content = b'PASS'
+            sha = hashlib.sha256(content).hexdigest()
+            ref = client.app.state.blobs.uri_for(sha)
+            artifact = ArtifactVersion(id='pass-only', task_id=task, artifact_kind='document', language='en',
+                immutable_uri=ref, byte_sha256=sha, canonical_content_sha256=sha, source_version_id=None,
+                origin_authors=['A'], canonical_issued_by='A', reviewed_by=['A'], rendered_by='none',
+                a_response_ref=ref, dependencies=[])
+            store_artifact(connection, client.app.state.blobs, content, artifact, attempt_id=attempt,
+                provenance={'claimed_author': 'A'})
+            contract = make_contract(task, attempt, route['id'], domain='document')
+            decision = make_decision(contract, artifact.id, root)
+            from app.contracts.tasks import contract_digest
+            with transaction(connection):
+                checkpoint = {'current_revision_id': artifact.id, 'task_contract': contract,
+                    'workflow': {'contract_sha256': contract_digest(contract)}}
+                connection.execute("UPDATE task_runs SET state='OUTPUT_PREPARING',checkpoint_json=? WHERE task_id=?",
+                    (json.dumps(checkpoint), task))
+                activate_revision(connection, client.app.state.blobs, task, attempt, 'report', artifact.id, {})
+                connection.execute("INSERT INTO checks(id,task_id,attempt_id,artifact_version_id,check_kind,result,check_version,details_json) VALUES ('review',?,?,?,'A.review','pass','1.0',?)",
+                    (task, attempt, artifact.id, json.dumps({'contract': contract, 'decision': decision})))
+                connection.execute("INSERT INTO checks(id,task_id,attempt_id,artifact_version_id,check_kind,result,check_version,details_json) VALUES ('canonical',?,?,?,'A.canonical','pass','1.0',?)",
+                    (task, attempt, artifact.id, json.dumps({'response_ref': ref, 'canonical_content_sha256': sha, 'verified_issuer': 'A'})))
+>       with pytest.raises(PublicationBlocked, match='A_CANONICAL'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE PublicationBlocked
+
+tests\artifacts\test_boundary_red.py:55: Failed
+============================== warnings summary ===============================
+tests/artifacts/test_boundary_red.py::test_published_bundle_list_is_an_actual_authenticated_business_endpoint
+  C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/artifacts/test_boundary_red.py::test_published_bundle_list_is_an_actual_authenticated_business_endpoint
+FAILED tests/artifacts/test_boundary_red.py::test_a_pass_does_not_become_complete_a_document_by_adding_metadata
+2 failed, 1 warning in 0.86s

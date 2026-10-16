@@ -1,0 +1,10 @@
+{
+  "schema_version": "1.0",
+  "profile_id": "local-claude-code-probe",
+  "adapter": "claude_code",
+  "expected_family": "claude",
+  "requested_runs": 1,
+  "executable": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\claude\\node_modules\\@anthropic-ai\\claude-code-win32-x64\\claude.exe",
+  "connection_id": "local-claude-code-probe"
+}
+

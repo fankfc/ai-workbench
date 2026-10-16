@@ -1,0 +1,22 @@
+{
+  "published": false,
+  "issue_codes": [
+    "HUMAN_REVIEW_MISSING",
+    "INDEPENDENT_HOLDOUT_MISSING",
+    "NEGATION_CHANGED",
+    "NUMBER_CHANGED",
+    "PROTECTED_SPAN_CHANGED",
+    "REAL_CLAUDE_SCENARIOS_UNVERIFIED"
+  ],
+  "reviewed_blocks": 0,
+  "expected_blocks": 60,
+  "translator_calls": 0,
+  "gpt_native_status": "NATIVE",
+  "product_evaluations": 63,
+  "critical_negative_rejected": 3,
+  "human_review_complete": false,
+  "holdout_sample_count": 0,
+  "automated_checks_only": true,
+  "provider_boundary": "fake",
+  "real_provider_verified": false
+}

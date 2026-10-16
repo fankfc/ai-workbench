@@ -1,0 +1,91 @@
+{
+  "version": "1.0",
+  "build_id": "64bc5e858de1f6a58d2d1b055a1aaf5a8d7861e6f071fb0f392d37583caf04c5",
+  "run_id": null,
+  "created_at": "2026-10-14T15:16:03.514573+00:00",
+  "seed": 4317,
+  "encoding": "UTF-8",
+  "provider_boundary": "fake",
+  "files": [
+    {
+      "path": ".qa-run.json",
+      "size": 148,
+      "sha256": "bf91803aabd9a0fac35010fb7e1b6aa5dd6d624fba29ecaec97c9ed679681578"
+    },
+    {
+      "path": "fault-observations.json",
+      "size": 78406,
+      "sha256": "294211543128907eb0e4a5c788ad19a842f90d64cedc7fbd0dea8976658ac668"
+    },
+    {
+      "path": "scenario-result.json",
+      "size": 78406,
+      "sha256": "294211543128907eb0e4a5c788ad19a842f90d64cedc7fbd0dea8976658ac668"
+    },
+    {
+      "path": "r9f2eea12/process-leases.sqlite3",
+      "size": 12288,
+      "sha256": "6657a2d41cf517a825ac4cf09464ab60875658056417d9ba14bcc12f1e66b153"
+    },
+    {
+      "path": "r9f2eea12/public-events.sse",
+      "size": 1304,
+      "sha256": "2fbd85095bdfc62fa1d16f7206fa7f1ede0a235ddeb6c4bfa21528b69c81abb1"
+    },
+    {
+      "path": "r9f2eea12/request-ledger.json",
+      "size": 2055,
+      "sha256": "b9ce04ef2702e563c723b57be262666ac5c48a65a5043eef55e08a8344037ea2"
+    },
+    {
+      "path": "r9f2eea12/scenario-result.json",
+      "size": 1730,
+      "sha256": "dd9ce83a7183e675cef2513c3381254da9c0a6f6d9ed0679a620ec4ddaeaf657"
+    },
+    {
+      "path": "r9f2eea12/validator-results.json",
+      "size": 4,
+      "sha256": "a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f"
+    },
+    {
+      "path": "r9f2eea12/workbench.sqlite3",
+      "size": 1007616,
+      "sha256": "2b931ed7993888a8686986903779ce8b2255b3b29081d6edc19346e8b85711b9"
+    },
+    {
+      "path": "r9f2eea12/workbench.sqlite3-shm",
+      "size": 32768,
+      "sha256": "fd4c9fda9cd3f9ae7c962b0ddf37232294d55580e1aa165aa06129b8549389eb"
+    },
+    {
+      "path": "r9f2eea12/workbench.sqlite3-wal",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "r9f2eea12/tasks/343332d8f5664b52879dd8198426e328/8c9a13c8c768447b98bf583872abae09/.lease-lock",
+      "size": 1,
+      "sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+    },
+    {
+      "path": "r9f2eea12/tasks/343332d8f5664b52879dd8198426e328/8c9a13c8c768447b98bf583872abae09/.source-manifest.json",
+      "size": 88,
+      "sha256": "0e8146ad31a30772170b140414b2f372a232e8da5460884f76f902f9e58a68e0"
+    },
+    {
+      "path": "r9f2eea12/tasks/343332d8f5664b52879dd8198426e328/8c9a13c8c768447b98bf583872abae09/.write-leases.json",
+      "size": 94,
+      "sha256": "c6a18be3da702612dab19b12593b24f221211599dfd4c6c2df73849a6f3b8133"
+    },
+    {
+      "path": "r9f2eea12/tasks/343332d8f5664b52879dd8198426e328/8c9a13c8c768447b98bf583872abae09/input/source.txt",
+      "size": 30,
+      "sha256": "f814f196cecbea9dcd04cece0e4e1c39972196fc128c75c37b3c003b33cfd6fa"
+    },
+    {
+      "path": "r9f2eea12/tasks/343332d8f5664b52879dd8198426e328/8c9a13c8c768447b98bf583872abae09/b/prompts/fbc75e8241da470baaf90adb084817a1.json",
+      "size": 1777,
+      "sha256": "284b8efed1a003fe3e6909901f9ccb45eb5c19809907910bbe2022214e1a8b49"
+    }
+  ]
+}

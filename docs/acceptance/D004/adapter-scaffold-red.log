@@ -1,0 +1,38 @@
+
+=================================== ERRORS ====================================
+____________ ERROR collecting tests/contracts/test_gpt_adapter.py _____________
+ImportError while importing test module 'C:\Users\asd15\Documents\ChatGPT\ai\tests\contracts\test_gpt_adapter.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\importlib\__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\contracts\test_gpt_adapter.py:6: in <module>
+    from app.providers.gpt import CapturedRun, GptAdapter, decode_capture
+E   ModuleNotFoundError: No module named 'app.providers.gpt'
+___________ ERROR collecting tests/contracts/test_claude_adapter.py ___________
+ImportError while importing test module 'C:\Users\asd15\Documents\ChatGPT\ai\tests\contracts\test_claude_adapter.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\importlib\__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\contracts\test_claude_adapter.py:4: in <module>
+    from app.providers.gpt import CapturedRun
+E   ModuleNotFoundError: No module named 'app.providers.gpt'
+___________ ERROR collecting tests/contracts/test_zcode_adapter.py ____________
+ImportError while importing test module 'C:\Users\asd15\Documents\ChatGPT\ai\tests\contracts\test_zcode_adapter.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\importlib\__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\contracts\test_zcode_adapter.py:4: in <module>
+    from app.providers.gpt import CapturedRun
+E   ModuleNotFoundError: No module named 'app.providers.gpt'
+=========================== short test summary info ===========================
+ERROR tests/contracts/test_gpt_adapter.py
+ERROR tests/contracts/test_claude_adapter.py
+ERROR tests/contracts/test_zcode_adapter.py
+!!!!!!!!!!!!!!!!!!! Interrupted: 3 errors during collection !!!!!!!!!!!!!!!!!!!
+3 errors in 0.39s

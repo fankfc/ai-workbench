@@ -1,0 +1,35 @@
+..F                                                                      [100%]
+================================== FAILURES ===================================
+_________ test_demo_followup_keeps_original_constraint_and_attachment _________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-299/test_demo_followup_keeps_origi0')
+
+    def test_demo_followup_keeps_original_constraint_and_attachment(tmp_path):
+        from app.runtime.demo_backend import build_demo_backend
+        app = create_app(AppSettings(tmp_path, 'fixture-demo-token', 'fake', False), backend_factory=build_demo_backend)
+        with TestClient(app, headers={'Authorization': 'Bearer fixture-demo-token'}) as client:
+            cid = client.post('/v1/conversations', json={'title': '׷��'}).json()['id']
+            uploaded = client.post(f'/v1/conversations/{cid}/attachments', content='��������ɾ��ԭʼ����'.encode(),
+                                  headers={'X-Filename': 'source.md', 'Content-Type': 'application/octet-stream'}).json()
+            for key, text, attachments in [('one', '�뱣��ԭ�ļ�', [uploaded['id']]), ('two', '�����ӱ���', [])]:
+                response = client.post(f'/v1/conversations/{cid}/turns', json={'text': text, 'domain': 'document',
+                    'provider_profile_id': 'fake-gpt', 'client_request_id': key, 'attachment_ids': attachments})
+                task = response.json()['task_id']
+                deadline = time.monotonic() + 10
+                while time.monotonic() < deadline and client.get('/v1/tasks/' + task).json()['status'] == 'pending':
+                    time.sleep(.05)
+                assert client.get('/v1/tasks/' + task).json()['status'] == 'completed'
+            answer = [x for x in client.get(f'/v1/conversations/{cid}/messages').json()['items'] if x['kind'] == 'answer.published'][-1]['text']
+>           assert '�뱣��ԭ�ļ�' in answer
+E           AssertionError: assert '�뱣��ԭ�ļ�' in '# ��ʾ�ش�\n\n�������������С��������յ��Ĳ��ϣ����ش����Թ̶���ʾ��Ӧ��\n\n�����ӱ���'
+
+tests\integration\test_desktop_demo_backend.py:57: AssertionError
+============================== warnings summary ===============================
+services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1
+  C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/integration/test_desktop_demo_backend.py::test_demo_followup_keeps_original_constraint_and_attachment
+1 failed, 2 passed, 1 warning in 3.32s

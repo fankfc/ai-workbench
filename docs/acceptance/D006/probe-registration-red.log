@@ -1,0 +1,57 @@
+.................FFFF                                                    [100%]
+================================== FAILURES ===================================
+___________ test_fixed_probe_argv_uses_existing_permission_boundary ___________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-44/test_fixed_probe_argv_uses_exi0')
+
+    def test_fixed_probe_argv_uses_existing_permission_boundary(tmp_path):
+        script = probe_script()
+>       argv = script.fixed_probe_argv("codex", tmp_path, "fixture", tmp_path / "codex.exe")
+               ^^^^^^^^^^^^^^^^^^^^^^^
+E       AttributeError: module 'bounded_provider_probe' has no attribute 'fixed_probe_argv'
+
+tests\contracts\test_gpt_adapter.py:158: AttributeError
+___________ test_disabled_local_capability_never_registers_executor ___________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-44/test_disabled_local_capability0')
+
+    def test_disabled_local_capability_never_registers_executor(tmp_path):
+        script = probe_script()
+>       assert script.build_registered_executors({"adapter": "codex", "profile_id": "untrusted", "executable": "C:/arbitrary/other.exe"}, tmp_path) == {}
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AttributeError: module 'bounded_provider_probe' has no attribute 'build_registered_executors'
+
+tests\contracts\test_gpt_adapter.py:167: AttributeError
+_____________ test_zcode_fixed_probe_argv_always_chooses_guarded ______________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-44/test_zcode_fixed_probe_argv_al0')
+
+    def test_zcode_fixed_probe_argv_always_chooses_guarded(tmp_path):
+>       argv = probe_script().fixed_probe_argv("zcode", tmp_path, "fixture", tmp_path / "node.exe")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AttributeError: module 'bounded_provider_probe' has no attribute 'fixed_probe_argv'
+
+tests\contracts\test_gpt_adapter.py:171: AttributeError
+_______ test_probe_script_rejects_more_than_three_starts_without_launch _______
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-44/test_probe_script_rejects_more0')
+capsys = <_pytest.capture.CaptureFixture object at 0x000002925590CEC0>
+
+    def test_probe_script_rejects_more_than_three_starts_without_launch(tmp_path, capsys):
+        profile = tmp_path / "profile.json"
+        profile.write_text(json.dumps({"schema_version": "1.0", "profile_id": "probe", "adapter": "codex", "expected_family": "gpt"}), encoding="utf-8")
+        assert probe_script().main(["--profile", str(profile), "--execute", "--max-runs", "4"]) == 2
+        report = json.loads(capsys.readouterr().out)
+>       assert report["reason_code"] == "BOUNDED_RUN_LIMIT_REQUIRED"
+E       AssertionError: assert 'SUPPORTED_EX...R_NOT_ENABLED' == 'BOUNDED_RUN_LIMIT_REQUIRED'
+E         
+E         - BOUNDED_RUN_LIMIT_REQUIRED
+E         + SUPPORTED_EXECUTOR_NOT_ENABLED
+
+tests\contracts\test_gpt_adapter.py:182: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/contracts/test_gpt_adapter.py::test_fixed_probe_argv_uses_existing_permission_boundary
+FAILED tests/contracts/test_gpt_adapter.py::test_disabled_local_capability_never_registers_executor
+FAILED tests/contracts/test_gpt_adapter.py::test_zcode_fixed_probe_argv_always_chooses_guarded
+FAILED tests/contracts/test_gpt_adapter.py::test_probe_script_rejects_more_than_three_starts_without_launch
+4 failed, 17 passed in 0.42s

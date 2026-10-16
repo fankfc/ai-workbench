@@ -1,0 +1,79 @@
+{
+  "card": "D047",
+  "case": "security_boundary",
+  "command": [
+    "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\.venv\\Scripts\\python.exe",
+    "tests/support/scenario_driver.py",
+    "security_boundary",
+    "--root",
+    "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\artifacts\\qa\\D047\\r67943cce",
+    "--options",
+    "{}"
+  ],
+  "exit_code": 0,
+  "time": "2026-10-15T02:00:27.057646+00:00",
+  "build_id": "cb98eed03df6bd4ffaa551d66a54c77198911cf5b3e763a1ef3c055f5ee54ca4",
+  "run_root": "artifacts/qa/D047/r67943cce",
+  "result": {
+    "unauthorized_reads": [],
+    "secret_leaks": [],
+    "internal_public_events": [],
+    "executed_payloads": null,
+    "backend_checks": [
+      {
+        "kind": "authentication",
+        "actual": 401,
+        "expected": 401
+      },
+      {
+        "kind": "authentication",
+        "actual": 403,
+        "expected": 403
+      },
+      {
+        "kind": "cross-conversation",
+        "actual": 409,
+        "expected": 409
+      },
+      {
+        "kind": "upload-path",
+        "path": "../secret.md",
+        "actual": 422
+      },
+      {
+        "kind": "upload-path",
+        "path": "C:\\secret.md",
+        "actual": 422
+      },
+      {
+        "kind": "upload-path",
+        "path": "%2e%2e/secret.md",
+        "actual": 422
+      },
+      {
+        "kind": "workspace-path",
+        "rejected": true
+      },
+      {
+        "kind": "workspace-path",
+        "rejected": true
+      },
+      {
+        "kind": "workspace-path",
+        "rejected": true
+      },
+      {
+        "kind": "workspace-path",
+        "rejected": true
+      }
+    ],
+    "process_cleaned": true,
+    "unmet_checks": [
+      "electron_script_execution",
+      "junction_matrix",
+      "manual_security_review"
+    ],
+    "provider_boundary": "fake",
+    "real_provider_verified": false
+  }
+}

@@ -1,0 +1,34 @@
+...FF                                                                    [100%]
+================================== FAILURES ===================================
+___________ test_result_bytes_must_recompute_to_actual_input_values ___________
+
+client = <starlette.testclient.TestClient object at 0x00000261B1BA5CD0>
+
+    def test_result_bytes_must_recompute_to_actual_input_values(client):
+        database,workspace,_=task(client)
+>       with pytest.raises(ValueError,match='MIXED_RESULT_DATA_MISMATCH'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests\integration\test_mixed_pipeline.py:91: Failed
+________ test_svg_bar_values_and_result_hash_must_match_actual_sources ________
+
+client = <starlette.testclient.TestClient object at 0x00000261B1BA4C30>
+
+    def test_svg_bar_values_and_result_hash_must_match_actual_sources(client):
+        database,workspace,_=task(client)
+>       with pytest.raises(ValueError,match='MIXED_FIGURE_DATA_MISMATCH'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests\integration\test_mixed_pipeline.py:97: Failed
+============================== warnings summary ===============================
+tests/integration/test_mixed_pipeline.py::test_prepare_mixed_produces_real_outputs_and_explicit_dag
+  C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/integration/test_mixed_pipeline.py::test_result_bytes_must_recompute_to_actual_input_values
+FAILED tests/integration/test_mixed_pipeline.py::test_svg_bar_values_and_result_hash_must_match_actual_sources
+2 failed, 3 passed, 1 warning in 1.89s

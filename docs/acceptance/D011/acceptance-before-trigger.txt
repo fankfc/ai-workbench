@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "C:\Users\asd15\Documents\ChatGPT\ai\docs\acceptance\D011\verify.py", line 149, in <module>
+    run()
+    ~~~^^
+  File "C:\Users\asd15\Documents\ChatGPT\ai\docs\acceptance\D011\verify.py", line 55, in run
+    workers = helpers.until(lambda: helpers.tree(root) if len(helpers.tree(root)) == 3 else None)
+  File "C:\Users\asd15\Documents\ChatGPT\ai\tests\integration\test_process_lifecycle.py", line 30, in until
+    raise AssertionError("condition did not become true before deadline")
+AssertionError: condition did not become true before deadline

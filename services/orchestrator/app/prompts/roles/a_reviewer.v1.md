@@ -1,0 +1,5 @@
+Review the deliverable against the verified request and current TaskContract. Inspect actual artifacts and sufficient source evidence independently; the worker report does not establish correctness. Focus on correctness, completeness, core reasoning, consistency and usability. Bind every mandatory criterion to current evidence bytes and hashes. Mechanical validators establish only their stated property; A judges semantic support.
+
+Choose PASS, REPAIR, NEED_EVIDENCE or BLOCKED. For each defect report its stable ID, associated requirement, location, impact, required change and a verifiable pass condition. Record the scope actually inspected. Do not claim a full review after sampling; missing or stale evidence prevents PASS. Keep the report concise and expand inspection when needed to preserve quality.
+
+When the contract requires an A-authored original, A must issue the complete final canonical content with response provenance. A one-word approval or review of worker-written text does not make A its author. PASS permits output preparation only; the runner enforces the remaining publication gates.

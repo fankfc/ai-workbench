@@ -1,0 +1,20 @@
+{
+  "cid": "69d44a8349514143ad0ee84a8b4fdf90",
+  "zip_sha256": "cc65e0bfe404a22c1160258fba67bcacfd85a6fe4f351ce1afb92ee3187ace03",
+  "schema": 4,
+  "files": 10,
+  "all_hashes_verified": true,
+  "entries": [
+    "manifest.json",
+    "workbench.sqlite3",
+    "blobs/12/12cce50a8c32a14700e836de02a8cb4e9fa589182e62a7e15a6c8794c5e686ac",
+    "blobs/1c/1cbdd8d61a47b7971e975e458ed0b68093eb0f9dab3b634872fb8b263101cd6f",
+    "tasks/857406c6cf364181a13d05da5bee1ac2/6c572fe68124484daa7160e0cf1b7bab/.source-manifest.json",
+    "tasks/857406c6cf364181a13d05da5bee1ac2/6c572fe68124484daa7160e0cf1b7bab/a/prompts/8bd57777177549f6a537d8d4edf264ed.json",
+    "tasks/857406c6cf364181a13d05da5bee1ac2/6c572fe68124484daa7160e0cf1b7bab/b/demo.md",
+    "tasks/857406c6cf364181a13d05da5bee1ac2/6c572fe68124484daa7160e0cf1b7bab/b/prompts/cba202ebd33a4206813d19e02def6ae1.json",
+    "tasks/857406c6cf364181a13d05da5bee1ac2/6c572fe68124484daa7160e0cf1b7bab/evidence/beb118be679f4145b0c42724acc1f33f.json",
+    "tasks/857406c6cf364181a13d05da5bee1ac2/6c572fe68124484daa7160e0cf1b7bab/evidence/e954d3ffc7224459a9b6493309e0f3b4.json",
+    "tasks/857406c6cf364181a13d05da5bee1ac2/6c572fe68124484daa7160e0cf1b7bab/input/user_request.txt"
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "generated_at": "2026-10-13T12:43:50.730911+00:00",
+  "command": "services/orchestrator/.venv/Scripts/python.exe docs/acceptance/remaining-final-publisher-probe.py --postfix",
+  "mode": "isolated local API/SQLite/evidence; no provider calls",
+  "source_hashes": {
+    "services/orchestrator/app/runtime/publication.py": "0e6df6cee26d0ca86781e8f679fd5ff94aa97c7aaca9fd67e4c77bf2ef73c713",
+    "services/orchestrator/app/runtime/public_projection.py": "d6ba0476d43fef0e589fbf6d1b55540c1c67b4b621bb4822335f8435c2843808",
+    "services/orchestrator/app/contracts/tasks.py": "32831ea24aeedeee861e4e35ebd40e4bea38ba20e4ce0f3385c65b808372f765",
+    "services/orchestrator/app/runtime/workflow.py": "e293769f6f5c6703c889782d80288ef7245d91bbbc8bda483245e656ab1e9633"
+  },
+  "results": {
+    "decision-revision": {
+      "blocked_reason": "REVIEW_ROUTE_OR_REVISION_BINDING_MISMATCH",
+      "published_answers": 0,
+      "changed_decision_revision": "rev2",
+      "staged_revision": "rev1"
+    },
+    "task-binding": {
+      "blocked_reason": "REVIEW_ROUTE_OR_REVISION_BINDING_MISMATCH",
+      "published_answers": 0,
+      "changed_decision_revision": "rev1",
+      "staged_revision": "rev1"
+    },
+    "route-binding": {
+      "blocked_reason": "REVIEW_ROUTE_OR_REVISION_BINDING_MISMATCH",
+      "published_answers": 0,
+      "changed_decision_revision": "rev1",
+      "staged_revision": "rev1"
+    },
+    "canonical-required": {
+      "blocked_reason": "PINNED_CONTRACT_CHANGED",
+      "published_answers": 0,
+      "changed_decision_revision": "rev1",
+      "staged_revision": "rev1"
+    },
+    "pinned-contract-budget": {
+      "blocked_reason": "PINNED_CONTRACT_CHANGED",
+      "published_answers": 0,
+      "changed_decision_revision": "rev1",
+      "staged_revision": "rev1"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "version": "1.0",
+  "build_id": "cb98eed03df6bd4ffaa551d66a54c77198911cf5b3e763a1ef3c055f5ee54ca4",
+  "run_id": null,
+  "created_at": "2026-10-15T02:00:54.167577+00:00",
+  "seed": 4317,
+  "encoding": "UTF-8",
+  "provider_boundary": "fake",
+  "files": [
+    {
+      "path": ".qa-run.json",
+      "size": 151,
+      "sha256": "baeccdd1b4a4a6b2dbcebfbead179479079711dddd59fbd42bb04243423e1c3e"
+    },
+    {
+      "path": "scenario-result.json",
+      "size": 329,
+      "sha256": "c5635f54a4a8f8691a628398c8e71145be299f3de71996819b965acc6418f6b1"
+    },
+    {
+      "path": "windows_install.json",
+      "size": 327,
+      "sha256": "8685e867a1c9baf2ad435eb4cc2b1282af733f752e924f745c90ff5142195bdc"
+    }
+  ]
+}

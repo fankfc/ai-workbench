@@ -1,0 +1,63 @@
+{
+  "generated_at": "2026-10-13T15:17:06.487574+00:00",
+  "workspace": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\zclose-meta-ccf6033d",
+  "capabilities_ok": true,
+  "create_ok": true,
+  "error_code": null,
+  "probe_error": null,
+  "session_id": "sess_0f2802b9-a0c1-40ba-b80a-d63d512ce776",
+  "state_revision": 0,
+  "model_keys": [
+    "available"
+  ],
+  "available_models": [],
+  "current_model": null,
+  "last_used_model": null,
+  "trace": [
+    {
+      "notification": "startup/storageState"
+    },
+    {
+      "notification": "startup/storageState"
+    },
+    {
+      "notification": "startup/storageState"
+    },
+    {
+      "notification": "startup/storageState"
+    },
+    {
+      "notification": "startup/storageState"
+    },
+    {
+      "response_to": "runtime/capabilities",
+      "error_code": null,
+      "result_keys": [
+        "independentPlanState"
+      ]
+    },
+    {
+      "client_request": "session/requestRuntimePreferences",
+      "reply": "unsupported -32601"
+    },
+    {
+      "response_to": "session/create",
+      "error_code": null,
+      "result_keys": [
+        "messages",
+        "projection",
+        "protocol",
+        "runtime",
+        "session",
+        "settings",
+        "slashCommands",
+        "todos",
+        "todoGroups"
+      ]
+    }
+  ],
+  "model_turn_starts": 0,
+  "credential_headers_applied_by_client": false,
+  "credentials_read_by_assistant": false,
+  "production_enabled": false
+}

@@ -1,0 +1,13 @@
+{
+  "case": "planning_submission_reply_lost_before_ids",
+  "evidence_kind": "retained first independent command output; detailed temporary JSON was overwritten by the first postfix rerun",
+  "native_model_starts": 0,
+  "state_before_cancel": "BLOCKED",
+  "step_states": ["UNKNOWN_REMOTE"],
+  "cancel_pending_remote": false,
+  "active_external_request": null,
+  "no_execute_or_publish": true,
+  "command": "services/orchestrator/.venv/Scripts/python.exe .tools/review-native-planning-boundary.py",
+  "exit_code": 0,
+  "limitation": "Only the first tool stdout and source experiment description are preserved here. Random IDs and original detailed JSON bytes are not reconstructed or asserted unchanged. Root's separate business RED evidence remains authoritative."
+}

@@ -1,0 +1,77 @@
+{
+  "schema_version": "1.0",
+  "domain": "document",
+  "required_inputs": [
+    "audience",
+    "purpose",
+    "source_refs",
+    "formats"
+  ],
+  "b_actions": [
+    "structure_material",
+    "draft",
+    "translate",
+    "render"
+  ],
+  "mechanical": [
+    "source_completeness",
+    "requested_formats_and_layout"
+  ],
+  "semantic": [
+    "factual_fidelity",
+    "audience_and_usability"
+  ],
+  "deliverables": [
+    "document"
+  ],
+  "acceptance": [
+    {
+      "id": "document.C1",
+      "verifier": "C",
+      "mandatory": true,
+      "semantic": false,
+      "evidence_type": "artifact",
+      "condition": "source_completeness"
+    },
+    {
+      "id": "document.C2",
+      "verifier": "C",
+      "mandatory": true,
+      "semantic": false,
+      "evidence_type": "artifact",
+      "condition": "requested_formats_and_layout"
+    },
+    {
+      "id": "document.A1",
+      "verifier": "A",
+      "mandatory": true,
+      "semantic": true,
+      "evidence_type": "review",
+      "condition": "factual_fidelity"
+    },
+    {
+      "id": "document.A2",
+      "verifier": "A",
+      "mandatory": true,
+      "semantic": true,
+      "evidence_type": "review",
+      "condition": "audience_and_usability"
+    }
+  ],
+  "a_responsibilities": [
+    "problem_modeling",
+    "core_reasoning",
+    "method_choice",
+    "evidence_judgment",
+    "final_review"
+  ],
+  "escalation": [
+    "ordinary",
+    "checkpoint",
+    "a_takeover"
+  ],
+  "budget": {
+    "total_tokens": 300000,
+    "reserved_a_tokens": 60000
+  }
+}

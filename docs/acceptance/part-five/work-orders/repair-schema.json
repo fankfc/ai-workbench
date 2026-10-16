@@ -1,0 +1,95 @@
+{
+  "$defs": {
+    "RepairDefect": {
+      "additionalProperties": false,
+      "properties": {
+        "defect_id": {
+          "minLength": 1,
+          "title": "Defect Id",
+          "type": "string"
+        },
+        "requirement_id": {
+          "minLength": 1,
+          "title": "Requirement Id",
+          "type": "string"
+        },
+        "location": {
+          "minLength": 1,
+          "title": "Location",
+          "type": "string"
+        },
+        "impact": {
+          "minLength": 1,
+          "title": "Impact",
+          "type": "string"
+        },
+        "failure_evidence": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Failure Evidence",
+          "type": "array"
+        },
+        "allowed_files": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Allowed Files",
+          "type": "array"
+        },
+        "pass_condition": {
+          "minLength": 1,
+          "title": "Pass Condition",
+          "type": "string"
+        },
+        "rerun_checks": {
+          "items": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "minItems": 1,
+          "title": "Rerun Checks",
+          "type": "array"
+        }
+      },
+      "required": [
+        "defect_id",
+        "requirement_id",
+        "location",
+        "impact",
+        "failure_evidence",
+        "allowed_files",
+        "pass_condition",
+        "rerun_checks"
+      ],
+      "title": "RepairDefect",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "artifact_version": {
+      "minLength": 1,
+      "title": "Artifact Version",
+      "type": "string"
+    },
+    "defects": {
+      "items": {
+        "$ref": "#/$defs/RepairDefect"
+      },
+      "minItems": 1,
+      "title": "Defects",
+      "type": "array"
+    }
+  },
+  "required": [
+    "artifact_version",
+    "defects"
+  ],
+  "title": "RepairPayload",
+  "type": "object"
+}

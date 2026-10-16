@@ -1,0 +1,11 @@
+F                                                                        [100%]
+================================== FAILURES ===================================
+________ test_owner_death_after_create_does_not_leave_suspended_orphan ________
+tests\integration\test_process_lifecycle.py:282: in test_owner_death_after_create_does_not_leave_suspended_orphan
+    until(lambda: not alive(pid), timeout=2)
+tests\integration\test_process_lifecycle.py:30: in until
+    raise AssertionError("condition did not become true before deadline")
+E   AssertionError: condition did not become true before deadline
+=========================== short test summary info ===========================
+FAILED tests/integration/test_process_lifecycle.py::test_owner_death_after_create_does_not_leave_suspended_orphan
+1 failed, 17 deselected in 2.49s

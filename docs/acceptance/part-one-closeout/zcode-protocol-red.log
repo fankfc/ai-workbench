@@ -1,0 +1,600 @@
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF                                        [100%]
+================================== FAILURES ===================================
+______ test_fixed_metadata_request_has_no_model_prompt_or_authorization _______
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-172/test_fixed_metadata_request_ha0')
+
+    def test_fixed_metadata_request_has_no_model_prompt_or_authorization(tmp_path):
+        probe, fixture, observed = make_probe(tmp_path)
+        result = probe.probe()
+>       assert [method for method, _ in fixture.calls] == ["runtime/capabilities", "session/create", "session/close"]
+E       AssertionError: assert [] == ['runtime/cap...ession/close']
+E         
+E         Right contains 3 more items, first extra item: 'runtime/capabilities'
+E         Use -v to get more diff
+
+tests\contracts\test_zcode_protocol.py:65: AssertionError
+______ test_empty_catalog_is_host_context_required_with_unknown_identity ______
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-172/test_empty_catalog_is_host_con0')
+
+    def test_empty_catalog_is_host_context_required_with_unknown_identity(tmp_path):
+        result = make_probe(tmp_path)[0].probe()
+>       assert result["reason_code"] == "HOST_ACCOUNT_CONTEXT_REQUIRED"
+E       AssertionError: assert 'METADATA_PRO...T_IMPLEMENTED' == 'HOST_ACCOUNT...TEXT_REQUIRED'
+E         
+E         - HOST_ACCOUNT_CONTEXT_REQUIRED
+E         + METADATA_PROTOCOL_NOT_IMPLEMENTED
+
+tests\contracts\test_zcode_protocol.py:78: AssertionError
+___ test_catalog_is_only_configuration_and_nested_secrets_are_not_projected ___
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-172/test_catalog_is_only_configura0')
+
+    def test_catalog_is_only_configuration_and_nested_secrets_are_not_projected(tmp_path):
+        selection = {"providerId": "account:bigmodel-start-plan", "modelId": "GLM-5.3",
+                     "options": {"reasoningLevel": "low", "credential": "never-store-this"}}
+        model = {"ref": selection, "apiKey": "never-store-this", "label": "public label",
+                 "reasoning": {"levels": [{"value": "low"}, {"value": "high"}], "defaultLevel": "low"}}
+        responses = {"runtime/capabilities": {"independentPlanState": True},
+                     "session/create": snapshot([model], selection), "session/close": {"closed": True}}
+        result = make_probe(tmp_path, responses=responses)[0].probe()
+>       assert result["reason_code"] == "MODEL_CATALOG_OBSERVED"
+E       AssertionError: assert 'METADATA_PRO...T_IMPLEMENTED' == 'MODEL_CATALOG_OBSERVED'
+E         
+E         - MODEL_CATALOG_OBSERVED
+E         + METADATA_PROTOCOL_NOT_IMPLEMENTED
+
+tests\contracts\test_zcode_protocol.py:93: AssertionError
+___ test_forbidden_method_is_rejected_before_any_client_start[session/send] ___
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-172/test_forbidden_method_is_rejec0')
+method = 'session/send'
+
+    @pytest.mark.parametrize("method", ["session/send", "turn/start", "workspace/generateText",
+        "provider/testModelConnectivity", "provider/updateAccountConfig", "session/setModel", "session/list", "initialize"])
+    def test_forbidden_method_is_rejected_before_any_client_start(tmp_path, method):
+        probe, fixture, _ = make_probe(tmp_path)
+>       with pytest.raises(ZCodeProtocolError, match="METADATA_METHOD_FORBIDDEN"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ZCodeProtocolError
+
+tests\contracts\test_zcode_protocol.py:105: Failed
+____ test_forbidden_method_is_rejected_before_any_client_start[turn/start] ____
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-172/test_forbidden_method_is_rejec1')
+method = 'turn/start'
+
+    @pytest.mark.parametrize("method", ["session/send", "turn/start", "workspace/generateText",
+        "provider/testModelConnectivity", "provider/updateAccountConfig", "session/setModel", "session/list", "initialize"])
+    def test_forbidden_method_is_rejected_before_any_client_start(tmp_path, method):
+        probe, fixture, _ = make_probe(tmp_path)
+>       with pytest.raises(ZCodeProtocolError, match="METADATA_METHOD_FORBIDDEN"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ZCodeProtocolError
+
+tests\contracts\test_zcode_protocol.py:105: Failed
+_ test_forbidden_method_is_rejected_before_any_client_start[workspace/generateText] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-172/test_forbidden_method_is_rejec2')
+method = 'workspace/generateText'
+
+    @pytest.mark.parametrize("method", ["session/send", "turn/start", "workspace/generateText",
+        "provider/testModelConnectivity", "provider/updateAccountConfig", "session/setModel", "session/list", "initialize"])
+    def test_forbidden_method_is_rejected_before_any_client_start(tmp_path, method):
+        probe, fixture, _ = make_probe(tmp_path)
+>       with pytest.raises(ZCodeProtocolError, match="METADATA_METHOD_FORBIDDEN"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ZCodeProtocolError
+
+tests\contracts\test_zcode_protocol.py:105: Failed
+_ test_forbidden_method_is_rejected_before_any_client_start[provider/testModelConnectivity] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-172/test_forbidden_method_is_rejec3')
+method = 'provider/testModelConnectivity'
+
+    @pytest.mark.parametrize("method", ["session/send", "turn/start", "workspace/generateText",
+        "provider/testModelConnectivity", "provider/updateAccountConfig", "session/setModel", "session/list", "initialize"])
+    def test_forbidden_method_is_rejected_before_any_client_start(tmp_path, method):
+        probe, fixture, _ = make_probe(tmp_path)
+>       with pytest.raises(ZCodeProtocolError, match="METADATA_METHOD_FORBIDDEN"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ZCodeProtocolError
+
+tests\contracts\test_zcode_protocol.py:105: Failed
+_ test_forbidden_method_is_rejected_before_any_client_start[provider/updateAccountConfig] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-172/test_forbidden_method_is_rejec4')
+method = 'provider/updateAccountConfig'
+
+    @pytest.mark.parametrize("method", ["session/send", "turn/start", "workspace/generateText",
+        "provider/testModelConnectivity", "provider/updateAccountConfig", "session/setModel", "session/list", "initialize"])
+    def test_forbidden_method_is_rejected_before_any_client_start(tmp_path, method):
+        probe, fixture, _ = make_probe(tmp_path)
+>       with pytest.raises(ZCodeProtocolError, match="METADATA_METHOD_FORBIDDEN"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ZCodeProtocolError
+
+tests\contracts\test_zcode_protocol.py:105: Failed
+_ test_forbidden_method_is_rejected_before_any_client_start[session/setModel] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-172/test_forbidden_method_is_rejec5')
+method = 'session/setModel'
+
+    @pytest.mark.parametrize("method", ["session/send", "turn/start", "workspace/generateText",
+        "provider/testModelConnectivity", "provider/updateAccountConfig", "session/setModel", "session/list", "initialize"])
+    def test_forbidden_method_is_rejected_before_any_client_start(tmp_path, method):
+        probe, fixture, _ = make_probe(tmp_path)
+>       with pytest.raises(ZCodeProtocolError, match="METADATA_METHOD_FORBIDDEN"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ZCodeProtocolError
+
+tests\contracts\test_zcode_protocol.py:105: Failed
+___ test_forbidden_method_is_rejected_before_any_client_start[session/list] ___
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-172/test_forbidden_method_is_rejec6')
+method = 'session/list'
+
+    @pytest.mark.parametrize("method", ["session/send", "turn/start", "workspace/generateText",
+        "provider/testModelConnectivity", "provider/updateAccountConfig", "session/setModel", "session/list", "initialize"])
+    def test_forbidden_method_is_rejected_before_any_client_start(tmp_path, method):
+        probe, fixture, _ = make_probe(tmp_path)
+>       with pytest.raises(ZCodeProtocolError, match="METADATA_METHOD_FORBIDDEN"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ZCodeProtocolError
+
+tests\contracts\test_zcode_protocol.py:105: Failed
+____ test_forbidden_method_is_rejected_before_any_client_start[initialize] ____
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-172/test_forbidden_method_is_rejec7')
+method = 'initialize'
+
+    @pytest.mark.parametrize("method", ["session/send", "turn/start", "workspace/generateText",
+        "provider/testModelConnectivity", "provider/updateAccountConfig", "session/setModel", "session/list", "initialize"])
+    def test_forbidden_method_is_rejected_before_any_client_start(tmp_path, method):
+        probe, fixture, _ = make_probe(tmp_path)
+>       with pytest.raises(ZCodeProtocolError, match="METADATA_METHOD_FORBIDDEN"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ZCodeProtocolError
+
+tests\contracts\test_zcode_protocol.py:105: Failed
+_________ test_bad_capabilities_fail_without_creating_a_session[None] _________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-172/test_bad_capabilities_fail_wit0')
+bad = None
+
+    @pytest.mark.parametrize("bad", [None, {}, {"independentPlanState": "true"}, {"independentPlanState": 1}])
+    def test_bad_capabilities_fail_without_creating_a_session(tmp_path, bad):
+        probe, fixture, _ = make_probe(tmp_path, responses={"runtime/capabilities": bad})
+        result = probe.probe()
+>       assert result["reason_code"] == "CAPABILITIES_RESPONSE_INVALID"
+E       AssertionError: assert 'METADATA_PRO...T_IMPLEMENTED' == 'CAPABILITIES...PONSE_INVALID'
+E         
+E         - CAPABILITIES_RESPONSE_INVALID
+E         + METADATA_PROTOCOL_NOT_IMPLEMENTED
+
+tests\contracts\test_zcode_protocol.py:114: AssertionError
+_________ test_bad_capabilities_fail_without_creating_a_session[bad1] _________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-172/test_bad_capabilities_fail_wit1')
+bad = {}
+
+    @pytest.mark.parametrize("bad", [None, {}, {"independentPlanState": "true"}, {"independentPlanState": 1}])
+    def test_bad_capabilities_fail_without_creating_a_session(tmp_path, bad):
+        probe, fixture, _ = make_probe(tmp_path, responses={"runtime/capabilities": bad})
+        result = probe.probe()
+>       assert result["reason_code"] == "CAPABILITIES_RESPONSE_INVALID"
+E       AssertionError: assert 'METADATA_PRO...T_IMPLEMENTED' == 'CAPABILITIES...PONSE_INVALID'
+E         
+E         - CAPABILITIES_RESPONSE_INVALID
+E         + METADATA_PROTOCOL_NOT_IMPLEMENTED
+
+tests\contracts\test_zcode_protocol.py:114: AssertionError
+_________ test_bad_capabilities_fail_without_creating_a_session[bad2] _________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-172/test_bad_capabilities_fail_wit2')
+bad = {'independentPlanState': 'true'}
+
+    @pytest.mark.parametrize("bad", [None, {}, {"independentPlanState": "true"}, {"independentPlanState": 1}])
+    def test_bad_capabilities_fail_without_creating_a_session(tmp_path, bad):
+        probe, fixture, _ = make_probe(tmp_path, responses={"runtime/capabilities": bad})
+        result = probe.probe()
+>       assert result["reason_code"] == "CAPABILITIES_RESPONSE_INVALID"
+E       AssertionError: assert 'METADATA_PRO...T_IMPLEMENTED' == 'CAPABILITIES...PONSE_INVALID'
+E         
+E         - CAPABILITIES_RESPONSE_INVALID
+E         + METADATA_PROTOCOL_NOT_IMPLEMENTED
+
+tests\contracts\test_zcode_protocol.py:114: AssertionError
+_________ test_bad_capabilities_fail_without_creating_a_session[bad3] _________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-172/test_bad_capabilities_fail_wit3')
+bad = {'independentPlanState': 1}
+
+    @pytest.mark.parametrize("bad", [None, {}, {"independentPlanState": "true"}, {"independentPlanState": 1}])
+    def test_bad_capabilities_fail_without_creating_a_session(tmp_path, bad):
+        probe, fixture, _ = make_probe(tmp_path, responses={"runtime/capabilities": bad})
+        result = probe.probe()
+>       assert result["reason_code"] == "CAPABILITIES_RESPONSE_INVALID"
+E       AssertionError: assert 'METADATA_PRO...T_IMPLEMENTED' == 'CAPABILITIES...PONSE_INVALID'
+E         
+E         - CAPABILITIES_RESPONSE_INVALID
+E         + METADATA_PROTOCOL_NOT_IMPLEMENTED
+
+tests\contracts\test_zcode_protocol.py:114: AssertionError
+___ test_malformed_metadata_cannot_be_reported_as_observed[missing-session] ___
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-172/test_malformed_metadata_cannot0')
+damage = 'missing-session'
+
+    @pytest.mark.parametrize("damage", ["missing-session", "bad-revision", "bad-catalog", "bad-reference", "too-many-models"])
+    def test_malformed_metadata_cannot_be_reported_as_observed(tmp_path, damage):
+        value = snapshot()
+        if damage == "missing-session":
+            value["session"] = {}
+        elif damage == "bad-revision":
+            value["runtime"]["stateRevision"] = True
+        elif damage == "bad-catalog":
+            value["settings"]["model"]["available"] = "GLM-5.3"
+        elif damage == "bad-reference":
+            value["settings"]["model"]["available"] = [{"ref": {"modelId": "GLM-5.3"}}]
+        else:
+            value["settings"]["model"]["available"] = [{"ref": {"providerId": "p", "modelId": "m"}}] * 513
+        probe, fixture, _ = make_probe(tmp_path, responses={"runtime/capabilities": {"independentPlanState": True},
+            "session/create": value, "session/close": {"closed": True}})
+        result = probe.probe()
+>       assert result["reason_code"] == "METADATA_RESPONSE_INVALID"
+E       AssertionError: assert 'METADATA_PRO...T_IMPLEMENTED' == 'METADATA_RESPONSE_INVALID'
+E         
+E         - METADATA_RESPONSE_INVALID
+E         + METADATA_PROTOCOL_NOT_IMPLEMENTED
+
+tests\contracts\test_zcode_protocol.py:135: AssertionError
+____ test_malformed_metadata_cannot_be_reported_as_observed[bad-revision] _____
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-172/test_malformed_metadata_cannot1')
+damage = 'bad-revision'
+
+    @pytest.mark.parametrize("damage", ["missing-session", "bad-revision", "bad-catalog", "bad-reference", "too-many-models"])
+    def test_malformed_metadata_cannot_be_reported_as_observed(tmp_path, damage):
+        value = snapshot()
+        if damage == "missing-session":
+            value["session"] = {}
+        elif damage == "bad-revision":
+            value["runtime"]["stateRevision"] = True
+        elif damage == "bad-catalog":
+            value["settings"]["model"]["available"] = "GLM-5.3"
+        elif damage == "bad-reference":
+            value["settings"]["model"]["available"] = [{"ref": {"modelId": "GLM-5.3"}}]
+        else:
+            value["settings"]["model"]["available"] = [{"ref": {"providerId": "p", "modelId": "m"}}] * 513
+        probe, fixture, _ = make_probe(tmp_path, responses={"runtime/capabilities": {"independentPlanState": True},
+            "session/create": value, "session/close": {"closed": True}})
+        result = probe.probe()
+>       assert result["reason_code"] == "METADATA_RESPONSE_INVALID"
+E       AssertionError: assert 'METADATA_PRO...T_IMPLEMENTED' == 'METADATA_RESPONSE_INVALID'
+E         
+E         - METADATA_RESPONSE_INVALID
+E         + METADATA_PROTOCOL_NOT_IMPLEMENTED
+
+tests\contracts\test_zcode_protocol.py:135: AssertionError
+_____ test_malformed_metadata_cannot_be_reported_as_observed[bad-catalog] _____
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-172/test_malformed_metadata_cannot2')
+damage = 'bad-catalog'
+
+    @pytest.mark.parametrize("damage", ["missing-session", "bad-revision", "bad-catalog", "bad-reference", "too-many-models"])
+    def test_malformed_metadata_cannot_be_reported_as_observed(tmp_path, damage):
+        value = snapshot()
+        if damage == "missing-session":
+            value["session"] = {}
+        elif damage == "bad-revision":
+            value["runtime"]["stateRevision"] = True
+        elif damage == "bad-catalog":
+            value["settings"]["model"]["available"] = "GLM-5.3"
+        elif damage == "bad-reference":
+            value["settings"]["model"]["available"] = [{"ref": {"modelId": "GLM-5.3"}}]
+        else:
+            value["settings"]["model"]["available"] = [{"ref": {"providerId": "p", "modelId": "m"}}] * 513
+        probe, fixture, _ = make_probe(tmp_path, responses={"runtime/capabilities": {"independentPlanState": True},
+            "session/create": value, "session/close": {"closed": True}})
+        result = probe.probe()
+>       assert result["reason_code"] == "METADATA_RESPONSE_INVALID"
+E       AssertionError: assert 'METADATA_PRO...T_IMPLEMENTED' == 'METADATA_RESPONSE_INVALID'
+E         
+E         - METADATA_RESPONSE_INVALID
+E         + METADATA_PROTOCOL_NOT_IMPLEMENTED
+
+tests\contracts\test_zcode_protocol.py:135: AssertionError
+____ test_malformed_metadata_cannot_be_reported_as_observed[bad-reference] ____
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-172/test_malformed_metadata_cannot3')
+damage = 'bad-reference'
+
+    @pytest.mark.parametrize("damage", ["missing-session", "bad-revision", "bad-catalog", "bad-reference", "too-many-models"])
+    def test_malformed_metadata_cannot_be_reported_as_observed(tmp_path, damage):
+        value = snapshot()
+        if damage == "missing-session":
+            value["session"] = {}
+        elif damage == "bad-revision":
+            value["runtime"]["stateRevision"] = True
+        elif damage == "bad-catalog":
+            value["settings"]["model"]["available"] = "GLM-5.3"
+        elif damage == "bad-reference":
+            value["settings"]["model"]["available"] = [{"ref": {"modelId": "GLM-5.3"}}]
+        else:
+            value["settings"]["model"]["available"] = [{"ref": {"providerId": "p", "modelId": "m"}}] * 513
+        probe, fixture, _ = make_probe(tmp_path, responses={"runtime/capabilities": {"independentPlanState": True},
+            "session/create": value, "session/close": {"closed": True}})
+        result = probe.probe()
+>       assert result["reason_code"] == "METADATA_RESPONSE_INVALID"
+E       AssertionError: assert 'METADATA_PRO...T_IMPLEMENTED' == 'METADATA_RESPONSE_INVALID'
+E         
+E         - METADATA_RESPONSE_INVALID
+E         + METADATA_PROTOCOL_NOT_IMPLEMENTED
+
+tests\contracts\test_zcode_protocol.py:135: AssertionError
+___ test_malformed_metadata_cannot_be_reported_as_observed[too-many-models] ___
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-172/test_malformed_metadata_cannot4')
+damage = 'too-many-models'
+
+    @pytest.mark.parametrize("damage", ["missing-session", "bad-revision", "bad-catalog", "bad-reference", "too-many-models"])
+    def test_malformed_metadata_cannot_be_reported_as_observed(tmp_path, damage):
+        value = snapshot()
+        if damage == "missing-session":
+            value["session"] = {}
+        elif damage == "bad-revision":
+            value["runtime"]["stateRevision"] = True
+        elif damage == "bad-catalog":
+            value["settings"]["model"]["available"] = "GLM-5.3"
+        elif damage == "bad-reference":
+            value["settings"]["model"]["available"] = [{"ref": {"modelId": "GLM-5.3"}}]
+        else:
+            value["settings"]["model"]["available"] = [{"ref": {"providerId": "p", "modelId": "m"}}] * 513
+        probe, fixture, _ = make_probe(tmp_path, responses={"runtime/capabilities": {"independentPlanState": True},
+            "session/create": value, "session/close": {"closed": True}})
+        result = probe.probe()
+>       assert result["reason_code"] == "METADATA_RESPONSE_INVALID"
+E       AssertionError: assert 'METADATA_PRO...T_IMPLEMENTED' == 'METADATA_RESPONSE_INVALID'
+E         
+E         - METADATA_RESPONSE_INVALID
+E         + METADATA_PROTOCOL_NOT_IMPLEMENTED
+
+tests\contracts\test_zcode_protocol.py:135: AssertionError
+____ test_bounded_transport_failures_stay_explicit_and_close[RPC_TIMEOUT] _____
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-172/test_bounded_transport_failure0')
+reason = 'RPC_TIMEOUT'
+
+    @pytest.mark.parametrize("reason", ["RPC_TIMEOUT", "RPC_OUTPUT_LIMIT", "RPC_PROCESS_EXITED", "RPC_PROTOCOL_INVALID"])
+    def test_bounded_transport_failures_stay_explicit_and_close(tmp_path, reason):
+        probe, fixture, _ = make_probe(tmp_path, failure=NativeRpcError(reason))
+        result = probe.probe()
+>       assert result["reason_code"] == reason and result["metadata_status"] == "failed"
+E       AssertionError: assert ('METADATA_PRO...T_IMPLEMENTED' == 'RPC_TIMEOUT'
+E         
+E         - RPC_TIMEOUT
+E         + METADATA_PROTOCOL_NOT_IMPLEMENTED)
+
+tests\contracts\test_zcode_protocol.py:143: AssertionError
+__ test_bounded_transport_failures_stay_explicit_and_close[RPC_OUTPUT_LIMIT] __
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-172/test_bounded_transport_failure1')
+reason = 'RPC_OUTPUT_LIMIT'
+
+    @pytest.mark.parametrize("reason", ["RPC_TIMEOUT", "RPC_OUTPUT_LIMIT", "RPC_PROCESS_EXITED", "RPC_PROTOCOL_INVALID"])
+    def test_bounded_transport_failures_stay_explicit_and_close(tmp_path, reason):
+        probe, fixture, _ = make_probe(tmp_path, failure=NativeRpcError(reason))
+        result = probe.probe()
+>       assert result["reason_code"] == reason and result["metadata_status"] == "failed"
+E       AssertionError: assert ('METADATA_PRO...T_IMPLEMENTED' == 'RPC_OUTPUT_LIMIT'
+E         
+E         - RPC_OUTPUT_LIMIT
+E         + METADATA_PROTOCOL_NOT_IMPLEMENTED)
+
+tests\contracts\test_zcode_protocol.py:143: AssertionError
+_ test_bounded_transport_failures_stay_explicit_and_close[RPC_PROCESS_EXITED] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-172/test_bounded_transport_failure2')
+reason = 'RPC_PROCESS_EXITED'
+
+    @pytest.mark.parametrize("reason", ["RPC_TIMEOUT", "RPC_OUTPUT_LIMIT", "RPC_PROCESS_EXITED", "RPC_PROTOCOL_INVALID"])
+    def test_bounded_transport_failures_stay_explicit_and_close(tmp_path, reason):
+        probe, fixture, _ = make_probe(tmp_path, failure=NativeRpcError(reason))
+        result = probe.probe()
+>       assert result["reason_code"] == reason and result["metadata_status"] == "failed"
+E       AssertionError: assert ('METADATA_PRO...T_IMPLEMENTED' == 'RPC_PROCESS_EXITED'
+E         
+E         - RPC_PROCESS_EXITED
+E         + METADATA_PROTOCOL_NOT_IMPLEMENTED)
+
+tests\contracts\test_zcode_protocol.py:143: AssertionError
+_ test_bounded_transport_failures_stay_explicit_and_close[RPC_PROTOCOL_INVALID] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-172/test_bounded_transport_failure3')
+reason = 'RPC_PROTOCOL_INVALID'
+
+    @pytest.mark.parametrize("reason", ["RPC_TIMEOUT", "RPC_OUTPUT_LIMIT", "RPC_PROCESS_EXITED", "RPC_PROTOCOL_INVALID"])
+    def test_bounded_transport_failures_stay_explicit_and_close(tmp_path, reason):
+        probe, fixture, _ = make_probe(tmp_path, failure=NativeRpcError(reason))
+        result = probe.probe()
+>       assert result["reason_code"] == reason and result["metadata_status"] == "failed"
+E       AssertionError: assert ('METADATA_PRO...T_IMPLEMENTED' == 'RPC_PROTOCOL_INVALID'
+E         
+E         - RPC_PROTOCOL_INVALID
+E         + METADATA_PROTOCOL_NOT_IMPLEMENTED)
+
+tests\contracts\test_zcode_protocol.py:143: AssertionError
+_____ test_old_callback_timeout_is_not_silently_treated_as_empty_catalog ______
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-172/test_old_callback_timeout_is_n0')
+
+    def test_old_callback_timeout_is_not_silently_treated_as_empty_catalog(tmp_path):
+        error = NativeRpcError("RPC_SERVER_ERROR")
+        error.error_code = -32022
+        result = make_probe(tmp_path, failure=error)[0].probe()
+>       assert result["reason_code"] == "RUNTIME_PREFERENCES_CALLBACK_TIMEOUT"
+E       AssertionError: assert 'METADATA_PRO...T_IMPLEMENTED' == 'RUNTIME_PREF...LBACK_TIMEOUT'
+E         
+E         - RUNTIME_PREFERENCES_CALLBACK_TIMEOUT
+E         + METADATA_PROTOCOL_NOT_IMPLEMENTED
+
+tests\contracts\test_zcode_protocol.py:151: AssertionError
+___ test_incomplete_or_limited_cleanup_blocks_the_metadata_result[changes0] ___
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-172/test_incomplete_or_limited_cle0')
+changes = {'cleanup_complete': False}
+
+    @pytest.mark.parametrize("changes", [{"cleanup_complete": False}, {"running": 1}, {"open_handles": 1},
+        {"temp_dirs": 1}, {"output_limited": True}])
+    def test_incomplete_or_limited_cleanup_blocks_the_metadata_result(tmp_path, changes):
+        result = make_probe(tmp_path, clean=cleanup(**changes))[0].probe()
+        expected = "RPC_OUTPUT_LIMIT" if changes.get("output_limited") else "RPC_CLEANUP_INCOMPLETE"
+>       assert result["reason_code"] == expected and result["metadata_status"] == "failed"
+E       AssertionError: assert ('METADATA_PRO...T_IMPLEMENTED' == 'RPC_CLEANUP_INCOMPLETE'
+E         
+E         - RPC_CLEANUP_INCOMPLETE
+E         + METADATA_PROTOCOL_NOT_IMPLEMENTED)
+
+tests\contracts\test_zcode_protocol.py:160: AssertionError
+___ test_incomplete_or_limited_cleanup_blocks_the_metadata_result[changes1] ___
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-172/test_incomplete_or_limited_cle1')
+changes = {'running': 1}
+
+    @pytest.mark.parametrize("changes", [{"cleanup_complete": False}, {"running": 1}, {"open_handles": 1},
+        {"temp_dirs": 1}, {"output_limited": True}])
+    def test_incomplete_or_limited_cleanup_blocks_the_metadata_result(tmp_path, changes):
+        result = make_probe(tmp_path, clean=cleanup(**changes))[0].probe()
+        expected = "RPC_OUTPUT_LIMIT" if changes.get("output_limited") else "RPC_CLEANUP_INCOMPLETE"
+>       assert result["reason_code"] == expected and result["metadata_status"] == "failed"
+E       AssertionError: assert ('METADATA_PRO...T_IMPLEMENTED' == 'RPC_CLEANUP_INCOMPLETE'
+E         
+E         - RPC_CLEANUP_INCOMPLETE
+E         + METADATA_PROTOCOL_NOT_IMPLEMENTED)
+
+tests\contracts\test_zcode_protocol.py:160: AssertionError
+___ test_incomplete_or_limited_cleanup_blocks_the_metadata_result[changes2] ___
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-172/test_incomplete_or_limited_cle2')
+changes = {'open_handles': 1}
+
+    @pytest.mark.parametrize("changes", [{"cleanup_complete": False}, {"running": 1}, {"open_handles": 1},
+        {"temp_dirs": 1}, {"output_limited": True}])
+    def test_incomplete_or_limited_cleanup_blocks_the_metadata_result(tmp_path, changes):
+        result = make_probe(tmp_path, clean=cleanup(**changes))[0].probe()
+        expected = "RPC_OUTPUT_LIMIT" if changes.get("output_limited") else "RPC_CLEANUP_INCOMPLETE"
+>       assert result["reason_code"] == expected and result["metadata_status"] == "failed"
+E       AssertionError: assert ('METADATA_PRO...T_IMPLEMENTED' == 'RPC_CLEANUP_INCOMPLETE'
+E         
+E         - RPC_CLEANUP_INCOMPLETE
+E         + METADATA_PROTOCOL_NOT_IMPLEMENTED)
+
+tests\contracts\test_zcode_protocol.py:160: AssertionError
+___ test_incomplete_or_limited_cleanup_blocks_the_metadata_result[changes3] ___
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-172/test_incomplete_or_limited_cle3')
+changes = {'temp_dirs': 1}
+
+    @pytest.mark.parametrize("changes", [{"cleanup_complete": False}, {"running": 1}, {"open_handles": 1},
+        {"temp_dirs": 1}, {"output_limited": True}])
+    def test_incomplete_or_limited_cleanup_blocks_the_metadata_result(tmp_path, changes):
+        result = make_probe(tmp_path, clean=cleanup(**changes))[0].probe()
+        expected = "RPC_OUTPUT_LIMIT" if changes.get("output_limited") else "RPC_CLEANUP_INCOMPLETE"
+>       assert result["reason_code"] == expected and result["metadata_status"] == "failed"
+E       AssertionError: assert ('METADATA_PRO...T_IMPLEMENTED' == 'RPC_CLEANUP_INCOMPLETE'
+E         
+E         - RPC_CLEANUP_INCOMPLETE
+E         + METADATA_PROTOCOL_NOT_IMPLEMENTED)
+
+tests\contracts\test_zcode_protocol.py:160: AssertionError
+___ test_incomplete_or_limited_cleanup_blocks_the_metadata_result[changes4] ___
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-172/test_incomplete_or_limited_cle4')
+changes = {'output_limited': True}
+
+    @pytest.mark.parametrize("changes", [{"cleanup_complete": False}, {"running": 1}, {"open_handles": 1},
+        {"temp_dirs": 1}, {"output_limited": True}])
+    def test_incomplete_or_limited_cleanup_blocks_the_metadata_result(tmp_path, changes):
+        result = make_probe(tmp_path, clean=cleanup(**changes))[0].probe()
+        expected = "RPC_OUTPUT_LIMIT" if changes.get("output_limited") else "RPC_CLEANUP_INCOMPLETE"
+>       assert result["reason_code"] == expected and result["metadata_status"] == "failed"
+E       AssertionError: assert ('METADATA_PRO...T_IMPLEMENTED' == 'RPC_OUTPUT_LIMIT'
+E         
+E         - RPC_OUTPUT_LIMIT
+E         + METADATA_PROTOCOL_NOT_IMPLEMENTED)
+
+tests\contracts\test_zcode_protocol.py:160: AssertionError
+__________ test_foreign_session_request_is_rejected_before_transport __________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-172/test_foreign_session_request_i0')
+
+    def test_foreign_session_request_is_rejected_before_transport(tmp_path):
+        probe, fixture, _ = make_probe(tmp_path)
+>       with pytest.raises(ZCodeProtocolError, match="OWNED_METADATA_SESSION_REQUIRED"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ZCodeProtocolError
+
+tests\contracts\test_zcode_protocol.py:165: Failed
+_______ test_tool_enabling_create_options_are_rejected_before_transport _______
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-172/test_tool_enabling_create_opti0')
+
+    def test_tool_enabling_create_options_are_rejected_before_transport(tmp_path):
+        probe, fixture, _ = make_probe(tmp_path)
+>       with pytest.raises(ZCodeProtocolError, match="FIXED_METADATA_PARAMS_REQUIRED"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ZCodeProtocolError
+
+tests\contracts\test_zcode_protocol.py:172: Failed
+__________ test_unexpected_model_activity_cannot_pass_metadata_probe __________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-172/test_unexpected_model_activity0')
+
+    def test_unexpected_model_activity_cannot_pass_metadata_probe(tmp_path):
+        probe, fixture, _ = make_probe(tmp_path)
+        fixture.diagnostics["model_turn_starts"] = 1
+        result = probe.probe()
+>       assert result["reason_code"] == "UNEXPECTED_MODEL_ACTIVITY" and result["metadata_status"] == "failed"
+E       AssertionError: assert ('METADATA_PRO...T_IMPLEMENTED' == 'UNEXPECTED_MODEL_ACTIVITY'
+E         
+E         - UNEXPECTED_MODEL_ACTIVITY
+E         + METADATA_PROTOCOL_NOT_IMPLEMENTED)
+
+tests\contracts\test_zcode_protocol.py:181: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/contracts/test_zcode_protocol.py::test_fixed_metadata_request_has_no_model_prompt_or_authorization
+FAILED tests/contracts/test_zcode_protocol.py::test_empty_catalog_is_host_context_required_with_unknown_identity
+FAILED tests/contracts/test_zcode_protocol.py::test_catalog_is_only_configuration_and_nested_secrets_are_not_projected
+FAILED tests/contracts/test_zcode_protocol.py::test_forbidden_method_is_rejected_before_any_client_start[session/send]
+FAILED tests/contracts/test_zcode_protocol.py::test_forbidden_method_is_rejected_before_any_client_start[turn/start]
+FAILED tests/contracts/test_zcode_protocol.py::test_forbidden_method_is_rejected_before_any_client_start[workspace/generateText]
+FAILED tests/contracts/test_zcode_protocol.py::test_forbidden_method_is_rejected_before_any_client_start[provider/testModelConnectivity]
+FAILED tests/contracts/test_zcode_protocol.py::test_forbidden_method_is_rejected_before_any_client_start[provider/updateAccountConfig]
+FAILED tests/contracts/test_zcode_protocol.py::test_forbidden_method_is_rejected_before_any_client_start[session/setModel]
+FAILED tests/contracts/test_zcode_protocol.py::test_forbidden_method_is_rejected_before_any_client_start[session/list]
+FAILED tests/contracts/test_zcode_protocol.py::test_forbidden_method_is_rejected_before_any_client_start[initialize]
+FAILED tests/contracts/test_zcode_protocol.py::test_bad_capabilities_fail_without_creating_a_session[None]
+FAILED tests/contracts/test_zcode_protocol.py::test_bad_capabilities_fail_without_creating_a_session[bad1]
+FAILED tests/contracts/test_zcode_protocol.py::test_bad_capabilities_fail_without_creating_a_session[bad2]
+FAILED tests/contracts/test_zcode_protocol.py::test_bad_capabilities_fail_without_creating_a_session[bad3]
+FAILED tests/contracts/test_zcode_protocol.py::test_malformed_metadata_cannot_be_reported_as_observed[missing-session]
+FAILED tests/contracts/test_zcode_protocol.py::test_malformed_metadata_cannot_be_reported_as_observed[bad-revision]
+FAILED tests/contracts/test_zcode_protocol.py::test_malformed_metadata_cannot_be_reported_as_observed[bad-catalog]
+FAILED tests/contracts/test_zcode_protocol.py::test_malformed_metadata_cannot_be_reported_as_observed[bad-reference]
+FAILED tests/contracts/test_zcode_protocol.py::test_malformed_metadata_cannot_be_reported_as_observed[too-many-models]
+FAILED tests/contracts/test_zcode_protocol.py::test_bounded_transport_failures_stay_explicit_and_close[RPC_TIMEOUT]
+FAILED tests/contracts/test_zcode_protocol.py::test_bounded_transport_failures_stay_explicit_and_close[RPC_OUTPUT_LIMIT]
+FAILED tests/contracts/test_zcode_protocol.py::test_bounded_transport_failures_stay_explicit_and_close[RPC_PROCESS_EXITED]
+FAILED tests/contracts/test_zcode_protocol.py::test_bounded_transport_failures_stay_explicit_and_close[RPC_PROTOCOL_INVALID]
+FAILED tests/contracts/test_zcode_protocol.py::test_old_callback_timeout_is_not_silently_treated_as_empty_catalog
+FAILED tests/contracts/test_zcode_protocol.py::test_incomplete_or_limited_cleanup_blocks_the_metadata_result[changes0]
+FAILED tests/contracts/test_zcode_protocol.py::test_incomplete_or_limited_cleanup_blocks_the_metadata_result[changes1]
+FAILED tests/contracts/test_zcode_protocol.py::test_incomplete_or_limited_cleanup_blocks_the_metadata_result[changes2]
+FAILED tests/contracts/test_zcode_protocol.py::test_incomplete_or_limited_cleanup_blocks_the_metadata_result[changes3]
+FAILED tests/contracts/test_zcode_protocol.py::test_incomplete_or_limited_cleanup_blocks_the_metadata_result[changes4]
+FAILED tests/contracts/test_zcode_protocol.py::test_foreign_session_request_is_rejected_before_transport
+FAILED tests/contracts/test_zcode_protocol.py::test_tool_enabling_create_options_are_rejected_before_transport
+FAILED tests/contracts/test_zcode_protocol.py::test_unexpected_model_activity_cannot_pass_metadata_probe
+33 failed in 0.41s

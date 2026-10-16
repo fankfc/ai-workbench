@@ -1,0 +1,70 @@
+{
+  "snapshot_root": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\d002-snapshots\\clean-20261013-v3",
+  "method": "explicit-source-snapshot-no-initial-git-commit",
+  "revision": "v3-date-time-review-fix",
+  "contains_initial_venv": false,
+  "contains_initial_node_modules": false,
+  "contains_superpowers": false,
+  "files": [
+    {
+      "path": ".python-version",
+      "sha256": "3713ACFFD953D571BCCBE163951AEEF988A75F945C049B7FBA53F080311267FA"
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "9DA4F689EECDD7A6D18EC69C4B1620A29AB5168D241C2B9095FA15A4F0FB9674"
+    },
+    {
+      "path": "package.json",
+      "sha256": "939BDBDC29DAA33397E5135EFED2EF582B60237BD98B5CC7AAF6AE0DD30338E2"
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "E45EE2DE1A15400A992949746BED35CD4F495E884CD8A04CE76F4C1410CEFC41"
+    },
+    {
+      "path": "playwright.config.ts",
+      "sha256": "27F9B812C8F47834385A0F2DF7F5AFD4932F7473A0106BB4B987AADFCA419F47"
+    },
+    {
+      "path": "pytest.ini",
+      "sha256": "9464F3436AD45E8B62395922C309A92C902AA5B310C9EBFE5FADFD58E2C5DC65"
+    },
+    {
+      "path": "README.md",
+      "sha256": "2CD3EEFEC4892C61BBA1364660C7DB896D94AC694541DABF13834507713BBB63"
+    },
+    {
+      "path": "apps/desktop/package.json",
+      "sha256": "970DE42DA9F169FE206424753A6B40622EAE629AD41FF40C97636EB147BDCB28"
+    },
+    {
+      "path": "services/orchestrator/pyproject.toml",
+      "sha256": "0F7336703EDBF0C299954899DBDB5D4E3656CC54311AE016C1B6B7415EB1E703"
+    },
+    {
+      "path": "services/orchestrator/uv.lock",
+      "sha256": "DECFBA37BD2E2C4A5258749794806B1BF82AC56B42D73DA767F28022E68DCEA7"
+    },
+    {
+      "path": "services/orchestrator/app/__init__.py",
+      "sha256": "1F2E67983136D669270C1C14537CA935A7F65D4EE84C1B3C1F3EFD4CEF7D7BEE"
+    },
+    {
+      "path": "tests/unit/test_package_bootstrap.py",
+      "sha256": "A73BA7CFD6274DB0878C7DDF5FCBABBCDD8C7A8A2414D603E376DE0C1C54C598"
+    },
+    {
+      "path": "tests/e2e/README.md",
+      "sha256": "2F056EF293B31CF0AD1A3848B30D0B11F617B5C45166F574848A7C89556318DC"
+    },
+    {
+      "path": "docs/runbooks/development.md",
+      "sha256": "B419C98AA3863DDF72F15B52970E331C52C5B7CBF7E673B40D14017A575BE14E"
+    },
+    {
+      "path": "docs/acceptance/D002/verify-date-time.py",
+      "sha256": "C101AB0AA758C8CC4EC2193E09A78DDB611F05DBE3B0DB177FDAA49443B641AB"
+    }
+  ]
+}

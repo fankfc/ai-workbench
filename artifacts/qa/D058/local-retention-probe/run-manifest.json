@@ -1,0 +1,66 @@
+{
+  "version": "1.0",
+  "build_id": "ad56a40168bc702f4a0db58b38a50f2aab2b69696e1ae9242e2dda4c6b06f9ca",
+  "run_id": null,
+  "created_at": "2026-10-14T15:24:39.857409+00:00",
+  "seed": 4317,
+  "encoding": "UTF-8",
+  "provider_boundary": "fake",
+  "files": [
+    {
+      "path": ".qa-run.json",
+      "size": 154,
+      "sha256": "555ed0d8477cebcb7924760fd2ffd6069132a95f3fd3db6a8423ecd0eeb36ef1"
+    },
+    {
+      "path": "retention_glossary.json",
+      "size": 312,
+      "sha256": "1aa2d856074b5404ad173bc1f3d8840483be6b797200e0dd3661ce5dc6cfb536"
+    },
+    {
+      "path": "scenario-result.json",
+      "size": 314,
+      "sha256": "cab54a58ed026041c95ffac8bb2a4306507a45d44ffde818401885097090d591"
+    },
+    {
+      "path": "diagnostic-probe/feedback-diagnostics.zip",
+      "size": 529,
+      "sha256": "88ec12f41702a33aa4c3d7151c21380579c37c2de03ebdd135a452add5e6fb48"
+    },
+    {
+      "path": "product/workbench.sqlite3",
+      "size": 339968,
+      "sha256": "0acb57bda8966cdcd0a5fed7b730480732af58d8848792328c1b0167119e1ca3"
+    },
+    {
+      "path": "product/workbench.sqlite3-shm",
+      "size": 32768,
+      "sha256": "f4dc93f68d5c5b7f0130f3aa18cb3dd978443d3cb87b7f43567ec592f932d0cd"
+    },
+    {
+      "path": "product/workbench.sqlite3-wal",
+      "size": 28872,
+      "sha256": "11c483975d830c762613ee9ee8935453f7bc4bf068d792f2f96807725260d428"
+    },
+    {
+      "path": "product/blobs/80/809ad8efdbfe85ff6f7ff30f68a24faac61286ff03f70e685f49398964d6407c",
+      "size": 22,
+      "sha256": "809ad8efdbfe85ff6f7ff30f68a24faac61286ff03f70e685f49398964d6407c"
+    },
+    {
+      "path": "diagnostic-probe/product/workbench.sqlite3",
+      "size": 339968,
+      "sha256": "7261f29d493427c9f380f2e034c646ab44063bf7f4c92d4752b7d95b93399cf4"
+    },
+    {
+      "path": "diagnostic-probe/product/workbench.sqlite3-shm",
+      "size": 32768,
+      "sha256": "08cc5473c0d942edcf99c081d4b872202c80cee98c88e8aa706064d164b36488"
+    },
+    {
+      "path": "diagnostic-probe/product/workbench.sqlite3-wal",
+      "size": 12392,
+      "sha256": "04823d35b273dde92e166f11b6837b67cd62487ead663395a6e4de1f036bbb7c"
+    }
+  ]
+}

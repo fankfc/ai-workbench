@@ -1,0 +1,21 @@
+{
+  "time": "2026-10-13T13:31:17.028338+00:00",
+  "git_commit": null,
+  "branch": "codex/part1-foundation",
+  "python": "3.13.0",
+  "sqlite": "3.45.3",
+  "provider_mode": "fake",
+  "real_model_starts": 0,
+  "result": "pass",
+  "internal_canary_present": false,
+  "secret_canary_present": false,
+  "public_event_kinds": [
+    "message.accepted",
+    "response.pending",
+    "request.failed"
+  ],
+  "native_publication": "tested with actual local artifact/evidence and fake provider boundary",
+  "claude_publication": "blocked pending translation/provenance/QA gates",
+  "attachment_publication": "blocked pending formal bundle publisher",
+  "history_and_sse_same_projection": true
+}

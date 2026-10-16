@@ -1,0 +1,168 @@
+..............FFFFF                                                      [100%]
+================================== FAILURES ===================================
+_ test_hashed_identity_reports_reject_role_or_family_swap[zcode-glm-codex-gpt-None] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-465/test_hashed_identity_reports_r0')
+a_adapter = 'zcode', a_family = 'glm', b_adapter = 'codex', b_family = 'gpt'
+wire_family = None
+
+    @pytest.mark.parametrize('a_adapter,a_family,b_adapter,b_family,wire_family',[
+        ('zcode','glm','codex','gpt',None),
+        ('codex','glm','zcode','glm',None),
+        ('claude_code','claude','zcode','gpt',None),
+        ('claude_code','claude','zcode','glm','glm'),
+    ])
+    def test_hashed_identity_reports_reject_role_or_family_swap(tmp_path,a_adapter,a_family,b_adapter,b_family,wire_family):
+        import hashlib
+        import json
+        module=evaluator()
+        def save(name,value):
+            data=json.dumps(value).encode('utf-8')
+            (tmp_path/name).write_bytes(data)
+            return dict(path=name,size=len(data),sha256=hashlib.sha256(data).hexdigest())
+        metadata=dict(source_kind='external',candidate_sha256='c'*64,commit='d'*40,observed_at='2026-10-14T12:00:00Z')
+        identities=[]
+        for role,adapter,family,version in [('A',a_adapter,a_family,'A-actual-version'),('B',b_adapter,b_family,'B-actual-version')]:
+            wire=save(role+'-wire.json',dict(source_kind='external',model_version=version,adapter=adapter,
+                family=wire_family if role=='A' and wire_family else family,request_id=role+'-request',identity_source='native_connection'))
+            identities.append(save(role+'-identity.json',dict(**metadata,role=role,adapter=adapter,family=family,
+                actual_version=version,identity_status='verified',identity_source='native_connection',wire_receipt=wire)))
+        evidence=dict(**metadata,evidence_root=str(tmp_path),identity_reports=identities,review_reports=[],usage_reports=[])
+        config=dict(a_version='A-actual-version',b_version='B-actual-version')
+        reasons=module._verify_real_provenance({},evidence,config,[])
+>       assert 'HASHED_IDENTITY_REPORTS_INVALID' in reasons
+E       AssertionError: assert 'HASHED_IDENTITY_REPORTS_INVALID' in ['CANDIDATE_OR_SOURCE_IDENTITY_INVALID', 'HASHED_REVIEW_REPORTS_INVALID', 'HASHED_USAGE_REPORTS_INVALID']
+
+tests\quality\test_optimization_gate.py:114: AssertionError
+_ test_hashed_identity_reports_reject_role_or_family_swap[codex-glm-zcode-glm-None] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-465/test_hashed_identity_reports_r1')
+a_adapter = 'codex', a_family = 'glm', b_adapter = 'zcode', b_family = 'glm'
+wire_family = None
+
+    @pytest.mark.parametrize('a_adapter,a_family,b_adapter,b_family,wire_family',[
+        ('zcode','glm','codex','gpt',None),
+        ('codex','glm','zcode','glm',None),
+        ('claude_code','claude','zcode','gpt',None),
+        ('claude_code','claude','zcode','glm','glm'),
+    ])
+    def test_hashed_identity_reports_reject_role_or_family_swap(tmp_path,a_adapter,a_family,b_adapter,b_family,wire_family):
+        import hashlib
+        import json
+        module=evaluator()
+        def save(name,value):
+            data=json.dumps(value).encode('utf-8')
+            (tmp_path/name).write_bytes(data)
+            return dict(path=name,size=len(data),sha256=hashlib.sha256(data).hexdigest())
+        metadata=dict(source_kind='external',candidate_sha256='c'*64,commit='d'*40,observed_at='2026-10-14T12:00:00Z')
+        identities=[]
+        for role,adapter,family,version in [('A',a_adapter,a_family,'A-actual-version'),('B',b_adapter,b_family,'B-actual-version')]:
+            wire=save(role+'-wire.json',dict(source_kind='external',model_version=version,adapter=adapter,
+                family=wire_family if role=='A' and wire_family else family,request_id=role+'-request',identity_source='native_connection'))
+            identities.append(save(role+'-identity.json',dict(**metadata,role=role,adapter=adapter,family=family,
+                actual_version=version,identity_status='verified',identity_source='native_connection',wire_receipt=wire)))
+        evidence=dict(**metadata,evidence_root=str(tmp_path),identity_reports=identities,review_reports=[],usage_reports=[])
+        config=dict(a_version='A-actual-version',b_version='B-actual-version')
+        reasons=module._verify_real_provenance({},evidence,config,[])
+>       assert 'HASHED_IDENTITY_REPORTS_INVALID' in reasons
+E       AssertionError: assert 'HASHED_IDENTITY_REPORTS_INVALID' in ['CANDIDATE_OR_SOURCE_IDENTITY_INVALID', 'HASHED_REVIEW_REPORTS_INVALID', 'HASHED_USAGE_REPORTS_INVALID']
+
+tests\quality\test_optimization_gate.py:114: AssertionError
+_ test_hashed_identity_reports_reject_role_or_family_swap[claude_code-claude-zcode-gpt-None] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-465/test_hashed_identity_reports_r2')
+a_adapter = 'claude_code', a_family = 'claude', b_adapter = 'zcode'
+b_family = 'gpt', wire_family = None
+
+    @pytest.mark.parametrize('a_adapter,a_family,b_adapter,b_family,wire_family',[
+        ('zcode','glm','codex','gpt',None),
+        ('codex','glm','zcode','glm',None),
+        ('claude_code','claude','zcode','gpt',None),
+        ('claude_code','claude','zcode','glm','glm'),
+    ])
+    def test_hashed_identity_reports_reject_role_or_family_swap(tmp_path,a_adapter,a_family,b_adapter,b_family,wire_family):
+        import hashlib
+        import json
+        module=evaluator()
+        def save(name,value):
+            data=json.dumps(value).encode('utf-8')
+            (tmp_path/name).write_bytes(data)
+            return dict(path=name,size=len(data),sha256=hashlib.sha256(data).hexdigest())
+        metadata=dict(source_kind='external',candidate_sha256='c'*64,commit='d'*40,observed_at='2026-10-14T12:00:00Z')
+        identities=[]
+        for role,adapter,family,version in [('A',a_adapter,a_family,'A-actual-version'),('B',b_adapter,b_family,'B-actual-version')]:
+            wire=save(role+'-wire.json',dict(source_kind='external',model_version=version,adapter=adapter,
+                family=wire_family if role=='A' and wire_family else family,request_id=role+'-request',identity_source='native_connection'))
+            identities.append(save(role+'-identity.json',dict(**metadata,role=role,adapter=adapter,family=family,
+                actual_version=version,identity_status='verified',identity_source='native_connection',wire_receipt=wire)))
+        evidence=dict(**metadata,evidence_root=str(tmp_path),identity_reports=identities,review_reports=[],usage_reports=[])
+        config=dict(a_version='A-actual-version',b_version='B-actual-version')
+        reasons=module._verify_real_provenance({},evidence,config,[])
+>       assert 'HASHED_IDENTITY_REPORTS_INVALID' in reasons
+E       AssertionError: assert 'HASHED_IDENTITY_REPORTS_INVALID' in ['CANDIDATE_OR_SOURCE_IDENTITY_INVALID', 'HASHED_REVIEW_REPORTS_INVALID', 'HASHED_USAGE_REPORTS_INVALID']
+
+tests\quality\test_optimization_gate.py:114: AssertionError
+_ test_hashed_identity_reports_reject_role_or_family_swap[claude_code-claude-zcode-glm-glm] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-465/test_hashed_identity_reports_r3')
+a_adapter = 'claude_code', a_family = 'claude', b_adapter = 'zcode'
+b_family = 'glm', wire_family = 'glm'
+
+    @pytest.mark.parametrize('a_adapter,a_family,b_adapter,b_family,wire_family',[
+        ('zcode','glm','codex','gpt',None),
+        ('codex','glm','zcode','glm',None),
+        ('claude_code','claude','zcode','gpt',None),
+        ('claude_code','claude','zcode','glm','glm'),
+    ])
+    def test_hashed_identity_reports_reject_role_or_family_swap(tmp_path,a_adapter,a_family,b_adapter,b_family,wire_family):
+        import hashlib
+        import json
+        module=evaluator()
+        def save(name,value):
+            data=json.dumps(value).encode('utf-8')
+            (tmp_path/name).write_bytes(data)
+            return dict(path=name,size=len(data),sha256=hashlib.sha256(data).hexdigest())
+        metadata=dict(source_kind='external',candidate_sha256='c'*64,commit='d'*40,observed_at='2026-10-14T12:00:00Z')
+        identities=[]
+        for role,adapter,family,version in [('A',a_adapter,a_family,'A-actual-version'),('B',b_adapter,b_family,'B-actual-version')]:
+            wire=save(role+'-wire.json',dict(source_kind='external',model_version=version,adapter=adapter,
+                family=wire_family if role=='A' and wire_family else family,request_id=role+'-request',identity_source='native_connection'))
+            identities.append(save(role+'-identity.json',dict(**metadata,role=role,adapter=adapter,family=family,
+                actual_version=version,identity_status='verified',identity_source='native_connection',wire_receipt=wire)))
+        evidence=dict(**metadata,evidence_root=str(tmp_path),identity_reports=identities,review_reports=[],usage_reports=[])
+        config=dict(a_version='A-actual-version',b_version='B-actual-version')
+        reasons=module._verify_real_provenance({},evidence,config,[])
+>       assert 'HASHED_IDENTITY_REPORTS_INVALID' in reasons
+E       AssertionError: assert 'HASHED_IDENTITY_REPORTS_INVALID' in ['CANDIDATE_OR_SOURCE_IDENTITY_INVALID', 'HASHED_REVIEW_REPORTS_INVALID', 'HASHED_USAGE_REPORTS_INVALID']
+
+tests\quality\test_optimization_gate.py:114: AssertionError
+_______ test_hashed_identity_receipt_requires_native_connection_source ________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-465/test_hashed_identity_receipt_r0')
+
+    def test_hashed_identity_receipt_requires_native_connection_source(tmp_path):
+        import hashlib
+        import json
+        module=evaluator()
+        def save(name,value):
+            data=json.dumps(value).encode()
+            (tmp_path/name).write_bytes(data)
+            return dict(path=name,size=len(data),sha256=hashlib.sha256(data).hexdigest())
+        metadata=dict(source_kind='external',candidate_sha256='c'*64,commit='d'*40,observed_at='2026-10-14T12:00:00Z')
+        refs=[]
+        for role,adapter,family in [('A','codex','gpt'),('B','zcode','glm')]:
+            wire=save(role+'-wire.json',dict(source_kind='external',model_version=role+'-v1',adapter=adapter,family=family,request_id=role+'-request',identity_source='user_claim'))
+            refs.append(save(role+'-identity.json',dict(**metadata,role=role,adapter=adapter,family=family,
+                actual_version=role+'-v1',identity_status='verified',identity_source='native_connection',wire_receipt=wire)))
+        reasons=module._verify_real_provenance({},dict(**metadata,evidence_root=str(tmp_path),identity_reports=refs,review_reports=[],usage_reports=[]),dict(a_version='A-v1',b_version='B-v1'),[])
+>       assert 'HASHED_IDENTITY_REPORTS_INVALID' in reasons
+E       AssertionError: assert 'HASHED_IDENTITY_REPORTS_INVALID' in ['CANDIDATE_OR_SOURCE_IDENTITY_INVALID', 'HASHED_REVIEW_REPORTS_INVALID', 'HASHED_USAGE_REPORTS_INVALID']
+
+tests\quality\test_optimization_gate.py:132: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/quality/test_optimization_gate.py::test_hashed_identity_reports_reject_role_or_family_swap[zcode-glm-codex-gpt-None]
+FAILED tests/quality/test_optimization_gate.py::test_hashed_identity_reports_reject_role_or_family_swap[codex-glm-zcode-glm-None]
+FAILED tests/quality/test_optimization_gate.py::test_hashed_identity_reports_reject_role_or_family_swap[claude_code-claude-zcode-gpt-None]
+FAILED tests/quality/test_optimization_gate.py::test_hashed_identity_reports_reject_role_or_family_swap[claude_code-claude-zcode-glm-glm]
+FAILED tests/quality/test_optimization_gate.py::test_hashed_identity_receipt_requires_native_connection_source
+5 failed, 14 passed in 1.19s

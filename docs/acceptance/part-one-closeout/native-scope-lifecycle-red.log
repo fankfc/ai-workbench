@@ -1,0 +1,187 @@
+..............................................................FFFFFFFFF. [ 98%]
+.                                                                        [100%]
+================================== FAILURES ===================================
+______ test_forbidden_request_permanently_revokes_prepared_qualification ______
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-235/test_forbidden_request_permane0')
+
+    def test_forbidden_request_permanently_revokes_prepared_qualification(tmp_path):
+        enforcer, context = prepared(tmp_path)
+        with pytest.raises(NativeScopeError):
+            enforcer.authorize_rpc('config/value/write', {}, context)
+>       with pytest.raises(NativeScopeError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE NativeScopeError
+
+tests\contracts\test_native_scope.py:204: Failed
+____________ test_unsubscribe_cannot_be_followed_by_a_model_start _____________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-235/test_unsubscribe_cannot_be_fol0')
+
+    def test_unsubscribe_cannot_be_followed_by_a_model_start(tmp_path):
+        enforcer, context = prepared(tmp_path)
+        enforcer.authorize_rpc('thread/unsubscribe', {'threadId': 'owned-thread'}, context)
+        enforcer.observe_rpc_response('thread/unsubscribe', {}, context)
+>       with pytest.raises(NativeScopeError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE NativeScopeError
+
+tests\contracts\test_native_scope.py:212: Failed
+____ test_thread_read_cannot_discard_an_explicit_changed_policy[changed0] _____
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-235/test_thread_read_cannot_discar0')
+changed = {'approvalPolicy': 'on-request'}
+
+    @pytest.mark.parametrize('changed', [dict(approvalPolicy='on-request'),
+        dict(sandbox={'type': 'readOnly', 'networkAccess': True})])
+    def test_thread_read_cannot_discard_an_explicit_changed_policy(tmp_path, changed):
+        enforcer, context = prepared(tmp_path)
+        enforcer.authorize_rpc('thread/read', {'threadId': 'owned-thread', 'includeTurns': False}, context)
+        result = thread_result()
+        result.update(changed)
+>       with pytest.raises(NativeScopeError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE NativeScopeError
+
+tests\contracts\test_native_scope.py:223: Failed
+____ test_thread_read_cannot_discard_an_explicit_changed_policy[changed1] _____
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-235/test_thread_read_cannot_discar1')
+changed = {'sandbox': {'type': 'readOnly', 'networkAccess': True}}
+
+    @pytest.mark.parametrize('changed', [dict(approvalPolicy='on-request'),
+        dict(sandbox={'type': 'readOnly', 'networkAccess': True})])
+    def test_thread_read_cannot_discard_an_explicit_changed_policy(tmp_path, changed):
+        enforcer, context = prepared(tmp_path)
+        enforcer.authorize_rpc('thread/read', {'threadId': 'owned-thread', 'includeTurns': False}, context)
+        result = thread_result()
+        result.update(changed)
+>       with pytest.raises(NativeScopeError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE NativeScopeError
+
+tests\contracts\test_native_scope.py:223: Failed
+_____ test_config_recheck_must_be_followed_by_thread_recheck_before_turn ______
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-235/test_config_recheck_must_be_fo0')
+
+    def test_config_recheck_must_be_followed_by_thread_recheck_before_turn(tmp_path):
+        enforcer, context = prepared(tmp_path)
+        enforcer.authorize_rpc('config/read', {'cwd': str(tmp_path), 'includeLayers': False}, context)
+        enforcer.observe_rpc_response('config/read', configuration(), context)
+>       with pytest.raises(NativeScopeError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE NativeScopeError
+
+tests\contracts\test_native_scope.py:231: Failed
+_______ test_successful_cleanup_permits_fresh_context_but_never_old_rpc _______
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-235/test_successful_cleanup_permit0')
+
+    def test_successful_cleanup_permits_fresh_context_but_never_old_rpc(tmp_path):
+        enforcer, context = prepared(tmp_path)
+        enforcer.close(context, cleanup_complete=True)
+        with pytest.raises(NativeScopeError):
+            enforcer.authorize_rpc('turn/start', turn_params(tmp_path), context)
+>       fresh = enforcer.open_fixture_phase(binding(tmp_path), metadata_stage='baseline')
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_native_scope.py:240: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+services\orchestrator\app\providers\native_scope.py:163: in open_fixture_phase
+    return self._open(binding, 'fixture', metadata_stage)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\app\providers\native_scope.py:167: in _open
+    _error('NATIVE_CONTEXT_ALREADY_BOUND_OR_INVALID')
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = 'NATIVE_CONTEXT_ALREADY_BOUND_OR_INVALID'
+
+    def _error(code):
+>       raise NativeScopeError(code)
+E       app.providers.native_scope.NativeScopeError: NATIVE_CONTEXT_ALREADY_BOUND_OR_INVALID
+
+services\orchestrator\app\providers\native_scope.py:60: NativeScopeError
+_ test_native_phase_supports_private_preparation_and_finalization[preparation] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-235/test_native_phase_supports_pri0')
+phase = 'preparation'
+
+    @pytest.mark.parametrize('phase', ['preparation', 'finalization'])
+    def test_native_phase_supports_private_preparation_and_finalization(tmp_path, phase):
+        text = '' if phase == 'preparation' else 'final approved bytes'
+>       value = NativePhaseBinding('task1', 'attempt1', 'request1', phase, tmp_path, text,
+            hashlib.sha256(text.encode()).hexdigest())
+
+tests\contracts\test_native_scope.py:248: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+<string>:12: in __init__
+    ???
+services\orchestrator\app\providers\native_scope.py:99: in __post_init__
+    _error('NATIVE_BINDING_INVALID')
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = 'NATIVE_BINDING_INVALID'
+
+    def _error(code):
+>       raise NativeScopeError(code)
+E       app.providers.native_scope.NativeScopeError: NATIVE_BINDING_INVALID
+
+services\orchestrator\app\providers\native_scope.py:60: NativeScopeError
+_ test_native_phase_supports_private_preparation_and_finalization[finalization] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-235/test_native_phase_supports_pri1')
+phase = 'finalization'
+
+    @pytest.mark.parametrize('phase', ['preparation', 'finalization'])
+    def test_native_phase_supports_private_preparation_and_finalization(tmp_path, phase):
+        text = '' if phase == 'preparation' else 'final approved bytes'
+>       value = NativePhaseBinding('task1', 'attempt1', 'request1', phase, tmp_path, text,
+            hashlib.sha256(text.encode()).hexdigest())
+
+tests\contracts\test_native_scope.py:248: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+<string>:12: in __init__
+    ???
+services\orchestrator\app\providers\native_scope.py:99: in __post_init__
+    _error('NATIVE_BINDING_INVALID')
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = 'NATIVE_BINDING_INVALID'
+
+    def _error(code):
+>       raise NativeScopeError(code)
+E       app.providers.native_scope.NativeScopeError: NATIVE_BINDING_INVALID
+
+services\orchestrator\app\providers\native_scope.py:60: NativeScopeError
+__ test_arbitrary_managed_handle_cannot_claim_it_launched_the_pinned_worker ___
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-235/test_arbitrary_managed_handle_0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x0000021CEDD088A0>
+
+    def test_arbitrary_managed_handle_cannot_claim_it_launched_the_pinned_worker(tmp_path, monkeypatch):
+        from app.providers import native_scope
+        from app.runtime.processes import ProcessHandle, ProcessManager
+        manager = object.__new__(ProcessManager)
+        handle = ProcessHandle('task1', 'attempt1', 123, None, tmp_path, tmp_path, object(), None)
+        monkeypatch.setattr(native_scope, '_sha', lambda _: OFFICIAL_ENTRY_SHA256)
+        monkeypatch.setattr(NativeScopeEnforcer, '_check_live_origin', lambda _: None)
+        entry = tmp_path / 'foreign.exe'
+        entry.write_bytes(b'not a model runtime')
+>       with pytest.raises(NativeScopeError, match='OWNED_LAUNCH'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE NativeScopeError
+
+tests\contracts\test_native_scope.py:262: Failed
+=========================== short test summary info ===========================
+FAILED tests/contracts/test_native_scope.py::test_forbidden_request_permanently_revokes_prepared_qualification
+FAILED tests/contracts/test_native_scope.py::test_unsubscribe_cannot_be_followed_by_a_model_start
+FAILED tests/contracts/test_native_scope.py::test_thread_read_cannot_discard_an_explicit_changed_policy[changed0]
+FAILED tests/contracts/test_native_scope.py::test_thread_read_cannot_discard_an_explicit_changed_policy[changed1]
+FAILED tests/contracts/test_native_scope.py::test_config_recheck_must_be_followed_by_thread_recheck_before_turn
+FAILED tests/contracts/test_native_scope.py::test_successful_cleanup_permits_fresh_context_but_never_old_rpc
+FAILED tests/contracts/test_native_scope.py::test_native_phase_supports_private_preparation_and_finalization[preparation]
+FAILED tests/contracts/test_native_scope.py::test_native_phase_supports_private_preparation_and_finalization[finalization]
+FAILED tests/contracts/test_native_scope.py::test_arbitrary_managed_handle_cannot_claim_it_launched_the_pinned_worker
+9 failed, 64 passed in 0.72s
+EXIT_CODE=1

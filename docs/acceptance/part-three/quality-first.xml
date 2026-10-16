@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="5" skipped="0" tests="21" time="1.276" timestamp="2026-10-14T22:52:00.021536+08:00" hostname="帆"><testcase classname="tests.acceptance.test_requirement_coverage" name="test_missing_mandatory_case_blocks_completion" time="0.060" /><testcase classname="tests.acceptance.test_requirement_coverage" name="test_matrix_retains_all_requirements_without_claiming_evidence" time="0.006"><failure message="assert 21 == 20">tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-429/test_matrix_retains_all_requir0')
+
+    def test_matrix_retains_all_requirements_without_claiming_evidence(tmp_path):
+        result = handler().run(tmp_path, {})
+        assert result['missing_requirements'] == []
+        assert result['mapped_requirements'] == 15
+&gt;       assert result['translation_cases'] == 20
+E       assert 21 == 20
+
+tests\acceptance\test_requirement_coverage.py:20: AssertionError</failure></testcase><testcase classname="tests.acceptance.test_requirement_coverage" name="test_unknown_removed_case_is_rejected" time="0.002" /><testcase classname="tests.translation.test_release_corpus" name="test_draft_references_do_not_count_as_approved_golden" time="0.605"><failure message="ValueError: UNVERIFIED_MODEL_IDENTITY">tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-429/test_draft_references_do_not_c0')
+
+    def test_draft_references_do_not_count_as_approved_golden(tmp_path):
+&gt;       result = handler().run(tmp_path, {})
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\translation\test_release_corpus.py:12: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\support\scenarios\translation_corpus.py:75: in run
+    native = asyncio.run(translation.translate(task_id=task_id,attempt_id=attempt,source='保留中文原文',source_language='zh-CN',target_language='en',purpose='input'))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:194: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:118: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py:721: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+services\orchestrator\app\translation\service.py:151: in translate
+    route=self.router.lock(task_id,attempt_id)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;app.translation.router.LanguageRouter object at 0x000001A381734980&gt;
+task_id = '8c324b4d77244db79f0be81e3159eae0'
+attempt_id = '5bb3f5df37b348688b428b90b47cf423'
+
+    def lock(self, task_id, attempt_id):
+        """Register the already immutable task snapshot, including legacy fake rows."""
+        with closing(self.database.connect()) as connection, transaction(connection):
+            task = require_current_attempt(connection,task_id,attempt_id)
+            data=json.loads(task['route_snapshot_json']); data.pop('test_only',None)
+            snapshot=RouteSnapshot.model_validate(data)
+            if snapshot.identity_status != 'verified':
+&gt;               raise ValueError('UNVERIFIED_MODEL_IDENTITY')
+E               ValueError: UNVERIFIED_MODEL_IDENTITY
+
+services\orchestrator\app\translation\router.py:59: ValueError</failure></testcase><testcase classname="tests.translation.test_release_corpus" name="test_known_critical_error_is_blocked_by_product_checker" time="0.050"><failure message="ValueError: UNVERIFIED_MODEL_IDENTITY">tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-429/test_known_critical_error_is_b0')
+
+    def test_known_critical_error_is_blocked_by_product_checker(tmp_path):
+&gt;       result = handler().run(tmp_path, {'fault': 'critical_semantic'})
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\translation\test_release_corpus.py:20: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\support\scenarios\translation_corpus.py:75: in run
+    native = asyncio.run(translation.translate(task_id=task_id,attempt_id=attempt,source='保留中文原文',source_language='zh-CN',target_language='en',purpose='input'))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:194: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:118: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py:721: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+services\orchestrator\app\translation\service.py:151: in translate
+    route=self.router.lock(task_id,attempt_id)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;app.translation.router.LanguageRouter object at 0x000001A38173FED0&gt;
+task_id = '78c8241fd86d443896dbefd1e0481770'
+attempt_id = '34b2f5580fde4877b98f2c5d6a039b1e'
+
+    def lock(self, task_id, attempt_id):
+        """Register the already immutable task snapshot, including legacy fake rows."""
+        with closing(self.database.connect()) as connection, transaction(connection):
+            task = require_current_attempt(connection,task_id,attempt_id)
+            data=json.loads(task['route_snapshot_json']); data.pop('test_only',None)
+            snapshot=RouteSnapshot.model_validate(data)
+            if snapshot.identity_status != 'verified':
+&gt;               raise ValueError('UNVERIFIED_MODEL_IDENTITY')
+E               ValueError: UNVERIFIED_MODEL_IDENTITY
+
+services\orchestrator\app\translation\router.py:59: ValueError</failure></testcase><testcase classname="tests.translation.test_release_corpus" name="test_corpus_preserves_original_ids_and_balanced_drafts" time="0.001" /><testcase classname="tests.quality.test_optimization_gate" name="test_absent_evidence_defaults_to_a_led" time="0.000" /><testcase classname="tests.quality.test_optimization_gate" name="test_bonferroni_accounts_for_all_layers_and_dimensions" time="0.001" /><testcase classname="tests.quality.test_optimization_gate" name="test_bounds_reject_invalid_scores[values0]" time="0.000" /><testcase classname="tests.quality.test_optimization_gate" name="test_bounds_reject_invalid_scores[values1]" time="0.000" /><testcase classname="tests.quality.test_optimization_gate" name="test_bounds_reject_invalid_scores[values2]" time="0.000" /><testcase classname="tests.quality.test_optimization_gate" name="test_bounds_reject_invalid_scores[values3]" time="0.000" /><testcase classname="tests.quality.test_optimization_gate" name="test_bounds_reject_invalid_scores[values4]" time="0.000" /><testcase classname="tests.quality.test_optimization_gate" name="test_configuration_key_expires_on_model_or_policy_change" time="0.000" /><testcase classname="tests.quality.test_optimization_gate" name="test_test_samples_never_grant_real_qualification" time="0.021" /><testcase classname="tests.quality.test_optimization_gate" name="test_good_quality_without_token_reduction_keeps_goal_open" time="0.004" /><testcase classname="tests.quality.test_protocol_freeze" name="test_draft_protocol_cannot_become_frozen_from_an_option" time="0.006" /><testcase classname="tests.quality.test_protocol_freeze" name="test_tuning_holdout_overlap_is_rejected" time="0.003" /><testcase classname="tests.quality.test_protocol_freeze" name="test_registration_hash_tampering_invalidates_protocol" time="0.003" /><testcase classname="tests.usage.test_ledger_reconciliation" name="test_duplicate_and_cumulative_samples_use_actual_ledger" time="0.085"><failure message="sqlite3.IntegrityError: FOREIGN KEY constraint failed">tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-429/test_duplicate_and_cumulative_0')
+
+    def test_duplicate_and_cumulative_samples_use_actual_ledger(tmp_path):
+&gt;       result = handler().run(tmp_path, {})
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\usage\test_ledger_reconciliation.py:11: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\support\scenarios\usage_reconciliation.py:40: in run
+    UsageLedger(app.state.database.path).record(task_id=task_id, attempt_id=attempt, **wire)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;app.usage.ledger.UsageLedger object at 0x000001A381657A10&gt;
+task_id = '004454739be04ed2b73f9c71b8f455a0'
+attempt_id = '715a7a1a97584ff595208bd975e3f825'
+provider_profile_id = 'fixture-gpt', external_request_id = 'request'
+event_id = 'event', provider = 'gpt', raw = {'total_tokens': 120}
+source = 'reported', mode = 'request_total', sequence = 1, role = 'A'
+function = 'execution', domain = 'code', status = 'completed'
+cumulative_scope = None
+
+    def record(self,*,task_id,attempt_id,provider_profile_id,external_request_id,event_id,provider,raw,source,mode,sequence,role,function,domain,status,cumulative_scope=None):
+        if role not in ('A','B') or function not in ('execution','translation','review','planning','takeover') or domain not in ('code','paper','document','mixed') or status not in ('running','completed','failed','cancelled') or mode not in ('pending','request_total','cumulative','delta'):
+            raise ValueError('INVALID_USAGE_CONTEXT')
+        if type(sequence) is not int or sequence&lt;1 or not all(isinstance(v,str) and v.strip() for v in (task_id,attempt_id,provider_profile_id,external_request_id,event_id)):
+            raise ValueError('INVALID_USAGE_BINDING')
+        normalized=normalize_usage(provider,raw,source)
+        if mode=='pending' and (source!='unknown' or raw.get('usage_observed') is not False or cumulative_scope is not None):
+            raise ValueError('PENDING_IS_UNOBSERVED_RESERVATION_ONLY')
+        snapshot={'event_id':event_id,'sequence':sequence,'raw':raw,'normalized':normalized,'mode':mode,'status':status,'cumulative_scope':cumulative_scope}
+        fingerprint=hashlib.sha256(json.dumps(snapshot,sort_keys=True,separators=(',',':'),allow_nan=False).encode()).hexdigest()
+        snapshot['sha256']=fingerprint
+        binding={'task_id':task_id,'attempt_id':attempt_id,'provider_profile_id':provider_profile_id,'external_request_id':external_request_id,'provider':provider,'role':role,'function':function,'domain':domain,'mode':mode,'cumulative_scope':cumulative_scope}
+        with closing(self.database.connect()) as connection,transaction(connection):
+            task=connection.execute('SELECT 1 FROM task_runs WHERE task_id=? AND attempt_id=?',(task_id,attempt_id)).fetchone()
+            if task is None:
+                raise ValueError('UNKNOWN_USAGE_TASK')
+            old=connection.execute("SELECT * FROM usage_entries WHERE provider_profile_id=? AND external_request_id=? AND metric='request'",(provider_profile_id,external_request_id)).fetchone()
+            if old:
+                detail=json.loads(old['details_json'])
+                ignored={'mode','cumulative_scope'}
+                if any(detail['binding'].get(key)!=value for key,value in binding.items() if key not in ignored):
+                    raise ValueError('USAGE_REQUEST_BINDING_MISMATCH')
+                duplicate=next((e for e in detail['events'] if e['event_id']==event_id),None)
+                if duplicate:
+                    if duplicate['sha256']!=fingerprint:
+                        raise ValueError('USAGE_EVENT_CONFLICT')
+                    return detail
+                if detail['binding']!=binding:
+                    if detail['binding']['mode']=='pending' and mode!='pending' and all(e['mode']=='pending' for e in detail['events']):
+                        detail['binding']=binding
+                    else:
+                        raise ValueError('USAGE_REQUEST_BINDING_MISMATCH')
+                if mode=='delta':
+                    prior_sequence=next((e for e in detail['events'] if e['sequence']==sequence),None)
+                    if prior_sequence is not None:
+                        fields=('raw','normalized','mode','status','cumulative_scope')
+                        if any(prior_sequence.get(key)!=snapshot.get(key) for key in fields):
+                            raise ValueError('USAGE_SEQUENCE_CONFLICT')
+                        detail['events'].append({**snapshot,'ignored_duplicate_sequence':True})
+                        connection.execute('UPDATE usage_entries SET details_json=? WHERE id=?',(json.dumps(detail,sort_keys=True,separators=(',',':'),allow_nan=False),old['id']))
+                        return detail
+            else:
+                detail={'binding':binding,'events':[],'total_tokens':None,'source':'unknown','high_sequence':0,'status':status,'known_lower_bound':0}
+            count=normalized['total_tokens']
+            high=detail['high_sequence']
+            if cumulative_scope is not None:
+                if mode!='cumulative' or not isinstance(cumulative_scope,str) or not cumulative_scope:
+                    raise ValueError('INVALID_CUMULATIVE_SCOPE')
+                previous=[]
+                for row in connection.execute("SELECT details_json FROM usage_entries WHERE provider_profile_id=? AND metric='request'",(provider_profile_id,)):
+                    candidate=json.loads(row[0])
+                    if candidate['binding'].get('cumulative_scope')==cumulative_scope:
+                        previous.extend(e for e in candidate['events'] if e['normalized']['total_tokens'] is not None)
+                newest=max(previous,key=lambda e:e['sequence'],default=None)
+                if newest and sequence&lt;=newest['sequence']:
+                    if sequence==newest['sequence'] and count!=newest['normalized']['total_tokens']:
+                        raise ValueError('CUMULATIVE_SEQUENCE_CONFLICT')
+                    count=0
+                elif count is not None:
+                    prior=newest['normalized']['total_tokens'] if newest else 0
+                    if count&lt;prior:
+                        raise ValueError('CUMULATIVE_COUNTER_DECREASED')
+                    count-=prior
+                # A scoped session counter allocates its verified difference to this request.
+                detail['total_tokens']=None if count is None else (detail['total_tokens'] or 0)+count
+                detail['known_lower_bound']+=count or 0
+                detail['source']=normalized['source']
+            elif mode=='delta':
+                detail['known_lower_bound']+=count or 0
+                prior_unknown=any(e['mode']!='pending' and e['normalized']['total_tokens'] is None for e in detail['events'])
+                detail['total_tokens']=None if count is None or prior_unknown else detail['known_lower_bound']
+                detail['source']='unknown' if detail['total_tokens'] is None else ('estimated' if source=='estimated' or detail['source']=='estimated' else 'reported')
+            elif sequence&gt;=high:
+                prior=detail['total_tokens']
+                if count is not None:
+                    if prior is not None and count&lt;prior and source==detail['source']:
+                        raise ValueError('REQUEST_COUNTER_DECREASED')
+                    if source=='reported' or detail['source']!='reported':
+                        detail['total_tokens']=count
+                        detail['source']=normalized['source']
+                        detail['known_lower_bound']=count
+            detail['events'].append(snapshot)
+            detail['high_sequence']=max(high,sequence)
+            if detail['status']=='running':
+                detail['status']=status
+            payload=json.dumps(detail,sort_keys=True,separators=(',',':'),allow_nan=False)
+            if old:
+                connection.execute('UPDATE usage_entries SET details_json=? WHERE id=?',(payload,old['id']))
+            else:
+                # Quantity=1 counts the request. Unknown tokens are null in details, never synthetic zero.
+&gt;               connection.execute("INSERT INTO usage_entries(id,task_id,attempt_id,provider_profile_id,external_request_id,metric,quantity,unit,details_json) VALUES (?,?,?,?,?,'request',1,'request',?)",(uuid4().hex,task_id,attempt_id,provider_profile_id,external_request_id,payload))
+E               sqlite3.IntegrityError: FOREIGN KEY constraint failed
+
+services\orchestrator\app\usage\ledger.py:106: IntegrityError</failure></testcase><testcase classname="tests.usage.test_ledger_reconciliation" name="test_missing_usage_is_unknown_and_estimates_are_separate" time="0.047"><failure message="sqlite3.IntegrityError: FOREIGN KEY constraint failed">tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-429/test_missing_usage_is_unknown_0')
+
+    def test_missing_usage_is_unknown_and_estimates_are_separate(tmp_path):
+&gt;       result = handler().run(tmp_path, {'fault': 'missing_usage'})
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\usage\test_ledger_reconciliation.py:20: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\support\scenarios\usage_reconciliation.py:40: in run
+    UsageLedger(app.state.database.path).record(task_id=task_id, attempt_id=attempt, **wire)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;app.usage.ledger.UsageLedger object at 0x000001A3817EA350&gt;
+task_id = '0801a5bcd7ab41b49e54d1201e69f7a7'
+attempt_id = 'a60a1903ca414937875a98c86fe39e85'
+provider_profile_id = 'fixture-gpt', external_request_id = 'request'
+event_id = 'event', provider = 'gpt', raw = {'total_tokens': 120}
+source = 'reported', mode = 'request_total', sequence = 1, role = 'A'
+function = 'execution', domain = 'code', status = 'completed'
+cumulative_scope = None
+
+    def record(self,*,task_id,attempt_id,provider_profile_id,external_request_id,event_id,provider,raw,source,mode,sequence,role,function,domain,status,cumulative_scope=None):
+        if role not in ('A','B') or function not in ('execution','translation','review','planning','takeover') or domain not in ('code','paper','document','mixed') or status not in ('running','completed','failed','cancelled') or mode not in ('pending','request_total','cumulative','delta'):
+            raise ValueError('INVALID_USAGE_CONTEXT')
+        if type(sequence) is not int or sequence&lt;1 or not all(isinstance(v,str) and v.strip() for v in (task_id,attempt_id,provider_profile_id,external_request_id,event_id)):
+            raise ValueError('INVALID_USAGE_BINDING')
+        normalized=normalize_usage(provider,raw,source)
+        if mode=='pending' and (source!='unknown' or raw.get('usage_observed') is not False or cumulative_scope is not None):
+            raise ValueError('PENDING_IS_UNOBSERVED_RESERVATION_ONLY')
+        snapshot={'event_id':event_id,'sequence':sequence,'raw':raw,'normalized':normalized,'mode':mode,'status':status,'cumulative_scope':cumulative_scope}
+        fingerprint=hashlib.sha256(json.dumps(snapshot,sort_keys=True,separators=(',',':'),allow_nan=False).encode()).hexdigest()
+        snapshot['sha256']=fingerprint
+        binding={'task_id':task_id,'attempt_id':attempt_id,'provider_profile_id':provider_profile_id,'external_request_id':external_request_id,'provider':provider,'role':role,'function':function,'domain':domain,'mode':mode,'cumulative_scope':cumulative_scope}
+        with closing(self.database.connect()) as connection,transaction(connection):
+            task=connection.execute('SELECT 1 FROM task_runs WHERE task_id=? AND attempt_id=?',(task_id,attempt_id)).fetchone()
+            if task is None:
+                raise ValueError('UNKNOWN_USAGE_TASK')
+            old=connection.execute("SELECT * FROM usage_entries WHERE provider_profile_id=? AND external_request_id=? AND metric='request'",(provider_profile_id,external_request_id)).fetchone()
+            if old:
+                detail=json.loads(old['details_json'])
+                ignored={'mode','cumulative_scope'}
+                if any(detail['binding'].get(key)!=value for key,value in binding.items() if key not in ignored):
+                    raise ValueError('USAGE_REQUEST_BINDING_MISMATCH')
+                duplicate=next((e for e in detail['events'] if e['event_id']==event_id),None)
+                if duplicate:
+                    if duplicate['sha256']!=fingerprint:
+                        raise ValueError('USAGE_EVENT_CONFLICT')
+                    return detail
+                if detail['binding']!=binding:
+                    if detail['binding']['mode']=='pending' and mode!='pending' and all(e['mode']=='pending' for e in detail['events']):
+                        detail['binding']=binding
+                    else:
+                        raise ValueError('USAGE_REQUEST_BINDING_MISMATCH')
+                if mode=='delta':
+                    prior_sequence=next((e for e in detail['events'] if e['sequence']==sequence),None)
+                    if prior_sequence is not None:
+                        fields=('raw','normalized','mode','status','cumulative_scope')
+                        if any(prior_sequence.get(key)!=snapshot.get(key) for key in fields):
+                            raise ValueError('USAGE_SEQUENCE_CONFLICT')
+                        detail['events'].append({**snapshot,'ignored_duplicate_sequence':True})
+                        connection.execute('UPDATE usage_entries SET details_json=? WHERE id=?',(json.dumps(detail,sort_keys=True,separators=(',',':'),allow_nan=False),old['id']))
+                        return detail
+            else:
+                detail={'binding':binding,'events':[],'total_tokens':None,'source':'unknown','high_sequence':0,'status':status,'known_lower_bound':0}
+            count=normalized['total_tokens']
+            high=detail['high_sequence']
+            if cumulative_scope is not None:
+                if mode!='cumulative' or not isinstance(cumulative_scope,str) or not cumulative_scope:
+                    raise ValueError('INVALID_CUMULATIVE_SCOPE')
+                previous=[]
+                for row in connection.execute("SELECT details_json FROM usage_entries WHERE provider_profile_id=? AND metric='request'",(provider_profile_id,)):
+                    candidate=json.loads(row[0])
+                    if candidate['binding'].get('cumulative_scope')==cumulative_scope:
+                        previous.extend(e for e in candidate['events'] if e['normalized']['total_tokens'] is not None)
+                newest=max(previous,key=lambda e:e['sequence'],default=None)
+                if newest and sequence&lt;=newest['sequence']:
+                    if sequence==newest['sequence'] and count!=newest['normalized']['total_tokens']:
+                        raise ValueError('CUMULATIVE_SEQUENCE_CONFLICT')
+                    count=0
+                elif count is not None:
+                    prior=newest['normalized']['total_tokens'] if newest else 0
+                    if count&lt;prior:
+                        raise ValueError('CUMULATIVE_COUNTER_DECREASED')
+                    count-=prior
+                # A scoped session counter allocates its verified difference to this request.
+                detail['total_tokens']=None if count is None else (detail['total_tokens'] or 0)+count
+                detail['known_lower_bound']+=count or 0
+                detail['source']=normalized['source']
+            elif mode=='delta':
+                detail['known_lower_bound']+=count or 0
+                prior_unknown=any(e['mode']!='pending' and e['normalized']['total_tokens'] is None for e in detail['events'])
+                detail['total_tokens']=None if count is None or prior_unknown else detail['known_lower_bound']
+                detail['source']='unknown' if detail['total_tokens'] is None else ('estimated' if source=='estimated' or detail['source']=='estimated' else 'reported')
+            elif sequence&gt;=high:
+                prior=detail['total_tokens']
+                if count is not None:
+                    if prior is not None and count&lt;prior and source==detail['source']:
+                        raise ValueError('REQUEST_COUNTER_DECREASED')
+                    if source=='reported' or detail['source']!='reported':
+                        detail['total_tokens']=count
+                        detail['source']=normalized['source']
+                        detail['known_lower_bound']=count
+            detail['events'].append(snapshot)
+            detail['high_sequence']=max(high,sequence)
+            if detail['status']=='running':
+                detail['status']=status
+            payload=json.dumps(detail,sort_keys=True,separators=(',',':'),allow_nan=False)
+            if old:
+                connection.execute('UPDATE usage_entries SET details_json=? WHERE id=?',(payload,old['id']))
+            else:
+                # Quantity=1 counts the request. Unknown tokens are null in details, never synthetic zero.
+&gt;               connection.execute("INSERT INTO usage_entries(id,task_id,attempt_id,provider_profile_id,external_request_id,metric,quantity,unit,details_json) VALUES (?,?,?,?,?,'request',1,'request',?)",(uuid4().hex,task_id,attempt_id,provider_profile_id,external_request_id,payload))
+E               sqlite3.IntegrityError: FOREIGN KEY constraint failed
+
+services\orchestrator\app\usage\ledger.py:106: IntegrityError</failure></testcase></testsuite></testsuites>

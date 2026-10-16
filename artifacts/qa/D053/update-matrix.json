@@ -1,0 +1,12 @@
+{
+  "update_state": "BLOCKED",
+  "active_version": "unknown",
+  "previous_version": "unknown",
+  "restored_schema": 0,
+  "expected_schema": 0,
+  "evidence_kind": "audit",
+  "blocked_reasons": [
+    "source_commit_missing",
+    "signed_update_missing"
+  ]
+}

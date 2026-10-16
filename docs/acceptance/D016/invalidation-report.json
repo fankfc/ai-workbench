@@ -1,0 +1,21 @@
+{
+  "test_mode": "real_sqlite_and_blob_fixture",
+  "changed": {
+    "graph_version": 8,
+    "logical_id": "data",
+    "revision_id": "data-v2",
+    "invalidated_revision_ids": [
+      "code-v1",
+      "data-v1",
+      "figure-v1",
+      "report-v1",
+      "result-v1",
+      "translation-v1"
+    ]
+  },
+  "independent_current": true,
+  "old_report_current": false,
+  "historical_source_bytes_preserved": true,
+  "historical_figure_bytes_preserved": true,
+  "checks": "14 integration tests: cycle/self-reference, persistence, stale QA/approval/translation job, branch isolation, mixed versions, competing connection publication fence, write transaction, rollback"
+}

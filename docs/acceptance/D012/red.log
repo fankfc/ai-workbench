@@ -1,0 +1,270 @@
+FFFFFFFFFFFFFFFF                                                         [100%]
+================================== FAILURES ===================================
+_ test_recovery_queries_existing_remote_before_observing_and_never_creates_a_request _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-58/test_recovery_queries_existing0')
+
+    def test_recovery_queries_existing_remote_before_observing_and_never_creates_a_request(tmp_path):
+        path = existing_remote(tmp_path)
+        calls = []
+        def query(row):
+            calls.append(("query",row["external_execution_id"]))
+            return "running"
+        def observe(row):
+            calls.append(("observe",row["external_execution_id"]))
+        result = Recovery(path).recover(query, observe)
+>       assert calls == [("query","remote-existing"),("observe","remote-existing")]
+E       AssertionError: assert [] == [('query', 'r...te-existing')]
+E         
+E         Right contains 2 more items, first extra item: ('query', 'remote-existing')
+E         Use -v to get more diff
+
+tests\integration\test_recovery.py:42: AssertionError
+_ test_unknown_remote_with_expired_lease_is_blocked_and_not_retried_after_restart _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-58/test_unknown_remote_with_expir0')
+
+    def test_unknown_remote_with_expired_lease_is_blocked_and_not_retried_after_restart(tmp_path):
+        path = existing_remote(tmp_path)
+        observations = []
+        first = Recovery(path).recover(lambda row:"unknown", observations.append)
+        second = Recovery(path).recover(lambda row:"unknown", observations.append)
+>       assert first[0]["decision"] == second[0]["decision"] == "blocked_unknown"
+               ^^^^^^^^
+E       IndexError: list index out of range
+
+tests\integration\test_recovery.py:55: IndexError
+_ test_remote_query_exception_is_recorded_as_unknown_without_unverified_failure _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-58/test_remote_query_exception_is0')
+
+    def test_remote_query_exception_is_recorded_as_unknown_without_unverified_failure(tmp_path):
+        path = existing_remote(tmp_path)
+        def broken(row):
+            raise ConnectionError("do not expose endpoint or credentials")
+        result = Recovery(path).recover(broken)
+>       assert result[0]["decision"] == "blocked_unknown"
+               ^^^^^^^^^
+E       IndexError: list index out of range
+
+tests\integration\test_recovery.py:67: IndexError
+_ test_remote_completion_enters_verification_or_blocks_but_never_publishes[True] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-58/test_remote_completion_enters_0')
+verified = True
+
+    @pytest.mark.parametrize("verified", [True,False])
+    def test_remote_completion_enters_verification_or_blocks_but_never_publishes(tmp_path, verified):
+        path = existing_remote(tmp_path)
+        result = Recovery(path).recover(lambda row:"completed",verify_completed=lambda row:verified)
+>       assert result[0]["decision"] == ("verification_ready" if verified else "blocked_unverified_completion")
+               ^^^^^^^^^
+E       IndexError: list index out of range
+
+tests\integration\test_recovery.py:78: IndexError
+_ test_remote_completion_enters_verification_or_blocks_but_never_publishes[False] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-58/test_remote_completion_enters_1')
+verified = False
+
+    @pytest.mark.parametrize("verified", [True,False])
+    def test_remote_completion_enters_verification_or_blocks_but_never_publishes(tmp_path, verified):
+        path = existing_remote(tmp_path)
+        result = Recovery(path).recover(lambda row:"completed",verify_completed=lambda row:verified)
+>       assert result[0]["decision"] == ("verification_ready" if verified else "blocked_unverified_completion")
+               ^^^^^^^^^
+E       IndexError: list index out of range
+
+tests\integration\test_recovery.py:78: IndexError
+___ test_confirmed_remote_failure_marks_failed_preserving_request_reference ___
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-58/test_confirmed_remote_failure_0')
+
+    def test_confirmed_remote_failure_marks_failed_preserving_request_reference(tmp_path):
+        path = existing_remote(tmp_path)
+        result = Recovery(path).recover(lambda row:"failed")
+>       assert result[0]["decision"] == "failed"
+               ^^^^^^^^^
+E       IndexError: list index out of range
+
+tests\integration\test_recovery.py:86: IndexError
+_ test_provider_sequence_is_independent_of_api_accepted_and_pending_sequence __
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-58/test_provider_sequence_is_inde0')
+
+    def test_provider_sequence_is_independent_of_api_accepted_and_pending_sequence(tmp_path):
+        path = existing_remote(tmp_path)
+        connection = Database(path).connect()
+        with transaction(connection):
+            enqueue_event(connection,"task1","a1","message.accepted",{},deduplication_key="api-accepted",
+                          public_payload={"message_id":"m1","text":"�û�����","language":"zh-CN"})
+            enqueue_event(connection,"task1","a1","response.pending",{},deduplication_key="api-pending",public_payload={"status":"pending"})
+        connection.close()
+        assert current(path)["last_sequence"] == 2
+        one = Recovery(path).ingest(event(1),"1.0")
+        two = Recovery(path).ingest(event(2),"1.0")
+>       assert one["applied_sequences"] == [1] and two["applied_sequences"] == [2]
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'applied_sequences'
+
+tests\integration\test_recovery.py:102: KeyError
+___ test_sequence_1_2_2_1_3_applies_only_once_and_persists_duplicate_audit ____
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-58/test_sequence_1_2_2_1_3_applie0')
+
+    def test_sequence_1_2_2_1_3_applies_only_once_and_persists_duplicate_audit(tmp_path):
+        path = existing_remote(tmp_path)
+        decisions = [Recovery(path).ingest(event(seq),"1.0") for seq in (1,2,2,1,3)]
+>       assert [item["decision"] for item in decisions] == ["accepted","accepted","duplicate","duplicate","accepted"]
+                ^^^^^^^^^^^^^^^^
+E       KeyError: 'decision'
+
+tests\integration\test_recovery.py:112: KeyError
+__ test_sequence_gap_and_out_of_order_completion_are_buffered_across_restart __
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-58/test_sequence_gap_and_out_of_o0')
+
+    def test_sequence_gap_and_out_of_order_completion_are_buffered_across_restart(tmp_path):
+        path = existing_remote(tmp_path)
+        gap = Recovery(path).ingest(event(3,"provider.completed",PASS=True),"1.0")
+>       assert gap["decision"] == "gap" and gap["applied_sequences"] == []
+               ^^^^^^^^^^^^^^^
+E       KeyError: 'decision'
+
+tests\integration\test_recovery.py:121: KeyError
+_________ test_mismatched_duplicate_sequence_is_rejected_and_audited __________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-58/test_mismatched_duplicate_sequ0')
+
+    def test_mismatched_duplicate_sequence_is_rejected_and_audited(tmp_path):
+        path = existing_remote(tmp_path)
+        Recovery(path).ingest(event(1,text="first"),"1.0")
+        result = Recovery(path).ingest(event(1,text="different"),"1.0")
+>       assert result["decision"] == "duplicate_conflict" and result["applied_sequences"] == []
+               ^^^^^^^^^^^^^^^^^^
+E       KeyError: 'decision'
+
+tests\integration\test_recovery.py:138: KeyError
+_ test_old_attempt_contract_or_route_cannot_accept_pass_or_overwrite_state[old-attempt] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-58/test_old_attempt_contract_or_r0')
+fault = 'old-attempt'
+
+    @pytest.mark.parametrize("fault", ["old-attempt","old-contract","old-route"])
+    def test_old_attempt_contract_or_route_cannot_accept_pass_or_overwrite_state(tmp_path, fault):
+        path = existing_remote(tmp_path)
+        connection = Database(path).connect()
+        if fault == "old-attempt":
+            connection.execute("""INSERT INTO task_runs(task_id,attempt_id,turn_id,provider_profile_id,attempt_number,state)
+                               VALUES('task1','a2','t1','p1',2,'EXECUTING')""")
+        connection.close()
+        record = event(1,"provider.completed",PASS=True,**({"route_snapshot_id":"old-route"} if fault == "old-route" else {}))
+        result = Recovery(path).ingest(record,"old-contract" if fault == "old-contract" else "1.0")
+>       assert result["decision"] == {"old-attempt":"stale_attempt","old-contract":"contract_mismatch","old-route":"route_mismatch"}[fault]
+               ^^^^^^^^^^^^^^^^^^
+E       KeyError: 'decision'
+
+tests\integration\test_recovery.py:153: KeyError
+_ test_old_attempt_contract_or_route_cannot_accept_pass_or_overwrite_state[old-contract] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-58/test_old_attempt_contract_or_r1')
+fault = 'old-contract'
+
+    @pytest.mark.parametrize("fault", ["old-attempt","old-contract","old-route"])
+    def test_old_attempt_contract_or_route_cannot_accept_pass_or_overwrite_state(tmp_path, fault):
+        path = existing_remote(tmp_path)
+        connection = Database(path).connect()
+        if fault == "old-attempt":
+            connection.execute("""INSERT INTO task_runs(task_id,attempt_id,turn_id,provider_profile_id,attempt_number,state)
+                               VALUES('task1','a2','t1','p1',2,'EXECUTING')""")
+        connection.close()
+        record = event(1,"provider.completed",PASS=True,**({"route_snapshot_id":"old-route"} if fault == "old-route" else {}))
+        result = Recovery(path).ingest(record,"old-contract" if fault == "old-contract" else "1.0")
+>       assert result["decision"] == {"old-attempt":"stale_attempt","old-contract":"contract_mismatch","old-route":"route_mismatch"}[fault]
+               ^^^^^^^^^^^^^^^^^^
+E       KeyError: 'decision'
+
+tests\integration\test_recovery.py:153: KeyError
+_ test_old_attempt_contract_or_route_cannot_accept_pass_or_overwrite_state[old-route] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-58/test_old_attempt_contract_or_r2')
+fault = 'old-route'
+
+    @pytest.mark.parametrize("fault", ["old-attempt","old-contract","old-route"])
+    def test_old_attempt_contract_or_route_cannot_accept_pass_or_overwrite_state(tmp_path, fault):
+        path = existing_remote(tmp_path)
+        connection = Database(path).connect()
+        if fault == "old-attempt":
+            connection.execute("""INSERT INTO task_runs(task_id,attempt_id,turn_id,provider_profile_id,attempt_number,state)
+                               VALUES('task1','a2','t1','p1',2,'EXECUTING')""")
+        connection.close()
+        record = event(1,"provider.completed",PASS=True,**({"route_snapshot_id":"old-route"} if fault == "old-route" else {}))
+        result = Recovery(path).ingest(record,"old-contract" if fault == "old-contract" else "1.0")
+>       assert result["decision"] == {"old-attempt":"stale_attempt","old-contract":"contract_mismatch","old-route":"route_mismatch"}[fault]
+               ^^^^^^^^^^^^^^^^^^
+E       KeyError: 'decision'
+
+tests\integration\test_recovery.py:153: KeyError
+_ test_cancelled_completion_is_audited_without_publication_or_new_observation _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-58/test_cancelled_completion_is_a0')
+
+    def test_cancelled_completion_is_audited_without_publication_or_new_observation(tmp_path):
+        path = existing_remote(tmp_path)
+        connection = Database(path).connect()
+        connection.execute("UPDATE task_runs SET state='CANCELLED',cancel_requested=1,cancel_pending_remote=1")
+        connection.close()
+        incoming = Recovery(path).ingest(event(1,"provider.completed",PASS=True),"1.0")
+        observed = []
+        reconciled = Recovery(path).recover(lambda row:"completed",observed.append,lambda row:True)
+>       assert incoming["decision"] == "cancelled" and incoming["applied_sequences"] == []
+               ^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'decision'
+
+tests\integration\test_recovery.py:166: KeyError
+_____ test_ingest_rollback_keeps_sequence_checkpoint_and_state_unchanged ______
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-58/test_ingest_rollback_keeps_seq0')
+
+    def test_ingest_rollback_keeps_sequence_checkpoint_and_state_unchanged(tmp_path):
+        path = existing_remote(tmp_path)
+        connection = Database(path).connect()
+        connection.execute("CREATE TRIGGER audit_failure BEFORE INSERT ON outbox_events BEGIN SELECT RAISE(ABORT,'fault'); END")
+        connection.close()
+>       with pytest.raises(sqlite3.IntegrityError,match="fault"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE IntegrityError
+
+tests\integration\test_recovery.py:178: Failed
+___________ test_stable_provider_key_duplicate_does_not_apply_again ___________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-58/test_stable_provider_key_dupli0')
+
+    def test_stable_provider_key_duplicate_does_not_apply_again(tmp_path):
+        path = existing_remote(tmp_path)
+        first = Recovery(path).ingest(event(1,provider_event_id="stable-1",text="first"),"1.0")
+        second = Recovery(path).ingest(event(2,provider_event_id="stable-1",text="first"),"1.0")
+>       assert first["applied_sequences"] == [1]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'applied_sequences'
+
+tests\integration\test_recovery.py:188: KeyError
+=========================== short test summary info ===========================
+FAILED tests/integration/test_recovery.py::test_recovery_queries_existing_remote_before_observing_and_never_creates_a_request
+FAILED tests/integration/test_recovery.py::test_unknown_remote_with_expired_lease_is_blocked_and_not_retried_after_restart
+FAILED tests/integration/test_recovery.py::test_remote_query_exception_is_recorded_as_unknown_without_unverified_failure
+FAILED tests/integration/test_recovery.py::test_remote_completion_enters_verification_or_blocks_but_never_publishes[True]
+FAILED tests/integration/test_recovery.py::test_remote_completion_enters_verification_or_blocks_but_never_publishes[False]
+FAILED tests/integration/test_recovery.py::test_confirmed_remote_failure_marks_failed_preserving_request_reference
+FAILED tests/integration/test_recovery.py::test_provider_sequence_is_independent_of_api_accepted_and_pending_sequence
+FAILED tests/integration/test_recovery.py::test_sequence_1_2_2_1_3_applies_only_once_and_persists_duplicate_audit
+FAILED tests/integration/test_recovery.py::test_sequence_gap_and_out_of_order_completion_are_buffered_across_restart
+FAILED tests/integration/test_recovery.py::test_mismatched_duplicate_sequence_is_rejected_and_audited
+FAILED tests/integration/test_recovery.py::test_old_attempt_contract_or_route_cannot_accept_pass_or_overwrite_state[old-attempt]
+FAILED tests/integration/test_recovery.py::test_old_attempt_contract_or_route_cannot_accept_pass_or_overwrite_state[old-contract]
+FAILED tests/integration/test_recovery.py::test_old_attempt_contract_or_route_cannot_accept_pass_or_overwrite_state[old-route]
+FAILED tests/integration/test_recovery.py::test_cancelled_completion_is_audited_without_publication_or_new_observation
+FAILED tests/integration/test_recovery.py::test_ingest_rollback_keeps_sequence_checkpoint_and_state_unchanged
+FAILED tests/integration/test_recovery.py::test_stable_provider_key_duplicate_does_not_apply_again
+16 failed in 0.73s
+EXIT_CODE=1

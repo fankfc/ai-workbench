@@ -1,0 +1,32 @@
+F                                                                        [100%]
+================================== FAILURES ===================================
+________ test_relative_script_entry_keeps_the_completed_probe_receipt _________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-208/test_relative_script_entry_kee0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000002AB1DBDCB00>
+
+    def test_relative_script_entry_keeps_the_completed_probe_receipt(tmp_path, monkeypatch):
+        module = load_script()
+    
+        class Completed:
+            def __init__(self, *args, **kwargs):
+                pass
+    
+            def metadata(self):
+                return {'model_turn_starts': 0, 'cleanup': {'cleanup_complete': True,
+                        'running': 0, 'open_handles': 0, 'temp_dirs': 0}}
+    
+        monkeypatch.setattr(module, 'CodexProtocolClient', Completed)
+        monkeypatch.setattr(module, '__file__', 'scripts/probe_native_connections.py')
+        output = tmp_path / 'relative.json'
+        try:
+            result = module.main(['--cwd', str(tmp_path / 'work'), '--output', str(output)])
+        except ValueError:
+            result = None
+>       assert result == 0 and output.is_file(), 'A relative script invocation must preserve the completed diagnostic'
+E       AssertionError: A relative script invocation must preserve the completed diagnostic
+E       assert (None == 0)
+
+tests\contracts\test_native_connection_probe.py:95: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/contracts/test_native_connection_probe.py::test_relative_script_entry_keeps_the_completed_probe_receipt

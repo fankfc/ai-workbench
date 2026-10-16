@@ -1,0 +1,14 @@
+
+> ai-workbench@0.1.0 test:e2e
+> playwright test tests/e2e/review-regressions.spec.ts
+
+
+Running 3 tests using 1 worker
+
+(node:45348) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 1 tests\e2e\review-regressions.spec.ts:3:5 › disconnect retains displayed approved messages and published files (13.0s)
+  ok 2 tests\e2e\review-regressions.spec.ts:4:5 › late receipt preserves completed status and never pollutes another conversation (12.1s)
+  ok 3 tests\e2e\review-regressions.spec.ts:5:5 › usage dates represent local calendar boundaries including the final millisecond (4.6s)
+
+  3 passed (30.2s)

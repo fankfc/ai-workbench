@@ -1,0 +1,10 @@
+F                                                                        [100%]
+================================== FAILURES ===================================
+____ test_native_text_bridge_explicitly_rejects_unimplemented_claude_route ____
+tests\contracts\test_phase_prompt.py:44: in test_native_text_bridge_explicitly_rejects_unimplemented_claude_route
+    with pytest.raises(PhaseBridgeError, match='^PHASE_BRIDGE_GPT_ROUTE_REQUIRED$'):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE PhaseBridgeError
+=========================== short test summary info ===========================
+FAILED tests/contracts/test_phase_prompt.py::test_native_text_bridge_explicitly_rejects_unimplemented_claude_route
+1 failed in 0.37s

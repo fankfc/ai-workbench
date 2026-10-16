@@ -1,0 +1,282 @@
+FFFF..FFFFFF                                                             [100%]
+================================== FAILURES ===================================
+______ test_a_review_receives_actual_hash_bound_mechanical_observations _______
+
+client = <starlette.testclient.TestClient object at 0x000001F1D1B9EE40>
+
+    def test_a_review_receives_actual_hash_bound_mechanical_observations(client):
+        result, _, a = execute(prepare(client))
+        assert result.state == 'OUTPUT_PREPARING'
+        package = json.loads(Path(a.starts[0].prompt_path).read_text(encoding='utf-8'))['evidence_package']
+        reference = package['mechanical_evidence'][0]
+        raw = (Path(result.evidence_root) / reference['ref']).read_bytes()
+>       observation = package['mechanical_observations'][0]
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'mechanical_observations'
+
+tests\integration\test_agent_workflow.py:93: KeyError
+________ test_invalid_mechanical_proof_blocks_before_a_review[missing] ________
+
+client = <starlette.testclient.TestClient object at 0x000001F1D1DE7890>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000001F1D1E29480>
+change = 'missing'
+
+    @pytest.mark.parametrize('change', ['missing', 'changed'])
+    def test_invalid_mechanical_proof_blocks_before_a_review(client, monkeypatch, change):
+        original = Workflow._review
+    
+        async def invalidated(self, contract, workspace, lease, candidate, evidence, workflow):
+            path = workspace.area('evidence') / evidence[0]['ref']
+            if change == 'missing':
+                path.unlink()
+            else:
+                path.write_bytes(b'{}')
+            return await original(self, contract, workspace, lease, candidate, evidence, workflow)
+    
+        monkeypatch.setattr(Workflow, '_review', invalidated)
+        result, _, a = execute(prepare(client))
+        assert result.state == 'BLOCKED'
+>       assert a.starts == []
+E       AssertionError: assert [AgentRequest...ersion='1.0')] == []
+E         
+E         Left contains one more item: AgentRequest(task_id='162ea964b31f411fabdefa12e88aa1e2', attempt_id='6de13caaa68b443d998233a44828c130', role='A', iden...oof_0\\workspaces\\tasks\\162ea964b31f411fabdefa12e88aa1e2\\6de13caaa68b443d998233a44828c130\\a', policy_version='1.0')
+E         Use -v to get more diff
+
+tests\integration\test_agent_workflow.py:119: AssertionError
+________ test_invalid_mechanical_proof_blocks_before_a_review[changed] ________
+
+client = <starlette.testclient.TestClient object at 0x000001F1D1ED60D0>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000001F1D1E2A9E0>
+change = 'changed'
+
+    @pytest.mark.parametrize('change', ['missing', 'changed'])
+    def test_invalid_mechanical_proof_blocks_before_a_review(client, monkeypatch, change):
+        original = Workflow._review
+    
+        async def invalidated(self, contract, workspace, lease, candidate, evidence, workflow):
+            path = workspace.area('evidence') / evidence[0]['ref']
+            if change == 'missing':
+                path.unlink()
+            else:
+                path.write_bytes(b'{}')
+            return await original(self, contract, workspace, lease, candidate, evidence, workflow)
+    
+        monkeypatch.setattr(Workflow, '_review', invalidated)
+        result, _, a = execute(prepare(client))
+        assert result.state == 'BLOCKED'
+>       assert a.starts == []
+E       AssertionError: assert [AgentRequest...ersion='1.0')] == []
+E         
+E         Left contains one more item: AgentRequest(task_id='0a8aa31c6ab24d0ba97f03a3b087c3ce', attempt_id='b0f46b128183422c92a8385ef55f4f52', role='A', iden...oof_1\\workspaces\\tasks\\0a8aa31c6ab24d0ba97f03a3b087c3ce\\b0f46b128183422c92a8385ef55f4f52\\a', policy_version='1.0')
+E         Use -v to get more diff
+
+tests\integration\test_agent_workflow.py:119: AssertionError
+_ test_claude_review_receives_verified_english_observations_with_original_proof_binding _
+
+client = <starlette.testclient.TestClient object at 0x000001F1D1E2A2C0>
+
+    def test_claude_review_receives_verified_english_observations_with_original_proof_binding(client):
+        from test_claude_native_pipeline import assembly, mechanical
+        from translation.fakes import claude_turn
+    
+        _, task, attempt = claude_turn(client)
+        service, manager, _, a, workflow = assembly(client, task, attempt)
+        workspace = manager.create(task, attempt)
+        raw = '保留原文件。'.encode()
+        workspace.ingest_source('request.md', raw)
+        with closing(service.database.connect()) as connection:
+            route = json.loads(connection.execute('SELECT route_snapshot_json FROM task_runs WHERE task_id=?', (task,)).fetchone()[0])
+        contract = make_contract(task, attempt, route['id'], 'mixed', 'claude')
+        contract['inputs'] = [dict(id='USER-1', ref='input/request.md', sha256=hashlib.sha256(raw).hexdigest())]
+        contract['source_unit_ids'] = ['USER-1']
+        contract['full_read_required'] = True
+    
+        def observations(candidate):
+            result = mechanical(candidate)
+            for item in result:
+                item['evidence'].update(note='禁止删除原始文件。', code='`print("中文界面")`', measured_value=-0.03)
+            return result
+    
+        workflow.validator = observations
+        result = asyncio.run(workflow.run(contract))
+        assert result.state == 'OUTPUT_PREPARING', result.reason_codes
+        review = next(json.loads(Path(request.prompt_path).read_text(encoding='utf-8')) for request in a.starts
+            if json.loads(Path(request.prompt_path).read_text(encoding='utf-8'))['phase'] == 'review')
+>       observation = review['evidence_package']['mechanical_observations'][0]
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'mechanical_observations'
+
+tests\integration\test_agent_workflow.py:151: KeyError
+_ test_review_prompt_carries_original_source_and_mechanical_evidence_without_granting_pass _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-483/test_review_prompt_carries_ori0')
+
+    def test_review_prompt_carries_original_source_and_mechanical_evidence_without_granting_pass(tmp_path):
+        context, original, data = review_binding(tmp_path)
+        value = json.loads(phase_prompt_text(context, original))
+        assert value['fixed_envelope_fields']['phase'] == 'review'
+        assert 'independently' in value['instruction']
+        assert value['work']['evidence_package']['sources'][0]['trust'] == 'untrusted_material'
+>       observation = value['work']['evidence_package']['mechanical_observations'][0]
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'mechanical_observations'
+
+tests\contracts\test_phase_prompt.py:56: KeyError
+_ test_review_prompt_rejects_invalid_actual_proof_before_model_request[missing] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-483/test_review_prompt_rejects_inv0')
+change = 'missing'
+
+    @pytest.mark.parametrize('change', ['missing', 'changed', 'wrong_revision', 'wrong_candidate', 'false_pass'])
+    def test_review_prompt_rejects_invalid_actual_proof_before_model_request(tmp_path, change):
+        context, original, data = review_binding(tmp_path)
+        path = tmp_path / 'proof.json'
+        if change == 'missing':
+            path.unlink()
+        elif change == 'changed':
+            path.write_bytes(b'{}')
+        else:
+            proof = json.loads(data)
+            proof[{'wrong_revision': 'revision_id', 'wrong_candidate': 'byte_sha256', 'false_pass': 'passed'}[change]] = False if change == 'false_pass' else 'foreign-value'
+            changed = json.dumps(proof).encode()
+            path.write_bytes(changed)
+            package = json.loads(original)['evidence_package']
+            package['mechanical_evidence'][0]['sha256'] = hashlib.sha256(changed).hexdigest()
+            original = json.dumps(dict(phase='review', contract=context.contract.model_dump(mode='json'), evidence_package=package))
+            context = PhaseBinding(context.request_id, 'review', context.contract, package, tmp_path,
+                hashlib.sha256(original.encode()).hexdigest())
+>       with pytest.raises(PhaseBridgeError, match='^REVIEW_EVIDENCE_INVALID$'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE PhaseBridgeError
+
+tests\contracts\test_phase_prompt.py:79: Failed
+_ test_review_prompt_rejects_invalid_actual_proof_before_model_request[changed] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-483/test_review_prompt_rejects_inv1')
+change = 'changed'
+
+    @pytest.mark.parametrize('change', ['missing', 'changed', 'wrong_revision', 'wrong_candidate', 'false_pass'])
+    def test_review_prompt_rejects_invalid_actual_proof_before_model_request(tmp_path, change):
+        context, original, data = review_binding(tmp_path)
+        path = tmp_path / 'proof.json'
+        if change == 'missing':
+            path.unlink()
+        elif change == 'changed':
+            path.write_bytes(b'{}')
+        else:
+            proof = json.loads(data)
+            proof[{'wrong_revision': 'revision_id', 'wrong_candidate': 'byte_sha256', 'false_pass': 'passed'}[change]] = False if change == 'false_pass' else 'foreign-value'
+            changed = json.dumps(proof).encode()
+            path.write_bytes(changed)
+            package = json.loads(original)['evidence_package']
+            package['mechanical_evidence'][0]['sha256'] = hashlib.sha256(changed).hexdigest()
+            original = json.dumps(dict(phase='review', contract=context.contract.model_dump(mode='json'), evidence_package=package))
+            context = PhaseBinding(context.request_id, 'review', context.contract, package, tmp_path,
+                hashlib.sha256(original.encode()).hexdigest())
+>       with pytest.raises(PhaseBridgeError, match='^REVIEW_EVIDENCE_INVALID$'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE PhaseBridgeError
+
+tests\contracts\test_phase_prompt.py:79: Failed
+_ test_review_prompt_rejects_invalid_actual_proof_before_model_request[wrong_revision] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-483/test_review_prompt_rejects_inv2')
+change = 'wrong_revision'
+
+    @pytest.mark.parametrize('change', ['missing', 'changed', 'wrong_revision', 'wrong_candidate', 'false_pass'])
+    def test_review_prompt_rejects_invalid_actual_proof_before_model_request(tmp_path, change):
+        context, original, data = review_binding(tmp_path)
+        path = tmp_path / 'proof.json'
+        if change == 'missing':
+            path.unlink()
+        elif change == 'changed':
+            path.write_bytes(b'{}')
+        else:
+            proof = json.loads(data)
+            proof[{'wrong_revision': 'revision_id', 'wrong_candidate': 'byte_sha256', 'false_pass': 'passed'}[change]] = False if change == 'false_pass' else 'foreign-value'
+            changed = json.dumps(proof).encode()
+            path.write_bytes(changed)
+            package = json.loads(original)['evidence_package']
+            package['mechanical_evidence'][0]['sha256'] = hashlib.sha256(changed).hexdigest()
+            original = json.dumps(dict(phase='review', contract=context.contract.model_dump(mode='json'), evidence_package=package))
+            context = PhaseBinding(context.request_id, 'review', context.contract, package, tmp_path,
+                hashlib.sha256(original.encode()).hexdigest())
+>       with pytest.raises(PhaseBridgeError, match='^REVIEW_EVIDENCE_INVALID$'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE PhaseBridgeError
+
+tests\contracts\test_phase_prompt.py:79: Failed
+_ test_review_prompt_rejects_invalid_actual_proof_before_model_request[wrong_candidate] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-483/test_review_prompt_rejects_inv3')
+change = 'wrong_candidate'
+
+    @pytest.mark.parametrize('change', ['missing', 'changed', 'wrong_revision', 'wrong_candidate', 'false_pass'])
+    def test_review_prompt_rejects_invalid_actual_proof_before_model_request(tmp_path, change):
+        context, original, data = review_binding(tmp_path)
+        path = tmp_path / 'proof.json'
+        if change == 'missing':
+            path.unlink()
+        elif change == 'changed':
+            path.write_bytes(b'{}')
+        else:
+            proof = json.loads(data)
+            proof[{'wrong_revision': 'revision_id', 'wrong_candidate': 'byte_sha256', 'false_pass': 'passed'}[change]] = False if change == 'false_pass' else 'foreign-value'
+            changed = json.dumps(proof).encode()
+            path.write_bytes(changed)
+            package = json.loads(original)['evidence_package']
+            package['mechanical_evidence'][0]['sha256'] = hashlib.sha256(changed).hexdigest()
+            original = json.dumps(dict(phase='review', contract=context.contract.model_dump(mode='json'), evidence_package=package))
+            context = PhaseBinding(context.request_id, 'review', context.contract, package, tmp_path,
+                hashlib.sha256(original.encode()).hexdigest())
+>       with pytest.raises(PhaseBridgeError, match='^REVIEW_EVIDENCE_INVALID$'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE PhaseBridgeError
+
+tests\contracts\test_phase_prompt.py:79: Failed
+_ test_review_prompt_rejects_invalid_actual_proof_before_model_request[false_pass] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-483/test_review_prompt_rejects_inv4')
+change = 'false_pass'
+
+    @pytest.mark.parametrize('change', ['missing', 'changed', 'wrong_revision', 'wrong_candidate', 'false_pass'])
+    def test_review_prompt_rejects_invalid_actual_proof_before_model_request(tmp_path, change):
+        context, original, data = review_binding(tmp_path)
+        path = tmp_path / 'proof.json'
+        if change == 'missing':
+            path.unlink()
+        elif change == 'changed':
+            path.write_bytes(b'{}')
+        else:
+            proof = json.loads(data)
+            proof[{'wrong_revision': 'revision_id', 'wrong_candidate': 'byte_sha256', 'false_pass': 'passed'}[change]] = False if change == 'false_pass' else 'foreign-value'
+            changed = json.dumps(proof).encode()
+            path.write_bytes(changed)
+            package = json.loads(original)['evidence_package']
+            package['mechanical_evidence'][0]['sha256'] = hashlib.sha256(changed).hexdigest()
+            original = json.dumps(dict(phase='review', contract=context.contract.model_dump(mode='json'), evidence_package=package))
+            context = PhaseBinding(context.request_id, 'review', context.contract, package, tmp_path,
+                hashlib.sha256(original.encode()).hexdigest())
+>       with pytest.raises(PhaseBridgeError, match='^REVIEW_EVIDENCE_INVALID$'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE PhaseBridgeError
+
+tests\contracts\test_phase_prompt.py:79: Failed
+============================== warnings summary ===============================
+tests/integration/test_agent_workflow.py::test_a_review_receives_actual_hash_bound_mechanical_observations
+  C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/integration/test_agent_workflow.py::test_a_review_receives_actual_hash_bound_mechanical_observations
+FAILED tests/integration/test_agent_workflow.py::test_invalid_mechanical_proof_blocks_before_a_review[missing]
+FAILED tests/integration/test_agent_workflow.py::test_invalid_mechanical_proof_blocks_before_a_review[changed]
+FAILED tests/integration/test_agent_workflow.py::test_claude_review_receives_verified_english_observations_with_original_proof_binding
+FAILED tests/contracts/test_phase_prompt.py::test_review_prompt_carries_original_source_and_mechanical_evidence_without_granting_pass
+FAILED tests/contracts/test_phase_prompt.py::test_review_prompt_rejects_invalid_actual_proof_before_model_request[missing]
+FAILED tests/contracts/test_phase_prompt.py::test_review_prompt_rejects_invalid_actual_proof_before_model_request[changed]
+FAILED tests/contracts/test_phase_prompt.py::test_review_prompt_rejects_invalid_actual_proof_before_model_request[wrong_revision]
+FAILED tests/contracts/test_phase_prompt.py::test_review_prompt_rejects_invalid_actual_proof_before_model_request[wrong_candidate]
+FAILED tests/contracts/test_phase_prompt.py::test_review_prompt_rejects_invalid_actual_proof_before_model_request[false_pass]
+10 failed, 2 passed, 1 warning in 8.32s

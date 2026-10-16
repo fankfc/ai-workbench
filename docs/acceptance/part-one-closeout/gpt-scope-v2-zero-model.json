@@ -1,0 +1,34 @@
+{
+  "generated_at": "2026-10-14T06:33:13.744425+00:00",
+  "status": "blocked_zero_model_v2",
+  "model_selection": "gpt-6.1-sol",
+  "actual_executed_model_identity": "unknown",
+  "submitted_model_turns": 0,
+  "production_enabled": false,
+  "runtime_production_qualification": false,
+  "os_sandbox_verified": false,
+  "raw_config_keys_argv_auth_or_logs_exported": false,
+  "control_policy_version": 2,
+  "required_control_count": 22,
+  "control_policy_sha256": "a9adcc64572696a399bdad6901c4dc409df23c159f75f7ba9e9c05dedf321766",
+  "helper_sha256": "6acd2c9cf2429b608533835d33980107e137232cb4e864b2dde8c05b52318c19",
+  "source_sha256": {
+    "services/orchestrator/app/providers/scoped_codex_runtime.py": "cbf38fafe0bcb673e45be682b5804842de68a49a246299e70fa15e4ff1030a47",
+    "services/orchestrator/app/providers/scoped_codex_worker.py": "566eabf814a8501a645b553f0bb32087ccf8f024663f15b5c094776c40d7fb13",
+    "services/orchestrator/app/providers/native_scope.py": "9cf7289866b5e6c0f1e82980f70b97edf4eae8bf004a2d0bec84bbdee7c7346f"
+  },
+  "source_tag": "rust-v0.160.0",
+  "reason_code": "UNEXPECTED_PREPARATION_ACTIVITY",
+  "local_cleanup": {
+    "local_state": "failed",
+    "remote_state": "unknown",
+    "cleanup_complete": true,
+    "forced": true,
+    "output_limited": false,
+    "running": 0,
+    "open_handles": 0,
+    "temp_dirs": 0
+  },
+  "duration_seconds": 2.85,
+  "completed_at": "2026-10-14T06:33:16.594910+00:00"
+}

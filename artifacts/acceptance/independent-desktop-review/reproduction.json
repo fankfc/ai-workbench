@@ -1,0 +1,32 @@
+{
+  "disconnect": {
+    "beforeOffline": 2,
+    "afterOffline": 0,
+    "hash": "#/chat/ff0e56bd73ce40a8b02192c17702c296"
+  },
+  "lateSubmitReceipt": {
+    "publishedAnswers": 2,
+    "waitingNotices": 1,
+    "waitingText": [
+      "正在准备回答…停止"
+    ],
+    "sendDisabled": true,
+    "afterReloadWaiting": 0
+  },
+  "sessionSwitch": {
+    "submittedConversation": "#/chat/f06da047c69e474c84b4d73ac02fbb25",
+    "currentConversation": "#/chat/new",
+    "waitingNotices": 1,
+    "sendDisabled": true,
+    "displayedMessages": 0
+  },
+  "dateRange": {
+    "timezone": "Asia/Shanghai",
+    "chosen": "2026-10-14",
+    "emittedFrom": "2026-10-14T00:00:00Z",
+    "emittedTo": "2026-10-14T23:59:59Z",
+    "localFrom": "Wed Oct 14 2026 08:00:00 GMT+0800 (中国标准时间)",
+    "localTo": "Thu Oct 15 2026 07:59:59 GMT+0800 (中国标准时间)"
+  },
+  "userData": "C:\\Users\\asd15\\AppData\\Local\\Temp\\desktop-independent-review-y9k6Ku"
+}

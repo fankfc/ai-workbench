@@ -1,0 +1,176 @@
+FFFFFFFFFFFFFF                                                           [100%]
+================================== FAILURES ===================================
+_ test_four_domains_integrate_actual_storage_validators_usage_and_publication[code] _
+
+probe = <function probe.<locals>.run at 0x000001B1F3547BA0>, domain = 'code'
+
+    @pytest.mark.parametrize('domain',['code','paper','document','mixed'])
+    def test_four_domains_integrate_actual_storage_validators_usage_and_publication(probe,domain):
+        result=probe('backend_normal',provider_mode='fake',domain=domain)
+>       assert result['task_state']=='PUBLISHED'
+               ^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'task_state'
+
+tests\integration\test_backend_vertical.py:7: KeyError
+_ test_four_domains_integrate_actual_storage_validators_usage_and_publication[paper] _
+
+probe = <function probe.<locals>.run at 0x000001B1F35B9300>, domain = 'paper'
+
+    @pytest.mark.parametrize('domain',['code','paper','document','mixed'])
+    def test_four_domains_integrate_actual_storage_validators_usage_and_publication(probe,domain):
+        result=probe('backend_normal',provider_mode='fake',domain=domain)
+>       assert result['task_state']=='PUBLISHED'
+               ^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'task_state'
+
+tests\integration\test_backend_vertical.py:7: KeyError
+_ test_four_domains_integrate_actual_storage_validators_usage_and_publication[document] _
+
+probe = <function probe.<locals>.run at 0x000001B1F3546840>, domain = 'document'
+
+    @pytest.mark.parametrize('domain',['code','paper','document','mixed'])
+    def test_four_domains_integrate_actual_storage_validators_usage_and_publication(probe,domain):
+        result=probe('backend_normal',provider_mode='fake',domain=domain)
+>       assert result['task_state']=='PUBLISHED'
+               ^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'task_state'
+
+tests\integration\test_backend_vertical.py:7: KeyError
+_ test_four_domains_integrate_actual_storage_validators_usage_and_publication[mixed] _
+
+probe = <function probe.<locals>.run at 0x000001B1F3546C00>, domain = 'mixed'
+
+    @pytest.mark.parametrize('domain',['code','paper','document','mixed'])
+    def test_four_domains_integrate_actual_storage_validators_usage_and_publication(probe,domain):
+        result=probe('backend_normal',provider_mode='fake',domain=domain)
+>       assert result['task_state']=='PUBLISHED'
+               ^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'task_state'
+
+tests\integration\test_backend_vertical.py:7: KeyError
+_______________ test_cancel_blocks_late_answer_and_new_requests _______________
+
+probe = <function probe.<locals>.run at 0x000001B1F3546520>
+
+    def test_cancel_blocks_late_answer_and_new_requests(probe):
+        result=probe('backend_cancel_late',provider_mode='fake')
+>       assert result['task_state']=='CANCELLED'
+               ^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'task_state'
+
+tests\integration\test_backend_vertical.py:18: KeyError
+______________________ test_repair_rechecks_new_revision ______________________
+
+probe = <function probe.<locals>.run at 0x000001B1F3545C60>
+
+    def test_repair_rechecks_new_revision(probe):
+        result=probe('backend_repair',provider_mode='fake')
+>       assert result['task_state']=='PUBLISHED'
+               ^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'task_state'
+
+tests\integration\test_backend_vertical.py:24: KeyError
+____________________ test_missing_evidence_never_delivers _____________________
+
+probe = <function probe.<locals>.run at 0x000001B1F35B9440>
+
+    def test_missing_evidence_never_delivers(probe):
+        result=probe('backend_need_evidence',provider_mode='fake')
+>       assert result['task_state'] in ('NEEDS_INPUT','BLOCKED')
+               ^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'task_state'
+
+tests\integration\test_backend_vertical.py:30: KeyError
+_________________ test_unknown_remote_restart_does_not_retry __________________
+
+probe = <function probe.<locals>.run at 0x000001B1F35B96C0>
+
+    def test_unknown_remote_restart_does_not_retry(probe):
+        result=probe('backend_restart',provider_mode='fake')
+>       assert result['task_state']=='BLOCKED'
+               ^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'task_state'
+
+tests\integration\test_backend_vertical.py:35: KeyError
+_________________ test_old_pass_rejected_after_version_change _________________
+
+probe = <function probe.<locals>.run at 0x000001B1F35B9B20>
+
+    def test_old_pass_rejected_after_version_change(probe):
+        result=probe('backend_old_approval',provider_mode='fake')
+>       assert result['public_answer_count']==0 and result['publication_rejected'] is True
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'public_answer_count'
+
+tests\integration\test_backend_vertical.py:41: KeyError
+_________________ test_duplicate_api_and_usage_are_idempotent _________________
+
+probe = <function probe.<locals>.run at 0x000001B1F35B9F80>
+
+    def test_duplicate_api_and_usage_are_idempotent(probe):
+        result=probe('backend_duplicate',provider_mode='fake')
+>       assert result['turn_count']==1 and result['request_count']==result['model_starts']
+               ^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'turn_count'
+
+tests\integration\test_backend_vertical.py:45: KeyError
+__________________ test_budget_stops_actual_provider_starts ___________________
+
+probe = <function probe.<locals>.run at 0x000001B1F3546480>
+
+    def test_budget_stops_actual_provider_starts(probe):
+        result=probe('backend_budget',provider_mode='fake')
+>       assert result['task_state']=='BLOCKED'
+               ^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'task_state'
+
+tests\integration\test_backend_vertical.py:50: KeyError
+_______________ test_connection_failure_is_bounded_and_counted ________________
+
+probe = <function probe.<locals>.run at 0x000001B1F35471A0>
+
+    def test_connection_failure_is_bounded_and_counted(probe):
+        result=probe('backend_connection_failure',provider_mode='fake')
+>       assert result['task_state'] in ('FAILED','BLOCKED')
+               ^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'task_state'
+
+tests\integration\test_backend_vertical.py:55: KeyError
+___________ test_claude_chinese_missing_gateway_blocks_before_start ___________
+
+probe = <function probe.<locals>.run at 0x000001B1F35B9760>
+
+    def test_claude_chinese_missing_gateway_blocks_before_start(probe):
+        result=probe('backend_language_gate',provider_mode='fake')
+>       assert result['task_state']=='BLOCKED'
+               ^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'task_state'
+
+tests\integration\test_backend_vertical.py:61: KeyError
+________________ test_vertical_suite_exports_all_four_domains _________________
+
+probe = <function probe.<locals>.run at 0x000001B1F35BA2A0>
+
+    def test_vertical_suite_exports_all_four_domains(probe):
+        result=probe('backend_vertical',provider_mode='fake')
+>       assert set(result['domains'])=={'code','paper','document','mixed'}
+                   ^^^^^^^^^^^^^^^^^
+E       KeyError: 'domains'
+
+tests\integration\test_backend_vertical.py:66: KeyError
+=========================== short test summary info ===========================
+FAILED tests/integration/test_backend_vertical.py::test_four_domains_integrate_actual_storage_validators_usage_and_publication[code]
+FAILED tests/integration/test_backend_vertical.py::test_four_domains_integrate_actual_storage_validators_usage_and_publication[paper]
+FAILED tests/integration/test_backend_vertical.py::test_four_domains_integrate_actual_storage_validators_usage_and_publication[document]
+FAILED tests/integration/test_backend_vertical.py::test_four_domains_integrate_actual_storage_validators_usage_and_publication[mixed]
+FAILED tests/integration/test_backend_vertical.py::test_cancel_blocks_late_answer_and_new_requests
+FAILED tests/integration/test_backend_vertical.py::test_repair_rechecks_new_revision
+FAILED tests/integration/test_backend_vertical.py::test_missing_evidence_never_delivers
+FAILED tests/integration/test_backend_vertical.py::test_unknown_remote_restart_does_not_retry
+FAILED tests/integration/test_backend_vertical.py::test_old_pass_rejected_after_version_change
+FAILED tests/integration/test_backend_vertical.py::test_duplicate_api_and_usage_are_idempotent
+FAILED tests/integration/test_backend_vertical.py::test_budget_stops_actual_provider_starts
+FAILED tests/integration/test_backend_vertical.py::test_connection_failure_is_bounded_and_counted
+FAILED tests/integration/test_backend_vertical.py::test_claude_chinese_missing_gateway_blocks_before_start
+FAILED tests/integration/test_backend_vertical.py::test_vertical_suite_exports_all_four_domains
+14 failed in 2.02s

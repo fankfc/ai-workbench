@@ -1,0 +1,472 @@
+.FFFFFFFFFFFF.............F..F                                           [100%]
+================================== FAILURES ===================================
+_ test_verifier_and_reviewed_mapping_cover_all_forty_steps_and_eight_sections _
+
+verifier = <module 'phase_four_verify' from 'C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\scripts\\phase_four_verify.py'>
+
+    def test_verifier_and_reviewed_mapping_cover_all_forty_steps_and_eight_sections(verifier):
+>       mapping = verifier.load_mapping()
+                  ^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\acceptance\test_runtime_sop.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/quality/runtime-sop.json')
+
+    def load_mapping(path=MAP_PATH):
+        if digest(path) != APPROVED_MAP_SHA256:
+            raise ValueError('MAPPING_DIGEST_UNREVIEWED')
+        value = json.loads(Path(path).read_text(encoding='utf-8'))
+        issues = validate_mapping(value)
+        if issues:
+>           raise ValueError('MAPPING_INVALID: ' + '; '.join(issues))
+E           ValueError: MAPPING_INVALID: S04:EXACT_TEST_DEFINITION_MISSING; S27:EXACT_TEST_DEFINITION_MISSING; S30:EXACT_TEST_DEFINITION_MISSING; S30:EXACT_TEST_DEFINITION_MISSING; SEC05:EXACT_TEST_DEFINITION_MISSING; SEC08:EXACT_TEST_DEFINITION_MISSING; SEC10:EXACT_TEST_DEFINITION_MISSING; SEC12:EXACT_TEST_DEFINITION_MISSING; SEC12:EXACT_TEST_DEFINITION_MISSING
+
+scripts\phase_four_verify.py:44: ValueError
+__________ test_bad_or_forged_mapping_cannot_validate[missing_item] ___________
+
+verifier = <module 'phase_four_verify' from 'C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\scripts\\phase_four_verify.py'>
+damage = 'missing_item'
+
+    @pytest.mark.parametrize('damage', ['missing_item', 'duplicate_item', 'unknown_item', 'empty_tests',
+        'duplicate_test', 'invented_test', 'outside_test', 'unknown_field', 'no_external', 'sop_changed'])
+    def test_bad_or_forged_mapping_cannot_validate(verifier, damage):
+>       value = copy.deepcopy(verifier.load_mapping())
+                              ^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\acceptance\test_runtime_sop.py:50: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/quality/runtime-sop.json')
+
+    def load_mapping(path=MAP_PATH):
+        if digest(path) != APPROVED_MAP_SHA256:
+            raise ValueError('MAPPING_DIGEST_UNREVIEWED')
+        value = json.loads(Path(path).read_text(encoding='utf-8'))
+        issues = validate_mapping(value)
+        if issues:
+>           raise ValueError('MAPPING_INVALID: ' + '; '.join(issues))
+E           ValueError: MAPPING_INVALID: S04:EXACT_TEST_DEFINITION_MISSING; S27:EXACT_TEST_DEFINITION_MISSING; S30:EXACT_TEST_DEFINITION_MISSING; S30:EXACT_TEST_DEFINITION_MISSING; SEC05:EXACT_TEST_DEFINITION_MISSING; SEC08:EXACT_TEST_DEFINITION_MISSING; SEC10:EXACT_TEST_DEFINITION_MISSING; SEC12:EXACT_TEST_DEFINITION_MISSING; SEC12:EXACT_TEST_DEFINITION_MISSING
+
+scripts\phase_four_verify.py:44: ValueError
+_________ test_bad_or_forged_mapping_cannot_validate[duplicate_item] __________
+
+verifier = <module 'phase_four_verify' from 'C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\scripts\\phase_four_verify.py'>
+damage = 'duplicate_item'
+
+    @pytest.mark.parametrize('damage', ['missing_item', 'duplicate_item', 'unknown_item', 'empty_tests',
+        'duplicate_test', 'invented_test', 'outside_test', 'unknown_field', 'no_external', 'sop_changed'])
+    def test_bad_or_forged_mapping_cannot_validate(verifier, damage):
+>       value = copy.deepcopy(verifier.load_mapping())
+                              ^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\acceptance\test_runtime_sop.py:50: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/quality/runtime-sop.json')
+
+    def load_mapping(path=MAP_PATH):
+        if digest(path) != APPROVED_MAP_SHA256:
+            raise ValueError('MAPPING_DIGEST_UNREVIEWED')
+        value = json.loads(Path(path).read_text(encoding='utf-8'))
+        issues = validate_mapping(value)
+        if issues:
+>           raise ValueError('MAPPING_INVALID: ' + '; '.join(issues))
+E           ValueError: MAPPING_INVALID: S04:EXACT_TEST_DEFINITION_MISSING; S27:EXACT_TEST_DEFINITION_MISSING; S30:EXACT_TEST_DEFINITION_MISSING; S30:EXACT_TEST_DEFINITION_MISSING; SEC05:EXACT_TEST_DEFINITION_MISSING; SEC08:EXACT_TEST_DEFINITION_MISSING; SEC10:EXACT_TEST_DEFINITION_MISSING; SEC12:EXACT_TEST_DEFINITION_MISSING; SEC12:EXACT_TEST_DEFINITION_MISSING
+
+scripts\phase_four_verify.py:44: ValueError
+__________ test_bad_or_forged_mapping_cannot_validate[unknown_item] ___________
+
+verifier = <module 'phase_four_verify' from 'C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\scripts\\phase_four_verify.py'>
+damage = 'unknown_item'
+
+    @pytest.mark.parametrize('damage', ['missing_item', 'duplicate_item', 'unknown_item', 'empty_tests',
+        'duplicate_test', 'invented_test', 'outside_test', 'unknown_field', 'no_external', 'sop_changed'])
+    def test_bad_or_forged_mapping_cannot_validate(verifier, damage):
+>       value = copy.deepcopy(verifier.load_mapping())
+                              ^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\acceptance\test_runtime_sop.py:50: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/quality/runtime-sop.json')
+
+    def load_mapping(path=MAP_PATH):
+        if digest(path) != APPROVED_MAP_SHA256:
+            raise ValueError('MAPPING_DIGEST_UNREVIEWED')
+        value = json.loads(Path(path).read_text(encoding='utf-8'))
+        issues = validate_mapping(value)
+        if issues:
+>           raise ValueError('MAPPING_INVALID: ' + '; '.join(issues))
+E           ValueError: MAPPING_INVALID: S04:EXACT_TEST_DEFINITION_MISSING; S27:EXACT_TEST_DEFINITION_MISSING; S30:EXACT_TEST_DEFINITION_MISSING; S30:EXACT_TEST_DEFINITION_MISSING; SEC05:EXACT_TEST_DEFINITION_MISSING; SEC08:EXACT_TEST_DEFINITION_MISSING; SEC10:EXACT_TEST_DEFINITION_MISSING; SEC12:EXACT_TEST_DEFINITION_MISSING; SEC12:EXACT_TEST_DEFINITION_MISSING
+
+scripts\phase_four_verify.py:44: ValueError
+___________ test_bad_or_forged_mapping_cannot_validate[empty_tests] ___________
+
+verifier = <module 'phase_four_verify' from 'C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\scripts\\phase_four_verify.py'>
+damage = 'empty_tests'
+
+    @pytest.mark.parametrize('damage', ['missing_item', 'duplicate_item', 'unknown_item', 'empty_tests',
+        'duplicate_test', 'invented_test', 'outside_test', 'unknown_field', 'no_external', 'sop_changed'])
+    def test_bad_or_forged_mapping_cannot_validate(verifier, damage):
+>       value = copy.deepcopy(verifier.load_mapping())
+                              ^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\acceptance\test_runtime_sop.py:50: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/quality/runtime-sop.json')
+
+    def load_mapping(path=MAP_PATH):
+        if digest(path) != APPROVED_MAP_SHA256:
+            raise ValueError('MAPPING_DIGEST_UNREVIEWED')
+        value = json.loads(Path(path).read_text(encoding='utf-8'))
+        issues = validate_mapping(value)
+        if issues:
+>           raise ValueError('MAPPING_INVALID: ' + '; '.join(issues))
+E           ValueError: MAPPING_INVALID: S04:EXACT_TEST_DEFINITION_MISSING; S27:EXACT_TEST_DEFINITION_MISSING; S30:EXACT_TEST_DEFINITION_MISSING; S30:EXACT_TEST_DEFINITION_MISSING; SEC05:EXACT_TEST_DEFINITION_MISSING; SEC08:EXACT_TEST_DEFINITION_MISSING; SEC10:EXACT_TEST_DEFINITION_MISSING; SEC12:EXACT_TEST_DEFINITION_MISSING; SEC12:EXACT_TEST_DEFINITION_MISSING
+
+scripts\phase_four_verify.py:44: ValueError
+_________ test_bad_or_forged_mapping_cannot_validate[duplicate_test] __________
+
+verifier = <module 'phase_four_verify' from 'C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\scripts\\phase_four_verify.py'>
+damage = 'duplicate_test'
+
+    @pytest.mark.parametrize('damage', ['missing_item', 'duplicate_item', 'unknown_item', 'empty_tests',
+        'duplicate_test', 'invented_test', 'outside_test', 'unknown_field', 'no_external', 'sop_changed'])
+    def test_bad_or_forged_mapping_cannot_validate(verifier, damage):
+>       value = copy.deepcopy(verifier.load_mapping())
+                              ^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\acceptance\test_runtime_sop.py:50: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/quality/runtime-sop.json')
+
+    def load_mapping(path=MAP_PATH):
+        if digest(path) != APPROVED_MAP_SHA256:
+            raise ValueError('MAPPING_DIGEST_UNREVIEWED')
+        value = json.loads(Path(path).read_text(encoding='utf-8'))
+        issues = validate_mapping(value)
+        if issues:
+>           raise ValueError('MAPPING_INVALID: ' + '; '.join(issues))
+E           ValueError: MAPPING_INVALID: S04:EXACT_TEST_DEFINITION_MISSING; S27:EXACT_TEST_DEFINITION_MISSING; S30:EXACT_TEST_DEFINITION_MISSING; S30:EXACT_TEST_DEFINITION_MISSING; SEC05:EXACT_TEST_DEFINITION_MISSING; SEC08:EXACT_TEST_DEFINITION_MISSING; SEC10:EXACT_TEST_DEFINITION_MISSING; SEC12:EXACT_TEST_DEFINITION_MISSING; SEC12:EXACT_TEST_DEFINITION_MISSING
+
+scripts\phase_four_verify.py:44: ValueError
+__________ test_bad_or_forged_mapping_cannot_validate[invented_test] __________
+
+verifier = <module 'phase_four_verify' from 'C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\scripts\\phase_four_verify.py'>
+damage = 'invented_test'
+
+    @pytest.mark.parametrize('damage', ['missing_item', 'duplicate_item', 'unknown_item', 'empty_tests',
+        'duplicate_test', 'invented_test', 'outside_test', 'unknown_field', 'no_external', 'sop_changed'])
+    def test_bad_or_forged_mapping_cannot_validate(verifier, damage):
+>       value = copy.deepcopy(verifier.load_mapping())
+                              ^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\acceptance\test_runtime_sop.py:50: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/quality/runtime-sop.json')
+
+    def load_mapping(path=MAP_PATH):
+        if digest(path) != APPROVED_MAP_SHA256:
+            raise ValueError('MAPPING_DIGEST_UNREVIEWED')
+        value = json.loads(Path(path).read_text(encoding='utf-8'))
+        issues = validate_mapping(value)
+        if issues:
+>           raise ValueError('MAPPING_INVALID: ' + '; '.join(issues))
+E           ValueError: MAPPING_INVALID: S04:EXACT_TEST_DEFINITION_MISSING; S27:EXACT_TEST_DEFINITION_MISSING; S30:EXACT_TEST_DEFINITION_MISSING; S30:EXACT_TEST_DEFINITION_MISSING; SEC05:EXACT_TEST_DEFINITION_MISSING; SEC08:EXACT_TEST_DEFINITION_MISSING; SEC10:EXACT_TEST_DEFINITION_MISSING; SEC12:EXACT_TEST_DEFINITION_MISSING; SEC12:EXACT_TEST_DEFINITION_MISSING
+
+scripts\phase_four_verify.py:44: ValueError
+__________ test_bad_or_forged_mapping_cannot_validate[outside_test] ___________
+
+verifier = <module 'phase_four_verify' from 'C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\scripts\\phase_four_verify.py'>
+damage = 'outside_test'
+
+    @pytest.mark.parametrize('damage', ['missing_item', 'duplicate_item', 'unknown_item', 'empty_tests',
+        'duplicate_test', 'invented_test', 'outside_test', 'unknown_field', 'no_external', 'sop_changed'])
+    def test_bad_or_forged_mapping_cannot_validate(verifier, damage):
+>       value = copy.deepcopy(verifier.load_mapping())
+                              ^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\acceptance\test_runtime_sop.py:50: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/quality/runtime-sop.json')
+
+    def load_mapping(path=MAP_PATH):
+        if digest(path) != APPROVED_MAP_SHA256:
+            raise ValueError('MAPPING_DIGEST_UNREVIEWED')
+        value = json.loads(Path(path).read_text(encoding='utf-8'))
+        issues = validate_mapping(value)
+        if issues:
+>           raise ValueError('MAPPING_INVALID: ' + '; '.join(issues))
+E           ValueError: MAPPING_INVALID: S04:EXACT_TEST_DEFINITION_MISSING; S27:EXACT_TEST_DEFINITION_MISSING; S30:EXACT_TEST_DEFINITION_MISSING; S30:EXACT_TEST_DEFINITION_MISSING; SEC05:EXACT_TEST_DEFINITION_MISSING; SEC08:EXACT_TEST_DEFINITION_MISSING; SEC10:EXACT_TEST_DEFINITION_MISSING; SEC12:EXACT_TEST_DEFINITION_MISSING; SEC12:EXACT_TEST_DEFINITION_MISSING
+
+scripts\phase_four_verify.py:44: ValueError
+__________ test_bad_or_forged_mapping_cannot_validate[unknown_field] __________
+
+verifier = <module 'phase_four_verify' from 'C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\scripts\\phase_four_verify.py'>
+damage = 'unknown_field'
+
+    @pytest.mark.parametrize('damage', ['missing_item', 'duplicate_item', 'unknown_item', 'empty_tests',
+        'duplicate_test', 'invented_test', 'outside_test', 'unknown_field', 'no_external', 'sop_changed'])
+    def test_bad_or_forged_mapping_cannot_validate(verifier, damage):
+>       value = copy.deepcopy(verifier.load_mapping())
+                              ^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\acceptance\test_runtime_sop.py:50: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/quality/runtime-sop.json')
+
+    def load_mapping(path=MAP_PATH):
+        if digest(path) != APPROVED_MAP_SHA256:
+            raise ValueError('MAPPING_DIGEST_UNREVIEWED')
+        value = json.loads(Path(path).read_text(encoding='utf-8'))
+        issues = validate_mapping(value)
+        if issues:
+>           raise ValueError('MAPPING_INVALID: ' + '; '.join(issues))
+E           ValueError: MAPPING_INVALID: S04:EXACT_TEST_DEFINITION_MISSING; S27:EXACT_TEST_DEFINITION_MISSING; S30:EXACT_TEST_DEFINITION_MISSING; S30:EXACT_TEST_DEFINITION_MISSING; SEC05:EXACT_TEST_DEFINITION_MISSING; SEC08:EXACT_TEST_DEFINITION_MISSING; SEC10:EXACT_TEST_DEFINITION_MISSING; SEC12:EXACT_TEST_DEFINITION_MISSING; SEC12:EXACT_TEST_DEFINITION_MISSING
+
+scripts\phase_four_verify.py:44: ValueError
+___________ test_bad_or_forged_mapping_cannot_validate[no_external] ___________
+
+verifier = <module 'phase_four_verify' from 'C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\scripts\\phase_four_verify.py'>
+damage = 'no_external'
+
+    @pytest.mark.parametrize('damage', ['missing_item', 'duplicate_item', 'unknown_item', 'empty_tests',
+        'duplicate_test', 'invented_test', 'outside_test', 'unknown_field', 'no_external', 'sop_changed'])
+    def test_bad_or_forged_mapping_cannot_validate(verifier, damage):
+>       value = copy.deepcopy(verifier.load_mapping())
+                              ^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\acceptance\test_runtime_sop.py:50: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/quality/runtime-sop.json')
+
+    def load_mapping(path=MAP_PATH):
+        if digest(path) != APPROVED_MAP_SHA256:
+            raise ValueError('MAPPING_DIGEST_UNREVIEWED')
+        value = json.loads(Path(path).read_text(encoding='utf-8'))
+        issues = validate_mapping(value)
+        if issues:
+>           raise ValueError('MAPPING_INVALID: ' + '; '.join(issues))
+E           ValueError: MAPPING_INVALID: S04:EXACT_TEST_DEFINITION_MISSING; S27:EXACT_TEST_DEFINITION_MISSING; S30:EXACT_TEST_DEFINITION_MISSING; S30:EXACT_TEST_DEFINITION_MISSING; SEC05:EXACT_TEST_DEFINITION_MISSING; SEC08:EXACT_TEST_DEFINITION_MISSING; SEC10:EXACT_TEST_DEFINITION_MISSING; SEC12:EXACT_TEST_DEFINITION_MISSING; SEC12:EXACT_TEST_DEFINITION_MISSING
+
+scripts\phase_four_verify.py:44: ValueError
+___________ test_bad_or_forged_mapping_cannot_validate[sop_changed] ___________
+
+verifier = <module 'phase_four_verify' from 'C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\scripts\\phase_four_verify.py'>
+damage = 'sop_changed'
+
+    @pytest.mark.parametrize('damage', ['missing_item', 'duplicate_item', 'unknown_item', 'empty_tests',
+        'duplicate_test', 'invented_test', 'outside_test', 'unknown_field', 'no_external', 'sop_changed'])
+    def test_bad_or_forged_mapping_cannot_validate(verifier, damage):
+>       value = copy.deepcopy(verifier.load_mapping())
+                              ^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\acceptance\test_runtime_sop.py:50: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/quality/runtime-sop.json')
+
+    def load_mapping(path=MAP_PATH):
+        if digest(path) != APPROVED_MAP_SHA256:
+            raise ValueError('MAPPING_DIGEST_UNREVIEWED')
+        value = json.loads(Path(path).read_text(encoding='utf-8'))
+        issues = validate_mapping(value)
+        if issues:
+>           raise ValueError('MAPPING_INVALID: ' + '; '.join(issues))
+E           ValueError: MAPPING_INVALID: S04:EXACT_TEST_DEFINITION_MISSING; S27:EXACT_TEST_DEFINITION_MISSING; S30:EXACT_TEST_DEFINITION_MISSING; S30:EXACT_TEST_DEFINITION_MISSING; SEC05:EXACT_TEST_DEFINITION_MISSING; SEC08:EXACT_TEST_DEFINITION_MISSING; SEC10:EXACT_TEST_DEFINITION_MISSING; SEC12:EXACT_TEST_DEFINITION_MISSING; SEC12:EXACT_TEST_DEFINITION_MISSING
+
+scripts\phase_four_verify.py:44: ValueError
+____ test_mapping_byte_tampering_is_rejected_even_when_json_remains_valid _____
+
+verifier = <module 'phase_four_verify' from 'C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\scripts\\phase_four_verify.py'>
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-489/test_mapping_byte_tampering_is0')
+
+    def test_mapping_byte_tampering_is_rejected_even_when_json_remains_valid(verifier, tmp_path):
+>       value = verifier.load_mapping()
+                ^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\acceptance\test_runtime_sop.py:66: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/quality/runtime-sop.json')
+
+    def load_mapping(path=MAP_PATH):
+        if digest(path) != APPROVED_MAP_SHA256:
+            raise ValueError('MAPPING_DIGEST_UNREVIEWED')
+        value = json.loads(Path(path).read_text(encoding='utf-8'))
+        issues = validate_mapping(value)
+        if issues:
+>           raise ValueError('MAPPING_INVALID: ' + '; '.join(issues))
+E           ValueError: MAPPING_INVALID: S04:EXACT_TEST_DEFINITION_MISSING; S27:EXACT_TEST_DEFINITION_MISSING; S30:EXACT_TEST_DEFINITION_MISSING; S30:EXACT_TEST_DEFINITION_MISSING; SEC05:EXACT_TEST_DEFINITION_MISSING; SEC08:EXACT_TEST_DEFINITION_MISSING; SEC10:EXACT_TEST_DEFINITION_MISSING; SEC12:EXACT_TEST_DEFINITION_MISSING; SEC12:EXACT_TEST_DEFINITION_MISSING
+
+scripts\phase_four_verify.py:44: ValueError
+___ test_local_coverage_never_grants_real_manual_or_optimization_acceptance ___
+
+verifier = <module 'phase_four_verify' from 'C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\scripts\\phase_four_verify.py'>
+
+    def test_local_coverage_never_grants_real_manual_or_optimization_acceptance(verifier):
+>       mapping = verifier.load_mapping()
+                  ^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\acceptance\test_runtime_sop.py:140: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/quality/runtime-sop.json')
+
+    def load_mapping(path=MAP_PATH):
+        if digest(path) != APPROVED_MAP_SHA256:
+            raise ValueError('MAPPING_DIGEST_UNREVIEWED')
+        value = json.loads(Path(path).read_text(encoding='utf-8'))
+        issues = validate_mapping(value)
+        if issues:
+>           raise ValueError('MAPPING_INVALID: ' + '; '.join(issues))
+E           ValueError: MAPPING_INVALID: S04:EXACT_TEST_DEFINITION_MISSING; S27:EXACT_TEST_DEFINITION_MISSING; S30:EXACT_TEST_DEFINITION_MISSING; S30:EXACT_TEST_DEFINITION_MISSING; SEC05:EXACT_TEST_DEFINITION_MISSING; SEC08:EXACT_TEST_DEFINITION_MISSING; SEC10:EXACT_TEST_DEFINITION_MISSING; SEC12:EXACT_TEST_DEFINITION_MISSING; SEC12:EXACT_TEST_DEFINITION_MISSING
+
+scripts\phase_four_verify.py:44: ValueError
+___________ test_no_lane_is_explicit_mapping_only_and_not_completed ___________
+
+verifier = <module 'phase_four_verify' from 'C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\scripts\\phase_four_verify.py'>
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-489/test_no_lane_is_explicit_mappi0')
+
+    def test_no_lane_is_explicit_mapping_only_and_not_completed(verifier, tmp_path):
+        # A new directory inside the repository is required by the actual CLI.
+        import uuid
+        output = REPO / 'docs/acceptance/part-four' / ('mapping-selftest-' + uuid.uuid4().hex)
+        result = subprocess.run([sys.executable, str(SCRIPT), '--output', str(output)], cwd=REPO,
+            capture_output=True, text=True, encoding='utf-8', timeout=30, check=False)
+        try:
+>           assert result.returncode == 0, result.stderr
+E           AssertionError: usage: phase_four_verify.py [-h] [--python] [--desktop] [--output OUTPUT]
+E             phase_four_verify.py: error: MAPPING_INVALID: S04:EXACT_TEST_DEFINITION_MISSING; S27:EXACT_TEST_DEFINITION_MISSING; S30:EXACT_TEST_DEFINITION_MISSING; S30:EXACT_TEST_DEFINITION_MISSING; SEC05:EXACT_TEST_DEFINITION_MISSING; SEC08:EXACT_TEST_DEFINITION_MISSING; SEC10:EXACT_TEST_DEFINITION_MISSING; SEC12:EXACT_TEST_DEFINITION_MISSING; SEC12:EXACT_TEST_DEFINITION_MISSING
+E             
+E           assert 2 == 0
+E            +  where 2 = CompletedProcess(args=['C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\.venv\\Scripts\\python.exe',...SING; SEC10:EXACT_TEST_DEFINITION_MISSING; SEC12:EXACT_TEST_DEFINITION_MISSING; SEC12:EXACT_TEST_DEFINITION_MISSING\n').returncode
+
+tests\acceptance\test_runtime_sop.py:176: AssertionError
+
+During handling of the above exception, another exception occurred:
+
+verifier = <module 'phase_four_verify' from 'C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\scripts\\phase_four_verify.py'>
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-489/test_no_lane_is_explicit_mappi0')
+
+    def test_no_lane_is_explicit_mapping_only_and_not_completed(verifier, tmp_path):
+        # A new directory inside the repository is required by the actual CLI.
+        import uuid
+        output = REPO / 'docs/acceptance/part-four' / ('mapping-selftest-' + uuid.uuid4().hex)
+        result = subprocess.run([sys.executable, str(SCRIPT), '--output', str(output)], cwd=REPO,
+            capture_output=True, text=True, encoding='utf-8', timeout=30, check=False)
+        try:
+            assert result.returncode == 0, result.stderr
+            report = json.loads((output / 'verification.json').read_text(encoding='utf-8'))
+            assert report['mode'] == 'mapping_only'
+            assert report['checks'] == []
+            assert report['local_sop_passed'] is False
+            assert report['full_sop_accepted'] is False
+            assert report['real_model_calls'] == 0
+            assert all(row['local_status'] == 'not_run' for row in report['coverage'])
+        finally:
+            import shutil
+>           shutil.rmtree(output)
+
+tests\acceptance\test_runtime_sop.py:186: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\shutil.py:780: in rmtree
+    onexc(os.lstat, path, err)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/docs/acceptance/part-four/mapping-selftest-fd66e43071bb4d40b82ded338e388b96')
+ignore_errors = False, onerror = None
+onexc = <function rmtree.<locals>.onexc at 0x0000024508B63880>, dir_fd = None
+
+    def rmtree(path, ignore_errors=False, onerror=None, *, onexc=None, dir_fd=None):
+        """Recursively delete a directory tree.
+    
+        If dir_fd is not None, it should be a file descriptor open to a directory;
+        path will then be relative to that directory.
+        dir_fd may not be implemented on your platform.
+        If it is unavailable, using it will raise a NotImplementedError.
+    
+        If ignore_errors is set, errors are ignored; otherwise, if onexc or
+        onerror is set, it is called to handle the error with arguments (func,
+        path, exc_info) where func is platform and implementation dependent;
+        path is the argument to that function that caused it to fail; and
+        the value of exc_info describes the exception. For onexc it is the
+        exception instance, and for onerror it is a tuple as returned by
+        sys.exc_info().  If ignore_errors is false and both onexc and
+        onerror are None, the exception is reraised.
+    
+        onerror is deprecated and only remains for backwards compatibility.
+        If both onerror and onexc are set, onerror is ignored and onexc is used.
+        """
+    
+        sys.audit("shutil.rmtree", path, dir_fd)
+        if ignore_errors:
+            def onexc(*args):
+                pass
+        elif onerror is None and onexc is None:
+            def onexc(*args):
+                raise
+        elif onexc is None:
+            if onerror is None:
+                def onexc(*args):
+                    raise
+            else:
+                # delegate to onerror
+                def onexc(*args):
+                    func, path, exc = args
+                    if exc is None:
+                        exc_info = None, None, None
+                    else:
+                        exc_info = type(exc), exc, exc.__traceback__
+                    return onerror(func, path, exc_info)
+    
+        if _use_fd_functions:
+            # While the unsafe rmtree works fine on bytes, the fd based does not.
+            if isinstance(path, bytes):
+                path = os.fsdecode(path)
+            stack = [(os.lstat, dir_fd, path, None)]
+            try:
+                while stack:
+                    _rmtree_safe_fd(stack, onexc)
+            finally:
+                # Close any file descriptors still on the stack.
+                while stack:
+                    func, fd, path, entry = stack.pop()
+                    if func is not os.close:
+                        continue
+                    try:
+                        os.close(fd)
+                    except OSError as err:
+                        onexc(os.close, path, err)
+        else:
+            if dir_fd is not None:
+                raise NotImplementedError("dir_fd unavailable on this platform")
+            try:
+>               st = os.lstat(path)
+                     ^^^^^^^^^^^^^^
+E               FileNotFoundError: [WinError 2] ϵͳ�Ҳ���ָ�����ļ���: 'C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\part-four\\mapping-selftest-fd66e43071bb4d40b82ded338e388b96'
+
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\shutil.py:778: FileNotFoundError
+=========================== short test summary info ===========================
+FAILED tests/acceptance/test_runtime_sop.py::test_verifier_and_reviewed_mapping_cover_all_forty_steps_and_eight_sections
+FAILED tests/acceptance/test_runtime_sop.py::test_bad_or_forged_mapping_cannot_validate[missing_item]
+FAILED tests/acceptance/test_runtime_sop.py::test_bad_or_forged_mapping_cannot_validate[duplicate_item]
+FAILED tests/acceptance/test_runtime_sop.py::test_bad_or_forged_mapping_cannot_validate[unknown_item]
+FAILED tests/acceptance/test_runtime_sop.py::test_bad_or_forged_mapping_cannot_validate[empty_tests]
+FAILED tests/acceptance/test_runtime_sop.py::test_bad_or_forged_mapping_cannot_validate[duplicate_test]
+FAILED tests/acceptance/test_runtime_sop.py::test_bad_or_forged_mapping_cannot_validate[invented_test]
+FAILED tests/acceptance/test_runtime_sop.py::test_bad_or_forged_mapping_cannot_validate[outside_test]
+FAILED tests/acceptance/test_runtime_sop.py::test_bad_or_forged_mapping_cannot_validate[unknown_field]
+FAILED tests/acceptance/test_runtime_sop.py::test_bad_or_forged_mapping_cannot_validate[no_external]
+FAILED tests/acceptance/test_runtime_sop.py::test_bad_or_forged_mapping_cannot_validate[sop_changed]
+FAILED tests/acceptance/test_runtime_sop.py::test_mapping_byte_tampering_is_rejected_even_when_json_remains_valid
+FAILED tests/acceptance/test_runtime_sop.py::test_local_coverage_never_grants_real_manual_or_optimization_acceptance
+FAILED tests/acceptance/test_runtime_sop.py::test_no_lane_is_explicit_mapping_only_and_not_completed
+14 failed, 16 passed in 5.26s

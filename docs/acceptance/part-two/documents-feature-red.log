@@ -1,0 +1,183 @@
+FFFFFFFFFFFF                                                             [100%]
+================================== FAILURES ===================================
+_ test_only_full_complete_trusted_a_body_can_be_canonical[PASS-kwargs0-A_CANONICAL_REQUIRED] _
+
+document_task = {'client': <starlette.testclient.TestClient object at 0x00000261EF1092B0>, 'cid': '0ad6cdfce3db4ca2bf89da9e4b5685c0', 'task': 'a466f73074e5470886718df0b684ad32', 'attempt': 'aa559bafe99a4e4285cf4a9fa708cd72', ...}
+text = 'PASS', kwargs = {}, code = 'A_CANONICAL_REQUIRED'
+
+    @pytest.mark.parametrize('text,kwargs,code', [
+        ('PASS', {}, 'A_CANONICAL_REQUIRED'),
+        ('# Report\n\nActual body.', {'role': 'B'}, 'A_RESPONSE_STEP_REQUIRED'),
+        ('# Report\n\nActual body.', {'completed': False}, 'A_RESPONSE_NOT_COMPLETE'),
+        ('# Report\n\nActual body.', {'chunks': ['# Other body']}, 'A_RESPONSE_BODY_MISMATCH'),
+    ])
+    def test_only_full_complete_trusted_a_body_can_be_canonical(document_task, text, kwargs, code):
+>       from app.documents.canonical import CanonicalCapture
+E       ModuleNotFoundError: No module named 'app.documents'
+
+tests\artifacts\test_canonical_provenance.py:16: ModuleNotFoundError
+_ test_only_full_complete_trusted_a_body_can_be_canonical[# Report\n\nActual body.-kwargs1-A_RESPONSE_STEP_REQUIRED] _
+
+document_task = {'client': <starlette.testclient.TestClient object at 0x00000261EF169450>, 'cid': 'd9f53319d6e64e588d6efc4c632e6e1c', 'task': 'c08bbd6923c44e41a2956695d4ab2af5', 'attempt': '676775d531044ba59d1a7a9a8871df7d', ...}
+text = '# Report\n\nActual body.', kwargs = {'role': 'B'}
+code = 'A_RESPONSE_STEP_REQUIRED'
+
+    @pytest.mark.parametrize('text,kwargs,code', [
+        ('PASS', {}, 'A_CANONICAL_REQUIRED'),
+        ('# Report\n\nActual body.', {'role': 'B'}, 'A_RESPONSE_STEP_REQUIRED'),
+        ('# Report\n\nActual body.', {'completed': False}, 'A_RESPONSE_NOT_COMPLETE'),
+        ('# Report\n\nActual body.', {'chunks': ['# Other body']}, 'A_RESPONSE_BODY_MISMATCH'),
+    ])
+    def test_only_full_complete_trusted_a_body_can_be_canonical(document_task, text, kwargs, code):
+>       from app.documents.canonical import CanonicalCapture
+E       ModuleNotFoundError: No module named 'app.documents'
+
+tests\artifacts\test_canonical_provenance.py:16: ModuleNotFoundError
+_ test_only_full_complete_trusted_a_body_can_be_canonical[# Report\n\nActual body.-kwargs2-A_RESPONSE_NOT_COMPLETE] _
+
+document_task = {'client': <starlette.testclient.TestClient object at 0x00000261EF25C2D0>, 'cid': 'd142a26f181d47c485d3a99b36d13f8f', 'task': '1e5924b819944743974335d89f951c8c', 'attempt': '99217ab2a7524f82b663f8c45fb4e6cb', ...}
+text = '# Report\n\nActual body.', kwargs = {'completed': False}
+code = 'A_RESPONSE_NOT_COMPLETE'
+
+    @pytest.mark.parametrize('text,kwargs,code', [
+        ('PASS', {}, 'A_CANONICAL_REQUIRED'),
+        ('# Report\n\nActual body.', {'role': 'B'}, 'A_RESPONSE_STEP_REQUIRED'),
+        ('# Report\n\nActual body.', {'completed': False}, 'A_RESPONSE_NOT_COMPLETE'),
+        ('# Report\n\nActual body.', {'chunks': ['# Other body']}, 'A_RESPONSE_BODY_MISMATCH'),
+    ])
+    def test_only_full_complete_trusted_a_body_can_be_canonical(document_task, text, kwargs, code):
+>       from app.documents.canonical import CanonicalCapture
+E       ModuleNotFoundError: No module named 'app.documents'
+
+tests\artifacts\test_canonical_provenance.py:16: ModuleNotFoundError
+_ test_only_full_complete_trusted_a_body_can_be_canonical[# Report\n\nActual body.-kwargs3-A_RESPONSE_BODY_MISMATCH] _
+
+document_task = {'client': <starlette.testclient.TestClient object at 0x00000261EF1163F0>, 'cid': 'b44b112a3e4a48d7bcb6bf84f3553892', 'task': 'a59ca0573f49489dbebe49d4a2ffe0b4', 'attempt': '7d31ffbbce0f41a8ad884cd7a2fd8166', ...}
+text = '# Report\n\nActual body.', kwargs = {'chunks': ['# Other body']}
+code = 'A_RESPONSE_BODY_MISMATCH'
+
+    @pytest.mark.parametrize('text,kwargs,code', [
+        ('PASS', {}, 'A_CANONICAL_REQUIRED'),
+        ('# Report\n\nActual body.', {'role': 'B'}, 'A_RESPONSE_STEP_REQUIRED'),
+        ('# Report\n\nActual body.', {'completed': False}, 'A_RESPONSE_NOT_COMPLETE'),
+        ('# Report\n\nActual body.', {'chunks': ['# Other body']}, 'A_RESPONSE_BODY_MISMATCH'),
+    ])
+    def test_only_full_complete_trusted_a_body_can_be_canonical(document_task, text, kwargs, code):
+>       from app.documents.canonical import CanonicalCapture
+E       ModuleNotFoundError: No module named 'app.documents'
+
+tests\artifacts\test_canonical_provenance.py:16: ModuleNotFoundError
+______ test_capture_keeps_raw_stream_body_hash_and_immutable_provenance _______
+
+document_task = {'client': <starlette.testclient.TestClient object at 0x00000261EF115E00>, 'cid': '9a22e775ea6b4b35bf9050395cc1987f', 'task': 'a9bf32f6eaa34667a7f2f006111061bf', 'attempt': '7d709a1b67834c808c5ac0de1866abfd', ...}
+
+    def test_capture_keeps_raw_stream_body_hash_and_immutable_provenance(document_task):
+>       from app.documents.canonical import require_canonical
+E       ModuleNotFoundError: No module named 'app.documents'
+
+tests\artifacts\test_canonical_provenance.py:24: ModuleNotFoundError
+______ test_multipart_manifest_does_not_allow_omitted_or_duplicate_parts ______
+
+document_task = {'client': <starlette.testclient.TestClient object at 0x00000261EF3260F0>, 'cid': '92c48e6dbfb646d8a0c4bf682c9957fd', 'task': '8731cf2687d240e99ae1a6ee38928e76', 'attempt': '053b028f2e7b48b18b64b612711a2ac0', ...}
+
+    def test_multipart_manifest_does_not_allow_omitted_or_duplicate_parts(document_task):
+        ctx = document_task
+        with pytest.raises(ValueError, match='MANIFEST'):
+>           capture(ctx, '# Report\n\nBody.', manifest={'part_count': 2, 'part_numbers': [1, 1], 'complete': True})
+
+tests\artifacts\test_canonical_provenance.py:43: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+ctx = {'client': <starlette.testclient.TestClient object at 0x00000261EF3260F0>, 'cid': '92c48e6dbfb646d8a0c4bf682c9957fd', 'task': '8731cf2687d240e99ae1a6ee38928e76', 'attempt': '053b028f2e7b48b18b64b612711a2ac0', ...}
+text = '# Report\n\nBody.'
+kwargs = {'manifest': {'part_count': 2, 'part_numbers': [1, 1], 'complete': True}}
+
+    def capture(ctx, text, **kwargs):
+>       from app.documents.canonical import CanonicalCapture
+E       ModuleNotFoundError: No module named 'app.documents'
+
+tests\artifacts\conftest.py:51: ModuleNotFoundError
+_ test_markdown_ast_preserves_code_table_link_and_appendix_without_silent_html _
+
+    def test_markdown_ast_preserves_code_table_link_and_appendix_without_silent_html():
+>       from app.documents.parse import parse_document
+E       ModuleNotFoundError: No module named 'app.documents'
+
+tests\artifacts\test_document_parse.py:9: ModuleNotFoundError
+_ test_docx_extracts_body_table_and_footnote_instead_of_ignoring_package_parts _
+
+    def test_docx_extracts_body_table_and_footnote_instead_of_ignoring_package_parts():
+>       from app.documents.parse import parse_document
+E       ModuleNotFoundError: No module named 'app.documents'
+
+tests\artifacts\test_document_parse.py:24: ModuleNotFoundError
+________ test_scanned_pdf_and_multiple_columns_require_explicit_input _________
+
+    def test_scanned_pdf_and_multiple_columns_require_explicit_input():
+        import pymupdf
+>       from app.documents.parse import parse_document
+E       ModuleNotFoundError: No module named 'app.documents'
+
+tests\artifacts\test_document_parse.py:43: ModuleNotFoundError
+_____ test_unsupported_and_corrupt_inputs_never_look_complete[doc-legacy] _____
+
+fmt = 'doc', data = b'legacy'
+
+    @pytest.mark.parametrize('fmt,data', [('doc', b'legacy'), ('docx', b'broken'), ('pdf', b'broken')])
+    def test_unsupported_and_corrupt_inputs_never_look_complete(fmt, data):
+>       from app.documents.parse import parse_document
+E       ModuleNotFoundError: No module named 'app.documents'
+
+tests\artifacts\test_document_parse.py:58: ModuleNotFoundError
+____ test_unsupported_and_corrupt_inputs_never_look_complete[docx-broken] _____
+
+fmt = 'docx', data = b'broken'
+
+    @pytest.mark.parametrize('fmt,data', [('doc', b'legacy'), ('docx', b'broken'), ('pdf', b'broken')])
+    def test_unsupported_and_corrupt_inputs_never_look_complete(fmt, data):
+>       from app.documents.parse import parse_document
+E       ModuleNotFoundError: No module named 'app.documents'
+
+tests\artifacts\test_document_parse.py:58: ModuleNotFoundError
+_____ test_unsupported_and_corrupt_inputs_never_look_complete[pdf-broken] _____
+
+fmt = 'pdf', data = b'broken'
+
+    @pytest.mark.parametrize('fmt,data', [('doc', b'legacy'), ('docx', b'broken'), ('pdf', b'broken')])
+    def test_unsupported_and_corrupt_inputs_never_look_complete(fmt, data):
+>       from app.documents.parse import parse_document
+E       ModuleNotFoundError: No module named 'app.documents'
+
+tests\artifacts\test_document_parse.py:58: ModuleNotFoundError
+============================== warnings summary ===============================
+tests/artifacts/test_canonical_provenance.py::test_only_full_complete_trusted_a_body_can_be_canonical[PASS-kwargs0-A_CANONICAL_REQUIRED]
+  C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+tests/artifacts/test_document_parse.py::test_scanned_pdf_and_multiple_columns_require_explicit_input
+tests/artifacts/test_document_parse.py::test_scanned_pdf_and_multiple_columns_require_explicit_input
+  <frozen importlib._bootstrap>:488: DeprecationWarning: builtin type SwigPyPacked has no __module__ attribute
+
+tests/artifacts/test_document_parse.py::test_scanned_pdf_and_multiple_columns_require_explicit_input
+tests/artifacts/test_document_parse.py::test_scanned_pdf_and_multiple_columns_require_explicit_input
+  <frozen importlib._bootstrap>:488: DeprecationWarning: builtin type SwigPyObject has no __module__ attribute
+
+tests/artifacts/test_document_parse.py::test_scanned_pdf_and_multiple_columns_require_explicit_input
+  <frozen importlib._bootstrap>:488: DeprecationWarning: builtin type swigvarlink has no __module__ attribute
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/artifacts/test_canonical_provenance.py::test_only_full_complete_trusted_a_body_can_be_canonical[PASS-kwargs0-A_CANONICAL_REQUIRED]
+FAILED tests/artifacts/test_canonical_provenance.py::test_only_full_complete_trusted_a_body_can_be_canonical[# Report\n\nActual body.-kwargs1-A_RESPONSE_STEP_REQUIRED]
+FAILED tests/artifacts/test_canonical_provenance.py::test_only_full_complete_trusted_a_body_can_be_canonical[# Report\n\nActual body.-kwargs2-A_RESPONSE_NOT_COMPLETE]
+FAILED tests/artifacts/test_canonical_provenance.py::test_only_full_complete_trusted_a_body_can_be_canonical[# Report\n\nActual body.-kwargs3-A_RESPONSE_BODY_MISMATCH]
+FAILED tests/artifacts/test_canonical_provenance.py::test_capture_keeps_raw_stream_body_hash_and_immutable_provenance
+FAILED tests/artifacts/test_canonical_provenance.py::test_multipart_manifest_does_not_allow_omitted_or_duplicate_parts
+FAILED tests/artifacts/test_document_parse.py::test_markdown_ast_preserves_code_table_link_and_appendix_without_silent_html
+FAILED tests/artifacts/test_document_parse.py::test_docx_extracts_body_table_and_footnote_instead_of_ignoring_package_parts
+FAILED tests/artifacts/test_document_parse.py::test_scanned_pdf_and_multiple_columns_require_explicit_input
+FAILED tests/artifacts/test_document_parse.py::test_unsupported_and_corrupt_inputs_never_look_complete[doc-legacy]
+FAILED tests/artifacts/test_document_parse.py::test_unsupported_and_corrupt_inputs_never_look_complete[docx-broken]
+FAILED tests/artifacts/test_document_parse.py::test_unsupported_and_corrupt_inputs_never_look_complete[pdf-broken]
+12 failed, 6 warnings in 1.85s
+<sys>:0: DeprecationWarning: builtin type swigvarlink has no __module__ attribute

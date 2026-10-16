@@ -1,0 +1,46 @@
+{
+  "version": "1.0",
+  "build_id": "64bc5e858de1f6a58d2d1b055a1aaf5a8d7861e6f071fb0f392d37583caf04c5",
+  "run_id": null,
+  "created_at": "2026-10-14T15:16:49.415857+00:00",
+  "seed": 4317,
+  "encoding": "UTF-8",
+  "provider_boundary": "fake",
+  "files": [
+    {
+      "path": ".qa-run.json",
+      "size": 153,
+      "sha256": "45d55fef09a0c5663fa404d952507f9b7a0342b9860cf6215f3500e0643f73bf"
+    },
+    {
+      "path": "incident_rollback.json",
+      "size": 346,
+      "sha256": "b6403c18130e9202e11adb2cfe27e93888641cb165c81388fdf3556964100b62"
+    },
+    {
+      "path": "scenario-result.json",
+      "size": 348,
+      "sha256": "60a51f51001a5aafa406bd0f66ccbd5be00178ec48779c07988364f6aca683f5"
+    },
+    {
+      "path": "product/workbench.sqlite3",
+      "size": 339968,
+      "sha256": "3341a04ce1238b14d4c6da68bbeb6a7554810d076de164e439b78060d6c58fcb"
+    },
+    {
+      "path": "product/workbench.sqlite3-shm",
+      "size": 32768,
+      "sha256": "2e44bce6534dbe1913ad958ecbb8d12a29c0b662c378ddedbf71723e3f44c0f8"
+    },
+    {
+      "path": "product/workbench.sqlite3-wal",
+      "size": 41232,
+      "sha256": "b034cc1e7fe31ae3614ca47318a08e80177e1056aa65fbcb958cd7e083c59501"
+    },
+    {
+      "path": "product/blobs/ba/bafb8c7caa5bed6b61dcf6d50d95fc6c81bc86738871607c37885f6f39586c28",
+      "size": 39,
+      "sha256": "bafb8c7caa5bed6b61dcf6d50d95fc6c81bc86738871607c37885f6f39586c28"
+    }
+  ]
+}

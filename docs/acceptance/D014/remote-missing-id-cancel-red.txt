@@ -1,0 +1,57 @@
+..F                                                                      [100%]
+================================== FAILURES ===================================
+_ test_accepted_request_without_remote_ids_keeps_cancellation_pending[pending_flag] _
+
+client = <starlette.testclient.TestClient object at 0x0000015994FE9BD0>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x0000015995047E30>
+cancel_during_observation = 'pending_flag'
+
+    @pytest.mark.parametrize("cancel_during_observation", [True, False, "pending_flag"])
+    def test_accepted_request_without_remote_ids_keeps_cancellation_pending(client, monkeypatch, cancel_during_observation):
+        path, manager, _, contract = prepare(client)
+        class MissingIds:
+            test_only = True
+            def __init__(self):
+                self.starts = []
+            async def run(self, request):
+                self.starts.append(request)
+                yield AgentEvent(request.task_id, request.attempt_id, 1, "provider.started", {})
+            async def cancel(self, task_id, attempt_id):
+                pass
+        b = MissingIds()
+        workflow = Workflow(path, manager, b, validator, FakeProvider(), check_budget,
+            estimated_tokens={"B.execution": 64, "A.review": 64})
+        if cancel_during_observation:
+            original = workflow._remote_started
+            def cancel_after_durable_started(*arguments):
+                remote = original(*arguments)
+                if cancel_during_observation == "pending_flag":
+                    with closing(Database(path).connect()) as connection:
+                        connection.execute("UPDATE task_runs SET cancel_requested=1 WHERE task_id=?", (contract["task_id"],))
+                else:
+                    assert client.post(f"/v1/tasks/{contract['task_id']}/cancel").status_code == 202
+                return remote
+            monkeypatch.setattr(workflow, "_remote_started", cancel_after_durable_started)
+        outcome = asyncio.run(workflow.run(contract))
+        if not cancel_during_observation:
+            assert outcome.state == "BLOCKED" and "UNKNOWN_REMOTE" in outcome.reason_codes
+            assert client.post(f"/v1/tasks/{contract['task_id']}/cancel").status_code == 202
+        else:
+            assert outcome.state == "CANCELLED"
+        with closing(Database(path).connect()) as connection:
+            task = dict(connection.execute("SELECT * FROM task_runs").fetchone())
+>       assert task["state"] == "CANCELLED" and task["cancel_pending_remote"] == 1
+E       AssertionError: assert ('CANCELLED' == 'CANCELLED'
+E         
+E           CANCELLED and 0 == 1)
+
+tests\integration\test_agent_workflow.py:627: AssertionError
+============================== warnings summary ===============================
+tests/integration/test_agent_workflow.py::test_accepted_request_without_remote_ids_keeps_cancellation_pending[True]
+  C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/integration/test_agent_workflow.py::test_accepted_request_without_remote_ids_keeps_cancellation_pending[pending_flag]
+1 failed, 2 passed, 52 deselected, 1 warning in 1.45s

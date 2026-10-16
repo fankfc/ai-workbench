@@ -1,0 +1,34 @@
+[
+  {
+    "path": "services/orchestrator/app/documents/parse.py",
+    "sha256": "d04bfcd3e9dd62952c0420a9c0e2a63e7fc75f47cc8a1a4d2831692e1738a56c"
+  },
+  {
+    "path": "services/orchestrator/app/documents/render.py",
+    "sha256": "eebbe30da9154488a87b82207a539e3014812c3575abc2ca1cfef39c83854e2f"
+  },
+  {
+    "path": "services/orchestrator/app/documents/publish.py",
+    "sha256": "72ae8ecc7af937659da3cbcf54c69f3d62e2c0285afe98bfe32b294e2ae9d6b3"
+  },
+  {
+    "path": "services/orchestrator/app/runtime/native_validation.py",
+    "sha256": "2c9deb6d580a8b92f23b912b64c01f3bf266af78dbe0647bb7cccaefc38a94a0"
+  },
+  {
+    "path": "services/orchestrator/app/profiles/newprofile_checks.py",
+    "sha256": "5ca38ab82c5fbcd38ed45d470aa44fd73ad76b0f51f083f78b35810869a55721"
+  },
+  {
+    "path": "tests/artifacts/test_document_parse.py",
+    "sha256": "cdfab6961b2e7c14c8317cf1ed055727e4248488f9eccde69594444db7b0044f"
+  },
+  {
+    "path": "tests/artifacts/test_render_layout.py",
+    "sha256": "71a1601b938ee0d1e9077aadc2495518abe7fba03cf8cba2a8ae2da40d3e4964"
+  },
+  {
+    "path": "tests/integration/test_native_profile_checks.py",
+    "sha256": "d70c9f0ce79f26d2018c64539e492f2552648b4f477ab646f73f3e68b8936cb4"
+  }
+]

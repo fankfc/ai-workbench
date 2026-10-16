@@ -1,0 +1,125 @@
+FFFFF                                                                    [100%]
+================================== FAILURES ===================================
+____________ test_actual_fixture_a_planning_is_durable_and_metered ____________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-218/test_actual_fixture_a_planning0')
+
+    def test_actual_fixture_a_planning_is_durable_and_metered(tmp_path):
+        import asyncio
+        app, manager, task, attempt, owner = unplanned_case(tmp_path)
+        runtime = FixturePlannerRuntime()
+        planner = NativeTaskPlanner(app.state.database.path, manager, runtime, allow_fixture=True, estimated_tokens=24)
+>       plan = asyncio.run(planner.plan(task, attempt, owner))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\integration\test_native_planning.py:170: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:194: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:118: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py:721: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.runtime.planning.NativeTaskPlanner object at 0x000001ADA515ABA0>
+task_id = 'bb5aa9cf595140ce9000cdfe79fe22d8'
+attempt_id = '78aaddf539df410eb6e5700b903a6741'
+owner_token = 'planning:36166b70bac3446385b65133215c7fff'
+
+    async def plan(self, task_id, attempt_id, owner_token):
+>       raise PlanningBlocked('NATIVE_A_PLANNER_NOT_IMPLEMENTED')
+E       app.runtime.planning.PlanningBlocked: NATIVE_A_PLANNER_NOT_IMPLEMENTED
+
+services\orchestrator\app\runtime\planning.py:46: PlanningBlocked
+_ test_failed_native_a_planning_retains_intent_and_never_hands_off[source_lie] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-218/test_failed_native_a_planning_0')
+case = 'source_lie'
+
+    @pytest.mark.parametrize('case', ['source_lie', 'wrong_route', 'unknown_usage', 'disconnect'])
+    def test_failed_native_a_planning_retains_intent_and_never_hands_off(tmp_path, case):
+        import asyncio
+        app, manager, task, attempt, owner = unplanned_case(tmp_path)
+        runtime = FixturePlannerRuntime(case)
+        planner = NativeTaskPlanner(app.state.database.path, manager, runtime, allow_fixture=True, estimated_tokens=24)
+        with pytest.raises(PlanningBlocked):
+            asyncio.run(planner.plan(task, attempt, owner))
+>       assert len(runtime.starts) == 1
+E       assert 0 == 1
+E        +  where 0 = len([])
+E        +    where [] = <test_native_planning.FixturePlannerRuntime object at 0x000001ADA5192D50>.starts
+
+tests\integration\test_native_planning.py:190: AssertionError
+_ test_failed_native_a_planning_retains_intent_and_never_hands_off[wrong_route] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-218/test_failed_native_a_planning_1')
+case = 'wrong_route'
+
+    @pytest.mark.parametrize('case', ['source_lie', 'wrong_route', 'unknown_usage', 'disconnect'])
+    def test_failed_native_a_planning_retains_intent_and_never_hands_off(tmp_path, case):
+        import asyncio
+        app, manager, task, attempt, owner = unplanned_case(tmp_path)
+        runtime = FixturePlannerRuntime(case)
+        planner = NativeTaskPlanner(app.state.database.path, manager, runtime, allow_fixture=True, estimated_tokens=24)
+        with pytest.raises(PlanningBlocked):
+            asyncio.run(planner.plan(task, attempt, owner))
+>       assert len(runtime.starts) == 1
+E       assert 0 == 1
+E        +  where 0 = len([])
+E        +    where [] = <test_native_planning.FixturePlannerRuntime object at 0x000001ADA5190B90>.starts
+
+tests\integration\test_native_planning.py:190: AssertionError
+_ test_failed_native_a_planning_retains_intent_and_never_hands_off[unknown_usage] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-218/test_failed_native_a_planning_2')
+case = 'unknown_usage'
+
+    @pytest.mark.parametrize('case', ['source_lie', 'wrong_route', 'unknown_usage', 'disconnect'])
+    def test_failed_native_a_planning_retains_intent_and_never_hands_off(tmp_path, case):
+        import asyncio
+        app, manager, task, attempt, owner = unplanned_case(tmp_path)
+        runtime = FixturePlannerRuntime(case)
+        planner = NativeTaskPlanner(app.state.database.path, manager, runtime, allow_fixture=True, estimated_tokens=24)
+        with pytest.raises(PlanningBlocked):
+            asyncio.run(planner.plan(task, attempt, owner))
+>       assert len(runtime.starts) == 1
+E       assert 0 == 1
+E        +  where 0 = len([])
+E        +    where [] = <test_native_planning.FixturePlannerRuntime object at 0x000001ADA54D55B0>.starts
+
+tests\integration\test_native_planning.py:190: AssertionError
+_ test_failed_native_a_planning_retains_intent_and_never_hands_off[disconnect] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-218/test_failed_native_a_planning_3')
+case = 'disconnect'
+
+    @pytest.mark.parametrize('case', ['source_lie', 'wrong_route', 'unknown_usage', 'disconnect'])
+    def test_failed_native_a_planning_retains_intent_and_never_hands_off(tmp_path, case):
+        import asyncio
+        app, manager, task, attempt, owner = unplanned_case(tmp_path)
+        runtime = FixturePlannerRuntime(case)
+        planner = NativeTaskPlanner(app.state.database.path, manager, runtime, allow_fixture=True, estimated_tokens=24)
+        with pytest.raises(PlanningBlocked):
+            asyncio.run(planner.plan(task, attempt, owner))
+>       assert len(runtime.starts) == 1
+E       assert 0 == 1
+E        +  where 0 = len([])
+E        +    where [] = <test_native_planning.FixturePlannerRuntime object at 0x000001ADA54D68B0>.starts
+
+tests\integration\test_native_planning.py:190: AssertionError
+============================== warnings summary ===============================
+services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1
+  C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/integration/test_native_planning.py::test_actual_fixture_a_planning_is_durable_and_metered
+FAILED tests/integration/test_native_planning.py::test_failed_native_a_planning_retains_intent_and_never_hands_off[source_lie]
+FAILED tests/integration/test_native_planning.py::test_failed_native_a_planning_retains_intent_and_never_hands_off[wrong_route]
+FAILED tests/integration/test_native_planning.py::test_failed_native_a_planning_retains_intent_and_never_hands_off[unknown_usage]
+FAILED tests/integration/test_native_planning.py::test_failed_native_a_planning_retains_intent_and_never_hands_off[disconnect]

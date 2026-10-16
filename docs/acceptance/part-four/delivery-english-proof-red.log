@@ -1,0 +1,54 @@
+F                                                                        [100%]
+================================== FAILURES ===================================
+_ test_claude_english_numeric_proof_uses_verified_identity_view_within_fixed_budget _
+
+client = <starlette.testclient.TestClient object at 0x00000271AB9AAA50>
+
+    def test_claude_english_numeric_proof_uses_verified_identity_view_within_fixed_budget(client):
+        from test_claude_native_pipeline import assembly, mechanical
+        from translation.fakes import claude_turn
+        from artifacts.helpers import external_translation_service
+    
+        _, task, attempt = claude_turn(client, 'Keep the original file.')
+        _, manager, _, a, workflow = assembly(client, task, attempt)
+        service = external_translation_service({'client': client})
+        workflow.translation_service = service
+        workspace = manager.create(task, attempt)
+        raw = b'Keep the original file.'
+        workspace.ingest_source('request.md', raw)
+        with closing(service.database.connect()) as connection:
+            route = json.loads(connection.execute('SELECT route_snapshot_json FROM task_runs WHERE task_id=?', (task,)).fetchone()[0])
+        contract = make_contract(task, attempt, route['id'], 'mixed', 'claude')
+        contract['inputs'] = [dict(id='USER-1', ref='input/request.md', sha256=hashlib.sha256(raw).hexdigest())]
+        contract['source_unit_ids'] = ['USER-1']
+        contract['full_read_required'] = True
+    
+        def observations(candidate):
+            values = mechanical(candidate)
+            for item in values:
+                item['evidence'].update(monthly_totals={f'2026-{index:02d}': str(index * 10) for index in range(1, 25)},
+                    note='Computed and independently reproduced all monthly totals.')
+            return values
+    
+        workflow.validator = observations
+        result = asyncio.run(workflow.run(contract))
+        with closing(service.database.connect()) as connection:
+            translation_failures = [row[0] for row in connection.execute(
+                "SELECT clarification FROM translation_jobs WHERE json_extract(job_json,'$.purpose')='review-evidence'")]
+>       assert result.state == 'OUTPUT_PREPARING', (result.reason_codes, translation_failures)
+E       AssertionError: (('CLAUDE_REVIEW_EVIDENCE_TRANSLATION_NOT_READY',), ['TRANSLATION_BUDGET_EXHAUSTED'])
+E       assert 'BLOCKED' == 'OUTPUT_PREPARING'
+E         
+E         - OUTPUT_PREPARING
+E         + BLOCKED
+
+tests\integration\test_agent_workflow.py:199: AssertionError
+============================== warnings summary ===============================
+tests/integration/test_agent_workflow.py::test_claude_english_numeric_proof_uses_verified_identity_view_within_fixed_budget
+  C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/integration/test_agent_workflow.py::test_claude_english_numeric_proof_uses_verified_identity_view_within_fixed_budget
+1 failed, 1 warning in 2.08s

@@ -1,0 +1,39 @@
+{
+  "captured_at": "2026-10-13T15:00:17.553Z",
+  "source": "ZCode accessibility document_text for actual displayed B reply",
+  "capture_kind": "UI text; not provider raw bytes",
+  "ui_window_app": "process:D:\\zcode\\ZCode.exe",
+  "ui_window_id": 526008,
+  "ui_selected_model": "GLM-5.3",
+  "actual_response_model_id": null,
+  "model_identity_verified": false,
+  "ui_completed_label": "已工作 13 秒",
+  "ui_stop_button_present": false,
+  "context_meter": {
+    "used": 24669,
+    "capacity": 1000000,
+    "kind": "UI context occupancy; not billed usage"
+  },
+  "provider_usage": null,
+  "monetary_usage": "unknown",
+  "submitted_turns": 1,
+  "title_changed_after_submission": true,
+  "provider_internal_model_turns": "unknown",
+  "observed_tool_requests": 0,
+  "tool_observation_scope": "Displayed conversation at completion; full internal tool trace not inspected",
+  "answer_sha256": "fbfa2feae945f948735fda95fcd71cd637a6432f239af43e7b3f1e59383fdb48",
+  "prompt_sha256": "972e92fb6f98c3df556f62e335a6b549b86d72a2c6fad474e53f8155a3eb631b",
+  "answer": {
+    "role": "B",
+    "checked_values": [
+      1,
+      2,
+      3
+    ],
+    "count": 3,
+    "sum": 6,
+    "mean": 2,
+    "verification_zh": "已逐项核对：样本数据按原顺序为 1、2、3，与 A 给出的数值一致；逐条计数共 3 条，count=3 正确；逐项相加 1+2=3，3+3=6，sum=6 正确；用总和除以条数 6÷3=2，mean=2 正确。各项算术均在本次回复内人工推算完成，未读取外部文件、未运行命令或代码、未联网。核验结论：A 的结果全部正确。"
+  },
+  "production_enabled": false
+}

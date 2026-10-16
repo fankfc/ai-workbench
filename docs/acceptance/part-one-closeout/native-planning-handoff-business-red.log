@@ -1,0 +1,31 @@
+F.........                                                               [100%]
+================================== FAILURES ===================================
+____________ test_verified_prepared_plan_preserves_planning_lease _____________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-213/test_verified_prepared_plan_pr0')
+
+    def test_verified_prepared_plan_preserves_planning_lease(tmp_path):
+        app, manager, plan, _ = prepared_case(tmp_path)
+>       checked = validate_prepared_plan(app.state.database.path, manager, plan)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\integration\test_native_planning.py:60: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+database_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-213/test_verified_prepared_plan_pr0/workbench.sqlite3')
+workspaces = <app.runtime.workspace.WorkspaceManager object at 0x000001513CFC1550>
+plan = PreparedPlan(contract=TaskContract(task_id='e48806850ef94e1ea37f64906ffc4c86', attempt_id='37e90345a8ba4746bd3dbba2393...nput/user_request.txt': '86c0bb0673c6aa661b6f8e8319e67d1886c50a218d323643fe140d3ac2200713'}), classification='fixture')
+
+    def validate_prepared_plan(database_path, workspaces, plan):
+>       raise PlanningBlocked('PLANNING_HANDOFF_NOT_VERIFIED')
+E       app.runtime.planning.PlanningBlocked: PLANNING_HANDOFF_NOT_VERIFIED
+
+services\orchestrator\app\runtime\planning.py:28: PlanningBlocked
+============================== warnings summary ===============================
+services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1
+  C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/integration/test_native_planning.py::test_verified_prepared_plan_preserves_planning_lease

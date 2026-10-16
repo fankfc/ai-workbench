@@ -1,0 +1,95 @@
+Command: services/orchestrator/.venv/Scripts/python.exe docs/acceptance/part-five/full-regression-repair/translation-budget-probe.py
+C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+  from starlette.testclient import TestClient as TestClient  # noqa
+[
+  {
+    "fixture": "clarification",
+    "total_tokens": 10000,
+    "outcome": {
+      "state": "BLOCKED",
+      "reason_codes": [
+        "CLAUDE_INPUT_TRANSLATION_NOT_READY"
+      ]
+    },
+    "jobs": [
+      {
+        "purpose": "input",
+        "status": "FAILED",
+        "clarification": "TRANSLATION_BUDGET_EXHAUSTED"
+      }
+    ],
+    "translator_calls": 0,
+    "checker_calls": 0,
+    "real_model_calls": 0
+  },
+  {
+    "fixture": "clarification",
+    "total_tokens": 30000,
+    "outcome": {
+      "state": "NEEDS_INPUT",
+      "reason_codes": [
+        "A_NEEDS_EVIDENCE"
+      ]
+    },
+    "jobs": [
+      {
+        "purpose": "input",
+        "status": "READY",
+        "clarification": null
+      },
+      {
+        "purpose": "runtime-source",
+        "status": "READY",
+        "clarification": null
+      },
+      {
+        "purpose": "review-evidence",
+        "status": "READY",
+        "clarification": null
+      },
+      {
+        "purpose": "clarification",
+        "status": "READY",
+        "clarification": null
+      }
+    ],
+    "translator_calls": 4,
+    "checker_calls": 4,
+    "real_model_calls": 0
+  },
+  {
+    "fixture": "output",
+    "total_tokens": 10000,
+    "outcome": {
+      "error": "OUTPUT_TRANSLATION_FAILED"
+    },
+    "jobs": [
+      {
+        "purpose": "output",
+        "status": "FAILED",
+        "clarification": "TRANSLATION_BUDGET_EXHAUSTED"
+      }
+    ],
+    "translator_calls": 0,
+    "checker_calls": 0,
+    "real_model_calls": 0
+  },
+  {
+    "fixture": "output",
+    "total_tokens": 30000,
+    "outcome": {
+      "state": "output_staged"
+    },
+    "jobs": [
+      {
+        "purpose": "output",
+        "status": "READY",
+        "clarification": null
+      }
+    ],
+    "translator_calls": 1,
+    "checker_calls": 1,
+    "real_model_calls": 0
+  }
+]
+Exit code: 0

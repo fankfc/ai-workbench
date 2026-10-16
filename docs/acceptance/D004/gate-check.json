@@ -1,0 +1,10 @@
+{
+  "profile_id": "local-claude-code-probe",
+  "adapter": "claude_code",
+  "status": "not_connected",
+  "identity_status": "unknown",
+  "model_starts": 0,
+  "max_runs": 3,
+  "reason_code": "SUPPORTED_EXECUTOR_NOT_ENABLED",
+  "unavailable_reason_code": "AUTHENTICATION_REQUIRED"
+}

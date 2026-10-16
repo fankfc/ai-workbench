@@ -1,0 +1,77 @@
+
+Running 35 tests using 1 worker
+
+(node:31272) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/35] tests\e2e\accessibility.spec.ts:3:5 › keyboard navigation and 200 percent zoom keep labelled composer visible
+[2/35] tests\e2e\artifact-files.spec.ts:6:5 › product bundles preview and save three exact bilingual format pairs
+[3/35] tests\e2e\artifact-files.spec.ts:15:5 › cancelled save and existing filenames never report a successful pair
+[4/35] tests\e2e\artifact-files.spec.ts:20:5 › default export directory is private and becomes a dialog starting location
+[5/35] tests\e2e\backup-restore.spec.ts:40:5 › storage create entry saves a verified ZIP of the actual published chat
+[6/35] tests\e2e\backup-restore.spec.ts:55:5 › storage restore entry reopens saved history through an actual managed backend restart
+  1) tests\e2e\backup-restore.spec.ts:55:5 › storage restore entry reopens saved history through an actual managed backend restart 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByText('恢复后应保留的已发布问题。', { exact: true })
+    Expected: visible
+    Error: strict mode violation: getByText('恢复后应保留的已发布问题。', { exact: true }) resolved to 3 elements:
+        1) <button aria-current="page" class="conversation-title">恢复后应保留的已发布问题。</button> aka getByRole('button', { name: '恢复后应保留的已发布问题。', exact: true })
+        2) <h1>恢复后应保留的已发布问题。</h1> aka getByRole('heading', { name: '恢复后应保留的已发布问题。' })
+        3) <div class="message-text">恢复后应保留的已发布问题。</div> aka locator('#conversation').getByText('恢复后应保留的已发布问题。', { exact: true })
+
+    Call log:
+      - Expect "toBeVisible" getByText('恢复后应保留的已发布问题。', { exact: true }) with timeout 5000ms
+      - waiting for getByText('恢复后应保留的已发布问题。', { exact: true })
+
+
+      79 |   await expect(desktop.page.locator('.message.user')).toHaveCount(1);
+      80 |   await expect(desktop.page.locator('.message.assistant')).toHaveCount(1);
+    > 81 |   await expect(desktop.page.getByText('恢复后应保留的已发布问题。',{exact:true})).toBeVisible();
+         |                                                                      ^
+      82 |   await expect(desktop.page.getByText('备份后新增，恢复时不应误当旧快照内容。',{exact:true})).toHaveCount(0);
+      83 |   const confirmation=await desktop.app.evaluate(()=>(globalThis as any).__restoreConfirmation);
+      84 |   expect(confirmation.message).toContain('已核验');expect(confirmation.detail).toContain('凭证');
+        at C:\Users\asd15\Documents\ChatGPT\ai\tests\e2e\backup-restore.spec.ts:81:70
+
+    Error Context: artifacts\playwright\backup-restore-storage-res-6f62b-ual-managed-backend-restart\error-context.md
+
+
+(node:57348) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[7/35] tests\e2e\chat-publication.spec.ts:2:5 › internal canaries never cross the public IPC boundary or briefly appear
+[8/35] tests\e2e\composer-history.spec.ts:5:5 › IME enter does not submit, approved history survives reload and drafts remain per conversation
+[9/35] tests\e2e\composer-history.spec.ts:11:5 › only a native selected attachment is imported and the complete material reaches the task
+[10/35] tests\e2e\composer-history.spec.ts:14:5 › double click sends one client request and script text cannot execute
+[11/35] tests\e2e\connections.spec.ts:2:5 › connection page keeps demonstrations distinct from verified real identities
+[12/35] tests\e2e\host.spec.ts:7:5 › actual isolated Electron exposes only a business bridge
+[13/35] tests\e2e\host.spec.ts:12:5 › disconnect keeps the draft and blocks sending
+[14/35] tests\e2e\host.spec.ts:16:5 › default real mode keeps all unverified connections disabled
+[15/35] tests\e2e\host.spec.ts:20:5 › second launch focuses the existing instance without starting another backend
+[16/35] tests\e2e\host.spec.ts:26:5 › production bundle contains no test injection entry
+[17/35] tests\e2e\ime-and-layout.spec.ts:3:5 › composition and internal replay retain focus without transient leak
+[18/35] tests\e2e\layout.spec.ts:3:78 › layout fits 1440x900
+[19/35] tests\e2e\layout.spec.ts:3:78 › layout fits 1280x800
+[20/35] tests\e2e\layout.spec.ts:3:78 › layout fits 1024x768
+[21/35] tests\e2e\layout.spec.ts:3:78 › layout fits 320x768
+[22/35] tests\e2e\layout.spec.ts:10:5 › theme, large text and 200 percent zoom retain the composer
+[23/35] tests\e2e\local-performance.spec.ts:6:5 › record two hundred input echo samples in the actual renderer
+[24/35] tests\e2e\local-performance.spec.ts:23:5 › record bounded cold start and lifecycle samples
+[25/35] tests\e2e\review-regressions.spec.ts:6:5 › disconnect retains displayed approved messages and published files
+[26/35] tests\e2e\review-regressions.spec.ts:7:5 › late receipt preserves completed status and never pollutes another conversation
+[27/35] tests\e2e\review-regressions.spec.ts:8:5 › usage dates represent local calendar boundaries including the final millisecond
+[28/35] tests\e2e\review-regressions.spec.ts:9:5 › same-text historical replay cannot clear an unacknowledged nonce or chosen materials
+[29/35] tests\e2e\security-boundary.spec.ts:3:5 › untrusted renderer has no command or file authority; user script stays text
+[30/35] tests\e2e\settings-usage.spec.ts:5:5 › usage has no invented savings, storage cleanup is previewed and diagnostics stay separate
+[31/35] tests\e2e\settings-usage.spec.ts:8:5 › selected directory migration keeps the source and restarts the owned backend
+[32/35] tests\e2e\task-profiles.spec.ts:10:5 › normal document GUI persists details and publishes requested native GPT file with no translator
+[33/35] tests\e2e\task-profiles.spec.ts:11:5 › missing audience or formats freezes NEEDS_INPUT before any model step
+[34/35] tests\e2e\task-profiles.spec.ts:12:5 › paper evidence and data refs and code workspace come only from chosen attachment IDs
+[35/35] tests\e2e\task-profiles.spec.ts:13:5 › CSV mixed submission freezes profile and requested formats instead of generic demo
+  1 failed
+    tests\e2e\backup-restore.spec.ts:55:5 › storage restore entry reopens saved history through an actual managed backend restart 
+  34 passed (4.4m)

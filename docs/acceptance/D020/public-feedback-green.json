@@ -1,0 +1,15 @@
+{
+  "time": "2026-10-13T12:47:08.549326+00:00",
+  "command": [
+    "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\.venv\\Scripts\\python.exe",
+    "-m",
+    "pytest",
+    "-q",
+    "tests/integration/test_backend_vertical.py::test_missing_evidence_never_delivers",
+    "tests/integration/test_backend_vertical.py::test_budget_stops_actual_provider_starts",
+    "tests/integration/test_backend_vertical.py::test_claude_chinese_missing_gateway_blocks_before_start"
+  ],
+  "exit_code": 0,
+  "git_commit": null,
+  "log": "docs\\acceptance\\D020\\public-feedback-green.log"
+}

@@ -1,0 +1,121 @@
+{
+  "generated_at": "2026-10-13T11:33:55.960082+00:00",
+  "commit": null,
+  "python": "3.13.0",
+  "sqlite": "3.45.3",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "interpreter": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\.venv\\Scripts\\python.exe",
+  "mode": "isolated real SQLite/filesystem; no external provider calls",
+  "command": "services/orchestrator/.venv/Scripts/python.exe docs/acceptance/D008/reproduce_evidence.py",
+  "exit_code": 0,
+  "fixture_directory": "docs/acceptance/D008/fixtures/20261013T113355-68990832",
+  "old_schema_version": 1,
+  "new_schema_version": 2,
+  "before": {
+    "artifact_revisions": {
+      "row_count": 1,
+      "original_columns_sha256": "54f44c2c56986e5c0d99ea98add78b8b34bed83ae548d66921815b7dbed8d3bd"
+    },
+    "checks": {
+      "row_count": 1,
+      "original_columns_sha256": "0da906b6e5bd04a22523086cdd688b9189deb84adc313b1fdeb0b0d02d27a260"
+    },
+    "conversations": {
+      "row_count": 1,
+      "original_columns_sha256": "25438b2819835fab540f1e469ee2afc1a56c8a14c0ada685e1f63c2b1dd15466"
+    },
+    "outbox_events": {
+      "row_count": 1,
+      "original_columns_sha256": "3785251a5688a6a35ac5ae0c19a3510805af28246e9f570eab7f32656d087966"
+    },
+    "provider_profiles": {
+      "row_count": 1,
+      "original_columns_sha256": "117c40ea60b7cd167cf2ec7a4d7103c08ae2d50af855db66d12d51f8caf14a89"
+    },
+    "steps": {
+      "row_count": 1,
+      "original_columns_sha256": "160943a7a6e34f67fe10fb823f3fec0f979e264b4fc2e45b43c09e6c643accd9"
+    },
+    "task_runs": {
+      "row_count": 1,
+      "original_columns_sha256": "3adfa726b9f41a7d523a58cc87ab9911614a62c55a779530973296d32777dcec"
+    },
+    "translation_units": {
+      "row_count": 1,
+      "original_columns_sha256": "b31187eed4b75d100790e19bf8c083836c9d17f9be304d5f9ed02af38619480e"
+    },
+    "turns": {
+      "row_count": 1,
+      "original_columns_sha256": "68c7c492a7afcdb4976d5f682333c582a0047f5333ff33877e71f4401d19d4ce"
+    },
+    "usage_entries": {
+      "row_count": 1,
+      "original_columns_sha256": "47782c0041396fe08415b55dad30327718c62598de2d2cc4a146f47d111b7976"
+    }
+  },
+  "after": {
+    "artifact_revisions": {
+      "row_count": 1,
+      "original_columns_sha256": "54f44c2c56986e5c0d99ea98add78b8b34bed83ae548d66921815b7dbed8d3bd"
+    },
+    "checks": {
+      "row_count": 1,
+      "original_columns_sha256": "0da906b6e5bd04a22523086cdd688b9189deb84adc313b1fdeb0b0d02d27a260"
+    },
+    "conversations": {
+      "row_count": 1,
+      "original_columns_sha256": "25438b2819835fab540f1e469ee2afc1a56c8a14c0ada685e1f63c2b1dd15466"
+    },
+    "outbox_events": {
+      "row_count": 1,
+      "original_columns_sha256": "3785251a5688a6a35ac5ae0c19a3510805af28246e9f570eab7f32656d087966"
+    },
+    "provider_profiles": {
+      "row_count": 1,
+      "original_columns_sha256": "117c40ea60b7cd167cf2ec7a4d7103c08ae2d50af855db66d12d51f8caf14a89"
+    },
+    "steps": {
+      "row_count": 1,
+      "original_columns_sha256": "160943a7a6e34f67fe10fb823f3fec0f979e264b4fc2e45b43c09e6c643accd9"
+    },
+    "task_runs": {
+      "row_count": 1,
+      "original_columns_sha256": "3adfa726b9f41a7d523a58cc87ab9911614a62c55a779530973296d32777dcec"
+    },
+    "translation_units": {
+      "row_count": 1,
+      "original_columns_sha256": "b31187eed4b75d100790e19bf8c083836c9d17f9be304d5f9ed02af38619480e"
+    },
+    "turns": {
+      "row_count": 1,
+      "original_columns_sha256": "68c7c492a7afcdb4976d5f682333c582a0047f5333ff33877e71f4401d19d4ce"
+    },
+    "usage_entries": {
+      "row_count": 1,
+      "original_columns_sha256": "47782c0041396fe08415b55dad30327718c62598de2d2cc4a146f47d111b7976"
+    }
+  },
+  "schema_history": [
+    {
+      "version": 1,
+      "name": "0001_initial",
+      "sha256": "63788dd70e69dcd9e3011dd41c18514bc5d72ed5d52cf9cc82e71061cd38fcc5",
+      "applied_at": "2026-10-13T11:33:56.095Z"
+    },
+    {
+      "version": 2,
+      "name": "additive-fixture",
+      "sha256": "42023827b32e7ed0f31e9c6bf84b9526a68c342553b83b7a31d59e961ca1b83c",
+      "applied_at": "2026-10-13T11:33:56.123Z"
+    }
+  ],
+  "integrity_check": "ok",
+  "foreign_key_check": [],
+  "blob": {
+    "artifact_id": "artifact1",
+    "expected_sha256": "4d4823794cbed3c4ee0bbc684c8f66e1dfd5afa6f078d494ce254ec5a4671753",
+    "actual_sha256": "4d4823794cbed3c4ee0bbc684c8f66e1dfd5afa6f078d494ce254ec5a4671753",
+    "size_bytes": 12
+  },
+  "upgrade": "Actual v1 database closed and reopened; version 2 adds a nullable field, preserving all original columns."
+}

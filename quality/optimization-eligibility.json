@@ -1,0 +1,16 @@
+{
+  "version": "1.0",
+  "status": "evidence_insufficient",
+  "eligible": false,
+  "optimization_goal_met": false,
+  "route": "a_led",
+  "qualified_configurations": [],
+  "registration_sha256": "327d5b4b3a8c6ed79421f286f43d1cf9f366451549229b595b8f0482fadc6c72",
+  "blocked_reasons": [
+    "INDEPENDENT_PILOTS_MISSING",
+    "FORMAL_PROTOCOL_NOT_FROZEN",
+    "REAL_PAIRED_SCORES_MISSING",
+    "REAL_A_USAGE_MISSING",
+    "HUMAN_REVIEW_MISSING"
+  ]
+}

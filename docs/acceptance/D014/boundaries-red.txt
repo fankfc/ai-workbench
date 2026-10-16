@@ -1,0 +1,65 @@
+FFFF                                                                     [100%]
+================================== FAILURES ===================================
+_______ test_repeated_run_does_not_replace_history_or_restart_provider ________
+tests\integration\test_agent_workflow.py:172: in test_repeated_run_does_not_replace_history_or_restart_provider
+    assert second.current_revision_id == first.current_revision_id
+E   AssertionError: assert None == 'candidate-255de9c179a84be6acf021b5930f2bf7'
+E    +  where None = WorkflowResult(state='OUTPUT_PREPARING', current_revision_id=None, review_check_id=None, quality_repairs=0, connection...ed_run_does_not_rep0\\workspaces\\tasks\\c8adf7964546432b84b88ff4b532c7cc\\88fb281a0ff943efa0fc85bc38e8b675\\evidence').current_revision_id
+E    +  and   'candidate-255de9c179a84be6acf021b5930f2bf7' = WorkflowResult(state='OUTPUT_PREPARING', current_revision_id='candidate-255de9c179a84be6acf021b5930f2bf7', review_chec...ed_run_does_not_rep0\\workspaces\\tasks\\c8adf7964546432b84b88ff4b532c7cc\\88fb281a0ff943efa0fc85bc38e8b675\\evidence').current_revision_id
+______ test_scope_input_and_validator_failure_stop_with_saved_checkpoint ______
+tests\integration\test_agent_workflow.py:183: in test_scope_input_and_validator_failure_stop_with_saved_checkpoint
+    result, b, a = execute(prepared)
+                   ^^^^^^^^^^^^^^^^^
+tests\integration\test_agent_workflow.py:51: in execute
+    return asyncio.run(workflow.run(contract)), b, a
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:194: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:118: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py:721: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+services\orchestrator\app\runtime\workflow.py:321: in run
+    return await self._run(contract)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\app\runtime\workflow.py:344: in _run
+    if hashlib.sha256(workspace.read("A", source.ref)).hexdigest() != source.sha256:
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\app\runtime\workspace.py:191: in read
+    path = self.resolve(relative_path, role)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\app\runtime\workspace.py:112: in resolve
+    path = self._path(relative_path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\app\runtime\workspace.py:97: in _path
+    raise ScopeError("PATH_SCOPE_INVALID")
+E   app.runtime.workspace.ScopeError: PATH_SCOPE_INVALID
+______ test_a_family_mismatch_blocks_before_wrong_model_receives_prompt _______
+tests\integration\test_agent_workflow.py:192: in test_a_family_mismatch_blocks_before_wrong_model_receives_prompt
+    assert result.state == "BLOCKED" and "A_MODEL_FAMILY_MISMATCH" in result.reason_codes
+E   AssertionError: assert ('OUTPUT_PREPARING' == 'BLOCKED'
+E     
+E     - BLOCKED
+E     + OUTPUT_PREPARING)
+________ test_reported_old_revision_cannot_be_rebound_into_a_approval _________
+tests\integration\test_agent_workflow.py:200: in test_reported_old_revision_cannot_be_rebound_into_a_approval
+    assert result.state == "BLOCKED" and "A_REVIEW_BINDING_MISMATCH" in result.reason_codes
+E   AssertionError: assert ('OUTPUT_PREPARING' == 'BLOCKED'
+E     
+E     - BLOCKED
+E     + OUTPUT_PREPARING)
+============================== warnings summary ===============================
+tests/integration/test_agent_workflow.py::test_repeated_run_does_not_replace_history_or_restart_provider
+  C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/integration/test_agent_workflow.py::test_repeated_run_does_not_replace_history_or_restart_provider
+FAILED tests/integration/test_agent_workflow.py::test_scope_input_and_validator_failure_stop_with_saved_checkpoint
+FAILED tests/integration/test_agent_workflow.py::test_a_family_mismatch_blocks_before_wrong_model_receives_prompt
+FAILED tests/integration/test_agent_workflow.py::test_reported_old_revision_cannot_be_rebound_into_a_approval
+4 failed, 15 deselected, 1 warning in 1.98s

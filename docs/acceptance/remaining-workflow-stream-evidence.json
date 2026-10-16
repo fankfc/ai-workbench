@@ -1,0 +1,49 @@
+{
+  "generated_at": "2026-10-13T13:01:22.065233+00:00",
+  "mode": "temporary local API/SQLite and synthetic external event stream",
+  "command": "services/orchestrator/.venv/Scripts/python.exe docs/acceptance/remaining-workflow-stream-probe.py",
+  "source_hashes": {
+    "services/orchestrator/app/runtime/workflow.py": "02403ec6c63cb882edbe44e8a62bcf078205eb7fe9e59a6f1974fa82eec3249c",
+    "services/orchestrator/app/runtime/repair.py": "13e6848aca9cc573906da5130754c4bf8310f5669cbc00f28a075500aab5bd29",
+    "services/orchestrator/app/providers/fake.py": "abec8a68b99a0e269aa77143e41b528d71b312b334fa3d2772448941b2d2763e"
+  },
+  "results": {
+    "claude_b_original_context": {
+      "state": "BLOCKED",
+      "b_starts": 1,
+      "reason_codes": [
+        "UNKNOWN_USAGE"
+      ],
+      "request_family": "claude",
+      "chinese_source_in_prompt": true
+    },
+    "remote_unknown_after_start": {
+      "state": "BLOCKED",
+      "b_starts": 3,
+      "reason_codes": [
+        "CONNECTION_RETRY_LIMIT"
+      ],
+      "task_external_request_id": null,
+      "task_external_execution_id": null,
+      "step_external_execution_ids": [
+        null,
+        null,
+        null
+      ]
+    },
+    "terminal_after_start": {
+      "state": "FAILED",
+      "b_starts": 3,
+      "reason_codes": [
+        "CONNECTION_RETRY_LIMIT"
+      ],
+      "task_external_request_id": null,
+      "task_external_execution_id": null,
+      "step_external_execution_ids": [
+        null,
+        null,
+        null
+      ]
+    }
+  }
+}

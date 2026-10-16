@@ -1,0 +1,19 @@
+{
+  "name": "python",
+  "command": [
+    "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\.venv\\Scripts\\python.exe",
+    "-m",
+    "pytest",
+    "-q",
+    "-m",
+    "not real_provider",
+    "--junitxml=C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\part-five\\final-v1\\regression\\python.xml",
+    "--basetemp=C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.omx\\qa\\p4\\ebe2f8e4"
+  ],
+  "cwd": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai",
+  "started_at": "2026-10-15T05:21:33.864496+00:00",
+  "ended_at": "2026-10-15T05:29:34.843163+00:00",
+  "exit_code": 1,
+  "log": "docs/acceptance/part-five/final-v1/regression/python.log",
+  "launch_error": null
+}

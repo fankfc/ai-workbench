@@ -1,0 +1,131 @@
+{
+  "build_id": "cb98eed03df6bd4ffaa551d66a54c77198911cf5b3e763a1ef3c055f5ee54ca4",
+  "source_unchanged": true,
+  "cases": [
+    {
+      "card": "D041",
+      "case": "driver_contract",
+      "exit_code": 0,
+      "run_root": "artifacts/qa/D041/rac36a545"
+    },
+    {
+      "card": "D042",
+      "case": "requirement_coverage",
+      "exit_code": 0,
+      "run_root": "artifacts/qa/D042/r08026867"
+    },
+    {
+      "card": "D043",
+      "case": "translation_corpus",
+      "exit_code": 0,
+      "run_root": "artifacts/qa/D043/re7e8bdcc"
+    },
+    {
+      "card": "D044",
+      "case": "evaluation_protocol",
+      "exit_code": 0,
+      "run_root": "artifacts/qa/D044/r8d372ab7"
+    },
+    {
+      "card": "D045",
+      "case": "usage_reconciliation",
+      "exit_code": 0,
+      "run_root": "artifacts/qa/D045/r4c48dedd"
+    },
+    {
+      "card": "D046",
+      "case": "optimization_gate",
+      "exit_code": 0,
+      "run_root": "artifacts/qa/D046/r2f1798c8"
+    },
+    {
+      "card": "D047",
+      "case": "security_boundary",
+      "exit_code": 0,
+      "run_root": "artifacts/qa/D047/r67943cce"
+    },
+    {
+      "card": "D048",
+      "case": "fault_matrix",
+      "exit_code": 0,
+      "run_root": "artifacts/qa/D048/r1922e5ef"
+    },
+    {
+      "card": "D049",
+      "case": "gui_evidence",
+      "exit_code": 0,
+      "run_root": "artifacts/qa/D049/rad3eb024"
+    },
+    {
+      "card": "D050",
+      "case": "local_performance",
+      "exit_code": 0,
+      "run_root": "artifacts/qa/D050/re2ab79db"
+    },
+    {
+      "card": "D051",
+      "case": "backup_restore",
+      "exit_code": 0,
+      "run_root": "artifacts/qa/D051/r3660f525"
+    },
+    {
+      "card": "D052",
+      "case": "windows_install",
+      "exit_code": 0,
+      "run_root": "artifacts/qa/D052/r4109f30f"
+    },
+    {
+      "card": "D053",
+      "case": "signed_update",
+      "exit_code": 0,
+      "run_root": "artifacts/qa/D053/re7d99c6b"
+    },
+    {
+      "card": "D054",
+      "case": "release_manifest",
+      "exit_code": 0,
+      "run_root": "artifacts/qa/D054/r19115814"
+    },
+    {
+      "card": "D055",
+      "case": "real_journey_audit",
+      "exit_code": 0,
+      "run_root": "artifacts/qa/D055/re5c281a1"
+    },
+    {
+      "card": "D056",
+      "case": "feedback_bundle",
+      "exit_code": 0,
+      "run_root": "artifacts/qa/D056/re9e05202"
+    },
+    {
+      "card": "D057",
+      "case": "release_decision",
+      "exit_code": 0,
+      "run_root": "artifacts/qa/D057/r21cfe5ce"
+    },
+    {
+      "card": "D058",
+      "case": "retention_glossary",
+      "exit_code": 0,
+      "run_root": "artifacts/qa/D058/r645bba75"
+    },
+    {
+      "card": "D059",
+      "case": "incident_rollback",
+      "exit_code": 0,
+      "run_root": "artifacts/qa/D059/rfacff77f"
+    },
+    {
+      "card": "D060",
+      "case": "final_handover",
+      "exit_code": 0,
+      "run_root": "artifacts/qa/D060/raca50323"
+    }
+  ],
+  "all_cases_executed": true,
+  "real_model_calls": 0,
+  "all_cards_accepted": false,
+  "functional_release": false,
+  "optimization_goal_met": false
+}

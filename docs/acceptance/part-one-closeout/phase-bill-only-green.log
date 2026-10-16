@@ -1,0 +1,18 @@
+F..................................                                      [100%]
+================================== FAILURES ===================================
+__ test_bill_only_record_retains_actual_usage_and_never_exposes_a_candidate ___
+
+prepared = (WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-278/test_bill_only_record_retains_0/task/attemp..., 'output_tokens': 2}), source='reported', mode='request_total', cumulative_scope=None),), exit_code=0, finished=True))
+
+    def test_bill_only_record_retains_actual_usage_and_never_exposes_a_candidate(prepared):
+        runtime = MemoryRuntime([PhaseStarted('local-request', 'remote-request', 'remote-execution'), bill(prepared)])
+        events, _, _ = run(prepared, runtime=runtime)
+        assert error(events) == 'BILLABLE_CAPTURE_FAILED'
+        usage = [event for event in events if event.kind == 'provider.usage']
+>       assert len(usage) == 1 and usage[0].payload['normalized']['total_tokens'] == 12
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'normalized'
+
+tests\contracts\test_phase_usage.py:19: KeyError
+=========================== short test summary info ===========================
+FAILED tests/contracts/test_phase_usage.py::test_bill_only_record_retains_actual_usage_and_never_exposes_a_candidate

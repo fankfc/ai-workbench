@@ -1,0 +1,291 @@
+{
+  "generated_at": "2026-10-13T13:39:44.151462+00:00",
+  "python": "3.13.0",
+  "sqlite": "3.45.3",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "interpreter": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\.venv\\Scripts\\python.exe",
+  "commit": null,
+  "mode": "isolated real SQLite/filesystem/subprocess; no external provider calls",
+  "command": "services/orchestrator/.venv/Scripts/python.exe docs/acceptance/D010/reproduce_evidence.py",
+  "exit_code": 0,
+  "passed_tests": 34,
+  "sequence_trace": [
+    {
+      "received_sequence": 1,
+      "decision": "accepted",
+      "applied_sequences": [
+        1
+      ],
+      "provider_last_sequence": 1
+    },
+    {
+      "received_sequence": 2,
+      "decision": "accepted",
+      "applied_sequences": [
+        2
+      ],
+      "provider_last_sequence": 2
+    },
+    {
+      "received_sequence": 2,
+      "decision": "duplicate",
+      "applied_sequences": [],
+      "provider_last_sequence": 2
+    },
+    {
+      "received_sequence": 1,
+      "decision": "duplicate",
+      "applied_sequences": [],
+      "provider_last_sequence": 2
+    },
+    {
+      "received_sequence": 3,
+      "decision": "accepted",
+      "applied_sequences": [
+        3
+      ],
+      "provider_last_sequence": 3
+    }
+  ],
+  "final_checkpoint": {
+    "provider_event_buffer": {},
+    "provider_event_history": {
+      "1": "34a7ff6c996aa1ef59730f99c8b310f45983a3bd6c69794e65095577d7d8ca8a",
+      "2": "dd298e71ac406f82a55530acf721db2768f7c4eb96b36600ded8c5772a775c3b",
+      "3": "0153d99c31eedcc58673bd010040c39cc66d4b11c3ef74d11d1272c8791c89f7"
+    },
+    "provider_last_sequence": 3,
+    "provider_stable_keys": {}
+  },
+  "audit_events": [
+    {
+      "event_id": "d68ed7e8c85043309a2a5985705d489b",
+      "conversation_id": "c1",
+      "turn_id": "t1",
+      "task_id": "task1",
+      "attempt_id": "a1",
+      "sequence": 1,
+      "conversation_sequence": 1,
+      "kind": "provider.event_accepted",
+      "contract_version": "1.0",
+      "internal_payload_json": "{\"provider_sequence\":1,\"provider_kind\":\"model.delta\",\"provider_payload\":{\"text\":\"INTERNAL_ENGLISH\"}}",
+      "public_event_json": null,
+      "deduplication_key": "audit:26ae5f7ffdb645a7ac4589b86a2c0e3d",
+      "delivery_state": "PENDING",
+      "delivery_attempts": 0,
+      "delivered_at": null,
+      "created_at": "2026-10-13T13:39:45.608Z"
+    },
+    {
+      "event_id": "87f04686c95b4261a97747e6808d5983",
+      "conversation_id": "c1",
+      "turn_id": "t1",
+      "task_id": "task1",
+      "attempt_id": "a1",
+      "sequence": 2,
+      "conversation_sequence": 2,
+      "kind": "provider.event_accepted",
+      "contract_version": "1.0",
+      "internal_payload_json": "{\"provider_sequence\":2,\"provider_kind\":\"model.delta\",\"provider_payload\":{\"text\":\"INTERNAL_ENGLISH\"}}",
+      "public_event_json": null,
+      "deduplication_key": "audit:7ed9259b542047f5ac536d86d4d0ff31",
+      "delivery_state": "PENDING",
+      "delivery_attempts": 0,
+      "delivered_at": null,
+      "created_at": "2026-10-13T13:39:45.616Z"
+    },
+    {
+      "event_id": "620dad8b88254693a08c237d724dc14a",
+      "conversation_id": "c1",
+      "turn_id": "t1",
+      "task_id": "task1",
+      "attempt_id": "a1",
+      "sequence": 3,
+      "conversation_sequence": 3,
+      "kind": "recovery.event_audit",
+      "contract_version": "1.0",
+      "internal_payload_json": "{\"decision\":\"duplicate\",\"provider_sequence\":2,\"provider_kind\":\"model.delta\",\"expected_provider_sequence\":3}",
+      "public_event_json": null,
+      "deduplication_key": "audit:da81b9952ea8435897bf8a9949a7fac5",
+      "delivery_state": "PENDING",
+      "delivery_attempts": 0,
+      "delivered_at": null,
+      "created_at": "2026-10-13T13:39:45.622Z"
+    },
+    {
+      "event_id": "9821f8ff84f14950bd2b1c35beb43d4a",
+      "conversation_id": "c1",
+      "turn_id": "t1",
+      "task_id": "task1",
+      "attempt_id": "a1",
+      "sequence": 4,
+      "conversation_sequence": 4,
+      "kind": "recovery.event_audit",
+      "contract_version": "1.0",
+      "internal_payload_json": "{\"decision\":\"duplicate\",\"provider_sequence\":1,\"provider_kind\":\"model.delta\",\"expected_provider_sequence\":3}",
+      "public_event_json": null,
+      "deduplication_key": "audit:1677dae78881480d8d5a8aacdb8d8a33",
+      "delivery_state": "PENDING",
+      "delivery_attempts": 0,
+      "delivered_at": null,
+      "created_at": "2026-10-13T13:39:45.626Z"
+    },
+    {
+      "event_id": "199d5bb1b5fa43a7ac8c60c9469187fa",
+      "conversation_id": "c1",
+      "turn_id": "t1",
+      "task_id": "task1",
+      "attempt_id": "a1",
+      "sequence": 5,
+      "conversation_sequence": 5,
+      "kind": "provider.event_accepted",
+      "contract_version": "1.0",
+      "internal_payload_json": "{\"provider_sequence\":3,\"provider_kind\":\"model.delta\",\"provider_payload\":{\"text\":\"INTERNAL_ENGLISH\"}}",
+      "public_event_json": null,
+      "deduplication_key": "audit:39796ab6abbd41c6b5588bcbd14bac73",
+      "delivery_state": "PENDING",
+      "delivery_attempts": 0,
+      "delivered_at": null,
+      "created_at": "2026-10-13T13:39:45.632Z"
+    }
+  ],
+  "public_event_count": 0,
+  "tests": [
+    {
+      "name": "test_recovery_queries_existing_remote_before_observing_and_never_creates_a_request",
+      "result": "passed"
+    },
+    {
+      "name": "test_unknown_remote_with_expired_lease_is_blocked_and_not_retried_after_restart",
+      "result": "passed"
+    },
+    {
+      "name": "test_remote_query_exception_is_recorded_as_unknown_without_unverified_failure",
+      "result": "passed"
+    },
+    {
+      "name": "test_remote_completion_enters_verification_or_blocks_but_never_publishes[True]",
+      "result": "passed"
+    },
+    {
+      "name": "test_remote_completion_enters_verification_or_blocks_but_never_publishes[False]",
+      "result": "passed"
+    },
+    {
+      "name": "test_confirmed_remote_failure_marks_failed_preserving_request_reference",
+      "result": "passed"
+    },
+    {
+      "name": "test_provider_sequence_is_independent_of_api_accepted_and_pending_sequence",
+      "result": "passed"
+    },
+    {
+      "name": "test_sequence_1_2_2_1_3_applies_only_once_and_persists_duplicate_audit",
+      "result": "passed"
+    },
+    {
+      "name": "test_sequence_gap_and_out_of_order_completion_are_buffered_across_restart",
+      "result": "passed"
+    },
+    {
+      "name": "test_mismatched_duplicate_sequence_is_rejected_and_audited",
+      "result": "passed"
+    },
+    {
+      "name": "test_old_attempt_contract_or_route_cannot_accept_pass_or_overwrite_state[old-attempt]",
+      "result": "passed"
+    },
+    {
+      "name": "test_old_attempt_contract_or_route_cannot_accept_pass_or_overwrite_state[old-contract]",
+      "result": "passed"
+    },
+    {
+      "name": "test_old_attempt_contract_or_route_cannot_accept_pass_or_overwrite_state[old-route]",
+      "result": "passed"
+    },
+    {
+      "name": "test_cancelled_completion_is_audited_without_publication_or_new_observation",
+      "result": "passed"
+    },
+    {
+      "name": "test_ingest_rollback_keeps_sequence_checkpoint_and_state_unchanged",
+      "result": "passed"
+    },
+    {
+      "name": "test_stable_provider_key_duplicate_does_not_apply_again",
+      "result": "passed"
+    },
+    {
+      "name": "test_buffered_error_prevents_later_buffered_completion_from_resurrecting_failed_task",
+      "result": "passed"
+    },
+    {
+      "name": "test_stable_key_duplicate_that_closes_gap_drains_buffered_next_event",
+      "result": "passed"
+    },
+    {
+      "name": "test_cancel_during_remote_query_fences_completion_verifier_callback",
+      "result": "passed"
+    },
+    {
+      "name": "test_disorder_without_legacy_payload_history_is_audited_not_applied",
+      "result": "passed"
+    },
+    {
+      "name": "test_unstarted_local_task_is_preserved_without_remote_query_or_new_request[RECEIVED]",
+      "result": "passed"
+    },
+    {
+      "name": "test_unstarted_local_task_is_preserved_without_remote_query_or_new_request[PLANNING]",
+      "result": "passed"
+    },
+    {
+      "name": "test_unstarted_local_task_is_preserved_without_remote_query_or_new_request[EXECUTING]",
+      "result": "passed"
+    },
+    {
+      "name": "test_terminal_transition_during_remote_query_prevents_verifier_and_state_resurrection[FAILED]",
+      "result": "passed"
+    },
+    {
+      "name": "test_terminal_transition_during_remote_query_prevents_verifier_and_state_resurrection[PUBLISHED]",
+      "result": "passed"
+    },
+    {
+      "name": "test_terminal_transition_inside_verifier_is_preserved_by_final_transaction",
+      "result": "passed"
+    },
+    {
+      "name": "test_duplicate_stable_key_arriving_before_gap_closes_is_kept_as_noop_sequence",
+      "result": "passed"
+    },
+    {
+      "name": "test_recovery_queries_and_observes_current_step_profile_instead_of_frozen_a_and_first_request",
+      "result": "passed"
+    },
+    {
+      "name": "test_accepted_current_step_without_refs_blocks_unknown_without_querying_stale_main_ids[False]",
+      "result": "passed"
+    },
+    {
+      "name": "test_accepted_current_step_without_refs_blocks_unknown_without_querying_stale_main_ids[True]",
+      "result": "passed"
+    },
+    {
+      "name": "test_invalid_current_step_binding_blocks_without_remote_callback[missing-step]",
+      "result": "passed"
+    },
+    {
+      "name": "test_invalid_current_step_binding_blocks_without_remote_callback[wrong-profile]",
+      "result": "passed"
+    },
+    {
+      "name": "test_invalid_current_step_binding_blocks_without_remote_callback[step-snapshot-mismatch]",
+      "result": "passed"
+    },
+    {
+      "name": "test_current_step_change_during_remote_query_rejects_old_completion",
+      "result": "passed"
+    }
+  ]
+}

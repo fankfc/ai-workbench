@@ -1,0 +1,14 @@
+{
+  "time": "2026-10-14T05:49:55.735624+00:00",
+  "command": [
+    "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\.venv\\Scripts\\python.exe",
+    "-m",
+    "pytest",
+    "-q",
+    "tests/integration/test_native_planning.py",
+    "-q"
+  ],
+  "exit_code": 0,
+  "git_commit": null,
+  "log": "docs\\acceptance\\part-one-closeout\\native-planning-handoff-green.log"
+}

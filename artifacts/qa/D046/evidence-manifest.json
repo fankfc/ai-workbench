@@ -1,0 +1,56 @@
+{
+  "version": "1.0",
+  "build_id": "512ed724dab6261fe8b3e1ec7eac0d56f0d1ed8ff7891fb0a1dfdbae4308ce1b",
+  "run_id": null,
+  "created_at": "2026-10-14T15:04:39.528810+00:00",
+  "seed": 4317,
+  "encoding": "UTF-8",
+  "provider_boundary": "fake",
+  "files": [
+    {
+      "path": "joint-gate-report.json",
+      "size": 2429,
+      "sha256": "3714e1e9ee680bdef245c10cb156f105a66d5c3e03c1fdce93ce2e16d496007c"
+    },
+    {
+      "path": "run-4dc56cfb7e9d/.qa-run.json",
+      "size": 153,
+      "sha256": "63b14e8d84aad970ccb4d090cdf62b1a4b9b3930994653d7661dd1d4a8b45a56"
+    },
+    {
+      "path": "run-4dc56cfb7e9d/joint-gate-report.json",
+      "size": 2429,
+      "sha256": "3714e1e9ee680bdef245c10cb156f105a66d5c3e03c1fdce93ce2e16d496007c"
+    },
+    {
+      "path": "run-4dc56cfb7e9d/run-manifest.json",
+      "size": 743,
+      "sha256": "cf3ee2408e3d5516572104d5a6a53645fd95e28ef0689a8a0852890b3a7ebb62"
+    },
+    {
+      "path": "run-4dc56cfb7e9d/scenario-result.json",
+      "size": 2429,
+      "sha256": "3714e1e9ee680bdef245c10cb156f105a66d5c3e03c1fdce93ce2e16d496007c"
+    },
+    {
+      "path": "run-a493a533f88f/.qa-run.json",
+      "size": 153,
+      "sha256": "c24b42b2eca7d1c6bc97282dc182a10561db8abbe6608ed37a10f33296538349"
+    },
+    {
+      "path": "run-a493a533f88f/joint-gate-report.json",
+      "size": 2429,
+      "sha256": "3714e1e9ee680bdef245c10cb156f105a66d5c3e03c1fdce93ce2e16d496007c"
+    },
+    {
+      "path": "run-a493a533f88f/run-manifest.json",
+      "size": 743,
+      "sha256": "e906e606ba19e29d322535601723c29691593dc7524991334b24ee0cc89d1adf"
+    },
+    {
+      "path": "run-a493a533f88f/scenario-result.json",
+      "size": 2429,
+      "sha256": "3714e1e9ee680bdef245c10cb156f105a66d5c3e03c1fdce93ce2e16d496007c"
+    }
+  ]
+}

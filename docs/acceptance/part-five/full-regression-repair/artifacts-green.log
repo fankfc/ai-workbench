@@ -1,0 +1,20 @@
+........                                                                 [100%]
+============================== warnings summary ===============================
+tests/artifacts/test_atomic_publication.py::test_real_pair_bytes_and_answer_publish_once_in_one_transaction[claude]
+  C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+tests/artifacts/test_atomic_publication.py::test_real_pair_bytes_and_answer_publish_once_in_one_transaction[claude]
+tests/artifacts/test_atomic_publication.py::test_real_pair_bytes_and_answer_publish_once_in_one_transaction[claude]
+  <frozen importlib._bootstrap>:488: DeprecationWarning: builtin type SwigPyPacked has no __module__ attribute
+
+tests/artifacts/test_atomic_publication.py::test_real_pair_bytes_and_answer_publish_once_in_one_transaction[claude]
+tests/artifacts/test_atomic_publication.py::test_real_pair_bytes_and_answer_publish_once_in_one_transaction[claude]
+  <frozen importlib._bootstrap>:488: DeprecationWarning: builtin type SwigPyObject has no __module__ attribute
+
+tests/artifacts/test_atomic_publication.py::test_real_pair_bytes_and_answer_publish_once_in_one_transaction[claude]
+  <frozen importlib._bootstrap>:488: DeprecationWarning: builtin type swigvarlink has no __module__ attribute
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+8 passed, 6 warnings in 10.51s
+<sys>:0: DeprecationWarning: builtin type swigvarlink has no __module__ attribute

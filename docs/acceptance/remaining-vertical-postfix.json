@@ -1,0 +1,609 @@
+{
+  "driver_exit_code": 0,
+  "stdout_utf8_json_single_document": true,
+  "stderr_bytes": 289,
+  "all_local_cases_passed": true,
+  "real_handoff_complete": false,
+  "domains": {
+    "code": {
+      "task_state": "PUBLISHED",
+      "reported_starts": 2,
+      "actual_step_rows": 2,
+      "actual_request_rows": 2,
+      "publication_records": 1,
+      "source_hashes": [
+        {
+          "ref": "input/source.txt",
+          "expected_sha256": "f814f196cecbea9dcd04cece0e4e1c39972196fc128c75c37b3c003b33cfd6fa",
+          "actual_sha256": "f814f196cecbea9dcd04cece0e4e1c39972196fc128c75c37b3c003b33cfd6fa",
+          "matches": true
+        }
+      ],
+      "artifact_bytes_hash_matches": true,
+      "dependency_graph": {
+        "version": 1,
+        "nodes": {
+          "answer": {
+            "revision_id": "candidate-52e2a9c1c44948f59a09a4b5987a3360",
+            "dependencies": {},
+            "stale": false
+          }
+        }
+      },
+      "contract_dependencies": [],
+      "mechanical_proofs": [
+        {
+          "criterion_id": "AC1",
+          "status": "pass",
+          "method": "native_code_execution",
+          "proof_hash_matches": true,
+          "details": {
+            "command": [
+              "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\.venv\\Scripts\\python.exe",
+              "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\vertical-review\\a31ccf3e2ba0407596e514b8e4b76d51\\r95324116\\blobs\\4e\\4e95e91c8af9cd871b2b433d97f466a743620fbf210d472590d2d5617429cdaa"
+            ],
+            "executed": true,
+            "exit_code": 0,
+            "stderr": "",
+            "stdout": "5\r\n",
+            "timed_out": false,
+            "truncated": false
+          }
+        },
+        {
+          "criterion_id": "AC2",
+          "status": "not_verified",
+          "method": "semantic_review_pending",
+          "proof_hash_matches": true,
+          "details": {}
+        }
+      ],
+      "fake_profile_mode": true,
+      "real_provider_verified": false
+    },
+    "paper": {
+      "task_state": "PUBLISHED",
+      "reported_starts": 2,
+      "actual_step_rows": 2,
+      "actual_request_rows": 2,
+      "publication_records": 1,
+      "source_hashes": [
+        {
+          "ref": "input/source.txt",
+          "expected_sha256": "2a171aa49d232b588d49ab2fc19afc9020489f52b91129fee11907e4354d89a4",
+          "actual_sha256": "2a171aa49d232b588d49ab2fc19afc9020489f52b91129fee11907e4354d89a4",
+          "matches": true
+        },
+        {
+          "ref": "input/data.csv",
+          "expected_sha256": "398691f9ae1cc7dd7f4b7807369311a057ce75d7ef55442350ab7fe46d69edbb",
+          "actual_sha256": "398691f9ae1cc7dd7f4b7807369311a057ce75d7ef55442350ab7fe46d69edbb",
+          "matches": true
+        }
+      ],
+      "artifact_bytes_hash_matches": true,
+      "dependency_graph": {
+        "version": 1,
+        "nodes": {
+          "answer": {
+            "revision_id": "candidate-2334dcd99d4e4d72ac1ef8689ce62162",
+            "dependencies": {},
+            "stale": false
+          }
+        }
+      },
+      "contract_dependencies": [],
+      "mechanical_proofs": [
+        {
+          "criterion_id": "AC1",
+          "status": "pass",
+          "method": "citation_structure_only",
+          "proof_hash_matches": true,
+          "details": {
+            "cited": [
+              "1"
+            ],
+            "defined": [
+              "1"
+            ]
+          }
+        },
+        {
+          "criterion_id": "AC2",
+          "status": "not_verified",
+          "method": "semantic_review_pending",
+          "proof_hash_matches": true,
+          "details": {}
+        },
+        {
+          "criterion_id": "AC3",
+          "status": "pass",
+          "method": "csv_value_sum",
+          "proof_hash_matches": true,
+          "details": {
+            "candidate_sum": "6",
+            "inputs": {
+              "dataset": {
+                "revision_id": "fixed-data",
+                "rows": 3,
+                "sha256": "398691f9ae1cc7dd7f4b7807369311a057ce75d7ef55442350ab7fe46d69edbb"
+              }
+            },
+            "recomputed_sum": "6"
+          }
+        }
+      ],
+      "fake_profile_mode": true,
+      "real_provider_verified": false
+    },
+    "document": {
+      "task_state": "PUBLISHED",
+      "reported_starts": 2,
+      "actual_step_rows": 2,
+      "actual_request_rows": 2,
+      "publication_records": 1,
+      "source_hashes": [
+        {
+          "ref": "input/source.txt",
+          "expected_sha256": "33c9c638808f3d2aadf5064aff928b6549f9093db6906fb80bd688ab808c2145",
+          "actual_sha256": "33c9c638808f3d2aadf5064aff928b6549f9093db6906fb80bd688ab808c2145",
+          "matches": true
+        }
+      ],
+      "artifact_bytes_hash_matches": true,
+      "dependency_graph": {
+        "version": 1,
+        "nodes": {
+          "answer": {
+            "revision_id": "candidate-416e2925363c422d851e1314c9666959",
+            "dependencies": {},
+            "stale": false
+          }
+        }
+      },
+      "contract_dependencies": [],
+      "mechanical_proofs": [
+        {
+          "criterion_id": "AC1",
+          "status": "pass",
+          "method": "document_structure_and_source_tokens",
+          "proof_hash_matches": true,
+          "details": {
+            "protected_names": [
+              "Alice"
+            ],
+            "source_revision_id": "fixed-source",
+            "source_sha256": "33c9c638808f3d2aadf5064aff928b6549f9093db6906fb80bd688ab808c2145"
+          }
+        },
+        {
+          "criterion_id": "AC2",
+          "status": "not_verified",
+          "method": "semantic_review_pending",
+          "proof_hash_matches": true,
+          "details": {}
+        }
+      ],
+      "fake_profile_mode": true,
+      "real_provider_verified": false
+    },
+    "mixed": {
+      "task_state": "PUBLISHED",
+      "reported_starts": 2,
+      "actual_step_rows": 2,
+      "actual_request_rows": 2,
+      "publication_records": 1,
+      "source_hashes": [
+        {
+          "ref": "input/source.txt",
+          "expected_sha256": "51accef8722b9ea12420518627d2dc33573e57abaebc8c4cbce37c0ef045b0d5",
+          "actual_sha256": "51accef8722b9ea12420518627d2dc33573e57abaebc8c4cbce37c0ef045b0d5",
+          "matches": true
+        },
+        {
+          "ref": "input/md.csv",
+          "expected_sha256": "398691f9ae1cc7dd7f4b7807369311a057ce75d7ef55442350ab7fe46d69edbb",
+          "actual_sha256": "398691f9ae1cc7dd7f4b7807369311a057ce75d7ef55442350ab7fe46d69edbb",
+          "matches": true
+        },
+        {
+          "ref": "input/mx.py",
+          "expected_sha256": "8b15251546f7fb1415b4d4847e9abae93580b3992315bc16559a4ed39838a662",
+          "actual_sha256": "8b15251546f7fb1415b4d4847e9abae93580b3992315bc16559a4ed39838a662",
+          "matches": true
+        },
+        {
+          "ref": "input/mr.json",
+          "expected_sha256": "031ff026a1f704a3462310a6f4e8c3180ba093e6192b401b023192f65bf11028",
+          "actual_sha256": "031ff026a1f704a3462310a6f4e8c3180ba093e6192b401b023192f65bf11028",
+          "matches": true
+        },
+        {
+          "ref": "input/mf.svg",
+          "expected_sha256": "78444f65f148156f79bf6e347c1505d8a6aa98bf74de9c8411b241d9c9c52c1d",
+          "actual_sha256": "78444f65f148156f79bf6e347c1505d8a6aa98bf74de9c8411b241d9c9c52c1d",
+          "matches": true
+        }
+      ],
+      "artifact_bytes_hash_matches": true,
+      "dependency_graph": {
+        "version": 5,
+        "nodes": {
+          "data": {
+            "revision_id": "mx-data-fc3e565d638b40c29a879cb9b12e8009",
+            "dependencies": {},
+            "stale": false
+          },
+          "analysis": {
+            "revision_id": "mx-analysis-c4b1ddb938d74280b009d0909b3d23f6",
+            "dependencies": {
+              "data": "mx-data-fc3e565d638b40c29a879cb9b12e8009"
+            },
+            "stale": false
+          },
+          "result": {
+            "revision_id": "mx-result-dda132feca994f5891e47bffd9ccf035",
+            "dependencies": {
+              "analysis": "mx-analysis-c4b1ddb938d74280b009d0909b3d23f6"
+            },
+            "stale": false
+          },
+          "figure": {
+            "revision_id": "mx-figure-49931f5f466f48c09a6ce2465d740c96",
+            "dependencies": {
+              "result": "mx-result-dda132feca994f5891e47bffd9ccf035"
+            },
+            "stale": false
+          },
+          "answer": {
+            "revision_id": "candidate-d581db681e944547ab29363d095f374b",
+            "dependencies": {
+              "result": "mx-result-dda132feca994f5891e47bffd9ccf035",
+              "figure": "mx-figure-49931f5f466f48c09a6ce2465d740c96"
+            },
+            "stale": false
+          }
+        }
+      },
+      "contract_dependencies": [
+        "mx-result-dda132feca994f5891e47bffd9ccf035",
+        "mx-figure-49931f5f466f48c09a6ce2465d740c96"
+      ],
+      "mechanical_proofs": [
+        {
+          "criterion_id": "mixed-analysis-execution",
+          "status": "pass",
+          "method": "native_code_execution",
+          "proof_hash_matches": true,
+          "details": {
+            "command": [
+              "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\.venv\\Scripts\\python.exe",
+              "input/mx.py",
+              "input/md.csv",
+              "artifacts/mx"
+            ],
+            "executed": true,
+            "exit_code": 0,
+            "stderr": "",
+            "stdout": "6\r\n",
+            "timed_out": false,
+            "truncated": false
+          }
+        },
+        {
+          "criterion_id": "AC1",
+          "status": "pass",
+          "method": "persisted_dependency_current",
+          "proof_hash_matches": true,
+          "details": {
+            "dependency_fence": {
+              "attempt_id": "415e3b4569e1490d9d6fd2205ca0fe4a",
+              "graph_version": 5,
+              "revisions": {
+                "candidate-d581db681e944547ab29363d095f374b": "894d53a0cf080f3e8aa0fcc1759b4b7868bf42447c9cc41871eb3492e3a9b328"
+              },
+              "task_id": "85418e77a3814804b689a00e4bcd1f9c"
+            }
+          }
+        },
+        {
+          "criterion_id": "AC2",
+          "status": "not_verified",
+          "method": "semantic_review_pending",
+          "proof_hash_matches": true,
+          "details": {}
+        }
+      ],
+      "fake_profile_mode": true,
+      "real_provider_verified": false
+    }
+  },
+  "faults": {
+    "backend_repair": {
+      "task_state": "PUBLISHED",
+      "model_starts": 4,
+      "request_count": 4,
+      "public_answer_count": 1,
+      "quality_repairs": 1,
+      "reason_codes": [],
+      "recovery_decision": null,
+      "model_starts_after_restart": 0,
+      "publication_rejected": false,
+      "total_tokens": 63,
+      "restart_conservation": null,
+      "dependency_graph": {
+        "version": 2,
+        "nodes": {
+          "answer": {
+            "revision_id": "candidate-c23915ef6ccd40d89eebb4c3d9ac0577",
+            "dependencies": {},
+            "stale": false
+          }
+        }
+      }
+    },
+    "backend_need_evidence": {
+      "task_state": "NEEDS_INPUT",
+      "model_starts": 2,
+      "request_count": 2,
+      "public_answer_count": 0,
+      "quality_repairs": 0,
+      "reason_codes": [
+        "A_NEEDS_EVIDENCE"
+      ],
+      "recovery_decision": null,
+      "model_starts_after_restart": 0,
+      "publication_rejected": false,
+      "total_tokens": 30,
+      "restart_conservation": null,
+      "dependency_graph": {
+        "version": 1,
+        "nodes": {
+          "answer": {
+            "revision_id": "candidate-03282f4ea46248bd9116af8064aaac9e",
+            "dependencies": {},
+            "stale": false
+          }
+        }
+      }
+    },
+    "backend_cancel_late": {
+      "task_state": "CANCELLED",
+      "model_starts": 1,
+      "request_count": 1,
+      "public_answer_count": 0,
+      "quality_repairs": 0,
+      "reason_codes": [
+        "CANCELLED_FENCE"
+      ],
+      "recovery_decision": null,
+      "model_starts_after_restart": 0,
+      "publication_rejected": false,
+      "total_tokens": 15,
+      "restart_conservation": null,
+      "dependency_graph": null
+    },
+    "backend_restart": {
+      "task_state": "BLOCKED",
+      "model_starts": 2,
+      "request_count": 2,
+      "public_answer_count": 0,
+      "quality_repairs": 0,
+      "reason_codes": [
+        "PROVIDER_UNAVAILABLE"
+      ],
+      "recovery_decision": "blocked_unknown",
+      "model_starts_after_restart": 0,
+      "publication_rejected": false,
+      "total_tokens": null,
+      "restart_conservation": {
+        "request_count_before": 2,
+        "request_count_after": 2,
+        "unknown_requests_before": 1,
+        "unknown_requests_after": 1,
+        "artifact_sha256_before": "4e95e91c8af9cd871b2b433d97f466a743620fbf210d472590d2d5617429cdaa",
+        "artifact_sha256_after": "4e95e91c8af9cd871b2b433d97f466a743620fbf210d472590d2d5617429cdaa",
+        "recovery_mode": "factory reconstruction with existing workflow artifacts and disconnected external request"
+      },
+      "dependency_graph": {
+        "nodes": {
+          "answer": {
+            "dependencies": {},
+            "revision_id": "candidate-7006a750b65f4af88d9df088e2543fcf",
+            "stale": false
+          }
+        },
+        "version": 1
+      }
+    },
+    "backend_old_approval": {
+      "task_state": "BLOCKED",
+      "model_starts": 2,
+      "request_count": 2,
+      "public_answer_count": 0,
+      "quality_repairs": 0,
+      "reason_codes": [],
+      "recovery_decision": null,
+      "model_starts_after_restart": 0,
+      "publication_rejected": true,
+      "total_tokens": 33,
+      "restart_conservation": null,
+      "dependency_graph": {
+        "version": 2,
+        "nodes": {
+          "answer": {
+            "revision_id": "3c39151009c841598ac00a61249725ac",
+            "dependencies": {},
+            "stale": false
+          }
+        }
+      }
+    },
+    "backend_duplicate": {
+      "task_state": "PUBLISHED",
+      "model_starts": 2,
+      "request_count": 2,
+      "public_answer_count": 1,
+      "quality_repairs": 0,
+      "reason_codes": [],
+      "recovery_decision": null,
+      "model_starts_after_restart": 0,
+      "publication_rejected": false,
+      "total_tokens": 33,
+      "restart_conservation": null,
+      "dependency_graph": {
+        "version": 1,
+        "nodes": {
+          "answer": {
+            "revision_id": "candidate-b6609380e7344f8aa3865072ea737434",
+            "dependencies": {},
+            "stale": false
+          }
+        }
+      }
+    },
+    "backend_budget": {
+      "task_state": "BLOCKED",
+      "model_starts": 0,
+      "request_count": 0,
+      "public_answer_count": 0,
+      "quality_repairs": 0,
+      "reason_codes": [
+        "BUDGET_EXHAUSTED"
+      ],
+      "recovery_decision": null,
+      "model_starts_after_restart": 0,
+      "publication_rejected": false,
+      "total_tokens": 0,
+      "restart_conservation": null,
+      "dependency_graph": null
+    },
+    "backend_budget_after_repair": {
+      "task_state": "BLOCKED",
+      "model_starts": 3,
+      "request_count": 3,
+      "public_answer_count": 0,
+      "quality_repairs": 1,
+      "reason_codes": [
+        "BUDGET_EXHAUSTED"
+      ],
+      "recovery_decision": null,
+      "model_starts_after_restart": 0,
+      "publication_rejected": false,
+      "total_tokens": 45,
+      "restart_conservation": null,
+      "dependency_graph": {
+        "version": 2,
+        "nodes": {
+          "answer": {
+            "revision_id": "candidate-33ecba90a7534ceba915105f9ce788a1",
+            "dependencies": {},
+            "stale": false
+          }
+        }
+      }
+    },
+    "backend_connection_failure": {
+      "task_state": "BLOCKED",
+      "model_starts": 1,
+      "request_count": 1,
+      "public_answer_count": 0,
+      "quality_repairs": 0,
+      "reason_codes": [
+        "UNKNOWN_USAGE"
+      ],
+      "recovery_decision": null,
+      "model_starts_after_restart": 0,
+      "publication_rejected": false,
+      "total_tokens": null,
+      "restart_conservation": null,
+      "dependency_graph": null
+    },
+    "backend_language_gate": {
+      "task_state": "BLOCKED",
+      "model_starts": 0,
+      "request_count": 0,
+      "public_answer_count": 0,
+      "quality_repairs": 0,
+      "reason_codes": [
+        "CLAUDE_LANGUAGE_AND_PUBLICATION_GATES_MISSING"
+      ],
+      "recovery_decision": null,
+      "model_starts_after_restart": 0,
+      "publication_rejected": false,
+      "total_tokens": 0,
+      "restart_conservation": null,
+      "dependency_graph": null
+    },
+    "backend_upstream_change": {
+      "task_state": "BLOCKED",
+      "model_starts": 2,
+      "request_count": 2,
+      "public_answer_count": 0,
+      "quality_repairs": 0,
+      "reason_codes": [],
+      "recovery_decision": null,
+      "model_starts_after_restart": 0,
+      "publication_rejected": true,
+      "total_tokens": 33,
+      "restart_conservation": null,
+      "dependency_graph": {
+        "version": 6,
+        "nodes": {
+          "data": {
+            "revision_id": "7b980bb97a704beeaef68ac9f2355cb2",
+            "dependencies": {},
+            "stale": false
+          },
+          "analysis": {
+            "revision_id": "mx-analysis-f115d56b0d884252a88288c935cd96bf",
+            "dependencies": {
+              "data": "mx-data-969de58fab124d668c6c357c5a226147"
+            },
+            "stale": true
+          },
+          "result": {
+            "revision_id": "mx-result-0052f90419fd47aab064dfae93676119",
+            "dependencies": {
+              "analysis": "mx-analysis-f115d56b0d884252a88288c935cd96bf"
+            },
+            "stale": true
+          },
+          "figure": {
+            "revision_id": "mx-figure-8951575656da4bb0af38b62ad2361042",
+            "dependencies": {
+              "result": "mx-result-0052f90419fd47aab064dfae93676119"
+            },
+            "stale": true
+          },
+          "answer": {
+            "revision_id": "candidate-d6b584b89da249ab94e5163ca49945da",
+            "dependencies": {
+              "result": "mx-result-0052f90419fd47aab064dfae93676119",
+              "figure": "mx-figure-8951575656da4bb0af38b62ad2361042"
+            },
+            "stale": true
+          }
+        }
+      }
+    }
+  },
+  "fixture_root": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\vertical-review\\a31ccf3e2ba0407596e514b8e4b76d51",
+  "source_hashes_before": {
+    "tests/support/scenario_driver.py": "35e84bc3b46930057263db1f81fa6185f1138bc1406c50352497a7bf7a12c167",
+    "tests/integration/test_backend_vertical.py": "46930e1e82d8c636b86059897aaacf8f0f7ec9cd6e3bde7506e7ec370d0c7c1b",
+    "tests/fixtures/vertical_cases.json": "38ab0db8f989503eec0d6544a3cf78ff87bd4a493f3d1868db27617496bc98da",
+    "services/orchestrator/app/runtime/workflow.py": "02403ec6c63cb882edbe44e8a62bcf078205eb7fe9e59a6f1974fa82eec3249c",
+    "services/orchestrator/app/runtime/publication.py": "0e6df6cee26d0ca86781e8f679fd5ff94aa97c7aaca9fd67e4c77bf2ef73c713",
+    "tests/support/mixed_pipeline.py": "59140f01aebeca935ede31a82bcedacc2b9e0a9f781cb80e8264e7c9fb279cf3"
+  },
+  "source_hashes_after": {
+    "tests/support/scenario_driver.py": "35e84bc3b46930057263db1f81fa6185f1138bc1406c50352497a7bf7a12c167",
+    "tests/integration/test_backend_vertical.py": "46930e1e82d8c636b86059897aaacf8f0f7ec9cd6e3bde7506e7ec370d0c7c1b",
+    "tests/fixtures/vertical_cases.json": "38ab0db8f989503eec0d6544a3cf78ff87bd4a493f3d1868db27617496bc98da",
+    "services/orchestrator/app/runtime/workflow.py": "02403ec6c63cb882edbe44e8a62bcf078205eb7fe9e59a6f1974fa82eec3249c",
+    "services/orchestrator/app/runtime/publication.py": "0e6df6cee26d0ca86781e8f679fd5ff94aa97c7aaca9fd67e4c77bf2ef73c713",
+    "tests/support/mixed_pipeline.py": "59140f01aebeca935ede31a82bcedacc2b9e0a9f781cb80e8264e7c9fb279cf3"
+  },
+  "source_stable_during_replay": true
+}

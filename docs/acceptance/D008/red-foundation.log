@@ -1,0 +1,286 @@
+FFFFFFFFFFFFFFFFFFF                                                      [100%]
+================================== FAILURES ===================================
+________ test_connection_sets_row_factory_foreign_keys_wal_and_timeout ________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-24/test_connection_sets_row_facto0')
+
+    def test_connection_sets_row_factory_foreign_keys_wal_and_timeout(tmp_path):
+        connection = Database(tmp_path / "metadata.sqlite3", busy_timeout_ms=83).connect()
+        try:
+>           assert connection.row_factory is sqlite3.Row
+E           AssertionError: assert None is <class 'sqlite3.Row'>
+E            +  where None = <sqlite3.Connection object at 0x000001E557FB34C0>.row_factory
+E            +  and   <class 'sqlite3.Row'> = sqlite3.Row
+
+tests\integration\test_storage.py:22: AssertionError
+__________________ test_connection_creates_parent_directory ___________________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-24/test_connection_creates_parent0')
+
+    def test_connection_creates_parent_directory(tmp_path):
+>       connection = Database(tmp_path / "nested" / "metadata.sqlite3").connect()
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\integration\test_storage.py:33: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.storage.database.Database object at 0x000001E5583CDBD0>
+
+    def connect(self) -> sqlite3.Connection:
+>       return sqlite3.connect(self.path, isolation_level=None)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       sqlite3.OperationalError: unable to open database file
+
+services\orchestrator\app\storage\database.py:13: OperationalError
+_________________ test_transaction_rolls_back_on_interruption _________________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-24/test_transaction_rolls_back_on0')
+
+    def test_transaction_rolls_back_on_interruption(tmp_path):
+        connection = Database(tmp_path / "metadata.sqlite3").connect()
+        connection.execute("CREATE TABLE sample (id INTEGER PRIMARY KEY)")
+        try:
+            with pytest.raises(KeyboardInterrupt):
+                with transaction(connection):
+                    connection.execute("INSERT INTO sample VALUES (1)")
+                    raise KeyboardInterrupt
+>           assert connection.execute("SELECT count(*) FROM sample").fetchone()[0] == 0
+E           assert 1 == 0
+
+tests\integration\test_storage.py:46: AssertionError
+__________________ test_transaction_rejects_nested_boundary ___________________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-24/test_transaction_rejects_neste0')
+
+    def test_transaction_rejects_nested_boundary(tmp_path):
+        connection = Database(tmp_path / "metadata.sqlite3").connect()
+        try:
+            with transaction(connection):
+>               with pytest.raises(ValueError, match="TRANSACTION_ALREADY_ACTIVE"):
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E               Failed: DID NOT RAISE ValueError
+
+tests\integration\test_storage.py:58: Failed
+______ test_initial_migration_is_repeatable_and_builds_ten_domain_tables ______
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-24/test_initial_migration_is_repe0')
+
+    def test_initial_migration_is_repeatable_and_builds_ten_domain_tables(tmp_path):
+        connection = Database(tmp_path / "metadata.sqlite3").connect()
+        try:
+>           assert migrate(connection) == 1
+E           assert 0 == 1
+E            +  where 0 = migrate(<sqlite3.Connection object at 0x000001E5583B7D30>)
+
+tests\integration\test_storage.py:68: AssertionError
+______ test_sequential_upgrade_reopens_old_database_without_losing_rows _______
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-24/test_sequential_upgrade_reopen0')
+
+    def test_sequential_upgrade_reopens_old_database_without_losing_rows(tmp_path):
+        path = tmp_path / "old.sqlite3"
+        first = Migration(1, "old", "CREATE TABLE records(id TEXT PRIMARY KEY, text TEXT); INSERT INTO records VALUES ('r1','����');")
+        old = Database(path).connect()
+>       assert migrate(old, [first]) == 1
+E       assert 0 == 1
+E        +  where 0 = migrate(<sqlite3.Connection object at 0x000001E5584E0220>, [Migration(version=1, name='old', sql="CREATE TABLE records(id TEXT PRIMARY KEY, text TEXT); INSERT INTO records VALUES ('r1','����');")])
+
+tests\integration\test_storage.py:83: AssertionError
+___________ test_failed_upgrade_rolls_back_every_pending_migration ____________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-24/test_failed_upgrade_rolls_back0')
+
+    def test_failed_upgrade_rolls_back_every_pending_migration(tmp_path):
+        connection = Database(tmp_path / "metadata.sqlite3").connect()
+        first = Migration(1, "old", "CREATE TABLE records(id INTEGER); INSERT INTO records VALUES(7);")
+>       assert migrate(connection, [first]) == 1
+E       AssertionError: assert 0 == 1
+E        +  where 0 = migrate(<sqlite3.Connection object at 0x000001E5584E08B0>, [Migration(version=1, name='old', sql='CREATE TABLE records(id INTEGER); INSERT INTO records VALUES(7);')])
+
+tests\integration\test_storage.py:99: AssertionError
+_____ test_initial_failed_migration_leaves_no_metadata_or_partial_tables ______
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-24/test_initial_failed_migration_0')
+
+    def test_initial_failed_migration_leaves_no_metadata_or_partial_tables(tmp_path):
+        connection = Database(tmp_path / "metadata.sqlite3").connect()
+        try:
+>           with pytest.raises(sqlite3.OperationalError):
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           Failed: DID NOT RAISE OperationalError
+
+tests\integration\test_storage.py:115: Failed
+_______ test_migration_rejects_transaction_control_without_leaking_ddl ________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-24/test_migration_rejects_transac0')
+
+    def test_migration_rejects_transaction_control_without_leaking_ddl(tmp_path):
+        connection = Database(tmp_path / "metadata.sqlite3").connect()
+        try:
+>           with pytest.raises(MigrationError, match="TRANSACTION_CONTROL"):
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           Failed: DID NOT RAISE MigrationError
+
+tests\integration\test_storage.py:125: Failed
+_______ test_migration_rejects_missing_version_and_newer_unknown_schema _______
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-24/test_migration_rejects_missing0')
+
+    def test_migration_rejects_missing_version_and_newer_unknown_schema(tmp_path):
+        connection = Database(tmp_path / "metadata.sqlite3").connect()
+        first = Migration(1, "initial", "CREATE TABLE records(id INTEGER);")
+        try:
+>           with pytest.raises(MigrationError, match="CONTIGUOUS"):
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           Failed: DID NOT RAISE MigrationError
+
+tests\integration\test_storage.py:136: Failed
+_________________ test_migration_rejects_changed_applied_hash _________________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-24/test_migration_rejects_changed0')
+
+    def test_migration_rejects_changed_applied_hash(tmp_path):
+        connection = Database(tmp_path / "metadata.sqlite3").connect()
+        try:
+            first = Migration(1, "initial", "CREATE TABLE records(id INTEGER);")
+>           assert migrate(connection, [first]) == 1
+E           AssertionError: assert 0 == 1
+E            +  where 0 = migrate(<sqlite3.Connection object at 0x000001E5584E23E0>, [Migration(version=1, name='initial', sql='CREATE TABLE records(id INTEGER);')])
+
+tests\integration\test_storage.py:150: AssertionError
+____________ test_migration_rejects_unversioned_nonempty_database _____________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-24/test_migration_rejects_unversi0')
+
+    def test_migration_rejects_unversioned_nonempty_database(tmp_path):
+        connection = Database(tmp_path / "metadata.sqlite3").connect()
+        connection.execute("CREATE TABLE records(id INTEGER)")
+        connection.execute("INSERT INTO records VALUES(7)")
+        try:
+>           with pytest.raises(MigrationError, match="UNVERSIONED_DATABASE"):
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           Failed: DID NOT RAISE MigrationError
+
+tests\integration\test_storage.py:163: Failed
+_____ test_blob_roundtrip_uses_content_hash_and_preserves_existing_bytes ______
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-24/test_blob_roundtrip_uses_conte0')
+
+    def test_blob_roundtrip_uses_content_hash_and_preserves_existing_bytes(tmp_path):
+        store = BlobStore(tmp_path / "blobs")
+        original = b"immutable original\x00\xff"
+>       ref = store.put(original)
+              ^^^^^^^^^^^^^^^^^^^
+
+tests\integration\test_storage.py:173: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.storage.blobs.BlobStore object at 0x000001E558405010>
+data = b'immutable original\x00\xff'
+
+    def put(self, data: bytes) -> BlobRef:
+>       raise BlobError("NOT_IMPLEMENTED")
+E       app.storage.blobs.BlobError: NOT_IMPLEMENTED
+
+services\orchestrator\app\storage\blobs.py:22: BlobError
+___ test_blob_existing_content_with_wrong_hash_is_rejected_not_overwritten ____
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-24/test_blob_existing_content_wit0')
+
+    def test_blob_existing_content_with_wrong_hash_is_rejected_not_overwritten(tmp_path):
+        store = BlobStore(tmp_path / "blobs")
+        original = b"expected"
+        digest = hashlib.sha256(original).hexdigest()
+        destination = store.path_for(digest)
+        destination.parent.mkdir(parents=True)
+        destination.write_bytes(b"corrupted")
+>       with pytest.raises(BlobError, match="BLOB_HASH_MISMATCH"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError: Regex pattern did not match.
+E         Expected regex: 'BLOB_HASH_MISMATCH'
+E         Actual message: 'NOT_IMPLEMENTED'
+
+tests\integration\test_storage.py:192: AssertionError
+___________________ test_blob_read_refuses_missing_content ____________________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-24/test_blob_read_refuses_missing0')
+
+    def test_blob_read_refuses_missing_content(tmp_path):
+        store = BlobStore(tmp_path / "blobs")
+>       with pytest.raises(BlobError, match="BLOB_MISSING"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError: Regex pattern did not match.
+E         Expected regex: 'BLOB_MISSING'
+E         Actual message: 'NOT_IMPLEMENTED'
+
+tests\integration\test_storage.py:199: AssertionError
+_____________ test_blob_paths_reject_non_sha256_names[../secret] ______________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-24/test_blob_paths_reject_non_sha0')
+digest = '../secret'
+
+    @pytest.mark.parametrize("digest", ["../secret", "A" * 64, "a" * 63, "a" * 65])
+    def test_blob_paths_reject_non_sha256_names(tmp_path, digest):
+>       with pytest.raises(BlobError, match="INVALID_BLOB_HASH"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE BlobError
+
+tests\integration\test_storage.py:205: Failed
+_ test_blob_paths_reject_non_sha256_names[AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-24/test_blob_paths_reject_non_sha1')
+digest = 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'
+
+    @pytest.mark.parametrize("digest", ["../secret", "A" * 64, "a" * 63, "a" * 65])
+    def test_blob_paths_reject_non_sha256_names(tmp_path, digest):
+>       with pytest.raises(BlobError, match="INVALID_BLOB_HASH"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE BlobError
+
+tests\integration\test_storage.py:205: Failed
+_ test_blob_paths_reject_non_sha256_names[aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-24/test_blob_paths_reject_non_sha2')
+digest = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
+
+    @pytest.mark.parametrize("digest", ["../secret", "A" * 64, "a" * 63, "a" * 65])
+    def test_blob_paths_reject_non_sha256_names(tmp_path, digest):
+>       with pytest.raises(BlobError, match="INVALID_BLOB_HASH"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE BlobError
+
+tests\integration\test_storage.py:205: Failed
+_ test_blob_paths_reject_non_sha256_names[aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-24/test_blob_paths_reject_non_sha3')
+digest = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
+
+    @pytest.mark.parametrize("digest", ["../secret", "A" * 64, "a" * 63, "a" * 65])
+    def test_blob_paths_reject_non_sha256_names(tmp_path, digest):
+>       with pytest.raises(BlobError, match="INVALID_BLOB_HASH"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE BlobError
+
+tests\integration\test_storage.py:205: Failed
+=========================== short test summary info ===========================
+FAILED tests/integration/test_storage.py::test_connection_sets_row_factory_foreign_keys_wal_and_timeout
+FAILED tests/integration/test_storage.py::test_connection_creates_parent_directory
+FAILED tests/integration/test_storage.py::test_transaction_rolls_back_on_interruption
+FAILED tests/integration/test_storage.py::test_transaction_rejects_nested_boundary
+FAILED tests/integration/test_storage.py::test_initial_migration_is_repeatable_and_builds_ten_domain_tables
+FAILED tests/integration/test_storage.py::test_sequential_upgrade_reopens_old_database_without_losing_rows
+FAILED tests/integration/test_storage.py::test_failed_upgrade_rolls_back_every_pending_migration
+FAILED tests/integration/test_storage.py::test_initial_failed_migration_leaves_no_metadata_or_partial_tables
+FAILED tests/integration/test_storage.py::test_migration_rejects_transaction_control_without_leaking_ddl
+FAILED tests/integration/test_storage.py::test_migration_rejects_missing_version_and_newer_unknown_schema
+FAILED tests/integration/test_storage.py::test_migration_rejects_changed_applied_hash
+FAILED tests/integration/test_storage.py::test_migration_rejects_unversioned_nonempty_database
+FAILED tests/integration/test_storage.py::test_blob_roundtrip_uses_content_hash_and_preserves_existing_bytes
+FAILED tests/integration/test_storage.py::test_blob_existing_content_with_wrong_hash_is_rejected_not_overwritten
+FAILED tests/integration/test_storage.py::test_blob_read_refuses_missing_content
+FAILED tests/integration/test_storage.py::test_blob_paths_reject_non_sha256_names[../secret]
+FAILED tests/integration/test_storage.py::test_blob_paths_reject_non_sha256_names[AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]
+FAILED tests/integration/test_storage.py::test_blob_paths_reject_non_sha256_names[aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa]
+FAILED tests/integration/test_storage.py::test_blob_paths_reject_non_sha256_names[aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa]
+19 failed in 0.47s
+EXIT_CODE=1

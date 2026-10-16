@@ -1,0 +1,116 @@
+{
+  "generated_at": "2026-10-14T05:00:10.208284+00:00",
+  "status": "blocked_metadata_scope_unknown",
+  "submitted_model_turns": 0,
+  "scope_enforced": false,
+  "production_enabled": false,
+  "runtime_scope_qualification": false,
+  "direct_auth_home_or_config_file_reads": false,
+  "raw_private_values_exported": false,
+  "argv_exported": false,
+  "probe_sha256": "6fe3eb6359bcfd0856d85975e69c99fbbf0aa88eb2b2086f1144ff9a053def7b",
+  "projection_sha256": "926513457f6c08397d34322b5921d62323f859676da88c3513118a316118241e",
+  "metadata_sessions": [
+    {
+      "label": "baseline",
+      "server_starts": 1,
+      "submitted_model_turns": 0,
+      "rpc_calls": [
+        {
+          "method": "initialize",
+          "id": 1
+        },
+        {
+          "method": "initialized",
+          "id": null
+        },
+        {
+          "method": "config/read",
+          "id": 2
+        }
+      ],
+      "unexpected_model_activity": false,
+      "callback_count": 0,
+      "raw_config_argv_account_or_keys_exported": false,
+      "resources_after": {
+        "running": 0,
+        "temp_dirs": 0,
+        "open_handles": 0,
+        "peak_reserved_handles": 9,
+        "active_processes": 0,
+        "failed_cleanups": 0,
+        "query_errors": []
+      },
+      "local_cleanup": {
+        "local_state": "cancelled",
+        "exit_code": 0,
+        "remote_state": "unknown",
+        "remote_stop_confirmed": false,
+        "raw_output_persisted": false,
+        "stdout_kept_bytes": 18093,
+        "stderr_kept_bytes": 0
+      }
+    },
+    {
+      "label": "restricted",
+      "server_starts": 1,
+      "submitted_model_turns": 0,
+      "rpc_calls": [
+        {
+          "method": "initialize",
+          "id": 1
+        }
+      ],
+      "unexpected_model_activity": false,
+      "callback_count": 0,
+      "raw_config_argv_account_or_keys_exported": false,
+      "resources_after": {
+        "running": 0,
+        "temp_dirs": 0,
+        "open_handles": 0,
+        "peak_reserved_handles": 9,
+        "active_processes": 0,
+        "failed_cleanups": 0,
+        "query_errors": []
+      },
+      "private_error_classification": [],
+      "public_control_paths_referenced": [],
+      "public_enum_values_referenced": [],
+      "raw_private_error_exported": false,
+      "local_cleanup": {
+        "local_state": "failed",
+        "exit_code": 1,
+        "remote_state": "unknown",
+        "remote_stop_confirmed": false,
+        "raw_output_persisted": false,
+        "stdout_kept_bytes": 0,
+        "stderr_kept_bytes": 55
+      }
+    }
+  ],
+  "all_required_controls_verified": false,
+  "lifetime_config_refresh_boundary": "unknown_pending_source_review",
+  "maximum_seconds": 60,
+  "maximum_bytes_per_server": 2000000,
+  "native_home_environment_presence": {
+    "CODEX_HOME": false,
+    "CODEX_SQLITE_HOME": false
+  },
+  "runtime_version": "0.160.0",
+  "executable_sha256": "4b01d5920e6785614727443bbecf343f4dedbb7347052b72ba805aab6353ef01",
+  "baseline_mcp": {
+    "mcp_field_available": true,
+    "configured_server_count": 1,
+    "explicit_disabled_server_count": 0,
+    "allConfiguredMcpDisabled": false
+  },
+  "configured_mcp_key_count": 1,
+  "reason_code": "METADATA_SERVER_EXITED",
+  "failure_type": "RuntimeError",
+  "duration_seconds": 0.611,
+  "completed_at": "2026-10-14T05:00:10.819473+00:00",
+  "server_starts": 2,
+  "unexpected_model_activity": false,
+  "source_tag": "rust-v0.160.0",
+  "scope_unknown_reason": "Metadata is distinct from model execution scope; current tool registry and MCP refresh lifetime still require verified runtime enforcement."
+}

@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "version": "1.0",
+  "domains": {
+    "code": {
+      "registered": true,
+      "methods": [
+        "python_ast_parse",
+        "native_code_execution"
+      ],
+      "execution_requires_injected_tool": true
+    },
+    "paper": {
+      "registered": true,
+      "methods": [
+        "citation_structure_only",
+        "csv_value_sum"
+      ],
+      "claim_support": "pending_A_review"
+    },
+    "document": {
+      "registered": true,
+      "methods": [
+        "document_structure_and_source_tokens",
+        "native_document_renderer"
+      ],
+      "renderer_available_by_default": false
+    },
+    "mixed": {
+      "registered": true,
+      "methods": [
+        "persisted_dependency_current"
+      ],
+      "dependency_proof_required": true
+    }
+  },
+  "actual_native_execution": "D011 Windows Job, Python service-authored fixture",
+  "os_sandbox_for_untrusted_model_code": "unverified; execution disabled by default",
+  "document_renderer": "unavailable; blocked render result retained",
+  "citation_claim_support": "pending_A_review",
+  "provider_calls": 0
+}

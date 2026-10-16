@@ -1,0 +1,74 @@
+{
+  "at_utc": "2026-10-13T13:17:47.625179+00:00",
+  "evidence_records_verified": [
+    {
+      "record": "D011/process-tree.json",
+      "source_hashes": 5,
+      "exit_code": 0
+    },
+    {
+      "record": "D011/resource-report.json",
+      "source_hashes": 5,
+      "exit_code": 0
+    },
+    {
+      "record": "D017/scope-matrix.json",
+      "source_hashes": 4,
+      "exit_code": 0
+    },
+    {
+      "record": "D017/isolation-report.json",
+      "source_hashes": 4,
+      "exit_code": 0
+    },
+    {
+      "record": "D014/workflow-traces.json",
+      "source_hashes": 5,
+      "exit_code": 0
+    },
+    {
+      "record": "D014/repair-evidence.json",
+      "source_hashes": 5,
+      "exit_code": 0
+    },
+    {
+      "record": "D014/stream-evidence.json",
+      "source_hashes": 4,
+      "exit_code": 0
+    }
+  ],
+  "source_sha256": {
+    "services/orchestrator/app/runtime/__init__.py": "f3790ca5601f1523f4f701582eeb7c78356fdc8580be4001dca6f3854d4521e2",
+    "services/orchestrator/app/runtime/processes.py": "3571e9f529f4d953a90ee75a222a1153bd5352ce6289d541ddcc4137a0d72f26",
+    "services/orchestrator/app/runtime/resources.py": "2b9b7c4019ca6f034d872b4c048af33cdc68e676eaca1c267f36ffbd70fecb18",
+    "services/orchestrator/app/runtime/leases.py": "465825fd98ef54497dae1cb339c8752fdb35c9271518f85819a8328e6d935413",
+    "services/orchestrator/app/runtime/workspace.py": "cce81355c4b4013099c689e177cb7e4ab15792fb773871a8e69f655ee939c383",
+    "services/orchestrator/app/runtime/context_gateway.py": "965264a213da5d999f0b187b8e5113dbf8e05bb4df147e4be5dfcda462b54b25",
+    "services/orchestrator/app/runtime/workflow.py": "fd0d743d2de7a0a8cca56b6c14ba77e8fbe64036c52cc6e913ee1061f90aa5ce",
+    "services/orchestrator/app/runtime/repair.py": "13e6848aca9cc573906da5130754c4bf8310f5669cbc00f28a075500aab5bd29",
+    "services/orchestrator/app/providers/fake.py": "abec8a68b99a0e269aa77143e41b528d71b312b334fa3d2772448941b2d2763e",
+    "tests/integration/test_process_lifecycle.py": "9575df553a1148546905d9fbe48153c9c95f407731ca543f5466f4156eb0de2c",
+    "tests/integration/test_workspace.py": "dc67afb1affb2eb3a27c23b28b7a559cb4cb306c9e73ad7bff4f896c2e719436",
+    "tests/integration/test_context_gateway.py": "77b5c2fca1cd4fceb70a4907a030e7a245cc9e8a0f87d708a17108dc9d9581fc",
+    "tests/integration/test_agent_workflow.py": "3b31a01b6ffcc1a6f24cab0a790626cb6e3e91401d14c38ecf130710e9013b1e",
+    "tests/fixtures/process_worker.py": "5b454d4b3ccd2716899994e2ad09932c1a7aea64a5de3199c5a9a06e28878d4f",
+    "tests/fixtures/workflow_cases.json": "97fed4eb9dc78ebe094f146b08df5203ed45d18c3ffe07f784c9165aad1c82ba",
+    ".superpowers/sdd/process-interface.md": "e4a8d4cd7cd88c9382f0c106ff6f5eb6b7db1f9ff4e072a09bcb5d65ebabe5db",
+    ".superpowers/sdd/workspace-interface.md": "090183889f7d920e559b1e81f1e3174837f64b98cbf2d94e2b48420faea3cba1",
+    ".superpowers/sdd/workflow-interface.md": "1a5ea3acbab434d5cd76cd3117528c80a626e52ff4e710cb8dddfdaea2e8d16f",
+    "docs/acceptance/D011/verify.py": "36e87ab4423d0a58f7f9f572ed563b93d21270b3ad254a71bace95c5fdf918d7",
+    "docs/acceptance/D017/verify.py": "b91d5b0585b8561b0add07605f2d68dcc516eca0540809892e37a09984e16ce7",
+    "docs/acceptance/D014/verify.py": "949b8381ea3c08a7f5f5a3df3adbd3428d08e0160623d238500ae06ccc6fbaec",
+    "docs/acceptance/D011/implementation-report.md": "7b234f657efbc4437f540a9ccf70819187b422e31a8e65e7c14a0a0a508fac53",
+    "docs/acceptance/D017/implementation-report.md": "c35890129385931389c7556968d6a64c9794ae6f4e12ceb5415bf219f2756365",
+    "docs/acceptance/D014/implementation-report.md": "8e6030664266748c53de447b9c8794866cfac5f4a1150f12b1993c456c1e74a5",
+    "docs/acceptance/D014/verify-stream.py": "0ff3f7980a078b45cce7426c18a26ac75ccc01ac212c9b85318f07d3a04335fc"
+  },
+  "combined_verified_tests": 119,
+  "workflow_verified_tests": 55,
+  "new_stream_boundary_and_control_tests": 19,
+  "real_model_calls": 0,
+  "shared_schema_changes": 0,
+  "dependency_installs": 0,
+  "commits": 0
+}

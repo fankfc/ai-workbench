@@ -1,0 +1,208 @@
+.......FFFFFF                                                            [100%]
+================================== FAILURES ===================================
+_ test_changed_review_or_pinned_contract_after_stage_never_publishes[revision] _
+
+prepared = (<starlette.testclient.TestClient object at 0x0000017840A9D260>, 'fd8bdce0b9de4ca7bd88b13b49ade4cd', 'f11f9c8b232d4708...est_changed_review_or_pinned_0/evidence'), <app.runtime.publication.NativePublisher object at 0x0000017840AE98C0>, ...)
+change = 'revision'
+
+    @pytest.mark.parametrize('change',['revision','task','route','canonical','budget','pinned_contract'])
+    def test_changed_review_or_pinned_contract_after_stage_never_publishes(prepared,change):
+        client,_,task,attempt,root,publisher,machine=prepared
+        publisher.stage(task,attempt,'1.0','rev1','a-review')
+        machine.transition(task,attempt,'OUTPUT_PREPARING','READY','1.0')
+        with closing(client.app.state.database.connect()) as connection:
+            if change=='pinned_contract':
+                row=connection.execute('SELECT * FROM task_runs WHERE task_id=?',(task,)).fetchone()
+                checkpoint=json.loads(row['checkpoint_json'])
+                checkpoint['task_contract']['budget']['total_tokens']=1
+                checkpoint['task_contract']['budget']['reserved_a_tokens']=0
+                connection.execute('UPDATE task_runs SET checkpoint_json=? WHERE task_id=?',(json.dumps(checkpoint),task))
+            else:
+                check=connection.execute("SELECT * FROM checks WHERE id='a-review'").fetchone()
+                details=json.loads(check['details_json'])
+                contract=details['contract']
+                if change=='task': contract['task_id']='different-task'
+                elif change=='route': contract['route_snapshot_id']='different-route'
+                elif change=='canonical': contract['deliverables'][0]['require_a_canonical']=True
+                elif change=='budget': contract['budget']=dict(total_tokens=1,reserved_a_tokens=0)
+                details['decision']=make_decision(contract,'rev2' if change=='revision' else 'rev1',root)
+                connection.execute("UPDATE checks SET details_json=? WHERE id='a-review'",(json.dumps(details),))
+>       with pytest.raises(PublicationBlocked):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE PublicationBlocked
+
+tests\integration\test_native_publication.py:136: Failed
+__ test_changed_review_or_pinned_contract_after_stage_never_publishes[task] ___
+
+prepared = (<starlette.testclient.TestClient object at 0x0000017840A9C5A0>, '135e5fd1ea4b4b23bd457d08de1fbef3', 'cada48dcb5464305...est_changed_review_or_pinned_1/evidence'), <app.runtime.publication.NativePublisher object at 0x0000017840A74D50>, ...)
+change = 'task'
+
+    @pytest.mark.parametrize('change',['revision','task','route','canonical','budget','pinned_contract'])
+    def test_changed_review_or_pinned_contract_after_stage_never_publishes(prepared,change):
+        client,_,task,attempt,root,publisher,machine=prepared
+        publisher.stage(task,attempt,'1.0','rev1','a-review')
+        machine.transition(task,attempt,'OUTPUT_PREPARING','READY','1.0')
+        with closing(client.app.state.database.connect()) as connection:
+            if change=='pinned_contract':
+                row=connection.execute('SELECT * FROM task_runs WHERE task_id=?',(task,)).fetchone()
+                checkpoint=json.loads(row['checkpoint_json'])
+                checkpoint['task_contract']['budget']['total_tokens']=1
+                checkpoint['task_contract']['budget']['reserved_a_tokens']=0
+                connection.execute('UPDATE task_runs SET checkpoint_json=? WHERE task_id=?',(json.dumps(checkpoint),task))
+            else:
+                check=connection.execute("SELECT * FROM checks WHERE id='a-review'").fetchone()
+                details=json.loads(check['details_json'])
+                contract=details['contract']
+                if change=='task': contract['task_id']='different-task'
+                elif change=='route': contract['route_snapshot_id']='different-route'
+                elif change=='canonical': contract['deliverables'][0]['require_a_canonical']=True
+                elif change=='budget': contract['budget']=dict(total_tokens=1,reserved_a_tokens=0)
+                details['decision']=make_decision(contract,'rev2' if change=='revision' else 'rev1',root)
+                connection.execute("UPDATE checks SET details_json=? WHERE id='a-review'",(json.dumps(details),))
+>       with pytest.raises(PublicationBlocked):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE PublicationBlocked
+
+tests\integration\test_native_publication.py:136: Failed
+__ test_changed_review_or_pinned_contract_after_stage_never_publishes[route] __
+
+prepared = (<starlette.testclient.TestClient object at 0x0000017840A205A0>, '9ad54a2a26ce4c118809ff39d603361e', '588ca3d910014be3...est_changed_review_or_pinned_2/evidence'), <app.runtime.publication.NativePublisher object at 0x0000017840A76250>, ...)
+change = 'route'
+
+    @pytest.mark.parametrize('change',['revision','task','route','canonical','budget','pinned_contract'])
+    def test_changed_review_or_pinned_contract_after_stage_never_publishes(prepared,change):
+        client,_,task,attempt,root,publisher,machine=prepared
+        publisher.stage(task,attempt,'1.0','rev1','a-review')
+        machine.transition(task,attempt,'OUTPUT_PREPARING','READY','1.0')
+        with closing(client.app.state.database.connect()) as connection:
+            if change=='pinned_contract':
+                row=connection.execute('SELECT * FROM task_runs WHERE task_id=?',(task,)).fetchone()
+                checkpoint=json.loads(row['checkpoint_json'])
+                checkpoint['task_contract']['budget']['total_tokens']=1
+                checkpoint['task_contract']['budget']['reserved_a_tokens']=0
+                connection.execute('UPDATE task_runs SET checkpoint_json=? WHERE task_id=?',(json.dumps(checkpoint),task))
+            else:
+                check=connection.execute("SELECT * FROM checks WHERE id='a-review'").fetchone()
+                details=json.loads(check['details_json'])
+                contract=details['contract']
+                if change=='task': contract['task_id']='different-task'
+                elif change=='route': contract['route_snapshot_id']='different-route'
+                elif change=='canonical': contract['deliverables'][0]['require_a_canonical']=True
+                elif change=='budget': contract['budget']=dict(total_tokens=1,reserved_a_tokens=0)
+                details['decision']=make_decision(contract,'rev2' if change=='revision' else 'rev1',root)
+                connection.execute("UPDATE checks SET details_json=? WHERE id='a-review'",(json.dumps(details),))
+>       with pytest.raises(PublicationBlocked):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE PublicationBlocked
+
+tests\integration\test_native_publication.py:136: Failed
+_ test_changed_review_or_pinned_contract_after_stage_never_publishes[canonical] _
+
+prepared = (<starlette.testclient.TestClient object at 0x0000017840996580>, '939382b5b4f645e1ac1a2693c0a8d669', '4d0d56ae693d45ea...est_changed_review_or_pinned_3/evidence'), <app.runtime.publication.NativePublisher object at 0x00000178409F98B0>, ...)
+change = 'canonical'
+
+    @pytest.mark.parametrize('change',['revision','task','route','canonical','budget','pinned_contract'])
+    def test_changed_review_or_pinned_contract_after_stage_never_publishes(prepared,change):
+        client,_,task,attempt,root,publisher,machine=prepared
+        publisher.stage(task,attempt,'1.0','rev1','a-review')
+        machine.transition(task,attempt,'OUTPUT_PREPARING','READY','1.0')
+        with closing(client.app.state.database.connect()) as connection:
+            if change=='pinned_contract':
+                row=connection.execute('SELECT * FROM task_runs WHERE task_id=?',(task,)).fetchone()
+                checkpoint=json.loads(row['checkpoint_json'])
+                checkpoint['task_contract']['budget']['total_tokens']=1
+                checkpoint['task_contract']['budget']['reserved_a_tokens']=0
+                connection.execute('UPDATE task_runs SET checkpoint_json=? WHERE task_id=?',(json.dumps(checkpoint),task))
+            else:
+                check=connection.execute("SELECT * FROM checks WHERE id='a-review'").fetchone()
+                details=json.loads(check['details_json'])
+                contract=details['contract']
+                if change=='task': contract['task_id']='different-task'
+                elif change=='route': contract['route_snapshot_id']='different-route'
+                elif change=='canonical': contract['deliverables'][0]['require_a_canonical']=True
+                elif change=='budget': contract['budget']=dict(total_tokens=1,reserved_a_tokens=0)
+                details['decision']=make_decision(contract,'rev2' if change=='revision' else 'rev1',root)
+                connection.execute("UPDATE checks SET details_json=? WHERE id='a-review'",(json.dumps(details),))
+>       with pytest.raises(PublicationBlocked):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE PublicationBlocked
+
+tests\integration\test_native_publication.py:136: Failed
+_ test_changed_review_or_pinned_contract_after_stage_never_publishes[budget] __
+
+prepared = (<starlette.testclient.TestClient object at 0x0000017840B32030>, 'c93fa7cd660b4cabb8859eb6be4bc1be', '5d8e68b8f6cb4671...est_changed_review_or_pinned_4/evidence'), <app.runtime.publication.NativePublisher object at 0x0000017840ABA210>, ...)
+change = 'budget'
+
+    @pytest.mark.parametrize('change',['revision','task','route','canonical','budget','pinned_contract'])
+    def test_changed_review_or_pinned_contract_after_stage_never_publishes(prepared,change):
+        client,_,task,attempt,root,publisher,machine=prepared
+        publisher.stage(task,attempt,'1.0','rev1','a-review')
+        machine.transition(task,attempt,'OUTPUT_PREPARING','READY','1.0')
+        with closing(client.app.state.database.connect()) as connection:
+            if change=='pinned_contract':
+                row=connection.execute('SELECT * FROM task_runs WHERE task_id=?',(task,)).fetchone()
+                checkpoint=json.loads(row['checkpoint_json'])
+                checkpoint['task_contract']['budget']['total_tokens']=1
+                checkpoint['task_contract']['budget']['reserved_a_tokens']=0
+                connection.execute('UPDATE task_runs SET checkpoint_json=? WHERE task_id=?',(json.dumps(checkpoint),task))
+            else:
+                check=connection.execute("SELECT * FROM checks WHERE id='a-review'").fetchone()
+                details=json.loads(check['details_json'])
+                contract=details['contract']
+                if change=='task': contract['task_id']='different-task'
+                elif change=='route': contract['route_snapshot_id']='different-route'
+                elif change=='canonical': contract['deliverables'][0]['require_a_canonical']=True
+                elif change=='budget': contract['budget']=dict(total_tokens=1,reserved_a_tokens=0)
+                details['decision']=make_decision(contract,'rev2' if change=='revision' else 'rev1',root)
+                connection.execute("UPDATE checks SET details_json=? WHERE id='a-review'",(json.dumps(details),))
+>       with pytest.raises(PublicationBlocked):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE PublicationBlocked
+
+tests\integration\test_native_publication.py:136: Failed
+_ test_changed_review_or_pinned_contract_after_stage_never_publishes[pinned_contract] _
+
+prepared = (<starlette.testclient.TestClient object at 0x0000017840B32470>, '9f8b8b0b05104d1f91766dc1c6bd87ec', '9419cbfd29924fae...est_changed_review_or_pinned_5/evidence'), <app.runtime.publication.NativePublisher object at 0x0000017840DDD7F0>, ...)
+change = 'pinned_contract'
+
+    @pytest.mark.parametrize('change',['revision','task','route','canonical','budget','pinned_contract'])
+    def test_changed_review_or_pinned_contract_after_stage_never_publishes(prepared,change):
+        client,_,task,attempt,root,publisher,machine=prepared
+        publisher.stage(task,attempt,'1.0','rev1','a-review')
+        machine.transition(task,attempt,'OUTPUT_PREPARING','READY','1.0')
+        with closing(client.app.state.database.connect()) as connection:
+            if change=='pinned_contract':
+                row=connection.execute('SELECT * FROM task_runs WHERE task_id=?',(task,)).fetchone()
+                checkpoint=json.loads(row['checkpoint_json'])
+                checkpoint['task_contract']['budget']['total_tokens']=1
+                checkpoint['task_contract']['budget']['reserved_a_tokens']=0
+                connection.execute('UPDATE task_runs SET checkpoint_json=? WHERE task_id=?',(json.dumps(checkpoint),task))
+            else:
+                check=connection.execute("SELECT * FROM checks WHERE id='a-review'").fetchone()
+                details=json.loads(check['details_json'])
+                contract=details['contract']
+                if change=='task': contract['task_id']='different-task'
+                elif change=='route': contract['route_snapshot_id']='different-route'
+                elif change=='canonical': contract['deliverables'][0]['require_a_canonical']=True
+                elif change=='budget': contract['budget']=dict(total_tokens=1,reserved_a_tokens=0)
+                details['decision']=make_decision(contract,'rev2' if change=='revision' else 'rev1',root)
+                connection.execute("UPDATE checks SET details_json=? WHERE id='a-review'",(json.dumps(details),))
+>       with pytest.raises(PublicationBlocked):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE PublicationBlocked
+
+tests\integration\test_native_publication.py:136: Failed
+============================== warnings summary ===============================
+tests/integration/test_native_publication.py::test_native_release_reads_approved_bytes_and_is_idempotent
+  C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/integration/test_native_publication.py::test_changed_review_or_pinned_contract_after_stage_never_publishes[revision]
+FAILED tests/integration/test_native_publication.py::test_changed_review_or_pinned_contract_after_stage_never_publishes[task]
+FAILED tests/integration/test_native_publication.py::test_changed_review_or_pinned_contract_after_stage_never_publishes[route]
+FAILED tests/integration/test_native_publication.py::test_changed_review_or_pinned_contract_after_stage_never_publishes[canonical]
+FAILED tests/integration/test_native_publication.py::test_changed_review_or_pinned_contract_after_stage_never_publishes[budget]
+FAILED tests/integration/test_native_publication.py::test_changed_review_or_pinned_contract_after_stage_never_publishes[pinned_contract]
+6 failed, 7 passed, 1 warning in 1.97s

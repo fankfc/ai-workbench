@@ -1,0 +1,34 @@
+FF.F                                                                     [100%]
+================================== FAILURES ===================================
+__ test_candidate_language_metadata_is_explicit_and_never_inferred[None-und] __
+tests\integration\test_agent_workflow.py:251: in test_candidate_language_metadata_is_explicit_and_never_inferred
+    assert connection.execute("SELECT language FROM artifact_revisions").fetchone()[0] == expected
+E   AssertionError: assert 'zh-CN' == 'und'
+E     
+E     - und
+E     + zh-CN
+___ test_candidate_language_metadata_is_explicit_and_never_inferred[en-en] ____
+tests\integration\test_agent_workflow.py:251: in test_candidate_language_metadata_is_explicit_and_never_inferred
+    assert connection.execute("SELECT language FROM artifact_revisions").fetchone()[0] == expected
+E   AssertionError: assert 'zh-CN' == 'en'
+E     
+E     - en
+E     + zh-CN
+____________ test_unknown_language_label_does_not_create_artifact _____________
+tests\integration\test_agent_workflow.py:257: in test_unknown_language_label_does_not_create_artifact
+    assert result.state == "BLOCKED" and "CANDIDATE_LANGUAGE_INVALID" in result.reason_codes
+E   AssertionError: assert ('BLOCKED' == 'BLOCKED'
+E     
+E       BLOCKED and 'CANDIDATE_LANGUAGE_INVALID' in ('PROVIDER_RESPONSE_FAILED',))
+E    +  where ('PROVIDER_RESPONSE_FAILED',) = WorkflowResult(state='BLOCKED', current_revision_id='candidate-6584497b868c4c11b980c3c28c4cb828', review_check_id=None...n_language_label_do0\\workspaces\\tasks\\8cfc5ce6570e473c9dd128c399240324\\cfe89e2b8c49490ab62ef5c8e44ff0fa\\evidence').reason_codes
+============================== warnings summary ===============================
+tests/integration/test_agent_workflow.py::test_candidate_language_metadata_is_explicit_and_never_inferred[None-und]
+  C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/integration/test_agent_workflow.py::test_candidate_language_metadata_is_explicit_and_never_inferred[None-und]
+FAILED tests/integration/test_agent_workflow.py::test_candidate_language_metadata_is_explicit_and_never_inferred[en-en]
+FAILED tests/integration/test_agent_workflow.py::test_unknown_language_label_does_not_create_artifact
+3 failed, 1 passed, 19 deselected, 1 warning in 2.37s

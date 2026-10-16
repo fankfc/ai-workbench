@@ -1,0 +1,108 @@
+{
+  "checked_at": "2026-10-15T03:23:44.660237+00:00",
+  "diagnostic_only": true,
+  "runs": [
+    {
+      "run": "final-v1",
+      "manifest_validation": {
+        "valid": true,
+        "issues": []
+      },
+      "sealed_file_count": 111,
+      "manifest_sha256": "d4d36a2b5409f5784662ada9595c86057264a20be46caa4f63ab977fb2aefe15",
+      "local_sop_passed": false,
+      "source_unchanged": false,
+      "counts": {
+        "pytest": {
+          "total": 1561,
+          "passed": 1533,
+          "failed": 28,
+          "skipped": 0,
+          "invalid": 0
+        },
+        "vitest": {
+          "total": 88,
+          "passed": 88,
+          "failed": 0,
+          "skipped": 0,
+          "invalid": 0
+        },
+        "playwright": {
+          "total": 35,
+          "passed": 35,
+          "failed": 0,
+          "skipped": 0,
+          "invalid": 0
+        }
+      }
+    },
+    {
+      "run": "final-v2",
+      "manifest_validation": {
+        "valid": true,
+        "issues": []
+      },
+      "sealed_file_count": 110,
+      "manifest_sha256": "d0aa628ec86589a5db51e895a1c3f8028649e291052930285ee4db295553faaf",
+      "local_sop_passed": false,
+      "source_unchanged": false,
+      "counts": {
+        "pytest": {
+          "total": 1566,
+          "passed": 1565,
+          "failed": 1,
+          "skipped": 0,
+          "invalid": 0
+        },
+        "vitest": {
+          "total": 88,
+          "passed": 88,
+          "failed": 0,
+          "skipped": 0,
+          "invalid": 0
+        },
+        "playwright": {
+          "total": 35,
+          "passed": 35,
+          "failed": 0,
+          "skipped": 0,
+          "invalid": 0
+        }
+      }
+    },
+    {
+      "run": "final-v3",
+      "manifest_validation": {
+        "valid": true,
+        "issues": []
+      },
+      "sealed_file_count": 110,
+      "manifest_sha256": "03117d5b142b9bfb9cd5a12385151ee737944e349b50c863d126e649bdcf2398",
+      "local_sop_passed": false,
+      "source_unchanged": true,
+      "counts": {
+        "pytest": {
+          "total": 1577,
+          "passed": 1576,
+          "failed": 1,
+          "skipped": 0,
+          "invalid": 0
+        },
+        "vitest": {
+          "total": 88,
+          "passed": 88,
+          "failed": 0,
+          "skipped": 0,
+          "invalid": 0
+        },
+        "playwright": {
+          "total": 35,
+          "passed": 35,
+          "failed": 0,
+          "skipped": 0,
+          "invalid": 0
+        }
+      }
+    }
+  ]
+}

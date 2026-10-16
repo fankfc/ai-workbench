@@ -1,0 +1,173 @@
+{
+  "generated_at": "2026-10-13T13:44:38.730281+00:00",
+  "command": [
+    "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\.venv\\Scripts\\python.exe",
+    "-m",
+    "pytest",
+    "tests/integration/test_mixed_pipeline.py",
+    "tests/integration/test_backend_vertical.py",
+    "-q",
+    "-k",
+    "mixed or upstream or budget_after_repair",
+    "--basetemp",
+    "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\id20-daf69657\\pytest",
+    "--junitxml",
+    "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\id20-daf69657\\tests.xml"
+  ],
+  "exit_code": 0,
+  "source_hashes_before": {
+    "tests/support/scenario_driver.py": "35e84bc3b46930057263db1f81fa6185f1138bc1406c50352497a7bf7a12c167",
+    "tests/support/mixed_pipeline.py": "59140f01aebeca935ede31a82bcedacc2b9e0a9f781cb80e8264e7c9fb279cf3",
+    "tests/integration/test_backend_vertical.py": "fe975c61bb8d390812d1c0461a16b20c454c7c77b097b545f047bb6d574ebec3",
+    "tests/integration/test_mixed_pipeline.py": "45c689e7c8a96f6e492a02eb6a04453ef64aa75006e186752bf1eeff1c55fbcb",
+    "services/orchestrator/app/runtime/workflow.py": "fd0d743d2de7a0a8cca56b6c14ba77e8fbe64036c52cc6e913ee1061f90aa5ce",
+    "services/orchestrator/app/runtime/publication.py": "0e6df6cee26d0ca86781e8f679fd5ff94aa97c7aaca9fd67e4c77bf2ef73c713",
+    "services/orchestrator/app/runtime/public_projection.py": "d6ba0476d43fef0e589fbf6d1b55540c1c67b4b621bb4822335f8435c2843808",
+    "services/orchestrator/app/storage/revisions.py": "7eed349575095a198c2b278a6ffe2515c09d86f1de0b74f64a82f88d1fd97173",
+    "services/orchestrator/app/runtime/dependencies.py": "77b7fa093c2295a40ef8e6bb2cf2268fc000178fa4fa2eb022b0d4d416eb57dd",
+    "services/orchestrator/app/usage/ledger.py": "83c7b84889f8672114626e7139abce636c9c1c331ef616a2b61e526324b9daed"
+  },
+  "source_hashes_after": {
+    "tests/support/scenario_driver.py": "35e84bc3b46930057263db1f81fa6185f1138bc1406c50352497a7bf7a12c167",
+    "tests/support/mixed_pipeline.py": "59140f01aebeca935ede31a82bcedacc2b9e0a9f781cb80e8264e7c9fb279cf3",
+    "tests/integration/test_backend_vertical.py": "fe975c61bb8d390812d1c0461a16b20c454c7c77b097b545f047bb6d574ebec3",
+    "tests/integration/test_mixed_pipeline.py": "45c689e7c8a96f6e492a02eb6a04453ef64aa75006e186752bf1eeff1c55fbcb",
+    "services/orchestrator/app/runtime/workflow.py": "fd0d743d2de7a0a8cca56b6c14ba77e8fbe64036c52cc6e913ee1061f90aa5ce",
+    "services/orchestrator/app/runtime/publication.py": "0e6df6cee26d0ca86781e8f679fd5ff94aa97c7aaca9fd67e4c77bf2ef73c713",
+    "services/orchestrator/app/runtime/public_projection.py": "d6ba0476d43fef0e589fbf6d1b55540c1c67b4b621bb4822335f8435c2843808",
+    "services/orchestrator/app/storage/revisions.py": "7eed349575095a198c2b278a6ffe2515c09d86f1de0b74f64a82f88d1fd97173",
+    "services/orchestrator/app/runtime/dependencies.py": "77b7fa093c2295a40ef8e6bb2cf2268fc000178fa4fa2eb022b0d4d416eb57dd",
+    "services/orchestrator/app/usage/ledger.py": "83c7b84889f8672114626e7139abce636c9c1c331ef616a2b61e526324b9daed"
+  },
+  "source_unchanged": true,
+  "junit_counts": {
+    "tests": 8,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "junit_path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\id20-daf69657\\tests.xml",
+  "scope": "Independent local fake-provider integration and actual read-only SQLite/blob inspection",
+  "real_handoff_complete": false,
+  "observed_scenarios": [
+    {
+      "case": "backend_budget_after_repair",
+      "domain": "code",
+      "task_state": "BLOCKED",
+      "database_path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\id20-daf69657\\pytest\\test_budget_after_repair_prese0\\rf0d73918\\workbench.sqlite3",
+      "candidate_count": 2,
+      "request_count": 3,
+      "model_starts": 3,
+      "public_answer_count": 0,
+      "total_tokens": 45,
+      "provider_boundary": "fake",
+      "chain": {}
+    },
+    {
+      "case": "backend_normal",
+      "domain": "mixed",
+      "task_state": "PUBLISHED",
+      "database_path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\id20-daf69657\\pytest\\test_four_domains_integrate_ac0\\rb4622840\\workbench.sqlite3",
+      "candidate_count": 1,
+      "request_count": 2,
+      "model_starts": 2,
+      "public_answer_count": 1,
+      "total_tokens": 33,
+      "provider_boundary": "fake",
+      "chain": {
+        "data": {
+          "revision_id": "mx-data-1f6ad12e993d45759c0cf289f655e10c",
+          "byte_sha256": "398691f9ae1cc7dd7f4b7807369311a057ce75d7ef55442350ab7fe46d69edbb",
+          "dependencies": [],
+          "stale": false
+        },
+        "analysis": {
+          "revision_id": "mx-analysis-b1b919c584d2410db42aa382fd107b1a",
+          "byte_sha256": "8b15251546f7fb1415b4d4847e9abae93580b3992315bc16559a4ed39838a662",
+          "dependencies": [
+            "mx-data-1f6ad12e993d45759c0cf289f655e10c"
+          ],
+          "stale": false
+        },
+        "result": {
+          "revision_id": "mx-result-d6db5b4b4bd94208b935cde85308538c",
+          "byte_sha256": "031ff026a1f704a3462310a6f4e8c3180ba093e6192b401b023192f65bf11028",
+          "dependencies": [
+            "mx-analysis-b1b919c584d2410db42aa382fd107b1a"
+          ],
+          "stale": false
+        },
+        "figure": {
+          "revision_id": "mx-figure-83ffb3e785844ee599728f19017c0bfd",
+          "byte_sha256": "78444f65f148156f79bf6e347c1505d8a6aa98bf74de9c8411b241d9c9c52c1d",
+          "dependencies": [
+            "mx-result-d6db5b4b4bd94208b935cde85308538c"
+          ],
+          "stale": false
+        },
+        "answer": {
+          "revision_id": "candidate-c7c122d6e7cd4de6ac8a12032380eeff",
+          "byte_sha256": "894d53a0cf080f3e8aa0fcc1759b4b7868bf42447c9cc41871eb3492e3a9b328",
+          "dependencies": [
+            "mx-result-d6db5b4b4bd94208b935cde85308538c",
+            "mx-figure-83ffb3e785844ee599728f19017c0bfd"
+          ],
+          "stale": false
+        }
+      }
+    },
+    {
+      "case": "backend_upstream_change",
+      "domain": "mixed",
+      "task_state": "BLOCKED",
+      "database_path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\id20-daf69657\\pytest\\test_upstream_data_change_inva0\\r701c64c2\\workbench.sqlite3",
+      "candidate_count": 1,
+      "request_count": 2,
+      "model_starts": 2,
+      "public_answer_count": 0,
+      "total_tokens": 33,
+      "provider_boundary": "fake",
+      "chain": {
+        "data": {
+          "revision_id": "34e9ec4ec4574e20bbeb3bee542b6cef",
+          "byte_sha256": "ebb2dd1f8e96b9f48c15a1bff5bdb22faf0dda3d0a7a330be8e3dbba467c8c8e",
+          "dependencies": [],
+          "stale": false
+        },
+        "analysis": {
+          "revision_id": "mx-analysis-493651af023445848f2f917a25be89aa",
+          "byte_sha256": "8b15251546f7fb1415b4d4847e9abae93580b3992315bc16559a4ed39838a662",
+          "dependencies": [
+            "mx-data-6d4bc7bc0c2449a4ad27a8186b107c0d"
+          ],
+          "stale": true
+        },
+        "result": {
+          "revision_id": "mx-result-e884883e2e324c1e9fe6fc59769ea680",
+          "byte_sha256": "031ff026a1f704a3462310a6f4e8c3180ba093e6192b401b023192f65bf11028",
+          "dependencies": [
+            "mx-analysis-493651af023445848f2f917a25be89aa"
+          ],
+          "stale": true
+        },
+        "figure": {
+          "revision_id": "mx-figure-ab6017b2e4484df381ceca5efec669b4",
+          "byte_sha256": "78444f65f148156f79bf6e347c1505d8a6aa98bf74de9c8411b241d9c9c52c1d",
+          "dependencies": [
+            "mx-result-e884883e2e324c1e9fe6fc59769ea680"
+          ],
+          "stale": true
+        },
+        "answer": {
+          "revision_id": "candidate-1cf338bf51964136928a93aef4c73d2c",
+          "byte_sha256": "894d53a0cf080f3e8aa0fcc1759b4b7868bf42447c9cc41871eb3492e3a9b328",
+          "dependencies": [
+            "mx-result-e884883e2e324c1e9fe6fc59769ea680",
+            "mx-figure-ab6017b2e4484df381ceca5efec669b4"
+          ],
+          "stale": true
+        }
+      }
+    }
+  ]
+}

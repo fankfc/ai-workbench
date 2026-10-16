@@ -1,0 +1,76 @@
+..........FFF                                                            [100%]
+================================== FAILURES ===================================
+__ test_unapproved_answer_public_schema_cannot_authorize_dispatch_or_replay ___
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-101/test_unapproved_answer_public_0')
+
+    def test_unapproved_answer_public_schema_cannot_authorize_dispatch_or_replay(tmp_path):
+        path = initialize_runtime(tmp_path)
+        connection = Database(path).connect()
+        try:
+            with transaction(connection):
+                enqueue_event(connection,"task1","a1","answer.published",{"text":"INTERNAL_CANARY"},deduplication_key="fake-answer",
+                              public_payload={"message_id":"fake","text":"INTERNAL_CANARY","language":"zh-CN",
+                                              "content_version_id":"invented","approval_id":"invented"})
+        finally:
+            connection.close()
+        sent = []
+>       assert Outbox(path).dispatch(sent.append) == 0
+E       AssertionError: assert 1 == 0
+E        +  where 1 = dispatch(<built-in method append of list object at 0x000001E06ABCEEC0>)
+E        +    where dispatch = <app.runtime.outbox.Outbox object at 0x000001E06AEABE30>.dispatch
+E        +      where <app.runtime.outbox.Outbox object at 0x000001E06AEABE30> = Outbox(WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-101/test_unapproved_answer_public_0/runtime.sqlite3'))
+E        +    and   <built-in method append of list object at 0x000001E06ABCEEC0> = [{'schema_version': '1.0', 'event_id': '25d25e95ef9b4cebb7ecef6841e70d6b', 'conversation_id': 'c1', 'turn_id': 't1', ...}].append
+
+tests\integration\test_outbox.py:206: AssertionError
+___ test_outbox_accepted_message_reads_source_turn_instead_of_public_claim ____
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-101/test_outbox_accepted_message_r0')
+
+    def test_outbox_accepted_message_reads_source_turn_instead_of_public_claim(tmp_path):
+        path = initialize_runtime(tmp_path)
+        connection = Database(path).connect()
+        try:
+            with transaction(connection):
+                enqueue_event(connection,"task1","a1","message.accepted",{},deduplication_key="fake-message",
+                              public_payload={"message_id":"invented","text":"INTERNAL_CANARY","language":"en"})
+        finally:
+            connection.close()
+        replay = Outbox(path).replay("c1")
+        sent = []
+        assert Outbox(path).dispatch(sent.append) == 1
+>       assert replay[0]["payload"]["text"] == sent[0]["payload"]["text"] == "����"
+E       AssertionError: assert 'INTERNAL_CANARY' == '����'
+E         
+E         - ����
+E         + INTERNAL_CANARY
+
+tests\integration\test_outbox.py:222: AssertionError
+_____ test_outbox_internal_error_claim_uses_fixed_chinese_public_template _____
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-101/test_outbox_internal_error_cla0')
+
+    def test_outbox_internal_error_claim_uses_fixed_chinese_public_template(tmp_path):
+        path = initialize_runtime(tmp_path)
+        connection = Database(path).connect()
+        try:
+            with transaction(connection):
+                enqueue_event(connection,"task1","a1","request.failed",{"error_code":"PROVIDER_UNAVAILABLE","raw":"CANARY"},
+                              deduplication_key="failure",public_payload={"error_code":"PROVIDER_UNAVAILABLE","text":"CANARY","language":"zh-CN","action":"none"})
+        finally:
+            connection.close()
+        sent = []
+        assert Outbox(path).dispatch(sent.append) == 1
+>       assert sent[0]["payload"]["text"] == "ģ�������ݲ����ã��������ӡ�"
+E       AssertionError: assert 'CANARY' == 'ģ�������ݲ����ã��������ӡ�'
+E         
+E         - ģ�������ݲ����ã��������ӡ�
+E         + CANARY
+
+tests\integration\test_outbox.py:237: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/integration/test_outbox.py::test_unapproved_answer_public_schema_cannot_authorize_dispatch_or_replay
+FAILED tests/integration/test_outbox.py::test_outbox_accepted_message_reads_source_turn_instead_of_public_claim
+FAILED tests/integration/test_outbox.py::test_outbox_internal_error_claim_uses_fixed_chinese_public_template
+3 failed, 10 passed in 2.32s
+EXIT_CODE=1

@@ -1,0 +1,125 @@
+......FFFF.....FFFF.....FF.                                              [100%]
+================================== FAILURES ===================================
+_____________ test_codex_missing_external_execution_id_is_failure _____________
+
+    def test_codex_missing_external_execution_id_is_failure():
+        value = decode_capture(request(), capture([{"type": "item.completed", "item": {"type": "agent_message", "text": "���"}}, {"type": "turn.completed"}], metadata=metadata()))
+>       assert value.reason_code == "EXTERNAL_EXECUTION_ID_MISSING"
+E       AssertionError: assert 'CAPTURE_VERIFIED' == 'EXTERNAL_EXE...ON_ID_MISSING'
+E         
+E         - EXTERNAL_EXECUTION_ID_MISSING
+E         + CAPTURE_VERIFIED
+
+tests\contracts\test_gpt_adapter.py:70: AssertionError
+____________ test_codex_failed_tool_status_blocks_successful_turn _____________
+
+    def test_codex_failed_tool_status_blocks_successful_turn():
+        value = decode_capture(request(), capture([{"type": "thread.started", "thread_id": "s"}, {"type": "item.completed", "item": {"type": "command_execution", "status": "failed", "exit_code": 1}}, {"type": "item.completed", "item": {"type": "agent_message", "text": "���"}}, {"type": "turn.completed"}], metadata=metadata()))
+>       assert value.reason_code == "TOOL_EXECUTION_FAILED"
+E       AssertionError: assert 'CAPTURE_VERIFIED' == 'TOOL_EXECUTION_FAILED'
+E         
+E         - TOOL_EXECUTION_FAILED
+E         + CAPTURE_VERIFIED
+
+tests\contracts\test_gpt_adapter.py:76: AssertionError
+___________ test_codex_usage_keeps_counts_and_redacts_secret_fields ___________
+
+    def test_codex_usage_keeps_counts_and_redacts_secret_fields():
+        value = decode_capture(request(), capture([{"type": "thread.started", "thread_id": "s"}, {"type": "item.completed", "item": {"type": "agent_message", "text": "���"}}, {"type": "turn.completed", "usage": {"cache_creation_input_tokens": 5, "api_key": "sk-fixture-secret"}}], metadata=metadata()))
+>       assert value.usage["api_key"] == "[REDACTED]"
+E       AssertionError: assert 'sk-fixture-secret' == '[REDACTED]'
+E         
+E         - [REDACTED]
+E         + sk-fixture-secret
+
+tests\contracts\test_gpt_adapter.py:88: AssertionError
+__________ test_codex_model_metadata_must_bind_to_the_current_thread __________
+
+    def test_codex_model_metadata_must_bind_to_the_current_thread():
+        value = decode_capture(request(), capture(metadata={**metadata(), "external_execution_id": "different-thread"}))
+>       assert value.reason_code == "METADATA_EXECUTION_MISMATCH"
+E       AssertionError: assert 'CAPTURE_VERIFIED' == 'METADATA_EXECUTION_MISMATCH'
+E         
+E         - METADATA_EXECUTION_MISMATCH
+E         + CAPTURE_VERIFIED
+
+tests\contracts\test_gpt_adapter.py:95: AssertionError
+____ test_claude_model_change_during_response_is_not_hidden_by_final_model ____
+
+    def test_claude_model_change_during_response_is_not_hidden_by_final_model():
+        value = decode_capture(request(), capture([
+            {"type": "system", "subtype": "init", "session_id": "s", "model": "claude-other"},
+            {"type": "assistant", "session_id": "s", "message": {"model": "claude-fixture", "content": [{"type": "text", "text": "Done"}]}},
+            {"type": "result", "session_id": "s", "subtype": "success", "is_error": False, "result": "Done"}]))
+>       assert value.identity_status == "mismatch"
+E       AssertionError: assert 'verified' == 'mismatch'
+E         
+E         - mismatch
+E         + verified
+
+tests\contracts\test_claude_adapter.py:55: AssertionError
+________ test_claude_success_result_requires_explicit_false_error_flag ________
+
+    def test_claude_success_result_requires_explicit_false_error_flag():
+        value = decode_capture(request(), capture([{"type": "assistant", "session_id": "s", "message": {"model": "claude-fixture", "content": [{"type": "text", "text": "Done"}]}}, {"type": "result", "session_id": "s", "subtype": "success", "result": "Done"}]))
+>       assert not value.success
+E       AssertionError: assert not True
+E        +  where True = DecodedRun(identity=ProviderIdentity(adapter='claude_code', model_id='claude-fixture', family=<ModelFamily.CLAUDE: 'cl...d', payload={'reason_code': 'CAPTURE_VERIFIED', 'exit_code': 0})), usage=None, external_execution_id='s', success=True).success
+
+tests\contracts\test_claude_adapter.py:62: AssertionError
+_____________ test_claude_permission_denial_in_result_is_a_block ______________
+
+    def test_claude_permission_denial_in_result_is_a_block():
+        value = decode_capture(request(), capture([{"type": "result", "session_id": "s", "subtype": "success", "is_error": False, "result": "Permission needed", "modelUsage": {"claude-fixture": {}}, "permission_denials": [{"tool_name": "Write"}]}]))
+>       assert value.reason_code == "PERMISSION_REQUIRED"
+E       AssertionError: assert 'CAPTURE_VERIFIED' == 'PERMISSION_REQUIRED'
+E         
+E         - PERMISSION_REQUIRED
+E         + CAPTURE_VERIFIED
+
+tests\contracts\test_claude_adapter.py:68: AssertionError
+_________________ test_claude_mixed_session_ids_are_rejected __________________
+
+    def test_claude_mixed_session_ids_are_rejected():
+        value = decode_capture(request(), capture([{"type": "assistant", "session_id": "one", "message": {"model": "claude-fixture", "content": [{"type": "text", "text": "Done"}]}}, {"type": "result", "session_id": "two", "subtype": "success", "is_error": False, "result": "Done"}]))
+>       assert value.reason_code == "EXTERNAL_EXECUTION_CHANGED"
+E       AssertionError: assert 'CAPTURE_VERIFIED' == 'EXTERNAL_EXECUTION_CHANGED'
+E         
+E         - EXTERNAL_EXECUTION_CHANGED
+E         + CAPTURE_VERIFIED
+
+tests\contracts\test_claude_adapter.py:74: AssertionError
+_________ test_zcode_error_projection_cannot_override_completed_event _________
+
+    def test_zcode_error_projection_cannot_override_completed_event():
+        value = decode_capture(request(), capture([{"type": "turn.completed", "sessionId": "s", "seq": 1, "payload": {"response": "Done"}}, {"type": "result", "sessionId": "s", "response": "Done", "projection": {"status": "error"}}]))
+>       assert value.reason_code == "PROVIDER_REPORTED_ERROR"
+E       AssertionError: assert 'CAPTURE_VERIFIED' == 'PROVIDER_REPORTED_ERROR'
+E         
+E         - PROVIDER_REPORTED_ERROR
+E         + CAPTURE_VERIFIED
+
+tests\contracts\test_zcode_adapter.py:53: AssertionError
+__________________ test_zcode_event_sequences_must_increase ___________________
+
+    def test_zcode_event_sequences_must_increase():
+        value = decode_capture(request(), capture([{"type": "session.created", "sessionId": "s", "seq": 2, "payload": {}}, {"type": "turn.completed", "sessionId": "s", "seq": 1, "payload": {"response": "Done"}}, {"type": "result", "sessionId": "s", "response": "Done", "projection": {"status": "idle"}}]))
+>       assert value.reason_code == "PROVIDER_EVENT_SEQUENCE_INVALID"
+E       AssertionError: assert 'CAPTURE_VERIFIED' == 'PROVIDER_EVE...UENCE_INVALID'
+E         
+E         - PROVIDER_EVENT_SEQUENCE_INVALID
+E         + CAPTURE_VERIFIED
+
+tests\contracts\test_zcode_adapter.py:59: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/contracts/test_gpt_adapter.py::test_codex_missing_external_execution_id_is_failure
+FAILED tests/contracts/test_gpt_adapter.py::test_codex_failed_tool_status_blocks_successful_turn
+FAILED tests/contracts/test_gpt_adapter.py::test_codex_usage_keeps_counts_and_redacts_secret_fields
+FAILED tests/contracts/test_gpt_adapter.py::test_codex_model_metadata_must_bind_to_the_current_thread
+FAILED tests/contracts/test_claude_adapter.py::test_claude_model_change_during_response_is_not_hidden_by_final_model
+FAILED tests/contracts/test_claude_adapter.py::test_claude_success_result_requires_explicit_false_error_flag
+FAILED tests/contracts/test_claude_adapter.py::test_claude_permission_denial_in_result_is_a_block
+FAILED tests/contracts/test_claude_adapter.py::test_claude_mixed_session_ids_are_rejected
+FAILED tests/contracts/test_zcode_adapter.py::test_zcode_error_projection_cannot_override_completed_event
+FAILED tests/contracts/test_zcode_adapter.py::test_zcode_event_sequences_must_increase
+10 failed, 17 passed, 1 deselected in 0.35s

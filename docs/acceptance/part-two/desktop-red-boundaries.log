@@ -1,0 +1,109 @@
+
+ RUN  v5.0.4 C:/Users/asd15/Documents/ChatGPT/ai
+
+ ❯ tests/desktop/backend.test.ts (2 tests | 2 failed) 5ms
+   ❯ startup identity fence (2)
+     × does not accept old occupied port or wrong process identity 4ms
+     × does not accept unready, invalid port or a different protocol 0ms
+ ❯ tests/desktop/preload.test.ts (3 tests | 3 failed) 9ms
+   ❯ narrow boundary (3)
+     × refuses renderer supplied file paths and arbitrary methods 4ms
+     × refuses wrong window and subframe senders 2ms
+     × drops internal events and public payloads with additional secrets 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 5 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/desktop/backend.test.ts > startup identity fence > does not accept old occupied port or wrong process identity
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ tests/desktop/backend.test.ts:6:82
+      4|   const ready = { kind:'backend.ready', port:12345, pid:123, instance_…
+      5|   it('does not accept old occupied port or wrong process identity', ()…
+      6|     expect(acceptHandshake({...ready,instance_id:'old-process'},'expec…
+       |                                                                                  ^
+      7|     expect(acceptHandshake({...ready,pid:456},'expected',123)).toBe(fa…
+      8|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/5]⎯
+
+ FAIL  tests/desktop/backend.test.ts > startup identity fence > does not accept unready, invalid port or a different protocol
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ tests/desktop/backend.test.ts:10:80
+      8|   });
+      9|   it('does not accept unready, invalid port or a different protocol', …
+     10|     expect(acceptHandshake({...ready,kind:'backend.starting'},'expecte…
+       |                                                                                ^
+     11|     expect(acceptHandshake({...ready,port:0},'expected',123)).toBe(fal…
+     12|     expect(acceptHandshake({...ready,protocol_version:'2.0'},'expected…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/5]⎯
+
+ FAIL  tests/desktop/preload.test.ts > narrow boundary > refuses renderer supplied file paths and arbitrary methods
+AssertionError: expected [Function] to throw an error
+ ❯ tests/desktop/preload.test.ts:7:71
+      5| describe('narrow boundary', () => {
+      6|   it('refuses renderer supplied file paths and arbitrary methods', () …
+      7|     expect(() => validateCall('chooseFiles', { path: 'C:/secrets' })).…
+       |                                                                       ^
+      8|     expect(() => validateCall('execute', { command: 'whoami' })).toThr…
+      9|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/5]⎯
+
+ FAIL  tests/desktop/preload.test.ts > narrow boundary > refuses wrong window and subframe senders
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ tests/desktop/preload.test.ts:12:134
+     10|   it('refuses wrong window and subframe senders', () => {
+     11|     const window = { webContents: { id: 5 } };
+     12|     expect(isTrustedSender({ sender: { id: 7 }, senderFrame: { url: 'f…
+       |                                                                                                                                      ^
+     13|     expect(isTrustedSender({ sender: { id: 5 }, senderFrame: { url: 'h…
+     14|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/5]⎯
+
+ FAIL  tests/desktop/preload.test.ts > narrow boundary > drops internal events and public payloads with additional secrets
+AssertionError: expected { kind: 'model.delta', …(1) } to be null
+
+- Expected:
+null
+
++ Received:
+{
+  "kind": "model.delta",
+  "payload": {
+    "text": "CANARY_INTERNAL",
+  },
+}
+
+ ❯ tests/desktop/preload.test.ts:16:85
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/5]⎯
+
+
+ Test Files  2 failed (2)
+      Tests  5 failed (5)
+   Start at  15:49:06
+   Duration  227ms (transform 49%, import 29%, tests 14%, worker 8%)
+

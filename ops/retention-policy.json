@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "status": "proposed_defaults_local_probes_only",
+  "owner": "maintenance engineer",
+  "diagnostic_logs_days": 14,
+  "runtime_events_days": 90,
+  "usage_summaries_days": 365,
+  "conversations": "until_explicit_user_deletion",
+  "deliverables": "until_explicit_user_deletion",
+  "protect": [
+    "active_task_evidence",
+    "open_incident_evidence",
+    "backup_dependencies",
+    "all_database_references"
+  ],
+  "cleanup_authority": "existing database-fenced storage.cleanup preview and explicit confirmation",
+  "automatic_schedule_created": false,
+  "thresholds": {
+    "missing_usage": "unknown; never replace by zero",
+    "backup_integrity_failure": "block cleanup and investigate",
+    "disk_free_bytes": null,
+    "queue_depth": null
+  },
+  "threshold_status": "numeric alert baselines not measured; thresholds remain unconfigured"
+}

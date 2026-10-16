@@ -1,0 +1,54 @@
+FFFF                                                                     [100%]
+================================== FAILURES ===================================
+___ test_real_pair_bytes_and_answer_publish_once_in_one_transaction[claude] ___
+
+document_task = {'client': <starlette.testclient.TestClient object at 0x000001B9E394C830>, 'cid': '70638cb8bc76447289743fc7dcead425', 'task': 'a3719b8104dc4693baf768ca80135aa7', 'attempt': '7b8b0960064f4cb2b4cae3472a57371a', ...}
+
+    @pytest.mark.parametrize('document_task',['claude'],indirect=True)
+    def test_real_pair_bytes_and_answer_publish_once_in_one_transaction(document_task):
+>       from app.documents.publish import BundlePublisher
+E       ModuleNotFoundError: No module named 'app.documents.publish'
+
+tests\artifacts\test_atomic_publication.py:11: ModuleNotFoundError
+_ test_half_v2_render_and_transaction_failure_leave_only_complete_v1_visible[claude] _
+
+document_task = {'client': <starlette.testclient.TestClient object at 0x000001B9E39B1810>, 'cid': '6e4074966d5e4e0bb87432c6dead6969', 'task': '2bc93b0409744062ac52b75ef74066d1', 'attempt': '9b02208e4d354095af27793b35aca507', ...}
+
+    @pytest.mark.parametrize('document_task',['claude'],indirect=True)
+    def test_half_v2_render_and_transaction_failure_leave_only_complete_v1_visible(document_task):
+>       from app.documents.publish import BundlePublisher
+E       ModuleNotFoundError: No module named 'app.documents.publish'
+
+tests\artifacts\test_atomic_publication.py:35: ModuleNotFoundError
+_ test_cancelled_missing_format_old_source_and_corrupt_blob_are_not_deliverable[claude] _
+
+document_task = {'client': <starlette.testclient.TestClient object at 0x000001B9E3C74550>, 'cid': 'f2d1ee8a0eaa46d7934b6a42e3269006', 'task': 'f4fd1f24edb54b68820499a1b65b3980', 'attempt': '47b5e43271f64697bd7671aaa18186dc', ...}
+
+    @pytest.mark.parametrize('document_task',['claude'],indirect=True)
+    def test_cancelled_missing_format_old_source_and_corrupt_blob_are_not_deliverable(document_task):
+>       from app.documents.publish import BundlePublisher
+E       ModuleNotFoundError: No module named 'app.documents.publish'
+
+tests\artifacts\test_atomic_publication.py:61: ModuleNotFoundError
+_ test_download_scope_unpublished_and_changed_file_hash_are_enforced[claude] __
+
+document_task = {'client': <starlette.testclient.TestClient object at 0x000001B9E38DF100>, 'cid': 'ed43fbb46fcf417084fd8673a82adc2e', 'task': 'e86cab02962649df863b2f493213ff32', 'attempt': '8bdfc2be8fb64990aeafe7fc1ba7eaf9', ...}
+
+    @pytest.mark.parametrize('document_task',['claude'],indirect=True)
+    def test_download_scope_unpublished_and_changed_file_hash_are_enforced(document_task):
+>       from app.documents.publish import BundlePublisher
+E       ModuleNotFoundError: No module named 'app.documents.publish'
+
+tests\artifacts\test_atomic_publication.py:74: ModuleNotFoundError
+============================== warnings summary ===============================
+tests/artifacts/test_atomic_publication.py::test_real_pair_bytes_and_answer_publish_once_in_one_transaction[claude]
+  C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/artifacts/test_atomic_publication.py::test_real_pair_bytes_and_answer_publish_once_in_one_transaction[claude]
+FAILED tests/artifacts/test_atomic_publication.py::test_half_v2_render_and_transaction_failure_leave_only_complete_v1_visible[claude]
+FAILED tests/artifacts/test_atomic_publication.py::test_cancelled_missing_format_old_source_and_corrupt_blob_are_not_deliverable[claude]
+FAILED tests/artifacts/test_atomic_publication.py::test_download_scope_unpublished_and_changed_file_hash_are_enforced[claude]
+4 failed, 1 warning in 0.84s

@@ -1,0 +1,48 @@
+........FF                                                               [100%]
+================================== FAILURES ===================================
+__________ test_unknown_usage_blocks_next_translation_budgeted_call ___________
+
+client = <starlette.testclient.TestClient object at 0x00000204834C7790>
+
+    def test_unknown_usage_blocks_next_translation_budgeted_call(client):
+        _,task,attempt=claude_turn(client)
+        class UnknownUsage(FakeTranslationPort):
+            async def invoke(self,request):
+                from dataclasses import replace
+                response=await super().invoke(request)
+                return replace(response,usage=None)
+        translator=UnknownUsage('translate'); checker=FakeTranslationPort('check')
+        translation=TranslationService(client.app.state.database.path,translator,checker,max_b_tokens=10000)
+        result=translate(translation,task,attempt)
+>       assert result.status=='FAILED' and len(translator.calls)==1 and not checker.calls
+E       AssertionError: assert ('READY' == 'FAILED'
+E         
+E         - FAILED
+E         + READY)
+
+tests\translation\test_pipeline_contract.py:88: AssertionError
+______ test_insufficient_translation_budget_blocks_before_external_call _______
+
+client = <starlette.testclient.TestClient object at 0x00000204835649E0>
+
+    def test_insufficient_translation_budget_blocks_before_external_call(client):
+        _,task,attempt=claude_turn(client); translation=service(client,max_b_tokens=1)
+        result=translate(translation,task,attempt)
+>       assert result.status=='FAILED' and not translation.translator.calls and not translation.checker.calls
+E       AssertionError: assert ('FAILED' == 'FAILED'
+E         
+E           FAILED and not [TranslationRequest(request_id='eb0c21ebf5344185a4c53e1a1f6e173f:translate:1:connection:1', job_id='eb0c21ebf5344185a4...2bf160cd375a1540510b93a66c2fe269e999d0eff7e45e21e22e12', glossary=(), previous={}, findings=(), high_impact_blocks=())])
+E        +  where [TranslationRequest(request_id='eb0c21ebf5344185a4c53e1a1f6e173f:translate:1:connection:1', job_id='eb0c21ebf5344185a4...2bf160cd375a1540510b93a66c2fe269e999d0eff7e45e21e22e12', glossary=(), previous={}, findings=(), high_impact_blocks=())] = <translation.fakes.FakeTranslationPort object at 0x00000204834F7BA0>.calls
+E        +    where <translation.fakes.FakeTranslationPort object at 0x00000204834F7BA0> = <app.translation.service.TranslationService object at 0x0000020483255E50>.translator
+
+tests\translation\test_pipeline_contract.py:93: AssertionError
+============================== warnings summary ===============================
+tests/translation/test_pipeline_contract.py::test_known_major_semantic_finding_never_earns_ready[NEGATION_CHANGED]
+  C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/translation/test_pipeline_contract.py::test_unknown_usage_blocks_next_translation_budgeted_call
+FAILED tests/translation/test_pipeline_contract.py::test_insufficient_translation_budget_blocks_before_external_call
+2 failed, 8 passed, 1 warning in 2.57s

@@ -1,0 +1,204 @@
+[
+  {
+    "card": "D041",
+    "run_root": "artifacts/qa/D041/r51351f5f",
+    "valid": false,
+    "issues": [
+      {
+        "path": "service-data/workbench.sqlite3-shm",
+        "reason": "FileNotFoundError"
+      },
+      {
+        "path": "service-data/workbench.sqlite3-wal",
+        "reason": "FileNotFoundError"
+      }
+    ]
+  },
+  {
+    "card": "D042",
+    "run_root": "artifacts/qa/D042/rbfc37e39",
+    "valid": true,
+    "issues": []
+  },
+  {
+    "card": "D043",
+    "run_root": "artifacts/qa/D043/r64c1f469",
+    "valid": true,
+    "issues": []
+  },
+  {
+    "card": "D044",
+    "run_root": "artifacts/qa/D044/r60b073aa",
+    "valid": true,
+    "issues": []
+  },
+  {
+    "card": "D045",
+    "run_root": "artifacts/qa/D045/r96c01f92",
+    "valid": true,
+    "issues": []
+  },
+  {
+    "card": "D046",
+    "run_root": "artifacts/qa/D046/r9d0c3070",
+    "valid": true,
+    "issues": []
+  },
+  {
+    "card": "D047",
+    "run_root": "artifacts/qa/D047/rd6b6b808",
+    "valid": true,
+    "issues": []
+  },
+  {
+    "card": "D048",
+    "run_root": "artifacts/qa/D048/rb758fc9d",
+    "valid": false,
+    "issues": [
+      {
+        "path": "rbd35d59f/workbench.sqlite3-shm",
+        "reason": "FileNotFoundError"
+      },
+      {
+        "path": "rbd35d59f/workbench.sqlite3-wal",
+        "reason": "FileNotFoundError"
+      }
+    ]
+  },
+  {
+    "card": "D049",
+    "run_root": "artifacts/qa/D049/rac7eccc4",
+    "valid": true,
+    "issues": []
+  },
+  {
+    "card": "D050",
+    "run_root": "artifacts/qa/D050/r0b38456c",
+    "valid": false,
+    "issues": [
+      {
+        "path": "service-data/workbench.sqlite3",
+        "reason": "ValueError"
+      },
+      {
+        "path": "service-data/workbench.sqlite3-shm",
+        "reason": "FileNotFoundError"
+      },
+      {
+        "path": "service-data/workbench.sqlite3-wal",
+        "reason": "FileNotFoundError"
+      }
+    ]
+  },
+  {
+    "card": "D051",
+    "run_root": "artifacts/qa/D051/r674c6f02",
+    "valid": true,
+    "issues": []
+  },
+  {
+    "card": "D052",
+    "run_root": "artifacts/qa/D052/r859fb867",
+    "valid": true,
+    "issues": []
+  },
+  {
+    "card": "D053",
+    "run_root": "artifacts/qa/D053/r12ab3dab",
+    "valid": true,
+    "issues": []
+  },
+  {
+    "card": "D054",
+    "run_root": "artifacts/qa/D054/rf629b071",
+    "valid": true,
+    "issues": []
+  },
+  {
+    "card": "D055",
+    "run_root": "artifacts/qa/D055/r42a70909",
+    "valid": true,
+    "issues": []
+  },
+  {
+    "card": "D056",
+    "run_root": "artifacts/qa/D056/r391652ad",
+    "valid": false,
+    "issues": [
+      {
+        "path": "product/workbench.sqlite3",
+        "reason": "ValueError"
+      },
+      {
+        "path": "product/workbench.sqlite3-shm",
+        "reason": "FileNotFoundError"
+      },
+      {
+        "path": "product/workbench.sqlite3-wal",
+        "reason": "FileNotFoundError"
+      }
+    ]
+  },
+  {
+    "card": "D057",
+    "run_root": "artifacts/qa/D057/r5a626550",
+    "valid": true,
+    "issues": []
+  },
+  {
+    "card": "D058",
+    "run_root": "artifacts/qa/D058/r3bad5986",
+    "valid": false,
+    "issues": [
+      {
+        "path": "product/workbench.sqlite3",
+        "reason": "ValueError"
+      },
+      {
+        "path": "product/workbench.sqlite3-shm",
+        "reason": "FileNotFoundError"
+      },
+      {
+        "path": "product/workbench.sqlite3-wal",
+        "reason": "FileNotFoundError"
+      },
+      {
+        "path": "diagnostic-probe/product/workbench.sqlite3",
+        "reason": "ValueError"
+      },
+      {
+        "path": "diagnostic-probe/product/workbench.sqlite3-shm",
+        "reason": "FileNotFoundError"
+      },
+      {
+        "path": "diagnostic-probe/product/workbench.sqlite3-wal",
+        "reason": "FileNotFoundError"
+      }
+    ]
+  },
+  {
+    "card": "D059",
+    "run_root": "artifacts/qa/D059/rcbe410f6",
+    "valid": false,
+    "issues": [
+      {
+        "path": "product/workbench.sqlite3",
+        "reason": "ValueError"
+      },
+      {
+        "path": "product/workbench.sqlite3-shm",
+        "reason": "FileNotFoundError"
+      },
+      {
+        "path": "product/workbench.sqlite3-wal",
+        "reason": "FileNotFoundError"
+      }
+    ]
+  },
+  {
+    "card": "D060",
+    "run_root": "artifacts/qa/D060/rcdfa5864",
+    "valid": true,
+    "issues": []
+  }
+]

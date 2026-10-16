@@ -1,0 +1,58 @@
+{
+  "time": "2026-10-13T13:31:17.028338+00:00",
+  "git_commit": null,
+  "branch": "codex/part1-foundation",
+  "python": "3.13.0",
+  "sqlite": "3.45.3",
+  "provider_mode": "fake",
+  "real_model_starts": 0,
+  "duplicates": {
+    "raw": [
+      120,
+      120
+    ],
+    "total": 120
+  },
+  "cumulative": {
+    "raw": [
+      120,
+      200
+    ],
+    "total": 200
+  },
+  "gpt": {
+    "total_tokens": 120,
+    "source": "reported",
+    "components": {
+      "input_tokens": 100,
+      "output_tokens": 20,
+      "cached_tokens": 80,
+      "reasoning_tokens": 10
+    },
+    "mapping_version": "1.0"
+  },
+  "claude": {
+    "total_tokens": 115,
+    "source": "reported",
+    "components": {
+      "input_tokens": 20,
+      "output_tokens": 10,
+      "cache_read_input_tokens": 80,
+      "cache_creation_input_tokens": 5
+    },
+    "mapping_version": "1.0"
+  },
+  "unknown": {
+    "total_tokens": null,
+    "source": "unknown",
+    "components": {
+      "input_tokens": null,
+      "output_tokens": null,
+      "cached_tokens": null,
+      "reasoning_tokens": null
+    },
+    "mapping_version": "1.0"
+  },
+  "monetary_cost": "unknown",
+  "qualified_delivery_denominator_zero": "uncomputable"
+}

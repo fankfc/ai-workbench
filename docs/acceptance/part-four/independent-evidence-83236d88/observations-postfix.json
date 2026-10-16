@@ -1,0 +1,26 @@
+{
+  "kind": "independent_local_helper_probe",
+  "external_requests": 0,
+  "production_claude_supported": false,
+  "source_sha256": "056352f2eeba154a38002cf13b415230ae71b6bacbc5c524903cdcdaabf76d00",
+  "observations": [
+    {
+      "family": "gpt",
+      "view": "raw",
+      "accepted": true,
+      "chinese_natural_text_in_prompt": true
+    },
+    {
+      "family": "claude",
+      "view": "qa_view",
+      "accepted": false,
+      "error": "PHASE_BRIDGE_GPT_ROUTE_REQUIRED"
+    },
+    {
+      "family": "claude",
+      "view": "raw",
+      "accepted": false,
+      "error": "PHASE_BRIDGE_GPT_ROUTE_REQUIRED"
+    }
+  ]
+}

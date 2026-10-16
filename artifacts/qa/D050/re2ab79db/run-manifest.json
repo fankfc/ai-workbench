@@ -1,0 +1,51 @@
+{
+  "version": "1.0",
+  "build_id": "cb98eed03df6bd4ffaa551d66a54c77198911cf5b3e763a1ef3c055f5ee54ca4",
+  "run_id": null,
+  "created_at": "2026-10-15T02:00:47.374108+00:00",
+  "seed": 4317,
+  "encoding": "UTF-8",
+  "provider_boundary": "fake",
+  "files": [
+    {
+      "path": ".qa-run.json",
+      "size": 153,
+      "sha256": "0fee06f694311c0a71c65f9be01c3a077416efc22d6421f25cb671c585e20f39"
+    },
+    {
+      "path": "latency-observations.json",
+      "size": 1497,
+      "sha256": "e257e97a3f9083508b480cbe29df3aa47f03afa181c23f9dc63017101ebb4023"
+    },
+    {
+      "path": "scenario-result.json",
+      "size": 1497,
+      "sha256": "e257e97a3f9083508b480cbe29df3aa47f03afa181c23f9dc63017101ebb4023"
+    },
+    {
+      "path": "service-data/workbench.sqlite3",
+      "size": 4685824,
+      "sha256": "e1f6ed1da3b9d8605fd1823beb88b7170ad5ae0e598522a27509ae9c7b6ccd76"
+    },
+    {
+      "path": "service-identity.json",
+      "size": 134,
+      "sha256": "06ef29036273c601ab9397e95c46ee56dcd54ec8ac89c54dbca830eeb2af4b47"
+    },
+    {
+      "path": "service-leases.sqlite3",
+      "size": 12288,
+      "sha256": "830483b7678face698ed234fb3d3c7e605b2d496f2155ced79cf3477bb33e412"
+    },
+    {
+      "path": "service-teardown.json",
+      "size": 88,
+      "sha256": "b9123912af3da05fb201885df82f59e5366b36ed665ac0a4ed3aba73322aa305"
+    },
+    {
+      "path": "service.stderr.log",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

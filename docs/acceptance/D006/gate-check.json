@@ -1,0 +1,10 @@
+{
+  "profile_id": "local-codex-probe",
+  "adapter": "codex",
+  "status": "not_connected",
+  "identity_status": "unknown",
+  "model_starts": 0,
+  "max_runs": 3,
+  "reason_code": "SUPPORTED_EXECUTOR_NOT_ENABLED",
+  "unavailable_reason_code": "TOOL_PERMISSION_POLICY_DENIED"
+}

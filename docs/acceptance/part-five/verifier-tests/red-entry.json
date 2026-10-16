@@ -1,0 +1,14 @@
+{
+  "time": "2026-10-15T05:10:55.646311+00:00",
+  "command": [
+    "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\.venv\\Scripts\\python.exe",
+    "-m",
+    "pytest",
+    "-q",
+    "tests/acceptance/test_work_order_protocol.py::test_phase_five_current_run_entry_exists",
+    "--junitxml=docs/acceptance/part-five/verifier-tests/red-entry.xml"
+  ],
+  "exit_code": 1,
+  "git_commit": null,
+  "log": "docs\\acceptance\\part-five\\verifier-tests\\red-entry.log"
+}

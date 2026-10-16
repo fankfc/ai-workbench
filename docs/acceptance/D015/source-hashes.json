@@ -1,0 +1,15 @@
+{
+  "time": "2026-10-13T13:31:17.028338+00:00",
+  "git_commit": null,
+  "branch": "codex/part1-foundation",
+  "python": "3.13.0",
+  "sqlite": "3.45.3",
+  "provider_mode": "fake",
+  "real_model_starts": 0,
+  "hashes": {
+    "services/orchestrator/app/usage/normalization.py": "02d2e1119e3cdb13c0536fa80e73c86595d07f13ddc0701ef0bfd15b60b0dc13",
+    "services/orchestrator/app/usage/ledger.py": "83c7b84889f8672114626e7139abce636c9c1c331ef616a2b61e526324b9daed",
+    "services/orchestrator/app/usage/budgets.py": "f8beb8908002fe37dc0078c891a1b56e069c5c09146770c83363722ac6929c67",
+    "tests/unit/test_usage_ledger.py": "2d865582fbcd7fc998791970baeb7bf77e4bf5159ff933cb0eb3edbb456a9fbc"
+  }
+}

@@ -1,0 +1,99 @@
+
+> ai-workbench@0.1.0 test:e2e
+> playwright test tests/e2e/review-regressions.spec.ts
+
+
+Running 3 tests using 1 worker
+
+(node:44684) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  1 tests\e2e\review-regressions.spec.ts:3:5 › disconnect retains displayed approved messages and published files (18.3s)
+(node:64172) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  2 tests\e2e\review-regressions.spec.ts:4:5 › late receipt preserves completed status and never pollutes another conversation (14.1s)
+(node:66636) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  3 tests\e2e\review-regressions.spec.ts:5:5 › usage dates represent local calendar boundaries including the final millisecond (9.6s)
+
+
+  1) tests\e2e\review-regressions.spec.ts:3:5 › disconnect retains displayed approved messages and published files 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByText('当前进度已保存。', { exact: true })
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByText('当前进度已保存。', { exact: true }) with timeout 5000ms
+      - waiting for getByText('当前进度已保存。', { exact: true })
+
+
+      1 | import { test,expect } from '../support/electron-fixture';
+      2 | async function delayedReceipt(app:any){await app.evaluate(({ipcMain}:any)=>{const handlers=ipcMain._invokeHandlers;const original=handlers.get('workbench:submitTurn');handlers.set('workbench:submitTurn',async(...args:any[])=>{const result=await original(...args);await new Promise(resolve=>setTimeout(resolve,2500));return result;});});}
+    > 3 | test('disconnect retains displayed approved messages and published files',async({desktop})=>{const seed=await desktop.seedBundle();await desktop.page.evaluate(cid=>{location.hash='/chat/'+cid;},seed.cid);await expect(desktop.page.locator('.artifact-card')).toHaveCount(3);const before=await desktop.page.locator('.message').count();await desktop.app.evaluate(()=> (globalThis as any).__desktopTest.stopBackend());await expect(desktop.page.getByText('当前进度已保存。',{exact:true})).toBeVisible();await expect(desktop.page.locator('.message')).toHaveCount(before);await expect(desktop.page.locator('.artifact-card')).toHaveCount(3);});
+        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ^
+      4 | test('late receipt preserves completed status and never pollutes another conversation',async({desktop})=>{const {page,app}=desktop;await delayedReceipt(app);await page.getByRole('textbox',{name:'消息输入'}).fill('延迟回执测试');await page.getByRole('button',{name:'发送',exact:true}).click();await expect(page.locator('.message.assistant')).toHaveCount(1);await page.waitForTimeout(3000);await expect(page.locator('.run-notice')).toHaveCount(0);await page.getByRole('textbox',{name:'消息输入'}).fill('新一轮');await expect(page.getByRole('button',{name:'发送',exact:true})).toBeEnabled();await page.getByRole('button',{name:'发送',exact:true}).click();await expect(page.locator('.message.user')).toHaveCount(2);await page.getByRole('button',{name:'新建会话',exact:true}).click();await page.getByRole('textbox',{name:'消息输入'}).fill('新的会话草稿');await page.waitForTimeout(3000);await expect(page.locator('.run-notice')).toHaveCount(0);await expect(page.locator('.message')).toHaveCount(0);await expect(page.getByRole('button',{name:'发送',exact:true})).toBeEnabled();});
+      5 | test('usage dates represent local calendar boundaries including the final millisecond',async({desktop})=>{await desktop.app.evaluate(({ipcMain})=>{const handlers=(ipcMain as any)._invokeHandlers;const original=handlers.get('workbench:getUsage');(globalThis as any).__dateQueries=[];handlers.set('workbench:getUsage',async(event:any,input:any)=>{(globalThis as any).__dateQueries.push(input);return original(event,input);});});const {page}=desktop;await page.getByRole('button',{name:'用量',exact:true}).click();await page.getByLabel('开始日期').fill('2026-10-14');await page.getByLabel('结束日期').fill('2026-10-14');const expected=await page.evaluate(()=>({date_from:new Date(2026,9,14).toISOString(),date_to:new Date(new Date(2026,9,15).getTime()-1).toISOString()}));await expect.poll(()=>desktop.app.evaluate(()=>(globalThis as any).__dateQueries.at(-1))).toMatchObject(expected);});
+      6 |
+        at C:\Users\asd15\Documents\ChatGPT\ai\tests\e2e\review-regressions.spec.ts:3:476
+
+    Error Context: artifacts\playwright\review-regressions-disconn-7f20f-essages-and-published-files\error-context.md
+
+  2) tests\e2e\review-regressions.spec.ts:4:5 › late receipt preserves completed status and never pollutes another conversation 
+
+    Error: expect(locator).toHaveCount(expected) failed
+
+    Locator:  locator('.run-notice')
+    Expected: 0
+    Received: 1
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveCount" locator('.run-notice') with timeout 5000ms
+      - waiting for locator('.run-notice')
+        14 × locator resolved to 1 element
+           - unexpected value "1"
+
+
+      2 | async function delayedReceipt(app:any){await app.evaluate(({ipcMain}:any)=>{const handlers=ipcMain._invokeHandlers;const original=handlers.get('workbench:submitTurn');handlers.set('workbench:submitTurn',async(...args:any[])=>{const result=await original(...args);await new Promise(resolve=>setTimeout(resolve,2500));return result;});});}
+      3 | test('disconnect retains displayed approved messages and published files',async({desktop})=>{const seed=await desktop.seedBundle();await desktop.page.evaluate(cid=>{location.hash='/chat/'+cid;},seed.cid);await expect(desktop.page.locator('.artifact-card')).toHaveCount(3);const before=await desktop.page.locator('.message').count();await desktop.app.evaluate(()=> (globalThis as any).__desktopTest.stopBackend());await expect(desktop.page.getByText('当前进度已保存。',{exact:true})).toBeVisible();await expect(desktop.page.locator('.message')).toHaveCount(before);await expect(desktop.page.locator('.artifact-card')).toHaveCount(3);});
+    > 4 | test('late receipt preserves completed status and never pollutes another conversation',async({desktop})=>{const {page,app}=desktop;await delayedReceipt(app);await page.getByRole('textbox',{name:'消息输入'}).fill('延迟回执测试');await page.getByRole('button',{name:'发送',exact:true}).click();await expect(page.locator('.message.assistant')).toHaveCount(1);await page.waitForTimeout(3000);await expect(page.locator('.run-notice')).toHaveCount(0);await page.getByRole('textbox',{name:'消息输入'}).fill('新一轮');await expect(page.getByRole('button',{name:'发送',exact:true})).toBeEnabled();await page.getByRole('button',{name:'发送',exact:true}).click();await expect(page.locator('.message.user')).toHaveCount(2);await page.getByRole('button',{name:'新建会话',exact:true}).click();await page.getByRole('textbox',{name:'消息输入'}).fill('新的会话草稿');await page.waitForTimeout(3000);await expect(page.locator('.run-notice')).toHaveCount(0);await expect(page.locator('.message')).toHaveCount(0);await expect(page.getByRole('button',{name:'发送',exact:true})).toBeEnabled();});
+        |                                                                                                                                                                                                                                                                                                                                                                                                                                   ^
+      5 | test('usage dates represent local calendar boundaries including the final millisecond',async({desktop})=>{await desktop.app.evaluate(({ipcMain})=>{const handlers=(ipcMain as any)._invokeHandlers;const original=handlers.get('workbench:getUsage');(globalThis as any).__dateQueries=[];handlers.set('workbench:getUsage',async(event:any,input:any)=>{(globalThis as any).__dateQueries.push(input);return original(event,input);});});const {page}=desktop;await page.getByRole('button',{name:'用量',exact:true}).click();await page.getByLabel('开始日期').fill('2026-10-14');await page.getByLabel('结束日期').fill('2026-10-14');const expected=await page.evaluate(()=>({date_from:new Date(2026,9,14).toISOString(),date_to:new Date(new Date(2026,9,15).getTime()-1).toISOString()}));await expect.poll(()=>desktop.app.evaluate(()=>(globalThis as any).__dateQueries.at(-1))).toMatchObject(expected);});
+      6 |
+        at C:\Users\asd15\Documents\ChatGPT\ai\tests\e2e\review-regressions.spec.ts:4:419
+
+    Error Context: artifacts\playwright\review-regressions-late-re-c826f-llutes-another-conversation\error-context.md
+
+  3) tests\e2e\review-regressions.spec.ts:5:5 › usage dates represent local calendar boundaries including the final millisecond 
+
+    Error: expect(received).toMatchObject(expected)
+
+    - Expected  - 2
+    + Received  + 2
+
+      Object {
+    -   "date_from": "2026-10-13T16:00:00.000Z",
+    -   "date_to": "2026-10-14T15:59:59.999Z",
+    +   "date_from": "2026-10-14T00:00:00Z",
+    +   "date_to": "2026-10-14T23:59:59Z",
+      }
+
+    Call Log:
+    - Timeout 5000ms exceeded while waiting on the predicate
+
+      3 | test('disconnect retains displayed approved messages and published files',async({desktop})=>{const seed=await desktop.seedBundle();await desktop.page.evaluate(cid=>{location.hash='/chat/'+cid;},seed.cid);await expect(desktop.page.locator('.artifact-card')).toHaveCount(3);const before=await desktop.page.locator('.message').count();await desktop.app.evaluate(()=> (globalThis as any).__desktopTest.stopBackend());await expect(desktop.page.getByText('当前进度已保存。',{exact:true})).toBeVisible();await expect(desktop.page.locator('.message')).toHaveCount(before);await expect(desktop.page.locator('.artifact-card')).toHaveCount(3);});
+      4 | test('late receipt preserves completed status and never pollutes another conversation',async({desktop})=>{const {page,app}=desktop;await delayedReceipt(app);await page.getByRole('textbox',{name:'消息输入'}).fill('延迟回执测试');await page.getByRole('button',{name:'发送',exact:true}).click();await expect(page.locator('.message.assistant')).toHaveCount(1);await page.waitForTimeout(3000);await expect(page.locator('.run-notice')).toHaveCount(0);await page.getByRole('textbox',{name:'消息输入'}).fill('新一轮');await expect(page.getByRole('button',{name:'发送',exact:true})).toBeEnabled();await page.getByRole('button',{name:'发送',exact:true}).click();await expect(page.locator('.message.user')).toHaveCount(2);await page.getByRole('button',{name:'新建会话',exact:true}).click();await page.getByRole('textbox',{name:'消息输入'}).fill('新的会话草稿');await page.waitForTimeout(3000);await expect(page.locator('.run-notice')).toHaveCount(0);await expect(page.locator('.message')).toHaveCount(0);await expect(page.getByRole('button',{name:'发送',exact:true})).toBeEnabled();});
+    > 5 | test('usage dates represent local calendar boundaries including the final millisecond',async({desktop})=>{await desktop.app.evaluate(({ipcMain})=>{const handlers=(ipcMain as any)._invokeHandlers;const original=handlers.get('workbench:getUsage');(globalThis as any).__dateQueries=[];handlers.set('workbench:getUsage',async(event:any,input:any)=>{(globalThis as any).__dateQueries.push(input);return original(event,input);});});const {page}=desktop;await page.getByRole('button',{name:'用量',exact:true}).click();await page.getByLabel('开始日期').fill('2026-10-14');await page.getByLabel('结束日期').fill('2026-10-14');const expected=await page.evaluate(()=>({date_from:new Date(2026,9,14).toISOString(),date_to:new Date(new Date(2026,9,15).getTime()-1).toISOString()}));await expect.poll(()=>desktop.app.evaluate(()=>(globalThis as any).__dateQueries.at(-1))).toMatchObject(expected);});
+        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  ^
+      6 |
+        at C:\Users\asd15\Documents\ChatGPT\ai\tests\e2e\review-regressions.spec.ts:5:850
+
+    Error Context: artifacts\playwright\review-regressions-usage-d-9be2d-uding-the-final-millisecond\error-context.md
+
+  3 failed
+    tests\e2e\review-regressions.spec.ts:3:5 › disconnect retains displayed approved messages and published files 
+    tests\e2e\review-regressions.spec.ts:4:5 › late receipt preserves completed status and never pollutes another conversation 
+    tests\e2e\review-regressions.spec.ts:5:5 › usage dates represent local calendar boundaries including the final millisecond 

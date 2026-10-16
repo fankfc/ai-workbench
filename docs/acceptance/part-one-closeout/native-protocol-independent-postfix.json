@@ -1,0 +1,101 @@
+{
+  "at_utc": "2026-10-14T03:10:33.649418+00:00",
+  "phase": "postfix",
+  "evidence_scope": "Pre-start parameter validation, in-memory provider frame, actual Windows local metadata fixture cancellation",
+  "real_provider_starts": 0,
+  "real_model_starts": 0,
+  "real_auth_operations": 0,
+  "source_hashes_before": {
+    "services/orchestrator/app/providers/native_rpc.py": "702fdfe1de5d00b8b30a3628f8811f68f0d8d426caec5c9c4ac8cf828fac4c2e",
+    "services/orchestrator/app/providers/native_rpc_worker.py": "efd341daf662db5bbcc73c51bb545ced2759d7c683a7642b2d01231b6aba9419",
+    "services/orchestrator/app/providers/codex_protocol.py": "be3efaea44bc56fd821adbeb28642637466a5472e6daea95beacaaf5a30b4922",
+    "services/orchestrator/app/providers/zcode_protocol.py": "44e872526f4dbd5d61d481eecc00e41a7bd2542250168bcf0951cd4ecc6b8201",
+    "scripts/probe_native_connections.py": "8213fba797eff63b54a0cd1e6e8e6ffc1598e68ec288f7bef9c565f5d5e3b07f"
+  },
+  "source_hashes_after": {
+    "services/orchestrator/app/providers/native_rpc.py": "702fdfe1de5d00b8b30a3628f8811f68f0d8d426caec5c9c4ac8cf828fac4c2e",
+    "services/orchestrator/app/providers/native_rpc_worker.py": "efd341daf662db5bbcc73c51bb545ced2759d7c683a7642b2d01231b6aba9419",
+    "services/orchestrator/app/providers/codex_protocol.py": "be3efaea44bc56fd821adbeb28642637466a5472e6daea95beacaaf5a30b4922",
+    "services/orchestrator/app/providers/zcode_protocol.py": "44e872526f4dbd5d61d481eecc00e41a7bd2542250168bcf0951cd4ecc6b8201",
+    "scripts/probe_native_connections.py": "8213fba797eff63b54a0cd1e6e8e6ffc1598e68ec288f7bef9c565f5d5e3b07f"
+  },
+  "policy_checks": [
+    {
+      "method": "session/close",
+      "blocked": true,
+      "reason_code": "METADATA_SESSION_NOT_OWNED"
+    },
+    {
+      "method": "thread/read",
+      "blocked": true,
+      "reason_code": "METADATA_THREAD_NOT_OWNED"
+    },
+    {
+      "method": "thread/start",
+      "blocked": true,
+      "reason_code": "METADATA_FIXED_PARAMS_REQUIRED"
+    },
+    {
+      "method": "account/read",
+      "blocked": true,
+      "reason_code": "METADATA_FIXED_PARAMS_REQUIRED"
+    },
+    {
+      "method": "model/list",
+      "blocked": true,
+      "reason_code": "METADATA_FIXED_PARAMS_REQUIRED"
+    }
+  ],
+  "untrusted_method_canary_exported": false,
+  "unexpected_activity_checks": [
+    {
+      "method": "item/agentMessage/delta",
+      "blocked": true,
+      "reason_code": "RPC_UNEXPECTED_MODEL_ACTIVITY",
+      "model_turn_starts": null,
+      "observed_model_activity": true,
+      "submitted_model_turns": 0
+    },
+    {
+      "method": "model.streaming",
+      "blocked": true,
+      "reason_code": "RPC_UNEXPECTED_MODEL_ACTIVITY",
+      "model_turn_starts": null,
+      "observed_model_activity": true,
+      "submitted_model_turns": 0
+    },
+    {
+      "method": "session/event",
+      "blocked": true,
+      "reason_code": "RPC_UNEXPECTED_MODEL_ACTIVITY",
+      "model_turn_starts": null,
+      "observed_model_activity": true,
+      "submitted_model_turns": 0
+    }
+  ],
+  "codex_script_override": {
+    "exit_code": 1,
+    "reason_code": "CODEX_OFFICIAL_ENTRY_MISMATCH",
+    "launcher_attempts": 0,
+    "production_enabled": false
+  },
+  "zcode_default_entry_override": {
+    "blocked": true,
+    "reason_code": "SUPPORTED_PROTOCOL_ENTRY_REQUIRED",
+    "launcher_attempts": 0
+  },
+  "concurrent_cancel": {
+    "seconds": 0.1190980999963358,
+    "request_thread_alive": false,
+    "request_errors": [
+      "RPC_CANCELLED"
+    ],
+    "cleanup_complete": true,
+    "running": 0,
+    "open_handles": 0,
+    "temp_dirs": 0
+  },
+  "command": "services/orchestrator/.venv/Scripts/python.exe docs/acceptance/part-one-closeout/native-protocol-review-probe.py --postfix",
+  "exit_code": 0,
+  "source_unchanged": true
+}

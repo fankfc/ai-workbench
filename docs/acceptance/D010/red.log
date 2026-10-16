@@ -1,0 +1,370 @@
+FFFFFFFFFFFFFFFFFFFF.F                                                   [100%]
+================================== FAILURES ===================================
+_____________ test_transition_commits_state_and_one_outbox_record _____________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-48/test_transition_commits_state_0')
+
+    def test_transition_commits_state_and_one_outbox_record(tmp_path):
+        path = initialize_runtime(tmp_path)
+        result = StateMachine(path).transition("task1", "a1", "RECEIVED", "INPUT_PREPARING", "1.0", {"reason":"start"})
+>       assert current(path)["state"] == "INPUT_PREPARING"
+E       AssertionError: assert 'RECEIVED' == 'INPUT_PREPARING'
+E         
+E         - INPUT_PREPARING
+E         + RECEIVED
+
+tests\integration\test_state_machine.py:60: AssertionError
+_ test_transition_rejects_stale_or_illegal_input_without_state_change[attempt_id-old-ATTEMPT_NOT_FOUND] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-48/test_transition_rejects_stale_0')
+argument = 'attempt_id', replacement = 'old', error = 'ATTEMPT_NOT_FOUND'
+
+    @pytest.mark.parametrize("argument,replacement,error", [("attempt_id","old","ATTEMPT_NOT_FOUND"),
+        ("contract_version","2.0","CONTRACT_VERSION_MISMATCH"), ("expected_state","EXECUTING","EXPECTED_STATE_MISMATCH"),
+        ("new_state","PUBLISHED","ILLEGAL_TRANSITION")])
+    def test_transition_rejects_stale_or_illegal_input_without_state_change(tmp_path, argument, replacement, error):
+        path = initialize_runtime(tmp_path)
+        kwargs = dict(task_id="task1", attempt_id="a1", expected_state="RECEIVED", new_state="INPUT_PREPARING", contract_version="1.0")
+        kwargs[argument] = replacement
+>       with pytest.raises(TransitionError, match=error):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE TransitionError
+
+tests\integration\test_state_machine.py:79: Failed
+_ test_transition_rejects_stale_or_illegal_input_without_state_change[contract_version-2.0-CONTRACT_VERSION_MISMATCH] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-48/test_transition_rejects_stale_1')
+argument = 'contract_version', replacement = '2.0'
+error = 'CONTRACT_VERSION_MISMATCH'
+
+    @pytest.mark.parametrize("argument,replacement,error", [("attempt_id","old","ATTEMPT_NOT_FOUND"),
+        ("contract_version","2.0","CONTRACT_VERSION_MISMATCH"), ("expected_state","EXECUTING","EXPECTED_STATE_MISMATCH"),
+        ("new_state","PUBLISHED","ILLEGAL_TRANSITION")])
+    def test_transition_rejects_stale_or_illegal_input_without_state_change(tmp_path, argument, replacement, error):
+        path = initialize_runtime(tmp_path)
+        kwargs = dict(task_id="task1", attempt_id="a1", expected_state="RECEIVED", new_state="INPUT_PREPARING", contract_version="1.0")
+        kwargs[argument] = replacement
+>       with pytest.raises(TransitionError, match=error):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE TransitionError
+
+tests\integration\test_state_machine.py:79: Failed
+_ test_transition_rejects_stale_or_illegal_input_without_state_change[expected_state-EXECUTING-EXPECTED_STATE_MISMATCH] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-48/test_transition_rejects_stale_2')
+argument = 'expected_state', replacement = 'EXECUTING'
+error = 'EXPECTED_STATE_MISMATCH'
+
+    @pytest.mark.parametrize("argument,replacement,error", [("attempt_id","old","ATTEMPT_NOT_FOUND"),
+        ("contract_version","2.0","CONTRACT_VERSION_MISMATCH"), ("expected_state","EXECUTING","EXPECTED_STATE_MISMATCH"),
+        ("new_state","PUBLISHED","ILLEGAL_TRANSITION")])
+    def test_transition_rejects_stale_or_illegal_input_without_state_change(tmp_path, argument, replacement, error):
+        path = initialize_runtime(tmp_path)
+        kwargs = dict(task_id="task1", attempt_id="a1", expected_state="RECEIVED", new_state="INPUT_PREPARING", contract_version="1.0")
+        kwargs[argument] = replacement
+>       with pytest.raises(TransitionError, match=error):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE TransitionError
+
+tests\integration\test_state_machine.py:79: Failed
+_ test_transition_rejects_stale_or_illegal_input_without_state_change[new_state-PUBLISHED-ILLEGAL_TRANSITION] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-48/test_transition_rejects_stale_3')
+argument = 'new_state', replacement = 'PUBLISHED', error = 'ILLEGAL_TRANSITION'
+
+    @pytest.mark.parametrize("argument,replacement,error", [("attempt_id","old","ATTEMPT_NOT_FOUND"),
+        ("contract_version","2.0","CONTRACT_VERSION_MISMATCH"), ("expected_state","EXECUTING","EXPECTED_STATE_MISMATCH"),
+        ("new_state","PUBLISHED","ILLEGAL_TRANSITION")])
+    def test_transition_rejects_stale_or_illegal_input_without_state_change(tmp_path, argument, replacement, error):
+        path = initialize_runtime(tmp_path)
+        kwargs = dict(task_id="task1", attempt_id="a1", expected_state="RECEIVED", new_state="INPUT_PREPARING", contract_version="1.0")
+        kwargs[argument] = replacement
+>       with pytest.raises(TransitionError, match=error):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE TransitionError
+
+tests\integration\test_state_machine.py:79: Failed
+_____________ test_outbox_insert_failure_rolls_back_state_change ______________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-48/test_outbox_insert_failure_rol0')
+
+    def test_outbox_insert_failure_rolls_back_state_change(tmp_path):
+        path = initialize_runtime(tmp_path)
+        connection = Database(path).connect()
+        connection.execute("CREATE TRIGGER injected_failure BEFORE INSERT ON outbox_events BEGIN SELECT RAISE(ABORT,'injected'); END")
+        connection.close()
+>       with pytest.raises(sqlite3.IntegrityError, match="injected"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE IntegrityError
+
+tests\integration\test_state_machine.py:89: Failed
+_ test_release_transition_requires_persisted_approval_not_payload_claim[OUTPUT_PREPARING] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-48/test_release_transition_requir0')
+state = 'OUTPUT_PREPARING'
+
+    @pytest.mark.parametrize("state", ["OUTPUT_PREPARING", "READY"])
+    def test_release_transition_requires_persisted_approval_not_payload_claim(tmp_path, state):
+        path = initialize_runtime(tmp_path, state)
+>       with pytest.raises(TransitionError, match="RELEASE_GATE_REQUIRED"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE TransitionError
+
+tests\integration\test_state_machine.py:97: Failed
+_ test_release_transition_requires_persisted_approval_not_payload_claim[READY] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-48/test_release_transition_requir1')
+state = 'READY'
+
+    @pytest.mark.parametrize("state", ["OUTPUT_PREPARING", "READY"])
+    def test_release_transition_requires_persisted_approval_not_payload_claim(tmp_path, state):
+        path = initialize_runtime(tmp_path, state)
+>       with pytest.raises(TransitionError, match="RELEASE_GATE_REQUIRED"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE TransitionError
+
+tests\integration\test_state_machine.py:97: Failed
+__ test_release_gate_binds_current_revision_and_allows_ready_then_published ___
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-48/test_release_gate_binds_curren0')
+
+    def test_release_gate_binds_current_revision_and_allows_ready_then_published(tmp_path):
+        path = initialize_runtime(tmp_path, "OUTPUT_PREPARING")
+        gate_id = create_revision_and_gate(path)
+>       assert gate_id == "approval1"
+E       AssertionError: assert '' == 'approval1'
+E         
+E         - approval1
+
+tests\integration\test_state_machine.py:106: AssertionError
+_ test_changed_current_revision_or_approval_evidence_blocks_published[revision] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-48/test_changed_current_revision_0')
+damage = 'revision'
+
+    @pytest.mark.parametrize("damage", ["revision", "check-result", "route-binding"])
+    def test_changed_current_revision_or_approval_evidence_blocks_published(tmp_path, damage):
+        path = initialize_runtime(tmp_path, "READY")
+        gate_id = create_revision_and_gate(path)
+        connection = Database(path).connect()
+        if damage == "revision":
+            checkpoint = json.loads(current(path)["checkpoint_json"])
+            checkpoint["current_revision_id"] = "revision2"
+            connection.execute("UPDATE task_runs SET checkpoint_json=?", (json.dumps(checkpoint),))
+        elif damage == "check-result":
+            connection.execute("UPDATE checks SET result='fail' WHERE id=?", (gate_id,))
+        else:
+            details = json.loads(connection.execute("SELECT details_json FROM checks WHERE id=?", (gate_id,)).fetchone()[0])
+            details["route_snapshot_id"] = "stale-route"
+            connection.execute("UPDATE checks SET details_json=? WHERE id=?", (json.dumps(details), gate_id))
+        connection.close()
+>       with pytest.raises(TransitionError, match="RELEASE_GATE"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE TransitionError
+
+tests\integration\test_state_machine.py:130: Failed
+_ test_changed_current_revision_or_approval_evidence_blocks_published[check-result] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-48/test_changed_current_revision_1')
+damage = 'check-result'
+
+    @pytest.mark.parametrize("damage", ["revision", "check-result", "route-binding"])
+    def test_changed_current_revision_or_approval_evidence_blocks_published(tmp_path, damage):
+        path = initialize_runtime(tmp_path, "READY")
+        gate_id = create_revision_and_gate(path)
+        connection = Database(path).connect()
+        if damage == "revision":
+            checkpoint = json.loads(current(path)["checkpoint_json"])
+            checkpoint["current_revision_id"] = "revision2"
+            connection.execute("UPDATE task_runs SET checkpoint_json=?", (json.dumps(checkpoint),))
+        elif damage == "check-result":
+            connection.execute("UPDATE checks SET result='fail' WHERE id=?", (gate_id,))
+        else:
+            details = json.loads(connection.execute("SELECT details_json FROM checks WHERE id=?", (gate_id,)).fetchone()[0])
+            details["route_snapshot_id"] = "stale-route"
+            connection.execute("UPDATE checks SET details_json=? WHERE id=?", (json.dumps(details), gate_id))
+        connection.close()
+>       with pytest.raises(TransitionError, match="RELEASE_GATE"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE TransitionError
+
+tests\integration\test_state_machine.py:130: Failed
+_ test_changed_current_revision_or_approval_evidence_blocks_published[route-binding] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-48/test_changed_current_revision_2')
+damage = 'route-binding'
+
+    @pytest.mark.parametrize("damage", ["revision", "check-result", "route-binding"])
+    def test_changed_current_revision_or_approval_evidence_blocks_published(tmp_path, damage):
+        path = initialize_runtime(tmp_path, "READY")
+        gate_id = create_revision_and_gate(path)
+        connection = Database(path).connect()
+        if damage == "revision":
+            checkpoint = json.loads(current(path)["checkpoint_json"])
+            checkpoint["current_revision_id"] = "revision2"
+            connection.execute("UPDATE task_runs SET checkpoint_json=?", (json.dumps(checkpoint),))
+        elif damage == "check-result":
+            connection.execute("UPDATE checks SET result='fail' WHERE id=?", (gate_id,))
+        else:
+>           details = json.loads(connection.execute("SELECT details_json FROM checks WHERE id=?", (gate_id,)).fetchone()[0])
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           TypeError: 'NoneType' object is not subscriptable
+
+tests\integration\test_state_machine.py:126: TypeError
+___________ test_old_attempt_cannot_transition_or_register_approval ___________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-48/test_old_attempt_cannot_transi0')
+
+    def test_old_attempt_cannot_transition_or_register_approval(tmp_path):
+        path = initialize_runtime(tmp_path, "EXECUTING")
+        connection = Database(path).connect()
+        connection.execute("""INSERT INTO task_runs(task_id,attempt_id,turn_id,provider_profile_id,attempt_number,state)
+                           VALUES('task1','a2','t1','p1',2,'EXECUTING')""")
+>       with pytest.raises(TransitionError, match="STALE_ATTEMPT"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE TransitionError
+
+tests\integration\test_state_machine.py:140: Failed
+____ test_cancel_fence_blocks_late_transitions_and_clears_release_registry ____
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-48/test_cancel_fence_blocks_late_0')
+
+    def test_cancel_fence_blocks_late_transitions_and_clears_release_registry(tmp_path):
+        path = initialize_runtime(tmp_path, "READY")
+        create_revision_and_gate(path)
+        machine = StateMachine(path)
+        machine.transition("task1", "a1", "READY", "CANCELLED", "1.0")
+        row = current(path)
+>       assert row["cancel_requested"] == 1
+E       assert 0 == 1
+
+tests\integration\test_state_machine.py:154: AssertionError
+_________ test_entire_normal_path_uses_the_persisted_gate_at_release __________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-48/test_entire_normal_path_uses_t0')
+
+    def test_entire_normal_path_uses_the_persisted_gate_at_release(tmp_path):
+        path = initialize_runtime(tmp_path)
+        states = ["RECEIVED","INPUT_PREPARING","PLANNING","EXECUTING","VALIDATING","REVIEWING","OUTPUT_PREPARING","READY","PUBLISHED"]
+        for before, after in zip(states, states[1:]):
+            if after == "READY":
+                create_revision_and_gate(path)
+>           assert after in TRANSITIONS[before]
+                            ^^^^^^^^^^^^^^^^^^^
+E           KeyError: 'RECEIVED'
+
+tests\integration\test_state_machine.py:166: KeyError
+______ test_outbox_enqueues_validated_public_event_with_stable_envelope _______
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-48/test_outbox_enqueues_validated0')
+
+    def test_outbox_enqueues_validated_public_event_with_stable_envelope(tmp_path):
+        path = initialize_runtime(tmp_path)
+        row = enqueue(path)
+>       public = json.loads(row["public_event_json"])
+                            ^^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'public_event_json'
+
+tests\integration\test_outbox.py:24: KeyError
+____ test_outbox_deduplicates_exact_same_operation_but_rejects_reused_key _____
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-48/test_outbox_deduplicates_exact0')
+
+    def test_outbox_deduplicates_exact_same_operation_but_rejects_reused_key(tmp_path):
+        path = initialize_runtime(tmp_path)
+>       assert enqueue(path)["event_id"] == enqueue(path)["event_id"]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'event_id'
+
+tests\integration\test_outbox.py:33: KeyError
+__________ test_outbox_replay_uses_conversation_cursor_across_turns ___________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-48/test_outbox_replay_uses_conver0')
+
+    def test_outbox_replay_uses_conversation_cursor_across_turns(tmp_path):
+        path = initialize_runtime(tmp_path)
+        first = enqueue(path)
+        connection = Database(path).connect()
+        try:
+            connection.execute("""INSERT INTO turns(id,conversation_id,task_id,provider_profile_id,client_request_id,user_text)
+                               VALUES('t2','c1','task2','p1','request2','�ڶ���')""")
+            connection.execute("""INSERT INTO task_runs(task_id,attempt_id,turn_id,provider_profile_id,state)
+                               VALUES('task2','a2','t2','p1','RECEIVED')""")
+            with transaction(connection):
+                second = enqueue_event(connection,"task2","a2","response.pending",{},deduplication_key="pending2",public_payload={"status":"pending"})
+>           assert second["sequence"] == 1
+                   ^^^^^^^^^^^^^^^^^^
+E           KeyError: 'sequence'
+
+tests\integration\test_outbox.py:56: KeyError
+_ test_outbox_failure_after_commit_keeps_pending_event_and_never_restarts_model _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-48/test_outbox_failure_after_comm0')
+
+    def test_outbox_failure_after_commit_keeps_pending_event_and_never_restarts_model(tmp_path):
+        path = initialize_runtime(tmp_path)
+        row = enqueue(path)
+        def fail(event):
+            raise RuntimeError("transport unavailable")
+>       with pytest.raises(RuntimeError, match="transport unavailable"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE RuntimeError
+
+tests\integration\test_outbox.py:69: Failed
+_ test_outbox_repeated_send_before_ack_uses_same_event_id_for_receiver_dedup __
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-48/test_outbox_repeated_send_befo0')
+
+    def test_outbox_repeated_send_before_ack_uses_same_event_id_for_receiver_dedup(tmp_path):
+        path = initialize_runtime(tmp_path)
+        row = enqueue(path)
+        seen = set()
+        published = []
+        def receiver_then_crash(event):
+            if event["event_id"] not in seen:
+                seen.add(event["event_id"])
+                published.append(event)
+            raise RuntimeError("crash before ack")
+        for _ in range(2):
+>           with pytest.raises(RuntimeError, match="crash before ack"):
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           Failed: DID NOT RAISE RuntimeError
+
+tests\integration\test_outbox.py:89: Failed
+_____ test_invalid_public_payload_rolls_back_and_cannot_leak_model_delta ______
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-48/test_invalid_public_payload_ro0')
+
+    def test_invalid_public_payload_rolls_back_and_cannot_leak_model_delta(tmp_path):
+        path = initialize_runtime(tmp_path)
+        connection = Database(path).connect()
+        try:
+>           with pytest.raises(ValueError):
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+E           Failed: DID NOT RAISE ValueError
+
+tests\integration\test_outbox.py:114: Failed
+=========================== short test summary info ===========================
+FAILED tests/integration/test_state_machine.py::test_transition_commits_state_and_one_outbox_record
+FAILED tests/integration/test_state_machine.py::test_transition_rejects_stale_or_illegal_input_without_state_change[attempt_id-old-ATTEMPT_NOT_FOUND]
+FAILED tests/integration/test_state_machine.py::test_transition_rejects_stale_or_illegal_input_without_state_change[contract_version-2.0-CONTRACT_VERSION_MISMATCH]
+FAILED tests/integration/test_state_machine.py::test_transition_rejects_stale_or_illegal_input_without_state_change[expected_state-EXECUTING-EXPECTED_STATE_MISMATCH]
+FAILED tests/integration/test_state_machine.py::test_transition_rejects_stale_or_illegal_input_without_state_change[new_state-PUBLISHED-ILLEGAL_TRANSITION]
+FAILED tests/integration/test_state_machine.py::test_outbox_insert_failure_rolls_back_state_change
+FAILED tests/integration/test_state_machine.py::test_release_transition_requires_persisted_approval_not_payload_claim[OUTPUT_PREPARING]
+FAILED tests/integration/test_state_machine.py::test_release_transition_requires_persisted_approval_not_payload_claim[READY]
+FAILED tests/integration/test_state_machine.py::test_release_gate_binds_current_revision_and_allows_ready_then_published
+FAILED tests/integration/test_state_machine.py::test_changed_current_revision_or_approval_evidence_blocks_published[revision]
+FAILED tests/integration/test_state_machine.py::test_changed_current_revision_or_approval_evidence_blocks_published[check-result]
+FAILED tests/integration/test_state_machine.py::test_changed_current_revision_or_approval_evidence_blocks_published[route-binding]
+FAILED tests/integration/test_state_machine.py::test_old_attempt_cannot_transition_or_register_approval
+FAILED tests/integration/test_state_machine.py::test_cancel_fence_blocks_late_transitions_and_clears_release_registry
+FAILED tests/integration/test_state_machine.py::test_entire_normal_path_uses_the_persisted_gate_at_release
+FAILED tests/integration/test_outbox.py::test_outbox_enqueues_validated_public_event_with_stable_envelope
+FAILED tests/integration/test_outbox.py::test_outbox_deduplicates_exact_same_operation_but_rejects_reused_key
+FAILED tests/integration/test_outbox.py::test_outbox_replay_uses_conversation_cursor_across_turns
+FAILED tests/integration/test_outbox.py::test_outbox_failure_after_commit_keeps_pending_event_and_never_restarts_model
+FAILED tests/integration/test_outbox.py::test_outbox_repeated_send_before_ack_uses_same_event_id_for_receiver_dedup
+FAILED tests/integration/test_outbox.py::test_invalid_public_payload_rolls_back_and_cannot_leak_model_delta
+21 failed, 1 passed in 0.84s
+EXIT_CODE=1

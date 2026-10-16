@@ -1,0 +1,57 @@
+{
+  "card": "D054",
+  "case": "release_manifest",
+  "command": [
+    "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\.venv\\Scripts\\python.exe",
+    "tests/support/scenario_driver.py",
+    "release_manifest",
+    "--root",
+    "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\artifacts\\qa\\D054\\r19115814",
+    "--options",
+    "{}"
+  ],
+  "exit_code": 0,
+  "time": "2026-10-15T02:00:56.817649+00:00",
+  "build_id": "cb98eed03df6bd4ffaa551d66a54c77198911cf5b3e763a1ef3c055f5ee54ca4",
+  "run_root": "artifacts/qa/D054/r19115814",
+  "result": {
+    "valid": false,
+    "missing_evidence": [
+      "accessibility_review_missing",
+      "authenticode_missing",
+      "backup_restore_missing",
+      "beta_trial_missing",
+      "performance_missing",
+      "real_journeys_missing",
+      "reliability_24h_missing",
+      "sbom",
+      "security_boundary_missing",
+      "signed_update_missing",
+      "source_commit_missing",
+      "source_commit_not_verified",
+      "source_tree_not_frozen",
+      "translation_review_missing",
+      "windows_install_missing"
+    ],
+    "skipped_mandatory": [],
+    "artifact_hash_matches": true,
+    "evidence_kind": "audit",
+    "blocked_reasons": [
+      "accessibility_review_missing",
+      "authenticode_missing",
+      "backup_restore_missing",
+      "beta_trial_missing",
+      "performance_missing",
+      "real_journeys_missing",
+      "reliability_24h_missing",
+      "sbom",
+      "security_boundary_missing",
+      "signed_update_missing",
+      "source_commit_missing",
+      "source_commit_not_verified",
+      "source_tree_not_frozen",
+      "translation_review_missing",
+      "windows_install_missing"
+    ]
+  }
+}

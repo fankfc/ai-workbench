@@ -1,0 +1,46 @@
+{
+  "version": "1.0",
+  "build_id": "ad56a40168bc702f4a0db58b38a50f2aab2b69696e1ae9242e2dda4c6b06f9ca",
+  "run_id": null,
+  "created_at": "2026-10-14T15:24:37.474747+00:00",
+  "seed": 4317,
+  "encoding": "UTF-8",
+  "provider_boundary": "fake",
+  "files": [
+    {
+      "path": ".qa-run.json",
+      "size": 151,
+      "sha256": "749c800284e7809ac769f8f1d9be47f4747882e1d7d9f5603ce0637c245edc5b"
+    },
+    {
+      "path": "feedback-diagnostics.zip",
+      "size": 529,
+      "sha256": "a452166241b89213a9af0d0e5c2a2985b91306882df44a4576888519b278f682"
+    },
+    {
+      "path": "feedback_bundle.json",
+      "size": 205,
+      "sha256": "42c32a40f54386b573ba3141c8d18783adf95a9b4eed64cccbb331f4a5deaf04"
+    },
+    {
+      "path": "scenario-result.json",
+      "size": 207,
+      "sha256": "03dcdf786724f7cd69eaa6b6b0aba8c7a20206c0a210dfab55c46961c2158606"
+    },
+    {
+      "path": "product/workbench.sqlite3",
+      "size": 339968,
+      "sha256": "4912bd531f529ae1a51cca13cff9b3bbfb7366f57b11deb7a3fc6c38d1f29da2"
+    },
+    {
+      "path": "product/workbench.sqlite3-shm",
+      "size": 32768,
+      "sha256": "ad343aab3c12b0fa3395df80932c8a89f0733bd0f4f53f4f406d89568ec55e3c"
+    },
+    {
+      "path": "product/workbench.sqlite3-wal",
+      "size": 12392,
+      "sha256": "df406dda52174697c49a9d7adb97c9335d956792a8cf33a1fcd52c0671c432c8"
+    }
+  ]
+}

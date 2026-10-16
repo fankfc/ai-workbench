@@ -1,0 +1,136 @@
+...............................FFFFF.....                                [100%]
+================================== FAILURES ===================================
+________ test_accepted_without_any_remote_ref_cannot_emit_a_candidate _________
+
+prepared = (WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-171/test_accepted_without_any_remo0/task/attemp..., 'output_tokens': 2}), source='reported', mode='request_total', cumulative_scope=None),), exit_code=0, finished=True))
+
+    def test_accepted_without_any_remote_ref_cannot_emit_a_candidate(prepared):
+        capture=replace(prepared[-1],external_request_id=None,external_execution_id=None)
+        runtime=MemoryRuntime([PhaseStarted('local-request',None,None),capture])
+        events,_,_=run(prepared,runtime=runtime)
+>       assert error(events)=='REMOTE_REFERENCE_REQUIRED'
+               ^^^^^^^^^^^^^
+
+tests\contracts\test_phase_bridge.py:263: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+events = [AgentEvent(task_id='task', attempt_id='attempt', sequence=1, kind='provider.started', payload={'external_request_id':...vent(task_id='task', attempt_id='attempt', sequence=5, kind='provider.completed', payload={'protocol_verified': True})]
+
+    def error(events):
+        values=[event.payload['reason_code'] for event in events if event.kind=='provider.error']
+>       assert len(values)==1
+E       assert 0 == 1
+E        +  where 0 = len([])
+
+tests\contracts\test_phase_bridge.py:103: AssertionError
+___ test_repeated_final_capture_is_rejected_before_any_candidate_is_emitted ___
+
+prepared = (WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-171/test_repeated_final_capture_is0/task/attemp..., 'output_tokens': 2}), source='reported', mode='request_total', cumulative_scope=None),), exit_code=0, finished=True))
+
+    def test_repeated_final_capture_is_rejected_before_any_candidate_is_emitted(prepared):
+        runtime=MemoryRuntime([PhaseStarted('local-request','remote-request','remote-execution'),prepared[-1],prepared[-1]])
+        events,_,_=run(prepared,runtime=runtime)
+>       assert error(events)=='CAPTURE_REQUEST_BINDING_MISMATCH'
+               ^^^^^^^^^^^^^
+
+tests\contracts\test_phase_bridge.py:270: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+events = [AgentEvent(task_id='task', attempt_id='attempt', sequence=1, kind='provider.started', payload={'external_request_id':... attempt_id='attempt', sequence=5, kind='provider.error', payload={'reason_code': 'CAPTURE_REQUEST_BINDING_MISMATCH'})]
+
+    def error(events):
+        values=[event.payload['reason_code'] for event in events if event.kind=='provider.error']
+        assert len(values)==1
+>       assert not any(event.kind in ('artifact.candidate','review.decision','provider.completed') for event in events)
+E       assert not True
+E        +  where True = any(<generator object error.<locals>.<genexpr> at 0x000001AC4B1E8860>)
+
+tests\contracts\test_phase_bridge.py:104: AssertionError
+__ test_prompt_changed_while_runtime_runs_cannot_rebind_the_original_request __
+
+prepared = (WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-171/test_prompt_changed_while_runt0/task/attemp..., 'output_tokens': 2}), source='reported', mode='request_total', cumulative_scope=None),), exit_code=0, finished=True))
+
+    def test_prompt_changed_while_runtime_runs_cannot_rebind_the_original_request(prepared):
+        class ChangingRuntime(MemoryRuntime):
+            async def run(self,request,binding):
+                self.starts.append(request)
+                yield self.records[0]
+                body=json.loads(Path(request.prompt_path).read_text())
+                body['contract']['objective']='changed while native work runs'
+                Path(request.prompt_path).write_text(json.dumps(body))
+                yield self.records[1]
+        runtime=ChangingRuntime([PhaseStarted('local-request','remote-request','remote-execution'),prepared[-1]])
+        events,_,_=run(prepared,runtime=runtime)
+>       assert error(events)=='PHASE_REQUEST_CHANGED'
+               ^^^^^^^^^^^^^
+
+tests\contracts\test_phase_bridge.py:284: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+events = [AgentEvent(task_id='task', attempt_id='attempt', sequence=1, kind='provider.started', payload={'external_request_id':...vent(task_id='task', attempt_id='attempt', sequence=5, kind='provider.completed', payload={'protocol_verified': True})]
+
+    def error(events):
+        values=[event.payload['reason_code'] for event in events if event.kind=='provider.error']
+>       assert len(values)==1
+E       assert 0 == 1
+E        +  where 0 = len([])
+
+tests\contracts\test_phase_bridge.py:103: AssertionError
+__________ test_scope_revoked_while_runtime_runs_cannot_emit_content __________
+
+prepared = (WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-171/test_scope_revoked_while_runti0/task/attemp..., 'output_tokens': 2}), source='reported', mode='request_total', cumulative_scope=None),), exit_code=0, finished=True))
+
+    def test_scope_revoked_while_runtime_runs_cannot_emit_content(prepared):
+        class RevokedRuntime(MemoryRuntime):
+            async def run(self,request,binding):
+                self.starts.append(request)
+                yield self.records[0]
+                self.scope_capability=None
+                yield self.records[1]
+        runtime=RevokedRuntime([PhaseStarted('local-request','remote-request','remote-execution'),prepared[-1]])
+        events,_,bridge=run(prepared,runtime=runtime)
+>       assert error(events)=='SCOPE_CAPABILITY_UNVERIFIED'
+               ^^^^^^^^^^^^^
+
+tests\contracts\test_phase_bridge.py:296: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+events = [AgentEvent(task_id='task', attempt_id='attempt', sequence=1, kind='provider.started', payload={'external_request_id':...vent(task_id='task', attempt_id='attempt', sequence=5, kind='provider.completed', payload={'protocol_verified': True})]
+
+    def error(events):
+        values=[event.payload['reason_code'] for event in events if event.kind=='provider.error']
+>       assert len(values)==1
+E       assert 0 == 1
+E        +  where 0 = len([])
+
+tests\contracts\test_phase_bridge.py:103: AssertionError
+_____ test_account_cumulative_scope_requires_a_real_workflow_ledger_port ______
+
+prepared = (WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-171/test_account_cumulative_scope_0/task/attemp..., 'output_tokens': 2}), source='reported', mode='request_total', cumulative_scope=None),), exit_code=0, finished=True))
+
+    def test_account_cumulative_scope_requires_a_real_workflow_ledger_port(prepared):
+        receipt=replace(prepared[-1].usage_receipts[0],mode='cumulative',cumulative_scope='account-session')
+        events,_,_=run(prepared,capture=replace(prepared[-1],usage_receipts=(receipt,)))
+>       assert error(events)=='CUMULATIVE_SCOPE_PORT_UNSUPPORTED'
+               ^^^^^^^^^^^^^
+
+tests\contracts\test_phase_bridge.py:303: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+events = [AgentEvent(task_id='task', attempt_id='attempt', sequence=1, kind='provider.started', payload={'external_request_id':...vent(task_id='task', attempt_id='attempt', sequence=5, kind='provider.completed', payload={'protocol_verified': True})]
+
+    def error(events):
+        values=[event.payload['reason_code'] for event in events if event.kind=='provider.error']
+>       assert len(values)==1
+E       assert 0 == 1
+E        +  where 0 = len([])
+
+tests\contracts\test_phase_bridge.py:103: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/contracts/test_phase_bridge.py::test_accepted_without_any_remote_ref_cannot_emit_a_candidate
+FAILED tests/contracts/test_phase_bridge.py::test_repeated_final_capture_is_rejected_before_any_candidate_is_emitted
+FAILED tests/contracts/test_phase_bridge.py::test_prompt_changed_while_runtime_runs_cannot_rebind_the_original_request
+FAILED tests/contracts/test_phase_bridge.py::test_scope_revoked_while_runtime_runs_cannot_emit_content
+FAILED tests/contracts/test_phase_bridge.py::test_account_cumulative_scope_requires_a_real_workflow_ledger_port
+5 failed, 36 passed in 0.94s
+exit_code=1

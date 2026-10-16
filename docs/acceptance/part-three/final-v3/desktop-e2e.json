@@ -1,0 +1,13 @@
+{
+  "name": "desktop-e2e",
+  "command": [
+    "node",
+    "node_modules/@playwright/test/cli.js",
+    "test",
+    "--reporter=json"
+  ],
+  "started_at": "2026-10-15T01:55:32.875708+00:00",
+  "ended_at": "2026-10-15T01:59:51.302689+00:00",
+  "exit_code": 0,
+  "log": "docs/acceptance/part-three/final-v3/desktop-e2e.log"
+}

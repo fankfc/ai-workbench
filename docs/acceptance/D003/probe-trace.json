@@ -1,0 +1,176 @@
+{
+  "task_id": "D003",
+  "generated_at": "2026-10-13T10:42:20.108423+00:00",
+  "commands": [
+    {
+      "command": [
+        "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\.venv\\Scripts\\python.exe",
+        "--version"
+      ],
+      "shell": false,
+      "status": "observed",
+      "version": "3.13.0",
+      "help_summary": [],
+      "exit_code": 0,
+      "reason_code": "READONLY_COMMAND_OBSERVED"
+    },
+    {
+      "command": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "--version"
+      ],
+      "shell": false,
+      "status": "observed",
+      "version": "24.19.0",
+      "help_summary": [],
+      "exit_code": 0,
+      "reason_code": "READONLY_COMMAND_OBSERVED"
+    },
+    {
+      "command": [
+        "C:\\Users\\asd15\\AppData\\Local\\OpenAI\\Codex\\bin\\f544b3844e0f14e9\\codex.exe",
+        "--version"
+      ],
+      "shell": false,
+      "status": "observed",
+      "version": "0.160.0",
+      "help_summary": [],
+      "exit_code": 0,
+      "reason_code": "READONLY_COMMAND_OBSERVED"
+    },
+    {
+      "command": [
+        "C:\\Users\\asd15\\AppData\\Local\\OpenAI\\Codex\\bin\\f544b3844e0f14e9\\codex.exe",
+        "--help"
+      ],
+      "shell": false,
+      "status": "observed",
+      "version": null,
+      "help_summary": [
+        {
+          "capability": "non_interactive",
+          "excerpt": "exec              Run Codex non-interactively [aliases: e]"
+        },
+        {
+          "capability": "working_directory",
+          "excerpt": "-C, --cd <DIR>"
+        },
+        {
+          "capability": "resume",
+          "excerpt": "resume            Resume a previous interactive session (picker by default; use --last to continue"
+        },
+        {
+          "capability": "model_selection",
+          "excerpt": "-m, --model <MODEL>"
+        }
+      ],
+      "exit_code": 0,
+      "reason_code": "READONLY_COMMAND_OBSERVED"
+    }
+  ],
+  "installed_apps": [
+    {
+      "DisplayName": "ZCode 3.15.1",
+      "registry_source": "HKCU/SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall/268ce9e6-a30b-5890-ad18-d4b3ebba5377",
+      "InstallLocation": null,
+      "DisplayVersion": "3.15.1"
+    },
+    {
+      "DisplayName": "Python 3.13.0 (64-bit)",
+      "registry_source": "HKCU/SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall/{5f75c346-3aaf-4f17-8545-2a21a740bb7a}",
+      "InstallLocation": null,
+      "DisplayVersion": "3.13.150.0"
+    },
+    {
+      "DisplayName": "Python 3.13.0 Executables (64-bit)",
+      "registry_source": "HKLM/SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall/{006F742B-DED7-478D-93DD-4B975444DABE}",
+      "InstallLocation": "",
+      "DisplayVersion": "3.13.150.0"
+    },
+    {
+      "DisplayName": "Python 3.13.0 Standard Library (64-bit)",
+      "registry_source": "HKLM/SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall/{09D95048-E91D-4F33-9197-1182FCA17B16}",
+      "InstallLocation": "",
+      "DisplayVersion": "3.13.150.0"
+    },
+    {
+      "DisplayName": "Python 3.13.0 pip Bootstrap (64-bit)",
+      "registry_source": "HKLM/SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall/{1239D9CA-8A9B-4A20-8361-0C6990D08FD8}",
+      "InstallLocation": "",
+      "DisplayVersion": "3.13.150.0"
+    },
+    {
+      "DisplayName": "Python 3.13.0 Development Libraries (64-bit)",
+      "registry_source": "HKLM/SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall/{71542EB9-2FED-406F-9CB7-027ABBD8BBDB}",
+      "InstallLocation": "",
+      "DisplayVersion": "3.13.150.0"
+    },
+    {
+      "DisplayName": "Node.js",
+      "registry_source": "HKLM/SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall/{89850E15-F7D6-476D-972E-F8F5215E4498}",
+      "InstallLocation": "",
+      "DisplayVersion": "24.19.0"
+    },
+    {
+      "DisplayName": "Python 3.13.0 Core Interpreter (64-bit)",
+      "registry_source": "HKLM/SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall/{92D06D2A-683D-4E16-8ACC-E7F7FC30AB32}",
+      "InstallLocation": "",
+      "DisplayVersion": "3.13.150.0"
+    },
+    {
+      "DisplayName": "Python 3.13.0 Add to Path (64-bit)",
+      "registry_source": "HKLM/SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall/{99D92D08-795B-420E-A433-65953025CBBB}",
+      "InstallLocation": "",
+      "DisplayVersion": "3.13.150.0"
+    },
+    {
+      "DisplayName": "Python 3.13.0 Tcl/Tk Support (64-bit)",
+      "registry_source": "HKLM/SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall/{C8DC7BA8-9A89-42A6-9ACA-04ACA6448612}",
+      "InstallLocation": "",
+      "DisplayVersion": "3.13.150.0"
+    },
+    {
+      "DisplayName": "Python 3.13.0 Documentation (64-bit)",
+      "registry_source": "HKLM/SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall/{D0B9B0AE-74FD-4CA6-9404-91F0433C6CB2}",
+      "InstallLocation": "",
+      "DisplayVersion": "3.13.150.0"
+    },
+    {
+      "DisplayName": "Python 3.13.0 Test Suite (64-bit)",
+      "registry_source": "HKLM/SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall/{D1F9D9AE-E7E2-48AA-BA3A-6E760D2B5F7D}",
+      "InstallLocation": "",
+      "DisplayVersion": "3.13.150.0"
+    },
+    {
+      "DisplayName": "Python Launcher",
+      "registry_source": "HKLM/SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall/{1F3BC6BD-2010-40E7-85B2-F1A5E2EB5FF2}",
+      "InstallLocation": "",
+      "DisplayVersion": "3.13.150.0"
+    }
+  ],
+  "discovered_paths": {
+    "python": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\.venv\\Scripts\\python.exe",
+    "node": "C:\\Program Files\\nodejs\\node.exe",
+    "codex": "C:\\Users\\asd15\\AppData\\Local\\OpenAI\\Codex\\bin\\f544b3844e0f14e9\\codex.exe",
+    "claude_code": null,
+    "pandoc": null,
+    "tesseract": null,
+    "pdftotext": "C:\\Users\\asd15\\AppData\\Local\\Programs\\MiKTeX\\miktex\\bin\\x64\\pdftotext.exe",
+    "libreoffice": null,
+    "zcode_gui": "D:\\zcode\\ZCode.exe",
+    "claude_gui": null
+  },
+  "known_gui_paths": {
+    "zcode_gui": "D:\\zcode\\ZCode.exe"
+  },
+  "gui_metadata_method": "Windows PE version resources; no GUI process launch",
+  "registry_fields_read": [
+    "DisplayName",
+    "InstallLocation",
+    "DisplayVersion"
+  ],
+  "model_starts": 0,
+  "gui_processes_started": 0,
+  "configuration_files_read": [],
+  "user_configuration_modified": false
+}

@@ -1,0 +1,13 @@
+{
+  "install_ok": false,
+  "publisher_valid": false,
+  "backend_started": false,
+  "user_files_preserved": false,
+  "taskbar_windows": 0,
+  "evidence_kind": "audit",
+  "blocked_reasons": [
+    "candidate_missing",
+    "source_commit_missing",
+    "trusted_signature_missing"
+  ]
+}

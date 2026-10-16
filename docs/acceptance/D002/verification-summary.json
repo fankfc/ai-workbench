@@ -1,0 +1,55 @@
+{
+  "task": "D002",
+  "revision": "v3-date-time-review-fix",
+  "status": "engineering_verified_pending_independent_rereview",
+  "recorded_at": "2026-10-13T19:04:32.596112+08:00",
+  "commit": null,
+  "requirements_baseline": {
+    "path": "docs/decisions/requirements-v1.json",
+    "sha256": "48acd0382da193059949b1df046306dca857c755b7eebab5c477b4008b0b21bf",
+    "version": "v1",
+    "status": "frozen_for_implementation",
+    "product_acceptance_status": "not_verified",
+    "requirement_count": 15
+  },
+  "positive_checks": [
+    "bootstrap",
+    "test_collection",
+    "root_uv_sync_locked",
+    "root_npm_ci",
+    "fresh_snapshot_uv_sync_locked",
+    "fresh_snapshot_npm_ci",
+    "fresh_snapshot_bootstrap",
+    "source_snapshot_hashes_15_items",
+    "pytest_default_exclusion",
+    "playwright_default_exclusion",
+    "root_date_time_registered_and_7_cases",
+    "snapshot_date_time_registered_and_7_cases",
+    "npm_sources_unchanged"
+  ],
+  "expected_negative_checks": [
+    "missing_app_before_implementation",
+    "package_discovery_missing_app",
+    "uv_lock_manifest_mismatch",
+    "npm_lock_manifest_mismatch",
+    "date_time_checker_absent_before_review_fix"
+  ],
+  "gui_e2e": "not_implemented; root collection exit1 No tests found",
+  "model_calls": 0,
+  "credential_reads": 0,
+  "locks": {
+    "services/orchestrator/uv.lock": "decfba37bd2e2c4a5258749794806b1bf82ac56b42d73da767f28022e68dcea7",
+    "package-lock.json": "e45ee2de1a15400a992949746bed35cd4f495e884cd8a04ce76f4c1410cefc41"
+  },
+  "jsonschema_date_time": {
+    "registered": true,
+    "dependency_group": "test",
+    "verification_script": "docs/acceptance/D002/verify-date-time.py",
+    "root_verification_log": "docs/acceptance/D002/date-time-green.log",
+    "snapshot_verification_log": "docs/acceptance/D002/snapshot-date-time.log",
+    "production_requirement": "runtime input validation must not depend on this test-only library"
+  },
+  "unresolved_d002_engineering_blockers": [],
+  "root_suite_after_review_fix": "requires fresh run by coordinating agent",
+  "independent_snapshot": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\d002-snapshots\\clean-20261013-v3"
+}

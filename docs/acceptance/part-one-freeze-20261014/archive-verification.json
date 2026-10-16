@@ -1,0 +1,16 @@
+{
+  "status": "frozen_partial",
+  "archive": "docs/acceptance/part-one-freeze-20261014/part-one-source-snapshot.zip",
+  "sha256": "fae705cb552b10ff3344f0de99fbc02e14eb3bc674c5e06e8a1ca6d9a6f9d369",
+  "file_count": 173,
+  "archive_bytes": 716891,
+  "archived_bytes_verified": true,
+  "source_file_count": 131,
+  "source_matches_frozen_test_snapshot": true,
+  "original_specifications_unchanged": 16,
+  "later_tasks_unchanged": true,
+  "part_one_complete": false,
+  "full_regression_passed": false,
+  "credentials_or_history_included": false,
+  "packaging_repair": "Archive member names normalized after initial Windows separator verification failure; source/status backups retained."
+}

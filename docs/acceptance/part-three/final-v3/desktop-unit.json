@@ -1,0 +1,14 @@
+{
+  "name": "desktop-unit",
+  "command": [
+    "node",
+    "node_modules/vitest/vitest.mjs",
+    "run",
+    "tests/desktop",
+    "tests/release"
+  ],
+  "started_at": "2026-10-15T01:55:22.756457+00:00",
+  "ended_at": "2026-10-15T01:55:29.419892+00:00",
+  "exit_code": 0,
+  "log": "docs/acceptance/part-three/final-v3/desktop-unit.log"
+}

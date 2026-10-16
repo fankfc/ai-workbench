@@ -1,0 +1,48 @@
+FFF                                                                      [100%]
+================================== FAILURES ===================================
+______ test_cancel_after_turn_permission_never_reopens_uncertain_attempt ______
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-267/test_cancel_after_turn_permiss0')
+
+    def test_cancel_after_turn_permission_never_reopens_uncertain_attempt(tmp_path):
+        result = asyncio.run(probes().cancellation_before_parent_consumes_submitted(tmp_path))
+        assert result['parent_observed_submissions_before_cancel'] == 0
+>       assert result['states_after_cancel'][0]['state'] == 'unknown'
+E       AssertionError: assert 'failed_before_submission' == 'unknown'
+E         
+E         - unknown
+E         + failed_before_submission
+
+tests\contracts\test_scoped_runtime_repairs.py:18: AssertionError
+_ test_zero_launch_boot_failure_retains_request_without_blocking_a_new_request _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-267/test_zero_launch_boot_failure_0')
+
+    def test_zero_launch_boot_failure_retains_request_without_blocking_a_new_request(tmp_path):
+        result = asyncio.run(probes().boot_failure(tmp_path))
+>       assert result['errors'] == ['FIXTURE_COMMAND_INVALID']
+E       AssertionError: assert ['FIXTURE_COM...E_UNRESOLVED'] == ['FIXTURE_COMMAND_INVALID']
+E         
+E         Left contains one more item: 'UNKNOWN_REMOTE_UNRESOLVED'
+E         Use -v to get more diff
+
+tests\contracts\test_scoped_runtime_repairs.py:25: AssertionError
+__________ test_ledger_handles_are_closed_without_garbage_collection __________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-267/test_ledger_handles_are_closed0')
+
+    def test_ledger_handles_are_closed_without_garbage_collection(tmp_path):
+        result = asyncio.run(probes().ledger_handle_lifetime(tmp_path))
+>       assert result['exclusive_read_after_runtime_close'] == dict(success=True, windows_error=0)
+E       AssertionError: assert {'success': F...ws_error': 32} == {'success': T...ows_error': 0}
+E         
+E         Differing items:
+E         {'windows_error': 32} != {'windows_error': 0}
+E         {'success': False} != {'success': True}
+E         Use -v to get more diff
+
+tests\contracts\test_scoped_runtime_repairs.py:33: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/contracts/test_scoped_runtime_repairs.py::test_cancel_after_turn_permission_never_reopens_uncertain_attempt
+FAILED tests/contracts/test_scoped_runtime_repairs.py::test_zero_launch_boot_failure_retains_request_without_blocking_a_new_request
+FAILED tests/contracts/test_scoped_runtime_repairs.py::test_ledger_handles_are_closed_without_garbage_collection

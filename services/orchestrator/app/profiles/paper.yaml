@@ -1,0 +1,76 @@
+{
+  "schema_version": "1.0",
+  "domain": "paper",
+  "required_inputs": [
+    "research_question",
+    "evidence_refs",
+    "data_refs",
+    "formats"
+  ],
+  "b_actions": [
+    "retrieve_sources",
+    "reproduce_results",
+    "draft"
+  ],
+  "mechanical": [
+    "source_and_citation_trace",
+    "reproduction_and_statistics"
+  ],
+  "semantic": [
+    "method_claim_consistency",
+    "source_support_and_uncertainty"
+  ],
+  "deliverables": [
+    "document"
+  ],
+  "acceptance": [
+    {
+      "id": "paper.C1",
+      "verifier": "C",
+      "mandatory": true,
+      "semantic": false,
+      "evidence_type": "artifact",
+      "condition": "source_and_citation_trace"
+    },
+    {
+      "id": "paper.C2",
+      "verifier": "C",
+      "mandatory": true,
+      "semantic": false,
+      "evidence_type": "artifact",
+      "condition": "reproduction_and_statistics"
+    },
+    {
+      "id": "paper.A1",
+      "verifier": "A",
+      "mandatory": true,
+      "semantic": true,
+      "evidence_type": "review",
+      "condition": "method_claim_consistency"
+    },
+    {
+      "id": "paper.A2",
+      "verifier": "A",
+      "mandatory": true,
+      "semantic": true,
+      "evidence_type": "review",
+      "condition": "source_support_and_uncertainty"
+    }
+  ],
+  "a_responsibilities": [
+    "problem_modeling",
+    "core_reasoning",
+    "method_choice",
+    "evidence_judgment",
+    "final_review"
+  ],
+  "escalation": [
+    "ordinary",
+    "checkpoint",
+    "a_takeover"
+  ],
+  "budget": {
+    "total_tokens": 300000,
+    "reserved_a_tokens": 60000
+  }
+}

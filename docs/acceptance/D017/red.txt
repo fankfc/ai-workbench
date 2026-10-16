@@ -1,0 +1,317 @@
+FEEEEEEEEEEEEEEEEEEFEEEEEEEEEEEEEEEEEEE                                  [100%]
+=================================== ERRORS ====================================
+_______ ERROR at setup of test_path_tricks_are_rejected[../outside.txt] _______
+tests\integration\test_workspace.py:16: in workspace
+    return WorkspaceManager(tmp_path / "data").create("task-1", "attempt-1")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\app\runtime\workspace.py:22: in create
+    raise NotImplementedError("WORKSPACE_SCOPE_NOT_IMPLEMENTED")
+E   NotImplementedError: WORKSPACE_SCOPE_NOT_IMPLEMENTED
+__ ERROR at setup of test_path_tricks_are_rejected[input/../../outside.txt] ___
+tests\integration\test_workspace.py:16: in workspace
+    return WorkspaceManager(tmp_path / "data").create("task-1", "attempt-1")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\app\runtime\workspace.py:22: in create
+    raise NotImplementedError("WORKSPACE_SCOPE_NOT_IMPLEMENTED")
+E   NotImplementedError: WORKSPACE_SCOPE_NOT_IMPLEMENTED
+____ ERROR at setup of test_path_tricks_are_rejected[input/../a/pass.json] ____
+tests\integration\test_workspace.py:16: in workspace
+    return WorkspaceManager(tmp_path / "data").create("task-1", "attempt-1")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\app\runtime\workspace.py:22: in create
+    raise NotImplementedError("WORKSPACE_SCOPE_NOT_IMPLEMENTED")
+E   NotImplementedError: WORKSPACE_SCOPE_NOT_IMPLEMENTED
+__ ERROR at setup of test_path_tricks_are_rejected[input/%2e%2e/outside.txt] __
+tests\integration\test_workspace.py:16: in workspace
+    return WorkspaceManager(tmp_path / "data").create("task-1", "attempt-1")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\app\runtime\workspace.py:22: in create
+    raise NotImplementedError("WORKSPACE_SCOPE_NOT_IMPLEMENTED")
+E   NotImplementedError: WORKSPACE_SCOPE_NOT_IMPLEMENTED
+_ ERROR at setup of test_path_tricks_are_rejected[input/%252e%252e/outside.txt] _
+tests\integration\test_workspace.py:16: in workspace
+    return WorkspaceManager(tmp_path / "data").create("task-1", "attempt-1")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\app\runtime\workspace.py:22: in create
+    raise NotImplementedError("WORKSPACE_SCOPE_NOT_IMPLEMENTED")
+E   NotImplementedError: WORKSPACE_SCOPE_NOT_IMPLEMENTED
+___ ERROR at setup of test_path_tricks_are_rejected[input/file.txt:stream] ____
+tests\integration\test_workspace.py:16: in workspace
+    return WorkspaceManager(tmp_path / "data").create("task-1", "attempt-1")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\app\runtime\workspace.py:22: in create
+    raise NotImplementedError("WORKSPACE_SCOPE_NOT_IMPLEMENTED")
+E   NotImplementedError: WORKSPACE_SCOPE_NOT_IMPLEMENTED
+_______ ERROR at setup of test_path_tricks_are_rejected[C:/outside.txt] _______
+tests\integration\test_workspace.py:16: in workspace
+    return WorkspaceManager(tmp_path / "data").create("task-1", "attempt-1")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\app\runtime\workspace.py:22: in create
+    raise NotImplementedError("WORKSPACE_SCOPE_NOT_IMPLEMENTED")
+E   NotImplementedError: WORKSPACE_SCOPE_NOT_IMPLEMENTED
+_______ ERROR at setup of test_path_tricks_are_rejected[C:outside.txt] ________
+tests\integration\test_workspace.py:16: in workspace
+    return WorkspaceManager(tmp_path / "data").create("task-1", "attempt-1")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\app\runtime\workspace.py:22: in create
+    raise NotImplementedError("WORKSPACE_SCOPE_NOT_IMPLEMENTED")
+E   NotImplementedError: WORKSPACE_SCOPE_NOT_IMPLEMENTED
+____ ERROR at setup of test_path_tricks_are_rejected[//server/share/file] _____
+tests\integration\test_workspace.py:16: in workspace
+    return WorkspaceManager(tmp_path / "data").create("task-1", "attempt-1")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\app\runtime\workspace.py:22: in create
+    raise NotImplementedError("WORKSPACE_SCOPE_NOT_IMPLEMENTED")
+E   NotImplementedError: WORKSPACE_SCOPE_NOT_IMPLEMENTED
+__ ERROR at setup of test_path_tricks_are_rejected[\\\\server\\share\\file] ___
+tests\integration\test_workspace.py:16: in workspace
+    return WorkspaceManager(tmp_path / "data").create("task-1", "attempt-1")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\app\runtime\workspace.py:22: in create
+    raise NotImplementedError("WORKSPACE_SCOPE_NOT_IMPLEMENTED")
+E   NotImplementedError: WORKSPACE_SCOPE_NOT_IMPLEMENTED
+_________ ERROR at setup of test_path_tricks_are_rejected[input/CON] __________
+tests\integration\test_workspace.py:16: in workspace
+    return WorkspaceManager(tmp_path / "data").create("task-1", "attempt-1")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\app\runtime\workspace.py:22: in create
+    raise NotImplementedError("WORKSPACE_SCOPE_NOT_IMPLEMENTED")
+E   NotImplementedError: WORKSPACE_SCOPE_NOT_IMPLEMENTED
+________ ERROR at setup of test_path_tricks_are_rejected[input/file. ] ________
+tests\integration\test_workspace.py:16: in workspace
+    return WorkspaceManager(tmp_path / "data").create("task-1", "attempt-1")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\app\runtime\workspace.py:22: in create
+    raise NotImplementedError("WORKSPACE_SCOPE_NOT_IMPLEMENTED")
+E   NotImplementedError: WORKSPACE_SCOPE_NOT_IMPLEMENTED
+_____ ERROR at setup of test_path_tricks_are_rejected[input/bad\x00name] ______
+tests\integration\test_workspace.py:16: in workspace
+    return WorkspaceManager(tmp_path / "data").create("task-1", "attempt-1")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\app\runtime\workspace.py:22: in create
+    raise NotImplementedError("WORKSPACE_SCOPE_NOT_IMPLEMENTED")
+E   NotImplementedError: WORKSPACE_SCOPE_NOT_IMPLEMENTED
+_________ ERROR at setup of test_other_task_absolute_path_is_rejected _________
+tests\integration\test_workspace.py:16: in workspace
+    return WorkspaceManager(tmp_path / "data").create("task-1", "attempt-1")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\app\runtime\workspace.py:22: in create
+    raise NotImplementedError("WORKSPACE_SCOPE_NOT_IMPLEMENTED")
+E   NotImplementedError: WORKSPACE_SCOPE_NOT_IMPLEMENTED
+_________ ERROR at setup of test_b_cannot_modify_source_a_or_evidence _________
+tests\integration\test_workspace.py:16: in workspace
+    return WorkspaceManager(tmp_path / "data").create("task-1", "attempt-1")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\app\runtime\workspace.py:22: in create
+    raise NotImplementedError("WORKSPACE_SCOPE_NOT_IMPLEMENTED")
+E   NotImplementedError: WORKSPACE_SCOPE_NOT_IMPLEMENTED
+_ ERROR at setup of test_explicit_handoff_revokes_old_owner_and_allows_b_to_resume _
+tests\integration\test_workspace.py:16: in workspace
+    return WorkspaceManager(tmp_path / "data").create("task-1", "attempt-1")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\app\runtime\workspace.py:22: in create
+    raise NotImplementedError("WORKSPACE_SCOPE_NOT_IMPLEMENTED")
+E   NotImplementedError: WORKSPACE_SCOPE_NOT_IMPLEMENTED
+________ ERROR at setup of test_a_decision_lease_cannot_be_handed_to_b ________
+tests\integration\test_workspace.py:16: in workspace
+    return WorkspaceManager(tmp_path / "data").create("task-1", "attempt-1")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\app\runtime\workspace.py:22: in create
+    raise NotImplementedError("WORKSPACE_SCOPE_NOT_IMPLEMENTED")
+E   NotImplementedError: WORKSPACE_SCOPE_NOT_IMPLEMENTED
+______ ERROR at setup of test_concurrent_lease_acquisition_has_one_owner ______
+tests\integration\test_workspace.py:16: in workspace
+    return WorkspaceManager(tmp_path / "data").create("task-1", "attempt-1")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\app\runtime\workspace.py:22: in create
+    raise NotImplementedError("WORKSPACE_SCOPE_NOT_IMPLEMENTED")
+E   NotImplementedError: WORKSPACE_SCOPE_NOT_IMPLEMENTED
+______ ERROR at setup of test_real_windows_junction_cannot_escape_scope _______
+tests\integration\test_workspace.py:16: in workspace
+    return WorkspaceManager(tmp_path / "data").create("task-1", "attempt-1")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\app\runtime\workspace.py:22: in create
+    raise NotImplementedError("WORKSPACE_SCOPE_NOT_IMPLEMENTED")
+E   NotImplementedError: WORKSPACE_SCOPE_NOT_IMPLEMENTED
+______ ERROR at setup of test_directory_scope_does_not_claim_os_sandbox _______
+tests\integration\test_workspace.py:16: in workspace
+    return WorkspaceManager(tmp_path / "data").create("task-1", "attempt-1")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\app\runtime\workspace.py:22: in create
+    raise NotImplementedError("WORKSPACE_SCOPE_NOT_IMPLEMENTED")
+E   NotImplementedError: WORKSPACE_SCOPE_NOT_IMPLEMENTED
+____ ERROR at setup of test_claude_missing_trusted_english_view_is_blocked ____
+tests\integration\test_context_gateway.py:16: in prepared
+    workspace = WorkspaceManager(tmp_path / "data").create("t1", "a1")
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\app\runtime\workspace.py:22: in create
+    raise NotImplementedError("WORKSPACE_SCOPE_NOT_IMPLEMENTED")
+E   NotImplementedError: WORKSPACE_SCOPE_NOT_IMPLEMENTED
+_____ ERROR at setup of test_claude_receives_only_registered_checked_view _____
+tests\integration\test_context_gateway.py:16: in prepared
+    workspace = WorkspaceManager(tmp_path / "data").create("t1", "a1")
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\app\runtime\workspace.py:22: in create
+    raise NotImplementedError("WORKSPACE_SCOPE_NOT_IMPLEMENTED")
+E   NotImplementedError: WORKSPACE_SCOPE_NOT_IMPLEMENTED
+_______ ERROR at setup of test_native_families_read_original_bytes[gpt] _______
+tests\integration\test_context_gateway.py:16: in prepared
+    workspace = WorkspaceManager(tmp_path / "data").create("t1", "a1")
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\app\runtime\workspace.py:22: in create
+    raise NotImplementedError("WORKSPACE_SCOPE_NOT_IMPLEMENTED")
+E   NotImplementedError: WORKSPACE_SCOPE_NOT_IMPLEMENTED
+_______ ERROR at setup of test_native_families_read_original_bytes[glm] _______
+tests\integration\test_context_gateway.py:16: in prepared
+    workspace = WorkspaceManager(tmp_path / "data").create("t1", "a1")
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\app\runtime\workspace.py:22: in create
+    raise NotImplementedError("WORKSPACE_SCOPE_NOT_IMPLEMENTED")
+E   NotImplementedError: WORKSPACE_SCOPE_NOT_IMPLEMENTED
+_ ERROR at setup of test_incomplete_or_tampered_english_proofs_are_blocked[change0] _
+tests\integration\test_context_gateway.py:16: in prepared
+    workspace = WorkspaceManager(tmp_path / "data").create("t1", "a1")
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\app\runtime\workspace.py:22: in create
+    raise NotImplementedError("WORKSPACE_SCOPE_NOT_IMPLEMENTED")
+E   NotImplementedError: WORKSPACE_SCOPE_NOT_IMPLEMENTED
+_ ERROR at setup of test_incomplete_or_tampered_english_proofs_are_blocked[change1] _
+tests\integration\test_context_gateway.py:16: in prepared
+    workspace = WorkspaceManager(tmp_path / "data").create("t1", "a1")
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\app\runtime\workspace.py:22: in create
+    raise NotImplementedError("WORKSPACE_SCOPE_NOT_IMPLEMENTED")
+E   NotImplementedError: WORKSPACE_SCOPE_NOT_IMPLEMENTED
+_ ERROR at setup of test_incomplete_or_tampered_english_proofs_are_blocked[change2] _
+tests\integration\test_context_gateway.py:16: in prepared
+    workspace = WorkspaceManager(tmp_path / "data").create("t1", "a1")
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\app\runtime\workspace.py:22: in create
+    raise NotImplementedError("WORKSPACE_SCOPE_NOT_IMPLEMENTED")
+E   NotImplementedError: WORKSPACE_SCOPE_NOT_IMPLEMENTED
+_ ERROR at setup of test_incomplete_or_tampered_english_proofs_are_blocked[change3] _
+tests\integration\test_context_gateway.py:16: in prepared
+    workspace = WorkspaceManager(tmp_path / "data").create("t1", "a1")
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\app\runtime\workspace.py:22: in create
+    raise NotImplementedError("WORKSPACE_SCOPE_NOT_IMPLEMENTED")
+E   NotImplementedError: WORKSPACE_SCOPE_NOT_IMPLEMENTED
+_ ERROR at setup of test_incomplete_or_tampered_english_proofs_are_blocked[change4] _
+tests\integration\test_context_gateway.py:16: in prepared
+    workspace = WorkspaceManager(tmp_path / "data").create("t1", "a1")
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\app\runtime\workspace.py:22: in create
+    raise NotImplementedError("WORKSPACE_SCOPE_NOT_IMPLEMENTED")
+E   NotImplementedError: WORKSPACE_SCOPE_NOT_IMPLEMENTED
+_ ERROR at setup of test_incomplete_or_tampered_english_proofs_are_blocked[change5] _
+tests\integration\test_context_gateway.py:16: in prepared
+    workspace = WorkspaceManager(tmp_path / "data").create("t1", "a1")
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\app\runtime\workspace.py:22: in create
+    raise NotImplementedError("WORKSPACE_SCOPE_NOT_IMPLEMENTED")
+E   NotImplementedError: WORKSPACE_SCOPE_NOT_IMPLEMENTED
+_ ERROR at setup of test_incomplete_or_tampered_english_proofs_are_blocked[change6] _
+tests\integration\test_context_gateway.py:16: in prepared
+    workspace = WorkspaceManager(tmp_path / "data").create("t1", "a1")
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\app\runtime\workspace.py:22: in create
+    raise NotImplementedError("WORKSPACE_SCOPE_NOT_IMPLEMENTED")
+E   NotImplementedError: WORKSPACE_SCOPE_NOT_IMPLEMENTED
+_ ERROR at setup of test_incomplete_or_tampered_english_proofs_are_blocked[change7] _
+tests\integration\test_context_gateway.py:16: in prepared
+    workspace = WorkspaceManager(tmp_path / "data").create("t1", "a1")
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\app\runtime\workspace.py:22: in create
+    raise NotImplementedError("WORKSPACE_SCOPE_NOT_IMPLEMENTED")
+E   NotImplementedError: WORKSPACE_SCOPE_NOT_IMPLEMENTED
+_ ERROR at setup of test_incomplete_or_tampered_english_proofs_are_blocked[change8] _
+tests\integration\test_context_gateway.py:16: in prepared
+    workspace = WorkspaceManager(tmp_path / "data").create("t1", "a1")
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\app\runtime\workspace.py:22: in create
+    raise NotImplementedError("WORKSPACE_SCOPE_NOT_IMPLEMENTED")
+E   NotImplementedError: WORKSPACE_SCOPE_NOT_IMPLEMENTED
+_ ERROR at setup of test_registered_view_with_chinese_natural_language_is_blocked _
+tests\integration\test_context_gateway.py:16: in prepared
+    workspace = WorkspaceManager(tmp_path / "data").create("t1", "a1")
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\app\runtime\workspace.py:22: in create
+    raise NotImplementedError("WORKSPACE_SCOPE_NOT_IMPLEMENTED")
+E   NotImplementedError: WORKSPACE_SCOPE_NOT_IMPLEMENTED
+____ ERROR at setup of test_protected_code_and_formula_bytes_remain_exact _____
+tests\integration\test_context_gateway.py:16: in prepared
+    workspace = WorkspaceManager(tmp_path / "data").create("t1", "a1")
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\app\runtime\workspace.py:22: in create
+    raise NotImplementedError("WORKSPACE_SCOPE_NOT_IMPLEMENTED")
+E   NotImplementedError: WORKSPACE_SCOPE_NOT_IMPLEMENTED
+___ ERROR at setup of test_source_prompt_injection_cannot_modify_tool_scope ___
+tests\integration\test_context_gateway.py:16: in prepared
+    workspace = WorkspaceManager(tmp_path / "data").create("t1", "a1")
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\app\runtime\workspace.py:22: in create
+    raise NotImplementedError("WORKSPACE_SCOPE_NOT_IMPLEMENTED")
+E   NotImplementedError: WORKSPACE_SCOPE_NOT_IMPLEMENTED
+____ ERROR at setup of test_unknown_family_cannot_fall_back_to_native_read ____
+tests\integration\test_context_gateway.py:16: in prepared
+    workspace = WorkspaceManager(tmp_path / "data").create("t1", "a1")
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\app\runtime\workspace.py:22: in create
+    raise NotImplementedError("WORKSPACE_SCOPE_NOT_IMPLEMENTED")
+E   NotImplementedError: WORKSPACE_SCOPE_NOT_IMPLEMENTED
+================================== FAILURES ===================================
+__________________ test_attempts_have_independent_six_areas ___________________
+tests\integration\test_workspace.py:21: in test_attempts_have_independent_six_areas
+    first, second = manager.create("t1", "a1"), manager.create("t2", "a1")
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\app\runtime\workspace.py:22: in create
+    raise NotImplementedError("WORKSPACE_SCOPE_NOT_IMPLEMENTED")
+E   NotImplementedError: WORKSPACE_SCOPE_NOT_IMPLEMENTED
+_________________ test_lease_epoch_survives_workspace_reopen __________________
+tests\integration\test_workspace.py:90: in test_lease_epoch_survives_workspace_reopen
+    first = manager.create("t", "a")
+            ^^^^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\app\runtime\workspace.py:22: in create
+    raise NotImplementedError("WORKSPACE_SCOPE_NOT_IMPLEMENTED")
+E   NotImplementedError: WORKSPACE_SCOPE_NOT_IMPLEMENTED
+=========================== short test summary info ===========================
+FAILED tests/integration/test_workspace.py::test_attempts_have_independent_six_areas
+FAILED tests/integration/test_workspace.py::test_lease_epoch_survives_workspace_reopen
+ERROR tests/integration/test_workspace.py::test_path_tricks_are_rejected[../outside.txt]
+ERROR tests/integration/test_workspace.py::test_path_tricks_are_rejected[input/../../outside.txt]
+ERROR tests/integration/test_workspace.py::test_path_tricks_are_rejected[input/../a/pass.json]
+ERROR tests/integration/test_workspace.py::test_path_tricks_are_rejected[input/%2e%2e/outside.txt]
+ERROR tests/integration/test_workspace.py::test_path_tricks_are_rejected[input/%252e%252e/outside.txt]
+ERROR tests/integration/test_workspace.py::test_path_tricks_are_rejected[input/file.txt:stream]
+ERROR tests/integration/test_workspace.py::test_path_tricks_are_rejected[C:/outside.txt]
+ERROR tests/integration/test_workspace.py::test_path_tricks_are_rejected[C:outside.txt]
+ERROR tests/integration/test_workspace.py::test_path_tricks_are_rejected[//server/share/file]
+ERROR tests/integration/test_workspace.py::test_path_tricks_are_rejected[\\\\server\\share\\file]
+ERROR tests/integration/test_workspace.py::test_path_tricks_are_rejected[input/CON]
+ERROR tests/integration/test_workspace.py::test_path_tricks_are_rejected[input/file. ]
+ERROR tests/integration/test_workspace.py::test_path_tricks_are_rejected[input/bad\x00name]
+ERROR tests/integration/test_workspace.py::test_other_task_absolute_path_is_rejected
+ERROR tests/integration/test_workspace.py::test_b_cannot_modify_source_a_or_evidence
+ERROR tests/integration/test_workspace.py::test_explicit_handoff_revokes_old_owner_and_allows_b_to_resume
+ERROR tests/integration/test_workspace.py::test_a_decision_lease_cannot_be_handed_to_b
+ERROR tests/integration/test_workspace.py::test_concurrent_lease_acquisition_has_one_owner
+ERROR tests/integration/test_workspace.py::test_real_windows_junction_cannot_escape_scope
+ERROR tests/integration/test_workspace.py::test_directory_scope_does_not_claim_os_sandbox
+ERROR tests/integration/test_context_gateway.py::test_claude_missing_trusted_english_view_is_blocked
+ERROR tests/integration/test_context_gateway.py::test_claude_receives_only_registered_checked_view
+ERROR tests/integration/test_context_gateway.py::test_native_families_read_original_bytes[gpt]
+ERROR tests/integration/test_context_gateway.py::test_native_families_read_original_bytes[glm]
+ERROR tests/integration/test_context_gateway.py::test_incomplete_or_tampered_english_proofs_are_blocked[change0]
+ERROR tests/integration/test_context_gateway.py::test_incomplete_or_tampered_english_proofs_are_blocked[change1]
+ERROR tests/integration/test_context_gateway.py::test_incomplete_or_tampered_english_proofs_are_blocked[change2]
+ERROR tests/integration/test_context_gateway.py::test_incomplete_or_tampered_english_proofs_are_blocked[change3]
+ERROR tests/integration/test_context_gateway.py::test_incomplete_or_tampered_english_proofs_are_blocked[change4]
+ERROR tests/integration/test_context_gateway.py::test_incomplete_or_tampered_english_proofs_are_blocked[change5]
+ERROR tests/integration/test_context_gateway.py::test_incomplete_or_tampered_english_proofs_are_blocked[change6]
+ERROR tests/integration/test_context_gateway.py::test_incomplete_or_tampered_english_proofs_are_blocked[change7]
+ERROR tests/integration/test_context_gateway.py::test_incomplete_or_tampered_english_proofs_are_blocked[change8]
+ERROR tests/integration/test_context_gateway.py::test_registered_view_with_chinese_natural_language_is_blocked
+ERROR tests/integration/test_context_gateway.py::test_protected_code_and_formula_bytes_remain_exact
+ERROR tests/integration/test_context_gateway.py::test_source_prompt_injection_cannot_modify_tool_scope
+ERROR tests/integration/test_context_gateway.py::test_unknown_family_cannot_fall_back_to_native_read
+2 failed, 37 errors in 0.42s

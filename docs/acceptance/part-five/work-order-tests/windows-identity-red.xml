@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="7" skipped="0" tests="7" time="1.168" timestamp="2026-10-15T13:18:49.749110+08:00" hostname="帆"><testcase classname="tests.contracts.test_work_orders" name="test_windows_case_aliases_cannot_authorize_protected_files[board]" time="0.188"><failure message="Failed: DID NOT RAISE ValueError">work_orders = &lt;module 'app.contracts.work_orders' from 'C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\app\\contracts\\work_orders.py'&gt;
+repo = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-565/test_windows_case_aliases_cann0')
+protected = 'board'
+
+    @pytest.mark.skipif(os.name != "nt", reason="Windows file identity is case insensitive")
+    @pytest.mark.parametrize("protected", ["board", "key", "data"])
+    def test_windows_case_aliases_cannot_authorize_protected_files(work_orders, repo, protected):
+        ref = {"board": work_orders.BOARD_REF, "key": work_orders.KEY_REF,
+               "data": work_orders.PLAN_REF + "/data/tasks-02.json"}[protected]
+&gt;       with pytest.raises(ValueError, match="EXACT_IMPLEMENTATION_FILE_SCOPE_REQUIRED"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests\contracts\test_work_orders.py:182: Failed</failure></testcase><testcase classname="tests.contracts.test_work_orders" name="test_windows_case_aliases_cannot_authorize_protected_files[key]" time="0.052"><failure message="Failed: DID NOT RAISE ValueError">work_orders = &lt;module 'app.contracts.work_orders' from 'C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\app\\contracts\\work_orders.py'&gt;
+repo = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-565/test_windows_case_aliases_cann1')
+protected = 'key'
+
+    @pytest.mark.skipif(os.name != "nt", reason="Windows file identity is case insensitive")
+    @pytest.mark.parametrize("protected", ["board", "key", "data"])
+    def test_windows_case_aliases_cannot_authorize_protected_files(work_orders, repo, protected):
+        ref = {"board": work_orders.BOARD_REF, "key": work_orders.KEY_REF,
+               "data": work_orders.PLAN_REF + "/data/tasks-02.json"}[protected]
+&gt;       with pytest.raises(ValueError, match="EXACT_IMPLEMENTATION_FILE_SCOPE_REQUIRED"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests\contracts\test_work_orders.py:182: Failed</failure></testcase><testcase classname="tests.contracts.test_work_orders" name="test_windows_case_aliases_cannot_authorize_protected_files[data]" time="0.047"><failure message="Failed: DID NOT RAISE ValueError">work_orders = &lt;module 'app.contracts.work_orders' from 'C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\app\\contracts\\work_orders.py'&gt;
+repo = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-565/test_windows_case_aliases_cann2')
+protected = 'data'
+
+    @pytest.mark.skipif(os.name != "nt", reason="Windows file identity is case insensitive")
+    @pytest.mark.parametrize("protected", ["board", "key", "data"])
+    def test_windows_case_aliases_cannot_authorize_protected_files(work_orders, repo, protected):
+        ref = {"board": work_orders.BOARD_REF, "key": work_orders.KEY_REF,
+               "data": work_orders.PLAN_REF + "/data/tasks-02.json"}[protected]
+&gt;       with pytest.raises(ValueError, match="EXACT_IMPLEMENTATION_FILE_SCOPE_REQUIRED"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests\contracts\test_work_orders.py:182: Failed</failure></testcase><testcase classname="tests.contracts.test_work_orders" name="test_windows_scope_aliases_are_one_file_identity" time="0.047"><failure message="Failed: DID NOT RAISE ValueError">work_orders = &lt;module 'app.contracts.work_orders' from 'C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\app\\contracts\\work_orders.py'&gt;
+repo = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-565/test_windows_scope_aliases_are0')
+
+    @pytest.mark.skipif(os.name != "nt", reason="Windows file identity is case insensitive")
+    def test_windows_scope_aliases_are_one_file_identity(work_orders, repo):
+&gt;       with pytest.raises(ValueError, match="DUPLICATE_FILE_SCOPE"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests\contracts\test_work_orders.py:188: Failed</failure></testcase><testcase classname="tests.contracts.test_work_orders" name="test_windows_handoff_scope_comparison_uses_actual_file_identity" time="0.219"><failure message="app.contracts.work_orders.WorkOrderError: CHANGED_FILES_OUTSIDE_ALLOWLIST">work_orders = &lt;module 'app.contracts.work_orders' from 'C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\app\\contracts\\work_orders.py'&gt;
+repo = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-565/test_windows_handoff_scope_com0')
+
+    @pytest.mark.skipif(os.name != "nt", reason="Windows file identity is case insensitive")
+    def test_windows_handoff_scope_comparison_uses_actual_file_identity(work_orders, repo):
+        order = draft(work_orders, repo)
+        put(repo, "src/allowed.py", "changed")
+        record(work_orders, repo, order)
+&gt;       value = work_orders.create_handoff(repo, "out/draft/work-order.json", ["out/run/record.json"],
+            ["SRC/ALLOWED.PY"], "out/handoff")
+
+tests\contracts\test_work_orders.py:197: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+services\orchestrator\app\contracts\work_orders.py:381: in create_handoff
+    artifacts = _changed(root, order, changed_files)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+root = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-565/test_windows_handoff_scope_com0')
+order = {'kind': 'developer_work_order', 'schema_version': '1', 'task_id': 'D028', 'contract_version': '1', ...}
+changed_files = ['SRC/ALLOWED.PY']
+
+    def _changed(root: Path, order: dict, changed_files: list[str]) -&gt; list[dict]:
+        declared = [_relative(ref) for ref in changed_files]
+        if len(declared) != len(set(declared)) or not set(declared).issubset(order["allowed_files"]):
+&gt;           raise WorkOrderError("CHANGED_FILES_OUTSIDE_ALLOWLIST")
+E           app.contracts.work_orders.WorkOrderError: CHANGED_FILES_OUTSIDE_ALLOWLIST
+
+services\orchestrator\app\contracts\work_orders.py:370: WorkOrderError</failure></testcase><testcase classname="tests.contracts.test_work_orders" name="test_windows_record_aliases_cannot_count_one_execution_twice" time="0.257"><failure message="Failed: DID NOT RAISE ValueError">work_orders = &lt;module 'app.contracts.work_orders' from 'C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\app\\contracts\\work_orders.py'&gt;
+repo = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-565/test_windows_record_aliases_ca0')
+
+    @pytest.mark.skipif(os.name != "nt", reason="Windows file identity is case insensitive")
+    def test_windows_record_aliases_cannot_count_one_execution_twice(work_orders, repo):
+        order = draft(work_orders, repo)
+        record(work_orders, repo, order)
+&gt;       with pytest.raises(ValueError, match="UNIQUE_MEASURED_COMMAND_RECORDS_REQUIRED"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests\contracts\test_work_orders.py:207: Failed</failure></testcase><testcase classname="tests.contracts.test_work_orders" name="test_windows_repair_subset_uses_actual_file_identity" time="0.075"><failure message="app.contracts.work_orders.WorkOrderError: REPAIR_SCOPE_EXPANSION_DENIED">work_orders = &lt;module 'app.contracts.work_orders' from 'C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\app\\contracts\\work_orders.py'&gt;
+repo = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-565/test_windows_repair_subset_use0')
+
+    @pytest.mark.skipif(os.name != "nt", reason="Windows file identity is case insensitive")
+    def test_windows_repair_subset_uses_actual_file_identity(work_orders, repo):
+        draft(work_orders, repo)
+&gt;       value = work_orders.create_report(repo, "out/draft/work-order.json", "repair", {
+            "artifact_version": "current", "defects": [{"defect_id": "DEF-1", "requirement_id": "R07",
+                "location": "src/allowed.py", "impact": "Missing text", "failure_evidence": ["inputs/direct.txt"],
+                "allowed_files": ["SRC/ALLOWED.PY"], "pass_condition": "Preserve source",
+                "rerun_checks": [[sys.executable, "-c", "print('check')"]]}]}, "out/report")
+
+tests\contracts\test_work_orders.py:215: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+root = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-565/test_windows_repair_subset_use0')
+work_order = 'out/draft/work-order.json', kind = 'repair'
+payload = {'artifact_version': 'current', 'defects': [{'defect_id': 'DEF-1', 'requirement_id': 'R07', 'location': 'src/allowed.py', 'impact': 'Missing text', ...}]}
+output = 'out/report'
+
+    def create_report(root, work_order: str, kind: Literal["repair", "blocked"], payload: dict, output: str) -&gt; dict:
+        root = _root(root)
+        order, digest = _order(root, work_order)
+        if kind == "repair":
+            parsed = RepairPayload.model_validate(payload)
+            evidence_refs = []
+            for defect in parsed.defects:
+                if defect.requirement_id not in order["card"].get("requirements", []):
+                    raise WorkOrderError("DEFECT_REQUIREMENT_OUTSIDE_TASK")
+                if not set(_scopes(root, defect.allowed_files)).issubset(order["allowed_files"]):
+&gt;                   raise WorkOrderError("REPAIR_SCOPE_EXPANSION_DENIED")
+E                   app.contracts.work_orders.WorkOrderError: REPAIR_SCOPE_EXPANSION_DENIED
+
+services\orchestrator\app\contracts\work_orders.py:436: WorkOrderError</failure></testcase></testsuite></testsuites>

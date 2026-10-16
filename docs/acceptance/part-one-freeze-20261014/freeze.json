@@ -1,0 +1,92 @@
+{
+  "schema_version": "1.0",
+  "frozen_at": "2026-10-14T15:36:21.487680+08:00",
+  "timezone": "Asia/Shanghai",
+  "status": "frozen_partial",
+  "scope": "D001-D020",
+  "user_instruction": "先冻结这部分，先推进后面的工作，最后一起解决",
+  "part_one_complete": false,
+  "real_handoff_complete": false,
+  "production_enabled": false,
+  "completed_cards": [
+    "D001",
+    "D002",
+    "D003",
+    "D006",
+    "D007",
+    "D008",
+    "D009",
+    "D010",
+    "D011",
+    "D012",
+    "D013",
+    "D014",
+    "D015",
+    "D016",
+    "D017",
+    "D018",
+    "D019"
+  ],
+  "deferred_cards": {
+    "D004": "Claude 实际接入与验收未完成；GPT 替代小试验有证据，新执行作用域/正式交接尚未验收。",
+    "D005": "账户与 SDK 鉴权检查成功，但真实 GLM SDK 生成请求 HTTP 405；根因未知，官方发行版主机验证集成仍待补。",
+    "D020": "实际 API→A 计划→B 候选→C→A→发布尚未完整通过；冻结回归另有 1 个异常路径用量测试失败。"
+  },
+  "full_regression_passed": false,
+  "test_result": {
+    "tests": 1144,
+    "failures": 1,
+    "errors": 0,
+    "skipped": 0,
+    "passed": 1143,
+    "deselected_real_provider_tests": 1,
+    "exit_code": 1
+  },
+  "failed_cases": [
+    {
+      "classname": "tests.contracts.test_scoped_worker_repairs",
+      "name": "test_failure_retains_genuine_bound_usage_without_business_capture[error_before_turn_completed]"
+    }
+  ],
+  "contract_check_exit_code": 0,
+  "new_real_model_trials_after_freeze_request": 0,
+  "new_native_cli_trials_after_freeze_request": 0,
+  "source_file_count": 131,
+  "source_unchanged_since_test_start": true,
+  "original_specification_files_unchanged": 16,
+  "later_tasks_unchanged": true,
+  "branch": "codex/part1-foundation",
+  "commit": null,
+  "snapshot_note": "原仓库无初始提交；使用源码 SHA256 清单和 ZIP 快照，不提交/清理/重置工作区。",
+  "next_work": {
+    "start_with": [
+      "D021",
+      "D022",
+      "D023"
+    ],
+    "implementation_allowed": "桌面宿主、隔离桥接、布局、会话历史与输入等独立实现；fixture 必须明示为测试。",
+    "deferred_acceptance": [
+      "D024 实际连接资格",
+      "D040 真实 GUI 全链路",
+      "D045 真实用量核对",
+      "D046 质量/token资格"
+    ],
+    "dependency_policy": "依赖 D020 的项目可设计或以明确 fixture 开发，完成/生产资格仍按原依赖门槛验收；不标上游完成。"
+  },
+  "resume_order": [
+    "复现并修复冻结失败的异常路径用量测试",
+    "零模型核对新版 22 项实际限制与生命周期",
+    "补齐受支持的 ZCode 发行版主机鉴权/验证桥接",
+    "单独有界验证实际 GLM 模型/回执/用量",
+    "运行真正 API A→B→C→A 与发布验收",
+    "统一回归并刷新原任务卡完成资格"
+  ],
+  "evidence": [
+    "docs/acceptance/part-one-closeout/zcode-B-model-v1.md",
+    "docs/acceptance/part-one-closeout/zcode-http405-static-investigation.md",
+    "docs/acceptance/part-one-closeout/scoped-runtime-independent-review.md",
+    "docs/acceptance/part-one-closeout/native-backend-assembly-repair.md",
+    "docs/acceptance/part-one-freeze-20261014/local-full-test.log",
+    "docs/acceptance/part-one-freeze-20261014/local-full-junit.xml"
+  ]
+}

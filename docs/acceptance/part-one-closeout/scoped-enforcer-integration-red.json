@@ -1,0 +1,13 @@
+{
+  "time": "2026-10-14T06:23:15.896505+00:00",
+  "command": [
+    "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\.venv\\Scripts\\python.exe",
+    "-m",
+    "pytest",
+    "-q",
+    "tests/contracts/test_scoped_codex_runtime.py::test_real_enforcer_consumes_actual_fixture_controls_but_never_grants_production"
+  ],
+  "exit_code": 0,
+  "git_commit": null,
+  "log": "docs\\acceptance\\part-one-closeout\\scoped-enforcer-integration-red.log"
+}

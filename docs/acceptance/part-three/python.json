@@ -1,0 +1,14 @@
+{
+  "name": "python",
+  "command": [
+    "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\.venv\\Scripts\\python.exe",
+    "-m",
+    "pytest",
+    "-q",
+    "--junitxml=C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\part-three\\python.xml"
+  ],
+  "started_at": "2026-10-14T15:04:29.322912+00:00",
+  "ended_at": "2026-10-14T15:16:43.736633+00:00",
+  "exit_code": 4294967295,
+  "log": "docs/acceptance/part-three/python.log"
+}

@@ -1,0 +1,30 @@
+F.                                                                       [100%]
+================================== FAILURES ===================================
+__ test_cancel_retains_unknown_remote_acceptance_without_returned_ids[True] ___
+
+client = <starlette.testclient.TestClient object at 0x0000024F38A134D0>
+accepted = True
+
+    @pytest.mark.parametrize('accepted',[True,False])
+    def test_cancel_retains_unknown_remote_acceptance_without_returned_ids(client,accepted):
+        from contextlib import closing
+        conversation=create(client)
+        task=submit(client,conversation).json()['task_id']
+        with closing(client.app.state.database.connect()) as connection:
+            checkpoint={'active_external_request':{'accepted':accepted,'status':'unknown','external_request_id':None,'external_execution_id':None}}
+            connection.execute("UPDATE task_runs SET state='EXECUTING',remote_status='unknown',checkpoint_json=? WHERE task_id=?",(json.dumps(checkpoint),task))
+        response=client.post(f'/v1/tasks/{task}/cancel')
+        assert response.status_code==202
+>       assert response.json()['cancel_pending_remote'] is accepted
+E       assert False is True
+
+tests\integration\test_conversation_api.py:134: AssertionError
+============================== warnings summary ===============================
+tests/integration/test_conversation_api.py::test_cancel_retains_unknown_remote_acceptance_without_returned_ids[True]
+  C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/integration/test_conversation_api.py::test_cancel_retains_unknown_remote_acceptance_without_returned_ids[True]
+1 failed, 1 passed, 1 warning in 0.81s

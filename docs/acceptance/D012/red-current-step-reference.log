@@ -1,0 +1,180 @@
+...........................FFFFFFF                                       [100%]
+================================== FAILURES ===================================
+_ test_recovery_queries_and_observes_current_step_profile_instead_of_frozen_a_and_first_request _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-163/test_recovery_queries_and_obse0')
+
+    def test_recovery_queries_and_observes_current_step_profile_instead_of_frozen_a_and_first_request(tmp_path):
+        path = existing_remote(tmp_path)
+        reference = set_active_remote_step(path)
+        calls = []
+        def capture(action,row):
+            calls.append((action,row["provider_profile_id"],row["external_request_id"],row["external_execution_id"],
+                          row["task_provider_profile_id"],row["active_external_request"]["step_id"]))
+            return "running"
+        Recovery(path).recover(lambda row:capture("query",row),lambda row:capture("observe",row))
+>       assert calls == [(action,"p2",reference["external_request_id"],reference["external_execution_id"],"p1",reference["step_id"])
+                         for action in ("query","observe")]
+E       AssertionError: assert [] == [('query', 'p...remote-step')]
+E         
+E         Right contains 2 more items, first extra item: ('query', 'p2', 'real-current-request', 'real-current-execution', 'p1', 'remote-step')
+E         Use -v to get more diff
+
+tests\integration\test_recovery.py:311: AssertionError
+_ test_accepted_current_step_without_refs_blocks_unknown_without_querying_stale_main_ids[False] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-163/test_accepted_current_step_wit0')
+stale_main_references = False
+
+    @pytest.mark.parametrize("stale_main_references",[False,True])
+    def test_accepted_current_step_without_refs_blocks_unknown_without_querying_stale_main_ids(tmp_path,stale_main_references):
+        path = existing_remote(tmp_path) if stale_main_references else initialize_runtime(tmp_path,"EXECUTING")
+        set_active_remote_step(path,request_id=None,execution_id=None)
+        calls = []
+        result = Recovery(path).recover(lambda row:calls.append(row) or "running")
+>       assert calls == [] and current(path)["state"] == "BLOCKED"
+E       AssertionError: assert ([] == []
+E         
+E         Use -v to get more diff and 'EXECUTING' == 'BLOCKED'
+E         
+E         - BLOCKED
+E         + EXECUTING)
+
+tests\integration\test_recovery.py:323: AssertionError
+_ test_accepted_current_step_without_refs_blocks_unknown_without_querying_stale_main_ids[True] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-163/test_accepted_current_step_wit1')
+stale_main_references = True
+
+    @pytest.mark.parametrize("stale_main_references",[False,True])
+    def test_accepted_current_step_without_refs_blocks_unknown_without_querying_stale_main_ids(tmp_path,stale_main_references):
+        path = existing_remote(tmp_path) if stale_main_references else initialize_runtime(tmp_path,"EXECUTING")
+        set_active_remote_step(path,request_id=None,execution_id=None)
+        calls = []
+        result = Recovery(path).recover(lambda row:calls.append(row) or "running")
+>       assert calls == [] and current(path)["state"] == "BLOCKED"
+E       AssertionError: assert ([{'task_id': ...': 'p1', ...}] == []
+E         
+E         Left contains one more item: {'task_id': 'task1', 'attempt_id': 'a1', 'turn_id': 't1', 'provider_profile_id': 'p1', ...}
+E         Use -v to get more diff)
+
+tests\integration\test_recovery.py:323: AssertionError
+_ test_invalid_current_step_binding_blocks_without_remote_callback[missing-step] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-163/test_invalid_current_step_bind0')
+damage = 'missing-step'
+
+    @pytest.mark.parametrize("damage",["missing-step","wrong-profile","step-snapshot-mismatch"])
+    def test_invalid_current_step_binding_blocks_without_remote_callback(tmp_path,damage):
+        path = existing_remote(tmp_path)
+        reference = set_active_remote_step(path)
+        connection = Database(path).connect()
+        try:
+            checkpoint = json.loads(current(path)["checkpoint_json"])
+            if damage == "missing-step":
+                checkpoint["active_external_request"]["step_id"] = "missing"
+            elif damage == "wrong-profile":
+                checkpoint["active_external_request"]["provider_profile_id"] = "p1"
+            else:
+                connection.execute("UPDATE steps SET checkpoint_json='{}' WHERE id=?",(reference["step_id"],))
+            connection.execute("UPDATE task_runs SET checkpoint_json=?",(json.dumps(checkpoint),))
+        finally:
+            connection.close()
+        calls = []
+        result = Recovery(path).recover(lambda row:calls.append(row) or "completed",verify_completed=lambda row:True)
+>       assert calls == [] and current(path)["state"] == "BLOCKED"
+E       AssertionError: assert ([{'task_id': ...': 'p1', ...}] == []
+E         
+E         Left contains one more item: {'task_id': 'task1', 'attempt_id': 'a1', 'turn_id': 't1', 'provider_profile_id': 'p1', ...}
+E         Use -v to get more diff)
+
+tests\integration\test_recovery.py:346: AssertionError
+_ test_invalid_current_step_binding_blocks_without_remote_callback[wrong-profile] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-163/test_invalid_current_step_bind1')
+damage = 'wrong-profile'
+
+    @pytest.mark.parametrize("damage",["missing-step","wrong-profile","step-snapshot-mismatch"])
+    def test_invalid_current_step_binding_blocks_without_remote_callback(tmp_path,damage):
+        path = existing_remote(tmp_path)
+        reference = set_active_remote_step(path)
+        connection = Database(path).connect()
+        try:
+            checkpoint = json.loads(current(path)["checkpoint_json"])
+            if damage == "missing-step":
+                checkpoint["active_external_request"]["step_id"] = "missing"
+            elif damage == "wrong-profile":
+                checkpoint["active_external_request"]["provider_profile_id"] = "p1"
+            else:
+                connection.execute("UPDATE steps SET checkpoint_json='{}' WHERE id=?",(reference["step_id"],))
+            connection.execute("UPDATE task_runs SET checkpoint_json=?",(json.dumps(checkpoint),))
+        finally:
+            connection.close()
+        calls = []
+        result = Recovery(path).recover(lambda row:calls.append(row) or "completed",verify_completed=lambda row:True)
+>       assert calls == [] and current(path)["state"] == "BLOCKED"
+E       AssertionError: assert ([{'task_id': ...': 'p1', ...}] == []
+E         
+E         Left contains one more item: {'task_id': 'task1', 'attempt_id': 'a1', 'turn_id': 't1', 'provider_profile_id': 'p1', ...}
+E         Use -v to get more diff)
+
+tests\integration\test_recovery.py:346: AssertionError
+_ test_invalid_current_step_binding_blocks_without_remote_callback[step-snapshot-mismatch] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-163/test_invalid_current_step_bind2')
+damage = 'step-snapshot-mismatch'
+
+    @pytest.mark.parametrize("damage",["missing-step","wrong-profile","step-snapshot-mismatch"])
+    def test_invalid_current_step_binding_blocks_without_remote_callback(tmp_path,damage):
+        path = existing_remote(tmp_path)
+        reference = set_active_remote_step(path)
+        connection = Database(path).connect()
+        try:
+            checkpoint = json.loads(current(path)["checkpoint_json"])
+            if damage == "missing-step":
+                checkpoint["active_external_request"]["step_id"] = "missing"
+            elif damage == "wrong-profile":
+                checkpoint["active_external_request"]["provider_profile_id"] = "p1"
+            else:
+                connection.execute("UPDATE steps SET checkpoint_json='{}' WHERE id=?",(reference["step_id"],))
+            connection.execute("UPDATE task_runs SET checkpoint_json=?",(json.dumps(checkpoint),))
+        finally:
+            connection.close()
+        calls = []
+        result = Recovery(path).recover(lambda row:calls.append(row) or "completed",verify_completed=lambda row:True)
+>       assert calls == [] and current(path)["state"] == "BLOCKED"
+E       AssertionError: assert ([{'task_id': ...': 'p1', ...}] == []
+E         
+E         Left contains one more item: {'task_id': 'task1', 'attempt_id': 'a1', 'turn_id': 't1', 'provider_profile_id': 'p1', ...}
+E         Use -v to get more diff)
+
+tests\integration\test_recovery.py:346: AssertionError
+_____ test_current_step_change_during_remote_query_rejects_old_completion _____
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-163/test_current_step_change_durin0')
+
+    def test_current_step_change_during_remote_query_rejects_old_completion(tmp_path):
+        path = existing_remote(tmp_path)
+        set_active_remote_step(path,step_id="step-old")
+        verified = []
+        def query(row):
+            set_active_remote_step(path,step_id="step-new",request_id="request-new",execution_id="execution-new")
+            return "completed"
+        result = Recovery(path).recover(query,verify_completed=lambda row:verified.append(row) or True)
+>       assert verified == [] and current(path)["state"] == "EXECUTING"
+E       AssertionError: assert ([{'task_id': ...': 'p1', ...}] == []
+E         
+E         Left contains one more item: {'task_id': 'task1', 'attempt_id': 'a1', 'turn_id': 't1', 'provider_profile_id': 'p1', ...}
+E         Use -v to get more diff)
+
+tests\integration\test_recovery.py:358: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/integration/test_recovery.py::test_recovery_queries_and_observes_current_step_profile_instead_of_frozen_a_and_first_request
+FAILED tests/integration/test_recovery.py::test_accepted_current_step_without_refs_blocks_unknown_without_querying_stale_main_ids[False]
+FAILED tests/integration/test_recovery.py::test_accepted_current_step_without_refs_blocks_unknown_without_querying_stale_main_ids[True]
+FAILED tests/integration/test_recovery.py::test_invalid_current_step_binding_blocks_without_remote_callback[missing-step]
+FAILED tests/integration/test_recovery.py::test_invalid_current_step_binding_blocks_without_remote_callback[wrong-profile]
+FAILED tests/integration/test_recovery.py::test_invalid_current_step_binding_blocks_without_remote_callback[step-snapshot-mismatch]
+FAILED tests/integration/test_recovery.py::test_current_step_change_during_remote_query_rejects_old_completion
+7 failed, 27 passed in 1.64s
+EXIT_CODE=1

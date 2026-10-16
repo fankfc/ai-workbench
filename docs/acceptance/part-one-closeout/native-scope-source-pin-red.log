@@ -1,0 +1,1140 @@
+FFFFFFFFFFFFF..........................FFFFFFFFFFFFFFFFF.F....FFFFFF.... [ 96%]
+.FF                                                                      [100%]
+================================== FAILURES ===================================
+_ test_config_mutation_and_unsafe_methods_never_reach_transport[config/value/write] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-262/test_config_mutation_and_unsaf0')
+method = 'config/value/write'
+
+    @pytest.mark.parametrize('method', ['config/value/write', 'config/batchWrite', 'mcpServer/refresh',
+        'account/login/start', 'plugin/install', 'environment/add', 'command/exec', 'process/exec',
+        'thread/fork', 'item/tool/call', 'turn/steer', 'unknown/canary'])
+    def test_config_mutation_and_unsafe_methods_never_reach_transport(tmp_path, method):
+>       enforcer, context = prepared(tmp_path)
+                            ^^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_native_scope.py:84: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\contracts\test_native_scope.py:65: in prepared
+    enforcer.observe_rpc_response('config/read', configuration(), context)
+services\orchestrator\app\providers\native_scope.py:366: in observe_rpc_response
+    self._config_result(result, owned_context, baseline)
+services\orchestrator\app\providers\native_scope.py:331: in _config_result
+    _error('NATIVE_CONFIGURED_ROUTE_MISMATCH')
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = 'NATIVE_CONFIGURED_ROUTE_MISMATCH'
+
+    def _error(code):
+>       raise NativeScopeError(code)
+E       app.providers.native_scope.NativeScopeError: NATIVE_CONFIGURED_ROUTE_MISMATCH
+
+services\orchestrator\app\providers\native_scope.py:61: NativeScopeError
+_ test_config_mutation_and_unsafe_methods_never_reach_transport[config/batchWrite] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-262/test_config_mutation_and_unsaf1')
+method = 'config/batchWrite'
+
+    @pytest.mark.parametrize('method', ['config/value/write', 'config/batchWrite', 'mcpServer/refresh',
+        'account/login/start', 'plugin/install', 'environment/add', 'command/exec', 'process/exec',
+        'thread/fork', 'item/tool/call', 'turn/steer', 'unknown/canary'])
+    def test_config_mutation_and_unsafe_methods_never_reach_transport(tmp_path, method):
+>       enforcer, context = prepared(tmp_path)
+                            ^^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_native_scope.py:84: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\contracts\test_native_scope.py:65: in prepared
+    enforcer.observe_rpc_response('config/read', configuration(), context)
+services\orchestrator\app\providers\native_scope.py:366: in observe_rpc_response
+    self._config_result(result, owned_context, baseline)
+services\orchestrator\app\providers\native_scope.py:331: in _config_result
+    _error('NATIVE_CONFIGURED_ROUTE_MISMATCH')
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = 'NATIVE_CONFIGURED_ROUTE_MISMATCH'
+
+    def _error(code):
+>       raise NativeScopeError(code)
+E       app.providers.native_scope.NativeScopeError: NATIVE_CONFIGURED_ROUTE_MISMATCH
+
+services\orchestrator\app\providers\native_scope.py:61: NativeScopeError
+_ test_config_mutation_and_unsafe_methods_never_reach_transport[mcpServer/refresh] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-262/test_config_mutation_and_unsaf2')
+method = 'mcpServer/refresh'
+
+    @pytest.mark.parametrize('method', ['config/value/write', 'config/batchWrite', 'mcpServer/refresh',
+        'account/login/start', 'plugin/install', 'environment/add', 'command/exec', 'process/exec',
+        'thread/fork', 'item/tool/call', 'turn/steer', 'unknown/canary'])
+    def test_config_mutation_and_unsafe_methods_never_reach_transport(tmp_path, method):
+>       enforcer, context = prepared(tmp_path)
+                            ^^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_native_scope.py:84: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\contracts\test_native_scope.py:65: in prepared
+    enforcer.observe_rpc_response('config/read', configuration(), context)
+services\orchestrator\app\providers\native_scope.py:366: in observe_rpc_response
+    self._config_result(result, owned_context, baseline)
+services\orchestrator\app\providers\native_scope.py:331: in _config_result
+    _error('NATIVE_CONFIGURED_ROUTE_MISMATCH')
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = 'NATIVE_CONFIGURED_ROUTE_MISMATCH'
+
+    def _error(code):
+>       raise NativeScopeError(code)
+E       app.providers.native_scope.NativeScopeError: NATIVE_CONFIGURED_ROUTE_MISMATCH
+
+services\orchestrator\app\providers\native_scope.py:61: NativeScopeError
+_ test_config_mutation_and_unsafe_methods_never_reach_transport[account/login/start] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-262/test_config_mutation_and_unsaf3')
+method = 'account/login/start'
+
+    @pytest.mark.parametrize('method', ['config/value/write', 'config/batchWrite', 'mcpServer/refresh',
+        'account/login/start', 'plugin/install', 'environment/add', 'command/exec', 'process/exec',
+        'thread/fork', 'item/tool/call', 'turn/steer', 'unknown/canary'])
+    def test_config_mutation_and_unsafe_methods_never_reach_transport(tmp_path, method):
+>       enforcer, context = prepared(tmp_path)
+                            ^^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_native_scope.py:84: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\contracts\test_native_scope.py:65: in prepared
+    enforcer.observe_rpc_response('config/read', configuration(), context)
+services\orchestrator\app\providers\native_scope.py:366: in observe_rpc_response
+    self._config_result(result, owned_context, baseline)
+services\orchestrator\app\providers\native_scope.py:331: in _config_result
+    _error('NATIVE_CONFIGURED_ROUTE_MISMATCH')
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = 'NATIVE_CONFIGURED_ROUTE_MISMATCH'
+
+    def _error(code):
+>       raise NativeScopeError(code)
+E       app.providers.native_scope.NativeScopeError: NATIVE_CONFIGURED_ROUTE_MISMATCH
+
+services\orchestrator\app\providers\native_scope.py:61: NativeScopeError
+_ test_config_mutation_and_unsafe_methods_never_reach_transport[plugin/install] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-262/test_config_mutation_and_unsaf4')
+method = 'plugin/install'
+
+    @pytest.mark.parametrize('method', ['config/value/write', 'config/batchWrite', 'mcpServer/refresh',
+        'account/login/start', 'plugin/install', 'environment/add', 'command/exec', 'process/exec',
+        'thread/fork', 'item/tool/call', 'turn/steer', 'unknown/canary'])
+    def test_config_mutation_and_unsafe_methods_never_reach_transport(tmp_path, method):
+>       enforcer, context = prepared(tmp_path)
+                            ^^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_native_scope.py:84: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\contracts\test_native_scope.py:65: in prepared
+    enforcer.observe_rpc_response('config/read', configuration(), context)
+services\orchestrator\app\providers\native_scope.py:366: in observe_rpc_response
+    self._config_result(result, owned_context, baseline)
+services\orchestrator\app\providers\native_scope.py:331: in _config_result
+    _error('NATIVE_CONFIGURED_ROUTE_MISMATCH')
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = 'NATIVE_CONFIGURED_ROUTE_MISMATCH'
+
+    def _error(code):
+>       raise NativeScopeError(code)
+E       app.providers.native_scope.NativeScopeError: NATIVE_CONFIGURED_ROUTE_MISMATCH
+
+services\orchestrator\app\providers\native_scope.py:61: NativeScopeError
+_ test_config_mutation_and_unsafe_methods_never_reach_transport[environment/add] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-262/test_config_mutation_and_unsaf5')
+method = 'environment/add'
+
+    @pytest.mark.parametrize('method', ['config/value/write', 'config/batchWrite', 'mcpServer/refresh',
+        'account/login/start', 'plugin/install', 'environment/add', 'command/exec', 'process/exec',
+        'thread/fork', 'item/tool/call', 'turn/steer', 'unknown/canary'])
+    def test_config_mutation_and_unsafe_methods_never_reach_transport(tmp_path, method):
+>       enforcer, context = prepared(tmp_path)
+                            ^^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_native_scope.py:84: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\contracts\test_native_scope.py:65: in prepared
+    enforcer.observe_rpc_response('config/read', configuration(), context)
+services\orchestrator\app\providers\native_scope.py:366: in observe_rpc_response
+    self._config_result(result, owned_context, baseline)
+services\orchestrator\app\providers\native_scope.py:331: in _config_result
+    _error('NATIVE_CONFIGURED_ROUTE_MISMATCH')
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = 'NATIVE_CONFIGURED_ROUTE_MISMATCH'
+
+    def _error(code):
+>       raise NativeScopeError(code)
+E       app.providers.native_scope.NativeScopeError: NATIVE_CONFIGURED_ROUTE_MISMATCH
+
+services\orchestrator\app\providers\native_scope.py:61: NativeScopeError
+_ test_config_mutation_and_unsafe_methods_never_reach_transport[command/exec] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-262/test_config_mutation_and_unsaf6')
+method = 'command/exec'
+
+    @pytest.mark.parametrize('method', ['config/value/write', 'config/batchWrite', 'mcpServer/refresh',
+        'account/login/start', 'plugin/install', 'environment/add', 'command/exec', 'process/exec',
+        'thread/fork', 'item/tool/call', 'turn/steer', 'unknown/canary'])
+    def test_config_mutation_and_unsafe_methods_never_reach_transport(tmp_path, method):
+>       enforcer, context = prepared(tmp_path)
+                            ^^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_native_scope.py:84: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\contracts\test_native_scope.py:65: in prepared
+    enforcer.observe_rpc_response('config/read', configuration(), context)
+services\orchestrator\app\providers\native_scope.py:366: in observe_rpc_response
+    self._config_result(result, owned_context, baseline)
+services\orchestrator\app\providers\native_scope.py:331: in _config_result
+    _error('NATIVE_CONFIGURED_ROUTE_MISMATCH')
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = 'NATIVE_CONFIGURED_ROUTE_MISMATCH'
+
+    def _error(code):
+>       raise NativeScopeError(code)
+E       app.providers.native_scope.NativeScopeError: NATIVE_CONFIGURED_ROUTE_MISMATCH
+
+services\orchestrator\app\providers\native_scope.py:61: NativeScopeError
+_ test_config_mutation_and_unsafe_methods_never_reach_transport[process/exec] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-262/test_config_mutation_and_unsaf7')
+method = 'process/exec'
+
+    @pytest.mark.parametrize('method', ['config/value/write', 'config/batchWrite', 'mcpServer/refresh',
+        'account/login/start', 'plugin/install', 'environment/add', 'command/exec', 'process/exec',
+        'thread/fork', 'item/tool/call', 'turn/steer', 'unknown/canary'])
+    def test_config_mutation_and_unsafe_methods_never_reach_transport(tmp_path, method):
+>       enforcer, context = prepared(tmp_path)
+                            ^^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_native_scope.py:84: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\contracts\test_native_scope.py:65: in prepared
+    enforcer.observe_rpc_response('config/read', configuration(), context)
+services\orchestrator\app\providers\native_scope.py:366: in observe_rpc_response
+    self._config_result(result, owned_context, baseline)
+services\orchestrator\app\providers\native_scope.py:331: in _config_result
+    _error('NATIVE_CONFIGURED_ROUTE_MISMATCH')
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = 'NATIVE_CONFIGURED_ROUTE_MISMATCH'
+
+    def _error(code):
+>       raise NativeScopeError(code)
+E       app.providers.native_scope.NativeScopeError: NATIVE_CONFIGURED_ROUTE_MISMATCH
+
+services\orchestrator\app\providers\native_scope.py:61: NativeScopeError
+_ test_config_mutation_and_unsafe_methods_never_reach_transport[thread/fork] __
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-262/test_config_mutation_and_unsaf8')
+method = 'thread/fork'
+
+    @pytest.mark.parametrize('method', ['config/value/write', 'config/batchWrite', 'mcpServer/refresh',
+        'account/login/start', 'plugin/install', 'environment/add', 'command/exec', 'process/exec',
+        'thread/fork', 'item/tool/call', 'turn/steer', 'unknown/canary'])
+    def test_config_mutation_and_unsafe_methods_never_reach_transport(tmp_path, method):
+>       enforcer, context = prepared(tmp_path)
+                            ^^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_native_scope.py:84: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\contracts\test_native_scope.py:65: in prepared
+    enforcer.observe_rpc_response('config/read', configuration(), context)
+services\orchestrator\app\providers\native_scope.py:366: in observe_rpc_response
+    self._config_result(result, owned_context, baseline)
+services\orchestrator\app\providers\native_scope.py:331: in _config_result
+    _error('NATIVE_CONFIGURED_ROUTE_MISMATCH')
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = 'NATIVE_CONFIGURED_ROUTE_MISMATCH'
+
+    def _error(code):
+>       raise NativeScopeError(code)
+E       app.providers.native_scope.NativeScopeError: NATIVE_CONFIGURED_ROUTE_MISMATCH
+
+services\orchestrator\app\providers\native_scope.py:61: NativeScopeError
+_ test_config_mutation_and_unsafe_methods_never_reach_transport[item/tool/call] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-262/test_config_mutation_and_unsaf9')
+method = 'item/tool/call'
+
+    @pytest.mark.parametrize('method', ['config/value/write', 'config/batchWrite', 'mcpServer/refresh',
+        'account/login/start', 'plugin/install', 'environment/add', 'command/exec', 'process/exec',
+        'thread/fork', 'item/tool/call', 'turn/steer', 'unknown/canary'])
+    def test_config_mutation_and_unsafe_methods_never_reach_transport(tmp_path, method):
+>       enforcer, context = prepared(tmp_path)
+                            ^^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_native_scope.py:84: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\contracts\test_native_scope.py:65: in prepared
+    enforcer.observe_rpc_response('config/read', configuration(), context)
+services\orchestrator\app\providers\native_scope.py:366: in observe_rpc_response
+    self._config_result(result, owned_context, baseline)
+services\orchestrator\app\providers\native_scope.py:331: in _config_result
+    _error('NATIVE_CONFIGURED_ROUTE_MISMATCH')
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = 'NATIVE_CONFIGURED_ROUTE_MISMATCH'
+
+    def _error(code):
+>       raise NativeScopeError(code)
+E       app.providers.native_scope.NativeScopeError: NATIVE_CONFIGURED_ROUTE_MISMATCH
+
+services\orchestrator\app\providers\native_scope.py:61: NativeScopeError
+__ test_config_mutation_and_unsafe_methods_never_reach_transport[turn/steer] __
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-262/test_config_mutation_and_unsaf10')
+method = 'turn/steer'
+
+    @pytest.mark.parametrize('method', ['config/value/write', 'config/batchWrite', 'mcpServer/refresh',
+        'account/login/start', 'plugin/install', 'environment/add', 'command/exec', 'process/exec',
+        'thread/fork', 'item/tool/call', 'turn/steer', 'unknown/canary'])
+    def test_config_mutation_and_unsafe_methods_never_reach_transport(tmp_path, method):
+>       enforcer, context = prepared(tmp_path)
+                            ^^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_native_scope.py:84: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\contracts\test_native_scope.py:65: in prepared
+    enforcer.observe_rpc_response('config/read', configuration(), context)
+services\orchestrator\app\providers\native_scope.py:366: in observe_rpc_response
+    self._config_result(result, owned_context, baseline)
+services\orchestrator\app\providers\native_scope.py:331: in _config_result
+    _error('NATIVE_CONFIGURED_ROUTE_MISMATCH')
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = 'NATIVE_CONFIGURED_ROUTE_MISMATCH'
+
+    def _error(code):
+>       raise NativeScopeError(code)
+E       app.providers.native_scope.NativeScopeError: NATIVE_CONFIGURED_ROUTE_MISMATCH
+
+services\orchestrator\app\providers\native_scope.py:61: NativeScopeError
+_ test_config_mutation_and_unsafe_methods_never_reach_transport[unknown/canary] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-262/test_config_mutation_and_unsaf11')
+method = 'unknown/canary'
+
+    @pytest.mark.parametrize('method', ['config/value/write', 'config/batchWrite', 'mcpServer/refresh',
+        'account/login/start', 'plugin/install', 'environment/add', 'command/exec', 'process/exec',
+        'thread/fork', 'item/tool/call', 'turn/steer', 'unknown/canary'])
+    def test_config_mutation_and_unsafe_methods_never_reach_transport(tmp_path, method):
+>       enforcer, context = prepared(tmp_path)
+                            ^^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_native_scope.py:84: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\contracts\test_native_scope.py:65: in prepared
+    enforcer.observe_rpc_response('config/read', configuration(), context)
+services\orchestrator\app\providers\native_scope.py:366: in observe_rpc_response
+    self._config_result(result, owned_context, baseline)
+services\orchestrator\app\providers\native_scope.py:331: in _config_result
+    _error('NATIVE_CONFIGURED_ROUTE_MISMATCH')
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = 'NATIVE_CONFIGURED_ROUTE_MISMATCH'
+
+    def _error(code):
+>       raise NativeScopeError(code)
+E       app.providers.native_scope.NativeScopeError: NATIVE_CONFIGURED_ROUTE_MISMATCH
+
+services\orchestrator\app\providers\native_scope.py:61: NativeScopeError
+________________ test_fixture_codec_never_qualifies_production ________________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-262/test_fixture_codec_never_quali0')
+
+    def test_fixture_codec_never_qualifies_production(tmp_path):
+>       enforcer, context = prepared(tmp_path)
+                            ^^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_native_scope.py:90: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\contracts\test_native_scope.py:65: in prepared
+    enforcer.observe_rpc_response('config/read', configuration(), context)
+services\orchestrator\app\providers\native_scope.py:366: in observe_rpc_response
+    self._config_result(result, owned_context, baseline)
+services\orchestrator\app\providers\native_scope.py:331: in _config_result
+    _error('NATIVE_CONFIGURED_ROUTE_MISMATCH')
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = 'NATIVE_CONFIGURED_ROUTE_MISMATCH'
+
+    def _error(code):
+>       raise NativeScopeError(code)
+E       app.providers.native_scope.NativeScopeError: NATIVE_CONFIGURED_ROUTE_MISMATCH
+
+services\orchestrator\app\providers\native_scope.py:61: NativeScopeError
+_____ test_thread_cannot_expand_environment_permission_or_tools[change0] ______
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-262/test_thread_cannot_expand_envi0')
+change = {'ephemeral': False}
+
+    @pytest.mark.parametrize('change', [dict(ephemeral=False), dict(environments=[{'id': 'foreign'}]),
+        dict(dynamicTools=[{'name': 'file_read'}]), dict(sandbox='danger-full-access'),
+        dict(approvalPolicy='on-request'), dict(allowProviderModelFallback=True), dict(extra='CANARY')])
+    def test_thread_cannot_expand_environment_permission_or_tools(tmp_path, change):
+        enforcer = NativeScopeEnforcer()
+        context = enforcer.open_fixture_phase(binding(tmp_path))
+        initialize(enforcer, context)
+        enforcer.authorize_rpc('config/read', {'cwd': str(tmp_path), 'includeLayers': False}, context)
+>       enforcer.observe_rpc_response('config/read', configuration(), context)
+
+tests\contracts\test_native_scope.py:129: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+services\orchestrator\app\providers\native_scope.py:366: in observe_rpc_response
+    self._config_result(result, owned_context, baseline)
+services\orchestrator\app\providers\native_scope.py:331: in _config_result
+    _error('NATIVE_CONFIGURED_ROUTE_MISMATCH')
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = 'NATIVE_CONFIGURED_ROUTE_MISMATCH'
+
+    def _error(code):
+>       raise NativeScopeError(code)
+E       app.providers.native_scope.NativeScopeError: NATIVE_CONFIGURED_ROUTE_MISMATCH
+
+services\orchestrator\app\providers\native_scope.py:61: NativeScopeError
+_____ test_thread_cannot_expand_environment_permission_or_tools[change1] ______
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-262/test_thread_cannot_expand_envi1')
+change = {'environments': [{'id': 'foreign'}]}
+
+    @pytest.mark.parametrize('change', [dict(ephemeral=False), dict(environments=[{'id': 'foreign'}]),
+        dict(dynamicTools=[{'name': 'file_read'}]), dict(sandbox='danger-full-access'),
+        dict(approvalPolicy='on-request'), dict(allowProviderModelFallback=True), dict(extra='CANARY')])
+    def test_thread_cannot_expand_environment_permission_or_tools(tmp_path, change):
+        enforcer = NativeScopeEnforcer()
+        context = enforcer.open_fixture_phase(binding(tmp_path))
+        initialize(enforcer, context)
+        enforcer.authorize_rpc('config/read', {'cwd': str(tmp_path), 'includeLayers': False}, context)
+>       enforcer.observe_rpc_response('config/read', configuration(), context)
+
+tests\contracts\test_native_scope.py:129: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+services\orchestrator\app\providers\native_scope.py:366: in observe_rpc_response
+    self._config_result(result, owned_context, baseline)
+services\orchestrator\app\providers\native_scope.py:331: in _config_result
+    _error('NATIVE_CONFIGURED_ROUTE_MISMATCH')
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = 'NATIVE_CONFIGURED_ROUTE_MISMATCH'
+
+    def _error(code):
+>       raise NativeScopeError(code)
+E       app.providers.native_scope.NativeScopeError: NATIVE_CONFIGURED_ROUTE_MISMATCH
+
+services\orchestrator\app\providers\native_scope.py:61: NativeScopeError
+_____ test_thread_cannot_expand_environment_permission_or_tools[change2] ______
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-262/test_thread_cannot_expand_envi2')
+change = {'dynamicTools': [{'name': 'file_read'}]}
+
+    @pytest.mark.parametrize('change', [dict(ephemeral=False), dict(environments=[{'id': 'foreign'}]),
+        dict(dynamicTools=[{'name': 'file_read'}]), dict(sandbox='danger-full-access'),
+        dict(approvalPolicy='on-request'), dict(allowProviderModelFallback=True), dict(extra='CANARY')])
+    def test_thread_cannot_expand_environment_permission_or_tools(tmp_path, change):
+        enforcer = NativeScopeEnforcer()
+        context = enforcer.open_fixture_phase(binding(tmp_path))
+        initialize(enforcer, context)
+        enforcer.authorize_rpc('config/read', {'cwd': str(tmp_path), 'includeLayers': False}, context)
+>       enforcer.observe_rpc_response('config/read', configuration(), context)
+
+tests\contracts\test_native_scope.py:129: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+services\orchestrator\app\providers\native_scope.py:366: in observe_rpc_response
+    self._config_result(result, owned_context, baseline)
+services\orchestrator\app\providers\native_scope.py:331: in _config_result
+    _error('NATIVE_CONFIGURED_ROUTE_MISMATCH')
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = 'NATIVE_CONFIGURED_ROUTE_MISMATCH'
+
+    def _error(code):
+>       raise NativeScopeError(code)
+E       app.providers.native_scope.NativeScopeError: NATIVE_CONFIGURED_ROUTE_MISMATCH
+
+services\orchestrator\app\providers\native_scope.py:61: NativeScopeError
+_____ test_thread_cannot_expand_environment_permission_or_tools[change3] ______
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-262/test_thread_cannot_expand_envi3')
+change = {'sandbox': 'danger-full-access'}
+
+    @pytest.mark.parametrize('change', [dict(ephemeral=False), dict(environments=[{'id': 'foreign'}]),
+        dict(dynamicTools=[{'name': 'file_read'}]), dict(sandbox='danger-full-access'),
+        dict(approvalPolicy='on-request'), dict(allowProviderModelFallback=True), dict(extra='CANARY')])
+    def test_thread_cannot_expand_environment_permission_or_tools(tmp_path, change):
+        enforcer = NativeScopeEnforcer()
+        context = enforcer.open_fixture_phase(binding(tmp_path))
+        initialize(enforcer, context)
+        enforcer.authorize_rpc('config/read', {'cwd': str(tmp_path), 'includeLayers': False}, context)
+>       enforcer.observe_rpc_response('config/read', configuration(), context)
+
+tests\contracts\test_native_scope.py:129: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+services\orchestrator\app\providers\native_scope.py:366: in observe_rpc_response
+    self._config_result(result, owned_context, baseline)
+services\orchestrator\app\providers\native_scope.py:331: in _config_result
+    _error('NATIVE_CONFIGURED_ROUTE_MISMATCH')
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = 'NATIVE_CONFIGURED_ROUTE_MISMATCH'
+
+    def _error(code):
+>       raise NativeScopeError(code)
+E       app.providers.native_scope.NativeScopeError: NATIVE_CONFIGURED_ROUTE_MISMATCH
+
+services\orchestrator\app\providers\native_scope.py:61: NativeScopeError
+_____ test_thread_cannot_expand_environment_permission_or_tools[change4] ______
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-262/test_thread_cannot_expand_envi4')
+change = {'approvalPolicy': 'on-request'}
+
+    @pytest.mark.parametrize('change', [dict(ephemeral=False), dict(environments=[{'id': 'foreign'}]),
+        dict(dynamicTools=[{'name': 'file_read'}]), dict(sandbox='danger-full-access'),
+        dict(approvalPolicy='on-request'), dict(allowProviderModelFallback=True), dict(extra='CANARY')])
+    def test_thread_cannot_expand_environment_permission_or_tools(tmp_path, change):
+        enforcer = NativeScopeEnforcer()
+        context = enforcer.open_fixture_phase(binding(tmp_path))
+        initialize(enforcer, context)
+        enforcer.authorize_rpc('config/read', {'cwd': str(tmp_path), 'includeLayers': False}, context)
+>       enforcer.observe_rpc_response('config/read', configuration(), context)
+
+tests\contracts\test_native_scope.py:129: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+services\orchestrator\app\providers\native_scope.py:366: in observe_rpc_response
+    self._config_result(result, owned_context, baseline)
+services\orchestrator\app\providers\native_scope.py:331: in _config_result
+    _error('NATIVE_CONFIGURED_ROUTE_MISMATCH')
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = 'NATIVE_CONFIGURED_ROUTE_MISMATCH'
+
+    def _error(code):
+>       raise NativeScopeError(code)
+E       app.providers.native_scope.NativeScopeError: NATIVE_CONFIGURED_ROUTE_MISMATCH
+
+services\orchestrator\app\providers\native_scope.py:61: NativeScopeError
+_____ test_thread_cannot_expand_environment_permission_or_tools[change5] ______
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-262/test_thread_cannot_expand_envi5')
+change = {'allowProviderModelFallback': True}
+
+    @pytest.mark.parametrize('change', [dict(ephemeral=False), dict(environments=[{'id': 'foreign'}]),
+        dict(dynamicTools=[{'name': 'file_read'}]), dict(sandbox='danger-full-access'),
+        dict(approvalPolicy='on-request'), dict(allowProviderModelFallback=True), dict(extra='CANARY')])
+    def test_thread_cannot_expand_environment_permission_or_tools(tmp_path, change):
+        enforcer = NativeScopeEnforcer()
+        context = enforcer.open_fixture_phase(binding(tmp_path))
+        initialize(enforcer, context)
+        enforcer.authorize_rpc('config/read', {'cwd': str(tmp_path), 'includeLayers': False}, context)
+>       enforcer.observe_rpc_response('config/read', configuration(), context)
+
+tests\contracts\test_native_scope.py:129: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+services\orchestrator\app\providers\native_scope.py:366: in observe_rpc_response
+    self._config_result(result, owned_context, baseline)
+services\orchestrator\app\providers\native_scope.py:331: in _config_result
+    _error('NATIVE_CONFIGURED_ROUTE_MISMATCH')
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = 'NATIVE_CONFIGURED_ROUTE_MISMATCH'
+
+    def _error(code):
+>       raise NativeScopeError(code)
+E       app.providers.native_scope.NativeScopeError: NATIVE_CONFIGURED_ROUTE_MISMATCH
+
+services\orchestrator\app\providers\native_scope.py:61: NativeScopeError
+_____ test_thread_cannot_expand_environment_permission_or_tools[change6] ______
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-262/test_thread_cannot_expand_envi6')
+change = {'extra': 'CANARY'}
+
+    @pytest.mark.parametrize('change', [dict(ephemeral=False), dict(environments=[{'id': 'foreign'}]),
+        dict(dynamicTools=[{'name': 'file_read'}]), dict(sandbox='danger-full-access'),
+        dict(approvalPolicy='on-request'), dict(allowProviderModelFallback=True), dict(extra='CANARY')])
+    def test_thread_cannot_expand_environment_permission_or_tools(tmp_path, change):
+        enforcer = NativeScopeEnforcer()
+        context = enforcer.open_fixture_phase(binding(tmp_path))
+        initialize(enforcer, context)
+        enforcer.authorize_rpc('config/read', {'cwd': str(tmp_path), 'includeLayers': False}, context)
+>       enforcer.observe_rpc_response('config/read', configuration(), context)
+
+tests\contracts\test_native_scope.py:129: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+services\orchestrator\app\providers\native_scope.py:366: in observe_rpc_response
+    self._config_result(result, owned_context, baseline)
+services\orchestrator\app\providers\native_scope.py:331: in _config_result
+    _error('NATIVE_CONFIGURED_ROUTE_MISMATCH')
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = 'NATIVE_CONFIGURED_ROUTE_MISMATCH'
+
+    def _error(code):
+>       raise NativeScopeError(code)
+E       app.providers.native_scope.NativeScopeError: NATIVE_CONFIGURED_ROUTE_MISMATCH
+
+services\orchestrator\app\providers\native_scope.py:61: NativeScopeError
+_______ test_turn_is_owned_sticky_readonly_and_exact_text_only[change0] _______
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-262/test_turn_is_owned_sticky_read0')
+change = {'cwd': 'C:/outside'}
+
+    @pytest.mark.parametrize('change', [dict(cwd='C:/outside'), dict(threadId='foreign'),
+        dict(input=[{'type': 'localImage', 'path': 'C:/private.png'}]),
+        dict(input=[{'type': 'text', 'text': 'changed', 'text_elements': []}]),
+        dict(sandboxPolicy={'type': 'readOnly', 'networkAccess': True}), dict(environments=[{'id': 'foreign'}]),
+        dict(dynamicTools=[]), dict(model='gpt-foreign')])
+    def test_turn_is_owned_sticky_readonly_and_exact_text_only(tmp_path, change):
+>       enforcer, context = prepared(tmp_path)
+                            ^^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_native_scope.py:142: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\contracts\test_native_scope.py:65: in prepared
+    enforcer.observe_rpc_response('config/read', configuration(), context)
+services\orchestrator\app\providers\native_scope.py:366: in observe_rpc_response
+    self._config_result(result, owned_context, baseline)
+services\orchestrator\app\providers\native_scope.py:331: in _config_result
+    _error('NATIVE_CONFIGURED_ROUTE_MISMATCH')
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = 'NATIVE_CONFIGURED_ROUTE_MISMATCH'
+
+    def _error(code):
+>       raise NativeScopeError(code)
+E       app.providers.native_scope.NativeScopeError: NATIVE_CONFIGURED_ROUTE_MISMATCH
+
+services\orchestrator\app\providers\native_scope.py:61: NativeScopeError
+_______ test_turn_is_owned_sticky_readonly_and_exact_text_only[change1] _______
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-262/test_turn_is_owned_sticky_read1')
+change = {'threadId': 'foreign'}
+
+    @pytest.mark.parametrize('change', [dict(cwd='C:/outside'), dict(threadId='foreign'),
+        dict(input=[{'type': 'localImage', 'path': 'C:/private.png'}]),
+        dict(input=[{'type': 'text', 'text': 'changed', 'text_elements': []}]),
+        dict(sandboxPolicy={'type': 'readOnly', 'networkAccess': True}), dict(environments=[{'id': 'foreign'}]),
+        dict(dynamicTools=[]), dict(model='gpt-foreign')])
+    def test_turn_is_owned_sticky_readonly_and_exact_text_only(tmp_path, change):
+>       enforcer, context = prepared(tmp_path)
+                            ^^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_native_scope.py:142: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\contracts\test_native_scope.py:65: in prepared
+    enforcer.observe_rpc_response('config/read', configuration(), context)
+services\orchestrator\app\providers\native_scope.py:366: in observe_rpc_response
+    self._config_result(result, owned_context, baseline)
+services\orchestrator\app\providers\native_scope.py:331: in _config_result
+    _error('NATIVE_CONFIGURED_ROUTE_MISMATCH')
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = 'NATIVE_CONFIGURED_ROUTE_MISMATCH'
+
+    def _error(code):
+>       raise NativeScopeError(code)
+E       app.providers.native_scope.NativeScopeError: NATIVE_CONFIGURED_ROUTE_MISMATCH
+
+services\orchestrator\app\providers\native_scope.py:61: NativeScopeError
+_______ test_turn_is_owned_sticky_readonly_and_exact_text_only[change2] _______
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-262/test_turn_is_owned_sticky_read2')
+change = {'input': [{'type': 'localImage', 'path': 'C:/private.png'}]}
+
+    @pytest.mark.parametrize('change', [dict(cwd='C:/outside'), dict(threadId='foreign'),
+        dict(input=[{'type': 'localImage', 'path': 'C:/private.png'}]),
+        dict(input=[{'type': 'text', 'text': 'changed', 'text_elements': []}]),
+        dict(sandboxPolicy={'type': 'readOnly', 'networkAccess': True}), dict(environments=[{'id': 'foreign'}]),
+        dict(dynamicTools=[]), dict(model='gpt-foreign')])
+    def test_turn_is_owned_sticky_readonly_and_exact_text_only(tmp_path, change):
+>       enforcer, context = prepared(tmp_path)
+                            ^^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_native_scope.py:142: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\contracts\test_native_scope.py:65: in prepared
+    enforcer.observe_rpc_response('config/read', configuration(), context)
+services\orchestrator\app\providers\native_scope.py:366: in observe_rpc_response
+    self._config_result(result, owned_context, baseline)
+services\orchestrator\app\providers\native_scope.py:331: in _config_result
+    _error('NATIVE_CONFIGURED_ROUTE_MISMATCH')
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = 'NATIVE_CONFIGURED_ROUTE_MISMATCH'
+
+    def _error(code):
+>       raise NativeScopeError(code)
+E       app.providers.native_scope.NativeScopeError: NATIVE_CONFIGURED_ROUTE_MISMATCH
+
+services\orchestrator\app\providers\native_scope.py:61: NativeScopeError
+_______ test_turn_is_owned_sticky_readonly_and_exact_text_only[change3] _______
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-262/test_turn_is_owned_sticky_read3')
+change = {'input': [{'type': 'text', 'text': 'changed', 'text_elements': []}]}
+
+    @pytest.mark.parametrize('change', [dict(cwd='C:/outside'), dict(threadId='foreign'),
+        dict(input=[{'type': 'localImage', 'path': 'C:/private.png'}]),
+        dict(input=[{'type': 'text', 'text': 'changed', 'text_elements': []}]),
+        dict(sandboxPolicy={'type': 'readOnly', 'networkAccess': True}), dict(environments=[{'id': 'foreign'}]),
+        dict(dynamicTools=[]), dict(model='gpt-foreign')])
+    def test_turn_is_owned_sticky_readonly_and_exact_text_only(tmp_path, change):
+>       enforcer, context = prepared(tmp_path)
+                            ^^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_native_scope.py:142: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\contracts\test_native_scope.py:65: in prepared
+    enforcer.observe_rpc_response('config/read', configuration(), context)
+services\orchestrator\app\providers\native_scope.py:366: in observe_rpc_response
+    self._config_result(result, owned_context, baseline)
+services\orchestrator\app\providers\native_scope.py:331: in _config_result
+    _error('NATIVE_CONFIGURED_ROUTE_MISMATCH')
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = 'NATIVE_CONFIGURED_ROUTE_MISMATCH'
+
+    def _error(code):
+>       raise NativeScopeError(code)
+E       app.providers.native_scope.NativeScopeError: NATIVE_CONFIGURED_ROUTE_MISMATCH
+
+services\orchestrator\app\providers\native_scope.py:61: NativeScopeError
+_______ test_turn_is_owned_sticky_readonly_and_exact_text_only[change4] _______
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-262/test_turn_is_owned_sticky_read4')
+change = {'sandboxPolicy': {'type': 'readOnly', 'networkAccess': True}}
+
+    @pytest.mark.parametrize('change', [dict(cwd='C:/outside'), dict(threadId='foreign'),
+        dict(input=[{'type': 'localImage', 'path': 'C:/private.png'}]),
+        dict(input=[{'type': 'text', 'text': 'changed', 'text_elements': []}]),
+        dict(sandboxPolicy={'type': 'readOnly', 'networkAccess': True}), dict(environments=[{'id': 'foreign'}]),
+        dict(dynamicTools=[]), dict(model='gpt-foreign')])
+    def test_turn_is_owned_sticky_readonly_and_exact_text_only(tmp_path, change):
+>       enforcer, context = prepared(tmp_path)
+                            ^^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_native_scope.py:142: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\contracts\test_native_scope.py:65: in prepared
+    enforcer.observe_rpc_response('config/read', configuration(), context)
+services\orchestrator\app\providers\native_scope.py:366: in observe_rpc_response
+    self._config_result(result, owned_context, baseline)
+services\orchestrator\app\providers\native_scope.py:331: in _config_result
+    _error('NATIVE_CONFIGURED_ROUTE_MISMATCH')
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = 'NATIVE_CONFIGURED_ROUTE_MISMATCH'
+
+    def _error(code):
+>       raise NativeScopeError(code)
+E       app.providers.native_scope.NativeScopeError: NATIVE_CONFIGURED_ROUTE_MISMATCH
+
+services\orchestrator\app\providers\native_scope.py:61: NativeScopeError
+_______ test_turn_is_owned_sticky_readonly_and_exact_text_only[change5] _______
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-262/test_turn_is_owned_sticky_read5')
+change = {'environments': [{'id': 'foreign'}]}
+
+    @pytest.mark.parametrize('change', [dict(cwd='C:/outside'), dict(threadId='foreign'),
+        dict(input=[{'type': 'localImage', 'path': 'C:/private.png'}]),
+        dict(input=[{'type': 'text', 'text': 'changed', 'text_elements': []}]),
+        dict(sandboxPolicy={'type': 'readOnly', 'networkAccess': True}), dict(environments=[{'id': 'foreign'}]),
+        dict(dynamicTools=[]), dict(model='gpt-foreign')])
+    def test_turn_is_owned_sticky_readonly_and_exact_text_only(tmp_path, change):
+>       enforcer, context = prepared(tmp_path)
+                            ^^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_native_scope.py:142: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\contracts\test_native_scope.py:65: in prepared
+    enforcer.observe_rpc_response('config/read', configuration(), context)
+services\orchestrator\app\providers\native_scope.py:366: in observe_rpc_response
+    self._config_result(result, owned_context, baseline)
+services\orchestrator\app\providers\native_scope.py:331: in _config_result
+    _error('NATIVE_CONFIGURED_ROUTE_MISMATCH')
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = 'NATIVE_CONFIGURED_ROUTE_MISMATCH'
+
+    def _error(code):
+>       raise NativeScopeError(code)
+E       app.providers.native_scope.NativeScopeError: NATIVE_CONFIGURED_ROUTE_MISMATCH
+
+services\orchestrator\app\providers\native_scope.py:61: NativeScopeError
+_______ test_turn_is_owned_sticky_readonly_and_exact_text_only[change6] _______
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-262/test_turn_is_owned_sticky_read6')
+change = {'dynamicTools': []}
+
+    @pytest.mark.parametrize('change', [dict(cwd='C:/outside'), dict(threadId='foreign'),
+        dict(input=[{'type': 'localImage', 'path': 'C:/private.png'}]),
+        dict(input=[{'type': 'text', 'text': 'changed', 'text_elements': []}]),
+        dict(sandboxPolicy={'type': 'readOnly', 'networkAccess': True}), dict(environments=[{'id': 'foreign'}]),
+        dict(dynamicTools=[]), dict(model='gpt-foreign')])
+    def test_turn_is_owned_sticky_readonly_and_exact_text_only(tmp_path, change):
+>       enforcer, context = prepared(tmp_path)
+                            ^^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_native_scope.py:142: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\contracts\test_native_scope.py:65: in prepared
+    enforcer.observe_rpc_response('config/read', configuration(), context)
+services\orchestrator\app\providers\native_scope.py:366: in observe_rpc_response
+    self._config_result(result, owned_context, baseline)
+services\orchestrator\app\providers\native_scope.py:331: in _config_result
+    _error('NATIVE_CONFIGURED_ROUTE_MISMATCH')
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = 'NATIVE_CONFIGURED_ROUTE_MISMATCH'
+
+    def _error(code):
+>       raise NativeScopeError(code)
+E       app.providers.native_scope.NativeScopeError: NATIVE_CONFIGURED_ROUTE_MISMATCH
+
+services\orchestrator\app\providers\native_scope.py:61: NativeScopeError
+_______ test_turn_is_owned_sticky_readonly_and_exact_text_only[change7] _______
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-262/test_turn_is_owned_sticky_read7')
+change = {'model': 'gpt-foreign'}
+
+    @pytest.mark.parametrize('change', [dict(cwd='C:/outside'), dict(threadId='foreign'),
+        dict(input=[{'type': 'localImage', 'path': 'C:/private.png'}]),
+        dict(input=[{'type': 'text', 'text': 'changed', 'text_elements': []}]),
+        dict(sandboxPolicy={'type': 'readOnly', 'networkAccess': True}), dict(environments=[{'id': 'foreign'}]),
+        dict(dynamicTools=[]), dict(model='gpt-foreign')])
+    def test_turn_is_owned_sticky_readonly_and_exact_text_only(tmp_path, change):
+>       enforcer, context = prepared(tmp_path)
+                            ^^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_native_scope.py:142: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\contracts\test_native_scope.py:65: in prepared
+    enforcer.observe_rpc_response('config/read', configuration(), context)
+services\orchestrator\app\providers\native_scope.py:366: in observe_rpc_response
+    self._config_result(result, owned_context, baseline)
+services\orchestrator\app\providers\native_scope.py:331: in _config_result
+    _error('NATIVE_CONFIGURED_ROUTE_MISMATCH')
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = 'NATIVE_CONFIGURED_ROUTE_MISMATCH'
+
+    def _error(code):
+>       raise NativeScopeError(code)
+E       app.providers.native_scope.NativeScopeError: NATIVE_CONFIGURED_ROUTE_MISMATCH
+
+services\orchestrator\app\providers\native_scope.py:61: NativeScopeError
+___________________ test_second_top_level_turn_cannot_start ___________________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-262/test_second_top_level_turn_can0')
+
+    def test_second_top_level_turn_cannot_start(tmp_path):
+>       enforcer, context = prepared(tmp_path)
+                            ^^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_native_scope.py:150: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\contracts\test_native_scope.py:65: in prepared
+    enforcer.observe_rpc_response('config/read', configuration(), context)
+services\orchestrator\app\providers\native_scope.py:366: in observe_rpc_response
+    self._config_result(result, owned_context, baseline)
+services\orchestrator\app\providers\native_scope.py:331: in _config_result
+    _error('NATIVE_CONFIGURED_ROUTE_MISMATCH')
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = 'NATIVE_CONFIGURED_ROUTE_MISMATCH'
+
+    def _error(code):
+>       raise NativeScopeError(code)
+E       app.providers.native_scope.NativeScopeError: NATIVE_CONFIGURED_ROUTE_MISMATCH
+
+services\orchestrator\app\providers\native_scope.py:61: NativeScopeError
+___________ test_foreign_context_and_json_receipt_cannot_mint_scope ___________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-262/test_foreign_context_and_json_0')
+
+    def test_foreign_context_and_json_receipt_cannot_mint_scope(tmp_path):
+>       first, context = prepared(tmp_path)
+                         ^^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_native_scope.py:158: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\contracts\test_native_scope.py:65: in prepared
+    enforcer.observe_rpc_response('config/read', configuration(), context)
+services\orchestrator\app\providers\native_scope.py:366: in observe_rpc_response
+    self._config_result(result, owned_context, baseline)
+services\orchestrator\app\providers\native_scope.py:331: in _config_result
+    _error('NATIVE_CONFIGURED_ROUTE_MISMATCH')
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = 'NATIVE_CONFIGURED_ROUTE_MISMATCH'
+
+    def _error(code):
+>       raise NativeScopeError(code)
+E       app.providers.native_scope.NativeScopeError: NATIVE_CONFIGURED_ROUTE_MISMATCH
+
+services\orchestrator\app\providers\native_scope.py:61: NativeScopeError
+__________ test_unknown_cleanup_revokes_an_existing_prepared_context __________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-262/test_unknown_cleanup_revokes_a0')
+
+    def test_unknown_cleanup_revokes_an_existing_prepared_context(tmp_path):
+>       enforcer, context = prepared(tmp_path)
+                            ^^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_native_scope.py:176: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\contracts\test_native_scope.py:65: in prepared
+    enforcer.observe_rpc_response('config/read', configuration(), context)
+services\orchestrator\app\providers\native_scope.py:366: in observe_rpc_response
+    self._config_result(result, owned_context, baseline)
+services\orchestrator\app\providers\native_scope.py:331: in _config_result
+    _error('NATIVE_CONFIGURED_ROUTE_MISMATCH')
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = 'NATIVE_CONFIGURED_ROUTE_MISMATCH'
+
+    def _error(code):
+>       raise NativeScopeError(code)
+E       app.providers.native_scope.NativeScopeError: NATIVE_CONFIGURED_ROUTE_MISMATCH
+
+services\orchestrator\app\providers\native_scope.py:61: NativeScopeError
+______ test_forbidden_request_permanently_revokes_prepared_qualification ______
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-262/test_forbidden_request_permane0')
+
+    def test_forbidden_request_permanently_revokes_prepared_qualification(tmp_path):
+>       enforcer, context = prepared(tmp_path)
+                            ^^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_native_scope.py:201: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\contracts\test_native_scope.py:65: in prepared
+    enforcer.observe_rpc_response('config/read', configuration(), context)
+services\orchestrator\app\providers\native_scope.py:366: in observe_rpc_response
+    self._config_result(result, owned_context, baseline)
+services\orchestrator\app\providers\native_scope.py:331: in _config_result
+    _error('NATIVE_CONFIGURED_ROUTE_MISMATCH')
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = 'NATIVE_CONFIGURED_ROUTE_MISMATCH'
+
+    def _error(code):
+>       raise NativeScopeError(code)
+E       app.providers.native_scope.NativeScopeError: NATIVE_CONFIGURED_ROUTE_MISMATCH
+
+services\orchestrator\app\providers\native_scope.py:61: NativeScopeError
+____________ test_unsubscribe_cannot_be_followed_by_a_model_start _____________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-262/test_unsubscribe_cannot_be_fol0')
+
+    def test_unsubscribe_cannot_be_followed_by_a_model_start(tmp_path):
+>       enforcer, context = prepared(tmp_path)
+                            ^^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_native_scope.py:209: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\contracts\test_native_scope.py:65: in prepared
+    enforcer.observe_rpc_response('config/read', configuration(), context)
+services\orchestrator\app\providers\native_scope.py:366: in observe_rpc_response
+    self._config_result(result, owned_context, baseline)
+services\orchestrator\app\providers\native_scope.py:331: in _config_result
+    _error('NATIVE_CONFIGURED_ROUTE_MISMATCH')
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = 'NATIVE_CONFIGURED_ROUTE_MISMATCH'
+
+    def _error(code):
+>       raise NativeScopeError(code)
+E       app.providers.native_scope.NativeScopeError: NATIVE_CONFIGURED_ROUTE_MISMATCH
+
+services\orchestrator\app\providers\native_scope.py:61: NativeScopeError
+____ test_thread_read_cannot_discard_an_explicit_changed_policy[changed0] _____
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-262/test_thread_read_cannot_discar0')
+changed = {'approvalPolicy': 'on-request'}
+
+    @pytest.mark.parametrize('changed', [dict(approvalPolicy='on-request'),
+        dict(sandbox={'type': 'readOnly', 'networkAccess': True})])
+    def test_thread_read_cannot_discard_an_explicit_changed_policy(tmp_path, changed):
+>       enforcer, context = prepared(tmp_path)
+                            ^^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_native_scope.py:219: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\contracts\test_native_scope.py:65: in prepared
+    enforcer.observe_rpc_response('config/read', configuration(), context)
+services\orchestrator\app\providers\native_scope.py:366: in observe_rpc_response
+    self._config_result(result, owned_context, baseline)
+services\orchestrator\app\providers\native_scope.py:331: in _config_result
+    _error('NATIVE_CONFIGURED_ROUTE_MISMATCH')
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = 'NATIVE_CONFIGURED_ROUTE_MISMATCH'
+
+    def _error(code):
+>       raise NativeScopeError(code)
+E       app.providers.native_scope.NativeScopeError: NATIVE_CONFIGURED_ROUTE_MISMATCH
+
+services\orchestrator\app\providers\native_scope.py:61: NativeScopeError
+____ test_thread_read_cannot_discard_an_explicit_changed_policy[changed1] _____
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-262/test_thread_read_cannot_discar1')
+changed = {'sandbox': {'type': 'readOnly', 'networkAccess': True}}
+
+    @pytest.mark.parametrize('changed', [dict(approvalPolicy='on-request'),
+        dict(sandbox={'type': 'readOnly', 'networkAccess': True})])
+    def test_thread_read_cannot_discard_an_explicit_changed_policy(tmp_path, changed):
+>       enforcer, context = prepared(tmp_path)
+                            ^^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_native_scope.py:219: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\contracts\test_native_scope.py:65: in prepared
+    enforcer.observe_rpc_response('config/read', configuration(), context)
+services\orchestrator\app\providers\native_scope.py:366: in observe_rpc_response
+    self._config_result(result, owned_context, baseline)
+services\orchestrator\app\providers\native_scope.py:331: in _config_result
+    _error('NATIVE_CONFIGURED_ROUTE_MISMATCH')
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = 'NATIVE_CONFIGURED_ROUTE_MISMATCH'
+
+    def _error(code):
+>       raise NativeScopeError(code)
+E       app.providers.native_scope.NativeScopeError: NATIVE_CONFIGURED_ROUTE_MISMATCH
+
+services\orchestrator\app\providers\native_scope.py:61: NativeScopeError
+_____ test_config_recheck_must_be_followed_by_thread_recheck_before_turn ______
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-262/test_config_recheck_must_be_fo0')
+
+    def test_config_recheck_must_be_followed_by_thread_recheck_before_turn(tmp_path):
+>       enforcer, context = prepared(tmp_path)
+                            ^^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_native_scope.py:228: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\contracts\test_native_scope.py:65: in prepared
+    enforcer.observe_rpc_response('config/read', configuration(), context)
+services\orchestrator\app\providers\native_scope.py:366: in observe_rpc_response
+    self._config_result(result, owned_context, baseline)
+services\orchestrator\app\providers\native_scope.py:331: in _config_result
+    _error('NATIVE_CONFIGURED_ROUTE_MISMATCH')
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = 'NATIVE_CONFIGURED_ROUTE_MISMATCH'
+
+    def _error(code):
+>       raise NativeScopeError(code)
+E       app.providers.native_scope.NativeScopeError: NATIVE_CONFIGURED_ROUTE_MISMATCH
+
+services\orchestrator\app\providers\native_scope.py:61: NativeScopeError
+_______ test_successful_cleanup_permits_fresh_context_but_never_old_rpc _______
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-262/test_successful_cleanup_permit0')
+
+    def test_successful_cleanup_permits_fresh_context_but_never_old_rpc(tmp_path):
+>       enforcer, context = prepared(tmp_path)
+                            ^^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_native_scope.py:236: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\contracts\test_native_scope.py:65: in prepared
+    enforcer.observe_rpc_response('config/read', configuration(), context)
+services\orchestrator\app\providers\native_scope.py:366: in observe_rpc_response
+    self._config_result(result, owned_context, baseline)
+services\orchestrator\app\providers\native_scope.py:331: in _config_result
+    _error('NATIVE_CONFIGURED_ROUTE_MISMATCH')
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+code = 'NATIVE_CONFIGURED_ROUTE_MISMATCH'
+
+    def _error(code):
+>       raise NativeScopeError(code)
+E       app.providers.native_scope.NativeScopeError: NATIVE_CONFIGURED_ROUTE_MISMATCH
+
+services\orchestrator\app\providers\native_scope.py:61: NativeScopeError
+______ test_unknown_worker_source_is_rejected_before_any_process_launch _______
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-262/test_unknown_worker_source_is_0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000001FBE9BC7950>
+
+    def test_unknown_worker_source_is_rejected_before_any_process_launch(tmp_path, monkeypatch):
+        from app.providers import native_scope
+        from app.runtime.processes import ProcessHandle, ProcessManager
+        manager = object.__new__(ProcessManager)
+        handle = ProcessHandle('task1', 'attempt1', 123, None, tmp_path, tmp_path, object(), None)
+        starts = []
+        monkeypatch.setattr(ProcessManager, 'start', lambda *args, **kwargs: starts.append(args) or handle)
+        monkeypatch.setattr(NativeScopeEnforcer, '_check_live_origin', lambda _: None)
+        entry = tmp_path / 'official.exe'
+        entry.write_bytes(b'synthetic fixed entry')
+        monkeypatch.setattr(native_scope, '_sha', lambda path: OFFICIAL_ENTRY_SHA256
+            if path == entry else '0' * 64)
+>       with pytest.raises(NativeScopeError, match='WORKER_SOURCE_PIN_MISMATCH'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE NativeScopeError
+
+tests\contracts\test_native_scope.py:310: Failed
+________ test_other_configured_provider_alias_is_not_the_audited_route ________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-262/test_other_configured_provider0')
+
+    def test_other_configured_provider_alias_is_not_the_audited_route(tmp_path):
+        text = 'private inline source'
+>       with pytest.raises(NativeScopeError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE NativeScopeError
+
+tests\contracts\test_native_scope.py:317: Failed
+=========================== short test summary info ===========================
+FAILED tests/contracts/test_native_scope.py::test_config_mutation_and_unsafe_methods_never_reach_transport[config/value/write]
+FAILED tests/contracts/test_native_scope.py::test_config_mutation_and_unsafe_methods_never_reach_transport[config/batchWrite]
+FAILED tests/contracts/test_native_scope.py::test_config_mutation_and_unsafe_methods_never_reach_transport[mcpServer/refresh]
+FAILED tests/contracts/test_native_scope.py::test_config_mutation_and_unsafe_methods_never_reach_transport[account/login/start]
+FAILED tests/contracts/test_native_scope.py::test_config_mutation_and_unsafe_methods_never_reach_transport[plugin/install]
+FAILED tests/contracts/test_native_scope.py::test_config_mutation_and_unsafe_methods_never_reach_transport[environment/add]
+FAILED tests/contracts/test_native_scope.py::test_config_mutation_and_unsafe_methods_never_reach_transport[command/exec]
+FAILED tests/contracts/test_native_scope.py::test_config_mutation_and_unsafe_methods_never_reach_transport[process/exec]
+FAILED tests/contracts/test_native_scope.py::test_config_mutation_and_unsafe_methods_never_reach_transport[thread/fork]
+FAILED tests/contracts/test_native_scope.py::test_config_mutation_and_unsafe_methods_never_reach_transport[item/tool/call]
+FAILED tests/contracts/test_native_scope.py::test_config_mutation_and_unsafe_methods_never_reach_transport[turn/steer]
+FAILED tests/contracts/test_native_scope.py::test_config_mutation_and_unsafe_methods_never_reach_transport[unknown/canary]
+FAILED tests/contracts/test_native_scope.py::test_fixture_codec_never_qualifies_production
+FAILED tests/contracts/test_native_scope.py::test_thread_cannot_expand_environment_permission_or_tools[change0]
+FAILED tests/contracts/test_native_scope.py::test_thread_cannot_expand_environment_permission_or_tools[change1]
+FAILED tests/contracts/test_native_scope.py::test_thread_cannot_expand_environment_permission_or_tools[change2]
+FAILED tests/contracts/test_native_scope.py::test_thread_cannot_expand_environment_permission_or_tools[change3]
+FAILED tests/contracts/test_native_scope.py::test_thread_cannot_expand_environment_permission_or_tools[change4]
+FAILED tests/contracts/test_native_scope.py::test_thread_cannot_expand_environment_permission_or_tools[change5]
+FAILED tests/contracts/test_native_scope.py::test_thread_cannot_expand_environment_permission_or_tools[change6]
+FAILED tests/contracts/test_native_scope.py::test_turn_is_owned_sticky_readonly_and_exact_text_only[change0]
+FAILED tests/contracts/test_native_scope.py::test_turn_is_owned_sticky_readonly_and_exact_text_only[change1]
+FAILED tests/contracts/test_native_scope.py::test_turn_is_owned_sticky_readonly_and_exact_text_only[change2]
+FAILED tests/contracts/test_native_scope.py::test_turn_is_owned_sticky_readonly_and_exact_text_only[change3]
+FAILED tests/contracts/test_native_scope.py::test_turn_is_owned_sticky_readonly_and_exact_text_only[change4]
+FAILED tests/contracts/test_native_scope.py::test_turn_is_owned_sticky_readonly_and_exact_text_only[change5]
+FAILED tests/contracts/test_native_scope.py::test_turn_is_owned_sticky_readonly_and_exact_text_only[change6]
+FAILED tests/contracts/test_native_scope.py::test_turn_is_owned_sticky_readonly_and_exact_text_only[change7]
+FAILED tests/contracts/test_native_scope.py::test_second_top_level_turn_cannot_start
+FAILED tests/contracts/test_native_scope.py::test_foreign_context_and_json_receipt_cannot_mint_scope
+FAILED tests/contracts/test_native_scope.py::test_unknown_cleanup_revokes_an_existing_prepared_context
+FAILED tests/contracts/test_native_scope.py::test_forbidden_request_permanently_revokes_prepared_qualification
+FAILED tests/contracts/test_native_scope.py::test_unsubscribe_cannot_be_followed_by_a_model_start
+FAILED tests/contracts/test_native_scope.py::test_thread_read_cannot_discard_an_explicit_changed_policy[changed0]
+FAILED tests/contracts/test_native_scope.py::test_thread_read_cannot_discard_an_explicit_changed_policy[changed1]
+FAILED tests/contracts/test_native_scope.py::test_config_recheck_must_be_followed_by_thread_recheck_before_turn
+FAILED tests/contracts/test_native_scope.py::test_successful_cleanup_permits_fresh_context_but_never_old_rpc
+FAILED tests/contracts/test_native_scope.py::test_unknown_worker_source_is_rejected_before_any_process_launch
+FAILED tests/contracts/test_native_scope.py::test_other_configured_provider_alias_is_not_the_audited_route
+39 failed, 36 passed in 1.70s
+EXIT_CODE=1

@@ -1,0 +1,207 @@
+FFFFF...FF                                                               [100%]
+================================== FAILURES ===================================
+________ test_private_binding_cancels_planning_and_both_workflow_roles ________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-276/test_private_binding_cancels_p0')
+
+    def test_private_binding_cancels_planning_and_both_workflow_roles(tmp_path):
+        app, task, runtime, b, a, bindings, _, _ = assembled_case(tmp_path)
+        attempt = task_row(app, task)['attempt_id']
+        asyncio.run(bindings.cancel(task, attempt))
+>       assert runtime.cancellations == [(task, attempt)]
+E       AssertionError: assert [] == [('a2241507e2...c3ccad61cf0')]
+E         
+E         Right contains one more item: ('a2241507e20848d383583db163d470d2', '343a86bdba07425289fd9c3ccad61cf0')
+E         Use -v to get more diff
+
+tests\integration\test_native_backend_bindings.py:69: AssertionError
+________ test_cleanup_failure_still_attempts_all_three_roles[planning] ________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-276/test_cleanup_failure_still_att0')
+failed_role = 'planning'
+
+    @pytest.mark.parametrize('failed_role', ['planning', 'B', 'A'])
+    def test_cleanup_failure_still_attempts_all_three_roles(tmp_path, failed_role):
+        app, task, runtime, b, a, bindings, _, _ = assembled_case(tmp_path)
+        attempt = task_row(app, task)['attempt_id']
+        port = {'planning': runtime, 'B': b, 'A': a}[failed_role]
+    
+        async def failed(task_id, attempt_id):
+            port.cancellations.append((task_id, attempt_id))
+            raise RuntimeError('private fixture cleanup details')
+        port.cancel = failed
+>       with pytest.raises(PublicationBlocked, match='^NATIVE_LOCAL_CLEANUP_UNCONFIRMED$'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE PublicationBlocked
+
+tests\integration\test_native_backend_bindings.py:86: Failed
+___________ test_cleanup_failure_still_attempts_all_three_roles[B] ____________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-276/test_cleanup_failure_still_att1')
+failed_role = 'B'
+
+    @pytest.mark.parametrize('failed_role', ['planning', 'B', 'A'])
+    def test_cleanup_failure_still_attempts_all_three_roles(tmp_path, failed_role):
+        app, task, runtime, b, a, bindings, _, _ = assembled_case(tmp_path)
+        attempt = task_row(app, task)['attempt_id']
+        port = {'planning': runtime, 'B': b, 'A': a}[failed_role]
+    
+        async def failed(task_id, attempt_id):
+            port.cancellations.append((task_id, attempt_id))
+            raise RuntimeError('private fixture cleanup details')
+        port.cancel = failed
+        with pytest.raises(PublicationBlocked, match='^NATIVE_LOCAL_CLEANUP_UNCONFIRMED$'):
+            asyncio.run(bindings.cancel(task, attempt))
+>       assert runtime.cancellations == b.cancellations == a.cancellations == [(task, attempt)]
+E       AssertionError: assert [] == [('56a4ef45bb...b6e8b4ee0df')]
+E         
+E         Right contains one more item: ('56a4ef45bb5e4cf4b5889fd84c84acbe', '95fa3306879b4da3bf801b6e8b4ee0df')
+E         Use -v to get more diff
+
+tests\integration\test_native_backend_bindings.py:88: AssertionError
+___________ test_cleanup_failure_still_attempts_all_three_roles[A] ____________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-276/test_cleanup_failure_still_att2')
+failed_role = 'A'
+
+    @pytest.mark.parametrize('failed_role', ['planning', 'B', 'A'])
+    def test_cleanup_failure_still_attempts_all_three_roles(tmp_path, failed_role):
+        app, task, runtime, b, a, bindings, _, _ = assembled_case(tmp_path)
+        attempt = task_row(app, task)['attempt_id']
+        port = {'planning': runtime, 'B': b, 'A': a}[failed_role]
+    
+        async def failed(task_id, attempt_id):
+            port.cancellations.append((task_id, attempt_id))
+            raise RuntimeError('private fixture cleanup details')
+        port.cancel = failed
+        with pytest.raises(PublicationBlocked, match='^NATIVE_LOCAL_CLEANUP_UNCONFIRMED$'):
+            asyncio.run(bindings.cancel(task, attempt))
+>       assert runtime.cancellations == b.cancellations == a.cancellations == [(task, attempt)]
+E       AssertionError: assert [] == [('074b16471f...40dc565d0d2')]
+E         
+E         Right contains one more item: ('074b16471f124803893a5ee65f6f660f', '99827549a64c4ac5bdd9240dc565d0d2')
+E         Use -v to get more diff
+
+tests\integration\test_native_backend_bindings.py:88: AssertionError
+_________ test_assembled_ready_interruption_resumes_only_publication __________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-276/test_assembled_ready_interrupt0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x0000019A479A7230>
+
+    def test_assembled_ready_interruption_resumes_only_publication(tmp_path, monkeypatch):
+        app, task, runtime, b, a, bindings, held, _ = assembled_case(tmp_path)
+        publish = NativePublisher.publish
+    
+        def interrupted(*_):
+            raise RuntimeError('explicit fixture interruption after durable READY')
+        monkeypatch.setattr(NativePublisher, 'publish', interrupted)
+        supervisor = TaskSupervisor(app.state.database.path, bindings, provider_mode='fake')
+        assert asyncio.run(supervisor.run_once()) is None
+        row = task_row(app, task)
+>       assert row['state'] == 'READY'
+E       AssertionError: assert 'BLOCKED' == 'READY'
+E         
+E         - READY
+E         + BLOCKED
+
+tests\integration\test_native_backend_bindings.py:102: AssertionError
+_ test_interrupted_publication_keeps_release_and_owner_fences[foreign_owner] __
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-276/test_interrupted_publication_k3')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x0000019A47DA9590>
+change = 'foreign_owner'
+
+    @pytest.mark.parametrize('change', ['missing_gate', 'cancelled', 'failed', 'foreign_owner', 'new_attempt'])
+    def test_interrupted_publication_keeps_release_and_owner_fences(tmp_path, monkeypatch, change):
+        app, task, _, _, _, bindings, held, _ = assembled_case(tmp_path)
+        original = NativePublisher.publish
+    
+        def interrupted(*_):
+            with closing(app.state.database.connect()) as connection, transaction(connection):
+                row = connection.execute('SELECT * FROM task_runs WHERE task_id=?', (task,)).fetchone()
+                if change == 'missing_gate':
+                    checkpoint = json.loads(row['checkpoint_json'])
+                    checkpoint.pop('release_registry')
+                    connection.execute('UPDATE task_runs SET checkpoint_json=? WHERE task_id=?', (json.dumps(checkpoint), task))
+                elif change == 'cancelled':
+                    connection.execute("UPDATE task_runs SET state='CANCELLED',cancel_requested=1 WHERE task_id=?", (task,))
+                elif change == 'failed':
+                    connection.execute("UPDATE task_runs SET state='FAILED' WHERE task_id=?", (task,))
+                elif change == 'foreign_owner':
+                    connection.execute("UPDATE task_runs SET lease_owner='foreign-owner' WHERE task_id=?", (task,))
+                else:
+                    connection.execute("INSERT INTO task_runs(task_id,attempt_id,turn_id,provider_profile_id,state,attempt_number,route_snapshot_json) VALUES(?, 'new-attempt', ?, ?, 'RECEIVED',2,?)",
+                        (task, row['turn_id'], row['provider_profile_id'], row['route_snapshot_json']))
+            raise RuntimeError('explicit fixture fence change during publication')
+        monkeypatch.setattr(NativePublisher, 'publish', interrupted)
+        supervisor = TaskSupervisor(app.state.database.path, bindings, provider_mode='fake')
+        assert asyncio.run(supervisor.run_once()) is None
+        row = task_row(app, task)
+        expected = {'missing_gate': 'BLOCKED', 'cancelled': 'CANCELLED', 'failed': 'FAILED',
+            'foreign_owner': 'READY', 'new_attempt': 'READY'}[change]
+        assert row['state'] == expected
+        if change == 'foreign_owner':
+            assert row['lease_owner'] == 'foreign-owner'
+        monkeypatch.setattr(NativePublisher, 'publish', original)
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests\integration\test_native_backend_bindings.py:151: Failed
+__ test_interrupted_publication_keeps_release_and_owner_fences[new_attempt] ___
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-276/test_interrupted_publication_k4')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x0000019A47D48D50>
+change = 'new_attempt'
+
+    @pytest.mark.parametrize('change', ['missing_gate', 'cancelled', 'failed', 'foreign_owner', 'new_attempt'])
+    def test_interrupted_publication_keeps_release_and_owner_fences(tmp_path, monkeypatch, change):
+        app, task, _, _, _, bindings, held, _ = assembled_case(tmp_path)
+        original = NativePublisher.publish
+    
+        def interrupted(*_):
+            with closing(app.state.database.connect()) as connection, transaction(connection):
+                row = connection.execute('SELECT * FROM task_runs WHERE task_id=?', (task,)).fetchone()
+                if change == 'missing_gate':
+                    checkpoint = json.loads(row['checkpoint_json'])
+                    checkpoint.pop('release_registry')
+                    connection.execute('UPDATE task_runs SET checkpoint_json=? WHERE task_id=?', (json.dumps(checkpoint), task))
+                elif change == 'cancelled':
+                    connection.execute("UPDATE task_runs SET state='CANCELLED',cancel_requested=1 WHERE task_id=?", (task,))
+                elif change == 'failed':
+                    connection.execute("UPDATE task_runs SET state='FAILED' WHERE task_id=?", (task,))
+                elif change == 'foreign_owner':
+                    connection.execute("UPDATE task_runs SET lease_owner='foreign-owner' WHERE task_id=?", (task,))
+                else:
+                    connection.execute("INSERT INTO task_runs(task_id,attempt_id,turn_id,provider_profile_id,state,attempt_number,route_snapshot_json) VALUES(?, 'new-attempt', ?, ?, 'RECEIVED',2,?)",
+                        (task, row['turn_id'], row['provider_profile_id'], row['route_snapshot_json']))
+            raise RuntimeError('explicit fixture fence change during publication')
+        monkeypatch.setattr(NativePublisher, 'publish', interrupted)
+        supervisor = TaskSupervisor(app.state.database.path, bindings, provider_mode='fake')
+        assert asyncio.run(supervisor.run_once()) is None
+        row = task_row(app, task)
+        expected = {'missing_gate': 'BLOCKED', 'cancelled': 'CANCELLED', 'failed': 'FAILED',
+            'foreign_owner': 'READY', 'new_attempt': 'READY'}[change]
+>       assert row['state'] == expected
+E       AssertionError: assert 'BLOCKED' == 'READY'
+E         
+E         - READY
+E         + BLOCKED
+
+tests\integration\test_native_backend_bindings.py:147: AssertionError
+============================== warnings summary ===============================
+services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1
+  C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/integration/test_native_backend_bindings.py::test_private_binding_cancels_planning_and_both_workflow_roles
+FAILED tests/integration/test_native_backend_bindings.py::test_cleanup_failure_still_attempts_all_three_roles[planning]
+FAILED tests/integration/test_native_backend_bindings.py::test_cleanup_failure_still_attempts_all_three_roles[B]
+FAILED tests/integration/test_native_backend_bindings.py::test_cleanup_failure_still_attempts_all_three_roles[A]
+FAILED tests/integration/test_native_backend_bindings.py::test_assembled_ready_interruption_resumes_only_publication
+FAILED tests/integration/test_native_backend_bindings.py::test_interrupted_publication_keeps_release_and_owner_fences[foreign_owner]
+FAILED tests/integration/test_native_backend_bindings.py::test_interrupted_publication_keeps_release_and_owner_fences[new_attempt]
+7 failed, 3 passed, 1 warning in 4.80s
+EXIT_CODE=1

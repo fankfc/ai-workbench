@@ -1,0 +1,62 @@
+{
+  "case": "backend_normal",
+  "domain": "code",
+  "task_state": "PUBLISHED",
+  "task_id": "b71baafd8dd3469e8ab768d50453fc2e",
+  "attempt_id": "cb442e1738e94c8d9fd1b82c4f800e79",
+  "database_path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\artifacts\\qa\\D047\\r9dcb70cb\\r02a3a87e\\workbench.sqlite3",
+  "artifact_path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\artifacts\\qa\\D047\\r9dcb70cb\\r02a3a87e\\blobs\\4e\\4e95e91c8af9cd871b2b433d97f466a743620fbf210d472590d2d5617429cdaa",
+  "public_answer_count": 1,
+  "public_messages": [
+    {
+      "id": "698e47382ba643d3b01212864f7b32a9",
+      "turn_id": "698e47382ba643d3b01212864f7b32a9",
+      "kind": "message.accepted",
+      "text": "核对固定材料并给出结果。",
+      "language": "zh-CN",
+      "attempt_id": "cb442e1738e94c8d9fd1b82c4f800e79",
+      "content_version_id": null,
+      "historical": false
+    },
+    {
+      "id": "d4de590dda6e402d8d7b17849bf3f8a7",
+      "turn_id": "698e47382ba643d3b01212864f7b32a9",
+      "kind": "answer.published",
+      "text": "def add(a,b):\n    return a+b\nassert add(2,3)==5\nprint(add(2,3))\n",
+      "language": "und",
+      "attempt_id": "cb442e1738e94c8d9fd1b82c4f800e79",
+      "content_version_id": "candidate-0bb9dba22d6d4cf9b7eaeab59dc42333",
+      "historical": false
+    }
+  ],
+  "model_starts": 2,
+  "model_starts_after_cancel": 0,
+  "model_starts_after_restart": 0,
+  "recovery_decision": null,
+  "total_tokens": 33,
+  "request_count": 2,
+  "unknown_requests": 0,
+  "qualified_deliveries": 1,
+  "forced_translation_starts": 0,
+  "mechanical_check_count": 1,
+  "candidate_count": 1,
+  "artifact_count": 1,
+  "turn_count": 1,
+  "quality_repairs": 0,
+  "connection_retries": 0,
+  "publication_rejected": false,
+  "provider_boundary": "fake",
+  "real_provider_verified": false,
+  "reason_codes": [],
+  "restart_conservation": null,
+  "dependency_graph": {
+    "version": 1,
+    "nodes": {
+      "answer": {
+        "revision_id": "candidate-0bb9dba22d6d4cf9b7eaeab59dc42333",
+        "dependencies": {},
+        "stale": false
+      }
+    }
+  }
+}

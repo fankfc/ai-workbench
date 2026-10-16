@@ -1,0 +1,9 @@
+Using CPython 3.13.0 interpreter at: C:\Users\asd15\Documents\ChatGPT\ai\.tools\uv\Scripts\python.exe
+Creating virtual environment at: services\orchestrator\.venv
+Resolved 31 packages in 90ms
+error: The lockfile at `uv.lock` needs to be updated, but `--locked` was provided.
+
+hint: To update the lockfile, run `uv lock`.
+exit_code=1
+snapshot_revision=v3
+expected=stale lock rejected without updating

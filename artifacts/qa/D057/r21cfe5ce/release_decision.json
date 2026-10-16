@@ -1,0 +1,26 @@
+{
+  "functional_release": false,
+  "optimization_goal_met": false,
+  "blocked_reasons": [
+    "accessibility_review_missing",
+    "authenticode_missing",
+    "backup_restore_missing",
+    "beta_trial_missing",
+    "optimization_qualification_missing",
+    "performance_missing",
+    "real_journeys_missing",
+    "release_approval_missing",
+    "reliability_24h_missing",
+    "sbom",
+    "security_boundary_missing",
+    "signed_update_missing",
+    "source_commit_missing",
+    "source_commit_not_verified",
+    "source_tree_not_frozen",
+    "translation_review_missing",
+    "trusted_signature_missing",
+    "windows_install_missing"
+  ],
+  "qualified_scope": [],
+  "evidence_kind": "audit"
+}

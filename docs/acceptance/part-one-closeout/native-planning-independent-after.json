@@ -1,0 +1,33 @@
+{
+  "case": "planning_submission_reply_lost_before_ids",
+  "native_model_starts": 0,
+  "synthetic_fault": "accepted without observable response IDs; not a live claim",
+  "state_before_cancel": "BLOCKED",
+  "remote_status": "unknown",
+  "active_external_request": {
+    "step_id": "4a7b99348e4344f4a9f33e34e5ddeb8f",
+    "provider_profile_id": "fake-gpt",
+    "role": "A",
+    "accepted": false,
+    "submission_possible": true,
+    "status": "unknown",
+    "external_request_id": null,
+    "external_execution_id": null
+  },
+  "planning_checkpoint": {
+    "status": "blocked",
+    "owner_token": "supervisor:62df581c9a4d40db933e2aa25d5afcf5",
+    "step_id": "4a7b99348e4344f4a9f33e34e5ddeb8f"
+  },
+  "step_states": [
+    "UNKNOWN_REMOTE"
+  ],
+  "cancellation_public": {
+    "task_id": "bc0b6e488cba4a2fa87942640564bd64",
+    "status": "cancel_pending_remote",
+    "cancel_requested": true,
+    "external_stop_confirmed": null,
+    "cancel_pending_remote": true
+  },
+  "no_execute_or_publish": true
+}

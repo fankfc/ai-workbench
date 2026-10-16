@@ -1,0 +1,170 @@
+[
+  {
+    "version": 16,
+    "nodes": {
+      "source_data": {
+        "revision_id": "source_data-c630a704285447d1bb1d06a313fbbb2e",
+        "dependencies": {},
+        "stale": false
+      },
+      "analysis_code": {
+        "revision_id": "analysis_code-9012180c925c41cdb9adf0052bac1efc",
+        "dependencies": {
+          "source_data": "source_data-c630a704285447d1bb1d06a313fbbb2e"
+        },
+        "stale": false
+      },
+      "computed_results": {
+        "revision_id": "computed_results-6d5570e0dd6a46dd99eb469149eda530",
+        "dependencies": {
+          "analysis_code": "analysis_code-9012180c925c41cdb9adf0052bac1efc",
+          "source_data": "source_data-c630a704285447d1bb1d06a313fbbb2e"
+        },
+        "stale": false
+      },
+      "figures": {
+        "revision_id": "figures-f001e61f419641a1b345bb65d36b7faf",
+        "dependencies": {
+          "computed_results": "computed_results-6d5570e0dd6a46dd99eb469149eda530"
+        },
+        "stale": false
+      },
+      "answer": {
+        "revision_id": "candidate-6a160b5334604065b4c6860e533d860c",
+        "dependencies": {
+          "computed_results": "computed_results-9dc9798f6f054138b7800c190134f993",
+          "figures": "figures-4ad0cc1aae3a4e70ba0cfe16fa5a0c03"
+        },
+        "stale": true
+      },
+      "report_zh": {
+        "revision_id": "translation-d9da08cbb47e4d00a863459c218d44b3",
+        "dependencies": {
+          "answer": "candidate-6a160b5334604065b4c6860e533d860c"
+        },
+        "stale": true
+      },
+      "answer.translation": {
+        "revision_id": "translation-40400eedb0294ed0a9f170950a2d0580",
+        "dependencies": {
+          "answer": "candidate-6a160b5334604065b4c6860e533d860c"
+        },
+        "stale": true
+      },
+      "delivery.markdown.en": {
+        "revision_id": "render-b0755e7ed3ee45c7a8ed7256f0607604",
+        "dependencies": {
+          "answer": "candidate-6a160b5334604065b4c6860e533d860c"
+        },
+        "stale": true
+      },
+      "delivery.markdown.zh-CN": {
+        "revision_id": "render-667693b7f95b41eaae3e70385098482c",
+        "dependencies": {
+          "answer": "candidate-6a160b5334604065b4c6860e533d860c",
+          "report_zh": "translation-d9da08cbb47e4d00a863459c218d44b3"
+        },
+        "stale": true
+      },
+      "delivery.pdf.en": {
+        "revision_id": "render-6404e9d4322b4ee8b7fc8387ef5a74de",
+        "dependencies": {
+          "answer": "candidate-6a160b5334604065b4c6860e533d860c"
+        },
+        "stale": true
+      },
+      "delivery.pdf.zh-CN": {
+        "revision_id": "render-456a131c1ebd4cb69dd3bd0222991be9",
+        "dependencies": {
+          "answer": "candidate-6a160b5334604065b4c6860e533d860c",
+          "report_zh": "translation-d9da08cbb47e4d00a863459c218d44b3"
+        },
+        "stale": true
+      }
+    }
+  },
+  {
+    "version": 12,
+    "nodes": {
+      "source_data": {
+        "revision_id": "source_data-4ef291f25eab4046997e8612c19db1c9",
+        "dependencies": {},
+        "stale": false
+      },
+      "analysis_code": {
+        "revision_id": "analysis_code-c007280539f24cc194bc3e2ecdc72624",
+        "dependencies": {
+          "source_data": "source_data-4ef291f25eab4046997e8612c19db1c9"
+        },
+        "stale": false
+      },
+      "computed_results": {
+        "revision_id": "computed_results-084cb2cb301f4595bd9788d0f07a36d7",
+        "dependencies": {
+          "analysis_code": "analysis_code-c007280539f24cc194bc3e2ecdc72624",
+          "source_data": "source_data-4ef291f25eab4046997e8612c19db1c9"
+        },
+        "stale": false
+      },
+      "figures": {
+        "revision_id": "figures-3352ee57ec4241a7a6acb48ea85d1067",
+        "dependencies": {
+          "computed_results": "computed_results-084cb2cb301f4595bd9788d0f07a36d7"
+        },
+        "stale": false
+      },
+      "answer": {
+        "revision_id": "candidate-490b28983fa646b9a9ce107588e72b25",
+        "dependencies": {
+          "computed_results": "computed_results-084cb2cb301f4595bd9788d0f07a36d7",
+          "figures": "figures-3352ee57ec4241a7a6acb48ea85d1067"
+        },
+        "stale": false
+      },
+      "report_zh": {
+        "revision_id": "translation-9914141b828f41ab827b4207f4875002",
+        "dependencies": {
+          "answer": "candidate-490b28983fa646b9a9ce107588e72b25"
+        },
+        "stale": false
+      },
+      "answer.translation": {
+        "revision_id": "translation-e66cde81424442ad9909b7688d9f296d",
+        "dependencies": {
+          "answer": "candidate-490b28983fa646b9a9ce107588e72b25"
+        },
+        "stale": false
+      },
+      "delivery.markdown.en": {
+        "revision_id": "render-d5820cc373354f44a615d4ce00991532",
+        "dependencies": {
+          "answer": "candidate-490b28983fa646b9a9ce107588e72b25"
+        },
+        "stale": false
+      },
+      "delivery.markdown.zh-CN": {
+        "revision_id": "render-b348653cbec348a09cee6ce99268a0a6",
+        "dependencies": {
+          "answer": "candidate-490b28983fa646b9a9ce107588e72b25",
+          "report_zh": "translation-9914141b828f41ab827b4207f4875002"
+        },
+        "stale": false
+      },
+      "delivery.pdf.en": {
+        "revision_id": "render-fa8d5a6954d94baa96e1941b18a3e52f",
+        "dependencies": {
+          "answer": "candidate-490b28983fa646b9a9ce107588e72b25"
+        },
+        "stale": false
+      },
+      "delivery.pdf.zh-CN": {
+        "revision_id": "render-1c0b905674ca4161b60b287d8465b67f",
+        "dependencies": {
+          "answer": "candidate-490b28983fa646b9a9ce107588e72b25",
+          "report_zh": "translation-9914141b828f41ab827b4207f4875002"
+        },
+        "stale": false
+      }
+    }
+  }
+]

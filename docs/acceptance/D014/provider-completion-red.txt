@@ -1,0 +1,40 @@
+..F                                                                      [100%]
+================================== FAILURES ===================================
+_ test_successive_accepted_steps_preserve_actual_current_remote_reference[provider.completed] _
+
+client = <starlette.testclient.TestClient object at 0x000001B36D5F3750>
+completion_kind = 'provider.completed'
+
+    @pytest.mark.parametrize("completion_kind", ["model.completed", "provider.completed"])
+    def test_successive_accepted_steps_preserve_actual_current_remote_reference(client, completion_kind):
+        path, manager, _, contract = prepare(client)
+        class StartedFake(FakeProvider):
+            async def run(self, request):
+                invocation = Path(request.prompt_path).stem
+                yield AgentEvent(request.task_id, request.attempt_id, 1, "provider.started",
+                    {"external_request_id": "remote-request-" + invocation,
+                     "external_execution_id": "remote-execution-" + invocation})
+                async for event in super().run(request):
+                    yield AgentEvent(event.task_id, event.attempt_id, event.sequence + 1,
+                        completion_kind if event.kind == "model.completed" else event.kind, event.payload)
+        b = StartedFake(executions=CASES["pass"]["executions"])
+        a = StartedFake(reviews=CASES["pass"]["reviews"])
+        workflow = Workflow(path, manager, b, validator, a, check_budget,
+            estimated_tokens={"B.execution": 64, "A.review": 64})
+        result = asyncio.run(workflow.run(contract))
+>       assert result.state == "OUTPUT_PREPARING" and len(b.starts) == len(a.starts) == 1
+E       AssertionError: assert ('BLOCKED' == 'OUTPUT_PREPARING'
+E         
+E         - OUTPUT_PREPARING
+E         + BLOCKED)
+
+tests\integration\test_agent_workflow.py:576: AssertionError
+============================== warnings summary ===============================
+tests/integration/test_agent_workflow.py::test_accepted_stream_boundaries_never_authorize_a_duplicate_request[provider_started_after_completion]
+  C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/integration/test_agent_workflow.py::test_successive_accepted_steps_preserve_actual_current_remote_reference[provider.completed]
+1 failed, 2 passed, 49 deselected, 1 warning in 1.77s

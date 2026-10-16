@@ -1,0 +1,16 @@
+{
+  "time": "2026-10-13T13:31:17.028338+00:00",
+  "git_commit": null,
+  "branch": "codex/part1-foundation",
+  "python": "3.13.0",
+  "sqlite": "3.45.3",
+  "provider_mode": "fake",
+  "real_model_starts": 0,
+  "hashes": {
+    "services/orchestrator/app/runtime/public_projection.py": "d6ba0476d43fef0e589fbf6d1b55540c1c67b4b621bb4822335f8435c2843808",
+    "services/orchestrator/app/runtime/publication.py": "0e6df6cee26d0ca86781e8f679fd5ff94aa97c7aaca9fd67e4c77bf2ef73c713",
+    "services/orchestrator/app/api/public_events.py": "8b014a4b2c3769c7c4565b92582c711c96e9b6de0605ba057973f1456f832bc7",
+    "tests/integration/test_public_projection.py": "48abb20af5f29b4c7363d5527d905826358051dfb95978aaea65864b6b44676f",
+    "tests/integration/test_native_publication.py": "8fe3b69999fb7167665f6d3f0eee9f84a4a08b0538120080a44fbd740100406d"
+  }
+}

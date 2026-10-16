@@ -1,0 +1,11 @@
+# B-model-v1 bounded actual SDK trial
+
+The separately authorized experiment used fixed official public AiSdkModelAdapter/runtime delegation and an inline [1,2,3] task. Before each delegate and physical send, its one-shot intent was appended and fsynced. Twelve new budget/transport business checks and one public SDK delegation check using fixture HTTP passed before the actual run. The official external source title was corrected in a new `transport-v1.mjs`; earlier source bytes were preserved.
+
+Actual fresh official balance GET: **1**, HTTP **200**, Start Plan available with GLM-5.3 and GLM-5.3-Flash. Actual SDK generateText delegate intent: **1**. Actual POST to `https://zcode.z.ai/api/v1/zcode-plan/anthropic/v1/messages`: **1**, HTTP **405**. The real fetch received matching private auth and truthful external source headers. No successful raw server model/id/usage was observed, so model identity and token usage remain unknown. No second model or balance call was made.
+
+Tools were empty, SDK retries zero, adapter attempt limit one, transcript/debug logging disabled, and credential/OAuth writes denied. SDK filesystem/process mutations were zero. One console call was suppressed; raw stderr was zero bytes and no body/header/device/credential values were persisted. The reviewed trusted SDK JS guard is not an OS sandbox. The managed process exited 1 and all local running/process/handle/temp counts were zero; remote completion is unknown.
+
+Actual receipt/intent: `.tools/zcode-model-observer/b-model-v1-result.json` and `b-model-v1-intent.ndjson`. All 31 source pins matched after execution, and exact bytes plus receipts are sealed in `b-model-v1-sealed`. Production enablement and scope verification remain false. HTTP405 is an observed protocol failure, not proof of missing entitlement or invalid login.
+
+The SDK source routes `anthropic-messages` through `createAnthropic`, `normalizeAnthropicBaseURL`, and the official compatibility fetch. Its normalization adds `/v1` before the Anthropic client appends `/messages`. The installed public builtin base plus these source rules produce exactly the observed request path. Therefore omission of `/v1` is not established as a cause. Investigation remains static; the experiment budget is exhausted.

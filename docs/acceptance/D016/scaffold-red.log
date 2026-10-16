@@ -1,0 +1,16 @@
+
+=================================== ERRORS ====================================
+_____ ERROR collecting tests/integration/test_dependency_invalidation.py ______
+ImportError while importing test module 'C:\Users\asd15\Documents\ChatGPT\ai\tests\integration\test_dependency_invalidation.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\importlib\__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\integration\test_dependency_invalidation.py:9: in <module>
+    from app.runtime.dependencies import DependencyGraph
+E   ModuleNotFoundError: No module named 'app.runtime.dependencies'
+=========================== short test summary info ===========================
+ERROR tests/integration/test_dependency_invalidation.py
+!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+1 error in 0.39s

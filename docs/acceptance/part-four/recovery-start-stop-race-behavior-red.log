@@ -1,0 +1,34 @@
+
+ RUN  v5.0.4 C:/Users/asd15/Documents/ChatGPT/ai
+
+ ❯ tests/desktop/backend.test.ts (11 tests | 1 failed | 10 skipped) 916ms
+   ❯ managed process lifecycle (9)
+     × does not spawn after shutdown cancels startup while the data directory is pending 915ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/desktop/backend.test.ts > managed process lifecycle > does not spawn after shutdown cancels startup while the data directory is pending
+AssertionError: expected 1 to be +0 // Object.is equality
+
+- Expected
++ Received
+
+- 0
++ 1
+
+ ❯ tests/desktop/backend.test.ts:40:22
+     38|       await directoryEntered;await backend.stop();expect(backend.statu…
+     39|       release();await starting;
+     40|       expect(starts).toBe(0);expect(backend.status.state).toBe('offlin…
+       |                      ^
+     41|     } finally {release();paused.mockRestore();await starting;await bac…
+     42|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 10 skipped (11)
+   Start at  10:31:05
+   Duration  1.12s (tests 94%, transform 3%, import 3%)
+

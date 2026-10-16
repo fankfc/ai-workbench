@@ -1,0 +1,8 @@
+...............                                                          [100%]
+============================== warnings summary ===============================
+tests/storage/test_backup_commit.py::test_windows_commit_retries_same_owned_directory_after_handle_release
+  C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+15 passed, 1 warning in 1.48s

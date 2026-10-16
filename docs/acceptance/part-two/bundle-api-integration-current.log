@@ -1,0 +1,50 @@
+.F.......................                                                [100%]
+================================== FAILURES ===================================
+_ test_half_v2_render_and_transaction_failure_leave_only_complete_v1_visible[claude] _
+
+document_task = {'client': <starlette.testclient.TestClient object at 0x00000187EA1BF890>, 'cid': '3c2658b1ae544e438325aa34ccb8dbb4', 'task': '072d88619daa4a188f6f3e17ee182436', 'attempt': '0ca1aa0219024909b6f4e28a523a6e1a', ...}
+
+    @pytest.mark.parametrize('document_task',['claude'],indirect=True)
+    def test_half_v2_render_and_transaction_failure_leave_only_complete_v1_visible(document_task):
+        from app.documents.publish import BundlePublisher
+        from app.documents.render import DocumentRenderer
+        ctx=document_task; ready=prepare_bilingual(ctx)
+        publisher=BundlePublisher(ctx['client'].app.state.database.path,ctx['client'].app.state.settings.data_root/'evidence')
+        first=publisher.stage(ctx['task'],ctx['attempt'],'1.0',ready['source'],['markdown'],title='Report',translation_revision_id=ready['translation'],review_check_id=ready['review'])
+        ready['machine'].transition(ctx['task'],ctx['attempt'],'OUTPUT_PREPARING','READY','1.0')
+        publisher.publish(first,answer_releaser=ready['answer'].publish_in_transaction)
+        new=prepare_bilingual(ctx,'# Report\n\nJanuary 30. February 50. Increase 20.\n')
+        class FailingRenderer(DocumentRenderer):
+            def render(self,model,format,*,evidence_dir):
+                if model.language=='zh-CN': raise OSError('disk full after English bytes')
+                return super().render(model,format,evidence_dir=evidence_dir)
+        with pytest.raises(OSError):
+            publisher.stage(ctx['task'],ctx['attempt'],'1.0',new['source'],['markdown'],title='Report',translation_revision_id=new['translation'],review_check_id=new['review'],renderer=FailingRenderer())
+>       assert [i['bundle_id'] for i in ctx['client'].get(f'/v1/conversations/{ctx["cid"]}/bundles').json()['items']]==[first]
+E       AssertionError: assert [] == ['bundle-e9ca...b9529a3b8b87']
+E         
+E         Right contains one more item: 'bundle-e9ca625ee2f0402d9ff4b9529a3b8b87'
+E         Use -v to get more diff
+
+tests\artifacts\test_atomic_publication.py:49: AssertionError
+============================== warnings summary ===============================
+services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1
+  C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+tests/artifacts/test_atomic_publication.py::test_real_pair_bytes_and_answer_publish_once_in_one_transaction[claude]
+tests/artifacts/test_atomic_publication.py::test_real_pair_bytes_and_answer_publish_once_in_one_transaction[claude]
+  <frozen importlib._bootstrap>:488: DeprecationWarning: builtin type SwigPyPacked has no __module__ attribute
+
+tests/artifacts/test_atomic_publication.py::test_real_pair_bytes_and_answer_publish_once_in_one_transaction[claude]
+tests/artifacts/test_atomic_publication.py::test_real_pair_bytes_and_answer_publish_once_in_one_transaction[claude]
+  <frozen importlib._bootstrap>:488: DeprecationWarning: builtin type SwigPyObject has no __module__ attribute
+
+tests/artifacts/test_atomic_publication.py::test_real_pair_bytes_and_answer_publish_once_in_one_transaction[claude]
+  <frozen importlib._bootstrap>:488: DeprecationWarning: builtin type swigvarlink has no __module__ attribute
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/artifacts/test_atomic_publication.py::test_half_v2_render_and_transaction_failure_leave_only_complete_v1_visible[claude]
+1 failed, 24 passed, 6 warnings in 5.38s
+<sys>:0: DeprecationWarning: builtin type swigvarlink has no __module__ attribute

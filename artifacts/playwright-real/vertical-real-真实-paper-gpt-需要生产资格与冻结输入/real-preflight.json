@@ -1,0 +1,12 @@
+{
+  "domain": "paper",
+  "family": "gpt",
+  "provider_mode": "real",
+  "qualified_profiles": [],
+  "blockers": [
+    "gpt 指导模型缺少生产资格",
+    "GLM 执行模型缺少生产资格"
+  ],
+  "model_calls": 0,
+  "status": "BLOCKED"
+}

@@ -1,0 +1,70 @@
+Command: services/orchestrator/.venv/Scripts/python.exe -m pytest tests/integration/test_output_translation.py -q -x
+F
+================================== FAILURES ===================================
+________ test_approved_claude_answer_can_reach_a_chinese_release_gate _________
+
+claude_answer = (<starlette.testclient.TestClient object at 0x00000146C0F4D940>, '5070b29d4a2a485ab9806e175b4e041f', 'dc78b7c2badc435c...d': 'c919919074494b5c804cec664c9efa23', 'connection_version': '1', 'id': 'c58960a9acdd4dc89f168ae63e16b46b', ...}, ...)
+
+    def test_approved_claude_answer_can_reach_a_chinese_release_gate(claude_answer):
+        client,conversation,task,attempt,root,route,machine = claude_answer
+        from app.runtime.answer_publication import AnswerPublisher
+        from translation.fakes import service
+        publisher = AnswerPublisher(client.app.state.database.path, root,service(client))
+>       approval = asyncio.run(publisher.stage(task,attempt,'1.0','en-answer','translation-review'))
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\integration\test_output_translation.py:56: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:194: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:118: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py:721: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.runtime.answer_publication.AnswerPublisher object at 0x00000146C11FB0E0>
+task_id = 'dc78b7c2badc435c81352d955d21fa80'
+attempt_id = 'c919919074494b5c804cec664c9efa23', contract_version = '1.0'
+revision_id = 'en-answer', review_check_id = 'translation-review'
+complete = True, explicit_retry = False
+
+    async def stage(self,task_id,attempt_id,contract_version,revision_id,review_check_id,*,complete=True,explicit_retry=False):
+        if self.translation is None:
+            raise PublicationBlocked('CLAUDE_TRANSLATION_SERVICE_REQUIRED')
+        route=self.translation.router.lock(task_id,attempt_id)
+        if route.route_policy=='native':
+            return super().stage(task_id,attempt_id,contract_version,revision_id,review_check_id)
+        with closing(self.database.connect()) as connection:
+            task=self.translation.router.require_current(connection,route)
+            checkpoint=checkpoint_for(task)
+            if task['state']!='OUTPUT_PREPARING' or checkpoint.get('current_revision_id')!=revision_id or checkpoint.get('stale') or checkpoint.get('publication_blocked'):
+                raise PublicationBlocked('OUTPUT_STATE_OR_CURRENT_REVISION_REQUIRED')
+            review=self._source_review(connection,task,revision_id,review_check_id)
+        translated=await self.output.prepare(task_id,attempt_id,revision_id,complete=complete,explicit_retry=explicit_retry)
+        if translated.status!='READY':
+            with closing(self.database.connect()) as connection,transaction(connection):
+                task=self.translation.router.require_current(connection,route); checkpoint=checkpoint_for(task)
+                checkpoint['language_output']={'source_revision_id':revision_id,'job_id':translated.job_id,'status':translated.status}
+                connection.execute('UPDATE task_runs SET checkpoint_json=? WHERE task_id=? AND attempt_id=?',(json.dumps(checkpoint),task_id,attempt_id))
+                enqueue_event(connection,task_id,attempt_id,'input.required' if translated.status=='NEEDS_INPUT' else 'request.failed',
+                    {'prompt_code':'ambiguous_goal'} if translated.status=='NEEDS_INPUT' else {'error_code':'VALIDATION_FAILED'},
+                    deduplication_key=f'translation-failure:{translated.job_id}')
+>           raise PublicationBlocked('OUTPUT_TRANSLATION_'+translated.status)
+E           app.runtime.publication.PublicationBlocked: OUTPUT_TRANSLATION_FAILED
+
+services\orchestrator\app\runtime\answer_publication.py:79: PublicationBlocked
+============================== warnings summary ===============================
+tests/integration/test_output_translation.py::test_approved_claude_answer_can_reach_a_chinese_release_gate
+  C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/integration/test_output_translation.py::test_approved_claude_answer_can_reach_a_chinese_release_gate
+!!!!!!!!!!!!!!!!!!!!!!!!!! stopping after 1 failures !!!!!!!!!!!!!!!!!!!!!!!!!!
+1 failed, 1 warning in 2.06s
+Exit code: 1

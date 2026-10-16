@@ -1,0 +1,17 @@
+{
+  "time": "2026-10-13T13:31:17.028338+00:00",
+  "git_commit": null,
+  "branch": "codex/part1-foundation",
+  "python": "3.13.0",
+  "sqlite": "3.45.3",
+  "provider_mode": "fake",
+  "real_model_starts": 0,
+  "result": "pass",
+  "create_status": 201,
+  "submit_status": 202,
+  "history_status": 200,
+  "sse_status": 200,
+  "data_root": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\acceptance-api\\run-20261013-133117-031739",
+  "sse_delivery": "durable cursor replay; reconnect after EOF",
+  "production_provider_registry": "empty until actual verified adapters are registered"
+}

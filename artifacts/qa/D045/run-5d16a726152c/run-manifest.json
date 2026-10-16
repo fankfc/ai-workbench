@@ -1,0 +1,41 @@
+{
+  "version": "1.0",
+  "build_id": "85d7fc5cf76bda1054c14a05c09b914b35194a5d34d464d08056d1e6d45ef081",
+  "run_id": null,
+  "created_at": "2026-10-14T15:00:52.016372+00:00",
+  "seed": 4317,
+  "encoding": "UTF-8",
+  "provider_boundary": "fake",
+  "files": [
+    {
+      "path": ".qa-run.json",
+      "size": 156,
+      "sha256": "cba34da298340727ee7af6cc00c775d59f6233702d7ddd38a348ed2f3ea8308c"
+    },
+    {
+      "path": "scenario-result.json",
+      "size": 737,
+      "sha256": "319b41316075cb95ad04a51b4e89c9515806c43b84d4e21e8c0faf8be4553a5a"
+    },
+    {
+      "path": "usage-ledger.json",
+      "size": 14912,
+      "sha256": "ba023b569a2dfd052e8bb2f8f490ed611ded9f955ef8409e9e2e773f1c7bb776"
+    },
+    {
+      "path": "usage-ledger.jsonl",
+      "size": 8981,
+      "sha256": "34e816c32133466da1f9cb1e7aca9f30739121e8e41062e5cd8df4a3d875ddb6"
+    },
+    {
+      "path": "usage-report.json",
+      "size": 737,
+      "sha256": "319b41316075cb95ad04a51b4e89c9515806c43b84d4e21e8c0faf8be4553a5a"
+    },
+    {
+      "path": "ledger-data/workbench.sqlite3",
+      "size": 352256,
+      "sha256": "1f7a36782017ef95adf885f3c4cc972713ffbb871cfa1d2645722eecf62ef7a0"
+    }
+  ]
+}

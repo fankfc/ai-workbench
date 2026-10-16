@@ -1,0 +1,59 @@
+
+ RUN  v5.0.4 C:/Users/asd15/Documents/ChatGPT/ai
+
+ ❯ tests/desktop/backend.test.ts (13 tests | 2 failed | 11 skipped) 2239ms
+   ❯ managed process lifecycle (11)
+     × rejects a new launch until stop finishes after an old launch has failed 1459ms
+     × shares one cleanup for concurrent stop callers 780ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/desktop/backend.test.ts > managed process lifecycle > rejects a new launch until stop finishes after an old launch has failed
+AssertionError: promise resolved "{ state: 'ready', …(2) }" instead of rejecting
+
+- Expected
++ Received
+
+- Error {
+-   "message": "rejected promise",
++ {
++   "message": "演示模式：使用模拟模型响应。",
++   "provider_mode": "fake",
++   "state": "ready",
+  }
+
+ ❯ tests/desktop/backend.test.ts:53:36
+     51|     try {
+     52|       await childStarted;stopping=backend.stop();await journalEntered;…
+     53|       await expect(backend.start()).rejects.toThrow('正在退出');expect(sta…
+       |                                    ^
+     54|       release();await stopping;expect((await backend.start()).state).t…
+     55|     } finally {release();paused.mockRestore();await first;await stoppi…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  tests/desktop/backend.test.ts > managed process lifecycle > shares one cleanup for concurrent stop callers
+AssertionError: expected 2 to be 1 // Object.is equality
+
+- Expected
++ Received
+
+- 1
++ 2
+
+ ❯ tests/desktop/backend.test.ts:63:27
+     61|     try {
+     62|       const first=backend.stop();const second=backend.stop();await Pro…
+     63|       expect(checkpoints).toBe(1);
+       |                           ^
+     64|       expect(vi.mocked(filesystem.writeFile).mock.calls.filter(args=>S…
+     65|       expect((backend as any).child).toBeUndefined();expect((await bac…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 11 skipped (13)
+   Start at  10:39:10
+   Duration  2.51s (tests 96%, transform 2%, import 1%)
+

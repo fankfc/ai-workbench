@@ -1,0 +1,230 @@
+Command: services/orchestrator/.venv/Scripts/python.exe -m pytest tests/contracts/test_role_prompts.py tests/translation/test_role_prompt_contexts.py -q
+PYTHONPATH=services/orchestrator;tests
+FFFFFFFF                                                                 [100%]
+================================== FAILURES ===================================
+_ test_runtime_requests_include_versioned_roles_without_changing_contract[pass-phases0] _
+
+client = <starlette.testclient.TestClient object at 0x000001EF78696510>
+case = 'pass', phases = {'execution', 'review'}
+
+    @pytest.mark.parametrize('case,phases', [('pass', {'execution', 'review'}),
+        ('no_progress', {'execution', 'review', 'takeover'})])
+    def test_runtime_requests_include_versioned_roles_without_changing_contract(client, case, phases):
+        prepared = prepare(client)
+        result, worker, reviewer = execute(prepared, case=case)
+        assert result.state == 'OUTPUT_PREPARING', result.reason_codes
+        observed = set()
+        for request in [*worker.starts, *reviewer.starts]:
+            prompt = json.loads(Path(request.prompt_path).read_text(encoding='utf-8'))
+>           role = assert_role(prompt, prompt['phase'])
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_role_prompts.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+prompt = {'phase': 'execution', 'contract': {'task_id': '37148d3e044b448fb5d7e3885abc93dd', 'attempt_id': '47e80ce6d735468fad6e...repair': {'policy_version': 'repair-1', 'quality_repairs': 0, 'connection_retries': 0, 'translation_retries': 0, ...}}}
+phase = 'execution'
+
+    def assert_role(prompt, phase):
+        assert prompt['phase'] == phase
+        role = prompt['evidence_package'].get('role_prompt')
+>       assert role, f'{phase} must carry service-loaded role instructions'
+E       AssertionError: execution must carry service-loaded role instructions
+E       assert None
+
+tests\contracts\test_role_prompts.py:22: AssertionError
+_ test_runtime_requests_include_versioned_roles_without_changing_contract[no_progress-phases1] _
+
+client = <starlette.testclient.TestClient object at 0x000001EF7875EAD0>
+case = 'no_progress', phases = {'execution', 'review', 'takeover'}
+
+    @pytest.mark.parametrize('case,phases', [('pass', {'execution', 'review'}),
+        ('no_progress', {'execution', 'review', 'takeover'})])
+    def test_runtime_requests_include_versioned_roles_without_changing_contract(client, case, phases):
+        prepared = prepare(client)
+        result, worker, reviewer = execute(prepared, case=case)
+        assert result.state == 'OUTPUT_PREPARING', result.reason_codes
+        observed = set()
+        for request in [*worker.starts, *reviewer.starts]:
+            prompt = json.loads(Path(request.prompt_path).read_text(encoding='utf-8'))
+>           role = assert_role(prompt, prompt['phase'])
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_role_prompts.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+prompt = {'phase': 'execution', 'contract': {'task_id': '1bdb5ddbdfdc4da290a50c62eff8f9ca', 'attempt_id': '5be5b4d5aebd47d4a870...repair': {'policy_version': 'repair-1', 'quality_repairs': 0, 'connection_retries': 0, 'translation_retries': 0, ...}}}
+phase = 'execution'
+
+    def assert_role(prompt, phase):
+        assert prompt['phase'] == phase
+        role = prompt['evidence_package'].get('role_prompt')
+>       assert role, f'{phase} must carry service-loaded role instructions'
+E       AssertionError: execution must carry service-loaded role instructions
+E       assert None
+
+tests\contracts\test_role_prompts.py:22: AssertionError
+___ test_native_planning_loads_role_and_maps_concepts_to_existing_contract ____
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-535/test_native_planning_loads_rol0')
+
+    def test_native_planning_loads_role_and_maps_concepts_to_existing_contract(tmp_path):
+        app, manager, task, attempt, owner = unplanned_case(tmp_path)
+    
+        class CapturingPlanner(FixturePlannerRuntime):
+            async def invoke_text(self, text, **kwargs):
+                self.prompt = json.loads(text)
+                async for event in super().invoke_text(text, **kwargs):
+                    yield event
+    
+        runtime = CapturingPlanner()
+        planner = NativeTaskPlanner(app.state.database.path, manager, runtime, allow_fixture=True, estimated_tokens=24)
+        plan = asyncio.run(planner.plan(task, attempt, owner))
+        prompt = runtime.prompt
+        role = prompt.get('role_prompt')
+>       assert role, 'planning must attach the loaded role and version'
+E       AssertionError: planning must attach the loaded role and version
+E       assert None
+
+tests\contracts\test_role_prompts.py:66: AssertionError
+____ test_claude_planning_execution_review_and_takeover_have_english_roles ____
+
+client = <starlette.testclient.TestClient object at 0x000001EF787A9CD0>
+
+    def test_claude_planning_execution_review_and_takeover_have_english_roles(client):
+        _, task, attempt = claude_turn(client)
+        service, manager, worker, reviewer, workflow = assembly(client, task, attempt)
+        owner = 'role-prompt-planning-owner'
+        with closing(service.database.connect()) as connection, transaction(connection):
+            connection.execute("UPDATE task_runs SET state='INPUT_PREPARING',lease_owner=?,lease_expires_at=? WHERE task_id=?",
+                (owner, (datetime.now(timezone.utc) + timedelta(minutes=15)).isoformat(), task))
+        from app.translation.input_pipeline import InputPipeline
+        from app.runtime.native_executor import NativeTaskExecutor
+        runtime = FakeClaudePlanner()
+        planner = NativeTaskPlanner(service.database_path, manager, runtime, allow_fixture=True,
+            estimated_tokens=24, input_pipeline=InputPipeline(service))
+        plan = asyncio.run(planner.plan(task, attempt, owner))
+        role = runtime.starts[0].get('role_prompt')
+>       assert role, 'Claude planning must carry its role instruction'
+E       AssertionError: Claude planning must carry its role instruction
+E       assert None
+
+tests\contracts\test_role_prompts.py:91: AssertionError
+_ test_translation_calls_attach_distinct_loaded_roles[input-\u4fdd\u7559\u539f\u6587\u4ef6\u3002-en] _
+
+client = <starlette.testclient.TestClient object at 0x000001EF787AB100>
+purpose = 'input', source = '����ԭ�ļ���', target_language = 'en'
+
+    @pytest.mark.parametrize('purpose,source,target_language', [
+        ('input', '����ԭ�ļ���', 'en'),
+        ('output', 'Keep the original file.', 'zh-CN'),
+        ('clarification', 'Keep the original file.', 'zh-CN'),
+    ])
+    def test_translation_calls_attach_distinct_loaded_roles(client, purpose, source, target_language):
+        _, task, attempt = claude_turn(client)
+        translation = service(client)
+        result = asyncio.run(translation.translate(task_id=task, attempt_id=attempt, source=source,
+            source_language='zh-CN' if target_language=='en' else 'en',
+            target_language=target_language, purpose=purpose))
+        assert result.status == 'READY'
+        translator = translation.translator.calls[0]
+        checker = translation.checker.calls[0]
+        for request, phase in ((translator, 'translate'), (checker, 'check')):
+            role = getattr(request, 'role_prompt', None)
+>           assert role, f'{phase} request must attach loaded instructions'
+E           AssertionError: translate request must attach loaded instructions
+E           assert None
+
+tests\translation\test_role_prompt_contexts.py:27: AssertionError
+_ test_translation_calls_attach_distinct_loaded_roles[output-Keep the original file.-zh-CN] _
+
+client = <starlette.testclient.TestClient object at 0x000001EF78982E70>
+purpose = 'output', source = 'Keep the original file.'
+target_language = 'zh-CN'
+
+    @pytest.mark.parametrize('purpose,source,target_language', [
+        ('input', '����ԭ�ļ���', 'en'),
+        ('output', 'Keep the original file.', 'zh-CN'),
+        ('clarification', 'Keep the original file.', 'zh-CN'),
+    ])
+    def test_translation_calls_attach_distinct_loaded_roles(client, purpose, source, target_language):
+        _, task, attempt = claude_turn(client)
+        translation = service(client)
+        result = asyncio.run(translation.translate(task_id=task, attempt_id=attempt, source=source,
+            source_language='zh-CN' if target_language=='en' else 'en',
+            target_language=target_language, purpose=purpose))
+        assert result.status == 'READY'
+        translator = translation.translator.calls[0]
+        checker = translation.checker.calls[0]
+        for request, phase in ((translator, 'translate'), (checker, 'check')):
+            role = getattr(request, 'role_prompt', None)
+>           assert role, f'{phase} request must attach loaded instructions'
+E           AssertionError: translate request must attach loaded instructions
+E           assert None
+
+tests\translation\test_role_prompt_contexts.py:27: AssertionError
+_ test_translation_calls_attach_distinct_loaded_roles[clarification-Keep the original file.-zh-CN] _
+
+client = <starlette.testclient.TestClient object at 0x000001EF78A0C8D0>
+purpose = 'clarification', source = 'Keep the original file.'
+target_language = 'zh-CN'
+
+    @pytest.mark.parametrize('purpose,source,target_language', [
+        ('input', '����ԭ�ļ���', 'en'),
+        ('output', 'Keep the original file.', 'zh-CN'),
+        ('clarification', 'Keep the original file.', 'zh-CN'),
+    ])
+    def test_translation_calls_attach_distinct_loaded_roles(client, purpose, source, target_language):
+        _, task, attempt = claude_turn(client)
+        translation = service(client)
+        result = asyncio.run(translation.translate(task_id=task, attempt_id=attempt, source=source,
+            source_language='zh-CN' if target_language=='en' else 'en',
+            target_language=target_language, purpose=purpose))
+        assert result.status == 'READY'
+        translator = translation.translator.calls[0]
+        checker = translation.checker.calls[0]
+        for request, phase in ((translator, 'translate'), (checker, 'check')):
+            role = getattr(request, 'role_prompt', None)
+>           assert role, f'{phase} request must attach loaded instructions'
+E           AssertionError: translate request must attach loaded instructions
+E           assert None
+
+tests\translation\test_role_prompt_contexts.py:27: AssertionError
+___________ test_checker_does_not_receive_prior_candidate_findings ____________
+
+client = <starlette.testclient.TestClient object at 0x000001EF78A4B570>
+
+    def test_checker_does_not_receive_prior_candidate_findings(client):
+        _, task, attempt = claude_turn(client)
+        def first_bad(request):
+            return {} if request.candidate == 1 else {block['block_id']: 'Keep the original file.' for block in request.blocks}
+        translation = service(client, transform=first_bad)
+        result = asyncio.run(translation.translate(task_id=task, attempt_id=attempt,
+            source='����ԭ�ļ���', source_language='zh-CN', target_language='en', purpose='input'))
+        assert result.status == 'READY' and len(translation.translator.calls) == 2
+        assert translation.translator.calls[1].findings, 'translator needs the bounded repair issues'
+>       assert translation.checker.calls[1].findings == (), 'checker must compare independently of old QA findings'
+E       AssertionError: checker must compare independently of old QA findings
+E       assert ({'block_id':...urce.', ...},) == ()
+E         
+E         Left contains one more item: {'block_id': 'b-ce6f85510fe0d891b8eb', 'code': 'BLOCK_COVERAGE_OR_TRUNCATION', 'severity': 'major', 'message': 'Candidate does not cover the full source.', ...}
+E         Use -v to get more diff
+
+tests\translation\test_role_prompt_contexts.py:52: AssertionError
+============================== warnings summary ===============================
+services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1
+  C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/contracts/test_role_prompts.py::test_runtime_requests_include_versioned_roles_without_changing_contract[pass-phases0]
+FAILED tests/contracts/test_role_prompts.py::test_runtime_requests_include_versioned_roles_without_changing_contract[no_progress-phases1]
+FAILED tests/contracts/test_role_prompts.py::test_native_planning_loads_role_and_maps_concepts_to_existing_contract
+FAILED tests/contracts/test_role_prompts.py::test_claude_planning_execution_review_and_takeover_have_english_roles
+FAILED tests/translation/test_role_prompt_contexts.py::test_translation_calls_attach_distinct_loaded_roles[input-\u4fdd\u7559\u539f\u6587\u4ef6\u3002-en]
+FAILED tests/translation/test_role_prompt_contexts.py::test_translation_calls_attach_distinct_loaded_roles[output-Keep the original file.-zh-CN]
+FAILED tests/translation/test_role_prompt_contexts.py::test_translation_calls_attach_distinct_loaded_roles[clarification-Keep the original file.-zh-CN]
+FAILED tests/translation/test_role_prompt_contexts.py::test_checker_does_not_receive_prior_candidate_findings
+8 failed, 1 warning in 4.52s
+Exit code: 1

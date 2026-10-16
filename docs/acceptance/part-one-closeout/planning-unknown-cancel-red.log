@@ -1,0 +1,29 @@
+F                                                                        [100%]
+================================== FAILURES ===================================
+__ test_planning_disconnect_without_refs_retains_possible_remote_submission ___
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-258/test_planning_disconnect_witho0')
+
+    def test_planning_disconnect_without_refs_retains_possible_remote_submission(tmp_path):
+        import asyncio
+        app, manager, task, attempt, owner = unplanned_case(tmp_path)
+        runtime = FixturePlannerRuntime('disconnect_before_refs')
+        planner = NativeTaskPlanner(app.state.database.path, manager, runtime, allow_fixture=True, estimated_tokens=24)
+        with pytest.raises(PlanningBlocked):
+            asyncio.run(planner.plan(task, attempt, owner))
+        with TestClient(app) as client:
+            client.headers['Authorization'] = 'Bearer fixture-planning-api-token'
+            response = client.post(f'/v1/tasks/{task}/cancel')
+            assert response.status_code == 202
+>           assert response.json()['cancel_pending_remote'] is True
+E           assert False is True
+
+tests\integration\test_native_planning.py:223: AssertionError
+============================== warnings summary ===============================
+services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1
+  C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/integration/test_native_planning.py::test_planning_disconnect_without_refs_retains_possible_remote_submission

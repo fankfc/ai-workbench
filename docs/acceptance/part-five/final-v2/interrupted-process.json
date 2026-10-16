@@ -1,0 +1,6 @@
+{
+  "ProcessId": 43064,
+  "ParentProcessId": 41808,
+  "ExecutablePath": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\.venv\\Scripts\\python.exe",
+  "CommandLine": "\"C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\.venv\\Scripts\\python.exe\" scripts/phase_five_verify.py --python --desktop --output docs/acceptance/part-five/final-v2"
+}

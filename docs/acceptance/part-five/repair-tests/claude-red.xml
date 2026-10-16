@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="3.706" timestamp="2026-10-15T13:18:28.642839+08:00" hostname="帆"><testcase classname="tests.integration.test_repair_work_orders" name="test_claude_repair_takeover_reuses_verified_english_proof_views" time="3.170"><failure message="assert '禁止删除原始文件。' not in '{&quot;criterion...禁止删除原始文件。&quot;}}'&#10;  &#10;  '禁止删除原始文件。' is contained here:&#10;     &quot;note&quot;: &quot;禁止删除原始文件。&quot;}}">tests\integration\test_repair_work_orders.py:188: in test_claude_repair_takeover_reuses_verified_english_proof_views
+    assert '禁止删除原始文件。' not in observation['content']
+E   assert '禁止删除原始文件。' not in '{"criterion...禁止删除原始文件。"}}'
+E     
+E     '禁止删除原始文件。' is contained here:
+E        "note": "禁止删除原始文件。"}}</failure></testcase></testsuite></testsuites>

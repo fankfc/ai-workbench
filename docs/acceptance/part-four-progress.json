@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.0",
+  "part": "four",
+  "date": "2026-10-15",
+  "timezone": "Asia/Shanghai",
+  "status": "local_mechanical_passed_full_sop_open",
+  "spec": "docs/superpowers/plans/2026-10-13-execution/04-runtime-sop.md",
+  "verification": "docs/acceptance/part-four/final-v4/verification.json",
+  "integrity": "docs/acceptance/part-four/final-evidence-integrity.json",
+  "report": "docs/acceptance/part-four-progress.md",
+  "counts": {
+    "pytest": {
+      "total": 1595,
+      "passed": 1595,
+      "failed": 0,
+      "skipped": 0,
+      "invalid": 0
+    },
+    "vitest": {
+      "total": 88,
+      "passed": 88,
+      "failed": 0,
+      "skipped": 0,
+      "invalid": 0
+    },
+    "playwright": {
+      "total": 35,
+      "passed": 35,
+      "failed": 0,
+      "skipped": 0,
+      "invalid": 0
+    }
+  },
+  "coverage": {
+    "passed": 48,
+    "total": 48,
+    "scope": "selected_local_mechanical_checks"
+  },
+  "source": {
+    "build_id": "f5807a69331c3a2ee9108d527b6923e54f55b2219de35cd56cd01935534a0e7a",
+    "qa_source_id": "5333fe6669cd1e3e8c6b81142d71edacc6991bd3be992bc9561467f4bbb8c436",
+    "mapping_sha256": "47e74ebdc52378b7ebd5e4d059ce5cb8b5baf31aa91b19977999c47548e856f9",
+    "sop_sha256": "c62590793932ee97c6a88f07b27062433e4dcbeab8093d42178ad22c6837c311"
+  },
+  "protected_historical_files": 154,
+  "historical_files_unchanged": true,
+  "real_model_calls": 0,
+  "local_sop_passed": true,
+  "full_sop_accepted": false,
+  "functional_release": false,
+  "real_provider_accepted": false,
+  "manual_acceptance": false,
+  "optimization_goal_met": false,
+  "remaining": [
+    "production Claude adapter and current real-provider qualification",
+    "continuous real four-domain journeys and full fault/takeover/rework matrix",
+    "complete selective diff context and cross-section coverage/decision optimization",
+    "independent real paired evaluation and complete token accounting",
+    "manual Windows accessibility/IME, signed install/rollback, long-run and external handover"
+  ]
+}

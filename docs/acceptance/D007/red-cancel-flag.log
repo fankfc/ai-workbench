@@ -1,0 +1,28 @@
+F..                                                                      [100%]
+================================== FAILURES ===================================
+________ test_public_cancel_requires_boolean_true_without_coercion[1] _________
+
+flag = 1
+
+    @pytest.mark.parametrize("flag", [1, "true", False])
+    def test_public_cancel_requires_boolean_true_without_coercion(flag):
+        sample = public_sample("request.cancelled")
+        sample["payload"]["cancel_requested"] = flag
+>       assert_both_reject(PublicEvent, sample)
+
+tests\contracts\test_schemas.py:303: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+model = <class 'app.contracts.events.PublicEvent'>
+sample = {'schema_version': '1.0', 'event_id': 'e1', 'conversation_id': 'conv1', 'turn_id': 'turn1', ...}
+
+    def assert_both_reject(model, sample):
+>       with pytest.raises(ValidationError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValidationError
+
+tests\contracts\test_schemas.py:77: Failed
+=========================== short test summary info ===========================
+FAILED tests/contracts/test_schemas.py::test_public_cancel_requires_boolean_true_without_coercion[1]
+1 failed, 2 passed, 83 deselected in 0.43s
+exit_code=1

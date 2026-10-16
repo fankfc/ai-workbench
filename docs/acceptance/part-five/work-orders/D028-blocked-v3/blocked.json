@@ -1,0 +1,64 @@
+{
+  "kind": "developer_blocked",
+  "schema_version": "1",
+  "task_id": "D028",
+  "contract_version": "1",
+  "work_order_sha256": "021ada5551629b460021a634d3d9cc1e253f7c20dd3fd113c2c7e8be60eb5808",
+  "artifact_version": "D028-current-local-tree",
+  "cannot_complete": "D028 real/human acceptance remains open; direct dependency evidence remains absent.",
+  "direct_evidence": [
+    "docs/acceptance/part-five/work-orders/D028-draft-v3/work-order.json",
+    "docs/acceptance/part-five/work-orders/D028-run-v3/process.log"
+  ],
+  "attempted_actions": [
+    "Read exact D028 and direct dependency artifacts.",
+    "Ran six local input translation tests with actual exit zero.",
+    "Validated local handoff and preserved source task statuses."
+  ],
+  "external_conditions": [
+    "Resolve D026/D027 missing artifacts and required real/human acceptance."
+  ],
+  "independent_tasks": [],
+  "evidence_index": [
+    {
+      "ref": "docs/acceptance/part-five/work-orders/D028-draft-v3/work-order.json",
+      "kind": "file",
+      "sha256": "021ada5551629b460021a634d3d9cc1e253f7c20dd3fd113c2c7e8be60eb5808"
+    },
+    {
+      "ref": "docs/acceptance/part-five/work-orders/D028-run-v3/process.log",
+      "kind": "file",
+      "sha256": "eeec3197a0648d4922667a2f01ba88ad9dadfedf46fec3baa8572818e94c0186"
+    }
+  ],
+  "task_completion_changed": false,
+  "revision": [
+    {
+      "ref": "services/orchestrator/app/translation/context_gateway.py",
+      "kind": "file",
+      "sha256": "f1d02148b20d1efb2adc8376620b77bac29a0753d3617fb46bcc519aaf02447a"
+    },
+    {
+      "ref": "services/orchestrator/app/translation/history.py",
+      "kind": "file",
+      "sha256": "56a267f2aab42675a4481a673907bfe6fff48a5b99e2282bddc1d07e3543a38e"
+    },
+    {
+      "ref": "services/orchestrator/app/translation/input_pipeline.py",
+      "kind": "file",
+      "sha256": "945072ff9eaa78ab67a39a3e07f6f9cc37a67c8d16e28bfdd525536681c6d382"
+    },
+    {
+      "ref": "services/orchestrator/app/translation/prompts/input_translator.txt",
+      "kind": "file",
+      "sha256": "dc2ee410ceaf6f374a145f39987e46d40785b1223cc089d3b1c7f2570fa267bc"
+    },
+    {
+      "ref": "tests/integration/test_input_translation.py",
+      "kind": "file",
+      "sha256": "c906f1cf838d392493b884ee2f2cd141a83e62f70615926d64e75e1f13a2265b"
+    }
+  ],
+  "revision_sha256": "a5b7ba9bcfc220ad65b1046eb67c92d1f9b9d32af8af38dc23fddb3a1901624a",
+  "authentication": "90739d37e6cc67d05dbd3d2d4b121d9bca78c4f57bef4b1b8d5685e76ef094a6"
+}

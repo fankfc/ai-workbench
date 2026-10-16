@@ -1,0 +1,34 @@
+F                                                                        [100%]
+================================== FAILURES ===================================
+________ test_pdf_preserves_source_citation_link_as_actual_annotation _________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-337/test_pdf_preserves_source_cita0')
+
+    def test_pdf_preserves_source_citation_link_as_actual_annotation(tmp_path):
+        from app.documents.parse import parse_document
+        from app.documents.render import DocumentRenderer
+        model=parse_document(b'# Report\n\n[Source](https://example.com/evidence)', 'markdown',source_version_id='s',language='en')
+        result=DocumentRenderer().render(model,'pdf',evidence_dir=tmp_path)
+        with pymupdf.open(stream=result.data,filetype='pdf') as pdf:
+>           assert any(link.get('uri')=='https://example.com/evidence' for link in pdf[0].get_links())
+E           assert False
+E            +  where False = any(<generator object test_pdf_preserves_source_citation_link_as_actual_annotation.<locals>.<genexpr> at 0x00000126B688A0C0>)
+
+tests\artifacts\test_render_layout.py:76: AssertionError
+============================== warnings summary ===============================
+<frozen importlib._bootstrap>:488
+<frozen importlib._bootstrap>:488
+  <frozen importlib._bootstrap>:488: DeprecationWarning: builtin type SwigPyPacked has no __module__ attribute
+
+<frozen importlib._bootstrap>:488
+<frozen importlib._bootstrap>:488
+  <frozen importlib._bootstrap>:488: DeprecationWarning: builtin type SwigPyObject has no __module__ attribute
+
+<frozen importlib._bootstrap>:488
+  <frozen importlib._bootstrap>:488: DeprecationWarning: builtin type swigvarlink has no __module__ attribute
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/artifacts/test_render_layout.py::test_pdf_preserves_source_citation_link_as_actual_annotation
+1 failed, 6 deselected, 5 warnings in 0.89s
+<sys>:0: DeprecationWarning: builtin type swigvarlink has no __module__ attribute

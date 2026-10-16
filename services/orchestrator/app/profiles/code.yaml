@@ -1,0 +1,75 @@
+{
+  "schema_version": "1.0",
+  "domain": "code",
+  "required_inputs": [
+    "requirements",
+    "workspace_ref",
+    "test_command"
+  ],
+  "b_actions": [
+    "implement",
+    "run_allowed_tests"
+  ],
+  "mechanical": [
+    "build_and_tests",
+    "scope_and_file_integrity"
+  ],
+  "semantic": [
+    "requirements_and_exception_behavior",
+    "critical_design"
+  ],
+  "deliverables": [
+    "code",
+    "document"
+  ],
+  "acceptance": [
+    {
+      "id": "code.C1",
+      "verifier": "C",
+      "mandatory": true,
+      "semantic": false,
+      "evidence_type": "artifact",
+      "condition": "build_and_tests"
+    },
+    {
+      "id": "code.C2",
+      "verifier": "C",
+      "mandatory": true,
+      "semantic": false,
+      "evidence_type": "artifact",
+      "condition": "scope_and_file_integrity"
+    },
+    {
+      "id": "code.A1",
+      "verifier": "A",
+      "mandatory": true,
+      "semantic": true,
+      "evidence_type": "review",
+      "condition": "requirements_and_exception_behavior"
+    },
+    {
+      "id": "code.A2",
+      "verifier": "A",
+      "mandatory": true,
+      "semantic": true,
+      "evidence_type": "review",
+      "condition": "critical_design"
+    }
+  ],
+  "a_responsibilities": [
+    "problem_modeling",
+    "core_reasoning",
+    "method_choice",
+    "evidence_judgment",
+    "final_review"
+  ],
+  "escalation": [
+    "ordinary",
+    "checkpoint",
+    "a_takeover"
+  ],
+  "budget": {
+    "total_tokens": 300000,
+    "reserved_a_tokens": 60000
+  }
+}

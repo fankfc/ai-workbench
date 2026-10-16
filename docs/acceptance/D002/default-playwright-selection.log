@@ -1,0 +1,10 @@
+
+> ai-workbench@0.1.0 test:e2e
+> playwright test --list
+
+Listing tests:
+  configuration-only.spec.ts:3:5 › configuration collection control
+Total: 1 test in 1 file
+exit_code=0
+snapshot_revision=v3
+probe_scope=temporary configuration-only listing; no GUI tests executed

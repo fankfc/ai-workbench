@@ -1,0 +1,11 @@
+# Final handoff and runbook consistency review
+
+Read-only checks passed on 2026-10-13: **11/11**, no missing evidence paths, and **101/101** current source/lock hashes match the final test freeze. [Machine-readable results](remaining-handoff-consistency-review.json) record the document hashes and observations. The reviewer did not rerun the whole suite, CLI scenarios or real providers. A second team reader, process_d011, independently confirmed the same frozen status, test, path and startup facts.
+
+[Handoff](backend-handoff.json), [progress](part-one-progress.json), the task board and [operations runbook](../runbooks/backend-operations.md) agree on **17 done / 3 blocked**. D004 requires Claude authentication, D005 requires selecting and verifying the ZCode model, and D020 still requires real A/B integration. D006 completes the route decision while its native connection remains unverified. All three production/probe registrations remain disabled. `real_handoff_complete`, `part_one_complete`, `functional_ready` and `goal_validated` remain false.
+
+The JUnit file contains **780 test cases, zero failures/errors/skips**. The full log separately records **one real-provider test deselected** and 212.62 seconds. The explicitly selected real-prerequisite check records one skip, no new provider starts, and a concrete prerequisite reason. These are distinct runs and the reports preserve that distinction.
+
+The legacy real-call counter is explicitly identified as **three CLI startup attempts**: ZCode two, Codex one, Claude zero. Verified real completions are zero and the actual billable request count remains unknown. D020's exported report and ledger declare fake external responses, actual local backend checks, and zero real model starts; they do not satisfy the real handoff gate.
+
+The runbook accurately describes startup as a conservative unknown callback until a supported provider query is registered, and describes recovery using the current step's actual connection and identifiers. The handoff's evidence files, planned-to-actual mappings and the new [D004](D004/implementation-report.md), [D005](D005/implementation-report.md), [D006](D006/implementation-report.md) report links all exist. This is a bounded document/evidence consistency review, not a release approval or a new capability experiment.

@@ -1,0 +1,1 @@
+{"criterion_id": "AC1", "revision_id": "candidate-v1", "byte_sha256": "dda18a0e21ae47c53b4309434cbc02ae8bf764fa83a6defbb719431242722aa7", "verifier": "C", "passed": true, "details": {"note": "禁止删除原始文件。", "code": "`print(\"中文界面\")`", "measured_value": -0.03}}

@@ -1,0 +1,222 @@
+FF                                                                       [100%]
+================================== FAILURES ===================================
+_ test_authenticated_completion_retains_actual_usage_before_business_validation[invalid_json] _
+
+factory = <function factory.<locals>.create at 0x000001F98F803CE0>
+scenario = 'invalid_json'
+
+    @pytest.mark.parametrize('scenario',['invalid_json','invalid_schema'])
+    def test_authenticated_completion_retains_actual_usage_before_business_validation(factory,scenario):
+        runtime=factory(scenario)
+>       events=asyncio.run(invoke(runtime))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_scoped_codex_runtime.py:305: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:194: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:118: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py:721: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+tests\contracts\test_scoped_codex_runtime.py:105: in invoke
+    return [event async for event in runtime.invoke_text('Return JSON arithmetic for 1,2,3.',
+services\orchestrator\app\providers\scoped_codex_runtime.py:467: in invoke_text
+    async for event in self._invoke(text,task_id=task_id,attempt_id=attempt_id,request_id=request_id,phase=phase,workspace=workspace,output_schema=output_schema): yield event
+services\orchestrator\app\providers\scoped_codex_runtime.py:462: in _invoke
+    async for event in self._exchange(boot,entry,schema): yield event
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.providers.scoped_codex_runtime.ScopedCodexRuntime object at 0x000001F98F1A9D30>
+boot = {'action': 'invoke', 'nonce': 'a4876582c1824ba18adb9e6bc8a11292', 'workspace': 'C:\\Users\\asd15\\AppData\\Local\\Temp\\pytest-of-asd15\\pytest-246\\test_authenticated_completion_0', 'task_id': 'task', ...}
+entry = None
+schema = {'type': 'object', 'properties': {'count': {'type': 'number'}, 'sum': {'type': 'number'}, 'mean': {'type': 'number'}}, 'required': ['count', 'sum', 'mean'], 'additionalProperties': False}
+
+    async def _exchange(self,boot,entry,schema):
+        offset=0; pending=b''; capture=None; started=None; accepted_execution=None; failure=None
+        deadline=time.monotonic()+self.timeout_seconds
+        try:
+            await asyncio.to_thread(self._launch,boot,entry)
+            await asyncio.to_thread(self._write,boot)
+            while True:
+                if self._cancelled.is_set(): raise ScopedCodexError('LOCAL_CANCELLED_REMOTE_UNKNOWN')
+                if time.monotonic()>=deadline: raise ScopedCodexError('TIMEOUT_REMOTE_UNKNOWN')
+                handle=self._handle
+                if handle is None: raise ScopedCodexError('LOCAL_CANCELLED_REMOTE_UNKNOWN')
+                data=handle.stdout
+                pending+=data[offset:]; offset=len(data)
+                while b'\n' in pending:
+                    line,pending=pending.split(b'\n',1)
+                    try: packet=codec.parse(line)
+                    except (ValueError,UnicodeError): raise ScopedCodexError('INVALID_PRIVATE_WORKER_FRAME') from None
+                    if not isinstance(packet,dict) or packet.get('nonce')!=boot['nonce']: raise ScopedCodexError('PRIVATE_WORKER_BINDING_MISMATCH')
+                    kind=packet.get('kind')
+                    if kind=='rpc.authorize':
+                        try: self._authorize(packet,boot)
+                        except Exception:
+                            with suppress(Exception): await asyncio.to_thread(self._write,{'nonce':boot['nonce'],'allow':False})
+                            raise ScopedCodexError('RPC_AUTHORIZATION_DENIED') from None
+                        await asyncio.to_thread(self._write,{'nonce':boot['nonce'],'allow':True})
+                    elif kind=='rpc.observed':
+                        if self._enforcer is not None:
+                            try: self._enforcer.observe_rpc_response(packet['method'],packet['result'],self._context)
+                            except Exception: raise ScopedCodexError('SCOPE_OBSERVATION_REJECTED') from None
+                    elif kind=='prepared':
+                        if packet.get('control_count')!=22 or packet.get('controls_verified') is not True or not all(packet.get(k) is True for k in
+                            ('mcp_keys_match','all_mcp_disabled','thread_start_verified','thread_read_verified')):
+                            raise ScopedCodexError('SCOPE_PREPARATION_INVALID')
+                        if packet.get('policy_sha256')!=codec.POLICY_SHA256 or packet.get('transport_kind')!=boot['transport_kind']:
+                            raise ScopedCodexError('SCOPE_POLICY_MISMATCH')
+                        qualified=False
+                        if self._enforcer is not None and not self._fixture:
+                            from app.providers.native_scope import VerifiedScopeSeal
+                            seal=self._enforcer.scope_seal(self._context)
+                            if not isinstance(seal,VerifiedScopeSeal): raise ScopedCodexError('PRIVATE_SCOPE_SEAL_REQUIRED')
+                            self._enforcer.require_verified(codec.ENTRY_SHA256,self._policy_hash())
+                            self._scope_seal=seal; qualified=True
+                        self._preparation=ScopePreparation(22,True,boot['transport_kind'],qualified,self._policy_hash(),packet['configured_mcp_count'],
+                            packet['thread_id'],codec.ENTRY_SHA256 if entry else None,self.diagnostics['source_worker_sha256'])
+                    elif kind=='submitted':
+                        self.diagnostics['submitted_model_turns']+=1
+                        if self.diagnostics['submitted_model_turns']!=1: raise ScopedCodexError('SECOND_MODEL_SUBMISSION_FORBIDDEN')
+                        self._record('submitted')
+                    elif kind=='accepted':
+                        self.diagnostics['accepted']=True
+                        accepted_execution=packet.get('external_execution_id')
+                        self._record('accepted',execution=accepted_execution)
+                    elif kind=='started':
+                        value=PhaseStarted(boot['request_id'],packet.get('external_request_id'),packet.get('external_execution_id'))
+                        if started is not None: raise ScopedCodexError('DUPLICATE_PHASE_START')
+                        if value.external_execution_id!=accepted_execution: raise ScopedCodexError('REMOTE_REFERENCE_MISMATCH')
+                        started=value; self._record('accepted',value.external_request_id,value.external_execution_id)
+                        yield value
+                    elif kind=='capture':
+                        if capture is not None or started is None: raise ScopedCodexError('CAPTURE_NOT_UNIQUE')
+                        if (packet.get('external_request_id'),packet.get('external_execution_id'))!=(started.external_request_id,started.external_execution_id):
+                            raise ScopedCodexError('REMOTE_REFERENCE_MISMATCH')
+                        if packet.get('actual_model_id')!=self.provider.identity.model_id or packet.get('identity_source')!='official_response_completed_model':
+                            raise ScopedCodexError('ACTUAL_MODEL_IDENTITY_MISMATCH')
+                        text=packet.get('final_text')
+                        if not isinstance(text,str) or not text.strip() or _sha(text.encode())!=packet.get('final_sha256'):
+                            raise ScopedCodexError('FINAL_BYTES_BINDING_MISMATCH')
+                        try: value=codec.parse(text); Draft202012Validator(schema).validate(value)
+>                       except Exception: raise ScopedCodexError('FINAL_OUTPUT_SCHEMA_INVALID') from None
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E                       app.providers.scoped_codex_runtime.ScopedCodexError: FINAL_OUTPUT_SCHEMA_INVALID
+
+services\orchestrator\app\providers\scoped_codex_runtime.py:381: ScopedCodexError
+_ test_authenticated_completion_retains_actual_usage_before_business_validation[invalid_schema] _
+
+factory = <function factory.<locals>.create at 0x000001F98F7A2FC0>
+scenario = 'invalid_schema'
+
+    @pytest.mark.parametrize('scenario',['invalid_json','invalid_schema'])
+    def test_authenticated_completion_retains_actual_usage_before_business_validation(factory,scenario):
+        runtime=factory(scenario)
+>       events=asyncio.run(invoke(runtime))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_scoped_codex_runtime.py:305: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:194: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:118: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py:721: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+tests\contracts\test_scoped_codex_runtime.py:105: in invoke
+    return [event async for event in runtime.invoke_text('Return JSON arithmetic for 1,2,3.',
+services\orchestrator\app\providers\scoped_codex_runtime.py:467: in invoke_text
+    async for event in self._invoke(text,task_id=task_id,attempt_id=attempt_id,request_id=request_id,phase=phase,workspace=workspace,output_schema=output_schema): yield event
+services\orchestrator\app\providers\scoped_codex_runtime.py:462: in _invoke
+    async for event in self._exchange(boot,entry,schema): yield event
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.providers.scoped_codex_runtime.ScopedCodexRuntime object at 0x000001F98F713390>
+boot = {'action': 'invoke', 'nonce': '7fdd70d191604681a622bc0270b3b743', 'workspace': 'C:\\Users\\asd15\\AppData\\Local\\Temp\\pytest-of-asd15\\pytest-246\\test_authenticated_completion_1', 'task_id': 'task', ...}
+entry = None
+schema = {'type': 'object', 'properties': {'count': {'type': 'number'}, 'sum': {'type': 'number'}, 'mean': {'type': 'number'}}, 'required': ['count', 'sum', 'mean'], 'additionalProperties': False}
+
+    async def _exchange(self,boot,entry,schema):
+        offset=0; pending=b''; capture=None; started=None; accepted_execution=None; failure=None
+        deadline=time.monotonic()+self.timeout_seconds
+        try:
+            await asyncio.to_thread(self._launch,boot,entry)
+            await asyncio.to_thread(self._write,boot)
+            while True:
+                if self._cancelled.is_set(): raise ScopedCodexError('LOCAL_CANCELLED_REMOTE_UNKNOWN')
+                if time.monotonic()>=deadline: raise ScopedCodexError('TIMEOUT_REMOTE_UNKNOWN')
+                handle=self._handle
+                if handle is None: raise ScopedCodexError('LOCAL_CANCELLED_REMOTE_UNKNOWN')
+                data=handle.stdout
+                pending+=data[offset:]; offset=len(data)
+                while b'\n' in pending:
+                    line,pending=pending.split(b'\n',1)
+                    try: packet=codec.parse(line)
+                    except (ValueError,UnicodeError): raise ScopedCodexError('INVALID_PRIVATE_WORKER_FRAME') from None
+                    if not isinstance(packet,dict) or packet.get('nonce')!=boot['nonce']: raise ScopedCodexError('PRIVATE_WORKER_BINDING_MISMATCH')
+                    kind=packet.get('kind')
+                    if kind=='rpc.authorize':
+                        try: self._authorize(packet,boot)
+                        except Exception:
+                            with suppress(Exception): await asyncio.to_thread(self._write,{'nonce':boot['nonce'],'allow':False})
+                            raise ScopedCodexError('RPC_AUTHORIZATION_DENIED') from None
+                        await asyncio.to_thread(self._write,{'nonce':boot['nonce'],'allow':True})
+                    elif kind=='rpc.observed':
+                        if self._enforcer is not None:
+                            try: self._enforcer.observe_rpc_response(packet['method'],packet['result'],self._context)
+                            except Exception: raise ScopedCodexError('SCOPE_OBSERVATION_REJECTED') from None
+                    elif kind=='prepared':
+                        if packet.get('control_count')!=22 or packet.get('controls_verified') is not True or not all(packet.get(k) is True for k in
+                            ('mcp_keys_match','all_mcp_disabled','thread_start_verified','thread_read_verified')):
+                            raise ScopedCodexError('SCOPE_PREPARATION_INVALID')
+                        if packet.get('policy_sha256')!=codec.POLICY_SHA256 or packet.get('transport_kind')!=boot['transport_kind']:
+                            raise ScopedCodexError('SCOPE_POLICY_MISMATCH')
+                        qualified=False
+                        if self._enforcer is not None and not self._fixture:
+                            from app.providers.native_scope import VerifiedScopeSeal
+                            seal=self._enforcer.scope_seal(self._context)
+                            if not isinstance(seal,VerifiedScopeSeal): raise ScopedCodexError('PRIVATE_SCOPE_SEAL_REQUIRED')
+                            self._enforcer.require_verified(codec.ENTRY_SHA256,self._policy_hash())
+                            self._scope_seal=seal; qualified=True
+                        self._preparation=ScopePreparation(22,True,boot['transport_kind'],qualified,self._policy_hash(),packet['configured_mcp_count'],
+                            packet['thread_id'],codec.ENTRY_SHA256 if entry else None,self.diagnostics['source_worker_sha256'])
+                    elif kind=='submitted':
+                        self.diagnostics['submitted_model_turns']+=1
+                        if self.diagnostics['submitted_model_turns']!=1: raise ScopedCodexError('SECOND_MODEL_SUBMISSION_FORBIDDEN')
+                        self._record('submitted')
+                    elif kind=='accepted':
+                        self.diagnostics['accepted']=True
+                        accepted_execution=packet.get('external_execution_id')
+                        self._record('accepted',execution=accepted_execution)
+                    elif kind=='started':
+                        value=PhaseStarted(boot['request_id'],packet.get('external_request_id'),packet.get('external_execution_id'))
+                        if started is not None: raise ScopedCodexError('DUPLICATE_PHASE_START')
+                        if value.external_execution_id!=accepted_execution: raise ScopedCodexError('REMOTE_REFERENCE_MISMATCH')
+                        started=value; self._record('accepted',value.external_request_id,value.external_execution_id)
+                        yield value
+                    elif kind=='capture':
+                        if capture is not None or started is None: raise ScopedCodexError('CAPTURE_NOT_UNIQUE')
+                        if (packet.get('external_request_id'),packet.get('external_execution_id'))!=(started.external_request_id,started.external_execution_id):
+                            raise ScopedCodexError('REMOTE_REFERENCE_MISMATCH')
+                        if packet.get('actual_model_id')!=self.provider.identity.model_id or packet.get('identity_source')!='official_response_completed_model':
+                            raise ScopedCodexError('ACTUAL_MODEL_IDENTITY_MISMATCH')
+                        text=packet.get('final_text')
+                        if not isinstance(text,str) or not text.strip() or _sha(text.encode())!=packet.get('final_sha256'):
+                            raise ScopedCodexError('FINAL_BYTES_BINDING_MISMATCH')
+                        try: value=codec.parse(text); Draft202012Validator(schema).validate(value)
+>                       except Exception: raise ScopedCodexError('FINAL_OUTPUT_SCHEMA_INVALID') from None
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E                       app.providers.scoped_codex_runtime.ScopedCodexError: FINAL_OUTPUT_SCHEMA_INVALID
+
+services\orchestrator\app\providers\scoped_codex_runtime.py:381: ScopedCodexError
+=========================== short test summary info ===========================
+FAILED tests/contracts/test_scoped_codex_runtime.py::test_authenticated_completion_retains_actual_usage_before_business_validation[invalid_json]
+FAILED tests/contracts/test_scoped_codex_runtime.py::test_authenticated_completion_retains_actual_usage_before_business_validation[invalid_schema]
+2 failed in 2.23s

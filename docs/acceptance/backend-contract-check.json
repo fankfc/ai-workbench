@@ -1,0 +1,6 @@
+{
+  "generated_at": "2026-10-13T13:09:53.1902058Z",
+  "command": "services/orchestrator/.venv/Scripts/python.exe scripts/check_contracts.py --strict",
+  "exit_code": 0,
+  "output": "CONTRACTS_OK:version=1.0;schemas=2"
+}

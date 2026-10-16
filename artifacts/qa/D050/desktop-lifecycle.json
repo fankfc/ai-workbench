@@ -1,0 +1,38 @@
+{
+  "build_id": "cb98eed03df6bd4ffaa551d66a54c77198911cf5b3e763a1ef3c055f5ee54ca4",
+  "actual_electron": true,
+  "cold_start_samples_ms": [
+    3401.204700000002,
+    3405.263100000011,
+    3399.8554000000004
+  ],
+  "cycles": 3,
+  "cleanup": [
+    {
+      "pid": 66688,
+      "cleaned": true
+    },
+    {
+      "pid": 49888,
+      "cleaned": true
+    },
+    {
+      "pid": 1228,
+      "cleaned": true
+    },
+    {
+      "pid": 56104,
+      "cleaned": true
+    },
+    {
+      "pid": 21876,
+      "cleaned": true
+    },
+    {
+      "pid": 66616,
+      "cleaned": true
+    }
+  ],
+  "provider_boundary": "fake",
+  "method": "fresh isolated user-data launch; filesystem and OS caches not cleared"
+}

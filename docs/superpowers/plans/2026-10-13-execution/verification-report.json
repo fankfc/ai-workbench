@@ -1,0 +1,33 @@
+{
+  "document_validation": "passed",
+  "task_count": 60,
+  "actions_in_task_cards": 600,
+  "all_tasks_planned": true,
+  "requirements_covered": [
+    "R01",
+    "R02",
+    "R03",
+    "R04",
+    "R05",
+    "R06",
+    "R07",
+    "R08",
+    "R09",
+    "R10",
+    "R11",
+    "R12",
+    "R13",
+    "R14",
+    "R15"
+  ],
+  "dependencies_acyclic": true,
+  "card_data_paths_commands_evidence_consistent": true,
+  "python_examples_ast_parsed": 28,
+  "json_examples_parsed": 5,
+  "jsonl_rows_parsed": 6,
+  "local_links_checked": 116,
+  "manual_task_anchors": 60,
+  "product_tests_run": false,
+  "model_calls_made": false,
+  "errors": []
+}

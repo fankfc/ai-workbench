@@ -1,0 +1,31 @@
+FFF.                                                                     [100%]
+================================== FAILURES ===================================
+________________ test_glm_anthropic_cache_tokens_are_additive _________________
+
+    def test_glm_anthropic_cache_tokens_are_additive():
+        observed = normalize_usage('glm', dict(wire_protocol='anthropic', input_tokens=10, output_tokens=5,
+            cache_read_input_tokens=20, cache_creation_input_tokens=30))
+>       assert observed['total_tokens'] == 65
+E       assert 15 == 65
+
+tests\unit\test_glm_anthropic_usage.py:9: AssertionError
+_________ test_missing_anthropic_cache_counts_cannot_be_assumed_zero __________
+
+    def test_missing_anthropic_cache_counts_cannot_be_assumed_zero():
+        observed = normalize_usage('glm', dict(wire_protocol='anthropic', input_tokens=10, output_tokens=5))
+>       assert observed['total_tokens'] is None and observed['source'] == 'unknown'
+E       assert (15 is None)
+
+tests\unit\test_glm_anthropic_usage.py:16: AssertionError
+______ test_anthropic_total_smaller_than_additive_components_is_rejected ______
+
+    def test_anthropic_total_smaller_than_additive_components_is_rejected():
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests\unit\test_glm_anthropic_usage.py:20: Failed
+=========================== short test summary info ===========================
+FAILED tests/unit/test_glm_anthropic_usage.py::test_glm_anthropic_cache_tokens_are_additive
+FAILED tests/unit/test_glm_anthropic_usage.py::test_missing_anthropic_cache_counts_cannot_be_assumed_zero
+FAILED tests/unit/test_glm_anthropic_usage.py::test_anthropic_total_smaller_than_additive_components_is_rejected

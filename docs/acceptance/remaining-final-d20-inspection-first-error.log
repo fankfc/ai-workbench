@@ -1,0 +1,9 @@
+command=services/orchestrator/.venv/Scripts/python.exe docs/acceptance/remaining-final-d20-verify.py
+pytest_exit_code=0
+pytest_result=8 passed, 14 deselected, 1 existing deprecation warning in 6.75s
+post_test_inspection=sqlite3.OperationalError: no such table: usage_events
+runner_exit_code=1
+classification=review instrumentation error; not a product business RED
+repair=inspect the actual usage_entries table with metric=request
+first_test_log=docs/acceptance/remaining-final-d20-tests-first.log
+successful_rerun=docs/acceptance/remaining-final-d20-tests.log and remaining-final-d20-evidence.json

@@ -1,0 +1,19 @@
+{
+  "pytest_exit_code": 1,
+  "observations": [
+    {
+      "parameters": {
+        "total_tokens": 10000,
+        "reserved_a_tokens": 2000,
+        "role": "B",
+        "estimated_tokens": 9884
+      },
+      "known_lower_bound": 96,
+      "gate": {
+        "allowed": false,
+        "reason": "BUDGET_EXHAUSTED",
+        "remaining_tokens": 7904
+      }
+    }
+  ]
+}

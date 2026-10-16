@@ -1,0 +1,18 @@
+{
+  "time": "2026-10-15T02:23:42.559161+00:00",
+  "command": [
+    "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\.venv\\Scripts\\python.exe",
+    "-m",
+    "pytest",
+    "-q",
+    "tests/integration/test_agent_workflow.py",
+    "tests/contracts/test_phase_prompt.py",
+    "tests/contracts/test_phase_bridge.py",
+    "tests/integration/test_claude_native_pipeline.py",
+    "tests/integration/test_native_publication.py",
+    "tests/integration/test_native_backend_bindings.py"
+  ],
+  "exit_code": 0,
+  "git_commit": null,
+  "log": "docs\\acceptance\\part-four\\delivery-green.log"
+}

@@ -1,0 +1,16 @@
+{
+  "command": ".tools/uv/Scripts/uv.exe build --offline --project services/orchestrator --out-dir .tools/phase-two-wheel",
+  "exit_code": 0,
+  "wheel_sha256": "cdcd83a8936da63033c0be8dde22165e572773da59f4c69adc2abd905aa2b0ac",
+  "packaged_required_files": [
+    "app/storage/schema/0004_desktop_settings.sql",
+    "app/profiles/mixed.yaml",
+    "app/profiles/newprofile_checks.py",
+    "app/translation/clarification.py",
+    "app/runtime/composite_context.py"
+  ],
+  "packaged_modules": 106,
+  "readme_warning": "source distribution has no service-local README",
+  "real_model_calls": 0,
+  "build_log": "docs/acceptance/part-two/final-wheel-build.log"
+}

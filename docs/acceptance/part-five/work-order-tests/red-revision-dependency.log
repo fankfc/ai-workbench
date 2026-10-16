@@ -1,0 +1,115 @@
+...........................FFFFF                                         [100%]
+================================== FAILURES ===================================
+_____ test_direct_dependency_card_drift_requires_fresh_work_order[status] _____
+
+work_orders = <module 'app.contracts.work_orders' from 'C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\app\\contracts\\work_orders.py'>
+repo = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-542/test_direct_dependency_card_dr0')
+change = 'status'
+
+    @pytest.mark.parametrize("change", ["status", "deliverables", "evidence"])
+    def test_direct_dependency_card_drift_requires_fresh_work_order(work_orders, repo, change):
+        handoff(work_orders, repo)
+        board = json.loads((repo / work_orders.BOARD_REF).read_text())
+        dependency = board["tasks"][0]
+        dependency[change] = "done" if change == "status" else ["src/unrelated.py"]
+        put(repo, work_orders.BOARD_REF, json.dumps(board))
+>       with pytest.raises(ValueError, match="DEPENDENCY_CARD_CHANGED"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests\contracts\test_work_orders.py:184: Failed
+__ test_direct_dependency_card_drift_requires_fresh_work_order[deliverables] __
+
+work_orders = <module 'app.contracts.work_orders' from 'C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\app\\contracts\\work_orders.py'>
+repo = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-542/test_direct_dependency_card_dr1')
+change = 'deliverables'
+
+    @pytest.mark.parametrize("change", ["status", "deliverables", "evidence"])
+    def test_direct_dependency_card_drift_requires_fresh_work_order(work_orders, repo, change):
+        handoff(work_orders, repo)
+        board = json.loads((repo / work_orders.BOARD_REF).read_text())
+        dependency = board["tasks"][0]
+        dependency[change] = "done" if change == "status" else ["src/unrelated.py"]
+        put(repo, work_orders.BOARD_REF, json.dumps(board))
+>       with pytest.raises(ValueError, match="DEPENDENCY_CARD_CHANGED"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests\contracts\test_work_orders.py:184: Failed
+____ test_direct_dependency_card_drift_requires_fresh_work_order[evidence] ____
+
+work_orders = <module 'app.contracts.work_orders' from 'C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\app\\contracts\\work_orders.py'>
+repo = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-542/test_direct_dependency_card_dr2')
+change = 'evidence'
+
+    @pytest.mark.parametrize("change", ["status", "deliverables", "evidence"])
+    def test_direct_dependency_card_drift_requires_fresh_work_order(work_orders, repo, change):
+        handoff(work_orders, repo)
+        board = json.loads((repo / work_orders.BOARD_REF).read_text())
+        dependency = board["tasks"][0]
+        dependency[change] = "done" if change == "status" else ["src/unrelated.py"]
+        put(repo, work_orders.BOARD_REF, json.dumps(board))
+>       with pytest.raises(ValueError, match="DEPENDENCY_CARD_CHANGED"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests\contracts\test_work_orders.py:184: Failed
+_ test_repair_and_blocked_reports_require_retrievable_evidence[repair-payload0] _
+
+work_orders = <module 'app.contracts.work_orders' from 'C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\app\\contracts\\work_orders.py'>
+repo = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-542/test_repair_and_blocked_report0')
+kind = 'repair'
+payload = {'defects': [{'defect_id': 'DEF-1', 'requirement_id': 'R07', 'location': 'src/allowed.py', 'impact': 'Missing translated block', ...}], 'artifact_version': 'rev-1'}
+
+    @pytest.mark.parametrize("kind,payload", [
+        ("repair", {"defects": [{"defect_id": "DEF-1", "requirement_id": "R07", "location": "src/allowed.py",
+            "impact": "Missing translated block", "failure_evidence": ["inputs/direct.txt"],
+            "allowed_files": ["src/allowed.py"], "pass_condition": "All source blocks have translations",
+            "rerun_checks": [["python", "-m", "pytest", "tests/integration/test_input_translation.py"]]}], "artifact_version": "rev-1"}),
+        ("blocked", {"cannot_complete": "Real acceptance", "direct_evidence": ["inputs/direct.txt"],
+            "attempted_actions": ["Checked dependency files"], "external_conditions": ["Approved human review"],
+            "independent_tasks": ["D029"], "artifact_version": "rev-1"}),
+    ])
+    def test_repair_and_blocked_reports_require_retrievable_evidence(work_orders, repo, kind, payload):
+        draft(work_orders, repo)
+        value = work_orders.create_report(repo, "out/draft/work-order.json", kind, payload, "out/report")
+        assert value["task_id"] == "D028" and value["contract_version"] == "1"
+        assert value["evidence_index"][0]["sha256"] == hashlib.sha256(b"direct dependency").hexdigest()
+>       assert value["revision"] == [{"ref": "src/allowed.py", "kind": "file", "sha256": hashlib.sha256(b"before\n").hexdigest()}]
+               ^^^^^^^^^^^^^^^^^
+E       KeyError: 'revision'
+
+tests\contracts\test_work_orders.py:202: KeyError
+_ test_repair_and_blocked_reports_require_retrievable_evidence[blocked-payload1] _
+
+work_orders = <module 'app.contracts.work_orders' from 'C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\app\\contracts\\work_orders.py'>
+repo = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-542/test_repair_and_blocked_report1')
+kind = 'blocked'
+payload = {'cannot_complete': 'Real acceptance', 'direct_evidence': ['inputs/direct.txt'], 'attempted_actions': ['Checked dependency files'], 'external_conditions': ['Approved human review'], ...}
+
+    @pytest.mark.parametrize("kind,payload", [
+        ("repair", {"defects": [{"defect_id": "DEF-1", "requirement_id": "R07", "location": "src/allowed.py",
+            "impact": "Missing translated block", "failure_evidence": ["inputs/direct.txt"],
+            "allowed_files": ["src/allowed.py"], "pass_condition": "All source blocks have translations",
+            "rerun_checks": [["python", "-m", "pytest", "tests/integration/test_input_translation.py"]]}], "artifact_version": "rev-1"}),
+        ("blocked", {"cannot_complete": "Real acceptance", "direct_evidence": ["inputs/direct.txt"],
+            "attempted_actions": ["Checked dependency files"], "external_conditions": ["Approved human review"],
+            "independent_tasks": ["D029"], "artifact_version": "rev-1"}),
+    ])
+    def test_repair_and_blocked_reports_require_retrievable_evidence(work_orders, repo, kind, payload):
+        draft(work_orders, repo)
+        value = work_orders.create_report(repo, "out/draft/work-order.json", kind, payload, "out/report")
+        assert value["task_id"] == "D028" and value["contract_version"] == "1"
+        assert value["evidence_index"][0]["sha256"] == hashlib.sha256(b"direct dependency").hexdigest()
+>       assert value["revision"] == [{"ref": "src/allowed.py", "kind": "file", "sha256": hashlib.sha256(b"before\n").hexdigest()}]
+               ^^^^^^^^^^^^^^^^^
+E       KeyError: 'revision'
+
+tests\contracts\test_work_orders.py:202: KeyError
+=========================== short test summary info ===========================
+FAILED tests/contracts/test_work_orders.py::test_direct_dependency_card_drift_requires_fresh_work_order[status]
+FAILED tests/contracts/test_work_orders.py::test_direct_dependency_card_drift_requires_fresh_work_order[deliverables]
+FAILED tests/contracts/test_work_orders.py::test_direct_dependency_card_drift_requires_fresh_work_order[evidence]
+FAILED tests/contracts/test_work_orders.py::test_repair_and_blocked_reports_require_retrievable_evidence[repair-payload0]
+FAILED tests/contracts/test_work_orders.py::test_repair_and_blocked_reports_require_retrievable_evidence[blocked-payload1]
+5 failed, 27 passed in 6.07s

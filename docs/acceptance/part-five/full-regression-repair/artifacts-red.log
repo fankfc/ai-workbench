@@ -1,0 +1,136 @@
+FFFFFF                                                                   [100%]
+================================== FAILURES ===================================
+___ test_real_pair_bytes_and_answer_publish_once_in_one_transaction[claude] ___
+tests\artifacts\test_atomic_publication.py:12: in test_real_pair_bytes_and_answer_publish_once_in_one_transaction
+    ctx=document_task; ready=prepare_bilingual(ctx)
+                             ^^^^^^^^^^^^^^^^^^^^^^
+tests\artifacts\helpers.py:101: in prepare_bilingual
+    asyncio.run(publisher.stage(ctx['task'],ctx['attempt'],'1.0',source,review))
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:194: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:118: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py:721: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+services\orchestrator\app\runtime\answer_publication.py:79: in stage
+    raise PublicationBlocked('OUTPUT_TRANSLATION_'+translated.status)
+E   app.runtime.publication.PublicationBlocked: OUTPUT_TRANSLATION_FAILED
+_ test_half_v2_render_and_transaction_failure_leave_only_complete_v1_visible[claude] _
+tests\artifacts\test_atomic_publication.py:37: in test_half_v2_render_and_transaction_failure_leave_only_complete_v1_visible
+    ctx=document_task; ready=prepare_bilingual(ctx)
+                             ^^^^^^^^^^^^^^^^^^^^^^
+tests\artifacts\helpers.py:101: in prepare_bilingual
+    asyncio.run(publisher.stage(ctx['task'],ctx['attempt'],'1.0',source,review))
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:194: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:118: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py:721: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+services\orchestrator\app\runtime\answer_publication.py:79: in stage
+    raise PublicationBlocked('OUTPUT_TRANSLATION_'+translated.status)
+E   app.runtime.publication.PublicationBlocked: OUTPUT_TRANSLATION_FAILED
+_ test_cancelled_missing_format_old_source_and_corrupt_blob_are_not_deliverable[claude] _
+tests\artifacts\test_atomic_publication.py:62: in test_cancelled_missing_format_old_source_and_corrupt_blob_are_not_deliverable
+    ctx=document_task; ready=prepare_bilingual(ctx)
+                             ^^^^^^^^^^^^^^^^^^^^^^
+tests\artifacts\helpers.py:101: in prepare_bilingual
+    asyncio.run(publisher.stage(ctx['task'],ctx['attempt'],'1.0',source,review))
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:194: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:118: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py:721: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+services\orchestrator\app\runtime\answer_publication.py:79: in stage
+    raise PublicationBlocked('OUTPUT_TRANSLATION_'+translated.status)
+E   app.runtime.publication.PublicationBlocked: OUTPUT_TRANSLATION_FAILED
+_ test_download_scope_unpublished_and_changed_file_hash_are_enforced[claude] __
+tests\artifacts\test_atomic_publication.py:75: in test_download_scope_unpublished_and_changed_file_hash_are_enforced
+    ctx=document_task; ready=prepare_bilingual(ctx)
+                             ^^^^^^^^^^^^^^^^^^^^^^
+tests\artifacts\helpers.py:101: in prepare_bilingual
+    asyncio.run(publisher.stage(ctx['task'],ctx['attempt'],'1.0',source,review))
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:194: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:118: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py:721: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+services\orchestrator\app\runtime\answer_publication.py:79: in stage
+    raise PublicationBlocked('OUTPUT_TRANSLATION_'+translated.status)
+E   app.runtime.publication.PublicationBlocked: OUTPUT_TRANSLATION_FAILED
+____ test_renderer_claiming_pass_for_corrupt_bytes_cannot_publish[claude] _____
+tests\artifacts\test_atomic_publication.py:98: in test_renderer_claiming_pass_for_corrupt_bytes_cannot_publish
+    ctx=document_task;ready=prepare_bilingual(ctx)
+                            ^^^^^^^^^^^^^^^^^^^^^^
+tests\artifacts\helpers.py:101: in prepare_bilingual
+    asyncio.run(publisher.stage(ctx['task'],ctx['attempt'],'1.0',source,review))
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:194: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:118: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py:721: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+services\orchestrator\app\runtime\answer_publication.py:79: in stage
+    raise PublicationBlocked('OUTPUT_TRANSLATION_'+translated.status)
+E   app.runtime.publication.PublicationBlocked: OUTPUT_TRANSLATION_FAILED
+_ test_upstream_change_invalidates_chart_report_translation_render_and_approval_but_preserves_published_history[claude] _
+tests\integration\test_document_invalidation.py:20: in test_upstream_change_invalidates_chart_report_translation_render_and_approval_but_preserves_published_history
+    ready=prepare_bilingual(ctx,dependencies={k:v1[k] for k in ('computed_results','figures')})
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\artifacts\helpers.py:101: in prepare_bilingual
+    asyncio.run(publisher.stage(ctx['task'],ctx['attempt'],'1.0',source,review))
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:194: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:118: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py:721: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+services\orchestrator\app\runtime\answer_publication.py:79: in stage
+    raise PublicationBlocked('OUTPUT_TRANSLATION_'+translated.status)
+E   app.runtime.publication.PublicationBlocked: OUTPUT_TRANSLATION_FAILED
+============================== warnings summary ===============================
+tests/artifacts/test_atomic_publication.py::test_real_pair_bytes_and_answer_publish_once_in_one_transaction[claude]
+  C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+tests/integration/test_document_invalidation.py::test_upstream_change_invalidates_chart_report_translation_render_and_approval_but_preserves_published_history[claude]
+tests/integration/test_document_invalidation.py::test_upstream_change_invalidates_chart_report_translation_render_and_approval_but_preserves_published_history[claude]
+  <frozen importlib._bootstrap>:488: DeprecationWarning: builtin type SwigPyPacked has no __module__ attribute
+
+tests/integration/test_document_invalidation.py::test_upstream_change_invalidates_chart_report_translation_render_and_approval_but_preserves_published_history[claude]
+tests/integration/test_document_invalidation.py::test_upstream_change_invalidates_chart_report_translation_render_and_approval_but_preserves_published_history[claude]
+  <frozen importlib._bootstrap>:488: DeprecationWarning: builtin type SwigPyObject has no __module__ attribute
+
+tests/integration/test_document_invalidation.py::test_upstream_change_invalidates_chart_report_translation_render_and_approval_but_preserves_published_history[claude]
+  <frozen importlib._bootstrap>:488: DeprecationWarning: builtin type swigvarlink has no __module__ attribute
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/artifacts/test_atomic_publication.py::test_real_pair_bytes_and_answer_publish_once_in_one_transaction[claude]
+FAILED tests/artifacts/test_atomic_publication.py::test_half_v2_render_and_transaction_failure_leave_only_complete_v1_visible[claude]
+FAILED tests/artifacts/test_atomic_publication.py::test_cancelled_missing_format_old_source_and_corrupt_blob_are_not_deliverable[claude]
+FAILED tests/artifacts/test_atomic_publication.py::test_download_scope_unpublished_and_changed_file_hash_are_enforced[claude]
+FAILED tests/artifacts/test_atomic_publication.py::test_renderer_claiming_pass_for_corrupt_bytes_cannot_publish[claude]
+FAILED tests/integration/test_document_invalidation.py::test_upstream_change_invalidates_chart_report_translation_render_and_approval_but_preserves_published_history[claude]
+6 failed, 6 warnings in 5.89s
+<sys>:0: DeprecationWarning: builtin type swigvarlink has no __module__ attribute

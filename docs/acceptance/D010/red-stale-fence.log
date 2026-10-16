@@ -1,0 +1,47 @@
+................FF................                                       [100%]
+================================== FAILURES ===================================
+_ test_stale_or_publication_blocked_checkpoint_prevents_reapproval_and_ready[stale] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-73/test_stale_or_publication_bloc0')
+marker = 'stale'
+
+    @pytest.mark.parametrize("marker", ["stale","publication_blocked"])
+    def test_stale_or_publication_blocked_checkpoint_prevents_reapproval_and_ready(tmp_path,marker):
+        path = initialize_runtime(tmp_path,"OUTPUT_PREPARING")
+        create_revision_and_gate(path)
+        connection = Database(path).connect()
+        checkpoint = json.loads(current(path)["checkpoint_json"])
+        checkpoint[marker] = True
+        connection.execute("UPDATE task_runs SET checkpoint_json=?", (json.dumps(checkpoint),))
+        try:
+            with transaction(connection):
+>               with pytest.raises(TransitionError,match="STALE"):
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E               Failed: DID NOT RAISE TransitionError
+
+tests\integration\test_state_machine.py:195: Failed
+_ test_stale_or_publication_blocked_checkpoint_prevents_reapproval_and_ready[publication_blocked] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-73/test_stale_or_publication_bloc1')
+marker = 'publication_blocked'
+
+    @pytest.mark.parametrize("marker", ["stale","publication_blocked"])
+    def test_stale_or_publication_blocked_checkpoint_prevents_reapproval_and_ready(tmp_path,marker):
+        path = initialize_runtime(tmp_path,"OUTPUT_PREPARING")
+        create_revision_and_gate(path)
+        connection = Database(path).connect()
+        checkpoint = json.loads(current(path)["checkpoint_json"])
+        checkpoint[marker] = True
+        connection.execute("UPDATE task_runs SET checkpoint_json=?", (json.dumps(checkpoint),))
+        try:
+            with transaction(connection):
+>               with pytest.raises(TransitionError,match="STALE"):
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E               Failed: DID NOT RAISE TransitionError
+
+tests\integration\test_state_machine.py:195: Failed
+=========================== short test summary info ===========================
+FAILED tests/integration/test_state_machine.py::test_stale_or_publication_blocked_checkpoint_prevents_reapproval_and_ready[stale]
+FAILED tests/integration/test_state_machine.py::test_stale_or_publication_blocked_checkpoint_prevents_reapproval_and_ready[publication_blocked]
+2 failed, 32 passed in 2.31s
+EXIT_CODE=1

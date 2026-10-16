@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-10-13T15:21:01.649301+00:00",
+  "command": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "D:/zcode/resources/glm/zcode.cjs",
+    "doctor",
+    "--json"
+  ],
+  "exit_code": 0,
+  "stdout_keys": [
+    "cli",
+    "runtime",
+    "packaging"
+  ],
+  "safe_summary": {},
+  "stdout_bytes": 418,
+  "stderr_bytes": 0,
+  "model_turn_starts": 0,
+  "raw_outputs_retained": false,
+  "credentials_read_by_assistant": false
+}

@@ -1,0 +1,29 @@
+....F                                                                    [100%]
+================================== FAILURES ===================================
+_ test_published_assistant_message_has_full_original_english_history_mapping __
+
+claude_answer = (<starlette.testclient.TestClient object at 0x000001FF6DABB230>, '8945e66d5f174528a369011a35023e39', '04126ccd87f54193...d': '42fcb474b5a541dfa15266ee1703c974', 'connection_version': '1', 'id': '2af8c1d9b3674e5c8df52ec9faa45dea', ...}, ...)
+
+    def test_published_assistant_message_has_full_original_english_history_mapping(claude_answer):
+        from app.runtime.answer_publication import AnswerPublisher
+        from app.translation.history import BilingualHistory
+        from translation.fakes import service
+        client,conversation,task,attempt,root,route,machine=claude_answer
+        translation=service(client); publisher=AnswerPublisher(client.app.state.database.path,root,translation)
+        asyncio.run(publisher.stage(task,attempt,'1.0','en-answer','translation-review'))
+        machine.transition(task,attempt,'OUTPUT_PREPARING','READY','1.0'); publisher.publish(task,attempt,'1.0')
+        history=BilingualHistory(client.app.state.database.path).conversation(translation.router.lock(task,attempt),english=True)
+>       assert any(m['role']=='assistant' and 'INTERNAL_ENGLISH_CANARY' in m['content'] for m in history)
+E       assert False
+E        +  where False = any(<generator object test_published_assistant_message_has_full_original_english_history_mapping.<locals>.<genexpr> at 0x000001FF6DC17C60>)
+
+tests\integration\test_output_translation.py:113: AssertionError
+============================== warnings summary ===============================
+tests/integration/test_output_translation.py::test_approved_claude_answer_can_reach_a_chinese_release_gate
+  C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/integration/test_output_translation.py::test_published_assistant_message_has_full_original_english_history_mapping
+1 failed, 4 passed, 1 warning in 2.36s

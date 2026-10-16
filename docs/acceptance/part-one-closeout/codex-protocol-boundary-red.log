@@ -1,0 +1,52 @@
+F.FF                                                                     [100%]
+================================== FAILURES ===================================
+_____ test_provider_notification_cannot_forge_private_worker_diagnostics ______
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-180/test_provider_notification_can0')
+
+    def test_provider_notification_cannot_forge_private_worker_diagnostics(tmp_path):
+        client = NativeRpcClient(fixture_command(tmp_path, "forged"), tmp_path, metadata_methods={"echo"})
+        try:
+            client.start()
+            assert client.request("echo")["ok"]
+        finally:
+            client.close()
+>       assert "SECRET_TEST_CREDENTIAL" not in str(client.diagnostics)
+E       assert 'SECRET_TEST_CREDENTIAL' not in "{'server_st...pid': 40968}"
+E         
+E         'SECRET_TEST_CREDENTIAL' is contained here:
+E           'token': 'SECRET_TEST_CREDENTIAL'}], 'notification_methods': [], 'server_pid': 40968}
+E         ?           ++++++++++++++++++++++
+
+tests\contracts\test_codex_protocol.py:153: AssertionError
+_ test_rpc_error_and_truncated_eof_are_fixed_and_cleanup[truncated-RPC_TRUNCATED_NDJSON] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-180/test_rpc_error_and_truncated_e1')
+mode = 'truncated', reason = 'RPC_TRUNCATED_NDJSON'
+
+    @pytest.mark.parametrize("mode,reason", [("error", "RPC_SERVER_ERROR"), ("truncated", "RPC_TRUNCATED_NDJSON")])
+    def test_rpc_error_and_truncated_eof_are_fixed_and_cleanup(tmp_path, mode, reason):
+        client = NativeRpcClient(fixture_command(tmp_path, mode), tmp_path, metadata_methods={"echo"})
+        client.start()
+>       with pytest.raises(NativeRpcError, match=reason) as raised:
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError: Regex pattern did not match.
+E         Expected regex: 'RPC_TRUNCATED_NDJSON'
+E         Actual message: 'RPC_WORKER_FAILED'
+
+tests\contracts\test_codex_protocol.py:160: AssertionError
+__________ test_codex_metadata_cannot_launch_exec_inference_command ___________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-180/test_codex_metadata_cannot_lau0')
+
+    def test_codex_metadata_cannot_launch_exec_inference_command(tmp_path):
+>       with pytest.raises(NativeRpcError, match="CODEX_METADATA_COMMAND_REQUIRED"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE NativeRpcError
+
+tests\contracts\test_codex_protocol.py:177: Failed
+=========================== short test summary info ===========================
+FAILED tests/contracts/test_codex_protocol.py::test_provider_notification_cannot_forge_private_worker_diagnostics
+FAILED tests/contracts/test_codex_protocol.py::test_rpc_error_and_truncated_eof_are_fixed_and_cleanup[truncated-RPC_TRUNCATED_NDJSON]
+FAILED tests/contracts/test_codex_protocol.py::test_codex_metadata_cannot_launch_exec_inference_command
+3 failed, 1 passed, 11 deselected in 1.19s

@@ -1,0 +1,28 @@
+{
+  "first_part_files": {
+    "docs/acceptance/part-one-freeze-20261014/archive-files.json": "dfc936c48df2fcb20656306ebc1ceb9c4931e1d524807fffe061c0fd42d0d137",
+    "docs/acceptance/part-one-freeze-20261014/archive-verification.json": "6c08db3ae1886a24935e2e1c1effccfd25713759c0ff54f04c375cba3205b25b",
+    "docs/acceptance/part-one-freeze-20261014/contracts-check.json": "def49d1a1f08bf3de97335ebcc7f331f810725d864b7a841c7f156166977e512",
+    "docs/acceptance/part-one-freeze-20261014/freeze.json": "7ec6679647dcb35bc489bf853932585b61075c2d785861819455b299cce71405",
+    "docs/acceptance/part-one-freeze-20261014/FREEZE.md": "ee0eb37cf165cf474dcb0a44b9e46028cf54c197211bf9732150dac451a8ca7a",
+    "docs/acceptance/part-one-freeze-20261014/local-full-junit.xml": "645df94c295f8bd0fb5369d509a4022f46f0e8942174b542c6df0b8a6c158ab7",
+    "docs/acceptance/part-one-freeze-20261014/local-full-test.json": "84b74946207a3b0c8cc40ef044b062ec3be5ba07bf1ab0585c7dc077c1ab253f",
+    "docs/acceptance/part-one-freeze-20261014/local-full-test.log": "88e5e125f64ce412f3ff2c076ad15151862a447f9328aa98da125a37a9178fb0",
+    "docs/acceptance/part-one-freeze-20261014/part-one-source-snapshot.zip": "fae705cb552b10ff3344f0de99fbc02e14eb3bc674c5e06e8a1ca6d9a6f9d369",
+    "docs/acceptance/part-one-freeze-20261014/source-before-tests.json": "167130b12823776da64ca067377c27022aace3b774fa42bb197383b16367bc58",
+    "docs/acceptance/part-one-freeze-20261014/source-hashes.json": "def606c35a0a82336f3e45116e01d3d9b773c1004c347376cd55677ab045c09b",
+    "docs/acceptance/part-one-freeze-20261014/status-before-freeze/00-task-board.json": "4fabfa505f55d2c4cc040a7c6542d0a249e3c125da60e5ad03f7260e33432b0e",
+    "docs/acceptance/part-one-freeze-20261014/status-before-freeze/01-tasks-01.json": "1f052d948287d742e9e02527199620d95fd9a6b5da42192c5534cddb82508328",
+    "docs/acceptance/part-one-freeze-20261014/status-before-freeze/02-TASK-INDEX.md": "0414569c1deb51e6cc57f4a5e89d2b66d2eb15523f3e348f8391047e6070c49b",
+    "docs/acceptance/part-one-freeze-20261014/status-before-freeze/03-part-one-progress.json": "37ef8dfa61dd91d39c61474dfcfdc1dd33a5bc628b94617a5d9d95aa2ef9c3b8",
+    "docs/acceptance/part-one-freeze-20261014/status-before-freeze/04-part-one-progress.md": "32b258e327bafdcabb3cc56814e88dbb36c05bb83f4e1f35f16733a6a2df863a",
+    "docs/acceptance/part-one-freeze-20261014/status-before-freeze/05-backend-handoff.json": "e9a6ba3f8b2206b7d33e7eca5a6d7e950bd4827e6283a0b4f931484f53aa6828",
+    "docs/acceptance/part-one-freeze-20261014/status-before-freeze/06-backend-source-hashes.json": "0e49ca976a179024d246f333f66243c2b0d506fad1eb0ff90e4ed662edea8414"
+  },
+  "task_groups": {
+    "part_one": "78a44d878e3dcd0acb3894c4fff61d3842fbd4a566366f5a587cb804dd9c10f9",
+    "future": "bf0c35acd5625a79b3bfa7e45f916dc426c70fcbc4245e4d00a5f04268c9526d"
+  },
+  "first_part_execution_summary": "a0fc438b9ccb496d61b1e6447994ce539c89b3cfee50c8752ae0ac974e785647",
+  "historical_verification_sha256": "91065d02c28dbd616f082150715507b7d8cda64f7f142ca91a0d83f61e8c5c84"
+}

@@ -1,0 +1,217 @@
+....F.....FFFFFFFFF.                                                     [100%]
+================================== FAILURES ===================================
+______ test_paper_trace_and_statistics_use_actual_pinned_sources_and_csv ______
+
+client = <starlette.testclient.TestClient object at 0x0000020395A34770>
+
+    def test_paper_trace_and_statistics_use_actual_pinned_sources_and_csv(client):
+        candidate,_=case(client,'paper',PAPER)
+        results=NativeRegistryValidator(client.app.state.database.path)(candidate)
+        assert len(results)==2 and all(r['passed'] for r in results)
+        stats=results[1]['evidence']['details']['recomputed_statistics']
+>       assert stats=={'n':3,'sum':'6','mean':'2','min':'1','max':'3','range':'2','sample_sd':'1'}
+E       AssertionError: assert {'n': 3, 'sum...mple_sd': '1'} == {'n': 3, 'sum...in': '1', ...}
+E         
+E         Omitting 4 identical items, use -vv to show
+E         Right contains 3 more items:
+E         {'max': '3', 'min': '1', 'range': '2'}
+E         Use -v to get more diff
+
+tests\integration\test_native_profile_checks.py:128: AssertionError
+_ test_binary_attachment_requires_actual_raw_parse_and_pinned_full_derived_view[docx] _
+
+client = <starlette.testclient.TestClient object at 0x00000203993EAE00>
+format = 'docx'
+
+    @pytest.mark.parametrize('format',['docx','pdf'])
+    def test_binary_attachment_requires_actual_raw_parse_and_pinned_full_derived_view(client,format):
+        candidate,_=case(client,'document',DOC,formats=['markdown'],attachment=('source.'+format,original_attachment(format)))
+        results=NativeRegistryValidator(client.app.state.database.path)(candidate)
+>       assert all(result['passed'] for result in results)
+E       assert False
+E        +  where False = all(<generator object test_binary_attachment_requires_actual_raw_parse_and_pinned_full_derived_view.<locals>.<genexpr> at 0x0000020394B828E0>)
+
+tests\integration\test_native_profile_checks.py:188: AssertionError
+_ test_binary_attachment_requires_actual_raw_parse_and_pinned_full_derived_view[pdf] _
+
+client = <starlette.testclient.TestClient object at 0x00000203984B1BF0>
+format = 'pdf'
+
+    @pytest.mark.parametrize('format',['docx','pdf'])
+    def test_binary_attachment_requires_actual_raw_parse_and_pinned_full_derived_view(client,format):
+        candidate,_=case(client,'document',DOC,formats=['markdown'],attachment=('source.'+format,original_attachment(format)))
+        results=NativeRegistryValidator(client.app.state.database.path)(candidate)
+>       assert all(result['passed'] for result in results)
+E       assert False
+E        +  where False = all(<generator object test_binary_attachment_requires_actual_raw_parse_and_pinned_full_derived_view.<locals>.<genexpr> at 0x0000020398515B10>)
+
+tests\integration\test_native_profile_checks.py:188: AssertionError
+_ test_binary_attachment_manifest_cannot_claim_unverified_coverage_or_hash[block_scope-value0-ATTACHMENT_BLOCK_COVERAGE_MISMATCH] _
+
+client = <starlette.testclient.TestClient object at 0x0000020398576690>
+field = 'block_scope', value = [], reason = 'ATTACHMENT_BLOCK_COVERAGE_MISMATCH'
+
+    @pytest.mark.parametrize('field,value,reason',[
+        ('block_scope',[],'ATTACHMENT_BLOCK_COVERAGE_MISMATCH'),
+        ('source_sha256','0'*64,'ATTACHMENT_SOURCE_BINDING_MISMATCH'),
+        ('text_sha256','0'*64,'ATTACHMENT_DERIVED_SOURCE_NOT_PINNED'),
+    ])
+    def test_binary_attachment_manifest_cannot_claim_unverified_coverage_or_hash(client,field,value,reason):
+        candidate,_=case(client,'document',DOC,formats=['markdown'],attachment=('source.docx',original_attachment('docx')))
+        with closing(client.app.state.database.connect()) as c:
+            checkpoint=json.loads(c.execute('SELECT checkpoint_json FROM task_runs WHERE task_id=?',(candidate.contract.task_id,)).fetchone()[0])
+            checkpoint['input_materials'][0][field]=value
+            c.execute('UPDATE task_runs SET checkpoint_json=? WHERE task_id=?',(json.dumps(checkpoint),candidate.contract.task_id))
+        results=NativeRegistryValidator(client.app.state.database.path)(candidate)
+>       assert all(not result['passed'] and result['evidence']['reason_code']==reason for result in results)
+E       assert False
+E        +  where False = all(<generator object test_binary_attachment_manifest_cannot_claim_unverified_coverage_or_hash.<locals>.<genexpr> at 0x000002039862E8E0>)
+
+tests\integration\test_native_profile_checks.py:206: AssertionError
+_ test_binary_attachment_manifest_cannot_claim_unverified_coverage_or_hash[source_sha256-0000000000000000000000000000000000000000000000000000000000000000-ATTACHMENT_SOURCE_BINDING_MISMATCH] _
+
+client = <starlette.testclient.TestClient object at 0x0000020398633020>
+field = 'source_sha256'
+value = '0000000000000000000000000000000000000000000000000000000000000000'
+reason = 'ATTACHMENT_SOURCE_BINDING_MISMATCH'
+
+    @pytest.mark.parametrize('field,value,reason',[
+        ('block_scope',[],'ATTACHMENT_BLOCK_COVERAGE_MISMATCH'),
+        ('source_sha256','0'*64,'ATTACHMENT_SOURCE_BINDING_MISMATCH'),
+        ('text_sha256','0'*64,'ATTACHMENT_DERIVED_SOURCE_NOT_PINNED'),
+    ])
+    def test_binary_attachment_manifest_cannot_claim_unverified_coverage_or_hash(client,field,value,reason):
+        candidate,_=case(client,'document',DOC,formats=['markdown'],attachment=('source.docx',original_attachment('docx')))
+        with closing(client.app.state.database.connect()) as c:
+            checkpoint=json.loads(c.execute('SELECT checkpoint_json FROM task_runs WHERE task_id=?',(candidate.contract.task_id,)).fetchone()[0])
+            checkpoint['input_materials'][0][field]=value
+            c.execute('UPDATE task_runs SET checkpoint_json=? WHERE task_id=?',(json.dumps(checkpoint),candidate.contract.task_id))
+        results=NativeRegistryValidator(client.app.state.database.path)(candidate)
+>       assert all(not result['passed'] and result['evidence']['reason_code']==reason for result in results)
+E       assert False
+E        +  where False = all(<generator object test_binary_attachment_manifest_cannot_claim_unverified_coverage_or_hash.<locals>.<genexpr> at 0x00000203986EA190>)
+
+tests\integration\test_native_profile_checks.py:206: AssertionError
+_ test_binary_attachment_manifest_cannot_claim_unverified_coverage_or_hash[text_sha256-0000000000000000000000000000000000000000000000000000000000000000-ATTACHMENT_DERIVED_SOURCE_NOT_PINNED] _
+
+client = <starlette.testclient.TestClient object at 0x00000203986F3AC0>
+field = 'text_sha256'
+value = '0000000000000000000000000000000000000000000000000000000000000000'
+reason = 'ATTACHMENT_DERIVED_SOURCE_NOT_PINNED'
+
+    @pytest.mark.parametrize('field,value,reason',[
+        ('block_scope',[],'ATTACHMENT_BLOCK_COVERAGE_MISMATCH'),
+        ('source_sha256','0'*64,'ATTACHMENT_SOURCE_BINDING_MISMATCH'),
+        ('text_sha256','0'*64,'ATTACHMENT_DERIVED_SOURCE_NOT_PINNED'),
+    ])
+    def test_binary_attachment_manifest_cannot_claim_unverified_coverage_or_hash(client,field,value,reason):
+        candidate,_=case(client,'document',DOC,formats=['markdown'],attachment=('source.docx',original_attachment('docx')))
+        with closing(client.app.state.database.connect()) as c:
+            checkpoint=json.loads(c.execute('SELECT checkpoint_json FROM task_runs WHERE task_id=?',(candidate.contract.task_id,)).fetchone()[0])
+            checkpoint['input_materials'][0][field]=value
+            c.execute('UPDATE task_runs SET checkpoint_json=? WHERE task_id=?',(json.dumps(checkpoint),candidate.contract.task_id))
+        results=NativeRegistryValidator(client.app.state.database.path)(candidate)
+>       assert all(not result['passed'] and result['evidence']['reason_code']==reason for result in results)
+E       assert False
+E        +  where False = all(<generator object test_binary_attachment_manifest_cannot_claim_unverified_coverage_or_hash.<locals>.<genexpr> at 0x000002039879B440>)
+
+tests\integration\test_native_profile_checks.py:206: AssertionError
+_ test_paper_supported_requested_statistics_and_explicit_sd_rounding[mean=2.5] _
+
+client = <starlette.testclient.TestClient object at 0x00000203988105A0>
+body = b'mean=2.5'
+
+    @pytest.mark.parametrize('body',[
+        b'mean=2.5',b'mean=2.5; range=3',b'mean=2.5; sample_sd=1.291',
+    ])
+    def test_paper_supported_requested_statistics_and_explicit_sd_rounding(client,body):
+        candidate,_=case(client,'paper',b'# Results\n\n'+body+b'. Observations [1].\n\n# References\n\n[1] Study https://example.org/paper-a\n',
+            measurements=b'value\n1\n2\n3\n4\n')
+        result=NativeRegistryValidator(client.app.state.database.path)(candidate)[1]
+>       assert result['passed'],result
+E       AssertionError: {'criterion_id': 'paper.C2', 'passed': False, 'evidence': {'criterion_id': 'paper.C2', 'revision_id': 'candidate-2a534...39d001bc868cd86dade2dc8249c9b37d6e9793d8cb07311d8d406c214c4c40f2', 'task_id': '2a534bc6195041c897e9d94c1cb458ed', ...}}
+E       assert False
+
+tests\integration\test_native_profile_checks.py:216: AssertionError
+_ test_paper_supported_requested_statistics_and_explicit_sd_rounding[mean=2.5; range=3] _
+
+client = <starlette.testclient.TestClient object at 0x0000020398821E10>
+body = b'mean=2.5; range=3'
+
+    @pytest.mark.parametrize('body',[
+        b'mean=2.5',b'mean=2.5; range=3',b'mean=2.5; sample_sd=1.291',
+    ])
+    def test_paper_supported_requested_statistics_and_explicit_sd_rounding(client,body):
+        candidate,_=case(client,'paper',b'# Results\n\n'+body+b'. Observations [1].\n\n# References\n\n[1] Study https://example.org/paper-a\n',
+            measurements=b'value\n1\n2\n3\n4\n')
+        result=NativeRegistryValidator(client.app.state.database.path)(candidate)[1]
+>       assert result['passed'],result
+E       AssertionError: {'criterion_id': 'paper.C2', 'passed': False, 'evidence': {'criterion_id': 'paper.C2', 'revision_id': 'candidate-03876...33df17507d6310fcfc93d7ba9cf233710bf16cee4845d98473b58e49ad8ef68b', 'task_id': '038769ff865f4aa0af389d31d3c096b7', ...}}
+E       assert False
+
+tests\integration\test_native_profile_checks.py:216: AssertionError
+_ test_paper_supported_requested_statistics_and_explicit_sd_rounding[mean=2.5; sample_sd=1.291] _
+
+client = <starlette.testclient.TestClient object at 0x0000020398877680>
+body = b'mean=2.5; sample_sd=1.291'
+
+    @pytest.mark.parametrize('body',[
+        b'mean=2.5',b'mean=2.5; range=3',b'mean=2.5; sample_sd=1.291',
+    ])
+    def test_paper_supported_requested_statistics_and_explicit_sd_rounding(client,body):
+        candidate,_=case(client,'paper',b'# Results\n\n'+body+b'. Observations [1].\n\n# References\n\n[1] Study https://example.org/paper-a\n',
+            measurements=b'value\n1\n2\n3\n4\n')
+        result=NativeRegistryValidator(client.app.state.database.path)(candidate)[1]
+>       assert result['passed'],result
+E       AssertionError: {'criterion_id': 'paper.C2', 'passed': False, 'evidence': {'criterion_id': 'paper.C2', 'revision_id': 'candidate-c6c62...3c26efee56a426ae830a91335caf553db3c69f75bf3221551c58a218c8240efe', 'task_id': 'c6c622fdf9ed46ef8214d5bd99a69912', ...}}
+E       assert False
+
+tests\integration\test_native_profile_checks.py:216: AssertionError
+_ test_paper_wrong_or_unreported_statistics_never_pass[mean=6-RECOMPUTED_STATISTICS_MISMATCH] _
+
+client = <starlette.testclient.TestClient object at 0x0000020398897F00>
+body = b'mean=6', reason = 'RECOMPUTED_STATISTICS_MISMATCH'
+
+    @pytest.mark.parametrize('body,reason',[(b'mean=6','RECOMPUTED_STATISTICS_MISMATCH'),
+        (b'Only a narrative result.','RECOMPUTED_STATISTICS_NOT_REPORTED')])
+    def test_paper_wrong_or_unreported_statistics_never_pass(client,body,reason):
+        candidate,_=case(client,'paper',b'# Results\n\n'+body+b' [1].\n\n# References\n\n[1] Study https://example.org/paper-a\n',
+            measurements=b'value\n1\n2\n3\n4\n')
+        result=NativeRegistryValidator(client.app.state.database.path)(candidate)[1]
+>       assert not result['passed'] and result['evidence']['reason_code']==reason
+E       AssertionError: assert (not False and 'RECOMPUTED_S..._NOT_REPORTED' == 'RECOMPUTED_S...TICS_MISMATCH'
+E         
+E         - RECOMPUTED_STATISTICS_MISMATCH
+E         + RECOMPUTED_STATISTICS_NOT_REPORTED)
+
+tests\integration\test_native_profile_checks.py:230: AssertionError
+============================== warnings summary ===============================
+tests/integration/test_native_profile_checks.py::test_frozen_document_profile_has_real_source_and_complete_format_checks
+  C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+tests/integration/test_native_profile_checks.py::test_frozen_document_profile_has_real_source_and_complete_format_checks
+tests/integration/test_native_profile_checks.py::test_frozen_document_profile_has_real_source_and_complete_format_checks
+  <frozen importlib._bootstrap>:488: DeprecationWarning: builtin type SwigPyPacked has no __module__ attribute
+
+tests/integration/test_native_profile_checks.py::test_frozen_document_profile_has_real_source_and_complete_format_checks
+tests/integration/test_native_profile_checks.py::test_frozen_document_profile_has_real_source_and_complete_format_checks
+  <frozen importlib._bootstrap>:488: DeprecationWarning: builtin type SwigPyObject has no __module__ attribute
+
+tests/integration/test_native_profile_checks.py::test_frozen_document_profile_has_real_source_and_complete_format_checks
+  <frozen importlib._bootstrap>:488: DeprecationWarning: builtin type swigvarlink has no __module__ attribute
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/integration/test_native_profile_checks.py::test_paper_trace_and_statistics_use_actual_pinned_sources_and_csv
+FAILED tests/integration/test_native_profile_checks.py::test_binary_attachment_requires_actual_raw_parse_and_pinned_full_derived_view[docx]
+FAILED tests/integration/test_native_profile_checks.py::test_binary_attachment_requires_actual_raw_parse_and_pinned_full_derived_view[pdf]
+FAILED tests/integration/test_native_profile_checks.py::test_binary_attachment_manifest_cannot_claim_unverified_coverage_or_hash[block_scope-value0-ATTACHMENT_BLOCK_COVERAGE_MISMATCH]
+FAILED tests/integration/test_native_profile_checks.py::test_binary_attachment_manifest_cannot_claim_unverified_coverage_or_hash[source_sha256-0000000000000000000000000000000000000000000000000000000000000000-ATTACHMENT_SOURCE_BINDING_MISMATCH]
+FAILED tests/integration/test_native_profile_checks.py::test_binary_attachment_manifest_cannot_claim_unverified_coverage_or_hash[text_sha256-0000000000000000000000000000000000000000000000000000000000000000-ATTACHMENT_DERIVED_SOURCE_NOT_PINNED]
+FAILED tests/integration/test_native_profile_checks.py::test_paper_supported_requested_statistics_and_explicit_sd_rounding[mean=2.5]
+FAILED tests/integration/test_native_profile_checks.py::test_paper_supported_requested_statistics_and_explicit_sd_rounding[mean=2.5; range=3]
+FAILED tests/integration/test_native_profile_checks.py::test_paper_supported_requested_statistics_and_explicit_sd_rounding[mean=2.5; sample_sd=1.291]
+FAILED tests/integration/test_native_profile_checks.py::test_paper_wrong_or_unreported_statistics_never_pass[mean=6-RECOMPUTED_STATISTICS_MISMATCH]
+10 failed, 10 passed, 6 warnings in 6.11s
+<sys>:0: DeprecationWarning: builtin type swigvarlink has no __module__ attribute

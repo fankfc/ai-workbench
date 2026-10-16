@@ -1,0 +1,21 @@
+{
+  "sample": 4,
+  "time": "2026-10-15T01:35:45.693195+00:00",
+  "service_pid": 46680,
+  "elapsed_seconds": 7.776604000013322,
+  "end_to_end_ms": 1074.0871999878436,
+  "failure": null,
+  "successes": 4,
+  "failures": 0,
+  "provider_boundary": "fake",
+  "service_resources": {
+    "pid": 46680,
+    "rss_bytes": 68046848,
+    "handles": 195,
+    "threads": 9
+  },
+  "disk_free_bytes": 10292707328,
+  "managed_data_bytes": 3634579,
+  "pending_tasks": 0,
+  "persisted_tasks": 4
+}

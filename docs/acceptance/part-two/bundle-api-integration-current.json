@@ -1,0 +1,15 @@
+{
+  "time": "2026-10-14T08:16:58.486795+00:00",
+  "command": [
+    "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\.venv\\Scripts\\python.exe",
+    "-m",
+    "pytest",
+    "-q",
+    "tests/artifacts/test_atomic_publication.py",
+    "tests/integration/test_public_projection.py",
+    "tests/integration/test_storage_relocation.py"
+  ],
+  "exit_code": 1,
+  "git_commit": null,
+  "log": "docs\\acceptance\\part-two\\bundle-api-integration-current.log"
+}

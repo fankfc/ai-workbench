@@ -1,0 +1,167 @@
+{
+  "generated_at": "2026-10-14T03:40:00.716734+00:00",
+  "invocation_id": "40512fd95cf94631a3598203d16ea06b",
+  "status": "completed",
+  "budget_intent_index": 1,
+  "maximum_model_turn_submissions": 1,
+  "turn_start_submissions": 1,
+  "server_starts": 1,
+  "observed_bound_turn_starts": 1,
+  "accepted_turn_start_responses": 1,
+  "wall_limit_seconds": 120,
+  "max_capture_bytes": 2000000,
+  "automatic_retries": false,
+  "experimental_internal_only": true,
+  "actual_model_id": null,
+  "actual_model_identity_verified": false,
+  "identity_status": "unknown",
+  "scope_enforced": false,
+  "production_enabled": false,
+  "config_auth_or_account_files_read_by_assistant": false,
+  "credentials_or_reasoning_persisted": false,
+  "fixed_inline_sample": [
+    1,
+    2,
+    3
+  ],
+  "rpc_calls": [
+    {
+      "method": "initialize",
+      "id": 1
+    },
+    {
+      "method": "initialized",
+      "id": null
+    },
+    {
+      "method": "thread/start",
+      "id": 2
+    },
+    {
+      "method": "turn/start",
+      "id": 3
+    }
+  ],
+  "notification_methods": [
+    "item/agentMessage/delta",
+    "item/completed",
+    "item/started",
+    "rawResponse/completed",
+    "thread/started",
+    "thread/status/changed",
+    "thread/tokenUsage/updated",
+    "turn/completed",
+    "turn/started",
+    "unclassified"
+  ],
+  "callback_count": 0,
+  "observed_tool_count": 0,
+  "execution_model_candidates": [],
+  "reroutes": [],
+  "raw_response_receipts": [
+    {
+      "thread_id": "01a1387e-dfb8-7072-9cc4-31fce3dbf629",
+      "turn_id": "01a1387e-e328-7f80-b908-9cf497b5678f",
+      "response_id": "resp_05a3391d56e71f2a016acef9a8546c81919bc7ffb639ecc65e",
+      "binding_matches_owned_turn": true,
+      "usage": {
+        "totalTokens": 25067,
+        "inputTokens": 25044,
+        "cachedInputTokens": 0,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 23,
+        "reasoningOutputTokens": 0
+      },
+      "usage_metadata_container_type": "dict",
+      "metadata_value_type": "not_recorded"
+    }
+  ],
+  "reported_usage": {
+    "totalTokens": 25067,
+    "inputTokens": 25044,
+    "cachedInputTokens": 0,
+    "cacheWriteInputTokens": 0,
+    "outputTokens": 23,
+    "reasoningOutputTokens": 0
+  },
+  "usage_source": "thread/tokenUsage/updated.tokenUsage.total",
+  "reasoning_tokens_are_output_subset": true,
+  "max_output_tokens_parameter_supported": false,
+  "requested_policy": {
+    "approvalPolicy": "never",
+    "sandbox": "read-only",
+    "networkAccess": false,
+    "dynamicTools": [],
+    "effort": "low"
+  },
+  "schema_sha256": {
+    "ThreadStartParams": "80a40a7fac15b4bf70efb7f893fb353acc0a0d30c68f54aee4f01923deca85de",
+    "TurnStartParams": "07771223642e1b61bd9aac0069fc0f98143a1c047724ca02c7ceb13653442738",
+    "RawResponseCompletedNotification": "aba140e87952c900f96e0308a8849d3e313d985de1f1aa2b77f193884a76357c"
+  },
+  "observer_sha256": "c6dcef0490740f8376b9b0825a15c8f96d9c7b50f8a648f7864912433da0c21d",
+  "requested_model": "gpt-6.1-sol",
+  "runtime_version": "0.160.0",
+  "executable_sha256": "4b01d5920e6785614727443bbecf343f4dedbb7347052b72ba805aab6353ef01",
+  "command": [
+    "C:\\Users\\asd15\\AppData\\Local\\OpenAI\\Codex\\bin\\f544b3844e0f14e9\\codex.exe",
+    "app-server",
+    "--listen",
+    "stdio://"
+  ],
+  "requested_model_semantics": "Configuration selection; not execution identity.",
+  "server_pid": 51532,
+  "thread_id": "01a1387e-dfb8-7072-9cc4-31fce3dbf629",
+  "configured_thread_model": "gpt-6.1-sol",
+  "echoed_policy": {
+    "approvalPolicy": "never",
+    "sandbox_type": "readOnly",
+    "networkAccess": false
+  },
+  "turn_id": "01a1387e-e328-7f80-b908-9cf497b5678f",
+  "turn_completion_status": "completed",
+  "final_text_sha256": "74374201cf15a83f65cb169b3a80041ac8f5ef111b643268df7813c75b63837a",
+  "final_text": "{\"count\":3,\"sum\":6,\"mean\":2}",
+  "arithmetic_check": true,
+  "resources_after": {
+    "running": 0,
+    "temp_dirs": 0,
+    "open_handles": 0,
+    "peak_reserved_handles": 9,
+    "active_processes": 0,
+    "failed_cleanups": 0,
+    "query_errors": []
+  },
+  "local_cleanup": {
+    "local_state": "cancelled",
+    "remote_state": "unknown",
+    "remote_stop_confirmed": false,
+    "forced": true,
+    "exit_code": 0,
+    "stdout_kept_bytes": 66097,
+    "stderr_kept_bytes": 304,
+    "raw_output_persisted": false
+  },
+  "duration_seconds": 29.979,
+  "completed_at": "2026-10-14T03:40:30.689023+00:00",
+  "model_field_observation_scope": {
+    "field_allowlist": [
+      "model",
+      "modelId",
+      "model_id"
+    ],
+    "recursive_container_allowlist": [
+      "usageMetadata",
+      "usage_metadata",
+      "metadata",
+      "response",
+      "msg"
+    ],
+    "arbitrary_metadata_keys_or_values_persisted": false,
+    "metadata_value_type_recorded": false,
+    "absence_is_not_proof_no_other_private_model_telemetry_exists": true
+  },
+  "private_capture_boundary": "Observer exports no raw stdout/stderr, prompt, reasoning, credential or account records; official runtime internal logging was not independently audited.",
+  "tool_observation_boundary": "Zero observed recognized tool item types and zero server callbacks; not proof of tools disabled or complete internal tool trace.",
+  "post_capture_annotation": "metadata_type renamed to usage_metadata_container_type for accuracy; original observer records the wrapper type, not the arbitrary metadata member value type."
+}

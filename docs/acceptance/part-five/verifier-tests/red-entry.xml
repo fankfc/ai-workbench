@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="0.294" timestamp="2026-10-15T13:10:55.020762+08:00" hostname="帆"><testcase classname="tests.acceptance.test_work_order_protocol" name="test_phase_five_current_run_entry_exists" time="0.001"><failure message="AssertionError: Stage-five has no current-run verification entry&#10;assert False&#10; +  where False = is_file()&#10; +    where is_file = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/scripts/phase_five_verify.py').is_file">def test_phase_five_current_run_entry_exists():
+&gt;       assert SCRIPT.is_file(), 'Stage-five has no current-run verification entry'
+E       AssertionError: Stage-five has no current-run verification entry
+E       assert False
+E        +  where False = is_file()
+E        +    where is_file = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/scripts/phase_five_verify.py').is_file
+
+tests\acceptance\test_work_order_protocol.py:15: AssertionError</failure></testcase></testsuite></testsuites>

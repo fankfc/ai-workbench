@@ -1,0 +1,23 @@
+F.                                                                       [100%]
+================================== FAILURES ===================================
+________ test_workspace_symlink_inside_scope_is_rejected_before_start _________
+
+factory = <function factory.<locals>.create at 0x000002B28E176480>
+
+    def test_workspace_symlink_inside_scope_is_rejected_before_start(factory):
+        runtime=factory()
+        actual=runtime.workspace_root/'actual'; actual.mkdir()
+        alias=runtime.workspace_root/'alias'
+        try: alias.symlink_to(actual,target_is_directory=True)
+        except OSError: pytest.skip('Windows symlink creation unavailable')
+        async def collect():
+            return [event async for event in runtime.invoke_text('fixed',task_id='task',attempt_id='attempt',request_id='linked',
+                phase='planning',workspace=alias,output_schema=SCHEMA)]
+>       with pytest.raises(ScopedCodexError,match='WORKSPACE_REPARSE_FORBIDDEN'): asyncio.run(collect())
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ScopedCodexError
+
+tests\contracts\test_scoped_codex_runtime.py:258: Failed
+=========================== short test summary info ===========================
+FAILED tests/contracts/test_scoped_codex_runtime.py::test_workspace_symlink_inside_scope_is_rejected_before_start
+1 failed, 1 passed in 3.46s

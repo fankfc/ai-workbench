@@ -1,0 +1,36 @@
+{
+  "version": "1.0",
+  "build_id": "85d7fc5cf76bda1054c14a05c09b914b35194a5d34d464d08056d1e6d45ef081",
+  "run_id": null,
+  "created_at": "2026-10-14T15:00:50.190739+00:00",
+  "seed": 4317,
+  "encoding": "UTF-8",
+  "provider_boundary": "fake",
+  "files": [
+    {
+      "path": ".qa-run.json",
+      "size": 154,
+      "sha256": "3f0c7e19a454a9e5e8f167d7305b4538927a6132c22668d8407587f0700c0a67"
+    },
+    {
+      "path": "product-qa-checks.json",
+      "size": 61582,
+      "sha256": "6a396e810515f71469be7475baf6db5bd40ae957562113c5ef7632156caf0030"
+    },
+    {
+      "path": "scenario-result.json",
+      "size": 503,
+      "sha256": "80330fb92c55623325e6dcbeefc57e70d3eabacf4625d14618b05eac91fb8b68"
+    },
+    {
+      "path": "translation-corpus-report.json",
+      "size": 503,
+      "sha256": "80330fb92c55623325e6dcbeefc57e70d3eabacf4625d14618b05eac91fb8b68"
+    },
+    {
+      "path": "native-translation/workbench.sqlite3",
+      "size": 339968,
+      "sha256": "02f2eeefb82b283d6f97f073381b8e94b4e3fcad34916957dcc10bbadb85f38e"
+    }
+  ]
+}

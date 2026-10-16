@@ -1,0 +1,13 @@
+{
+  "time": "2026-10-15T02:50:21.232809+00:00",
+  "command": [
+    "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\.venv\\Scripts\\python.exe",
+    "-m",
+    "pytest",
+    "-q",
+    "tests/integration/test_composite_workflow.py::test_csv_code_chart_a_canonical_translation_files_and_reply_have_two_real_recomputed_versions[claude]"
+  ],
+  "exit_code": 1,
+  "git_commit": null,
+  "log": "docs\\acceptance\\part-four\\delivery-proof-budget-red.log"
+}

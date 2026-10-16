@@ -1,0 +1,47 @@
+
+> ai-workbench@0.1.0 test:e2e
+> playwright test tests/e2e/artifact-files.spec.ts tests/e2e/settings-usage.spec.ts tests/e2e/composer-history.spec.ts
+
+
+Running 7 tests using 1 worker
+
+(node:49328) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 1 tests\e2e\artifact-files.spec.ts:6:5 › product bundles preview and save three exact bilingual format pairs (17.0s)
+  ok 2 tests\e2e\artifact-files.spec.ts:15:5 › cancelled save and existing filenames never report a successful pair (14.6s)
+  ok 3 tests\e2e\composer-history.spec.ts:5:5 › IME enter does not submit, approved history survives reload and drafts remain per conversation (6.7s)
+  x  4 tests\e2e\composer-history.spec.ts:11:5 › only a native selected attachment is imported and unsupported material cannot be sent (20.0s)
+(node:58016) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 5 tests\e2e\composer-history.spec.ts:14:5 › double click sends one client request and script text cannot execute (6.6s)
+  ok 6 tests\e2e\settings-usage.spec.ts:5:5 › usage has no invented savings, storage cleanup is previewed and diagnostics stay separate (5.8s)
+  ok 7 tests\e2e\settings-usage.spec.ts:8:5 › selected directory migration keeps the source and restarts the owned backend (9.5s)
+
+
+  1) tests\e2e\composer-history.spec.ts:11:5 › only a native selected attachment is imported and unsupported material cannot be sent 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: "ready"
+    Received: "offline"
+
+    Call Log:
+    - Timeout 20000ms exceeded while waiting on the predicate
+
+       at ..\support\electron-fixture.ts:11
+
+       9 | export async function launchDesktop(userData:string,mode:'fake'|'real'='fake'):Promise<{app:ElectronApplication;page:Page}> {
+      10 |   const app=await _electron.launch({executablePath:resolve('node_modules/electron/dist/electron.exe'),args:[resolve('apps/desktop/dist-test/main/index.cjs'),`--user-data-dir=${userData}`,...(mode==='fake'?['--demo']:[])],env:{...process.env,ELECTRON_RUN_AS_NODE:undefined},timeout:20000});
+    > 11 |   try{const page=await app.firstWindow();await page.waitForFunction(()=>!!window.workbench);await expect.poll(()=>app.evaluate(()=> (globalThis as any).__desktopTest.getBackendStatus()?.state),{timeout:20000}).toBe('ready');await expect(page.getByText('正在连接本地服务…',{exact:true})).toHaveCount(0);return {app,page};}catch(error){await app.close().catch(()=>{});throw error;}
+         |                                                                                                                                                                                                                   ^
+      12 | }
+      13 | export const test=base.extend<{desktop:DesktopFixture}>({desktop:async({},use,testInfo)=>{
+      14 |   const userData=await mkdtemp(join(tmpdir(),'workbench-electron-'));let launched:Awaited<ReturnType<typeof launchDesktop>>|undefined;const logs:string[]=[];
+        at launchDesktop (C:\Users\asd15\Documents\ChatGPT\ai\tests\support\electron-fixture.ts:11:211)
+        at Object.desktop (C:\Users\asd15\Documents\ChatGPT\ai\tests\support\electron-fixture.ts:16:14)
+
+    Error Context: artifacts\playwright\composer-history-only-a-na-06ff1-ted-material-cannot-be-sent\error-context.md
+
+  1 failed
+    tests\e2e\composer-history.spec.ts:11:5 › only a native selected attachment is imported and unsupported material cannot be sent 
+  6 passed (1.4m)

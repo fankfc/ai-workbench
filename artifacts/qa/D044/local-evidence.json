@@ -1,0 +1,46 @@
+{
+  "card": "D044",
+  "case": "evaluation_protocol",
+  "command": [
+    "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\.venv\\Scripts\\python.exe",
+    "tests/support/scenario_driver.py",
+    "evaluation_protocol",
+    "--root",
+    "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\artifacts\\qa\\D044\\r8d372ab7",
+    "--options",
+    "{}"
+  ],
+  "exit_code": 0,
+  "time": "2026-10-15T02:00:21.552952+00:00",
+  "build_id": "cb98eed03df6bd4ffaa551d66a54c77198911cf5b3e763a1ef3c055f5ee54ca4",
+  "run_root": "artifacts/qa/D044/r8d372ab7",
+  "result": {
+    "frozen": false,
+    "issues": [
+      "A_TOKEN_BOUND_UNREGISTERED",
+      "FORMAL_SAMPLE_SIZE_UNREGISTERED",
+      "FREEZE_SIGNATURES_MISSING",
+      "INDEPENDENT_HOLDOUT_MISSING",
+      "INDEPENDENT_REVIEWERS_MISSING",
+      "PILOT_EVIDENCE_MISSING",
+      "POWER_OR_STOPPING_RULE_MISSING",
+      "PROTOCOL_NOT_FROZEN"
+    ],
+    "registration_hash_valid": true,
+    "registration_valid": false,
+    "reason_codes": [
+      "A_TOKEN_BOUND_UNREGISTERED",
+      "FORMAL_SAMPLE_SIZE_UNREGISTERED",
+      "FREEZE_SIGNATURES_MISSING",
+      "INDEPENDENT_HOLDOUT_MISSING",
+      "INDEPENDENT_REVIEWERS_MISSING",
+      "PILOT_EVIDENCE_MISSING",
+      "POWER_OR_STOPPING_RULE_MISSING",
+      "PROTOCOL_NOT_FROZEN"
+    ],
+    "test_set_disjoint": true,
+    "blind_labels_valid": false,
+    "provider_boundary": "none",
+    "real_provider_verified": false
+  }
+}

@@ -1,0 +1,18 @@
+.....................................................F..                 [100%]
+================================== FAILURES ===================================
+_ test_task_external_request_identity_can_be_assigned_once_but_cannot_be_replaced _
+
+storage = (<sqlite3.Connection object at 0x0000018B05684F40>, <app.storage.blobs.BlobStore object at 0x0000018B056A6940>)
+
+    def test_task_external_request_identity_can_be_assigned_once_but_cannot_be_replaced(storage):
+        connection, _store = storage
+        connection.execute("UPDATE task_runs SET external_request_id='request-started' WHERE task_id='task1'")
+>       with pytest.raises(sqlite3.IntegrityError, match="EXTERNAL_REQUEST_IMMUTABLE"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE IntegrityError
+
+tests\integration\test_storage.py:572: Failed
+=========================== short test summary info ===========================
+FAILED tests/integration/test_storage.py::test_task_external_request_identity_can_be_assigned_once_but_cannot_be_replaced
+1 failed, 55 passed in 1.57s
+EXIT_CODE=1

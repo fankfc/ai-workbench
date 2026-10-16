@@ -1,0 +1,84 @@
+..............FF..........FF........                                     [100%]
+================================== FAILURES ===================================
+__________ test_codex_transport_errors_return_fixed_nonsecret_event ___________
+
+    def test_codex_transport_errors_return_fixed_nonsecret_event():
+        async def transport(_):
+            raise RuntimeError("sk-fixture-secret provider failed")
+        async def run():
+            return [x async for x in GptAdapter(transport).run(request())]
+>       values = asyncio.run(run())
+                 ^^^^^^^^^^^^^^^^^^
+
+tests\contracts\test_gpt_adapter.py:123: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:194: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:118: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py:721: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+tests\contracts\test_gpt_adapter.py:122: in run
+    return [x async for x in GptAdapter(transport).run(request())]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\app\providers\gpt.py:193: in run
+    captured = await self.transport(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+_ = AgentRequest(task_id='t', attempt_id='a', role='A', identity=ProviderIdentity(adapter='codex', model_id='gpt-fixture',...=<ModelFamily.GPT: 'gpt'>, connection_id='local'), prompt_path='prompt.txt', workspace='workspace', policy_version='1')
+
+    async def transport(_):
+>       raise RuntimeError("sk-fixture-secret provider failed")
+E       RuntimeError: sk-fixture-secret provider failed
+
+tests\contracts\test_gpt_adapter.py:120: RuntimeError
+__________ test_codex_wrong_adapter_request_does_not_call_transport ___________
+
+    def test_codex_wrong_adapter_request_does_not_call_transport():
+        starts = []
+        async def transport(_):
+            starts.append(1)
+            return capture(metadata=metadata())
+        selected = AgentRequest("t", "a", "B", ProviderIdentity("zcode", "glm-fixture", "glm", "local"), "prompt.txt", "workspace", "1")
+        async def run():
+            return [x async for x in GptAdapter(transport).run(selected)]
+        values = asyncio.run(run())
+>       assert starts == []
+E       assert [1] == []
+E         
+E         Left contains one more item: 1
+E         Use -v to get more diff
+
+tests\contracts\test_gpt_adapter.py:137: AssertionError
+_______________ test_claude_rate_limit_result_is_fixed_failure ________________
+
+    def test_claude_rate_limit_result_is_fixed_failure():
+        value = decode_capture(request(), capture([{"type": "result", "session_id": "s", "subtype": "error_during_execution", "is_error": True, "errors": ["429 rate limit"]}], artifacts={}))
+>       assert value.reason_code == "RATE_LIMITED"
+E       AssertionError: assert 'PROVIDER_REPORTED_ERROR' == 'RATE_LIMITED'
+E         
+E         - RATE_LIMITED
+E         + PROVIDER_REPORTED_ERROR
+
+tests\contracts\test_claude_adapter.py:80: AssertionError
+______________ test_claude_not_logged_in_result_is_fixed_failure ______________
+
+    def test_claude_not_logged_in_result_is_fixed_failure():
+        value = decode_capture(request(), capture([{"type": "result", "session_id": "s", "subtype": "error_during_execution", "is_error": True, "errors": ["Not logged in. Please run /login"]}], artifacts={}))
+>       assert value.reason_code == "AUTHENTICATION_REQUIRED"
+E       AssertionError: assert 'PROVIDER_REPORTED_ERROR' == 'AUTHENTICATION_REQUIRED'
+E         
+E         - AUTHENTICATION_REQUIRED
+E         + PROVIDER_REPORTED_ERROR
+
+tests\contracts\test_claude_adapter.py:86: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/contracts/test_gpt_adapter.py::test_codex_transport_errors_return_fixed_nonsecret_event
+FAILED tests/contracts/test_gpt_adapter.py::test_codex_wrong_adapter_request_does_not_call_transport
+FAILED tests/contracts/test_claude_adapter.py::test_claude_rate_limit_result_is_fixed_failure
+FAILED tests/contracts/test_claude_adapter.py::test_claude_not_logged_in_result_is_fixed_failure
+4 failed, 32 passed in 0.48s

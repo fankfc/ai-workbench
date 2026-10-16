@@ -1,0 +1,44 @@
+{
+  "checked_at": "2026-10-13T14:45:25.232469+00:00",
+  "command": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "D:/zcode/resources/glm/zcode.cjs",
+    "app-server",
+    "--cwd",
+    "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\zcode-rpc-probe",
+    "--no-color"
+  ],
+  "exit_code": 0,
+  "observed_startup": [
+    {
+      "method": "startup/storageState",
+      "phase": "checking"
+    },
+    {
+      "method": "startup/storageState",
+      "phase": "checking"
+    },
+    {
+      "method": "startup/storageState",
+      "phase": "checking"
+    },
+    {
+      "method": "startup/storageState",
+      "phase": "committing"
+    },
+    {
+      "method": "startup/storageState",
+      "phase": "ready"
+    }
+  ],
+  "capabilities_reply": {
+    "id": 1,
+    "result": {
+      "independentPlanState": true
+    }
+  },
+  "model_turn_starts": 0,
+  "raw_credentials_read": false,
+  "raw_stderr_retained": false,
+  "production_enabled": false
+}

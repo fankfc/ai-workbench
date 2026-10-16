@@ -1,0 +1,27 @@
+{
+  "authorization": "Parent authorized one final distinct native HTTP SSE response.model observation after offline parser counterexamples pass.",
+  "scope": "Isolated execution identity observation only; no production qualification or scope enforcement.",
+  "max_top_level_model_submissions": 1,
+  "top_level_model_submissions": 1,
+  "gpt_count": 1,
+  "gpt_actual_turn_starts": 1,
+  "maximum_seconds_per_model_turn": 120,
+  "maximum_capture_bytes": 2000000,
+  "automatic_retries": false,
+  "provider_internal_requests": "unknown unless independently observed",
+  "continuation_budget_is_separate_and_sealed": true,
+  "no_new_keys_or_user_configuration_changes": true,
+  "production_enabled": false,
+  "scope_enforced": false,
+  "gpt_sse_identity_observation": {
+    "invocation_id": "a5ac5e2bb9214ade9b5f0865fc05e62b",
+    "intent_reserved_at": "2026-10-14T04:29:08.110394+00:00",
+    "status": "completed",
+    "maximum_turn_start_submissions": 1,
+    "actual_turn_start_submissions": 1,
+    "note": "Budget records intent before launch; not proof of acceptance or billing.",
+    "finished_at": "2026-10-14T04:29:30.478779+00:00",
+    "observed_bound_turn_starts": 1,
+    "report": "docs/acceptance/part-one-closeout/gpt-sse-identity-observation.json"
+  }
+}

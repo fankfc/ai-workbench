@@ -1,0 +1,15 @@
+{
+  "time": "2026-10-14T06:38:15.374623+00:00",
+  "command": [
+    "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\.venv\\Scripts\\python.exe",
+    "-m",
+    "pytest",
+    "-q",
+    "tests/contracts/test_scoped_codex_runtime.py",
+    "tests/contracts/test_native_scope.py",
+    "-q"
+  ],
+  "exit_code": 0,
+  "git_commit": null,
+  "log": "docs\\acceptance\\part-one-closeout\\scoped-runtime-root-joint.log"
+}

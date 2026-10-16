@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="0.213" timestamp="2026-10-15T10:20:07.546284+08:00" hostname="帆"><testcase classname="tests.acceptance.test_runtime_sop" name="test_current_run_verification_entry_exists" time="0.001"><failure message="AssertionError: SOP has no current-run verification entry&#10;assert False&#10; +  where False = is_file()&#10; +    where is_file = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/scripts/phase_four_verify.py').is_file">def test_current_run_verification_entry_exists():
+&gt;       assert SCRIPT.is_file(), 'SOP has no current-run verification entry'
+E       AssertionError: SOP has no current-run verification entry
+E       assert False
+E        +  where False = is_file()
+E        +    where is_file = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/scripts/phase_four_verify.py').is_file
+
+tests\acceptance\test_runtime_sop.py:16: AssertionError</failure></testcase></testsuite></testsuites>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="6" skipped="0" tests="6" time="5.695" timestamp="2026-10-15T13:27:48.291926+08:00" hostname="帆"><testcase classname="tests.artifacts.test_atomic_publication" name="test_real_pair_bytes_and_answer_publish_once_in_one_transaction[claude]" time="1.723"><failure message="app.runtime.publication.PublicationBlocked: OUTPUT_TRANSLATION_FAILED">tests\artifacts\test_atomic_publication.py:12: in test_real_pair_bytes_and_answer_publish_once_in_one_transaction
+    ctx=document_task; ready=prepare_bilingual(ctx)
+                             ^^^^^^^^^^^^^^^^^^^^^^
+tests\artifacts\helpers.py:101: in prepare_bilingual
+    asyncio.run(publisher.stage(ctx['task'],ctx['attempt'],'1.0',source,review))
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:194: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:118: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py:721: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+services\orchestrator\app\runtime\answer_publication.py:79: in stage
+    raise PublicationBlocked('OUTPUT_TRANSLATION_'+translated.status)
+E   app.runtime.publication.PublicationBlocked: OUTPUT_TRANSLATION_FAILED</failure></testcase><testcase classname="tests.artifacts.test_atomic_publication" name="test_half_v2_render_and_transaction_failure_leave_only_complete_v1_visible[claude]" time="0.493"><failure message="app.runtime.publication.PublicationBlocked: OUTPUT_TRANSLATION_FAILED">tests\artifacts\test_atomic_publication.py:37: in test_half_v2_render_and_transaction_failure_leave_only_complete_v1_visible
+    ctx=document_task; ready=prepare_bilingual(ctx)
+                             ^^^^^^^^^^^^^^^^^^^^^^
+tests\artifacts\helpers.py:101: in prepare_bilingual
+    asyncio.run(publisher.stage(ctx['task'],ctx['attempt'],'1.0',source,review))
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:194: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:118: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py:721: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+services\orchestrator\app\runtime\answer_publication.py:79: in stage
+    raise PublicationBlocked('OUTPUT_TRANSLATION_'+translated.status)
+E   app.runtime.publication.PublicationBlocked: OUTPUT_TRANSLATION_FAILED</failure></testcase><testcase classname="tests.artifacts.test_atomic_publication" name="test_cancelled_missing_format_old_source_and_corrupt_blob_are_not_deliverable[claude]" time="0.502"><failure message="app.runtime.publication.PublicationBlocked: OUTPUT_TRANSLATION_FAILED">tests\artifacts\test_atomic_publication.py:62: in test_cancelled_missing_format_old_source_and_corrupt_blob_are_not_deliverable
+    ctx=document_task; ready=prepare_bilingual(ctx)
+                             ^^^^^^^^^^^^^^^^^^^^^^
+tests\artifacts\helpers.py:101: in prepare_bilingual
+    asyncio.run(publisher.stage(ctx['task'],ctx['attempt'],'1.0',source,review))
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:194: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:118: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py:721: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+services\orchestrator\app\runtime\answer_publication.py:79: in stage
+    raise PublicationBlocked('OUTPUT_TRANSLATION_'+translated.status)
+E   app.runtime.publication.PublicationBlocked: OUTPUT_TRANSLATION_FAILED</failure></testcase><testcase classname="tests.artifacts.test_atomic_publication" name="test_download_scope_unpublished_and_changed_file_hash_are_enforced[claude]" time="0.498"><failure message="app.runtime.publication.PublicationBlocked: OUTPUT_TRANSLATION_FAILED">tests\artifacts\test_atomic_publication.py:75: in test_download_scope_unpublished_and_changed_file_hash_are_enforced
+    ctx=document_task; ready=prepare_bilingual(ctx)
+                             ^^^^^^^^^^^^^^^^^^^^^^
+tests\artifacts\helpers.py:101: in prepare_bilingual
+    asyncio.run(publisher.stage(ctx['task'],ctx['attempt'],'1.0',source,review))
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:194: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:118: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py:721: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+services\orchestrator\app\runtime\answer_publication.py:79: in stage
+    raise PublicationBlocked('OUTPUT_TRANSLATION_'+translated.status)
+E   app.runtime.publication.PublicationBlocked: OUTPUT_TRANSLATION_FAILED</failure></testcase><testcase classname="tests.artifacts.test_atomic_publication" name="test_renderer_claiming_pass_for_corrupt_bytes_cannot_publish[claude]" time="0.499"><failure message="app.runtime.publication.PublicationBlocked: OUTPUT_TRANSLATION_FAILED">tests\artifacts\test_atomic_publication.py:98: in test_renderer_claiming_pass_for_corrupt_bytes_cannot_publish
+    ctx=document_task;ready=prepare_bilingual(ctx)
+                            ^^^^^^^^^^^^^^^^^^^^^^
+tests\artifacts\helpers.py:101: in prepare_bilingual
+    asyncio.run(publisher.stage(ctx['task'],ctx['attempt'],'1.0',source,review))
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:194: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:118: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py:721: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+services\orchestrator\app\runtime\answer_publication.py:79: in stage
+    raise PublicationBlocked('OUTPUT_TRANSLATION_'+translated.status)
+E   app.runtime.publication.PublicationBlocked: OUTPUT_TRANSLATION_FAILED</failure></testcase><testcase classname="tests.integration.test_document_invalidation" name="test_upstream_change_invalidates_chart_report_translation_render_and_approval_but_preserves_published_history[claude]" time="1.179"><failure message="app.runtime.publication.PublicationBlocked: OUTPUT_TRANSLATION_FAILED">tests\integration\test_document_invalidation.py:20: in test_upstream_change_invalidates_chart_report_translation_render_and_approval_but_preserves_published_history
+    ready=prepare_bilingual(ctx,dependencies={k:v1[k] for k in ('computed_results','figures')})
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\artifacts\helpers.py:101: in prepare_bilingual
+    asyncio.run(publisher.stage(ctx['task'],ctx['attempt'],'1.0',source,review))
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:194: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:118: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py:721: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+services\orchestrator\app\runtime\answer_publication.py:79: in stage
+    raise PublicationBlocked('OUTPUT_TRANSLATION_'+translated.status)
+E   app.runtime.publication.PublicationBlocked: OUTPUT_TRANSLATION_FAILED</failure></testcase></testsuite></testsuites>

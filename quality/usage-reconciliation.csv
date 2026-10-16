@@ -1,0 +1,4 @@
+provider,wire_protocol,source_kind,actual_events,usage_verified,limitation
+claude,anthropic,external_missing,0,False,D004/D020 real acceptance missing
+glm,unqualified,external_missing,0,False,D005 POST405 unresolved
+gpt,unqualified,external_missing,0,False,current runtime lifecycle not qualified

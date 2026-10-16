@@ -1,0 +1,28 @@
+.......F                                                                 [100%]
+================================== FAILURES ===================================
+_ test_profile_criterion_name_cannot_hide_weakened_mechanical_or_semantic_condition _
+
+    def test_profile_criterion_name_cannot_hide_weakened_mechanical_or_semantic_condition():
+        from app.profiles.registry import get_profile, validate_profile_contract
+        from support.contracts import make_contract
+        import pytest
+        profile = get_profile('document')
+        contract = make_contract('task', 'attempt', 'route', 'document')
+        contract['acceptance'] = profile['acceptance']
+        inputs = {'audience': '研究组', 'purpose': '结果说明', 'source_refs': ['input/source.txt'], 'formats': ['pdf']}
+        validate_profile_contract(contract, profile_version=profile['version'], inputs=inputs)
+        contract['acceptance'][0] = {**contract['acceptance'][0], 'condition': 'file_exists_only'}
+>       with pytest.raises(ValueError, match='PROFILE_ACCEPTANCE_MISSING'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests\integration\test_task_profiles.py:76: Failed
+============================== warnings summary ===============================
+tests/integration/test_task_profiles.py::test_domain_preflight_stops_missing_required_evidence[code-inputs0-test_command]
+  C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/integration/test_task_profiles.py::test_profile_criterion_name_cannot_hide_weakened_mechanical_or_semantic_condition
+1 failed, 7 passed, 1 warning in 1.49s

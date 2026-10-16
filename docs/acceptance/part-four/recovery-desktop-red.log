@@ -1,0 +1,28 @@
+
+ RUN  v5.0.4 C:/Users/asd15/Documents/ChatGPT/ai
+
+ ❯ tests/desktop/backend.test.ts (10 tests | 1 failed | 9 skipped) 905ms
+   ❯ managed process lifecycle (8)
+     × terminates the owned process even when the recovery journal cannot be written 904ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/desktop/backend.test.ts > managed process lifecycle > terminates the owned process even when the recovery journal cannot be written
+Error: EISDIR: illegal operation on a directory, open 'C:\Users\asd15\AppData\Local\Temp\desktop-unit-P9Q3l9\desktop-recovery.json'
+ ❯ BackendSupervisor.stop apps/desktop/src/main/backend.ts:94:5
+     92|     let saved=false;
+     93|     try{const checkpoint=await this.request<any>('/v1/checkpoint','POS…
+     94|     await writeFile(join(this.options.dataRoot,'desktop-recovery.json'…
+       |     ^
+     95|     const cleaned=await this.terminate();
+     96|     await writeFile(join(this.options.dataRoot,'desktop-recovery.json'…
+ ❯ tests/desktop/backend.test.ts:33:7
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 9 skipped (10)
+   Start at  10:19:15
+   Duration  1.09s (tests 94%, transform 3%, import 2%)
+

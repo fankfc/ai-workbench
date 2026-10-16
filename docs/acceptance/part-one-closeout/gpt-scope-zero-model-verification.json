@@ -1,0 +1,45 @@
+{
+  "all_passed": true,
+  "checks": {
+    "actual_effective_controls_verified": true,
+    "typed_code_mode_host_members_explicitly_false": true,
+    "actual_mcp_key_set_and_flags_verified": true,
+    "owned_ephemeral_empty_environments_verified": true,
+    "owned_thread_unsubscribe_acknowledged": true,
+    "zero_model_across_all_preserved_attempts": true,
+    "all_job_resources_zero_across_attempts": true,
+    "actual_helper_and_projection_hash_match": true,
+    "failure_helper_snapshots_preserved": true,
+    "no_production_or_execution_scope_promotion": true,
+    "no_private_values_exported": true,
+    "existing_model_budgets_unchanged_and_sealed": true,
+    "frozen_native_metadata_sources_unchanged": true
+  },
+  "new_model_starts_during_verification": 0,
+  "metadata_server_starts_all_attempts": 6,
+  "model_submissions_all_attempts": 0,
+  "source_hashes": {
+    ".tools/gpt-scope-probe/probe.py": "dc1d7055919293681d5db01020700a36f4825ee991fd69e582baae804f1059f5",
+    ".tools/gpt-scope-probe/probe-first.py": "dab48f73ca45216bc1478ea40f68d7e719b29ab22bb2862974b8641d3f7c0a1a",
+    ".tools/gpt-scope-probe/probe-diagnostic.py": "6fe3eb6359bcfd0856d85975e69c99fbbf0aa88eb2b2086f1144ff9a053def7b",
+    ".tools/gpt-scope-probe/projection.py": "adbd98c2bcf2416a17239476c25e828dd1f121d8352d84e01d61b4a33edafa28",
+    ".tools/gpt-scope-probe/test_projection.py": "fd95ff64cf33abdda746e4616d9c4dc72fd517cf80cdc968fe309ce63a3e8f37",
+    ".tools/gpt-scope-probe/verify_actual.py": "42b37f126aa80e7abffb3965cec92341aeaa1195ab4ae091613538aa0134fe39",
+    ".tools/gpt-scope-source/source-manifest.json": "ffa7970fe8c81c2e09900aedc91d29cadab4f79efc8d44c4f319f298ade47179",
+    "docs/acceptance/part-one-closeout/gpt-scope-feasibility.md": "e809526f3763aabb3b8e0ab80fdd94398c445f7b729d976da011ffd9e134e06a",
+    "docs/acceptance/part-one-closeout/gpt-scope-feasibility.json": "658f0dd159086ce95555d942e4f134223dc13816db1c77029e14e25949d8b3eb",
+    "docs/acceptance/part-one-closeout/gpt-scope-zero-model.json": "4a4edb96fc04c968534e825136031dcbe03c4d41cd7be463b5ac3b7778845ef9",
+    "docs/acceptance/part-one-closeout/gpt-scope-zero-model-diagnostic.json": "61d14f29646137d99bfa4eae17fd3d9f7a5a2faa9803ce6e65126286e01a565b",
+    "docs/acceptance/part-one-closeout/gpt-scope-zero-model-verified.json": "15704a7ee9a1ef8709308cd4db517d4eff830ab105ad257c8c48119a26b66730",
+    "docs/acceptance/part-one-closeout/gpt-scope-zero-model.md": "7727a4fc68e432c7202340d91b482738f6aa13ba58bedde80885a352ac8531fd",
+    "docs/acceptance/part-one-closeout/gpt-scope-probe-red.log": "1c9c262d44105ba863000f28a8acafca062acf2ec8267305e7f1fc1efcdb935f",
+    "docs/acceptance/part-one-closeout/gpt-scope-probe-green.log": "06b748150b9d22ead6e85895503497ac95ec3dd55fa061ce09798c4ded3cb39d",
+    "docs/acceptance/part-one-closeout/gpt-scope-override-red.log": "4d0826cb24f9431433862cf236674cb0a890e915363f1d9177d97d04e45a475b",
+    "docs/acceptance/part-one-closeout/gpt-scope-override-green.log": "4a7a681458c41df32870635250738c8dbabc6038c8e530a18d9ddbe5c0bc3698"
+  },
+  "frozen_native_metadata_hashes": {
+    "native_rpc.py": "702fdfe1de5d00b8b30a3628f8811f68f0d8d426caec5c9c4ac8cf828fac4c2e",
+    "native_rpc_worker.py": "efd341daf662db5bbcc73c51bb545ced2759d7c683a7642b2d01231b6aba9419",
+    "codex_protocol.py": "be3efaea44bc56fd821adbeb28642637466a5472e6daea95beacaaf5a30b4922"
+  }
+}

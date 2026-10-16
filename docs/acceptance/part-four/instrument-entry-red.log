@@ -1,0 +1,15 @@
+F                                                                        [100%]
+================================== FAILURES ===================================
+_________________ test_current_run_verification_entry_exists __________________
+
+    def test_current_run_verification_entry_exists():
+>       assert SCRIPT.is_file(), 'SOP has no current-run verification entry'
+E       AssertionError: SOP has no current-run verification entry
+E       assert False
+E        +  where False = is_file()
+E        +    where is_file = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/scripts/phase_four_verify.py').is_file
+
+tests\acceptance\test_runtime_sop.py:16: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/acceptance/test_runtime_sop.py::test_current_run_verification_entry_exists
+1 failed in 0.35s

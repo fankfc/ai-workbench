@@ -1,0 +1,69 @@
+{
+  "platform": "nt",
+  "executed": true,
+  "source_and_tests_modified": false,
+  "provider_or_model_calls": 0,
+  "external_scanner_cause": "not_established",
+  "results": [
+    {
+      "case": "held_then_released",
+      "held_attempts": [
+        {
+          "renamed": false,
+          "error_type": "PermissionError",
+          "errno": 13,
+          "winerror": 5
+        }
+      ],
+      "source_retained_while_held": true,
+      "after_release": {
+        "renamed": true
+      },
+      "snapshot_bytes_unchanged": true,
+      "live_data_unchanged": true,
+      "handles_remaining": 0
+    },
+    {
+      "case": "continuously_held",
+      "held_attempts": [
+        {
+          "renamed": false,
+          "error_type": "PermissionError",
+          "errno": 13,
+          "winerror": 5
+        },
+        {
+          "renamed": false,
+          "error_type": "PermissionError",
+          "errno": 13,
+          "winerror": 5
+        },
+        {
+          "renamed": false,
+          "error_type": "PermissionError",
+          "errno": 13,
+          "winerror": 5
+        }
+      ],
+      "source_retained_while_held": true,
+      "after_release": null,
+      "snapshot_bytes_unchanged": true,
+      "live_data_unchanged": true,
+      "handles_remaining": 0
+    },
+    {
+      "case": "existing_target",
+      "attempt": {
+        "renamed": false,
+        "error_type": "FileExistsError",
+        "errno": 17,
+        "winerror": 183
+      },
+      "source_unchanged": true,
+      "existing_target_unchanged": true,
+      "live_data_unchanged": true
+    }
+  ],
+  "handles_remaining": 0,
+  "fixture_removed": true
+}

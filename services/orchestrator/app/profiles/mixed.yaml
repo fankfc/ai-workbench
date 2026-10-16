@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0",
+  "domain": "mixed",
+  "required_inputs": ["data_refs", "formats"],
+  "b_actions": ["interpret_recomputed_data", "draft_report"],
+  "mechanical": ["recomputed_data_report_binding", "complete_dependency_bundle"],
+  "semantic": ["method_and_uncertainty"],
+  "deliverables": ["document", "csv", "python", "png"],
+  "acceptance": [
+    {"id":"mixed.C1","verifier":"C","mandatory":true,"semantic":false,"evidence_type":"artifact","condition":"recomputed_data_report_binding"},
+    {"id":"mixed.C2","verifier":"C","mandatory":true,"semantic":false,"evidence_type":"dependency","condition":"complete_dependency_bundle"},
+    {"id":"mixed.A1","verifier":"A","mandatory":true,"semantic":true,"evidence_type":"review","condition":"method_and_uncertainty"}
+  ],
+  "a_responsibilities": ["problem_modeling", "method_choice", "evidence_judgment", "final_review"],
+  "budget": {"total_tokens":300000,"reserved_a_tokens":60000},
+  "capability": "four_rows_two_months_month_category_amount_csv"
+}

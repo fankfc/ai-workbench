@@ -1,0 +1,26 @@
+{
+  "time": "2026-10-13T13:31:17.028338+00:00",
+  "git_commit": null,
+  "branch": "codex/part1-foundation",
+  "python": "3.13.0",
+  "sqlite": "3.45.3",
+  "provider_mode": "fake",
+  "real_model_starts": 0,
+  "tests": "tests/unit/test_usage_ledger.py",
+  "test_count": 28,
+  "result": "pass",
+  "stop_before_new_start": true,
+  "unknown_usage": "block",
+  "pending_usage_reserved_before_start": true,
+  "pending_can_resolve_to": [
+    "request_total",
+    "cumulative",
+    "delta"
+  ],
+  "remaining_a_reserve_protected": true,
+  "savings_claimed": false,
+  "sources": [
+    "https://platform.claude.com/docs/en/build-with-claude/prompt-caching",
+    "https://developers.openai.com/api/reference/resources/responses/methods/create"
+  ]
+}

@@ -1,0 +1,379 @@
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF           [100%]
+================================== FAILURES ===================================
+_ test_config_mutation_and_unsafe_methods_never_reach_transport[config/value/write] _
+tests\contracts\test_native_scope.py:85: in test_config_mutation_and_unsafe_methods_never_reach_transport
+    with pytest.raises(NativeScopeError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE NativeScopeError
+_ test_config_mutation_and_unsafe_methods_never_reach_transport[config/batchWrite] _
+tests\contracts\test_native_scope.py:85: in test_config_mutation_and_unsafe_methods_never_reach_transport
+    with pytest.raises(NativeScopeError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE NativeScopeError
+_ test_config_mutation_and_unsafe_methods_never_reach_transport[mcpServer/refresh] _
+tests\contracts\test_native_scope.py:85: in test_config_mutation_and_unsafe_methods_never_reach_transport
+    with pytest.raises(NativeScopeError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE NativeScopeError
+_ test_config_mutation_and_unsafe_methods_never_reach_transport[account/login/start] _
+tests\contracts\test_native_scope.py:85: in test_config_mutation_and_unsafe_methods_never_reach_transport
+    with pytest.raises(NativeScopeError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE NativeScopeError
+_ test_config_mutation_and_unsafe_methods_never_reach_transport[plugin/install] _
+tests\contracts\test_native_scope.py:85: in test_config_mutation_and_unsafe_methods_never_reach_transport
+    with pytest.raises(NativeScopeError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE NativeScopeError
+_ test_config_mutation_and_unsafe_methods_never_reach_transport[environment/add] _
+tests\contracts\test_native_scope.py:85: in test_config_mutation_and_unsafe_methods_never_reach_transport
+    with pytest.raises(NativeScopeError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE NativeScopeError
+_ test_config_mutation_and_unsafe_methods_never_reach_transport[command/exec] _
+tests\contracts\test_native_scope.py:85: in test_config_mutation_and_unsafe_methods_never_reach_transport
+    with pytest.raises(NativeScopeError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE NativeScopeError
+_ test_config_mutation_and_unsafe_methods_never_reach_transport[process/exec] _
+tests\contracts\test_native_scope.py:85: in test_config_mutation_and_unsafe_methods_never_reach_transport
+    with pytest.raises(NativeScopeError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE NativeScopeError
+_ test_config_mutation_and_unsafe_methods_never_reach_transport[thread/fork] __
+tests\contracts\test_native_scope.py:85: in test_config_mutation_and_unsafe_methods_never_reach_transport
+    with pytest.raises(NativeScopeError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE NativeScopeError
+_ test_config_mutation_and_unsafe_methods_never_reach_transport[item/tool/call] _
+tests\contracts\test_native_scope.py:85: in test_config_mutation_and_unsafe_methods_never_reach_transport
+    with pytest.raises(NativeScopeError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE NativeScopeError
+__ test_config_mutation_and_unsafe_methods_never_reach_transport[turn/steer] __
+tests\contracts\test_native_scope.py:85: in test_config_mutation_and_unsafe_methods_never_reach_transport
+    with pytest.raises(NativeScopeError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE NativeScopeError
+_ test_config_mutation_and_unsafe_methods_never_reach_transport[unknown/canary] _
+tests\contracts\test_native_scope.py:85: in test_config_mutation_and_unsafe_methods_never_reach_transport
+    with pytest.raises(NativeScopeError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE NativeScopeError
+________________ test_fixture_codec_never_qualifies_production ________________
+tests\contracts\test_native_scope.py:92: in test_fixture_codec_never_qualifies_production
+    with pytest.raises(NativeScopeError, match='FIXTURE'):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE NativeScopeError
+_ test_every_actual_control_is_required_not_a_claim_boolean[features.shell_tool] _
+tests\contracts\test_native_scope.py:105: in test_every_actual_control_is_required_not_a_claim_boolean
+    with pytest.raises(NativeScopeError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE NativeScopeError
+_ test_every_actual_control_is_required_not_a_claim_boolean[features.view_image] _
+tests\contracts\test_native_scope.py:105: in test_every_actual_control_is_required_not_a_claim_boolean
+    with pytest.raises(NativeScopeError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE NativeScopeError
+_ test_every_actual_control_is_required_not_a_claim_boolean[features.code_mode] _
+tests\contracts\test_native_scope.py:105: in test_every_actual_control_is_required_not_a_claim_boolean
+    with pytest.raises(NativeScopeError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE NativeScopeError
+_ test_every_actual_control_is_required_not_a_claim_boolean[features.code_mode_only] _
+tests\contracts\test_native_scope.py:105: in test_every_actual_control_is_required_not_a_claim_boolean
+    with pytest.raises(NativeScopeError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE NativeScopeError
+_ test_every_actual_control_is_required_not_a_claim_boolean[features.code_mode_host.enabled] _
+tests\contracts\test_native_scope.py:105: in test_every_actual_control_is_required_not_a_claim_boolean
+    with pytest.raises(NativeScopeError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE NativeScopeError
+_ test_every_actual_control_is_required_not_a_claim_boolean[features.code_mode_host.disable_in_process_fallback] _
+tests\contracts\test_native_scope.py:105: in test_every_actual_control_is_required_not_a_claim_boolean
+    with pytest.raises(NativeScopeError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE NativeScopeError
+_ test_every_actual_control_is_required_not_a_claim_boolean[features.multi_agent] _
+tests\contracts\test_native_scope.py:105: in test_every_actual_control_is_required_not_a_claim_boolean
+    with pytest.raises(NativeScopeError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE NativeScopeError
+_ test_every_actual_control_is_required_not_a_claim_boolean[features.multi_agent_v2] _
+tests\contracts\test_native_scope.py:105: in test_every_actual_control_is_required_not_a_claim_boolean
+    with pytest.raises(NativeScopeError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE NativeScopeError
+__ test_every_actual_control_is_required_not_a_claim_boolean[agents.enabled] __
+tests\contracts\test_native_scope.py:105: in test_every_actual_control_is_required_not_a_claim_boolean
+    with pytest.raises(NativeScopeError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE NativeScopeError
+__ test_every_actual_control_is_required_not_a_claim_boolean[features.apps] ___
+tests\contracts\test_native_scope.py:105: in test_every_actual_control_is_required_not_a_claim_boolean
+    with pytest.raises(NativeScopeError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE NativeScopeError
+_ test_every_actual_control_is_required_not_a_claim_boolean[features.plugins] _
+tests\contracts\test_native_scope.py:105: in test_every_actual_control_is_required_not_a_claim_boolean
+    with pytest.raises(NativeScopeError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE NativeScopeError
+_ test_every_actual_control_is_required_not_a_claim_boolean[features.tool_suggest] _
+tests\contracts\test_native_scope.py:105: in test_every_actual_control_is_required_not_a_claim_boolean
+    with pytest.raises(NativeScopeError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE NativeScopeError
+_ test_every_actual_control_is_required_not_a_claim_boolean[features.recommended_plugins] _
+tests\contracts\test_native_scope.py:105: in test_every_actual_control_is_required_not_a_claim_boolean
+    with pytest.raises(NativeScopeError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE NativeScopeError
+_ test_every_actual_control_is_required_not_a_claim_boolean[features.memories] _
+tests\contracts\test_native_scope.py:105: in test_every_actual_control_is_required_not_a_claim_boolean
+    with pytest.raises(NativeScopeError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE NativeScopeError
+_ test_every_actual_control_is_required_not_a_claim_boolean[memories.use_memories] _
+tests\contracts\test_native_scope.py:105: in test_every_actual_control_is_required_not_a_claim_boolean
+    with pytest.raises(NativeScopeError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE NativeScopeError
+_ test_every_actual_control_is_required_not_a_claim_boolean[cloud.skills.enabled] _
+tests\contracts\test_native_scope.py:105: in test_every_actual_control_is_required_not_a_claim_boolean
+    with pytest.raises(NativeScopeError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE NativeScopeError
+_ test_every_actual_control_is_required_not_a_claim_boolean[features.image_generation] _
+tests\contracts\test_native_scope.py:105: in test_every_actual_control_is_required_not_a_claim_boolean
+    with pytest.raises(NativeScopeError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE NativeScopeError
+____ test_every_actual_control_is_required_not_a_claim_boolean[web_search] ____
+tests\contracts\test_native_scope.py:105: in test_every_actual_control_is_required_not_a_claim_boolean
+    with pytest.raises(NativeScopeError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE NativeScopeError
+__ test_every_actual_control_is_required_not_a_claim_boolean[features.hooks] __
+tests\contracts\test_native_scope.py:105: in test_every_actual_control_is_required_not_a_claim_boolean
+    with pytest.raises(NativeScopeError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE NativeScopeError
+______ test_every_actual_control_is_required_not_a_claim_boolean[notify] ______
+tests\contracts\test_native_scope.py:105: in test_every_actual_control_is_required_not_a_claim_boolean
+    with pytest.raises(NativeScopeError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE NativeScopeError
+_ test_every_actual_control_is_required_not_a_claim_boolean[features.deferred_executor] _
+tests\contracts\test_native_scope.py:105: in test_every_actual_control_is_required_not_a_claim_boolean
+    with pytest.raises(NativeScopeError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE NativeScopeError
+_ test_every_actual_control_is_required_not_a_claim_boolean[features.request_permissions_tool] _
+tests\contracts\test_native_scope.py:105: in test_every_actual_control_is_required_not_a_claim_boolean
+    with pytest.raises(NativeScopeError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE NativeScopeError
+__________ test_mcp_enabled_requires_the_actual_false_boolean[True] ___________
+tests\contracts\test_native_scope.py:117: in test_mcp_enabled_requires_the_actual_false_boolean
+    with pytest.raises(NativeScopeError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE NativeScopeError
+____________ test_mcp_enabled_requires_the_actual_false_boolean[0] ____________
+tests\contracts\test_native_scope.py:117: in test_mcp_enabled_requires_the_actual_false_boolean
+    with pytest.raises(NativeScopeError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE NativeScopeError
+__________ test_mcp_enabled_requires_the_actual_false_boolean[None] ___________
+tests\contracts\test_native_scope.py:117: in test_mcp_enabled_requires_the_actual_false_boolean
+    with pytest.raises(NativeScopeError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE NativeScopeError
+__________ test_mcp_enabled_requires_the_actual_false_boolean[false] __________
+tests\contracts\test_native_scope.py:117: in test_mcp_enabled_requires_the_actual_false_boolean
+    with pytest.raises(NativeScopeError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE NativeScopeError
+_____ test_thread_cannot_expand_environment_permission_or_tools[change0] ______
+tests\contracts\test_native_scope.py:132: in test_thread_cannot_expand_environment_permission_or_tools
+    with pytest.raises(NativeScopeError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE NativeScopeError
+_____ test_thread_cannot_expand_environment_permission_or_tools[change1] ______
+tests\contracts\test_native_scope.py:132: in test_thread_cannot_expand_environment_permission_or_tools
+    with pytest.raises(NativeScopeError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE NativeScopeError
+_____ test_thread_cannot_expand_environment_permission_or_tools[change2] ______
+tests\contracts\test_native_scope.py:132: in test_thread_cannot_expand_environment_permission_or_tools
+    with pytest.raises(NativeScopeError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE NativeScopeError
+_____ test_thread_cannot_expand_environment_permission_or_tools[change3] ______
+tests\contracts\test_native_scope.py:132: in test_thread_cannot_expand_environment_permission_or_tools
+    with pytest.raises(NativeScopeError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE NativeScopeError
+_____ test_thread_cannot_expand_environment_permission_or_tools[change4] ______
+tests\contracts\test_native_scope.py:132: in test_thread_cannot_expand_environment_permission_or_tools
+    with pytest.raises(NativeScopeError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE NativeScopeError
+_____ test_thread_cannot_expand_environment_permission_or_tools[change5] ______
+tests\contracts\test_native_scope.py:132: in test_thread_cannot_expand_environment_permission_or_tools
+    with pytest.raises(NativeScopeError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE NativeScopeError
+_____ test_thread_cannot_expand_environment_permission_or_tools[change6] ______
+tests\contracts\test_native_scope.py:132: in test_thread_cannot_expand_environment_permission_or_tools
+    with pytest.raises(NativeScopeError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE NativeScopeError
+_______ test_turn_is_owned_sticky_readonly_and_exact_text_only[change0] _______
+tests\contracts\test_native_scope.py:145: in test_turn_is_owned_sticky_readonly_and_exact_text_only
+    with pytest.raises(NativeScopeError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE NativeScopeError
+_______ test_turn_is_owned_sticky_readonly_and_exact_text_only[change1] _______
+tests\contracts\test_native_scope.py:145: in test_turn_is_owned_sticky_readonly_and_exact_text_only
+    with pytest.raises(NativeScopeError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE NativeScopeError
+_______ test_turn_is_owned_sticky_readonly_and_exact_text_only[change2] _______
+tests\contracts\test_native_scope.py:145: in test_turn_is_owned_sticky_readonly_and_exact_text_only
+    with pytest.raises(NativeScopeError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE NativeScopeError
+_______ test_turn_is_owned_sticky_readonly_and_exact_text_only[change3] _______
+tests\contracts\test_native_scope.py:145: in test_turn_is_owned_sticky_readonly_and_exact_text_only
+    with pytest.raises(NativeScopeError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE NativeScopeError
+_______ test_turn_is_owned_sticky_readonly_and_exact_text_only[change4] _______
+tests\contracts\test_native_scope.py:145: in test_turn_is_owned_sticky_readonly_and_exact_text_only
+    with pytest.raises(NativeScopeError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE NativeScopeError
+_______ test_turn_is_owned_sticky_readonly_and_exact_text_only[change5] _______
+tests\contracts\test_native_scope.py:145: in test_turn_is_owned_sticky_readonly_and_exact_text_only
+    with pytest.raises(NativeScopeError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE NativeScopeError
+_______ test_turn_is_owned_sticky_readonly_and_exact_text_only[change6] _______
+tests\contracts\test_native_scope.py:145: in test_turn_is_owned_sticky_readonly_and_exact_text_only
+    with pytest.raises(NativeScopeError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE NativeScopeError
+_______ test_turn_is_owned_sticky_readonly_and_exact_text_only[change7] _______
+tests\contracts\test_native_scope.py:145: in test_turn_is_owned_sticky_readonly_and_exact_text_only
+    with pytest.raises(NativeScopeError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE NativeScopeError
+___________________ test_second_top_level_turn_cannot_start ___________________
+tests\contracts\test_native_scope.py:153: in test_second_top_level_turn_cannot_start
+    with pytest.raises(NativeScopeError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE NativeScopeError
+___________ test_foreign_context_and_json_receipt_cannot_mint_scope ___________
+tests\contracts\test_native_scope.py:160: in test_foreign_context_and_json_receipt_cannot_mint_scope
+    with pytest.raises(NativeScopeError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE NativeScopeError
+_____________ test_unprepared_or_unsolicited_metadata_is_rejected _____________
+tests\contracts\test_native_scope.py:169: in test_unprepared_or_unsolicited_metadata_is_rejected
+    with pytest.raises(NativeScopeError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE NativeScopeError
+__________ test_unknown_cleanup_revokes_an_existing_prepared_context __________
+tests\contracts\test_native_scope.py:178: in test_unknown_cleanup_revokes_an_existing_prepared_context
+    with pytest.raises(NativeScopeError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE NativeScopeError
+_________ test_native_pipe_authority_is_not_a_transport_kind_or_bool __________
+tests\contracts\test_native_scope.py:184: in test_native_pipe_authority_is_not_a_transport_kind_or_bool
+    with pytest.raises(NativeScopeError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE NativeScopeError
+_ test_unpinned_source_or_entry_cannot_authorize[0000000000000000000000000000000000000000000000000000000000000000-] _
+tests\contracts\test_native_scope.py:192: in test_unpinned_source_or_entry_cannot_authorize
+    with pytest.raises(NativeScopeError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE NativeScopeError
+_ test_unpinned_source_or_entry_cannot_authorize[4b01d5920e6785614727443bbecf343f4dedbb7347052b72ba805aab6353ef01-0000000000000000000000000000000000000000000000000000000000000000] _
+tests\contracts\test_native_scope.py:192: in test_unpinned_source_or_entry_cannot_authorize
+    with pytest.raises(NativeScopeError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   Failed: DID NOT RAISE NativeScopeError
+_______ test_control_policy_records_the_model_metadata_override_ceiling _______
+tests\contracts\test_native_scope.py:197: in test_control_policy_records_the_model_metadata_override_ceiling
+    assert CONTROL_POLICY.get('controls', {}).get('agents.enabled') is False
+E   AssertionError: assert None is False
+E    +  where None = <built-in method get of dict object at 0x00000252E0F50300>('agents.enabled')
+E    +    where <built-in method get of dict object at 0x00000252E0F50300> = {}.get
+E    +      where {} = <built-in method get of dict object at 0x00000252E0EDD380>('controls', {})
+E    +        where <built-in method get of dict object at 0x00000252E0EDD380> = {}.get
+=========================== short test summary info ===========================
+FAILED tests/contracts/test_native_scope.py::test_config_mutation_and_unsafe_methods_never_reach_transport[config/value/write]
+FAILED tests/contracts/test_native_scope.py::test_config_mutation_and_unsafe_methods_never_reach_transport[config/batchWrite]
+FAILED tests/contracts/test_native_scope.py::test_config_mutation_and_unsafe_methods_never_reach_transport[mcpServer/refresh]
+FAILED tests/contracts/test_native_scope.py::test_config_mutation_and_unsafe_methods_never_reach_transport[account/login/start]
+FAILED tests/contracts/test_native_scope.py::test_config_mutation_and_unsafe_methods_never_reach_transport[plugin/install]
+FAILED tests/contracts/test_native_scope.py::test_config_mutation_and_unsafe_methods_never_reach_transport[environment/add]
+FAILED tests/contracts/test_native_scope.py::test_config_mutation_and_unsafe_methods_never_reach_transport[command/exec]
+FAILED tests/contracts/test_native_scope.py::test_config_mutation_and_unsafe_methods_never_reach_transport[process/exec]
+FAILED tests/contracts/test_native_scope.py::test_config_mutation_and_unsafe_methods_never_reach_transport[thread/fork]
+FAILED tests/contracts/test_native_scope.py::test_config_mutation_and_unsafe_methods_never_reach_transport[item/tool/call]
+FAILED tests/contracts/test_native_scope.py::test_config_mutation_and_unsafe_methods_never_reach_transport[turn/steer]
+FAILED tests/contracts/test_native_scope.py::test_config_mutation_and_unsafe_methods_never_reach_transport[unknown/canary]
+FAILED tests/contracts/test_native_scope.py::test_fixture_codec_never_qualifies_production
+FAILED tests/contracts/test_native_scope.py::test_every_actual_control_is_required_not_a_claim_boolean[features.shell_tool]
+FAILED tests/contracts/test_native_scope.py::test_every_actual_control_is_required_not_a_claim_boolean[features.view_image]
+FAILED tests/contracts/test_native_scope.py::test_every_actual_control_is_required_not_a_claim_boolean[features.code_mode]
+FAILED tests/contracts/test_native_scope.py::test_every_actual_control_is_required_not_a_claim_boolean[features.code_mode_only]
+FAILED tests/contracts/test_native_scope.py::test_every_actual_control_is_required_not_a_claim_boolean[features.code_mode_host.enabled]
+FAILED tests/contracts/test_native_scope.py::test_every_actual_control_is_required_not_a_claim_boolean[features.code_mode_host.disable_in_process_fallback]
+FAILED tests/contracts/test_native_scope.py::test_every_actual_control_is_required_not_a_claim_boolean[features.multi_agent]
+FAILED tests/contracts/test_native_scope.py::test_every_actual_control_is_required_not_a_claim_boolean[features.multi_agent_v2]
+FAILED tests/contracts/test_native_scope.py::test_every_actual_control_is_required_not_a_claim_boolean[agents.enabled]
+FAILED tests/contracts/test_native_scope.py::test_every_actual_control_is_required_not_a_claim_boolean[features.apps]
+FAILED tests/contracts/test_native_scope.py::test_every_actual_control_is_required_not_a_claim_boolean[features.plugins]
+FAILED tests/contracts/test_native_scope.py::test_every_actual_control_is_required_not_a_claim_boolean[features.tool_suggest]
+FAILED tests/contracts/test_native_scope.py::test_every_actual_control_is_required_not_a_claim_boolean[features.recommended_plugins]
+FAILED tests/contracts/test_native_scope.py::test_every_actual_control_is_required_not_a_claim_boolean[features.memories]
+FAILED tests/contracts/test_native_scope.py::test_every_actual_control_is_required_not_a_claim_boolean[memories.use_memories]
+FAILED tests/contracts/test_native_scope.py::test_every_actual_control_is_required_not_a_claim_boolean[cloud.skills.enabled]
+FAILED tests/contracts/test_native_scope.py::test_every_actual_control_is_required_not_a_claim_boolean[features.image_generation]
+FAILED tests/contracts/test_native_scope.py::test_every_actual_control_is_required_not_a_claim_boolean[web_search]
+FAILED tests/contracts/test_native_scope.py::test_every_actual_control_is_required_not_a_claim_boolean[features.hooks]
+FAILED tests/contracts/test_native_scope.py::test_every_actual_control_is_required_not_a_claim_boolean[notify]
+FAILED tests/contracts/test_native_scope.py::test_every_actual_control_is_required_not_a_claim_boolean[features.deferred_executor]
+FAILED tests/contracts/test_native_scope.py::test_every_actual_control_is_required_not_a_claim_boolean[features.request_permissions_tool]
+FAILED tests/contracts/test_native_scope.py::test_mcp_enabled_requires_the_actual_false_boolean[True]
+FAILED tests/contracts/test_native_scope.py::test_mcp_enabled_requires_the_actual_false_boolean[0]
+FAILED tests/contracts/test_native_scope.py::test_mcp_enabled_requires_the_actual_false_boolean[None]
+FAILED tests/contracts/test_native_scope.py::test_mcp_enabled_requires_the_actual_false_boolean[false]
+FAILED tests/contracts/test_native_scope.py::test_thread_cannot_expand_environment_permission_or_tools[change0]
+FAILED tests/contracts/test_native_scope.py::test_thread_cannot_expand_environment_permission_or_tools[change1]
+FAILED tests/contracts/test_native_scope.py::test_thread_cannot_expand_environment_permission_or_tools[change2]
+FAILED tests/contracts/test_native_scope.py::test_thread_cannot_expand_environment_permission_or_tools[change3]
+FAILED tests/contracts/test_native_scope.py::test_thread_cannot_expand_environment_permission_or_tools[change4]
+FAILED tests/contracts/test_native_scope.py::test_thread_cannot_expand_environment_permission_or_tools[change5]
+FAILED tests/contracts/test_native_scope.py::test_thread_cannot_expand_environment_permission_or_tools[change6]
+FAILED tests/contracts/test_native_scope.py::test_turn_is_owned_sticky_readonly_and_exact_text_only[change0]
+FAILED tests/contracts/test_native_scope.py::test_turn_is_owned_sticky_readonly_and_exact_text_only[change1]
+FAILED tests/contracts/test_native_scope.py::test_turn_is_owned_sticky_readonly_and_exact_text_only[change2]
+FAILED tests/contracts/test_native_scope.py::test_turn_is_owned_sticky_readonly_and_exact_text_only[change3]
+FAILED tests/contracts/test_native_scope.py::test_turn_is_owned_sticky_readonly_and_exact_text_only[change4]
+FAILED tests/contracts/test_native_scope.py::test_turn_is_owned_sticky_readonly_and_exact_text_only[change5]
+FAILED tests/contracts/test_native_scope.py::test_turn_is_owned_sticky_readonly_and_exact_text_only[change6]
+FAILED tests/contracts/test_native_scope.py::test_turn_is_owned_sticky_readonly_and_exact_text_only[change7]
+FAILED tests/contracts/test_native_scope.py::test_second_top_level_turn_cannot_start
+FAILED tests/contracts/test_native_scope.py::test_foreign_context_and_json_receipt_cannot_mint_scope
+FAILED tests/contracts/test_native_scope.py::test_unprepared_or_unsolicited_metadata_is_rejected
+FAILED tests/contracts/test_native_scope.py::test_unknown_cleanup_revokes_an_existing_prepared_context
+FAILED tests/contracts/test_native_scope.py::test_native_pipe_authority_is_not_a_transport_kind_or_bool
+FAILED tests/contracts/test_native_scope.py::test_unpinned_source_or_entry_cannot_authorize[0000000000000000000000000000000000000000000000000000000000000000-]
+FAILED tests/contracts/test_native_scope.py::test_unpinned_source_or_entry_cannot_authorize[4b01d5920e6785614727443bbecf343f4dedbb7347052b72ba805aab6353ef01-0000000000000000000000000000000000000000000000000000000000000000]
+FAILED tests/contracts/test_native_scope.py::test_control_policy_records_the_model_metadata_override_ceiling
+62 failed in 0.89s

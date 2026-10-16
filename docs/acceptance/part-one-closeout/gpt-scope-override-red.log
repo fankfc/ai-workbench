@@ -1,0 +1,21 @@
+.....F..                                                                 [100%]
+================================== FAILURES ===================================
+_ test_toml_inline_table_preserves_literal_mcp_keys_without_transport_or_secret_copy _
+
+    def test_toml_inline_table_preserves_literal_mcp_keys_without_transport_or_secret_copy():
+        names = ['simple', 'name.with.dot', 'name"quote', '��������']
+        result = tomllib.loads('mcp_servers=' + mcp_inline_value(names))['mcp_servers']
+>       assert result == {name: {'enabled': False} for name in names}
+E       assert {} == {'simple': {'...bled': False}}
+E         
+E         Right contains 4 more items:
+E         {'name"quote': {'enabled': False},
+E          'name.with.dot': {'enabled': False},
+E          'simple': {'enabled': False},
+E          '��������': {'enabled': False}}
+E         Use -v to get more diff
+
+.tools\gpt-scope-probe\test_projection.py:39: AssertionError
+=========================== short test summary info ===========================
+FAILED .tools/gpt-scope-probe/test_projection.py::test_toml_inline_table_preserves_literal_mcp_keys_without_transport_or_secret_copy
+1 failed, 7 passed in 0.34s

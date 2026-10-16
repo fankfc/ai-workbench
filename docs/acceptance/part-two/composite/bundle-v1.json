@@ -1,0 +1,104 @@
+{
+  "bundle_id": "bundle-43937b824e084f61a941ab428c53ac85",
+  "version_id": "candidate-6a160b5334604065b4c6860e533d860c",
+  "turn_id": "c411e22231f540bba8cbc4aa380bbf05",
+  "title": "Monthly report",
+  "approval_id": "release-01ba35ea8cfd44a6bf989bb088a8208f",
+  "published_at": "2026-10-14T08:44:19.454045+00:00",
+  "historical": false,
+  "format_pairs": [
+    {
+      "artifact_pair_id": "pair-0a409cc6a72a4e8bbf56883d473cbcb4",
+      "chinese_artifact_id": "render-667693b7f95b41eaae3e70385098482c",
+      "english_artifact_id": "render-b0755e7ed3ee45c7a8ed7256f0607604",
+      "format": "markdown",
+      "source_version_id": "candidate-6a160b5334604065b4c6860e533d860c"
+    },
+    {
+      "artifact_pair_id": "pair-77e5c387906a475e99cd7d840f0862c1",
+      "chinese_artifact_id": "render-456a131c1ebd4cb69dd3bd0222991be9",
+      "english_artifact_id": "render-6404e9d4322b4ee8b7fc8387ef5a74de",
+      "format": "pdf",
+      "source_version_id": "candidate-6a160b5334604065b4c6860e533d860c"
+    }
+  ],
+  "artifacts": [
+    {
+      "artifact_id": "source_data-3b6678ed4f8649a59d62e36d91912214",
+      "artifact_pair_id": null,
+      "format": "csv",
+      "language": "und",
+      "file_name": "source.e36d91912214.csv",
+      "size_bytes": 74,
+      "sha256": "17038a6f42374e654ecd6760e02b5af6f63334b149285ff0a42beb9ba5f7e3ec",
+      "preview_available": false,
+      "preview_content_type": null
+    },
+    {
+      "artifact_id": "render-b0755e7ed3ee45c7a8ed7256f0607604",
+      "artifact_pair_id": "pair-0a409cc6a72a4e8bbf56883d473cbcb4",
+      "format": "markdown",
+      "language": "en",
+      "file_name": "report.860e533d860c.en.md",
+      "size_bytes": 76,
+      "sha256": "cb1fbc960c079b73286111ac8b5556d84a1944302eb604cf5b1eb5dd8229a15d",
+      "preview_available": true,
+      "preview_content_type": "text/plain; charset=utf-8"
+    },
+    {
+      "artifact_id": "render-667693b7f95b41eaae3e70385098482c",
+      "artifact_pair_id": "pair-0a409cc6a72a4e8bbf56883d473cbcb4",
+      "format": "markdown",
+      "language": "zh-CN",
+      "file_name": "report.860e533d860c.zh-CN.md",
+      "size_bytes": 70,
+      "sha256": "f18107f5959a99c2b868addd6a9896fcc3d263088690cbfd5a49eecedce8942d",
+      "preview_available": true,
+      "preview_content_type": "text/plain; charset=utf-8"
+    },
+    {
+      "artifact_id": "render-6404e9d4322b4ee8b7fc8387ef5a74de",
+      "artifact_pair_id": "pair-77e5c387906a475e99cd7d840f0862c1",
+      "format": "pdf",
+      "language": "en",
+      "file_name": "report.860e533d860c.en.pdf",
+      "size_bytes": 23176,
+      "sha256": "bcbac1496eb549ec79f45fb24d666ef75f8d4e26a7f388aff065ef76fde87bcf",
+      "preview_available": true,
+      "preview_content_type": "application/pdf"
+    },
+    {
+      "artifact_id": "render-456a131c1ebd4cb69dd3bd0222991be9",
+      "artifact_pair_id": "pair-77e5c387906a475e99cd7d840f0862c1",
+      "format": "pdf",
+      "language": "zh-CN",
+      "file_name": "report.860e533d860c.zh-CN.pdf",
+      "size_bytes": 25533,
+      "sha256": "07f85938216a120dde50f906f4b4c13cb7559b846df1a178c9e0884bd274705a",
+      "preview_available": true,
+      "preview_content_type": "application/pdf"
+    },
+    {
+      "artifact_id": "figures-4ad0cc1aae3a4e70ba0cfe16fa5a0c03",
+      "artifact_pair_id": null,
+      "format": "png",
+      "language": "und",
+      "file_name": "source.fe16fa5a0c03.png",
+      "size_bytes": 13111,
+      "sha256": "ec9e0ed7570e75a72de4ac6a878b0a6b98b4bf3d265b496d4d076f40ee2cbfbf",
+      "preview_available": true,
+      "preview_content_type": "image/png"
+    },
+    {
+      "artifact_id": "analysis_code-8d5faf85757441289d9b24acd76993e6",
+      "artifact_pair_id": null,
+      "format": "python",
+      "language": "und",
+      "file_name": "source.24acd76993e6.py",
+      "size_bytes": 618,
+      "sha256": "67a53ac38da2186ad92a8620ff2f4d440b5f53352db225df284b2a1415d0c955",
+      "preview_available": false,
+      "preview_content_type": null
+    }
+  ]
+}

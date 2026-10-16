@@ -1,0 +1,258 @@
+Command: services/orchestrator/.venv/Scripts/python.exe -m pytest tests/translation/test_role_prompt_contexts.py -k "translator_reported or incomplete_translator or malformed_translator or current_translator" -q
+FFF.FFFFF                                                                [100%]
+================================== FAILURES ===================================
+_ test_translator_reported_source_issue_requires_input_even_when_checker_finds_none[AMBIGUITY] _
+
+client = <starlette.testclient.TestClient object at 0x0000024021EFBB60>
+code = 'AMBIGUITY'
+
+    @pytest.mark.parametrize('code', ['AMBIGUITY', 'OCR_AMBIGUITY', 'MISSING_SOURCE'])
+    def test_translator_reported_source_issue_requires_input_even_when_checker_finds_none(client, code):
+        _, task, attempt = claude_turn(client)
+        translation = service(client)
+        original = translation.translator.invoke
+        async def issue(request):
+            response = await original(request)
+            finding = dict(block_id=request.blocks[0]['block_id'], code=code, severity='major',
+                message='Source content cannot be translated reliably.', source_locator=request.blocks[0]['source_locator'])
+            return replace(response, findings=(finding,))
+        translation.translator.invoke = issue
+        result = asyncio.run(translation.translate(task_id=task, attempt_id=attempt, source='保留原文件。',
+            source_language='zh-CN', target_language='en', purpose='input'))
+>       assert result.status == 'NEEDS_INPUT' and result.candidate_attempts == 1
+E       AssertionError: assert ('READY' == 'NEEDS_INPUT'
+E         
+E         - NEEDS_INPUT
+E         + READY)
+
+tests\translation\test_role_prompt_contexts.py:123: AssertionError
+_ test_translator_reported_source_issue_requires_input_even_when_checker_finds_none[OCR_AMBIGUITY] _
+
+client = <starlette.testclient.TestClient object at 0x000002402226DBD0>
+code = 'OCR_AMBIGUITY'
+
+    @pytest.mark.parametrize('code', ['AMBIGUITY', 'OCR_AMBIGUITY', 'MISSING_SOURCE'])
+    def test_translator_reported_source_issue_requires_input_even_when_checker_finds_none(client, code):
+        _, task, attempt = claude_turn(client)
+        translation = service(client)
+        original = translation.translator.invoke
+        async def issue(request):
+            response = await original(request)
+            finding = dict(block_id=request.blocks[0]['block_id'], code=code, severity='major',
+                message='Source content cannot be translated reliably.', source_locator=request.blocks[0]['source_locator'])
+            return replace(response, findings=(finding,))
+        translation.translator.invoke = issue
+        result = asyncio.run(translation.translate(task_id=task, attempt_id=attempt, source='保留原文件。',
+            source_language='zh-CN', target_language='en', purpose='input'))
+>       assert result.status == 'NEEDS_INPUT' and result.candidate_attempts == 1
+E       AssertionError: assert ('READY' == 'NEEDS_INPUT'
+E         
+E         - NEEDS_INPUT
+E         + READY)
+
+tests\translation\test_role_prompt_contexts.py:123: AssertionError
+_ test_translator_reported_source_issue_requires_input_even_when_checker_finds_none[MISSING_SOURCE] _
+
+client = <starlette.testclient.TestClient object at 0x00000240223A4190>
+code = 'MISSING_SOURCE'
+
+    @pytest.mark.parametrize('code', ['AMBIGUITY', 'OCR_AMBIGUITY', 'MISSING_SOURCE'])
+    def test_translator_reported_source_issue_requires_input_even_when_checker_finds_none(client, code):
+        _, task, attempt = claude_turn(client)
+        translation = service(client)
+        original = translation.translator.invoke
+        async def issue(request):
+            response = await original(request)
+            finding = dict(block_id=request.blocks[0]['block_id'], code=code, severity='major',
+                message='Source content cannot be translated reliably.', source_locator=request.blocks[0]['source_locator'])
+            return replace(response, findings=(finding,))
+        translation.translator.invoke = issue
+        result = asyncio.run(translation.translate(task_id=task, attempt_id=attempt, source='保留原文件。',
+            source_language='zh-CN', target_language='en', purpose='input'))
+>       assert result.status == 'NEEDS_INPUT' and result.candidate_attempts == 1
+E       AssertionError: assert ('READY' == 'NEEDS_INPUT'
+E         
+E         - NEEDS_INPUT
+E         + READY)
+
+tests\translation\test_role_prompt_contexts.py:123: AssertionError
+_______ test_malformed_translator_findings_fail_closed[missing_fields] ________
+
+client = <starlette.testclient.TestClient object at 0x0000024022355E00>
+malformed = 'missing_fields'
+
+    @pytest.mark.parametrize('malformed', ['missing_fields', 'foreign_block', 'wrong_locator', 'invalid_container'])
+    def test_malformed_translator_findings_fail_closed(client, malformed):
+        _, task, attempt = claude_turn(client)
+        translation = service(client)
+        original = translation.translator.invoke
+        async def invalid(request):
+            response = await original(request)
+            finding = dict(block_id=request.blocks[0]['block_id'], code='AMBIGUITY', severity='major',
+                message='Source issue.', source_locator=request.blocks[0]['source_locator'])
+            if malformed == 'missing_fields': finding.pop('severity')
+            if malformed == 'foreign_block': finding['block_id'] = 'foreign-block'
+            if malformed == 'wrong_locator': finding['source_locator'] = 'other/source'
+            return replace(response, findings=None if malformed == 'invalid_container' else (finding,))
+        translation.translator.invoke = invalid
+        result = asyncio.run(translation.translate(task_id=task, attempt_id=attempt, source='保留原文件。',
+            source_language='zh-CN', target_language='en', purpose='input'))
+>       assert result.status == 'FAILED' and result.clarification == 'B_TRANSLATION_FINDINGS_INVALID'
+E       AssertionError: assert ('READY' == 'FAILED'
+E         
+E         - FAILED
+E         + READY)
+
+tests\translation\test_role_prompt_contexts.py:158: AssertionError
+________ test_malformed_translator_findings_fail_closed[foreign_block] ________
+
+client = <starlette.testclient.TestClient object at 0x000002402242DFD0>
+malformed = 'foreign_block'
+
+    @pytest.mark.parametrize('malformed', ['missing_fields', 'foreign_block', 'wrong_locator', 'invalid_container'])
+    def test_malformed_translator_findings_fail_closed(client, malformed):
+        _, task, attempt = claude_turn(client)
+        translation = service(client)
+        original = translation.translator.invoke
+        async def invalid(request):
+            response = await original(request)
+            finding = dict(block_id=request.blocks[0]['block_id'], code='AMBIGUITY', severity='major',
+                message='Source issue.', source_locator=request.blocks[0]['source_locator'])
+            if malformed == 'missing_fields': finding.pop('severity')
+            if malformed == 'foreign_block': finding['block_id'] = 'foreign-block'
+            if malformed == 'wrong_locator': finding['source_locator'] = 'other/source'
+            return replace(response, findings=None if malformed == 'invalid_container' else (finding,))
+        translation.translator.invoke = invalid
+        result = asyncio.run(translation.translate(task_id=task, attempt_id=attempt, source='保留原文件。',
+            source_language='zh-CN', target_language='en', purpose='input'))
+>       assert result.status == 'FAILED' and result.clarification == 'B_TRANSLATION_FINDINGS_INVALID'
+E       AssertionError: assert ('READY' == 'FAILED'
+E         
+E         - FAILED
+E         + READY)
+
+tests\translation\test_role_prompt_contexts.py:158: AssertionError
+________ test_malformed_translator_findings_fail_closed[wrong_locator] ________
+
+client = <starlette.testclient.TestClient object at 0x00000240224767A0>
+malformed = 'wrong_locator'
+
+    @pytest.mark.parametrize('malformed', ['missing_fields', 'foreign_block', 'wrong_locator', 'invalid_container'])
+    def test_malformed_translator_findings_fail_closed(client, malformed):
+        _, task, attempt = claude_turn(client)
+        translation = service(client)
+        original = translation.translator.invoke
+        async def invalid(request):
+            response = await original(request)
+            finding = dict(block_id=request.blocks[0]['block_id'], code='AMBIGUITY', severity='major',
+                message='Source issue.', source_locator=request.blocks[0]['source_locator'])
+            if malformed == 'missing_fields': finding.pop('severity')
+            if malformed == 'foreign_block': finding['block_id'] = 'foreign-block'
+            if malformed == 'wrong_locator': finding['source_locator'] = 'other/source'
+            return replace(response, findings=None if malformed == 'invalid_container' else (finding,))
+        translation.translator.invoke = invalid
+        result = asyncio.run(translation.translate(task_id=task, attempt_id=attempt, source='保留原文件。',
+            source_language='zh-CN', target_language='en', purpose='input'))
+>       assert result.status == 'FAILED' and result.clarification == 'B_TRANSLATION_FINDINGS_INVALID'
+E       AssertionError: assert ('READY' == 'FAILED'
+E         
+E         - FAILED
+E         + READY)
+
+tests\translation\test_role_prompt_contexts.py:158: AssertionError
+______ test_malformed_translator_findings_fail_closed[invalid_container] ______
+
+client = <starlette.testclient.TestClient object at 0x0000024022501150>
+malformed = 'invalid_container'
+
+    @pytest.mark.parametrize('malformed', ['missing_fields', 'foreign_block', 'wrong_locator', 'invalid_container'])
+    def test_malformed_translator_findings_fail_closed(client, malformed):
+        _, task, attempt = claude_turn(client)
+        translation = service(client)
+        original = translation.translator.invoke
+        async def invalid(request):
+            response = await original(request)
+            finding = dict(block_id=request.blocks[0]['block_id'], code='AMBIGUITY', severity='major',
+                message='Source issue.', source_locator=request.blocks[0]['source_locator'])
+            if malformed == 'missing_fields': finding.pop('severity')
+            if malformed == 'foreign_block': finding['block_id'] = 'foreign-block'
+            if malformed == 'wrong_locator': finding['source_locator'] = 'other/source'
+            return replace(response, findings=None if malformed == 'invalid_container' else (finding,))
+        translation.translator.invoke = invalid
+>       result = asyncio.run(translation.translate(task_id=task, attempt_id=attempt, source='保留原文件。',
+            source_language='zh-CN', target_language='en', purpose='input'))
+
+tests\translation\test_role_prompt_contexts.py:156: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:194: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:118: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py:721: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+services\orchestrator\app\translation\service.py:221: in translate
+    response=await self._call(job,request,self.translator,route)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\app\translation\service.py:132: in _call
+    ('completed' if status=='completed' else 'failed',json.dumps(self._response_json(response)),json.dumps(response.usage),bound.request_id))
+                                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.translation.service.TranslationService object at 0x0000024022476F10>
+response = TranslationResponse(blocks={'b-ce6f85510fe0d891b8eb': 'Keep the original file.'}, findings=None, complete=True, usage=...-glm'), identity_status=<IdentityStatus.VERIFIED: 'verified'>, identity_source='fixture:fake', connection_version='1'))
+
+    def _response_json(self,response):
+>       return dict(blocks=response.blocks,findings=list(response.findings),complete=response.complete,
+                                                    ^^^^^^^^^^^^^^^^^^^^^^^
+            usage=response.usage,identity=response.identity.model_dump(mode='json') if response.identity else None)
+E       TypeError: 'NoneType' object is not iterable
+
+services\orchestrator\app\translation\service.py:53: TypeError
+_________ test_current_translator_and_checker_findings_both_reach_qa __________
+
+client = <starlette.testclient.TestClient object at 0x000002402263C160>
+
+    def test_current_translator_and_checker_findings_both_reach_qa(client):
+        _, task, attempt = claude_turn(client)
+        def checker_issue(request):
+            return [dict(block_id=request.blocks[0]['block_id'], code='NUMBER_CHANGED', severity='major',
+                message='Checker discrepancy.', source_locator=request.blocks[0]['source_locator'])]
+        translation = service(client, findings=checker_issue)
+        original = translation.translator.invoke
+        async def translator_issue(request):
+            response = await original(request)
+            finding = dict(block_id=request.blocks[0]['block_id'], code='NEGATION_CHANGED', severity='major',
+                message='Translator discrepancy.', source_locator=request.blocks[0]['source_locator'])
+            return replace(response, findings=(finding,))
+        translation.translator.invoke = translator_issue
+        result = asyncio.run(translation.translate(task_id=task, attempt_id=attempt, source='保留原文件。',
+            source_language='zh-CN', target_language='en', purpose='input'))
+        assert result.status == 'FAILED' and result.candidate_attempts == 3
+        assert all(request.findings == () for request in translation.checker.calls)
+        with closing(translation.database.connect()) as connection:
+            reports = [json.loads(row[0]) for row in connection.execute('SELECT qa_json FROM translation_candidates WHERE job_id=?', (result.job_id,))]
+>       assert all({'NEGATION_CHANGED', 'NUMBER_CHANGED'} <= {finding['code'] for finding in qa['semantic_findings']} for qa in reports)
+E       assert False
+E        +  where False = all(<generator object test_current_translator_and_checker_findings_both_reach_qa.<locals>.<genexpr> at 0x00000240222ADC60>)
+
+tests\translation\test_role_prompt_contexts.py:180: AssertionError
+============================== warnings summary ===============================
+tests/translation/test_role_prompt_contexts.py::test_translator_reported_source_issue_requires_input_even_when_checker_finds_none[AMBIGUITY]
+  C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/translation/test_role_prompt_contexts.py::test_translator_reported_source_issue_requires_input_even_when_checker_finds_none[AMBIGUITY]
+FAILED tests/translation/test_role_prompt_contexts.py::test_translator_reported_source_issue_requires_input_even_when_checker_finds_none[OCR_AMBIGUITY]
+FAILED tests/translation/test_role_prompt_contexts.py::test_translator_reported_source_issue_requires_input_even_when_checker_finds_none[MISSING_SOURCE]
+FAILED tests/translation/test_role_prompt_contexts.py::test_malformed_translator_findings_fail_closed[missing_fields]
+FAILED tests/translation/test_role_prompt_contexts.py::test_malformed_translator_findings_fail_closed[foreign_block]
+FAILED tests/translation/test_role_prompt_contexts.py::test_malformed_translator_findings_fail_closed[wrong_locator]
+FAILED tests/translation/test_role_prompt_contexts.py::test_malformed_translator_findings_fail_closed[invalid_container]
+FAILED tests/translation/test_role_prompt_contexts.py::test_current_translator_and_checker_findings_both_reach_qa
+8 failed, 1 passed, 8 deselected, 1 warning in 2.62s
+Exit code: 1

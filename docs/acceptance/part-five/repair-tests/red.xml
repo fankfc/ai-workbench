@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="4" skipped="0" tests="5" time="4.982" timestamp="2026-10-15T13:06:21.148029+08:00" hostname="帆"><testcase classname="tests.integration.test_repair_work_orders" name="test_repair_request_contains_current_candidate_failure_proof_and_bounded_scope" time="1.107"><failure message="AssertionError: ('UNKNOWN_USAGE',)&#10;assert 'BLOCKED' == 'OUTPUT_PREPARING'&#10;  &#10;  - OUTPUT_PREPARING&#10;  + BLOCKED">tests\integration\test_repair_work_orders.py:31: in test_repair_request_contains_current_candidate_failure_proof_and_bounded_scope
+    assert result.state == 'OUTPUT_PREPARING', result.reason_codes
+E   AssertionError: ('UNKNOWN_USAGE',)
+E   assert 'BLOCKED' == 'OUTPUT_PREPARING'
+E     
+E     - OUTPUT_PREPARING
+E     + BLOCKED</failure></testcase><testcase classname="tests.integration.test_repair_work_orders" name="test_stable_defect_id_triggers_takeover_despite_changed_description" time="0.481"><failure message="AssertionError: ('UNKNOWN_USAGE',)&#10;assert 'BLOCKED' == 'OUTPUT_PREPARING'&#10;  &#10;  - OUTPUT_PREPARING&#10;  + BLOCKED">tests\integration\test_repair_work_orders.py:60: in test_stable_defect_id_triggers_takeover_despite_changed_description
+    assert result.state == 'OUTPUT_PREPARING', result.reason_codes
+E   AssertionError: ('UNKNOWN_USAGE',)
+E   assert 'BLOCKED' == 'OUTPUT_PREPARING'
+E     
+E     - OUTPUT_PREPARING
+E     + BLOCKED</failure></testcase><testcase classname="tests.integration.test_repair_work_orders" name="test_open_structured_finding_prevents_pass_even_without_legacy_issues" time="0.486"><failure message="AssertionError: assert 'OPEN_REVIEW_ISSUES' in ('UNKNOWN_USAGE',)&#10; +  where ('UNKNOWN_USAGE',) = WorkflowResult(state='BLOCKED', current_revision_id='candidate-55975c0b049b4859bd53c0b90666fa3d', review_check_id=None...tructured_finding_p0\\workspaces\\tasks\\6eefc657efd44c8ba3ad029449f75833\\553dd326fddf422f908d84584a569bd2\\evidence').reason_codes">tests\integration\test_repair_work_orders.py:72: in test_open_structured_finding_prevents_pass_even_without_legacy_issues
+    assert 'OPEN_REVIEW_ISSUES' in result.reason_codes
+E   AssertionError: assert 'OPEN_REVIEW_ISSUES' in ('UNKNOWN_USAGE',)
+E    +  where ('UNKNOWN_USAGE',) = WorkflowResult(state='BLOCKED', current_revision_id='candidate-55975c0b049b4859bd53c0b90666fa3d', review_check_id=None...tructured_finding_p0\\workspaces\\tasks\\6eefc657efd44c8ba3ad029449f75833\\553dd326fddf422f908d84584a569bd2\\evidence').reason_codes</failure></testcase><testcase classname="tests.integration.test_repair_work_orders" name="test_foreign_or_duplicate_findings_block_before_another_execution" time="0.996" /><testcase classname="tests.integration.test_repair_work_orders" name="test_legacy_issue_handoff_preserves_unknown_details_and_real_evidence" time="1.017"><failure message="KeyError: 'repair_work_order'">tests\integration\test_repair_work_orders.py:92: in test_legacy_issue_handoff_preserves_unknown_details_and_real_evidence
+    order = json.loads(Path(b.starts[1].prompt_path).read_text(encoding='utf-8'))['evidence_package']['repair_work_order']
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   KeyError: 'repair_work_order'</failure></testcase></testsuite></testsuites>

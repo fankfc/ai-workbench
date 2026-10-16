@@ -1,0 +1,513 @@
+{
+  "schema_version": "1.0",
+  "run_id": "20261015T051417249380Z-663ae1b3",
+  "mode": "mapping_only",
+  "mapping_valid": true,
+  "coverage_scope": "Selected local work-order, role-prompt, translation-context, review/repair/handoff and fixed-program checks for the ten sections. Model outputs are explicit fixtures. This does not accept real providers, human quality, release readiness or optimization goals.",
+  "source_before": {
+    "build_id": "29de8e4261812bb2f81364f852c5074153689ccb8b65166c938be34c6b166268",
+    "qa_source_id": "c1d9dd3ad2ddd572b56b69e57912f117cfd37469fbc06e6f42efc12f920bf6a1",
+    "mapping_sha256": "6fde5e573c63f6c35fdf85538803ad8e4aa831fcbf93ababec1d6160a3a20c09",
+    "spec_sha256": "94cb042be30a957eba118a73d0af0ae81b367e371b85bea08e7d7a5c0c2a03c0",
+    "role_assets": [
+      {
+        "path": "services/orchestrator/app/prompts/roles/a_planner.v1.md",
+        "sha256": "1a8ec59cd385f3cc82251c0cf555c3ac92cfdd2814d56917dc0898137da35209"
+      },
+      {
+        "path": "services/orchestrator/app/prompts/roles/a_reviewer.v1.md",
+        "sha256": "1add8582dc76978eda30537b776fb67b82d5aadf569f96462896985d384c0af7"
+      },
+      {
+        "path": "services/orchestrator/app/prompts/roles/a_takeover.v1.md",
+        "sha256": "0028d5bfcce1c7d9bbdcd607addb33041e1fd49e6b272a441d29c3a44b42b610"
+      },
+      {
+        "path": "services/orchestrator/app/prompts/roles/b_checker.v1.md",
+        "sha256": "67f8cc481eba133a7e8cee11941266285fffd4fc2bc54bb506029d2bb8a40a68"
+      },
+      {
+        "path": "services/orchestrator/app/prompts/roles/b_executor.v1.md",
+        "sha256": "8d9347fce1429188cddc2e8107c0ed6509be3858b7e7d15473407480a5b085ad"
+      },
+      {
+        "path": "services/orchestrator/app/prompts/roles/b_translator.v1.md",
+        "sha256": "a3d1ef4032c6de68eb809fd3b79b3ab1efb5721cbd7e458233d9f0890578494a"
+      },
+      {
+        "path": "services/orchestrator/app/prompts/roles/runtime_boundaries.v1.md",
+        "sha256": "359110f30437262422ccaef0124370c65383eddbc01cb53c9b01138981867cc8"
+      },
+      {
+        "path": "services/orchestrator/app/translation/prompts/input_translator.txt",
+        "sha256": "74c0563000dace2e12c93d50a56943aa8d3e1f16943618b5e7fcaf6870c2d6cf"
+      },
+      {
+        "path": "services/orchestrator/app/translation/prompts/output_translator.txt",
+        "sha256": "c3f1c4e4018d2c1b21fa195033e48a7e3158ab22ef4eed8a199d9d0d2b3d003d"
+      },
+      {
+        "path": "services/orchestrator/app/translation/prompts/semantic_checker.txt",
+        "sha256": "3939c76093e27abe885424fa713af93c59a5187449721eee5611a9a3ba945daa"
+      }
+    ],
+    "role_assets_sha256": "58ab06088a4ab5a128076db0a0c9cd5ec6ab08656f37445bc464a03c92dcac36"
+  },
+  "source_after": {
+    "build_id": "29de8e4261812bb2f81364f852c5074153689ccb8b65166c938be34c6b166268",
+    "qa_source_id": "c1d9dd3ad2ddd572b56b69e57912f117cfd37469fbc06e6f42efc12f920bf6a1",
+    "mapping_sha256": "6fde5e573c63f6c35fdf85538803ad8e4aa831fcbf93ababec1d6160a3a20c09",
+    "spec_sha256": "94cb042be30a957eba118a73d0af0ae81b367e371b85bea08e7d7a5c0c2a03c0",
+    "role_assets": [
+      {
+        "path": "services/orchestrator/app/prompts/roles/a_planner.v1.md",
+        "sha256": "1a8ec59cd385f3cc82251c0cf555c3ac92cfdd2814d56917dc0898137da35209"
+      },
+      {
+        "path": "services/orchestrator/app/prompts/roles/a_reviewer.v1.md",
+        "sha256": "1add8582dc76978eda30537b776fb67b82d5aadf569f96462896985d384c0af7"
+      },
+      {
+        "path": "services/orchestrator/app/prompts/roles/a_takeover.v1.md",
+        "sha256": "0028d5bfcce1c7d9bbdcd607addb33041e1fd49e6b272a441d29c3a44b42b610"
+      },
+      {
+        "path": "services/orchestrator/app/prompts/roles/b_checker.v1.md",
+        "sha256": "67f8cc481eba133a7e8cee11941266285fffd4fc2bc54bb506029d2bb8a40a68"
+      },
+      {
+        "path": "services/orchestrator/app/prompts/roles/b_executor.v1.md",
+        "sha256": "8d9347fce1429188cddc2e8107c0ed6509be3858b7e7d15473407480a5b085ad"
+      },
+      {
+        "path": "services/orchestrator/app/prompts/roles/b_translator.v1.md",
+        "sha256": "a3d1ef4032c6de68eb809fd3b79b3ab1efb5721cbd7e458233d9f0890578494a"
+      },
+      {
+        "path": "services/orchestrator/app/prompts/roles/runtime_boundaries.v1.md",
+        "sha256": "359110f30437262422ccaef0124370c65383eddbc01cb53c9b01138981867cc8"
+      },
+      {
+        "path": "services/orchestrator/app/translation/prompts/input_translator.txt",
+        "sha256": "74c0563000dace2e12c93d50a56943aa8d3e1f16943618b5e7fcaf6870c2d6cf"
+      },
+      {
+        "path": "services/orchestrator/app/translation/prompts/output_translator.txt",
+        "sha256": "c3f1c4e4018d2c1b21fa195033e48a7e3158ab22ef4eed8a199d9d0d2b3d003d"
+      },
+      {
+        "path": "services/orchestrator/app/translation/prompts/semantic_checker.txt",
+        "sha256": "3939c76093e27abe885424fa713af93c59a5187449721eee5611a9a3ba945daa"
+      }
+    ],
+    "role_assets_sha256": "58ab06088a4ab5a128076db0a0c9cd5ec6ab08656f37445bc464a03c92dcac36"
+  },
+  "source_unchanged": true,
+  "provider_boundary": "fake",
+  "real_model_calls": 0,
+  "regression": {
+    "path": "regression",
+    "exit_code": 0,
+    "issues": [],
+    "manifest_verified": true
+  },
+  "checks": [],
+  "counts": {},
+  "report_issues": {},
+  "coverage": [
+    {
+      "id": "SEC01",
+      "title": "Single-task dispatch, direct dependencies and bounded executable arguments",
+      "local_status": "not_run",
+      "tests": [
+        {
+          "runner": "pytest",
+          "id": "tests/contracts/test_work_orders.py::test_exact_card_full_actions_and_only_direct_artifact_context",
+          "status": "not_run"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/contracts/test_work_orders.py::test_source_data_cannot_expand_trusted_allowlist",
+          "status": "not_run"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/contracts/test_work_orders.py::test_record_measures_real_process_exit_and_does_not_parse_shell",
+          "status": "not_run"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/contracts/test_role_prompts.py::test_runtime_requests_include_versioned_roles_without_changing_contract[pass]",
+          "status": "not_run"
+        }
+      ],
+      "local_scope": "selected_local_mechanical_checks",
+      "full_step_accepted": false,
+      "manual_status": "not_verified",
+      "external_status": "not_verified",
+      "optimization_status": "not_verified",
+      "external_requirements": [
+        "Local dispatch and scope checks do not prove actual external A/B execution or reopen frozen development cards."
+      ]
+    },
+    {
+      "id": "SEC02",
+      "title": "Development handoff with current files and actual process evidence",
+      "local_status": "not_run",
+      "tests": [
+        {
+          "runner": "pytest",
+          "id": "tests/contracts/test_work_orders.py::test_handoff_accepts_measured_local_checks_without_finishing_task",
+          "status": "not_run"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/contracts/test_work_orders.py::test_handoff_declared_files_must_match_observed_allowlist_changes",
+          "status": "not_run"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/contracts/test_work_orders.py::test_real_nonzero_exit_never_becomes_accepted_handoff",
+          "status": "not_run"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/contracts/test_work_orders.py::test_handoff_rejects_wrong_binding_missing_stale_or_fabricated_evidence[fabricated_pass]",
+          "status": "not_run"
+        }
+      ],
+      "local_scope": "selected_local_mechanical_checks",
+      "full_step_accepted": false,
+      "manual_status": "not_verified",
+      "external_status": "not_verified",
+      "optimization_status": "not_verified",
+      "external_requirements": [
+        "Measured local command records authorize an in-review handoff only; they cannot mark the frozen task board done or imply external acceptance."
+      ]
+    },
+    {
+      "id": "SEC03",
+      "title": "A planning role, stable acceptance criteria and explicit contract semantics",
+      "local_status": "not_run",
+      "tests": [
+        {
+          "runner": "pytest",
+          "id": "tests/contracts/test_role_prompts.py::test_native_planning_loads_role_and_maps_concepts_to_existing_contract",
+          "status": "not_run"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/contracts/test_role_prompts.py::test_claude_planning_execution_review_and_takeover_have_english_roles",
+          "status": "not_run"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/unit/test_task_contracts.py::test_default_guidance_does_not_limit_a_calls",
+          "status": "not_run"
+        }
+      ],
+      "local_scope": "selected_local_mechanical_checks",
+      "full_step_accepted": false,
+      "manual_status": "not_verified",
+      "external_status": "not_verified",
+      "optimization_status": "not_verified",
+      "external_requirements": [
+        "Fixture planning checks role delivery and existing contract mappings; semantic planning quality and A-independent quality equivalence remain unmeasured."
+      ]
+    },
+    {
+      "id": "SEC04",
+      "title": "B execution/repair roles, immutable constraints and bounded escalation",
+      "local_status": "not_run",
+      "tests": [
+        {
+          "runner": "pytest",
+          "id": "tests/contracts/test_role_prompts.py::test_runtime_requests_include_versioned_roles_without_changing_contract[no_progress]",
+          "status": "not_run"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_repair_work_orders.py::test_stable_defect_id_triggers_takeover_despite_changed_description",
+          "status": "not_run"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_context_gateway.py::test_source_prompt_injection_cannot_modify_tool_scope",
+          "status": "not_run"
+        }
+      ],
+      "local_scope": "selected_local_mechanical_checks",
+      "full_step_accepted": false,
+      "manual_status": "not_verified",
+      "external_status": "not_verified",
+      "optimization_status": "not_verified",
+      "external_requirements": [
+        "Actual service-created B requests are inspected with fixture responses; these tests do not establish real ZCode/GLM qualification or autonomous implementation quality."
+      ]
+    },
+    {
+      "id": "SEC05",
+      "title": "Faithful translator roles and execution-free input/output/clarification contexts",
+      "local_status": "not_run",
+      "tests": [
+        {
+          "runner": "pytest",
+          "id": "tests/translation/test_role_prompt_contexts.py::test_translation_calls_attach_distinct_loaded_roles[input]",
+          "status": "not_run"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/translation/test_role_prompt_contexts.py::test_translation_calls_attach_distinct_loaded_roles[output]",
+          "status": "not_run"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/translation/test_role_prompt_contexts.py::test_translation_calls_attach_distinct_loaded_roles[clarification]",
+          "status": "not_run"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/translation/test_role_prompt_contexts.py::test_changed_role_instructions_invalidate_ready_jobs_and_cached_qa",
+          "status": "not_run"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/translation/test_quality_cache.py::test_cache_context_glossary_model_and_source_are_part_of_key",
+          "status": "not_run"
+        }
+      ],
+      "local_scope": "selected_local_mechanical_checks",
+      "full_step_accepted": false,
+      "manual_status": "not_verified",
+      "external_status": "not_verified",
+      "optimization_status": "not_verified",
+      "external_requirements": [
+        "Loaded prompt, cache and task-context checks use fixture translations; complete bilingual fidelity, domain samples and human review remain external acceptance work."
+      ]
+    },
+    {
+      "id": "SEC06",
+      "title": "Separate translation-check context without inherited findings or independence overclaim",
+      "local_status": "not_run",
+      "tests": [
+        {
+          "runner": "pytest",
+          "id": "tests/translation/test_role_prompt_contexts.py::test_checker_does_not_receive_prior_candidate_findings",
+          "status": "not_run"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/translation/test_role_prompt_contexts.py::test_changed_checker_identity_invalidates_cached_semantic_qa[model_id]",
+          "status": "not_run"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/translation/test_quality_cache.py::test_separate_semantic_findings_block_and_ambiguity_requests_input",
+          "status": "not_run"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/translation/test_quality_cache.py::test_translation_and_checker_tokens_both_remain_in_usage",
+          "status": "not_run"
+        }
+      ],
+      "local_scope": "selected_local_mechanical_checks",
+      "full_step_accepted": false,
+      "manual_status": "not_verified",
+      "external_status": "not_verified",
+      "optimization_status": "not_verified",
+      "external_requirements": [
+        "A separate B comparison context is automated QA; independent-model and human validation, frozen bilingual samples and ongoing spot checks are not supplied by this run."
+      ]
+    },
+    {
+      "id": "SEC07",
+      "title": "A actual-evidence review, structured scope/findings and four non-equivalent decisions",
+      "local_status": "not_run",
+      "tests": [
+        {
+          "runner": "pytest",
+          "id": "tests/contracts/test_phase_bridge.py::test_native_review_preserves_structured_scope_and_repair_details",
+          "status": "not_run"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/contracts/test_phase_bridge.py::test_native_review_rejects_open_pass_or_invalid_defect_identity[open_pass]",
+          "status": "not_run"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_repair_work_orders.py::test_open_structured_finding_prevents_pass_even_without_legacy_issues",
+          "status": "not_run"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_agent_workflow.py::test_a_review_receives_actual_hash_bound_mechanical_observations",
+          "status": "not_run"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/unit/test_task_contracts.py::test_b_document_with_a_pass_is_not_a_canonical_original",
+          "status": "not_run"
+        }
+      ],
+      "local_scope": "selected_local_mechanical_checks",
+      "full_step_accepted": false,
+      "manual_status": "not_verified",
+      "external_status": "not_verified",
+      "optimization_status": "not_verified",
+      "external_requirements": [
+        "Actual C proof bytes and fixture A decisions validate the review protocol; correctness of a real A assessment and complex authored documents still require their own evidence."
+      ]
+    },
+    {
+      "id": "SEC08",
+      "title": "C fixed evidence/version, invalidation, public projection, cancellation and usage rules",
+      "local_status": "not_run",
+      "tests": [
+        {
+          "runner": "pytest",
+          "id": "tests/contracts/test_phase_prompt.py::test_review_prompt_carries_original_source_and_mechanical_evidence_without_granting_pass",
+          "status": "not_run"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_dependency_invalidation.py::test_old_pass_approval_and_translation_unit_are_marked_stale",
+          "status": "not_run"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_state_machine.py::test_release_gate_binds_current_revision_and_allows_ready_then_published",
+          "status": "not_run"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/usage/test_ledger_reconciliation.py::test_missing_usage_is_unknown_and_estimates_are_separate",
+          "status": "not_run"
+        },
+        {
+          "runner": "vitest",
+          "id": "tests/desktop/public-events.test.ts::public replay and cancellation deduplicates replay and keeps pending state private",
+          "status": "not_run"
+        },
+        {
+          "runner": "vitest",
+          "id": "tests/desktop/public-events.test.ts::public replay and cancellation rejects an answer arriving after cancellation and never claims remote confirmation",
+          "status": "not_run"
+        },
+        {
+          "runner": "playwright",
+          "id": "tests/e2e/host.spec.ts::actual isolated Electron exposes only a business bridge",
+          "status": "not_run"
+        }
+      ],
+      "local_scope": "selected_local_mechanical_checks",
+      "full_step_accepted": false,
+      "manual_status": "not_verified",
+      "external_status": "not_verified",
+      "optimization_status": "not_verified",
+      "external_requirements": [
+        "Selected program and actual local Electron checks preserve existing gates; they do not replace the complete runtime SOP, real remote cancellation or signed release acceptance."
+      ]
+    },
+    {
+      "id": "SEC09",
+      "title": "Version-bound repair work orders with real failed evidence and stable defect identity",
+      "local_status": "not_run",
+      "tests": [
+        {
+          "runner": "pytest",
+          "id": "tests/contracts/test_work_orders.py::test_repair_and_blocked_reports_require_retrievable_evidence[repair]",
+          "status": "not_run"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_repair_work_orders.py::test_repair_request_contains_current_candidate_failure_proof_and_bounded_scope",
+          "status": "not_run"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_repair_work_orders.py::test_foreign_or_duplicate_findings_block_before_another_execution",
+          "status": "not_run"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_repair_work_orders.py::test_saved_repair_handoff_rejects_changed_scope_version_candidate_or_evidence",
+          "status": "not_run"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_repair_work_orders.py::test_legacy_issue_handoff_preserves_unknown_details_and_real_evidence",
+          "status": "not_run"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/contracts/test_phase_bridge.py::test_native_review_rejects_open_pass_or_invalid_defect_identity[foreign_requirement]",
+          "status": "not_run"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/contracts/test_phase_bridge.py::test_native_review_rejects_open_pass_or_invalid_defect_identity[duplicate_id]",
+          "status": "not_run"
+        }
+      ],
+      "local_scope": "selected_local_mechanical_checks",
+      "full_step_accepted": false,
+      "manual_status": "not_verified",
+      "external_status": "not_verified",
+      "optimization_status": "not_verified",
+      "external_requirements": [
+        "Local repair journeys verify actual revisions/proofs and fixture decisions. They do not prove the full real-provider reproduction-to-final-delivery journey or semantic adequacy of every correction."
+      ]
+    },
+    {
+      "id": "SEC10",
+      "title": "Evidence-indexed blocking/handoff and honest public completion boundaries",
+      "local_status": "not_run",
+      "tests": [
+        {
+          "runner": "pytest",
+          "id": "tests/contracts/test_work_orders.py::test_repair_and_blocked_reports_require_retrievable_evidence[blocked]",
+          "status": "not_run"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/contracts/test_work_orders.py::test_handoff_rejects_wrong_binding_missing_stale_or_fabricated_evidence[missing_evidence]",
+          "status": "not_run"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/acceptance/test_work_order_protocol.py::test_wrapper_uses_only_its_fresh_child_and_seals_final_summary",
+          "status": "not_run"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/acceptance/test_work_order_protocol.py::test_mapping_only_never_claims_execution_or_local_completion",
+          "status": "not_run"
+        },
+        {
+          "runner": "pytest",
+          "id": "tests/integration/test_public_projection.py::test_pending_and_error_are_fixed_public_templates",
+          "status": "not_run"
+        }
+      ],
+      "local_scope": "selected_local_mechanical_checks",
+      "full_step_accepted": false,
+      "manual_status": "not_verified",
+      "external_status": "not_verified",
+      "optimization_status": "not_verified",
+      "external_requirements": [
+        "The handoff records retrievable current evidence and honest unresolved conditions; real recipient takeover, full product acceptance, human checks and optimization remain unverified."
+      ]
+    }
+  ],
+  "all_executed_checks_passed": false,
+  "phase_five_local_verified": false,
+  "full_product_accepted": false,
+  "functional_release": false,
+  "real_provider_accepted": false,
+  "manual_acceptance": false,
+  "optimization_goal_met": false,
+  "evidence_manifest_scope": "This wrapper and unchanged nested regression command/report evidence. The child records raw pytest artifacts separately outside its sealed manifest; this is not a complete workflow artifact archive.",
+  "note": "Only exact tests from this newly invoked regression count. Mapping-only and partial lanes cannot complete stage five. Local verification does not grant real-provider, human, release or optimization acceptance."
+}

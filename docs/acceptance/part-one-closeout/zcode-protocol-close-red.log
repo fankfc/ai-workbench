@@ -1,0 +1,82 @@
+.................................FFFFF.......                            [100%]
+================================== FAILURES ===================================
+___________ test_close_response_requires_actual_confirmation[None] ____________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-183/test_close_response_requires_a0')
+response = None
+
+    @pytest.mark.parametrize("response", [None, {}, {"closed": False}, {"closed": 1}])
+    def test_close_response_requires_actual_confirmation(tmp_path, response):
+        probe, fixture, _ = make_probe(tmp_path, responses={"runtime/capabilities": {"independentPlanState": True},
+            "session/create": snapshot(), "session/close": response})
+        result = probe.probe()
+>       assert result["session_close_confirmed"] is False
+E       assert True is False
+
+tests\contracts\test_zcode_protocol.py:190: AssertionError
+_________ test_close_response_requires_actual_confirmation[response1] _________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-183/test_close_response_requires_a1')
+response = {}
+
+    @pytest.mark.parametrize("response", [None, {}, {"closed": False}, {"closed": 1}])
+    def test_close_response_requires_actual_confirmation(tmp_path, response):
+        probe, fixture, _ = make_probe(tmp_path, responses={"runtime/capabilities": {"independentPlanState": True},
+            "session/create": snapshot(), "session/close": response})
+        result = probe.probe()
+>       assert result["session_close_confirmed"] is False
+E       assert True is False
+
+tests\contracts\test_zcode_protocol.py:190: AssertionError
+_________ test_close_response_requires_actual_confirmation[response2] _________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-183/test_close_response_requires_a2')
+response = {'closed': False}
+
+    @pytest.mark.parametrize("response", [None, {}, {"closed": False}, {"closed": 1}])
+    def test_close_response_requires_actual_confirmation(tmp_path, response):
+        probe, fixture, _ = make_probe(tmp_path, responses={"runtime/capabilities": {"independentPlanState": True},
+            "session/create": snapshot(), "session/close": response})
+        result = probe.probe()
+>       assert result["session_close_confirmed"] is False
+E       assert True is False
+
+tests\contracts\test_zcode_protocol.py:190: AssertionError
+_________ test_close_response_requires_actual_confirmation[response3] _________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-183/test_close_response_requires_a3')
+response = {'closed': 1}
+
+    @pytest.mark.parametrize("response", [None, {}, {"closed": False}, {"closed": 1}])
+    def test_close_response_requires_actual_confirmation(tmp_path, response):
+        probe, fixture, _ = make_probe(tmp_path, responses={"runtime/capabilities": {"independentPlanState": True},
+            "session/create": snapshot(), "session/close": response})
+        result = probe.probe()
+>       assert result["session_close_confirmed"] is False
+E       assert True is False
+
+tests\contracts\test_zcode_protocol.py:190: AssertionError
+__ test_sensitive_identifier_is_rejected_and_never_reused_as_session_binding __
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-183/test_sensitive_identifier_is_r0')
+
+    def test_sensitive_identifier_is_rejected_and_never_reused_as_session_binding(tmp_path):
+        value = snapshot()
+        value["session"]["sessionId"] = "person@example.com"
+        probe, fixture, _ = make_probe(tmp_path, responses={"runtime/capabilities": {"independentPlanState": True},
+            "session/create": value})
+        result = probe.probe()
+>       assert result["reason_code"] == "METADATA_RESPONSE_INVALID"
+E       AssertionError: assert 'HOST_ACCOUNT...TEXT_REQUIRED' == 'METADATA_RESPONSE_INVALID'
+E         
+E         - METADATA_RESPONSE_INVALID
+E         + HOST_ACCOUNT_CONTEXT_REQUIRED
+
+tests\contracts\test_zcode_protocol.py:201: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/contracts/test_zcode_protocol.py::test_close_response_requires_actual_confirmation[None]
+FAILED tests/contracts/test_zcode_protocol.py::test_close_response_requires_actual_confirmation[response1]
+FAILED tests/contracts/test_zcode_protocol.py::test_close_response_requires_actual_confirmation[response2]
+FAILED tests/contracts/test_zcode_protocol.py::test_close_response_requires_actual_confirmation[response3]
+FAILED tests/contracts/test_zcode_protocol.py::test_sensitive_identifier_is_rejected_and_never_reused_as_session_binding
+5 failed, 40 passed in 0.46s

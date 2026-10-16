@@ -1,0 +1,161 @@
+FFFFFFFFF                                                                [100%]
+================================== FAILURES ===================================
+_ test_caller_cannot_expand_the_fixed_metadata_method_universe[provider/updateAccountConfig] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-187/test_caller_cannot_expand_the_0')
+method = 'provider/updateAccountConfig'
+
+    @pytest.mark.parametrize("method", ["provider/updateAccountConfig", "thread/resume", "workspace/runPrompt"])
+    def test_caller_cannot_expand_the_fixed_metadata_method_universe(tmp_path, method):
+>       with pytest.raises(NativeRpcError, match="METADATA_METHOD_NOT_ALLOWED"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE NativeRpcError
+
+tests\contracts\test_codex_protocol.py:183: Failed
+_ test_caller_cannot_expand_the_fixed_metadata_method_universe[thread/resume] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-187/test_caller_cannot_expand_the_1')
+method = 'thread/resume'
+
+    @pytest.mark.parametrize("method", ["provider/updateAccountConfig", "thread/resume", "workspace/runPrompt"])
+    def test_caller_cannot_expand_the_fixed_metadata_method_universe(tmp_path, method):
+>       with pytest.raises(NativeRpcError, match="METADATA_METHOD_NOT_ALLOWED"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE NativeRpcError
+
+tests\contracts\test_codex_protocol.py:183: Failed
+_ test_caller_cannot_expand_the_fixed_metadata_method_universe[workspace/runPrompt] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-187/test_caller_cannot_expand_the_2')
+method = 'workspace/runPrompt'
+
+    @pytest.mark.parametrize("method", ["provider/updateAccountConfig", "thread/resume", "workspace/runPrompt"])
+    def test_caller_cannot_expand_the_fixed_metadata_method_universe(tmp_path, method):
+>       with pytest.raises(NativeRpcError, match="METADATA_METHOD_NOT_ALLOWED"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE NativeRpcError
+
+tests\contracts\test_codex_protocol.py:183: Failed
+___ test_bottom_transport_blocks_unsafe_zcode_session_parameters[mode-act] ____
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-187/test_bottom_transport_blocks_u0')
+field = 'mode', value = 'act'
+
+    @pytest.mark.parametrize("field,value", [("mode", "act"), ("persistence", "durable"),
+        ("titleGenerationEnabled", True), ("toolAllowlist", ["shell"]), ("dynamicWorkflowEnabled", True)])
+    def test_bottom_transport_blocks_unsafe_zcode_session_parameters(tmp_path, field, value):
+        params = {"workspace": {"workspacePath": str(tmp_path), "workspaceKey": str(tmp_path)},
+            "mode": "guarded", "persistence": "deferred", "titleGenerationEnabled": False,
+            "toolAllowlist": [], "dynamicWorkflowEnabled": False, "offPeakToolEnabled": False}
+        params[field] = value
+        client = NativeRpcClient(fixture_command(tmp_path), tmp_path, metadata_methods={"session/create"})
+>       with pytest.raises(NativeRpcError, match="METADATA_SESSION_PARAMS_REQUIRED"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError: Regex pattern did not match.
+E         Expected regex: 'METADATA_SESSION_PARAMS_REQUIRED'
+E         Actual message: 'RPC_NOT_RUNNING'
+
+tests\contracts\test_codex_protocol.py:195: AssertionError
+_ test_bottom_transport_blocks_unsafe_zcode_session_parameters[persistence-durable] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-187/test_bottom_transport_blocks_u1')
+field = 'persistence', value = 'durable'
+
+    @pytest.mark.parametrize("field,value", [("mode", "act"), ("persistence", "durable"),
+        ("titleGenerationEnabled", True), ("toolAllowlist", ["shell"]), ("dynamicWorkflowEnabled", True)])
+    def test_bottom_transport_blocks_unsafe_zcode_session_parameters(tmp_path, field, value):
+        params = {"workspace": {"workspacePath": str(tmp_path), "workspaceKey": str(tmp_path)},
+            "mode": "guarded", "persistence": "deferred", "titleGenerationEnabled": False,
+            "toolAllowlist": [], "dynamicWorkflowEnabled": False, "offPeakToolEnabled": False}
+        params[field] = value
+        client = NativeRpcClient(fixture_command(tmp_path), tmp_path, metadata_methods={"session/create"})
+>       with pytest.raises(NativeRpcError, match="METADATA_SESSION_PARAMS_REQUIRED"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError: Regex pattern did not match.
+E         Expected regex: 'METADATA_SESSION_PARAMS_REQUIRED'
+E         Actual message: 'RPC_NOT_RUNNING'
+
+tests\contracts\test_codex_protocol.py:195: AssertionError
+_ test_bottom_transport_blocks_unsafe_zcode_session_parameters[titleGenerationEnabled-True] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-187/test_bottom_transport_blocks_u2')
+field = 'titleGenerationEnabled', value = True
+
+    @pytest.mark.parametrize("field,value", [("mode", "act"), ("persistence", "durable"),
+        ("titleGenerationEnabled", True), ("toolAllowlist", ["shell"]), ("dynamicWorkflowEnabled", True)])
+    def test_bottom_transport_blocks_unsafe_zcode_session_parameters(tmp_path, field, value):
+        params = {"workspace": {"workspacePath": str(tmp_path), "workspaceKey": str(tmp_path)},
+            "mode": "guarded", "persistence": "deferred", "titleGenerationEnabled": False,
+            "toolAllowlist": [], "dynamicWorkflowEnabled": False, "offPeakToolEnabled": False}
+        params[field] = value
+        client = NativeRpcClient(fixture_command(tmp_path), tmp_path, metadata_methods={"session/create"})
+>       with pytest.raises(NativeRpcError, match="METADATA_SESSION_PARAMS_REQUIRED"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError: Regex pattern did not match.
+E         Expected regex: 'METADATA_SESSION_PARAMS_REQUIRED'
+E         Actual message: 'RPC_NOT_RUNNING'
+
+tests\contracts\test_codex_protocol.py:195: AssertionError
+_ test_bottom_transport_blocks_unsafe_zcode_session_parameters[toolAllowlist-value3] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-187/test_bottom_transport_blocks_u3')
+field = 'toolAllowlist', value = ['shell']
+
+    @pytest.mark.parametrize("field,value", [("mode", "act"), ("persistence", "durable"),
+        ("titleGenerationEnabled", True), ("toolAllowlist", ["shell"]), ("dynamicWorkflowEnabled", True)])
+    def test_bottom_transport_blocks_unsafe_zcode_session_parameters(tmp_path, field, value):
+        params = {"workspace": {"workspacePath": str(tmp_path), "workspaceKey": str(tmp_path)},
+            "mode": "guarded", "persistence": "deferred", "titleGenerationEnabled": False,
+            "toolAllowlist": [], "dynamicWorkflowEnabled": False, "offPeakToolEnabled": False}
+        params[field] = value
+        client = NativeRpcClient(fixture_command(tmp_path), tmp_path, metadata_methods={"session/create"})
+>       with pytest.raises(NativeRpcError, match="METADATA_SESSION_PARAMS_REQUIRED"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError: Regex pattern did not match.
+E         Expected regex: 'METADATA_SESSION_PARAMS_REQUIRED'
+E         Actual message: 'RPC_NOT_RUNNING'
+
+tests\contracts\test_codex_protocol.py:195: AssertionError
+_ test_bottom_transport_blocks_unsafe_zcode_session_parameters[dynamicWorkflowEnabled-True] _
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-187/test_bottom_transport_blocks_u4')
+field = 'dynamicWorkflowEnabled', value = True
+
+    @pytest.mark.parametrize("field,value", [("mode", "act"), ("persistence", "durable"),
+        ("titleGenerationEnabled", True), ("toolAllowlist", ["shell"]), ("dynamicWorkflowEnabled", True)])
+    def test_bottom_transport_blocks_unsafe_zcode_session_parameters(tmp_path, field, value):
+        params = {"workspace": {"workspacePath": str(tmp_path), "workspaceKey": str(tmp_path)},
+            "mode": "guarded", "persistence": "deferred", "titleGenerationEnabled": False,
+            "toolAllowlist": [], "dynamicWorkflowEnabled": False, "offPeakToolEnabled": False}
+        params[field] = value
+        client = NativeRpcClient(fixture_command(tmp_path), tmp_path, metadata_methods={"session/create"})
+>       with pytest.raises(NativeRpcError, match="METADATA_SESSION_PARAMS_REQUIRED"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError: Regex pattern did not match.
+E         Expected regex: 'METADATA_SESSION_PARAMS_REQUIRED'
+E         Actual message: 'RPC_NOT_RUNNING'
+
+tests\contracts\test_codex_protocol.py:195: AssertionError
+_____ test_unexpected_model_activity_is_counted_and_stops_metadata_client _____
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-187/test_unexpected_model_activity0')
+
+    def test_unexpected_model_activity_is_counted_and_stops_metadata_client(tmp_path):
+        client = NativeRpcClient(fixture_command(tmp_path, "activity"), tmp_path, metadata_methods={"model/list"})
+        client.start()
+>       with pytest.raises(NativeRpcError, match="RPC_UNEXPECTED_MODEL_ACTIVITY"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE NativeRpcError
+
+tests\contracts\test_codex_protocol.py:203: Failed
+=========================== short test summary info ===========================
+FAILED tests/contracts/test_codex_protocol.py::test_caller_cannot_expand_the_fixed_metadata_method_universe[provider/updateAccountConfig]
+FAILED tests/contracts/test_codex_protocol.py::test_caller_cannot_expand_the_fixed_metadata_method_universe[thread/resume]
+FAILED tests/contracts/test_codex_protocol.py::test_caller_cannot_expand_the_fixed_metadata_method_universe[workspace/runPrompt]
+FAILED tests/contracts/test_codex_protocol.py::test_bottom_transport_blocks_unsafe_zcode_session_parameters[mode-act]
+FAILED tests/contracts/test_codex_protocol.py::test_bottom_transport_blocks_unsafe_zcode_session_parameters[persistence-durable]
+FAILED tests/contracts/test_codex_protocol.py::test_bottom_transport_blocks_unsafe_zcode_session_parameters[titleGenerationEnabled-True]
+FAILED tests/contracts/test_codex_protocol.py::test_bottom_transport_blocks_unsafe_zcode_session_parameters[toolAllowlist-value3]
+FAILED tests/contracts/test_codex_protocol.py::test_bottom_transport_blocks_unsafe_zcode_session_parameters[dynamicWorkflowEnabled-True]
+FAILED tests/contracts/test_codex_protocol.py::test_unexpected_model_activity_is_counted_and_stops_metadata_client
+9 failed, 15 deselected in 0.60s

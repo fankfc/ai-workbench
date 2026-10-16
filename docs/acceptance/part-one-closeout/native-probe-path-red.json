@@ -1,0 +1,14 @@
+{
+  "time": "2026-10-14T03:29:59.527365+00:00",
+  "command": [
+    "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\.venv\\Scripts\\python.exe",
+    "-m",
+    "pytest",
+    "-q",
+    "tests/contracts/test_native_connection_probe.py::test_relative_script_entry_keeps_the_completed_probe_receipt",
+    "-q"
+  ],
+  "exit_code": 1,
+  "git_commit": null,
+  "log": "docs\\acceptance\\part-one-closeout\\native-probe-path-red.log"
+}

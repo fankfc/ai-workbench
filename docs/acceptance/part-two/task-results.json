@@ -1,0 +1,352 @@
+{
+  "updated_at": "2026-10-14T19:20:15.680614+08:00",
+  "complete": false,
+  "real_model_calls": 0,
+  "cards": [
+    {
+      "id": "D021",
+      "status": "in_progress",
+      "implemented": "实际 Electron/Python 宿主、隔离 IPC、托管生命周期、健康身份、退出清理确认。",
+      "remaining": "完整 Windows 崩溃、健康故障及恢复矩阵尚未全部覆盖。",
+      "evidence": [
+        "docs/acceptance/part-two-progress.md",
+        "docs/acceptance/part-two/desktop-report.md",
+        "docs/acceptance/part-two/final-python.json",
+        "docs/acceptance/part-two/desktop-verification.json"
+      ],
+      "freeze": {
+        "status": "frozen_partial",
+        "frozen_at": "2026-10-14T21:48:14.951505+08:00",
+        "evidence": "docs/acceptance/part-two-freeze-20261014/freeze.json"
+      }
+    },
+    {
+      "id": "D022",
+      "status": "in_progress",
+      "implemented": "主题/字体/响应布局、4 视口、200% 缩放与可见发送入口。",
+      "remaining": "Narrator 和全部视觉/键盘人工验收尚未完成。",
+      "evidence": [
+        "docs/acceptance/part-two-progress.md",
+        "docs/acceptance/part-two/desktop-report.md",
+        "docs/acceptance/part-two/final-python.json",
+        "docs/acceptance/part-two/desktop-verification.json"
+      ],
+      "freeze": {
+        "status": "frozen_partial",
+        "frozen_at": "2026-10-14T21:48:14.951505+08:00",
+        "evidence": "docs/acceptance/part-two-freeze-20261014/freeze.json"
+      }
+    },
+    {
+      "id": "D023",
+      "status": "in_progress",
+      "implemented": "中文组合键、草稿/nonce/历史、同会话材料、会话操作与所有权竞态。",
+      "remaining": "真实 Windows IME 选字录屏及完整附件/历史边界矩阵尚未完成。",
+      "evidence": [
+        "docs/acceptance/part-two-progress.md",
+        "docs/acceptance/part-two/desktop-report.md",
+        "docs/acceptance/part-two/final-python.json",
+        "docs/acceptance/part-two/desktop-verification.json"
+      ],
+      "freeze": {
+        "status": "frozen_partial",
+        "frozen_at": "2026-10-14T21:48:14.951505+08:00",
+        "evidence": "docs/acceptance/part-two-freeze-20261014/freeze.json"
+      }
+    },
+    {
+      "id": "D024",
+      "status": "blocked",
+      "implemented": "实际注册与身份状态展示、版本化偏好、未资格连接禁止发送。",
+      "remaining": "D004/D005/D020 与 GPT 当前运行资格未完成，生产连接注册数为 0。",
+      "evidence": [
+        "docs/acceptance/part-two-progress.md",
+        "docs/acceptance/part-two/desktop-report.md",
+        "docs/acceptance/part-two/final-python.json",
+        "docs/acceptance/part-two/desktop-verification.json"
+      ],
+      "freeze": {
+        "status": "frozen_partial",
+        "frozen_at": "2026-10-14T21:48:14.951505+08:00",
+        "evidence": "docs/acceptance/part-two-freeze-20261014/freeze.json"
+      }
+    },
+    {
+      "id": "D025",
+      "status": "in_progress",
+      "implemented": "后端公开投影/IPC/DOM 白名单、取消文案、迟到事件与回放。",
+      "remaining": "真实提供方取消确认、全部重连/澄清 GUI 矩阵待资格和验收。",
+      "evidence": [
+        "docs/acceptance/part-two-progress.md",
+        "docs/acceptance/part-two/desktop-report.md",
+        "docs/acceptance/part-two/final-python.json",
+        "docs/acceptance/part-two/desktop-verification.json"
+      ],
+      "freeze": {
+        "status": "frozen_partial",
+        "frozen_at": "2026-10-14T21:48:14.951505+08:00",
+        "evidence": "docs/acceptance/part-two-freeze-20261014/freeze.json"
+      }
+    },
+    {
+      "id": "D026",
+      "status": "in_progress",
+      "implemented": "不可变每轮身份/语言快照，漂移暂停与 GPT 强译零调用。",
+      "remaining": "实际生产 Claude/GPT 身份及配置版本切换资格仍依赖 D024。",
+      "evidence": [
+        "docs/acceptance/part-two-progress.md",
+        "docs/acceptance/part-two/translation-report.md",
+        "docs/acceptance/part-two/final-python.json",
+        "docs/acceptance/part-two/desktop-verification.json"
+      ],
+      "freeze": {
+        "status": "frozen_partial",
+        "frozen_at": "2026-10-14T21:48:14.951505+08:00",
+        "evidence": "docs/acceptance/part-two-freeze-20261014/freeze.json"
+      }
+    },
+    {
+      "id": "D027",
+      "status": "in_progress",
+      "implemented": "AST 块覆盖、代码/命令/数字/引用保护、还原与完整性门槛。",
+      "remaining": "双语领域人工语义评审及扩展格式保护能力待验收；不支持项目明确阻断。",
+      "evidence": [
+        "docs/acceptance/part-two-progress.md",
+        "docs/acceptance/part-two/translation-report.md",
+        "docs/acceptance/part-two/final-python.json",
+        "docs/acceptance/part-two/desktop-verification.json"
+      ],
+      "freeze": {
+        "status": "frozen_partial",
+        "frozen_at": "2026-10-14T21:48:14.951505+08:00",
+        "evidence": "docs/acceptance/part-two-freeze-20261014/freeze.json"
+      }
+    },
+    {
+      "id": "D028",
+      "status": "in_progress",
+      "implemented": "完整原话/历史/材料英文视图、D017 网关与 source hash 固定。",
+      "remaining": "真实 Claude 首问/追问/资料英文对应及人工裁决未完成。",
+      "evidence": [
+        "docs/acceptance/part-two-progress.md",
+        "docs/acceptance/part-two/translation-report.md",
+        "docs/acceptance/part-two/final-python.json",
+        "docs/acceptance/part-two/desktop-verification.json"
+      ],
+      "freeze": {
+        "status": "frozen_partial",
+        "frozen_at": "2026-10-14T21:48:14.951505+08:00",
+        "evidence": "docs/acceptance/part-two-freeze-20261014/freeze.json"
+      }
+    },
+    {
+      "id": "D029",
+      "status": "in_progress",
+      "implemented": "3 候选、独立 QA、预算/未知恢复、任务与术语内容隔离缓存、迟到用量留账。",
+      "remaining": "双语金标准人评未完成，独立模型检查不等同人工语义保证。",
+      "evidence": [
+        "docs/acceptance/part-two-progress.md",
+        "docs/acceptance/part-two/translation-report.md",
+        "docs/acceptance/part-two/final-python.json",
+        "docs/acceptance/part-two/desktop-verification.json"
+      ],
+      "freeze": {
+        "status": "frozen_partial",
+        "frozen_at": "2026-10-14T21:48:14.951505+08:00",
+        "evidence": "docs/acceptance/part-two-freeze-20261014/freeze.json"
+      }
+    },
+    {
+      "id": "D030",
+      "status": "in_progress",
+      "implemented": "A 完整正文和必要澄清全文中译/QA/受信发布；GPT 原语言零译者。",
+      "remaining": "真实 Claude 完整中文答案/澄清 GUI 链及人工语义验收未完成。",
+      "evidence": [
+        "docs/acceptance/part-two-progress.md",
+        "docs/acceptance/part-two/translation-report.md",
+        "docs/acceptance/part-two/final-python.json",
+        "docs/acceptance/part-two/desktop-verification.json"
+      ],
+      "freeze": {
+        "status": "frozen_partial",
+        "frozen_at": "2026-10-14T21:48:14.951505+08:00",
+        "evidence": "docs/acceptance/part-two-freeze-20261014/freeze.json"
+      }
+    },
+    {
+      "id": "D031",
+      "status": "in_progress",
+      "implemented": "实际持久 A step/request/event/原始正文捕获，拒 B 假作者/PASS-only/截断。",
+      "remaining": "真实模型完整 A 输出和用量来源证据待上游资格；fixture 不替代真实来源。",
+      "evidence": [
+        "docs/acceptance/part-two-progress.md",
+        "docs/acceptance/part-two/documents-report.md",
+        "docs/acceptance/part-two/final-python.json",
+        "docs/acceptance/part-two/desktop-verification.json"
+      ],
+      "freeze": {
+        "status": "frozen_partial",
+        "frozen_at": "2026-10-14T21:48:14.951505+08:00",
+        "evidence": "docs/acceptance/part-two-freeze-20261014/freeze.json"
+      }
+    },
+    {
+      "id": "D032",
+      "status": "in_progress",
+      "implemented": "MD/PDF/DOCX 真实解析、来源定位与明确未支持结构；原件/派生双哈希。",
+      "remaining": "复杂格式冻结样本及领域复核未完成，OCR/跨栏/复杂对象等明确阻断。",
+      "evidence": [
+        "docs/acceptance/part-two-progress.md",
+        "docs/acceptance/part-two/documents-report.md",
+        "docs/acceptance/part-two/final-python.json",
+        "docs/acceptance/part-two/desktop-verification.json"
+      ],
+      "freeze": {
+        "status": "frozen_partial",
+        "frozen_at": "2026-10-14T21:48:14.951505+08:00",
+        "evidence": "docs/acceptance/part-two-freeze-20261014/freeze.json"
+      }
+    },
+    {
+      "id": "D033",
+      "status": "in_progress",
+      "implemented": "逐块全文中文模型、源版本/覆盖/QA 严格配对及失效。",
+      "remaining": "真实双语全篇一致和人工语义裁决未完成。",
+      "evidence": [
+        "docs/acceptance/part-two-progress.md",
+        "docs/acceptance/part-two/documents-report.md",
+        "docs/acceptance/part-two/final-python.json",
+        "docs/acceptance/part-two/desktop-verification.json"
+      ],
+      "freeze": {
+        "status": "frozen_partial",
+        "frozen_at": "2026-10-14T21:48:14.951505+08:00",
+        "evidence": "docs/acceptance/part-two-freeze-20261014/freeze.json"
+      }
+    },
+    {
+      "id": "D034",
+      "status": "in_progress",
+      "implemented": "真实 MD/OOXML/PDF、字体/内容/页面、Word-compatible 派生预览验证。",
+      "remaining": "复杂多页视觉、跨机器字体/Office 能力及资源依赖资格未全部验收。",
+      "evidence": [
+        "docs/acceptance/part-two-progress.md",
+        "docs/acceptance/part-two/documents-report.md",
+        "docs/acceptance/part-two/final-python.json",
+        "docs/acceptance/part-two/desktop-verification.json"
+      ],
+      "freeze": {
+        "status": "frozen_partial",
+        "frozen_at": "2026-10-14T21:48:14.951505+08:00",
+        "evidence": "docs/acceptance/part-two-freeze-20261014/freeze.json"
+      }
+    },
+    {
+      "id": "D035",
+      "status": "in_progress",
+      "implemented": "同批准回答+完整文件事务发布、冻结来源/事件/哈希、历史版本保留。",
+      "remaining": "完整 Windows 崩溃/文件占用和真实提供方恢复矩阵未完成。",
+      "evidence": [
+        "docs/acceptance/part-two-progress.md",
+        "docs/acceptance/part-two/documents-report.md",
+        "docs/acceptance/part-two/final-python.json",
+        "docs/acceptance/part-two/desktop-verification.json"
+      ],
+      "freeze": {
+        "status": "frozen_partial",
+        "frozen_at": "2026-10-14T21:48:14.951505+08:00",
+        "evidence": "docs/acceptance/part-two-freeze-20261014/freeze.json"
+      }
+    },
+    {
+      "id": "D036",
+      "status": "in_progress",
+      "implemented": "同版本文件卡、安全 MD/PDF/DOCX 预览、大小/SHA 保存与部分回滚提示。",
+      "remaining": "复杂多页/低空间/全部历史版本 GUI 与完整保存失败矩阵未完成。",
+      "evidence": [
+        "docs/acceptance/part-two-progress.md",
+        "docs/acceptance/part-two/desktop-report.md",
+        "docs/acceptance/part-two/final-python.json",
+        "docs/acceptance/part-two/desktop-verification.json"
+      ],
+      "freeze": {
+        "status": "frozen_partial",
+        "frozen_at": "2026-10-14T21:48:14.951505+08:00",
+        "evidence": "docs/acceptance/part-two-freeze-20261014/freeze.json"
+      }
+    },
+    {
+      "id": "D037",
+      "status": "in_progress",
+      "implemented": "岗位/日期用量、未知口径、偏好、脱敏诊断、引用清理及验证副本迁移重启。",
+      "remaining": "活跃外部任务/低磁盘/重启失败完整 GUI 矩阵待补。",
+      "evidence": [
+        "docs/acceptance/part-two-progress.md",
+        "docs/acceptance/part-two/desktop-report.md",
+        "docs/acceptance/part-two/final-python.json",
+        "docs/acceptance/part-two/desktop-verification.json"
+      ],
+      "freeze": {
+        "status": "frozen_partial",
+        "frozen_at": "2026-10-14T21:48:14.951505+08:00",
+        "evidence": "docs/acceptance/part-two-freeze-20261014/freeze.json"
+      }
+    },
+    {
+      "id": "D038",
+      "status": "in_progress",
+      "implemented": "GUI 任务字段/格式冻结、缺材料 A0、严格 profile 实际 C 与 A 语义门槛。",
+      "remaining": "真实三领域评审及通用合格执行端口未完成；首版数值/固定哈希端口有明确边界。",
+      "evidence": [
+        "docs/acceptance/part-two-progress.md",
+        "docs/acceptance/part-two/desktop-report.md",
+        "docs/acceptance/part-two/final-python.json",
+        "docs/acceptance/part-two/desktop-verification.json"
+      ],
+      "freeze": {
+        "status": "frozen_partial",
+        "frozen_at": "2026-10-14T21:48:14.951505+08:00",
+        "evidence": "docs/acceptance/part-two-freeze-20261014/freeze.json"
+      }
+    },
+    {
+      "id": "D039",
+      "status": "in_progress",
+      "implemented": "正常 API/GUI 实算固定 CSV、代码/图表/报告同依赖，v1/v2 下载一致。",
+      "remaining": "真实 A/B 与领域人评未完成；固定 Jan/Feb 四行用例已实算，不能推为任意分析。",
+      "evidence": [
+        "docs/acceptance/part-two-progress.md",
+        "docs/acceptance/part-two/documents-report.md",
+        "docs/acceptance/part-two/final-python.json",
+        "docs/acceptance/part-two/desktop-verification.json"
+      ],
+      "freeze": {
+        "status": "frozen_partial",
+        "frozen_at": "2026-10-14T21:48:14.951505+08:00",
+        "evidence": "docs/acceptance/part-two-freeze-20261014/freeze.json"
+      }
+    },
+    {
+      "id": "D040",
+      "status": "blocked",
+      "implemented": "4 域冻结输入/预算/哈希及 8 条生产资格预检，缺资格不发送任务。",
+      "remaining": "生产资格 blocked；完整真实附件/产物/取消重启测试链尚待装配与真实验收。",
+      "evidence": [
+        "docs/acceptance/part-two-progress.md",
+        "docs/acceptance/part-two/desktop-report.md",
+        "docs/acceptance/part-two/final-python.json",
+        "docs/acceptance/part-two/desktop-verification.json"
+      ],
+      "freeze": {
+        "status": "frozen_partial",
+        "frozen_at": "2026-10-14T21:48:14.951505+08:00",
+        "evidence": "docs/acceptance/part-two-freeze-20261014/freeze.json"
+      }
+    }
+  ],
+  "freeze": {
+    "status": "frozen_partial",
+    "frozen_at": "2026-10-14T21:48:14.951505+08:00",
+    "evidence": "docs/acceptance/part-two-freeze-20261014/freeze.json"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "time": "2026-10-14T06:36:00.553825+00:00",
+  "command": [
+    "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\.venv\\Scripts\\python.exe",
+    "-m",
+    "pytest",
+    "-q",
+    "tests/integration/test_native_planning.py::test_planning_disconnect_without_refs_retains_possible_remote_submission",
+    "-q"
+  ],
+  "exit_code": 1,
+  "git_commit": null,
+  "log": "docs\\acceptance\\part-one-closeout\\planning-unknown-cancel-red.log"
+}

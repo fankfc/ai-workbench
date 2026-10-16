@@ -1,0 +1,156 @@
+{
+  "schema_version": "1.0",
+  "task_id": "D002",
+  "recorded_at": "2026-10-13T19:04:32.596112+08:00",
+  "repository_root": "C:/Users/asd15/Documents/ChatGPT/ai",
+  "branch": "codex/part1-foundation",
+  "commit": null,
+  "commit_status": "unborn_repository",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "machine": "AMD64",
+  "python": {
+    "actual": "3.13.0",
+    "executable": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\.venv\\Scripts\\python.exe",
+    "development_pin": "3.13.0",
+    "supported_package_range": ">=3.13,<3.14",
+    "patch_versions_other_than_3_13_0": "not_tested"
+  },
+  "node": "v24.19.0",
+  "npm": "11.17.0",
+  "uv": "uv 0.13.0 (4ecd0eff2 2026-10-09 x86_64-pc-windows-msvc)",
+  "python_packages": {
+    "fastapi": "0.143.0",
+    "pydantic": "2.14.1",
+    "uvicorn": "0.54.0",
+    "pytest": "9.1.1",
+    "httpx": "0.28.1",
+    "jsonschema": "4.26.0",
+    "rfc3339-validator": "0.1.4"
+  },
+  "jsonschema_date_time": {
+    "registered": true,
+    "dependency_group": "test",
+    "verification_script": "docs/acceptance/D002/verify-date-time.py",
+    "root_verification_log": "docs/acceptance/D002/date-time-green.log",
+    "snapshot_verification_log": "docs/acceptance/D002/snapshot-date-time.log",
+    "production_requirement": "runtime input validation must not depend on this test-only library"
+  },
+  "node_packages": {
+    "electron": "44.7.0",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "typescript": "7.0.2",
+    "@playwright/test": "1.64.0"
+  },
+  "build_backend": {
+    "name": "setuptools",
+    "pinned": "84.0.0",
+    "metadata_source": "https://pypi.org/pypi/setuptools/json",
+    "verification": "PyPI metadata lookup and successful isolated editable build"
+  },
+  "dependency_selection": {
+    "method": "exact direct versions checked against upstream registries, then installed",
+    "python_sources": [
+      "https://pypi.org/pypi/fastapi/0.143.0/json",
+      "https://pypi.org/pypi/pydantic/2.14.1/json",
+      "https://pypi.org/pypi/uvicorn/0.54.0/json",
+      "https://pypi.org/pypi/pytest/9.1.1/json",
+      "https://pypi.org/pypi/httpx/0.28.1/json",
+      "https://pypi.org/pypi/jsonschema/4.26.0/json",
+      "https://pypi.org/pypi/rfc3339-validator/0.1.4/json"
+    ],
+    "node_sources": [
+      "https://registry.npmjs.org/electron/44.7.0",
+      "https://registry.npmjs.org/react/19.3.0",
+      "https://registry.npmjs.org/react-dom/19.3.0",
+      "https://registry.npmjs.org/typescript/7.0.2",
+      "https://registry.npmjs.org/@playwright/test/1.64.0"
+    ],
+    "scope": "D002 development baseline; product, GUI and provider compatibility still require their own validation"
+  },
+  "locks": {
+    "services/orchestrator/uv.lock": "decfba37bd2e2c4a5258749794806b1bf82ac56b42d73da767f28022e68dcea7",
+    "package-lock.json": "e45ee2de1a15400a992949746bed35cd4f495e884cd8a04ce76f4c1410cefc41"
+  },
+  "requirements_baseline": {
+    "path": "docs/decisions/requirements-v1.json",
+    "sha256": "48acd0382da193059949b1df046306dca857c755b7eebab5c477b4008b0b21bf",
+    "version": "v1",
+    "status": "frozen_for_implementation",
+    "product_acceptance_status": "not_verified",
+    "requirement_count": 15
+  },
+  "real_provider_calls": 0,
+  "credential_reads": 0,
+  "gui_end_to_end": "not_implemented_or_executed",
+  "snapshot": {
+    "snapshot_root": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\d002-snapshots\\clean-20261013-v3",
+    "method": "explicit-source-snapshot-no-initial-git-commit",
+    "revision": "v3-date-time-review-fix",
+    "contains_initial_venv": false,
+    "contains_initial_node_modules": false,
+    "contains_superpowers": false,
+    "files": [
+      {
+        "path": ".python-version",
+        "sha256": "3713ACFFD953D571BCCBE163951AEEF988A75F945C049B7FBA53F080311267FA"
+      },
+      {
+        "path": ".gitignore",
+        "sha256": "9DA4F689EECDD7A6D18EC69C4B1620A29AB5168D241C2B9095FA15A4F0FB9674"
+      },
+      {
+        "path": "package.json",
+        "sha256": "939BDBDC29DAA33397E5135EFED2EF582B60237BD98B5CC7AAF6AE0DD30338E2"
+      },
+      {
+        "path": "package-lock.json",
+        "sha256": "E45EE2DE1A15400A992949746BED35CD4F495E884CD8A04CE76F4C1410CEFC41"
+      },
+      {
+        "path": "playwright.config.ts",
+        "sha256": "27F9B812C8F47834385A0F2DF7F5AFD4932F7473A0106BB4B987AADFCA419F47"
+      },
+      {
+        "path": "pytest.ini",
+        "sha256": "9464F3436AD45E8B62395922C309A92C902AA5B310C9EBFE5FADFD58E2C5DC65"
+      },
+      {
+        "path": "README.md",
+        "sha256": "2CD3EEFEC4892C61BBA1364660C7DB896D94AC694541DABF13834507713BBB63"
+      },
+      {
+        "path": "apps/desktop/package.json",
+        "sha256": "970DE42DA9F169FE206424753A6B40622EAE629AD41FF40C97636EB147BDCB28"
+      },
+      {
+        "path": "services/orchestrator/pyproject.toml",
+        "sha256": "0F7336703EDBF0C299954899DBDB5D4E3656CC54311AE016C1B6B7415EB1E703"
+      },
+      {
+        "path": "services/orchestrator/uv.lock",
+        "sha256": "DECFBA37BD2E2C4A5258749794806B1BF82AC56B42D73DA767F28022E68DCEA7"
+      },
+      {
+        "path": "services/orchestrator/app/__init__.py",
+        "sha256": "1F2E67983136D669270C1C14537CA935A7F65D4EE84C1B3C1F3EFD4CEF7D7BEE"
+      },
+      {
+        "path": "tests/unit/test_package_bootstrap.py",
+        "sha256": "A73BA7CFD6274DB0878C7DDF5FCBABBCDD8C7A8A2414D603E376DE0C1C54C598"
+      },
+      {
+        "path": "tests/e2e/README.md",
+        "sha256": "2F056EF293B31CF0AD1A3848B30D0B11F617B5C45166F574848A7C89556318DC"
+      },
+      {
+        "path": "docs/runbooks/development.md",
+        "sha256": "B419C98AA3863DDF72F15B52970E331C52C5B7CBF7E673B40D14017A575BE14E"
+      },
+      {
+        "path": "docs/acceptance/D002/verify-date-time.py",
+        "sha256": "C101AB0AA758C8CC4EC2193E09A78DDB611F05DBE3B0DB177FDAA49443B641AB"
+      }
+    ]
+  }
+}

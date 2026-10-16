@@ -1,0 +1,126 @@
+{
+  "version": "1.0",
+  "build_id": "cb98eed03df6bd4ffaa551d66a54c77198911cf5b3e763a1ef3c055f5ee54ca4",
+  "run_id": null,
+  "created_at": "2026-10-15T01:39:41.322100+00:00",
+  "seed": 4317,
+  "encoding": "UTF-8",
+  "provider_boundary": "fake",
+  "files": [
+    {
+      "path": ".qa-run.json",
+      "size": 151,
+      "sha256": "e43f3a7bb3505c606065cf89edb9899ad9cdc409b226cdcae278095c4be2a201"
+    },
+    {
+      "path": "evidence-manifest.json",
+      "size": 895,
+      "sha256": "c2f0399466fb86ab64b974c4e601e796e030ae7787305882871f92465288b4bf"
+    },
+    {
+      "path": "public-messages.json",
+      "size": 847,
+      "sha256": "263dc6a9e67eec5d409c3c1413890be680d8336d2826433362159f8df147e525"
+    },
+    {
+      "path": "scenario-result.json",
+      "size": 434,
+      "sha256": "9ff52c5b31df2dab29900f5df6e8a32f7c055a4f7038648778ac96aa2ddeb878"
+    },
+    {
+      "path": "service-identity.json",
+      "size": 134,
+      "sha256": "a9659779b3bdd366232c3ea679c87fffe94e03f457df4a7558a68c93cbdd3629"
+    },
+    {
+      "path": "service-leases.sqlite3",
+      "size": 12288,
+      "sha256": "86cb18d4efb2fc1a7f116b7125f0ad078f58d6c834df326c198a15f3905685a1"
+    },
+    {
+      "path": "service-teardown.json",
+      "size": 88,
+      "sha256": "e0e61d15a5b25956e8345d1426bc5097fc0b102ac471d395da4032e40ad2ef9e"
+    },
+    {
+      "path": "service.stderr.log",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "task.json",
+      "size": 182,
+      "sha256": "e57314e0f5cd59f786f508323f5d5b93bc5c3efe4c01922fb5d6890e7767b49e"
+    },
+    {
+      "path": "service-data/workbench.sqlite3",
+      "size": 397312,
+      "sha256": "037e965a3d881a6b69b1701dc052e58f0009e618a7fef410ec4cc72505084c0a"
+    },
+    {
+      "path": "service-data/workbench.sqlite3-shm",
+      "size": 32768,
+      "sha256": "fd4c9fda9cd3f9ae7c962b0ddf37232294d55580e1aa165aa06129b8549389eb"
+    },
+    {
+      "path": "service-data/workbench.sqlite3-wal",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "service-data/tasks/d42d56361a224f01bd677e4bc8afcb43/43432f919ff8406096b4a42375017265/.lease-lock",
+      "size": 1,
+      "sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+    },
+    {
+      "path": "service-data/tasks/d42d56361a224f01bd677e4bc8afcb43/43432f919ff8406096b4a42375017265/.source-manifest.json",
+      "size": 94,
+      "sha256": "e5fcf796af61f02acef11f036b3ede89262570f2a538f9f99b737b498f88e81e"
+    },
+    {
+      "path": "service-data/tasks/d42d56361a224f01bd677e4bc8afcb43/43432f919ff8406096b4a42375017265/.write-leases.json",
+      "size": 94,
+      "sha256": "c6a18be3da702612dab19b12593b24f221211599dfd4c6c2df73849a6f3b8133"
+    },
+    {
+      "path": "service-data/tasks/d42d56361a224f01bd677e4bc8afcb43/43432f919ff8406096b4a42375017265/b/demo.md",
+      "size": 123,
+      "sha256": "d21589c953bddb2c22757da2f933307d43a5418c9a05c98b4e3dc435a4a99d9b"
+    },
+    {
+      "path": "service-data/tasks/d42d56361a224f01bd677e4bc8afcb43/43432f919ff8406096b4a42375017265/evidence/907ec1ae193f4c7bbe586d836dfbdb55.json",
+      "size": 289,
+      "sha256": "b8ceb4bd5490811dfb5dae79bbfc1fde8485d86b1e87247af915e672d2836bb8"
+    },
+    {
+      "path": "service-data/tasks/d42d56361a224f01bd677e4bc8afcb43/43432f919ff8406096b4a42375017265/evidence/bdbc5bc7dae146cb9d71815e67a19466.json",
+      "size": 351,
+      "sha256": "8d2124a298c12c86ade45b974c204ba2665d353fbf3ee8303dd29a9806919d56"
+    },
+    {
+      "path": "service-data/tasks/d42d56361a224f01bd677e4bc8afcb43/43432f919ff8406096b4a42375017265/input/user_request.txt",
+      "size": 18,
+      "sha256": "1595625c31f90f870b8c315a10dc23d7b452ba14191ccfd7a0996d9d15547f70"
+    },
+    {
+      "path": "service-data/tasks/d42d56361a224f01bd677e4bc8afcb43/43432f919ff8406096b4a42375017265/b/prompts/5d651413240d4910800c762db9a3c73a.json",
+      "size": 2010,
+      "sha256": "2b3ddea424401c79b5eb2ec3aa4151f192db87654e755dd4c18b0c23194ab1a3"
+    },
+    {
+      "path": "service-data/tasks/d42d56361a224f01bd677e4bc8afcb43/43432f919ff8406096b4a42375017265/a/prompts/6a575f9ff70f47318cb6ca6798e2c2c0.json",
+      "size": 3531,
+      "sha256": "ef6c7ef8bbf2f080f9e8147520d0428f606849ae9dc903004cdec7920b0ed7b7"
+    },
+    {
+      "path": "service-data/blobs/5d/5d908125f693b306ba00ffccbc6731440eb0e1866b2a8a875a259d1b95f1b40e",
+      "size": 1465,
+      "sha256": "5d908125f693b306ba00ffccbc6731440eb0e1866b2a8a875a259d1b95f1b40e"
+    },
+    {
+      "path": "service-data/blobs/d2/d21589c953bddb2c22757da2f933307d43a5418c9a05c98b4e3dc435a4a99d9b",
+      "size": 123,
+      "sha256": "d21589c953bddb2c22757da2f933307d43a5418c9a05c98b4e3dc435a4a99d9b"
+    }
+  ]
+}

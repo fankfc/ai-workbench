@@ -1,0 +1,30 @@
+...............................................FF....                    [100%]
+================================== FAILURES ===================================
+_______________ test_output_floor_matches_the_shared_client[1] ________________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-193/test_output_floor_matches_the_0')
+limit = 1
+
+    @pytest.mark.parametrize("limit", [1, 1023])
+    def test_output_floor_matches_the_shared_client(tmp_path, limit):
+>       with pytest.raises(ZCodeProtocolError, match="RPC_BOUNDS_REQUIRED"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ZCodeProtocolError
+
+tests\contracts\test_zcode_protocol.py:232: Failed
+______________ test_output_floor_matches_the_shared_client[1023] ______________
+
+tmp_path = WindowsPath('C:/Users/asd15/AppData/Local/Temp/pytest-of-asd15/pytest-193/test_output_floor_matches_the_1')
+limit = 1023
+
+    @pytest.mark.parametrize("limit", [1, 1023])
+    def test_output_floor_matches_the_shared_client(tmp_path, limit):
+>       with pytest.raises(ZCodeProtocolError, match="RPC_BOUNDS_REQUIRED"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ZCodeProtocolError
+
+tests\contracts\test_zcode_protocol.py:232: Failed
+=========================== short test summary info ===========================
+FAILED tests/contracts/test_zcode_protocol.py::test_output_floor_matches_the_shared_client[1]
+FAILED tests/contracts/test_zcode_protocol.py::test_output_floor_matches_the_shared_client[1023]
+2 failed, 51 passed in 1.79s

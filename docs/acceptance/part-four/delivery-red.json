@@ -1,0 +1,16 @@
+{
+  "time": "2026-10-15T02:20:32.383342+00:00",
+  "command": [
+    "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\.venv\\Scripts\\python.exe",
+    "-m",
+    "pytest",
+    "-q",
+    "tests/integration/test_agent_workflow.py::test_a_review_receives_actual_hash_bound_mechanical_observations",
+    "tests/integration/test_agent_workflow.py::test_invalid_mechanical_proof_blocks_before_a_review",
+    "tests/integration/test_agent_workflow.py::test_claude_review_receives_verified_english_observations_with_original_proof_binding",
+    "tests/contracts/test_phase_prompt.py"
+  ],
+  "exit_code": 1,
+  "git_commit": null,
+  "log": "docs\\acceptance\\part-four\\delivery-red.log"
+}

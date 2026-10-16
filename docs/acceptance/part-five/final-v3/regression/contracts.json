@@ -1,0 +1,14 @@
+{
+  "name": "contracts",
+  "command": [
+    "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\.venv\\Scripts\\python.exe",
+    "scripts/check_contracts.py",
+    "--strict"
+  ],
+  "cwd": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai",
+  "started_at": "2026-10-15T05:37:12.104236+00:00",
+  "ended_at": "2026-10-15T05:37:12.590646+00:00",
+  "exit_code": 0,
+  "log": "docs/acceptance/part-five/final-v3/regression/contracts.log",
+  "launch_error": null
+}

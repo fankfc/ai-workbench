@@ -1,0 +1,11 @@
+{
+  "executable": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\claude\\node_modules\\@anthropic-ai\\claude-code-win32-x64\\claude.exe",
+  "version": "2.1.296",
+  "install_method": "workspace-local official npm platform binary; optional package used directly; postinstall scripts not run",
+  "version_exit_code": 0,
+  "auth_exit_code": 1,
+  "logged_in": false,
+  "auth_method": "none",
+  "model_identity": "unknown",
+  "raw_auth_output_stored": false
+}

@@ -1,0 +1,37 @@
+FFF                                                                      [100%]
+================================== FAILURES ===================================
+____ test_text_only_model_receives_service_computed_exact_envelope_binding ____
+
+    def test_text_only_model_receives_service_computed_exact_envelope_binding():
+        context, original = binding()
+        value = json.loads(phase_prompt_text(context, original))
+>       assert value['fixed_envelope_fields'] == dict(schema_version='1.0', phase='execution',
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            request_id='actual-local-request', task_id='task', attempt_id='attempt', contract_version='1.0',
+            contract_sha256=contract_digest(context.contract))
+E       KeyError: 'fixed_envelope_fields'
+
+tests\contracts\test_phase_prompt.py:23: KeyError
+__________ test_source_changed_before_prompt_preparation_is_rejected __________
+
+    def test_source_changed_before_prompt_preparation_is_rejected():
+        context, original = binding()
+>       with pytest.raises(PhaseBridgeError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE PhaseBridgeError
+
+tests\contracts\test_phase_prompt.py:31: Failed
+_ test_review_prompt_carries_original_source_and_mechanical_evidence_without_granting_pass _
+
+    def test_review_prompt_carries_original_source_and_mechanical_evidence_without_granting_pass():
+        context, original = binding('review')
+        value = json.loads(phase_prompt_text(context, original))
+>       assert value['fixed_envelope_fields']['phase'] == 'review'
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'fixed_envelope_fields'
+
+tests\contracts\test_phase_prompt.py:38: KeyError
+=========================== short test summary info ===========================
+FAILED tests/contracts/test_phase_prompt.py::test_text_only_model_receives_service_computed_exact_envelope_binding
+FAILED tests/contracts/test_phase_prompt.py::test_source_changed_before_prompt_preparation_is_rejected
+FAILED tests/contracts/test_phase_prompt.py::test_review_prompt_carries_original_source_and_mechanical_evidence_without_granting_pass

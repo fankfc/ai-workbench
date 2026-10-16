@@ -1,0 +1,282 @@
+{
+  "schema_version": 1,
+  "as_of": "2026-10-14T05:06:01.056362+00:00",
+  "official_commit": "aac4755666d09fdcd70272fcf063c077a639015f",
+  "status": "official_account_catalog_owned_session_read_close_verified_metadata_only",
+  "actual_session_metadata_launches": 3,
+  "actual_model_turns": 0,
+  "fresh_balance_GETs": 0,
+  "historical_availability_source": {
+    "receipt_sha256": "2a9075a22a9c3b280d295e5d56386e91f20b280074254eed54c65d7d14b0291d",
+    "capture_time": "2026-10-14T04:07:13.911088+00:00",
+    "last_probe_age_seconds": 3404,
+    "inference_permission_proved": false
+  },
+  "phases": [
+    {
+      "id": "first_metadata",
+      "source_archive": ".tools\\zcode-supported-sdk\\session-slice\\first-session-stage",
+      "error_code": -32603,
+      "safe_stage": null,
+      "safe_method": null,
+      "stage_limitation": "not captured; raw frames destroyed, cannot reconstruct",
+      "own_session_received": false
+    },
+    {
+      "id": "stage_diagnostic",
+      "source_archive": ".tools\\zcode-supported-sdk\\session-slice\\diagnostic-session-stage",
+      "safe_stage": "SESSION_CREATE",
+      "safe_method": "session/create",
+      "reason_code": "B_SESSION_SELECTION_UNAVAILABLE",
+      "server_error_code": null,
+      "completed_stages": [
+        "SDK_SNAPSHOT",
+        "SERVER_START",
+        "CAPABILITIES",
+        "ACCOUNT_CONFIG_ACK"
+      ],
+      "capabilities_response_verified": true,
+      "account_config_received_revision_verified": true,
+      "account_config_applied_revision": null,
+      "own_session_received": true,
+      "catalog_projection_persisted": false,
+      "session_read_observed": false,
+      "session_close_observed": false,
+      "resources_after": {
+        "running": 0,
+        "temp_dirs": 0,
+        "open_handles": 0,
+        "peak_reserved_handles": 9,
+        "active_processes": 0,
+        "failed_cleanups": 0,
+        "query_errors": []
+      }
+    },
+    {
+      "id": "catalog_binding",
+      "source_archive": ".tools\\zcode-supported-sdk\\session-slice\\catalog-session-stage",
+      "status": "metadata_observed",
+      "safe_stage": "CHILD_EXIT",
+      "safe_method": null,
+      "server_error_code": null,
+      "phase_records": [
+        {
+          "stage": "SDK_SNAPSHOT",
+          "rpc_method": null,
+          "phase_completed": true,
+          "rpc_response_verified": null
+        },
+        {
+          "stage": "SERVER_START",
+          "rpc_method": null,
+          "phase_completed": true,
+          "rpc_response_verified": null
+        },
+        {
+          "stage": "CAPABILITIES",
+          "rpc_method": "runtime/capabilities",
+          "phase_completed": true,
+          "rpc_response_verified": true
+        },
+        {
+          "stage": "ACCOUNT_CONFIG_ACK",
+          "rpc_method": "provider/updateAccountConfig",
+          "phase_completed": true,
+          "rpc_response_verified": true
+        },
+        {
+          "stage": "SESSION_CREATE",
+          "rpc_method": "session/create",
+          "phase_completed": true,
+          "rpc_response_verified": true
+        },
+        {
+          "stage": "SESSION_READ",
+          "rpc_method": "session/read",
+          "phase_completed": true,
+          "rpc_response_verified": true
+        },
+        {
+          "stage": "SESSION_CLOSE",
+          "rpc_method": "session/close",
+          "phase_completed": true,
+          "rpc_response_verified": true
+        },
+        {
+          "stage": "CHILD_EXIT",
+          "rpc_method": null,
+          "phase_completed": true,
+          "rpc_response_verified": null
+        }
+      ],
+      "account_config_received_revision_verified": true,
+      "account_config_applied_revision": null,
+      "own_session_received": true,
+      "own_session_model_state_read": true,
+      "current_model": {
+        "providerId": "account:zai-start-plan",
+        "modelId": "GLM-5.3"
+      },
+      "available_model_refs": [
+        {
+          "providerId": "account:zai-start-plan",
+          "modelId": "GLM-5.3"
+        },
+        {
+          "providerId": "account:zai-start-plan",
+          "modelId": "GLM-5.3-Flash"
+        }
+      ],
+      "current_reasoning_level_verified": false,
+      "session_read_bound": true,
+      "session_close_confirmed": true,
+      "child_exited": true,
+      "process_exit": 0,
+      "resources_after": {
+        "running": 0,
+        "temp_dirs": 0,
+        "open_handles": 0,
+        "peak_reserved_handles": 9,
+        "active_processes": 0,
+        "failed_cleanups": 0,
+        "query_errors": []
+      },
+      "headers_applied": false,
+      "auth_service_exercised": false
+    }
+  ],
+  "local_findings": [
+    {
+      "id": "builtin_personal_env_pair",
+      "evidence": "official/apps/zcode-cli/packages/cli/src/provider-runtime-env.ts:61-101",
+      "fact": "builtin-only input is rewritten to endpoint-scoped active cache; both explicit paths bypass rewriting",
+      "first_failure_cause_confirmed": false,
+      "new_probe_condition": "both env set to installed builtin and SDK-canonical workspace empty personal file"
+    },
+    {
+      "id": "available_ref_projection",
+      "evidence": "official/packages/shared/src/zcode-protocol/index.ts:1134-1146",
+      "fact": "available entries wrap modelSelection in ref; prior projection used direct entries",
+      "new_diagnostic_failure_explained": true,
+      "offline_red_failures": 5,
+      "offline_green_checks": 6,
+      "new_live_probe_performed": true
+    }
+  ],
+  "postrun_integrity": {
+    "phase": "catalog_postrun",
+    "checked_at": "2026-10-14T05:04:24.019759+00:00",
+    "source_files_checked": 16,
+    "source_mismatches": [],
+    "first_stage_archived_sources": 8,
+    "first_stage_mismatches": [],
+    "diagnostic_stage_archived_sources": 15,
+    "diagnostic_stage_mismatches": [],
+    "native_entry_mismatches": [],
+    "actual_model_turns": 0,
+    "fresh_balance_GETs": 0,
+    "resources_after": {
+      "running": 0,
+      "temp_dirs": 0,
+      "open_handles": 0,
+      "peak_reserved_handles": 9,
+      "active_processes": 0,
+      "failed_cleanups": 0,
+      "query_errors": []
+    }
+  },
+  "proof_limits": {
+    "headers_applied": false,
+    "auth_service_exercised": false,
+    "server_origin_executed_model_identity": false,
+    "os_scope_verified": false,
+    "production_enabled": false,
+    "SDK_guard_is_OS_sandbox": false
+  },
+  "evidence": [
+    ".tools/zcode-supported-sdk/session-slice/diagnostic-managed-result.json",
+    ".tools/zcode-supported-sdk/session-slice/diagnostic-execution-plan.json",
+    ".tools/zcode-supported-sdk/session-slice/diagnostic-postrun-source-check.json",
+    ".tools/zcode-supported-sdk/session-slice/diagnostic-offline-green.log",
+    ".tools/zcode-supported-sdk/session-slice/catalog-red.log",
+    ".tools/zcode-supported-sdk/session-slice/catalog-green.log",
+    ".tools/zcode-supported-sdk/session-slice/catalog-managed-result.json",
+    ".tools/zcode-supported-sdk/session-slice/catalog-execution-plan.json",
+    ".tools/zcode-supported-sdk/session-slice/catalog-preflight-source-freeze.json",
+    ".tools/zcode-supported-sdk/session-slice/catalog-postrun-source-check.json",
+    ".tools/zcode-supported-sdk/session-slice/catalog-offline-green.log"
+  ],
+  "current_model": {
+    "providerId": "account:zai-start-plan",
+    "modelId": "GLM-5.3"
+  },
+  "available_model_refs": [
+    {
+      "providerId": "account:zai-start-plan",
+      "modelId": "GLM-5.3"
+    },
+    {
+      "providerId": "account:zai-start-plan",
+      "modelId": "GLM-5.3-Flash"
+    }
+  ],
+  "phase_records": [
+    {
+      "stage": "SDK_SNAPSHOT",
+      "rpc_method": null,
+      "phase_completed": true,
+      "rpc_response_verified": null
+    },
+    {
+      "stage": "SERVER_START",
+      "rpc_method": null,
+      "phase_completed": true,
+      "rpc_response_verified": null
+    },
+    {
+      "stage": "CAPABILITIES",
+      "rpc_method": "runtime/capabilities",
+      "phase_completed": true,
+      "rpc_response_verified": true
+    },
+    {
+      "stage": "ACCOUNT_CONFIG_ACK",
+      "rpc_method": "provider/updateAccountConfig",
+      "phase_completed": true,
+      "rpc_response_verified": true
+    },
+    {
+      "stage": "SESSION_CREATE",
+      "rpc_method": "session/create",
+      "phase_completed": true,
+      "rpc_response_verified": true
+    },
+    {
+      "stage": "SESSION_READ",
+      "rpc_method": "session/read",
+      "phase_completed": true,
+      "rpc_response_verified": true
+    },
+    {
+      "stage": "SESSION_CLOSE",
+      "rpc_method": "session/close",
+      "phase_completed": true,
+      "rpc_response_verified": true
+    },
+    {
+      "stage": "CHILD_EXIT",
+      "rpc_method": null,
+      "phase_completed": true,
+      "rpc_response_verified": null
+    }
+  ],
+  "server_response_acks": {
+    "capabilities": true,
+    "account_config": true,
+    "session_create": true,
+    "session_read": true,
+    "session_close": true
+  },
+  "offline_checks": 20,
+  "next_native_launch_authorized": false
+}

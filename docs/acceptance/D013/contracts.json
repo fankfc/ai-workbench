@@ -1,0 +1,293 @@
+{
+  "time": "2026-10-13T13:31:17.028338+00:00",
+  "git_commit": null,
+  "branch": "codex/part1-foundation",
+  "python": "3.13.0",
+  "sqlite": "3.45.3",
+  "provider_mode": "fake",
+  "real_model_starts": 0,
+  "test_only": true,
+  "fixtures": {
+    "code": {
+      "task_id": "fixture-code",
+      "attempt_id": "attempt",
+      "contract_version": "1.0",
+      "domain": "code",
+      "model_family": "gpt",
+      "route_snapshot_id": "route",
+      "objective": "Verify fixed source results",
+      "method": "Check actual evidence",
+      "inputs": [
+        {
+          "id": "input",
+          "ref": "inputs/source.txt",
+          "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        }
+      ],
+      "constraints": [
+        {
+          "id": "preserve",
+          "text": "Preserve sources",
+          "mandatory": true
+        }
+      ],
+      "deliverables": [
+        {
+          "id": "result",
+          "kind": "code",
+          "write_scope": "b/result",
+          "require_a_canonical": false
+        }
+      ],
+      "acceptance": [
+        {
+          "id": "AC1",
+          "mandatory": true,
+          "verifier": "C",
+          "evidence_type": "execution",
+          "condition": "Mechanical check passes",
+          "semantic": false
+        },
+        {
+          "id": "AC2",
+          "mandatory": true,
+          "verifier": "A",
+          "evidence_type": "review",
+          "condition": "A judges source support",
+          "semantic": true
+        }
+      ],
+      "dependencies": [],
+      "budget": {
+        "total_tokens": 10000,
+        "reserved_a_tokens": 2000
+      },
+      "b_write_scopes": [
+        "b"
+      ],
+      "a_responsibilities": [
+        "problem_modeling",
+        "core_reasoning",
+        "method_choice",
+        "evidence_judgment",
+        "final_review"
+      ],
+      "guidance_depth": "ordinary",
+      "full_read_required": false,
+      "source_unit_ids": [
+        "body"
+      ]
+    },
+    "paper": {
+      "task_id": "fixture-paper",
+      "attempt_id": "attempt",
+      "contract_version": "1.0",
+      "domain": "paper",
+      "model_family": "gpt",
+      "route_snapshot_id": "route",
+      "objective": "Verify fixed source results",
+      "method": "Check actual evidence",
+      "inputs": [
+        {
+          "id": "input",
+          "ref": "inputs/source.txt",
+          "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        }
+      ],
+      "constraints": [
+        {
+          "id": "preserve",
+          "text": "Preserve sources",
+          "mandatory": true
+        }
+      ],
+      "deliverables": [
+        {
+          "id": "result",
+          "kind": "document",
+          "write_scope": "b/result",
+          "require_a_canonical": true
+        }
+      ],
+      "acceptance": [
+        {
+          "id": "AC1",
+          "mandatory": true,
+          "verifier": "C",
+          "evidence_type": "execution",
+          "condition": "Mechanical check passes",
+          "semantic": false
+        },
+        {
+          "id": "AC2",
+          "mandatory": true,
+          "verifier": "A",
+          "evidence_type": "review",
+          "condition": "A judges source support",
+          "semantic": true
+        }
+      ],
+      "dependencies": [],
+      "budget": {
+        "total_tokens": 10000,
+        "reserved_a_tokens": 2000
+      },
+      "b_write_scopes": [
+        "b"
+      ],
+      "a_responsibilities": [
+        "problem_modeling",
+        "core_reasoning",
+        "method_choice",
+        "evidence_judgment",
+        "final_review"
+      ],
+      "guidance_depth": "ordinary",
+      "full_read_required": true,
+      "source_unit_ids": [
+        "body",
+        "appendix"
+      ]
+    },
+    "document": {
+      "task_id": "fixture-document",
+      "attempt_id": "attempt",
+      "contract_version": "1.0",
+      "domain": "document",
+      "model_family": "gpt",
+      "route_snapshot_id": "route",
+      "objective": "Verify fixed source results",
+      "method": "Check actual evidence",
+      "inputs": [
+        {
+          "id": "input",
+          "ref": "inputs/source.txt",
+          "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        }
+      ],
+      "constraints": [
+        {
+          "id": "preserve",
+          "text": "Preserve sources",
+          "mandatory": true
+        }
+      ],
+      "deliverables": [
+        {
+          "id": "result",
+          "kind": "document",
+          "write_scope": "b/result",
+          "require_a_canonical": true
+        }
+      ],
+      "acceptance": [
+        {
+          "id": "AC1",
+          "mandatory": true,
+          "verifier": "C",
+          "evidence_type": "execution",
+          "condition": "Mechanical check passes",
+          "semantic": false
+        },
+        {
+          "id": "AC2",
+          "mandatory": true,
+          "verifier": "A",
+          "evidence_type": "review",
+          "condition": "A judges source support",
+          "semantic": true
+        }
+      ],
+      "dependencies": [],
+      "budget": {
+        "total_tokens": 10000,
+        "reserved_a_tokens": 2000
+      },
+      "b_write_scopes": [
+        "b"
+      ],
+      "a_responsibilities": [
+        "problem_modeling",
+        "core_reasoning",
+        "method_choice",
+        "evidence_judgment",
+        "final_review"
+      ],
+      "guidance_depth": "ordinary",
+      "full_read_required": false,
+      "source_unit_ids": [
+        "body"
+      ]
+    },
+    "mixed": {
+      "task_id": "fixture-mixed",
+      "attempt_id": "attempt",
+      "contract_version": "1.0",
+      "domain": "mixed",
+      "model_family": "gpt",
+      "route_snapshot_id": "route",
+      "objective": "Verify fixed source results",
+      "method": "Check actual evidence",
+      "inputs": [
+        {
+          "id": "input",
+          "ref": "inputs/source.txt",
+          "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        }
+      ],
+      "constraints": [
+        {
+          "id": "preserve",
+          "text": "Preserve sources",
+          "mandatory": true
+        }
+      ],
+      "deliverables": [
+        {
+          "id": "result",
+          "kind": "document",
+          "write_scope": "b/result",
+          "require_a_canonical": true
+        }
+      ],
+      "acceptance": [
+        {
+          "id": "AC1",
+          "mandatory": true,
+          "verifier": "C",
+          "evidence_type": "execution",
+          "condition": "Mechanical check passes",
+          "semantic": false
+        },
+        {
+          "id": "AC2",
+          "mandatory": true,
+          "verifier": "A",
+          "evidence_type": "review",
+          "condition": "A judges source support",
+          "semantic": true
+        }
+      ],
+      "dependencies": [],
+      "budget": {
+        "total_tokens": 10000,
+        "reserved_a_tokens": 2000
+      },
+      "b_write_scopes": [
+        "b"
+      ],
+      "a_responsibilities": [
+        "problem_modeling",
+        "core_reasoning",
+        "method_choice",
+        "evidence_judgment",
+        "final_review"
+      ],
+      "guidance_depth": "ordinary",
+      "full_read_required": false,
+      "source_unit_ids": [
+        "body"
+      ]
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "generated_at": "2026-10-13T12:00:05.803886+00:00",
+  "mode": "isolated local probes; production files read-only",
+  "command": "services/orchestrator/.venv/Scripts/python.exe docs/acceptance/D012/review_root_scope.py",
+  "source_hashes": {
+    "services/orchestrator/app/runtime/publication.py": "1618bb6da17c761413641e8d6f027479c895107f74553fa3b62ac0be71b89b63",
+    "services/orchestrator/app/runtime/public_projection.py": "af6ac402cbbb4ed81af85e7f2daac2d1b886a9dfad637e9e315de043f0946309",
+    "services/orchestrator/app/usage/ledger.py": "e223ee2e3c2849b8de2316fe2fc4cbd38b2d75c583423217a5ff5e5a313397f3",
+    "services/orchestrator/app/contracts/tasks.py": "32831ea24aeedeee861e4e35ebd40e4bea38ba20e4ce0f3385c65b808372f765"
+  },
+  "results": {
+    "duplicate_delta_sequence": {
+      "expected_tokens": 30,
+      "actual_tokens": 60
+    },
+    "canonical_claim_vs_artifact": {
+      "requires_a_canonical": true,
+      "decision_author": "A",
+      "artifact_author": "B",
+      "published_answers": 1
+    },
+    "forged_event_later_authorized": {
+      "before_answer_count": 0,
+      "after_answer_count": 2,
+      "after_answer_ids": [
+        "5e8238287623481da3df8750505943e6",
+        "5e8238287623481da3df8750505943e6"
+      ],
+      "forged_text_leaked": false
+    },
+    "historical_answer_after_new_attempt": {
+      "before_answer_count": 1,
+      "after_answer_count": 0
+    }
+  }
+}

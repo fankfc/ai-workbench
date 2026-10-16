@@ -1,0 +1,15 @@
+{
+  "source_kind": "deterministic_packaged_smoke",
+  "installation_executed": false,
+  "signed_candidate_qualified": false,
+  "real_provider_calls": 0,
+  "provider_registry_entries": 0,
+  "backend_started": true,
+  "checkpoint_saved": true,
+  "process_cleanup_confirmed": true,
+  "runtime_sha256": "62ebc90a2884bb63a0cd67e789cafdd51e771eee043587e2354327b4ccc9bb05",
+  "packaged_service_tree_sha256": "7bf02044811ffbb364bf3c99e87ae57f8928d513b9951ee12a06ff91eacefd4d",
+  "workspace_service_tree_sha256": "7bf02044811ffbb364bf3c99e87ae57f8928d513b9951ee12a06ff91eacefd4d",
+  "service_pid": 39524,
+  "protocol_version": "1.0"
+}

@@ -1,0 +1,155 @@
+{
+  "commands": [
+    {
+      "argv": [
+        "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\.venv\\Scripts\\python.exe",
+        "scripts/work_order.py",
+        "draft",
+        "--task-id",
+        "D028",
+        "--contract-version",
+        "1",
+        "--output",
+        "docs/acceptance/part-five/work-orders/D028-draft-v3",
+        "--allow",
+        "services/orchestrator/app/translation/input_pipeline.py",
+        "--allow",
+        "services/orchestrator/app/translation/context_gateway.py",
+        "--allow",
+        "services/orchestrator/app/translation/prompts/input_translator.txt",
+        "--allow",
+        "services/orchestrator/app/translation/history.py",
+        "--allow",
+        "tests/integration/test_input_translation.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "argv": [
+        "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\.venv\\Scripts\\python.exe",
+        "scripts/work_order.py",
+        "record",
+        "--work-order",
+        "docs/acceptance/part-five/work-orders/D028-draft-v3/work-order.json",
+        "--output",
+        "docs/acceptance/part-five/work-orders/D028-run-v3",
+        "--",
+        "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "tests/integration/test_input_translation.py",
+        "-q"
+      ],
+      "exit_code": 0
+    },
+    {
+      "argv": [
+        "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\.venv\\Scripts\\python.exe",
+        "scripts/work_order.py",
+        "handoff",
+        "--work-order",
+        "docs/acceptance/part-five/work-orders/D028-draft-v3/work-order.json",
+        "--record",
+        "docs/acceptance/part-five/work-orders/D028-run-v3/record.json",
+        "--output",
+        "docs/acceptance/part-five/work-orders/D028-handoff-v3",
+        "--unresolved",
+        "D026/D027 dependency and real/human acceptance remain open."
+      ],
+      "exit_code": 0
+    },
+    {
+      "argv": [
+        "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\.venv\\Scripts\\python.exe",
+        "scripts/work_order.py",
+        "validate",
+        "--work-order",
+        "docs/acceptance/part-five/work-orders/D028-draft-v3/work-order.json",
+        "--handoff",
+        "docs/acceptance/part-five/work-orders/D028-handoff-v3/handoff.json"
+      ],
+      "exit_code": 0
+    },
+    {
+      "argv": [
+        "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\.venv\\Scripts\\python.exe",
+        "scripts/work_order.py",
+        "report",
+        "blocked",
+        "--work-order",
+        "docs/acceptance/part-five/work-orders/D028-draft-v3/work-order.json",
+        "--payload",
+        "docs/acceptance/part-five/work-orders/D028-blocked-payload-v3.json",
+        "--output",
+        "docs/acceptance/part-five/work-orders/D028-blocked-v3"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "accepted": {
+    "task_id": "D028",
+    "contract_version": "1",
+    "local_handoff_accepted": true,
+    "task_completion_changed": false,
+    "dependency_blockers": [
+      {
+        "code": "SOURCE_CARD_DIVERGENCE",
+        "task_id": "D028"
+      },
+      {
+        "code": "DEPENDENCY_NOT_DONE",
+        "task_id": "D026",
+        "status": "in_progress"
+      },
+      {
+        "code": "DEPENDENCY_ARTIFACT_MISSING",
+        "task_id": "D026",
+        "ref": "artifacts/acceptance/D026/route-snapshots.json"
+      },
+      {
+        "code": "DEPENDENCY_ARTIFACT_MISSING",
+        "task_id": "D026",
+        "ref": "artifacts/acceptance/D026/provider-calls.json"
+      },
+      {
+        "code": "DEPENDENCY_NOT_DONE",
+        "task_id": "D027",
+        "status": "in_progress"
+      },
+      {
+        "code": "DEPENDENCY_ARTIFACT_MISSING",
+        "task_id": "D027",
+        "ref": "artifacts/acceptance/D027/block-map.json"
+      },
+      {
+        "code": "DEPENDENCY_ARTIFACT_MISSING",
+        "task_id": "D027",
+        "ref": "artifacts/acceptance/D027/protected-diff.json"
+      }
+    ],
+    "checked_commands": 1,
+    "review_required": true,
+    "real_acceptance": "not_established_by_local_handoff"
+  },
+  "measured_command_exit": 0,
+  "changed_files": [],
+  "source_task_files_before": {
+    "docs\\superpowers\\plans\\2026-10-13-execution\\task-board.json": "8faffbde73772c2b2dc05988a8ec6dfe931130a65d4e51120bfb09ca4cbc1ddb",
+    "docs\\superpowers\\plans\\2026-10-13-execution\\data\\tasks-01.json": "e1a045c6fdf95efe0996913652a2c55f7aa2f3e2fa8375fe65bbe81a5776d12a",
+    "docs\\superpowers\\plans\\2026-10-13-execution\\data\\tasks-02.json": "291cb3d2214eb707b36abf0f9d40c447ef658d34fb0b1adbac9737f2eb0e64b1",
+    "docs\\superpowers\\plans\\2026-10-13-execution\\data\\tasks-03.json": "3a069097a67c7431ad9a44aa2ac43e9dc97fe5dc3328a44a39b729e6070fb7a4"
+  },
+  "source_task_files_after": {
+    "docs\\superpowers\\plans\\2026-10-13-execution\\task-board.json": "8faffbde73772c2b2dc05988a8ec6dfe931130a65d4e51120bfb09ca4cbc1ddb",
+    "docs\\superpowers\\plans\\2026-10-13-execution\\data\\tasks-01.json": "e1a045c6fdf95efe0996913652a2c55f7aa2f3e2fa8375fe65bbe81a5776d12a",
+    "docs\\superpowers\\plans\\2026-10-13-execution\\data\\tasks-02.json": "291cb3d2214eb707b36abf0f9d40c447ef658d34fb0b1adbac9737f2eb0e64b1",
+    "docs\\superpowers\\plans\\2026-10-13-execution\\data\\tasks-03.json": "3a069097a67c7431ad9a44aa2ac43e9dc97fe5dc3328a44a39b729e6070fb7a4"
+  },
+  "source_task_files_unchanged": true,
+  "blocked_report": "docs/acceptance/part-five/work-orders/D028-blocked-v3/blocked.json",
+  "blocked_current_revision_sha256": "a5b7ba9bcfc220ad65b1046eb67c92d1f9b9d32af8af38dc23fddb3a1901624a",
+  "limitations": [
+    "Local integrity and measured checks do not establish real/human acceptance.",
+    "v1/v2 are superseded by v3 after dependency implementation changed."
+  ]
+}

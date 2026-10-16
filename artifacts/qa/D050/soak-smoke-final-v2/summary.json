@@ -1,0 +1,16 @@
+{
+  "build_id": "cb98eed03df6bd4ffaa551d66a54c77198911cf5b3e763a1ef3c055f5ee54ca4",
+  "seed": 4317,
+  "elapsed_seconds": 8.307765499979723,
+  "requested_seconds": 7.2,
+  "full_24h": false,
+  "completed": true,
+  "successes": 4,
+  "failures": 0,
+  "samples": 4,
+  "provider_boundary": "fake",
+  "real_provider_verified": false,
+  "resource_matrix_complete": false,
+  "process_cleaned": true,
+  "raw_samples_sha256": "12e4c08dc8d3591f9fe4f46a6e60f658d3dc7d2e5997841439d2c6565654bb96"
+}

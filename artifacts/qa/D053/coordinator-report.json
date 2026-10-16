@@ -1,0 +1,36 @@
+{
+  "card": "D053",
+  "local_coordinator_implemented": true,
+  "external_signed_rollout_verified": false,
+  "classification": "trusted-private-port-test-fixtures",
+  "tests": {
+    "command": "npx vitest run tests/release/update-coordinator.test.ts",
+    "passed": 40,
+    "failed": 0,
+    "skipped": 0,
+    "duration_seconds": 2.83,
+    "typecheck_exit_code": 0
+  },
+  "source_sha256": {
+    "apps/desktop/src/main/update-coordinator.ts": "6513f9051bc62084f9806ff21a594c1d9e20b8f285adb7b2888fb9f41c747949",
+    "tests/release/update-coordinator.test.ts": "9de7ffcdc48e5264de6e4e72eed30b7524bdee258931d44f119cba3d9f8ff796",
+    "apps/desktop/src/main/index.ts": "04aab21f752397bd4f192b81824c222f7ccac37e32075a9f5cff126a6e854910",
+    "docs/acceptance/part-three/update-coordinator-tests.log": "54cca83814f94b3ec1621df68b4ac5b6e66d80d9e13a514dbbe05c0c209b797c",
+    "docs/acceptance/part-three/update-coordinator-typecheck.log": "b83b7e354f1a2493167fd07d43f5f878100156a7c5b6ad25212b1b43443d5e1f"
+  },
+  "journal_limits": {
+    "bytes": 65536,
+    "events": 64,
+    "operations": 32,
+    "recovery_attempts": 3
+  },
+  "native_signature_authority": "test-only trusted port",
+  "manifest_signature": "ephemeral Ed25519 test fixture, real signature verification",
+  "terminal_resume_recovery": "independently verified; no repeated install/migration/data restore",
+  "blocked": [
+    "trusted production signing/manifest receipts",
+    "real installer/migration/health adapters and signed-installation drill",
+    "D051 SQLite update-adapter integration drill",
+    "clean-account and power-loss recovery evidence"
+  ]
+}

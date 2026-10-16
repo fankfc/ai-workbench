@@ -1,0 +1,13 @@
+{
+  "time": "2026-10-14T06:26:30.749346+00:00",
+  "command": [
+    "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\.venv\\Scripts\\python.exe",
+    "-m",
+    "pytest",
+    "-q",
+    "tests/contracts/test_scoped_codex_runtime.py::test_authenticated_completion_retains_actual_usage_before_business_validation"
+  ],
+  "exit_code": 1,
+  "git_commit": null,
+  "log": "docs\\acceptance\\part-one-closeout\\scoped-accounting-red.log"
+}

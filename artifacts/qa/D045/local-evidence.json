@@ -1,0 +1,47 @@
+{
+  "card": "D045",
+  "case": "usage_reconciliation",
+  "command": [
+    "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\.venv\\Scripts\\python.exe",
+    "tests/support/scenario_driver.py",
+    "usage_reconciliation",
+    "--root",
+    "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\artifacts\\qa\\D045\\r4c48dedd",
+    "--options",
+    "{\"fault\": \"cumulative_with_duplicate\"}"
+  ],
+  "exit_code": 0,
+  "time": "2026-10-15T02:00:22.727011+00:00",
+  "build_id": "cb98eed03df6bd4ffaa551d66a54c77198911cf5b3e763a1ef3c055f5ee54ca4",
+  "run_root": "artifacts/qa/D045/r4c48dedd",
+  "result": {
+    "duplicate_total": 120,
+    "duplicate_requests": 1,
+    "cumulative_total": 250,
+    "unknown_total": null,
+    "unknown_requests": 1,
+    "estimated_source": "estimated",
+    "qualified_delivery_cost": null,
+    "counted_functions": [
+      "execution",
+      "review",
+      "takeover",
+      "translation"
+    ],
+    "all_costs_total": 50,
+    "a_tokens": 250,
+    "b_tokens": 20,
+    "reported_complete": true,
+    "duplicate_count": 1,
+    "source_kind": "synthetic",
+    "denominator": 0,
+    "real_usage_verified": false,
+    "optimization_eligible": false,
+    "provider_boundary": "fake",
+    "real_provider_verified": false,
+    "limitations": [
+      "REAL_PROVIDER_WIRE_EVENTS_MISSING",
+      "INDEPENDENT_USAGE_RECONCILIATION_MISSING"
+    ]
+  }
+}

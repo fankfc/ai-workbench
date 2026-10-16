@@ -1,0 +1,166 @@
+{
+  "mode": "isolated actual API/SQLite/blob/Registry/Windows native fixed analysis fixture",
+  "test_only": true,
+  "model_provider_starts": 0,
+  "real_provider_verified": false,
+  "real_handoff_complete": false,
+  "workspace": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\mixed-helper-evidence\\258f2406c447451b83578ea16ea843b9\\tasks\\77a58cf1816e4c4680570617957f4422\\5efc607475c94eaaa0714f068d535df3",
+  "database_path": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\mixed-helper-evidence\\258f2406c447451b83578ea16ea843b9\\workbench.sqlite3",
+  "result": {
+    "dependency_revision_ids": [
+      "mx-result-e6c07e0df8c143b8a999e66c9a40344a",
+      "mx-figure-4f97b03e620d405db783ea8e8afa0fee"
+    ],
+    "source_inputs": [
+      {
+        "id": "mixed-data",
+        "ref": "input/md.csv",
+        "sha256": "398691f9ae1cc7dd7f4b7807369311a057ce75d7ef55442350ab7fe46d69edbb"
+      },
+      {
+        "id": "mixed-analysis",
+        "ref": "input/mx.py",
+        "sha256": "8b15251546f7fb1415b4d4847e9abae93580b3992315bc16559a4ed39838a662"
+      },
+      {
+        "id": "mixed-result",
+        "ref": "input/mr.json",
+        "sha256": "031ff026a1f704a3462310a6f4e8c3180ba093e6192b401b023192f65bf11028"
+      },
+      {
+        "id": "mixed-figure",
+        "ref": "input/mf.svg",
+        "sha256": "78444f65f148156f79bf6e347c1505d8a6aa98bf74de9c8411b241d9c9c52c1d"
+      }
+    ],
+    "validator_results": [
+      {
+        "criterion_id": "mixed-analysis-execution",
+        "revision_id": "mx-analysis-a023435c454e42a983cc7ac7832048a0",
+        "artifact_sha256": "8b15251546f7fb1415b4d4847e9abae93580b3992315bc16559a4ed39838a662",
+        "validator_id": "code",
+        "validator_version": "1.0",
+        "status": "pass",
+        "reason_code": "COMMAND_EXECUTED_SUCCESSFULLY",
+        "evidence_ref": "evidence/validator-code-17e144b1606d4dd696782f62be4561d7.json",
+        "evidence_sha256": "3e86e69cd5dfbb3ddf2a27b9db04425a182b5e45907d78085a52319ca698bfa2",
+        "method": "native_code_execution",
+        "environment": {
+          "python": "3.13.0",
+          "platform": "win32",
+          "test_only": true,
+          "fixture_trust": "fixed-script-sha256",
+          "analysis_sha256": "8b15251546f7fb1415b4d4847e9abae93580b3992315bc16559a4ed39838a662"
+        },
+        "duration_ms": 165.89529998600483,
+        "pending_A_review": [],
+        "passed": true
+      }
+    ],
+    "revision_ids": {
+      "data": "mx-data-edbaaad96a63470bbd47252c6a9b119d",
+      "analysis": "mx-analysis-a023435c454e42a983cc7ac7832048a0",
+      "result": "mx-result-e6c07e0df8c143b8a999e66c9a40344a",
+      "figure": "mx-figure-4f97b03e620d405db783ea8e8afa0fee"
+    }
+  },
+  "actual_source_bytes": [
+    {
+      "id": "mixed-data",
+      "ref": "input/md.csv",
+      "sha256": "398691f9ae1cc7dd7f4b7807369311a057ce75d7ef55442350ab7fe46d69edbb",
+      "actual_sha256": "398691f9ae1cc7dd7f4b7807369311a057ce75d7ef55442350ab7fe46d69edbb",
+      "byte_count": 12,
+      "hash_matches": true
+    },
+    {
+      "id": "mixed-analysis",
+      "ref": "input/mx.py",
+      "sha256": "8b15251546f7fb1415b4d4847e9abae93580b3992315bc16559a4ed39838a662",
+      "actual_sha256": "8b15251546f7fb1415b4d4847e9abae93580b3992315bc16559a4ed39838a662",
+      "byte_count": 1406,
+      "hash_matches": true
+    },
+    {
+      "id": "mixed-result",
+      "ref": "input/mr.json",
+      "sha256": "031ff026a1f704a3462310a6f4e8c3180ba093e6192b401b023192f65bf11028",
+      "actual_sha256": "031ff026a1f704a3462310a6f4e8c3180ba093e6192b401b023192f65bf11028",
+      "byte_count": 108,
+      "hash_matches": true
+    },
+    {
+      "id": "mixed-figure",
+      "ref": "input/mf.svg",
+      "sha256": "78444f65f148156f79bf6e347c1505d8a6aa98bf74de9c8411b241d9c9c52c1d",
+      "actual_sha256": "78444f65f148156f79bf6e347c1505d8a6aa98bf74de9c8411b241d9c9c52c1d",
+      "byte_count": 718,
+      "hash_matches": true
+    }
+  ],
+  "graph": {
+    "version": 4,
+    "nodes": {
+      "data": {
+        "revision_id": "mx-data-edbaaad96a63470bbd47252c6a9b119d",
+        "dependencies": {},
+        "stale": false
+      },
+      "analysis": {
+        "revision_id": "mx-analysis-a023435c454e42a983cc7ac7832048a0",
+        "dependencies": {
+          "data": "mx-data-edbaaad96a63470bbd47252c6a9b119d"
+        },
+        "stale": false
+      },
+      "result": {
+        "revision_id": "mx-result-e6c07e0df8c143b8a999e66c9a40344a",
+        "dependencies": {
+          "analysis": "mx-analysis-a023435c454e42a983cc7ac7832048a0"
+        },
+        "stale": false
+      },
+      "figure": {
+        "revision_id": "mx-figure-4f97b03e620d405db783ea8e8afa0fee",
+        "dependencies": {
+          "result": "mx-result-e6c07e0df8c143b8a999e66c9a40344a"
+        },
+        "stale": false
+      }
+    }
+  },
+  "revision_rows": [
+    {
+      "id": "mx-data-edbaaad96a63470bbd47252c6a9b119d",
+      "artifact_kind": "data",
+      "byte_sha256": "398691f9ae1cc7dd7f4b7807369311a057ce75d7ef55442350ab7fe46d69edbb",
+      "size_bytes": 12,
+      "dependencies_json": "[]",
+      "provenance_json": "{\"test_only\":true,\"source_role\":\"fixed-mechanical-fixture\",\"fixed_analysis_sha256\":\"8b15251546f7fb1415b4d4847e9abae93580b3992315bc16559a4ed39838a662\"}"
+    },
+    {
+      "id": "mx-analysis-a023435c454e42a983cc7ac7832048a0",
+      "artifact_kind": "analysis",
+      "byte_sha256": "8b15251546f7fb1415b4d4847e9abae93580b3992315bc16559a4ed39838a662",
+      "size_bytes": 1406,
+      "dependencies_json": "[{\"artifact_version_id\":\"mx-data-edbaaad96a63470bbd47252c6a9b119d\",\"relationship\":\"derived_from\"}]",
+      "provenance_json": "{\"test_only\":true,\"source_role\":\"fixed-mechanical-fixture\",\"fixed_analysis_sha256\":\"8b15251546f7fb1415b4d4847e9abae93580b3992315bc16559a4ed39838a662\"}"
+    },
+    {
+      "id": "mx-result-e6c07e0df8c143b8a999e66c9a40344a",
+      "artifact_kind": "result",
+      "byte_sha256": "031ff026a1f704a3462310a6f4e8c3180ba093e6192b401b023192f65bf11028",
+      "size_bytes": 108,
+      "dependencies_json": "[{\"artifact_version_id\":\"mx-analysis-a023435c454e42a983cc7ac7832048a0\",\"relationship\":\"derived_from\"}]",
+      "provenance_json": "{\"test_only\":true,\"source_role\":\"fixed-mechanical-fixture\",\"fixed_analysis_sha256\":\"8b15251546f7fb1415b4d4847e9abae93580b3992315bc16559a4ed39838a662\"}"
+    },
+    {
+      "id": "mx-figure-4f97b03e620d405db783ea8e8afa0fee",
+      "artifact_kind": "figure",
+      "byte_sha256": "78444f65f148156f79bf6e347c1505d8a6aa98bf74de9c8411b241d9c9c52c1d",
+      "size_bytes": 718,
+      "dependencies_json": "[{\"artifact_version_id\":\"mx-result-e6c07e0df8c143b8a999e66c9a40344a\",\"relationship\":\"derived_from\"}]",
+      "provenance_json": "{\"test_only\":true,\"source_role\":\"fixed-mechanical-fixture\",\"fixed_analysis_sha256\":\"8b15251546f7fb1415b4d4847e9abae93580b3992315bc16559a4ed39838a662\"}"
+    }
+  ]
+}

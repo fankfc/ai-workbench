@@ -1,0 +1,213 @@
+{
+  "schema_version": "1.0",
+  "requirements_version": "v1",
+  "task_id": "D001",
+  "status": "frozen_for_implementation",
+  "product_acceptance_status": "not_verified",
+  "repository_root": "C:/Users/asd15/Documents/ChatGPT/ai",
+  "created_at": "2026-10-13T18:27:15+08:00",
+  "timezone": "Asia/Shanghai",
+  "reviewer": "Codex",
+  "review_kind": "agent_document_review",
+  "human_signoff": "not_claimed",
+  "git_commit": null,
+  "git_commit_note": "冻结时 git rev-parse --verify HEAD 退出 1；仓库尚无可解析提交。来源使用文件 SHA-256 定位。",
+  "owner_note": "验收责任人均为项目角色；未指派或声称任何真人签字。",
+  "priority_order": ["A 独立完成同类任务的质量基准", "尽量减少 A 总 token", "在前两项允许的范围内优化耗时和 B 用量"],
+  "source_documents": [
+    {"path": "docs/superpowers/plans/2026-10-13-industrial-agent-workbench-plan.md", "sha256": "14e421314ead98ec9b5ada1ba36661d5a3f86255c9018811493fafc5297b4599", "line_count": 427, "purpose": "R01–R15 编号、逐字需求与原完成证据；总体范围"},
+    {"path": "docs/superpowers/specs/2026-10-13-translation-delivery-spec.md", "sha256": "930cb8f15d4727490c3677ddea571d8ef765fcb8d3beb2551a642b7e965bf497", "line_count": 175, "purpose": "语言路由、忠实翻译、A 原文来源和配对交付细化"},
+    {"path": "docs/superpowers/plans/2026-10-13-quality-release-plan.md", "sha256": "510df00b97f9c557f82a1da98b2bf3c6158046e03029b6c2f1b1de954a36087e", "line_count": 249, "purpose": "质量、用量与软件发布/优化配置资格"},
+    {"path": "docs/superpowers/plans/2026-10-13-execution/01-foundation-runtime.md", "sha256": "f2fde3f3cd6feec48d681c0f18be8a12d8d5fe686dd83c64583e5a2b2873508e", "line_count": 653, "purpose": "共享约束、D001 十项操作与 D002–D020 实施顺序"},
+    {"path": "docs/superpowers/specs/2026-10-13-claude-zcode-workflow-design.md", "sha256": "1756ddea989b1be3c15186e3ecf4ba6a99403f80e5f4e7a51a4786c45cc90ad6", "line_count": 276, "purpose": "已确认目标、A/B/C 责任与历史冲突复核；新规格优先"}
+  ],
+  "requirements": [
+    {
+      "id": "R01",
+      "statement": "以 A 独立完成任务的质量为基准",
+      "source": {"path": "docs/superpowers/plans/2026-10-13-industrial-agent-workbench-plan.md", "section": "1. 产品目标与需求编号", "line": 40, "original_row": "| R01 | 以 A 独立完成任务的质量为基准 | 分领域配对评估与重大缺陷记录 |"},
+      "original_completion_evidence": "分领域配对评估与重大缺陷记录",
+      "acceptance_definition": ["按编程、论文、文档、综合任务及难度，与可比的 A 独立完成基准评估正确性、约束完整性、核心推理、证据、整体一致性和最终可用性。", "优化配置资格要求关键维度及总评分配对差值单侧 95% 置信下界 ≥ 0、无新增关键缺陷；95% 为统计置信水平，禁止质量折扣。证据不足使用 A 主导配置，不声明已证实等效。"],
+      "acceptance_owners": ["产品负责人", "QA 负责人", "领域评审"],
+      "acceptance_source": {"path": "docs/superpowers/plans/2026-10-13-quality-release-plan.md", "section": "QA-01", "lines": [62, 83]},
+      "planned_evidence": ["quality/evaluation-protocol.md", "quality/holdout-manifest.json", "分领域配对分数、盲评记录与重大缺陷报告"],
+      "product_validation_status": "not_verified"
+    },
+    {
+      "id": "R02",
+      "statement": "尽量减少 A 总 token",
+      "source": {"path": "docs/superpowers/plans/2026-10-13-industrial-agent-workbench-plan.md", "section": "1. 产品目标与需求编号", "line": 41, "original_row": "| R02 | 尽量减少 A 总 token | 含失败、重试、复核的真实用量账本 |"},
+      "original_completion_evidence": "含失败、重试、复核的真实用量账本",
+      "acceptance_definition": ["账本包含失败、重试、返修、取消、升级 A、翻译修复和接管消耗；报告 A 总 token / 最终合格交付数，并分别报告 A、B 翻译、B 执行及总成本。分母为零标不可计算。", "仅在 R01 质量资格同时满足且 A token 节省率置信下界 > 0 时声明已验证节省；不省略 A 完整英文定稿必要输出，不预设固定节省率。真实用量不可得时标估算或未知。"],
+      "acceptance_owners": ["后端计量工程师", "QA 负责人"],
+      "acceptance_source": {"path": "docs/superpowers/plans/2026-10-13-quality-release-plan.md", "section": "QA-01", "lines": [69, 80]},
+      "planned_evidence": ["docs/acceptance/D015/budget-report.json", "真实用量账本和配对节省报告"],
+      "product_validation_status": "not_verified"
+    },
+    {
+      "id": "R03",
+      "statement": "Claude 主用、GPT 可选",
+      "source": {"path": "docs/superpowers/plans/2026-10-13-industrial-agent-workbench-plan.md", "section": "1. 产品目标与需求编号", "line": 42, "original_row": "| R03 | Claude 主用、GPT 可选 | 实际模型识别与分支路由契约测试 |"},
+      "original_completion_evidence": "实际模型识别与分支路由契约测试",
+      "acceptance_definition": ["默认 A 为 Claude Code 中的 Claude；可选 GPT 由用户选择，禁止后台擅自切换。路由依据核验的 model_family 与 identity_source；App 名、别名或模型自称不能证明身份。", "unknown/mismatch 身份阻止启动；每轮不可变路由快照覆盖执行、修复及输出，切换影响后续轮，执行中身份变化先暂停再建新版本。GPT 未真实验证保持未连接/禁用。"],
+      "acceptance_owners": ["接入工程师", "产品负责人", "QA"],
+      "acceptance_source": {"path": "docs/superpowers/specs/2026-10-13-translation-delivery-spec.md", "section": "2. 依据实际模型锁定语言路由", "lines": [17, 30]},
+      "planned_evidence": ["docs/acceptance/claude-capabilities.json", "docs/acceptance/gpt-capabilities.json", "tests/contracts/test_gpt_adapter.py", "tests/translation/test_routes.py"],
+      "product_validation_status": "not_verified"
+    },
+    {
+      "id": "R04",
+      "statement": "使用 ZCode 中的 GLM",
+      "source": {"path": "docs/superpowers/plans/2026-10-13-industrial-agent-workbench-plan.md", "section": "1. 产品目标与需求编号", "line": 43, "original_row": "| R04 | 使用 ZCode 中的 GLM | 真实启动、执行、完成与恢复接入报告 |"},
+      "original_completion_evidence": "真实启动、执行、完成与恢复接入报告",
+      "acceptance_definition": ["在用户安装版本上核验 ZCode 受支持入口、实际 GLM 身份、文件/终端工具、指定成果、明确成功/失败事件；只有聊天文本或退出码 0 不算工具执行通过。", "真实有界任务留存启动、用量、成果哈希、取消/恢复与独立工作区证据；桌面/CLI 会话、登录、额度分别实测。必需能力不合格时自动 B 路径保持阻塞。"],
+      "acceptance_owners": ["接入工程师", "QA"],
+      "acceptance_source": {"path": "docs/superpowers/plans/2026-10-13-execution/01-foundation-runtime.md", "section": "D005 ZCode 真实适配验证", "lines": [237, 261]},
+      "planned_evidence": ["docs/acceptance/D005/probe-report.json", "docs/acceptance/D005/session-matrix.md", "docs/acceptance/zcode-capabilities.json"],
+      "product_validation_status": "not_verified"
+    },
+    {
+      "id": "R05",
+      "statement": "编程、论文、文档及综合任务",
+      "source": {"path": "docs/superpowers/plans/2026-10-13-industrial-agent-workbench-plan.md", "section": "1. 产品目标与需求编号", "line": 44, "original_row": "| R05 | 编程、论文、文档及综合任务 | 每种类型的真实交付样例 |"},
+      "original_completion_evidence": "每种类型的真实交付样例",
+      "acceptance_definition": ["四类任务各具备真实端到端交付样例、固定成果版本、验收合同与机械/语义证据；编程覆盖实际运行及异常，论文覆盖来源与统计，文档覆盖内容和导出，综合覆盖依赖一致性。", "缺工具、缺数据、未核实来源标 blocked/not_verified；机械检查不得代替 A 语义审查，禁止补造文献、数据或实验。上游变更使受影响下游和批准失效。"],
+      "acceptance_owners": ["领域验证工程师", "领域评审", "QA"],
+      "acceptance_source": {"path": "docs/superpowers/plans/2026-10-13-execution/01-foundation-runtime.md", "section": "D019 领域验证器注册", "lines": [601, 625]},
+      "planned_evidence": ["docs/acceptance/D019/domain-results.json", "四类真实用户交付样例及验收记录"],
+      "product_validation_status": "not_verified"
+    },
+    {
+      "id": "R06",
+      "statement": "聊天式图形界面",
+      "source": {"path": "docs/superpowers/plans/2026-10-13-industrial-agent-workbench-plan.md", "section": "1. 产品目标与需求编号", "line": 45, "original_row": "| R06 | 聊天式图形界面 | 桌面端键盘、鼠标、附件与历史端到端测试 |"},
+      "original_completion_evidence": "桌面端键盘、鼠标、附件与历史端到端测试",
+      "acceptance_definition": ["Windows 桌面聊天提供会话历史、输入/附件、Claude/GPT 选择、通用等待、停止、文件配对与中文错误/澄清；键盘、鼠标、缩放及窄窗口可操作，按 DESIGN.md 验收。", "真实 Electron E2E 与截图检查覆盖首次消息、追问、取消、重连和附件访问；公开内容与 R11 边界一致，本地 SLO 在指定环境实测。"],
+      "acceptance_owners": ["桌面工程师", "QA"],
+      "acceptance_source": {"path": "docs/superpowers/plans/2026-10-13-industrial-agent-workbench-plan.md", "section": "W4：聊天界面与公开事件隔离", "lines": [337, 361]},
+      "planned_evidence": ["tests/e2e/chat.spec.ts", "tests/e2e/chat-boundary.spec.ts", "桌面键鼠、附件、历史和渲染证据"],
+      "product_validation_status": "not_verified"
+    },
+    {
+      "id": "R07",
+      "statement": "Claude 前置完整中→英翻译",
+      "source": {"path": "docs/superpowers/plans/2026-10-13-industrial-agent-workbench-plan.md", "section": "1. 产品目标与需求编号", "line": 46, "original_row": "| R07 | Claude 前置完整中→英翻译 | 输入译文、原文对应关系及语义验证 |"},
+      "original_completion_evidence": "输入译文、原文对应关系及语义验证",
+      "acceptance_definition": ["首次提问、追问、纠正、必要历史、附件/OCR、工具/检索自然语言全部经过完整等义翻译及检查后进入 Claude；保留逐块来源映射，摘要只能导航，不能冒称全文译文。", "代码、路径、公式、标识符、数据和必要原文引文保护传递；不能为全英文破坏原始证据。输入关键译文失败或歧义未解不启动 A。核对 A 实际接收材料，不仅数调用。"],
+      "acceptance_owners": ["翻译工程师", "双语评审", "QA"],
+      "acceptance_source": {"path": "docs/superpowers/specs/2026-10-13-translation-delivery-spec.md", "section": "3. 输入、追问、附件和工具上下文", "lines": [32, 51]},
+      "planned_evidence": ["tests/translation/test_routes.py", "tests/translation/test_semantics.py", "源文/译文块映射及 A 接收上下文记录"],
+      "product_validation_status": "not_verified"
+    },
+    {
+      "id": "R08",
+      "statement": "Claude 最终回答英→中",
+      "source": {"path": "docs/superpowers/plans/2026-10-13-industrial-agent-workbench-plan.md", "section": "1. 产品目标与需求编号", "line": 47, "original_row": "| R08 | Claude 最终回答英→中 | 只发布检查后的中文回答 |"},
+      "original_completion_evidence": "只发布检查后的中文回答",
+      "acceptance_definition": ["Claude 最终英文回答及必要澄清完整翻译为经检查的中文后发布；用户中文补充再次适用 R07。不先流式显示内部英文再替换。", "输出翻译失败保存英文内部稿并给中文失败/恢复动作，不能生成成功气泡；首次消息、追问、历史与实时回放共用发布门槛。"],
+      "acceptance_owners": ["翻译工程师", "后端 API 工程师", "双语评审", "QA"],
+      "acceptance_source": {"path": "docs/superpowers/specs/2026-10-13-translation-delivery-spec.md", "section": "5. 翻译质量门槛与有界修复", "lines": [76, 91]},
+      "planned_evidence": ["tests/translation/test_routes.py", "tests/e2e/chat-boundary.spec.ts", "逐轮中文公开回答及失败状态证据"],
+      "product_validation_status": "not_verified"
+    },
+    {
+      "id": "R09",
+      "statement": "双语文档及真实 A 原文来源",
+      "source": {"path": "docs/superpowers/plans/2026-10-13-industrial-agent-workbench-plan.md", "section": "1. 产品目标与需求编号", "line": 48, "original_row": "| R09 | 双语文档及真实 A 原文来源 | 原件哈希、生成记录、译文来源版本与配对发布记录 |"},
+      "original_completion_evidence": "原件哈希、生成记录、译文来源版本与配对发布记录",
+      "acceptance_definition": ["require_a_authored_canonical=true：A 必须实际生成或完整输出最终采用的完整英文正文；捕获真实 A 模型/会话/请求/轮次与响应证据，源文不可变并留存哈希。B 代写、A 仅 PASS 不满足 A 原件。截断响应不算定稿。", "按用户要求的 PDF/DOCX/Markdown 格式提供完整英文原件及 B 中文译文，同任务、同源版本、块映射及渲染检查通过后原子发布；内容作者、定稿者、审核者和渲染者分别记录。原件改变使译文、QA、批准失效；禁止半包和跨版本配对。"],
+      "acceptance_owners": ["文档工程师", "双语评审", "QA"],
+      "acceptance_source": {"path": "docs/superpowers/specs/2026-10-13-translation-delivery-spec.md", "section": "6. 英文原件来源与 A 的成本；7. 双语文件制作与原子发布", "lines": [93, 118]},
+      "planned_evidence": ["tests/artifacts/test_provenance_publish.py", "真实 A 完整定稿响应、不可变原件哈希、同版本配对清单及渲染证据"],
+      "product_validation_status": "not_verified"
+    },
+    {
+      "id": "R10",
+      "statement": "GPT 无强制翻译",
+      "source": {"path": "docs/superpowers/plans/2026-10-13-industrial-agent-workbench-plan.md", "section": "1. 产品目标与需求编号", "line": 49, "original_row": "| R10 | GPT 无强制翻译 | translator 调用次数为零的契约断言 |"},
+      "original_completion_evidence": "translator 调用次数为零的契约断言",
+      "acceptance_definition": ["已验证 GPT 路由直接处理用户原语言，默认中文问答，无公共中间件触发的强制翻译，强制 translator 调用次数为零；B 执行职责继续存在。", "附件按用户要求语言/格式交付，不自动强制双语副本；用户明确要求的翻译作为任务功能记录，不属于强制翻译。未连接 GPT 不冒称实测通过。"],
+      "acceptance_owners": ["翻译工程师", "接入工程师", "QA"],
+      "acceptance_source": {"path": "docs/superpowers/plans/2026-10-13-quality-release-plan.md", "section": "QA-02", "lines": [85, 110]},
+      "planned_evidence": ["tests/translation/test_routes.py", "GPT native 路由与零强制翻译请求记录"],
+      "product_validation_status": "not_verified"
+    },
+    {
+      "id": "R11",
+      "statement": "主聊天隐藏内部过程",
+      "source": {"path": "docs/superpowers/plans/2026-10-13-industrial-agent-workbench-plan.md", "section": "1. 产品目标与需求编号", "line": 50, "original_row": "| R11 | 主聊天隐藏内部过程 | 公共事件白名单与 UI 泄漏测试 |"},
+      "original_completion_evidence": "公共事件白名单与 UI 泄漏测试",
+      "acceptance_definition": ["服务端仅投影 message.accepted、response.pending、answer.published、artifacts.published、request.failed、request.cancelled、input.required；聊天仅用户问题、批准回答及必要中文错误/澄清，pending 只驱动通用等待。", "内部提示词、模型文本、翻译块、工具/验证日志与密钥不进入普通消息、历史、SSE、HTML 调试字段或瞬时 DOM；附件区域有意提供批准英文原件。连接/真实执行失败必须如实呈现，不伪装成功。"],
+      "acceptance_owners": ["后端 API 工程师", "桌面联调工程师", "QA"],
+      "acceptance_source": {"path": "docs/superpowers/plans/2026-10-13-execution/01-foundation-runtime.md", "section": "D018 公开事件投影", "lines": [575, 599]},
+      "planned_evidence": ["docs/acceptance/D018/public-payloads.json", "docs/acceptance/D018/leakage-report.json", "tests/e2e/chat-boundary.spec.ts"],
+      "product_validation_status": "not_verified"
+    },
+    {
+      "id": "R12",
+      "statement": "中断恢复、去重、取消、隔离",
+      "source": {"path": "docs/superpowers/plans/2026-10-13-industrial-agent-workbench-plan.md", "section": "1. 产品目标与需求编号", "line": 51, "original_row": "| R12 | 中断恢复、去重、取消、隔离 | 故障注入与恢复测试 |"},
+      "original_completion_evidence": "故障注入与恢复测试",
+      "acceptance_definition": ["持久状态/outbox 一致，task/attempt/session/version/sequence 去重隔离；恢复先对账远端状态，unknown 不盲目重发；旧 attempt、旧 PASS 和迟到结果不覆盖当前版本。", "取消撤销发布资格并阻止新模型请求，取消请求与远端停止确认分别记录；崩溃、断网、重复/乱序事件、两任务同名文件和取消迟到场景留存真实故障证据，零串读串写。"],
+      "acceptance_owners": ["后端运行时工程师", "Windows 运行时工程师", "QA"],
+      "acceptance_source": {"path": "docs/superpowers/plans/2026-10-13-quality-release-plan.md", "section": "QA-05", "lines": [166, 186]},
+      "planned_evidence": ["tests/reliability/test_recovery.py", "docs/acceptance/D012/recovery-report.json", "docs/acceptance/D012/remote-unknown-trace.json"],
+      "product_validation_status": "not_verified"
+    },
+    {
+      "id": "R13",
+      "statement": "安全安装、更新、迁移、备份",
+      "source": {"path": "docs/superpowers/plans/2026-10-13-industrial-agent-workbench-plan.md", "section": "1. 产品目标与需求编号", "line": 52, "original_row": "| R13 | 安全安装、更新、迁移、备份 | 签名、安装/升级/回滚与恢复演练 |"},
+      "original_completion_evidence": "签名、安装/升级/回滚与恢复演练",
+      "acceptance_definition": ["干净 Windows 11 x64 非管理员环境验证安装/卸载、中文/空格路径；安装包和更新签名有效、发布者匹配，错误签名拒绝更新。下载/安装中断与启动失败保留可用旧版本。", "N−1 到 N 迁移前创建 SQLite/WAL、成果、manifest 和版本的一致性备份，迁移失败及回滚恢复匹配 schema；隔离目录实证可恢复。凭证系统存储与日志/诊断脱敏核验通过，缺有效签名不得正式分发。"],
+      "acceptance_owners": ["桌面发布工程师", "后端存储工程师", "QA"],
+      "acceptance_source": {"path": "docs/superpowers/plans/2026-10-13-quality-release-plan.md", "section": "QA-07", "lines": [208, 228]},
+      "planned_evidence": ["tests/release/test_windows_delivery.py", "release/release-checklist.md", "签名链、迁移/回滚与备份恢复记录"],
+      "product_validation_status": "not_verified"
+    },
+    {
+      "id": "R14",
+      "statement": "可核对用量和运行记录",
+      "source": {"path": "docs/superpowers/plans/2026-10-13-industrial-agent-workbench-plan.md", "section": "1. 产品目标与需求编号", "line": 53, "original_row": "| R14 | 可核对用量和运行记录 | 请求级去重，累计计数正确归一化 |"},
+      "original_completion_evidence": "请求级去重，累计计数正确归一化",
+      "acceptance_definition": ["原始提供方事件可追到账本、账本可追到报表，绑定请求/attempt、A/B 岗位与版本；区分真实报告、估算、unknown，未知不能填零。失败和取消用量保留。", "同一 120 token 事件重复接收只计 120，会话累计 120→200 总计 200；输入/输出/缓存/推理按提供方父子口径归一且不重复相加。报告运行命令、退出码、配置、时间、模型/工具版本及证据。"],
+      "acceptance_owners": ["后端计量工程师", "接入工程师", "QA"],
+      "acceptance_source": {"path": "docs/superpowers/plans/2026-10-13-execution/01-foundation-runtime.md", "section": "D015 用量归一化与预算", "lines": [497, 521]},
+      "planned_evidence": ["docs/acceptance/D015/usage-fixtures.json", "docs/acceptance/D015/budget-report.json", "真实连接用量来源及运行账本"],
+      "product_validation_status": "not_verified"
+    },
+    {
+      "id": "R15",
+      "statement": "翻译忠实、歧义可处理",
+      "source": {"path": "docs/superpowers/plans/2026-10-13-industrial-agent-workbench-plan.md", "section": "1. 产品目标与需求编号", "line": 54, "original_row": "| R15 | 翻译忠实、歧义可处理 | 双向翻译样本库及人工双语复核 |"},
+      "original_completion_evidence": "双向翻译样本库及人工双语复核",
+      "acceptance_definition": ["完整保留范围、否定/条件/量词、数字正负号、单位、公式、引用、语气及不确定性；程序保护项检查、B 隔离校验及开发期人工双语复核共同验收。同模型自检/回译仅辅助，不能证明完全等义。", "实质歧义/OCR/缺块问题保留位置并中文澄清；未解决不得依赖其含义执行。冻结 golden 通过、holdout 零观察到关键语义错误且余项裁决，记录样本和漏检风险，不承诺未来零错误。单翻译作业最多 3 候选，连接重试另计且有界，失败不发布。"],
+      "acceptance_owners": ["翻译工程师", "双语评审", "QA"],
+      "acceptance_source": {"path": "docs/superpowers/specs/2026-10-13-translation-delivery-spec.md", "section": "4. 忠实翻译协议；5. 翻译质量门槛与有界修复", "lines": [53, 91]},
+      "planned_evidence": ["tests/fixtures/translation/golden.jsonl", "quality/holdout-manifest.json", "双向人工语义复核与错误裁决记录"],
+      "product_validation_status": "not_verified"
+    }
+  ],
+  "hard_constraints": [
+    {"id": "HC01", "statement": "A 质量优先；禁止以 token 节省换质量折扣。95% 只用于统计置信水平。", "source_ref": "docs/superpowers/plans/2026-10-13-quality-release-plan.md:14,69", "requirements": ["R01", "R02"]},
+    {"id": "HC02", "statement": "保留 A 的问题建模、核心推理、方法与关键证据判断及最后验收；两次参与仅简单任务路径，不固定 A 调用上限。", "source_ref": "docs/superpowers/plans/2026-10-13-industrial-agent-workbench-plan.md:99-103", "requirements": ["R01", "R02", "R05"]},
+    {"id": "HC03", "statement": "Claude 全部待阅读自然语言输入完整中→英，输出/澄清完整英→中；追问和必要上下文适用同规则；保留受保护原件语义与证据。", "source_ref": "docs/superpowers/specs/2026-10-13-translation-delivery-spec.md:32-51", "requirements": ["R07", "R08", "R15"]},
+    {"id": "HC04", "statement": "GPT 零强制翻译、无强制双语副本；用户明确要求翻译时按任务处理，B 执行职责保留。", "source_ref": "docs/superpowers/specs/2026-10-13-translation-delivery-spec.md:11,147", "requirements": ["R03", "R10"]},
+    {"id": "HC05", "statement": "require_a_authored_canonical=true；A 必须亲自产出或完整输出最后采用的完整英文定稿，必要输出成本保留。B 全文加 A PASS 不算 A 原件。", "source_ref": "docs/superpowers/specs/2026-10-13-translation-delivery-spec.md:95-101", "requirements": ["R01", "R02", "R09"]},
+    {"id": "HC06", "statement": "源文不可变，双语同版本成对原子发布；实质修改使译文、QA、批准失效；缺原件、假来源、半包及混版禁止发布。", "source_ref": "docs/superpowers/specs/2026-10-13-translation-delivery-spec.md:103-118", "requirements": ["R09", "R12"]},
+    {"id": "HC07", "statement": "内部事件、提示词、模型英文输出和日志不进入聊天通道；服务端白名单投影，不能仅前端隐藏；真实失败不得伪装成功。", "source_ref": "docs/superpowers/plans/2026-10-13-execution/01-foundation-runtime.md:575-599", "requirements": ["R06", "R08", "R11"]},
+    {"id": "HC08", "statement": "未知身份、用量和能力如实标未知；fake、真实、未验证证据分开；D001 文档冻结不代表产品验收或用户签字。", "source_ref": "docs/superpowers/plans/2026-10-13-execution/01-foundation-runtime.md:20-24,131-155", "requirements": ["R03", "R04", "R14"]},
+    {"id": "HC09", "statement": "连接重试、质量返工和翻译修复分别有界；先核对未知远端状态，取消后不得发布迟到回答或新增模型请求。", "source_ref": "docs/superpowers/plans/2026-10-13-execution/01-foundation-runtime.md:419-443,471-495", "requirements": ["R12", "R14", "R15"]}
+  ],
+  "scope": {"platform": "Windows 11 x64", "deployment": "本地单用户桌面", "document_formats": ["PDF", "DOCX", "Markdown"], "legacy_doc": "仅能力检测及内容核验通过后导入转换", "history": "历史可离线查看；模型任务需要正常服务连接"},
+  "non_goals": ["云多租户及组织计费", "移动客户端", "自动绕过服务商地区、账号或实体资格", "无限模型重试"],
+  "unknowns": [
+    {"id": "U01", "fact": "GPT 自动调用入口、独立权限与真实能力", "status": "unknown", "decision_owners": ["接入工程师", "产品负责人"], "resolution_task": "D006", "blocks": "GPT 启用；不阻塞共同协议"},
+    {"id": "U02", "fact": "ZCode 桌面与 CLI 是否共享会话、登录和额度（三项分别核验）", "status": "unknown", "decision_owners": ["接入工程师", "QA"], "resolution_task": "D003/D005", "blocks": "会话/额度共享声明及依赖该声明的功能"},
+    {"id": "U03", "fact": "本机 Claude/ZCode 实际模型身份、受支持自动入口、工具、取消/恢复及用量能力", "status": "unknown", "decision_owners": ["接入工程师", "QA"], "resolution_task": "D003/D004/D005", "blocks": "必需真实接入及 D020 真实验收"},
+    {"id": "U04", "fact": "PDF/DOCX/Markdown 转换、渲染及 OCR 在本机可用性", "status": "unknown", "decision_owners": ["文档工程师", "QA"], "resolution_task": "D003 及后续文档卡", "blocks": "对应工具支持与正式格式交付声明"},
+    {"id": "U05", "fact": "质量基准、A token 节省与翻译 holdout 实测结果", "status": "unknown", "decision_owners": ["QA 负责人", "领域评审", "双语评审"], "resolution_task": "QA-01/QA-02", "blocks": "等效/已验证节省声明及未达到翻译门槛的发布"},
+    {"id": "U06", "fact": "签名发布者、安装/迁移/备份恢复与本地 SLO 实测结果", "status": "unknown", "decision_owners": ["桌面发布工程师", "后端存储工程师", "QA"], "resolution_task": "QA-07/QA-08", "blocks": "正式软件发布"}
+  ],
+  "change_control": {"rule": "后续实质需求、非目标、硬约束、验收定义或责任分配变更必须升版；保留 v1 与来源快照，记录差异、理由、授权依据、角色复核及受影响任务/验收，不原地降级。", "decision_log": "docs/decisions/decision-log.md", "review_evidence": "docs/acceptance/D001/scope-review.md"}
+}

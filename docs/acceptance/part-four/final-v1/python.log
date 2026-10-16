@@ -1,0 +1,929 @@
+........................................................................ [  4%]
+........................................................................ [  9%]
+........................................................................ [ 13%]
+........................................................................ [ 18%]
+........................................................................ [ 23%]
+........................................................................ [ 27%]
+........................................................................ [ 32%]
+........................................................................ [ 36%]
+.......F................................................................ [ 41%]
+........................................................................ [ 46%]
+.....FFFF.F..FF...F.F...............F....FF............................. [ 50%]
+...............................F......................................F. [ 55%]
+....................F.F....FF.FF........................................ [ 59%]
+........................................................................ [ 64%]
+........................................................................ [ 69%]
+........................................................................ [ 73%]
+........................................................................ [ 78%]
+........................................................................ [ 83%]
+........................................................................ [ 87%]
+......................F....................................FFFFFF....... [ 92%]
+........................................................................ [ 96%]
+.................................................                        [100%]
+================================== FAILURES ===================================
+_ test_failure_retains_genuine_bound_usage_without_business_capture[error_before_turn_completed] _
+
+tmp_path = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/docs/acceptance/part-four/final-v1/pytest-temp/test_failure_retains_genuine_b1')
+scenario = 'error_before_turn_completed'
+
+    @pytest.mark.parametrize('scenario', ['trailing_error','error_before_turn_completed'])
+    def test_failure_retains_genuine_bound_usage_without_business_capture(tmp_path,scenario):
+        frames, code = worker_frames(tmp_path,scenario)
+        assert code == 1
+        usages = [frame for frame in frames if frame['kind']=='usage']
+>       assert len(usages) == 1
+E       assert 0 == 1
+E        +  where 0 = len([])
+
+tests\contracts\test_scoped_worker_repairs.py:143: AssertionError
+_ test_four_domains_integrate_actual_storage_validators_usage_and_publication[code] _
+
+probe = <function probe.<locals>.run at 0x000001D3A7FF8360>, domain = 'code'
+
+    @pytest.mark.parametrize('domain',['code','paper','document','mixed'])
+    def test_four_domains_integrate_actual_storage_validators_usage_and_publication(probe,domain):
+        result=probe('backend_normal',provider_mode='fake',domain=domain)
+>       assert result['task_state']=='PUBLISHED'
+E       AssertionError: assert 'BLOCKED' == 'PUBLISHED'
+E         
+E         - PUBLISHED
+E         + BLOCKED
+
+tests\integration\test_backend_vertical.py:7: AssertionError
+_ test_four_domains_integrate_actual_storage_validators_usage_and_publication[paper] _
+
+probe = <function probe.<locals>.run at 0x000001D3A8084860>, domain = 'paper'
+
+    @pytest.mark.parametrize('domain',['code','paper','document','mixed'])
+    def test_four_domains_integrate_actual_storage_validators_usage_and_publication(probe,domain):
+        result=probe('backend_normal',provider_mode='fake',domain=domain)
+>       assert result['task_state']=='PUBLISHED'
+E       AssertionError: assert 'BLOCKED' == 'PUBLISHED'
+E         
+E         - PUBLISHED
+E         + BLOCKED
+
+tests\integration\test_backend_vertical.py:7: AssertionError
+_ test_four_domains_integrate_actual_storage_validators_usage_and_publication[document] _
+
+probe = <function probe.<locals>.run at 0x000001D3A81784A0>, domain = 'document'
+
+    @pytest.mark.parametrize('domain',['code','paper','document','mixed'])
+    def test_four_domains_integrate_actual_storage_validators_usage_and_publication(probe,domain):
+        result=probe('backend_normal',provider_mode='fake',domain=domain)
+>       assert result['task_state']=='PUBLISHED'
+E       AssertionError: assert 'BLOCKED' == 'PUBLISHED'
+E         
+E         - PUBLISHED
+E         + BLOCKED
+
+tests\integration\test_backend_vertical.py:7: AssertionError
+_ test_four_domains_integrate_actual_storage_validators_usage_and_publication[mixed] _
+
+probe = <function probe.<locals>.run at 0x000001D3A8179EE0>, domain = 'mixed'
+
+    @pytest.mark.parametrize('domain',['code','paper','document','mixed'])
+    def test_four_domains_integrate_actual_storage_validators_usage_and_publication(probe,domain):
+>       result=probe('backend_normal',provider_mode='fake',domain=domain)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\integration\test_backend_vertical.py:6: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+name = 'backend_normal', options = {'provider_mode': 'fake', 'domain': 'mixed'}
+
+    def run(name, **options):
+        run_root = tmp_path / f'case-{len(roots):03d}'
+        run_root.mkdir()
+        roots.append(run_root)
+        result = subprocess.run([sys.executable, "tests/support/scenario_driver.py", name, "--root", str(run_root), "--options", json.dumps(options)], check=False, capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=120)
+        if result.returncode:
+>           raise AssertionError(f"Scenario exited {result.returncode}: {result.stderr[-6000:]}")
+E           AssertionError: Scenario exited 1: C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+E             from starlette.testclient import TestClient as TestClient  # noqa
+E           Traceback (most recent call last):
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\scenario_driver.py", line 383, in <module>
+E               main()
+E               ~~~~^^
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\scenario_driver.py", line 369, in main
+E               legacy_main()
+E               ~~~~~~~~~~~^^
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\scenario_driver.py", line 282, in legacy_main
+E               result=run_case(args.case,root,domain)
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\scenario_driver.py", line 142, in run_case
+E               mixed_pipeline=prepare_mixed(database.path,app.state.blobs,workspace,runner)
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\mixed_pipeline.py", line 82, in prepare_mixed
+E               raise ValueError('MIXED_ANALYSIS_CHECK_FAILED')
+E           ValueError: MIXED_ANALYSIS_CHECK_FAILED
+
+tests\conftest.py:25: AssertionError
+______________________ test_repair_rechecks_new_revision ______________________
+
+probe = <function probe.<locals>.run at 0x000001D3A817AE80>
+
+    def test_repair_rechecks_new_revision(probe):
+        result=probe('backend_repair',provider_mode='fake')
+>       assert result['task_state']=='PUBLISHED'
+E       AssertionError: assert 'BLOCKED' == 'PUBLISHED'
+E         
+E         - PUBLISHED
+E         + BLOCKED
+
+tests\integration\test_backend_vertical.py:24: AssertionError
+_________________ test_old_pass_rejected_after_version_change _________________
+
+probe = <function probe.<locals>.run at 0x000001D3A817BC40>
+
+    def test_old_pass_rejected_after_version_change(probe):
+        result=probe('backend_old_approval',provider_mode='fake')
+>       assert result['public_answer_count']==0 and result['publication_rejected'] is True
+E       assert (0 == 0 and False is True)
+
+tests\integration\test_backend_vertical.py:47: AssertionError
+_________________ test_duplicate_api_and_usage_are_idempotent _________________
+
+probe = <function probe.<locals>.run at 0x000001D3A817AFC0>
+
+    def test_duplicate_api_and_usage_are_idempotent(probe):
+        result=probe('backend_duplicate',provider_mode='fake')
+        assert result['turn_count']==1 and result['request_count']==result['model_starts']
+>       assert result['public_answer_count']==1
+E       assert 0 == 1
+
+tests\integration\test_backend_vertical.py:52: AssertionError
+________________ test_vertical_suite_exports_all_four_domains _________________
+
+probe = <function probe.<locals>.run at 0x000001D3A8398D60>
+
+    def test_vertical_suite_exports_all_four_domains(probe):
+>       result=probe('backend_vertical',provider_mode='fake')
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\integration\test_backend_vertical.py:73: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+name = 'backend_vertical', options = {'provider_mode': 'fake'}
+
+    def run(name, **options):
+        run_root = tmp_path / f'case-{len(roots):03d}'
+        run_root.mkdir()
+        roots.append(run_root)
+        result = subprocess.run([sys.executable, "tests/support/scenario_driver.py", name, "--root", str(run_root), "--options", json.dumps(options)], check=False, capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=120)
+        if result.returncode:
+>           raise AssertionError(f"Scenario exited {result.returncode}: {result.stderr[-6000:]}")
+E           AssertionError: Scenario exited 1: C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+E             from starlette.testclient import TestClient as TestClient  # noqa
+E           Traceback (most recent call last):
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\scenario_driver.py", line 383, in <module>
+E               main()
+E               ~~~~^^
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\scenario_driver.py", line 369, in main
+E               legacy_main()
+E               ~~~~~~~~~~~^^
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\scenario_driver.py", line 262, in legacy_main
+E               domains={value:run_case('backend_normal',root,value) for value in DOMAINS}
+E                              ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\scenario_driver.py", line 142, in run_case
+E               mixed_pipeline=prepare_mixed(database.path,app.state.blobs,workspace,runner)
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\mixed_pipeline.py", line 82, in prepare_mixed
+E               raise ValueError('MIXED_ANALYSIS_CHECK_FAILED')
+E           ValueError: MIXED_ANALYSIS_CHECK_FAILED
+
+tests\conftest.py:25: AssertionError
+______ test_upstream_data_change_invalidates_the_actual_composite_chain _______
+
+probe = <function probe.<locals>.run at 0x000001D3A83998A0>
+
+    def test_upstream_data_change_invalidates_the_actual_composite_chain(probe):
+>       result=probe('backend_upstream_change',provider_mode='fake')
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\integration\test_backend_vertical.py:88: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+name = 'backend_upstream_change', options = {'provider_mode': 'fake'}
+
+    def run(name, **options):
+        run_root = tmp_path / f'case-{len(roots):03d}'
+        run_root.mkdir()
+        roots.append(run_root)
+        result = subprocess.run([sys.executable, "tests/support/scenario_driver.py", name, "--root", str(run_root), "--options", json.dumps(options)], check=False, capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=120)
+        if result.returncode:
+>           raise AssertionError(f"Scenario exited {result.returncode}: {result.stderr[-6000:]}")
+E           AssertionError: Scenario exited 1: C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+E             from starlette.testclient import TestClient as TestClient  # noqa
+E           Traceback (most recent call last):
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\scenario_driver.py", line 383, in <module>
+E               main()
+E               ~~~~^^
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\scenario_driver.py", line 369, in main
+E               legacy_main()
+E               ~~~~~~~~~~~^^
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\scenario_driver.py", line 282, in legacy_main
+E               result=run_case(args.case,root,domain)
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\scenario_driver.py", line 142, in run_case
+E               mixed_pipeline=prepare_mixed(database.path,app.state.blobs,workspace,runner)
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\mixed_pipeline.py", line 82, in prepare_mixed
+E               raise ValueError('MIXED_ANALYSIS_CHECK_FAILED')
+E           ValueError: MIXED_ANALYSIS_CHECK_FAILED
+
+tests\conftest.py:25: AssertionError
+_ test_private_supervisor_api_document_request_publishes_real_bilingual_files _
+
+client = <starlette.testclient.TestClient object at 0x000001D3A89738A0>
+
+    def test_private_supervisor_api_document_request_publishes_real_bilingual_files(client):
+        from app.translation.input_pipeline import InputPipeline
+        from app.runtime.native_backend import build_native_backend
+        from app.runtime.supervisor import TaskSupervisor
+        cid,previous,old_attempt=claude_turn(client)
+        # This first accepted turn establishes a real selected, verified fixture
+        # connection. The actual file request below is submitted through public API.
+        accepted=client.post(f'/v1/conversations/{cid}/turns',json=dict(text='保留原文件。',
+            domain='document',provider_profile_id='fake-claude',client_request_id='files',
+            profile_inputs=dict(audience='Reader',purpose='Preserve the original file',
+                source_refs=['input/user_request.txt'],formats=['markdown','pdf','docx']))).json()
+        task=accepted['task_id']
+        with closing(client.app.state.database.connect()) as connection:
+            attempt=connection.execute('SELECT attempt_id FROM task_runs WHERE task_id=?',(task,)).fetchone()[0]
+            # The earlier request remains a history message rather than another
+            # queued synthetic model job in this one-request assembly.
+            connection.execute("UPDATE task_runs SET state='BLOCKED' WHERE task_id=?",(previous,))
+        svc,manager,b,a,workflow=assembly(client,task,attempt)
+        runtime=FakeClaudePlanner(); planner=NativeTaskPlanner(svc.database_path,manager,runtime,
+            allow_fixture=True,estimated_tokens=24,input_pipeline=InputPipeline(svc))
+        binding=build_native_backend(planner,NativeTaskExecutor(workflow),allow_fixture=True,
+            provider_registry={'fake-claude':runtime,'fake-glm':b})
+        from dataclasses import replace
+        publication_errors=[]; actual_publish=binding.publish
+        async def observed_publish(*args):
+            try: return await actual_publish(*args)
+            except Exception as error:
+                publication_errors.append((type(error).__name__,str(error))); raise
+        binding=replace(binding,publish=observed_publish,provider_registry=dict(binding.provider_registry))
+        supervisor=TaskSupervisor(svc.database_path,binding,provider_mode='fake'); supervisor.register_profiles()
+        card=asyncio.run(supervisor.run_once())
+        with closing(svc.database.connect()) as connection:
+            run=connection.execute('SELECT state,checkpoint_json FROM task_runs WHERE task_id=?',(task,)).fetchone()
+>       assert isinstance(card,dict), publication_errors or card or dict(run)
+E       AssertionError: {'state': 'BLOCKED', 'checkpoint_json': '{"request_domain": "document", "task_profile": {"status": "READY_FOR_A_CONTRA...1, "current_revision_id": "candidate-4b7ed4ec07a349c080d9d9724f769ea7", "stale": false, "publication_blocked": false}'}
+E       assert False
+E        +  where False = isinstance(None, dict)
+
+tests\integration\test_claude_native_pipeline.py:151: AssertionError
+_______ test_gpt_api_file_task_preserves_source_and_calls_no_translator _______
+
+client = <starlette.testclient.TestClient object at 0x000001D3A9C53240>
+
+    def test_gpt_api_file_task_preserves_source_and_calls_no_translator(client):
+        from app.translation.input_pipeline import InputPipeline
+        from app.runtime.native_backend import build_native_backend
+        from app.runtime.supervisor import TaskSupervisor
+        cid=client.post('/v1/conversations',json={'title':'native GPT file task'}).json()['id']
+        # Install the verified fixture before route locking, just as the private
+        # registry does. A later identity upgrade cannot rewrite an accepted route.
+        gpt=ProviderContract(schema_version='1.0',provider_id='fake-gpt',
+            identity=dict(adapter='fake',model_id='fixture-gpt',family='gpt',connection_id='fake-gpt'),
+            identity_status='verified',identity_source='fixture:fake',connection_version='test-only')
+        with closing(client.app.state.database.connect()) as connection:
+            connection.execute("UPDATE provider_profiles SET identity_status='verified',identity_source=?,provider_json=? WHERE id='fake-gpt'",
+                (gpt.identity_source,gpt.model_dump_json()))
+        accepted=client.post(f'/v1/conversations/{cid}/turns',json=dict(text='Keep the original file.',
+            domain='document',provider_profile_id='fake-gpt',client_request_id='gpt-files',
+            profile_inputs=dict(audience='Reader',purpose='Preserve the original file',
+                source_refs=['input/user_request.txt'],formats=['markdown']))).json()
+        task=accepted['task_id']
+        with closing(client.app.state.database.connect()) as connection:
+            attempt=connection.execute('SELECT attempt_id FROM task_runs WHERE task_id=?',(task,)).fetchone()[0]
+        svc,manager,b,a,workflow=assembly(client,task,attempt)
+        runtime=FakeClaudePlanner(); runtime.provider=gpt; a.provider=gpt; workflow.profile_ids['A']='fake-gpt'
+        planner=NativeTaskPlanner(svc.database_path,manager,runtime,allow_fixture=True,estimated_tokens=24,
+            input_pipeline=InputPipeline(svc))
+        binding=build_native_backend(planner,NativeTaskExecutor(workflow),allow_fixture=True,
+            provider_registry={'fake-gpt':runtime,'fake-glm':b})
+        supervisor=TaskSupervisor(svc.database_path,binding,provider_mode='fake'); supervisor.register_profiles()
+        card=asyncio.run(supervisor.run_once())
+>       assert isinstance(card,dict),card
+E       AssertionError: None
+E       assert False
+E        +  where False = isinstance(None, dict)
+
+tests\integration\test_claude_native_pipeline.py:227: AssertionError
+_ test_csv_code_chart_a_canonical_translation_files_and_reply_have_two_real_recomputed_versions[claude] _
+
+document_task = {'client': <starlette.testclient.TestClient object at 0x000001D3A9C008D0>, 'cid': 'f31f4b33adac4686a60125ab4c735088', 'task': '407acc8d1a68481a89c1d3627f8c624a', 'attempt': '1cd3dec945884e0a995b6ba812b24a5a', ...}
+
+    @pytest.mark.parametrize('document_task',['claude'],indirect=True)
+    def test_csv_code_chart_a_canonical_translation_files_and_reply_have_two_real_recomputed_versions(document_task):
+        ctx=document_task; client=ctx['client']; data=(FIXTURES/'sales.csv').read_bytes()
+        expected=json.loads((FIXTURES/'expected.json').read_text())
+>       first=_execute_and_publish(ctx,data)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\integration\test_composite_workflow.py:85: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+ctx = {'client': <starlette.testclient.TestClient object at 0x000001D3A9C008D0>, 'cid': 'f31f4b33adac4686a60125ab4c735088', 'task': '407acc8d1a68481a89c1d3627f8c624a', 'attempt': '1cd3dec945884e0a995b6ba812b24a5a', ...}
+data = b'month,category,amount\n2026-01,A,10\n2026-01,B,20\n2026-02,A,15\n2026-02,B,25\n'
+report_override = None, formats = ('markdown', 'pdf')
+
+    def _execute_and_publish(ctx,data,*,report_override=None,formats=('markdown','pdf')):
+        client=ctx['client']; database=client.app.state.database.path; manager=WorkspaceManager(database.parent/'workspaces')
+        pipeline=CompositePipeline(database,manager)
+        run=pipeline.run(ctx['task'],ctx['attempt'],data)
+        values=run['results']; months=list(values['monthly_totals'].values())
+        report=report_override or f'# Report\n\nJanuary {months[0]}. February {months[1]}. Increase {values["increase"]}.\n\n## Appendix\n\nSource data.\n'
+        contract=make_contract(ctx['task'],ctx['attempt'],ctx['route']['id'],domain='document',model_family='claude')
+        contract['inputs']=[dict(id='CSV',ref=run['source_ref'],sha256=run['source_sha256']),dict(id='CODE',ref=run['code_ref'],sha256=run['code_sha256'])]
+        contract['dependencies']=[run['computed_results'],run['figures']]
+        contract['source_unit_ids']=['CSV','CODE']; contract['full_read_required']=True
+        contract['acceptance'][0]['condition']='Recompute the actual CSV and bind January, February and increase report fields'
+        b=FakeProvider(executions=[dict(text=report,language='en',usage=dict(input_tokens=12,output_tokens=12))])
+        a=FakeProvider(takeovers=[dict(text=report,language='en',usage=dict(input_tokens=12,output_tokens=12,total_tokens=24,cache_read_input_tokens=0,cache_creation_input_tokens=0))],
+            reviews=[dict(decision='PASS',canonical_author='A',criterion_results={'AC2':True},
+                read_unit_ids=contract['source_unit_ids'],source_refs=[i['ref'] for i in contract['inputs']],usage=dict(input_tokens=12,output_tokens=12,total_tokens=24,cache_read_input_tokens=0,cache_creation_input_tokens=0))])
+        route=ctx['route']
+        a.provider=ProviderContract(schema_version='1.0',provider_id=route['provider_id'],
+            identity=ProviderIdentityRecord(adapter=route['adapter_id'],model_id=route['model_id'],family='claude',connection_id=route['provider_id']),
+            identity_status='verified',identity_source=route['identity_source'],connection_version=route['connection_version'])
+        service=external_translation_service(ctx)
+        workflow=Workflow(database,manager,b,pipeline.validator(run),a,check_budget,
+            estimated_tokens={'B.execution':64,'A.review':64,'A.takeover':64},
+            profile_ids={'A':'fake-claude','B':'fake-glm'},translation_service=service)
+        result=asyncio.run(workflow.run(contract))
+        if report_override is not None:
+            assert result.state in ('BLOCKED','NEEDS_INPUT')
+            return dict(result=result,run=run,b=b,a=a)
+>       assert result.state=='OUTPUT_PREPARING',result.reason_codes
+E       AssertionError: ('CLAUDE_REVIEW_EVIDENCE_TRANSLATION_NOT_READY',)
+E       assert 'BLOCKED' == 'OUTPUT_PREPARING'
+E         
+E         - OUTPUT_PREPARING
+E         + BLOCKED
+
+tests\integration\test_composite_workflow.py:59: AssertionError
+_____ test_demo_normal_document_profile_publishes_requested_native_files ______
+
+tmp_path = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/docs/acceptance/part-four/final-v1/pytest-temp/test_demo_normal_document_prof0')
+
+    def test_demo_normal_document_profile_publishes_requested_native_files(tmp_path):
+        from app.runtime.demo_backend import build_demo_backend
+        app=create_app(AppSettings(tmp_path,'fixture-demo-token','fake',False),backend_factory=build_demo_backend)
+        with TestClient(app,headers={'Authorization':'Bearer fixture-demo-token'}) as client:
+            cid=client.post('/v1/conversations',json={'title':'Document normal profile'}).json()['id']
+            accepted=client.post(f'/v1/conversations/{cid}/turns',json=dict(text='Keep the original file and the amount 30.',
+                domain='document',provider_profile_id='fake-gpt',client_request_id='document-file',
+                profile_inputs=dict(audience='Reader',purpose='Preserve the source',source_refs=['input/user_request.txt'],formats=['markdown','pdf'])))
+            assert accepted.status_code==202,accepted.text
+            task=accepted.json()['task_id']; deadline=time.monotonic()+30
+            while time.monotonic()<deadline and client.get('/v1/tasks/'+task).json()['status']=='pending':
+                time.sleep(.1)
+>           assert client.get('/v1/tasks/'+task).json()['status']=='completed'
+E           AssertionError: assert 'blocked' == 'completed'
+E             
+E             - completed
+E             + blocked
+
+tests\integration\test_desktop_demo_backend.py:74: AssertionError
+_ test_normal_api_composite_submission_recomputes_two_versions_and_downloads_extras _
+
+client = <starlette.testclient.TestClient object at 0x000001D3AA3C07C0>
+
+    def test_normal_api_composite_submission_recomputes_two_versions_and_downloads_extras(client):
+        cid=qualified_conversation(client)
+        data=(Path(__file__).parents[1]/'fixtures/composite/sales.csv').read_bytes()
+        cards=[]
+        for key,raw,report in [('v1',data,'# Report\n\nJanuary 30. February 40. Increase 10.'),
+                               ('v2',data.replace(b',25',b',35'),'# Report\n\nJanuary 30. February 50. Increase 20.')]:
+            task,card,runtime=native_run(client,cid,raw,key=key,report=report)
+>           assert isinstance(card,dict),card
+E           AssertionError: None
+E           assert False
+E            +  where False = isinstance(None, dict)
+
+tests\integration\test_native_composite_submission.py:91: AssertionError
+___ test_frozen_document_profile_has_real_source_and_complete_format_checks ___
+
+client = <starlette.testclient.TestClient object at 0x000001D3AA7CE7A0>
+
+    def test_frozen_document_profile_has_real_source_and_complete_format_checks(client):
+        candidate,_=case(client,'document',DOC)
+        results=NativeRegistryValidator(client.app.state.database.path)(candidate)
+>       assert len(results)==2 and all(r['passed'] for r in results)
+E       AssertionError: assert (2 == 2 and False)
+E        +  where 2 = len([{'criterion_id': 'document.C1', 'passed': True, 'evidence': {'criterion_id': 'document.C1', 'revision_id': 'candidate...00d28b6c60eee8b7de504c3bb4e6c7846742efa096d294f87afe53b09a0c343', 'task_id': '186d231f16614856b4b46208df7dd4df', ...}}])
+E        +  and   False = all(<generator object test_frozen_document_profile_has_real_source_and_complete_format_checks.<locals>.<genexpr> at 0x000001D3AA7DC6C0>)
+
+tests\integration\test_native_profile_checks.py:93: AssertionError
+______ test_document_missing_requested_font_blocks_the_real_format_check ______
+
+client = <starlette.testclient.TestClient object at 0x000001D3AA884AF0>
+tmp_path = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/docs/acceptance/part-four/final-v1/pytest-temp/test_document_missing_requeste0')
+
+    def test_document_missing_requested_font_blocks_the_real_format_check(client,tmp_path):
+        from app.documents.render import DocumentRenderer
+        candidate,_=case(client,'document',DOC)
+        results=NativeRegistryValidator(client.app.state.database.path,renderer=DocumentRenderer(font_path=tmp_path/'missing.ttf'))(candidate)
+        assert results[0]['passed'] and not results[1]['passed']
+>       assert results[1]['evidence']['reason_code']=='REQUESTED_FORMAT_RENDER_FAILED'
+E       AssertionError: assert 'PROFILE_CHECK_UNAVAILABLE' == 'REQUESTED_FO...RENDER_FAILED'
+E         
+E         - REQUESTED_FORMAT_RENDER_FAILED
+E         + PROFILE_CHECK_UNAVAILABLE
+
+tests\integration\test_native_profile_checks.py:111: AssertionError
+_ test_code_profile_runs_actual_tests_and_retains_exit_status[def add(a, b):\n    return a + b\n-True] _
+
+client = <starlette.testclient.TestClient object at 0x000001D3AA9D5AE0>
+program = b'def add(a, b):\n    return a + b\n', passed = True
+
+    @pytest.mark.parametrize('program,passed',[(GOOD_CODE,True),(BAD_CODE,False)])
+    def test_code_profile_runs_actual_tests_and_retains_exit_status(client,program,passed):
+        from app.profiles.newprofile_checks import WhitelistedPythonTestsPort
+        candidate,_=case(client,'code',program)
+        port=WhitelistedPythonTestsPort(test_ref='input/tests.py',test_sha256=hashlib.sha256(TESTS).hexdigest(),
+            allowed_program_sha256={hashlib.sha256(GOOD_CODE).hexdigest(),hashlib.sha256(BAD_CODE).hexdigest()})
+        results=NativeRegistryValidator(client.app.state.database.path,execution_port=port)(candidate)
+>       assert all(r['passed'] is passed for r in results)
+E       assert False
+E        +  where False = all(<generator object test_code_profile_runs_actual_tests_and_retains_exit_status.<locals>.<genexpr> at 0x000001D3AA9D3850>)
+
+tests\integration\test_native_profile_checks.py:156: AssertionError
+_ test_code_profile_runs_actual_tests_and_retains_exit_status[def add(a, b):\n    return a - b\n-False] _
+
+client = <starlette.testclient.TestClient object at 0x000001D3AAA1AE00>
+program = b'def add(a, b):\n    return a - b\n', passed = False
+
+    @pytest.mark.parametrize('program,passed',[(GOOD_CODE,True),(BAD_CODE,False)])
+    def test_code_profile_runs_actual_tests_and_retains_exit_status(client,program,passed):
+        from app.profiles.newprofile_checks import WhitelistedPythonTestsPort
+        candidate,_=case(client,'code',program)
+        port=WhitelistedPythonTestsPort(test_ref='input/tests.py',test_sha256=hashlib.sha256(TESTS).hexdigest(),
+            allowed_program_sha256={hashlib.sha256(GOOD_CODE).hexdigest(),hashlib.sha256(BAD_CODE).hexdigest()})
+        results=NativeRegistryValidator(client.app.state.database.path,execution_port=port)(candidate)
+        assert all(r['passed'] is passed for r in results)
+>       assert port.executions==1
+E       assert 0 == 1
+E        +  where 0 = <app.profiles.newprofile_checks.WhitelistedPythonTestsPort object at 0x000001D3AAA78A50>.executions
+
+tests\integration\test_native_profile_checks.py:157: AssertionError
+_ test_binary_attachment_requires_actual_raw_parse_and_pinned_full_derived_view[docx] _
+
+client = <starlette.testclient.TestClient object at 0x000001D3AAAAD370>
+format = 'docx'
+
+    @pytest.mark.parametrize('format',['docx','pdf'])
+    def test_binary_attachment_requires_actual_raw_parse_and_pinned_full_derived_view(client,format):
+        candidate,_=case(client,'document',DOC,formats=['markdown'],attachment=('source.'+format,original_attachment(format)))
+        results=NativeRegistryValidator(client.app.state.database.path)(candidate)
+>       assert all(result['passed'] for result in results)
+E       assert False
+E        +  where False = all(<generator object test_binary_attachment_requires_actual_raw_parse_and_pinned_full_derived_view.<locals>.<genexpr> at 0x000001D3AAAB7780>)
+
+tests\integration\test_native_profile_checks.py:189: AssertionError
+_ test_binary_attachment_requires_actual_raw_parse_and_pinned_full_derived_view[pdf] _
+
+client = <starlette.testclient.TestClient object at 0x000001D3AAB8D6A0>
+format = 'pdf'
+
+    @pytest.mark.parametrize('format',['docx','pdf'])
+    def test_binary_attachment_requires_actual_raw_parse_and_pinned_full_derived_view(client,format):
+        candidate,_=case(client,'document',DOC,formats=['markdown'],attachment=('source.'+format,original_attachment(format)))
+        results=NativeRegistryValidator(client.app.state.database.path)(candidate)
+>       assert all(result['passed'] for result in results)
+E       assert False
+E        +  where False = all(<generator object test_binary_attachment_requires_actual_raw_parse_and_pinned_full_derived_view.<locals>.<genexpr> at 0x000001D3AAC04C70>)
+
+tests\integration\test_native_profile_checks.py:189: AssertionError
+___ test_stale_approval_or_upstream_change_cannot_publish[upstream_change] ____
+
+probe = <function probe.<locals>.run at 0x000001D3AF5CD760>
+fault = 'upstream_change'
+
+    @pytest.mark.parametrize('fault', ['old_approval', 'upstream_change'])
+    def test_stale_approval_or_upstream_change_cannot_publish(probe, fault):
+>       assert probe('fault_matrix', fault=fault)['published_versions'] == []
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\reliability\test_fault_matrix.py:21: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+name = 'fault_matrix', options = {'fault': 'upstream_change'}
+
+    def run(name, **options):
+        run_root = tmp_path / f'case-{len(roots):03d}'
+        run_root.mkdir()
+        roots.append(run_root)
+        result = subprocess.run([sys.executable, "tests/support/scenario_driver.py", name, "--root", str(run_root), "--options", json.dumps(options)], check=False, capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=120)
+        if result.returncode:
+>           raise AssertionError(f"Scenario exited {result.returncode}: {result.stderr[-6000:]}")
+E           AssertionError: Scenario exited 1: C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+E             from starlette.testclient import TestClient as TestClient  # noqa
+E           Traceback (most recent call last):
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\scenario_driver.py", line 383, in <module>
+E               main()
+E               ~~~~^^
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\scenario_driver.py", line 372, in main
+E               result = invoke(module, root, options)
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\scenarios\registry.py", line 24, in invoke
+E               result = module.run(root, options)
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\scenarios\fault_matrix.py", line 27, in run
+E               result = run_case(case, root, 'mixed' if fault == 'upstream_change' else 'code')
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\scenario_driver.py", line 142, in run_case
+E               mixed_pipeline=prepare_mixed(database.path,app.state.blobs,workspace,runner)
+E             File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\mixed_pipeline.py", line 82, in prepare_mixed
+E               raise ValueError('MIXED_ANALYSIS_CHECK_FAILED')
+E           ValueError: MIXED_ANALYSIS_CHECK_FAILED
+
+tests\conftest.py:25: AssertionError
+_______________ test_bilingual_v3_backup_restore_scenario[none] _______________
+
+tmp_path = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/docs/acceptance/part-four/final-v1/pytest-temp/test_bilingual_v3_backup_resto0')
+fault = 'none'
+
+    @pytest.mark.parametrize('fault', ['none', 'missing_chinese_artifact', 'corrupt_database', 'hash_mismatch', 'disk_full', 'mixed_pair'])
+    def test_bilingual_v3_backup_restore_scenario(tmp_path, fault):
+        options = {'fault': fault}
+        jsonschema.validate(options, OPTIONS_SCHEMA)
+>       result = run(tmp_path, options)
+                 ^^^^^^^^^^^^^^^^^^^^^^
+
+tests\storage\test_backup_scenario.py:11: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\support\scenarios\backup_restore.py:103: in run
+    bundle = create_backup(former, working / 'b')
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\app\storage\backup.py:326: in create_backup
+    for item in items: copy_verified(source / item['path'], pending / item['path'], item['sha256'])
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\app\storage\backup.py:263: in copy_verified
+    with source.open('rb') as reader, target.open('xb') as writer:
+                                      ^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/docs/acceptance/part-four/final-v1/pytest-temp/test_bilingual_v3_back...2d54c888da516297f0c03e0/tasks/cdb57c24df7240d1a2c41bb6df79eeb5/30c02cb7872f4194808a016524a43fec/.source-manifest.json')
+mode = 'xb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\part-four\\final-v1\\pytest-temp\\test_bilingual_v3_backup_resto0\\b6bc831\\b\\.pending-235006e452d54c888da516297f0c03e0\\tasks\\cdb57c24df7240d1a2c41bb6df79eeb5\\30c02cb7872f4194808a016524a43fec\\.source-manifest.json'
+
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:537: FileNotFoundError
+_____ test_bilingual_v3_backup_restore_scenario[missing_chinese_artifact] _____
+
+tmp_path = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/docs/acceptance/part-four/final-v1/pytest-temp/test_bilingual_v3_backup_resto1')
+fault = 'missing_chinese_artifact'
+
+    @pytest.mark.parametrize('fault', ['none', 'missing_chinese_artifact', 'corrupt_database', 'hash_mismatch', 'disk_full', 'mixed_pair'])
+    def test_bilingual_v3_backup_restore_scenario(tmp_path, fault):
+        options = {'fault': fault}
+        jsonschema.validate(options, OPTIONS_SCHEMA)
+>       result = run(tmp_path, options)
+                 ^^^^^^^^^^^^^^^^^^^^^^
+
+tests\storage\test_backup_scenario.py:11: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\support\scenarios\backup_restore.py:103: in run
+    bundle = create_backup(former, working / 'b')
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\app\storage\backup.py:326: in create_backup
+    for item in items: copy_verified(source / item['path'], pending / item['path'], item['sha256'])
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\app\storage\backup.py:263: in copy_verified
+    with source.open('rb') as reader, target.open('xb') as writer:
+                                      ^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/docs/acceptance/part-four/final-v1/pytest-temp/test_bilingual_v3_back...4c74656b7d5d21d99ec299a/tasks/0b53fc6adebc4a95bc6825146271fd65/0840cb9410a64a189fb917a6e589d274/.source-manifest.json')
+mode = 'xb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\part-four\\final-v1\\pytest-temp\\test_bilingual_v3_backup_resto1\\b0aa049\\b\\.pending-6df3ccd354c74656b7d5d21d99ec299a\\tasks\\0b53fc6adebc4a95bc6825146271fd65\\0840cb9410a64a189fb917a6e589d274\\.source-manifest.json'
+
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:537: FileNotFoundError
+_________ test_bilingual_v3_backup_restore_scenario[corrupt_database] _________
+
+tmp_path = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/docs/acceptance/part-four/final-v1/pytest-temp/test_bilingual_v3_backup_resto2')
+fault = 'corrupt_database'
+
+    @pytest.mark.parametrize('fault', ['none', 'missing_chinese_artifact', 'corrupt_database', 'hash_mismatch', 'disk_full', 'mixed_pair'])
+    def test_bilingual_v3_backup_restore_scenario(tmp_path, fault):
+        options = {'fault': fault}
+        jsonschema.validate(options, OPTIONS_SCHEMA)
+>       result = run(tmp_path, options)
+                 ^^^^^^^^^^^^^^^^^^^^^^
+
+tests\storage\test_backup_scenario.py:11: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\support\scenarios\backup_restore.py:103: in run
+    bundle = create_backup(former, working / 'b')
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\app\storage\backup.py:326: in create_backup
+    for item in items: copy_verified(source / item['path'], pending / item['path'], item['sha256'])
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\app\storage\backup.py:263: in copy_verified
+    with source.open('rb') as reader, target.open('xb') as writer:
+                                      ^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/docs/acceptance/part-four/final-v1/pytest-temp/test_bilingual_v3_back...8d64364b982f4a976d6916d/tasks/de4a5e41a5434396828d439d05b62ad0/6c6fbe1082504614ace987a023e1ae67/.source-manifest.json')
+mode = 'xb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\part-four\\final-v1\\pytest-temp\\test_bilingual_v3_backup_resto2\\bbdd6cb\\b\\.pending-ba846b08e8d64364b982f4a976d6916d\\tasks\\de4a5e41a5434396828d439d05b62ad0\\6c6fbe1082504614ace987a023e1ae67\\.source-manifest.json'
+
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:537: FileNotFoundError
+__________ test_bilingual_v3_backup_restore_scenario[hash_mismatch] ___________
+
+tmp_path = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/docs/acceptance/part-four/final-v1/pytest-temp/test_bilingual_v3_backup_resto3')
+fault = 'hash_mismatch'
+
+    @pytest.mark.parametrize('fault', ['none', 'missing_chinese_artifact', 'corrupt_database', 'hash_mismatch', 'disk_full', 'mixed_pair'])
+    def test_bilingual_v3_backup_restore_scenario(tmp_path, fault):
+        options = {'fault': fault}
+        jsonschema.validate(options, OPTIONS_SCHEMA)
+>       result = run(tmp_path, options)
+                 ^^^^^^^^^^^^^^^^^^^^^^
+
+tests\storage\test_backup_scenario.py:11: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\support\scenarios\backup_restore.py:103: in run
+    bundle = create_backup(former, working / 'b')
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\app\storage\backup.py:326: in create_backup
+    for item in items: copy_verified(source / item['path'], pending / item['path'], item['sha256'])
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\app\storage\backup.py:263: in copy_verified
+    with source.open('rb') as reader, target.open('xb') as writer:
+                                      ^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/docs/acceptance/part-four/final-v1/pytest-temp/test_bilingual_v3_back...405452bbceae81848116121/tasks/ac2526e23b324845a3df3ef5d5349db1/a03fc13d7b05495abe74082d2f77a871/.source-manifest.json')
+mode = 'xb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\part-four\\final-v1\\pytest-temp\\test_bilingual_v3_backup_resto3\\b2c2b82\\b\\.pending-5649f97b4405452bbceae81848116121\\tasks\\ac2526e23b324845a3df3ef5d5349db1\\a03fc13d7b05495abe74082d2f77a871\\.source-manifest.json'
+
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:537: FileNotFoundError
+____________ test_bilingual_v3_backup_restore_scenario[disk_full] _____________
+
+tmp_path = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/docs/acceptance/part-four/final-v1/pytest-temp/test_bilingual_v3_backup_resto4')
+fault = 'disk_full'
+
+    @pytest.mark.parametrize('fault', ['none', 'missing_chinese_artifact', 'corrupt_database', 'hash_mismatch', 'disk_full', 'mixed_pair'])
+    def test_bilingual_v3_backup_restore_scenario(tmp_path, fault):
+        options = {'fault': fault}
+        jsonschema.validate(options, OPTIONS_SCHEMA)
+>       result = run(tmp_path, options)
+                 ^^^^^^^^^^^^^^^^^^^^^^
+
+tests\storage\test_backup_scenario.py:11: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\support\scenarios\backup_restore.py:103: in run
+    bundle = create_backup(former, working / 'b')
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\app\storage\backup.py:326: in create_backup
+    for item in items: copy_verified(source / item['path'], pending / item['path'], item['sha256'])
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\app\storage\backup.py:263: in copy_verified
+    with source.open('rb') as reader, target.open('xb') as writer:
+                                      ^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/docs/acceptance/part-four/final-v1/pytest-temp/test_bilingual_v3_back...8d64e2d8b394687cebf4f75/tasks/28fc2016584b404ebc864cb7ca0cd0bc/de174242d37242568adaef8e9bf2c3b2/.source-manifest.json')
+mode = 'xb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\part-four\\final-v1\\pytest-temp\\test_bilingual_v3_backup_resto4\\b2b6f34\\b\\.pending-497192f1a8d64e2d8b394687cebf4f75\\tasks\\28fc2016584b404ebc864cb7ca0cd0bc\\de174242d37242568adaef8e9bf2c3b2\\.source-manifest.json'
+
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:537: FileNotFoundError
+____________ test_bilingual_v3_backup_restore_scenario[mixed_pair] ____________
+
+tmp_path = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/docs/acceptance/part-four/final-v1/pytest-temp/test_bilingual_v3_backup_resto5')
+fault = 'mixed_pair'
+
+    @pytest.mark.parametrize('fault', ['none', 'missing_chinese_artifact', 'corrupt_database', 'hash_mismatch', 'disk_full', 'mixed_pair'])
+    def test_bilingual_v3_backup_restore_scenario(tmp_path, fault):
+        options = {'fault': fault}
+        jsonschema.validate(options, OPTIONS_SCHEMA)
+>       result = run(tmp_path, options)
+                 ^^^^^^^^^^^^^^^^^^^^^^
+
+tests\storage\test_backup_scenario.py:11: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\support\scenarios\backup_restore.py:103: in run
+    bundle = create_backup(former, working / 'b')
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\app\storage\backup.py:326: in create_backup
+    for item in items: copy_verified(source / item['path'], pending / item['path'], item['sha256'])
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\app\storage\backup.py:263: in copy_verified
+    with source.open('rb') as reader, target.open('xb') as writer:
+                                      ^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('C:/Users/asd15/Documents/ChatGPT/ai/docs/acceptance/part-four/final-v1/pytest-temp/test_bilingual_v3_back...63e4073af70df91d18981ba/tasks/8f8e378d52b941d7a714d025b681e286/7dace292e61d43b4b17efe4890e9a165/.source-manifest.json')
+mode = 'xb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\part-four\\final-v1\\pytest-temp\\test_bilingual_v3_backup_resto5\\ba11c43\\b\\.pending-6242dfec463e4073af70df91d18981ba\\tasks\\8f8e378d52b941d7a714d025b681e286\\7dace292e61d43b4b17efe4890e9a165\\.source-manifest.json'
+
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:537: FileNotFoundError
+============================== warnings summary ===============================
+<frozen importlib._bootstrap>:488
+<frozen importlib._bootstrap>:488
+  <frozen importlib._bootstrap>:488: DeprecationWarning: builtin type SwigPyPacked has no __module__ attribute
+
+<frozen importlib._bootstrap>:488
+<frozen importlib._bootstrap>:488
+  <frozen importlib._bootstrap>:488: DeprecationWarning: builtin type SwigPyObject has no __module__ attribute
+
+<frozen importlib._bootstrap>:488
+  <frozen importlib._bootstrap>:488: DeprecationWarning: builtin type swigvarlink has no __module__ attribute
+
+services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1
+  C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/contracts/test_scoped_worker_repairs.py::test_failure_retains_genuine_bound_usage_without_business_capture[error_before_turn_completed] - assert 0 == 1
+ +  where 0 = len([])
+FAILED tests/integration/test_backend_vertical.py::test_four_domains_integrate_actual_storage_validators_usage_and_publication[code] - AssertionError: assert 'BLOCKED' == 'PUBLISHED'
+  
+  - PUBLISHED
+  + BLOCKED
+FAILED tests/integration/test_backend_vertical.py::test_four_domains_integrate_actual_storage_validators_usage_and_publication[paper] - AssertionError: assert 'BLOCKED' == 'PUBLISHED'
+  
+  - PUBLISHED
+  + BLOCKED
+FAILED tests/integration/test_backend_vertical.py::test_four_domains_integrate_actual_storage_validators_usage_and_publication[document] - AssertionError: assert 'BLOCKED' == 'PUBLISHED'
+  
+  - PUBLISHED
+  + BLOCKED
+FAILED tests/integration/test_backend_vertical.py::test_four_domains_integrate_actual_storage_validators_usage_and_publication[mixed] - AssertionError: Scenario exited 1: C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+  from starlette.testclient import TestClient as TestClient  # noqa
+Traceback (most recent call last):
+  File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\scenario_driver.py", line 383, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\scenario_driver.py", line 369, in main
+    legacy_main()
+    ~~~~~~~~~~~^^
+  File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\scenario_driver.py", line 282, in legacy_main
+    result=run_case(args.case,root,domain)
+  File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\scenario_driver.py", line 142, in run_case
+    mixed_pipeline=prepare_mixed(database.path,app.state.blobs,workspace,runner)
+  File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\mixed_pipeline.py", line 82, in prepare_mixed
+    raise ValueError('MIXED_ANALYSIS_CHECK_FAILED')
+ValueError: MIXED_ANALYSIS_CHECK_FAILED
+FAILED tests/integration/test_backend_vertical.py::test_repair_rechecks_new_revision - AssertionError: assert 'BLOCKED' == 'PUBLISHED'
+  
+  - PUBLISHED
+  + BLOCKED
+FAILED tests/integration/test_backend_vertical.py::test_old_pass_rejected_after_version_change - assert (0 == 0 and False is True)
+FAILED tests/integration/test_backend_vertical.py::test_duplicate_api_and_usage_are_idempotent - assert 0 == 1
+FAILED tests/integration/test_backend_vertical.py::test_vertical_suite_exports_all_four_domains - AssertionError: Scenario exited 1: C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+  from starlette.testclient import TestClient as TestClient  # noqa
+Traceback (most recent call last):
+  File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\scenario_driver.py", line 383, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\scenario_driver.py", line 369, in main
+    legacy_main()
+    ~~~~~~~~~~~^^
+  File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\scenario_driver.py", line 262, in legacy_main
+    domains={value:run_case('backend_normal',root,value) for value in DOMAINS}
+                   ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\scenario_driver.py", line 142, in run_case
+    mixed_pipeline=prepare_mixed(database.path,app.state.blobs,workspace,runner)
+  File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\mixed_pipeline.py", line 82, in prepare_mixed
+    raise ValueError('MIXED_ANALYSIS_CHECK_FAILED')
+ValueError: MIXED_ANALYSIS_CHECK_FAILED
+FAILED tests/integration/test_backend_vertical.py::test_upstream_data_change_invalidates_the_actual_composite_chain - AssertionError: Scenario exited 1: C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+  from starlette.testclient import TestClient as TestClient  # noqa
+Traceback (most recent call last):
+  File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\scenario_driver.py", line 383, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\scenario_driver.py", line 369, in main
+    legacy_main()
+    ~~~~~~~~~~~^^
+  File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\scenario_driver.py", line 282, in legacy_main
+    result=run_case(args.case,root,domain)
+  File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\scenario_driver.py", line 142, in run_case
+    mixed_pipeline=prepare_mixed(database.path,app.state.blobs,workspace,runner)
+  File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\mixed_pipeline.py", line 82, in prepare_mixed
+    raise ValueError('MIXED_ANALYSIS_CHECK_FAILED')
+ValueError: MIXED_ANALYSIS_CHECK_FAILED
+FAILED tests/integration/test_claude_native_pipeline.py::test_private_supervisor_api_document_request_publishes_real_bilingual_files - AssertionError: {'state': 'BLOCKED', 'checkpoint_json': '{"request_domain": "document", "task_profile": {"status": "READY_FOR_A_CONTRA...1, "current_revision_id": "candidate-4b7ed4ec07a349c080d9d9724f769ea7", "stale": false, "publication_blocked": false}'}
+assert False
+ +  where False = isinstance(None, dict)
+FAILED tests/integration/test_claude_native_pipeline.py::test_gpt_api_file_task_preserves_source_and_calls_no_translator - AssertionError: None
+assert False
+ +  where False = isinstance(None, dict)
+FAILED tests/integration/test_composite_workflow.py::test_csv_code_chart_a_canonical_translation_files_and_reply_have_two_real_recomputed_versions[claude] - AssertionError: ('CLAUDE_REVIEW_EVIDENCE_TRANSLATION_NOT_READY',)
+assert 'BLOCKED' == 'OUTPUT_PREPARING'
+  
+  - OUTPUT_PREPARING
+  + BLOCKED
+FAILED tests/integration/test_desktop_demo_backend.py::test_demo_normal_document_profile_publishes_requested_native_files - AssertionError: assert 'blocked' == 'completed'
+  
+  - completed
+  + blocked
+FAILED tests/integration/test_native_composite_submission.py::test_normal_api_composite_submission_recomputes_two_versions_and_downloads_extras - AssertionError: None
+assert False
+ +  where False = isinstance(None, dict)
+FAILED tests/integration/test_native_profile_checks.py::test_frozen_document_profile_has_real_source_and_complete_format_checks - AssertionError: assert (2 == 2 and False)
+ +  where 2 = len([{'criterion_id': 'document.C1', 'passed': True, 'evidence': {'criterion_id': 'document.C1', 'revision_id': 'candidate...00d28b6c60eee8b7de504c3bb4e6c7846742efa096d294f87afe53b09a0c343', 'task_id': '186d231f16614856b4b46208df7dd4df', ...}}])
+ +  and   False = all(<generator object test_frozen_document_profile_has_real_source_and_complete_format_checks.<locals>.<genexpr> at 0x000001D3AA7DC6C0>)
+FAILED tests/integration/test_native_profile_checks.py::test_document_missing_requested_font_blocks_the_real_format_check - AssertionError: assert 'PROFILE_CHECK_UNAVAILABLE' == 'REQUESTED_FO...RENDER_FAILED'
+  
+  - REQUESTED_FORMAT_RENDER_FAILED
+  + PROFILE_CHECK_UNAVAILABLE
+FAILED tests/integration/test_native_profile_checks.py::test_code_profile_runs_actual_tests_and_retains_exit_status[def add(a, b):\n    return a + b\n-True] - assert False
+ +  where False = all(<generator object test_code_profile_runs_actual_tests_and_retains_exit_status.<locals>.<genexpr> at 0x000001D3AA9D3850>)
+FAILED tests/integration/test_native_profile_checks.py::test_code_profile_runs_actual_tests_and_retains_exit_status[def add(a, b):\n    return a - b\n-False] - assert 0 == 1
+ +  where 0 = <app.profiles.newprofile_checks.WhitelistedPythonTestsPort object at 0x000001D3AAA78A50>.executions
+FAILED tests/integration/test_native_profile_checks.py::test_binary_attachment_requires_actual_raw_parse_and_pinned_full_derived_view[docx] - assert False
+ +  where False = all(<generator object test_binary_attachment_requires_actual_raw_parse_and_pinned_full_derived_view.<locals>.<genexpr> at 0x000001D3AAAB7780>)
+FAILED tests/integration/test_native_profile_checks.py::test_binary_attachment_requires_actual_raw_parse_and_pinned_full_derived_view[pdf] - assert False
+ +  where False = all(<generator object test_binary_attachment_requires_actual_raw_parse_and_pinned_full_derived_view.<locals>.<genexpr> at 0x000001D3AAC04C70>)
+FAILED tests/reliability/test_fault_matrix.py::test_stale_approval_or_upstream_change_cannot_publish[upstream_change] - AssertionError: Scenario exited 1: C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+  from starlette.testclient import TestClient as TestClient  # noqa
+Traceback (most recent call last):
+  File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\scenario_driver.py", line 383, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\scenario_driver.py", line 372, in main
+    result = invoke(module, root, options)
+  File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\scenarios\registry.py", line 24, in invoke
+    result = module.run(root, options)
+  File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\scenarios\fault_matrix.py", line 27, in run
+    result = run_case(case, root, 'mixed' if fault == 'upstream_change' else 'code')
+  File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\scenario_driver.py", line 142, in run_case
+    mixed_pipeline=prepare_mixed(database.path,app.state.blobs,workspace,runner)
+  File "C:\Users\asd15\Documents\ChatGPT\ai\tests\support\mixed_pipeline.py", line 82, in prepare_mixed
+    raise ValueError('MIXED_ANALYSIS_CHECK_FAILED')
+ValueError: MIXED_ANALYSIS_CHECK_FAILED
+FAILED tests/storage/test_backup_scenario.py::test_bilingual_v3_backup_restore_scenario[none] - FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\part-four\\final-v1\\pytest-temp\\test_bilingual_v3_backup_resto0\\b6bc831\\b\\.pending-235006e452d54c888da516297f0c03e0\\tasks\\cdb57c24df7240d1a2c41bb6df79eeb5\\30c02cb7872f4194808a016524a43fec\\.source-manifest.json'
+FAILED tests/storage/test_backup_scenario.py::test_bilingual_v3_backup_restore_scenario[missing_chinese_artifact] - FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\part-four\\final-v1\\pytest-temp\\test_bilingual_v3_backup_resto1\\b0aa049\\b\\.pending-6df3ccd354c74656b7d5d21d99ec299a\\tasks\\0b53fc6adebc4a95bc6825146271fd65\\0840cb9410a64a189fb917a6e589d274\\.source-manifest.json'
+FAILED tests/storage/test_backup_scenario.py::test_bilingual_v3_backup_restore_scenario[corrupt_database] - FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\part-four\\final-v1\\pytest-temp\\test_bilingual_v3_backup_resto2\\bbdd6cb\\b\\.pending-ba846b08e8d64364b982f4a976d6916d\\tasks\\de4a5e41a5434396828d439d05b62ad0\\6c6fbe1082504614ace987a023e1ae67\\.source-manifest.json'
+FAILED tests/storage/test_backup_scenario.py::test_bilingual_v3_backup_restore_scenario[hash_mismatch] - FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\part-four\\final-v1\\pytest-temp\\test_bilingual_v3_backup_resto3\\b2c2b82\\b\\.pending-5649f97b4405452bbceae81848116121\\tasks\\ac2526e23b324845a3df3ef5d5349db1\\a03fc13d7b05495abe74082d2f77a871\\.source-manifest.json'
+FAILED tests/storage/test_backup_scenario.py::test_bilingual_v3_backup_restore_scenario[disk_full] - FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\part-four\\final-v1\\pytest-temp\\test_bilingual_v3_backup_resto4\\b2b6f34\\b\\.pending-497192f1a8d64e2d8b394687cebf4f75\\tasks\\28fc2016584b404ebc864cb7ca0cd0bc\\de174242d37242568adaef8e9bf2c3b2\\.source-manifest.json'
+FAILED tests/storage/test_backup_scenario.py::test_bilingual_v3_backup_restore_scenario[mixed_pair] - FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\part-four\\final-v1\\pytest-temp\\test_bilingual_v3_backup_resto5\\ba11c43\\b\\.pending-6242dfec463e4073af70df91d18981ba\\tasks\\8f8e378d52b941d7a714d025b681e286\\7dace292e61d43b4b17efe4890e9a165\\.source-manifest.json'
+28 failed, 1533 passed, 1 deselected, 6 warnings in 417.18s (0:06:57)
+<sys>:0: DeprecationWarning: builtin type swigvarlink has no __module__ attribute

@@ -1,0 +1,34 @@
+{
+  "schema_version": "1.0",
+  "task_id": "D005",
+  "generated_at": "2026-10-13T11:43:03Z",
+  "adapter": "zcode",
+  "status": "blocked",
+  "completion_level": "offline_adapter_implemented_real_blocked",
+  "reason_code": "MODEL_SELECTION_REQUIRED",
+  "identity_status": "unknown",
+  "actual_model_id": null,
+  "actual_model_family": "unknown",
+  "production_enabled": false,
+  "bounded_probe_enabled": false,
+  "cli_starts": 2,
+  "model_starts": 2,
+  "actual_provider_request_count": 0,
+  "actual_provider_request_count_scope": "top-level; provider-internal retry count not observable",
+  "session_id": "sess_a90ec475-d8f1-4f05-8d8d-644c96152585",
+  "usage": null,
+  "usage_status": "unknown",
+  "monetary_usage": null,
+  "resume_verified": false,
+  "cancellation_verified": false,
+  "remote_stop_confirmed": null,
+  "local_process_alive": false,
+  "attempt_refs": [
+    "docs/acceptance/D005/real-discovery.json",
+    "docs/acceptance/D005/real-discovery-2.json"
+  ],
+  "artifact_hashes": {},
+  "required_tool_task_passed": false,
+  "offline_fixtures_are_not_real_verification": true
+}
+

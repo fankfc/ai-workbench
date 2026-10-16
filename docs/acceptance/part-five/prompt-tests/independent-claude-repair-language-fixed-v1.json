@@ -1,0 +1,11 @@
+{
+  "provider_boundary": "fixture",
+  "real_model_calls": 0,
+  "state": "OUTPUT_PREPARING",
+  "reason_codes": [],
+  "review_requests": 3,
+  "takeover_requests": 3,
+  "repair_takeover_requests": 1,
+  "raw_chinese_note_in_takeover": false,
+  "english_translated_note_in_review": true
+}

@@ -1,0 +1,24 @@
+{
+  "valid": false,
+  "missing_evidence": [
+    "candidate_missing",
+    "dependency_lock:package-lock.json",
+    "dependency_lock:services/orchestrator/uv.lock",
+    "sbom",
+    "source_commit_missing",
+    "source_commit_not_verified",
+    "source_tree_not_frozen"
+  ],
+  "skipped_mandatory": [],
+  "artifact_hash_matches": false,
+  "evidence_kind": "audit",
+  "blocked_reasons": [
+    "candidate_missing",
+    "dependency_lock:package-lock.json",
+    "dependency_lock:services/orchestrator/uv.lock",
+    "sbom",
+    "source_commit_missing",
+    "source_commit_not_verified",
+    "source_tree_not_frozen"
+  ]
+}

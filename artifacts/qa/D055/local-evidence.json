@@ -1,0 +1,29 @@
+{
+  "card": "D055",
+  "case": "real_journey_audit",
+  "command": [
+    "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\.venv\\Scripts\\python.exe",
+    "tests/support/scenario_driver.py",
+    "real_journey_audit",
+    "--root",
+    "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\artifacts\\qa\\D055\\re5c281a1",
+    "--options",
+    "{}"
+  ],
+  "exit_code": 0,
+  "time": "2026-10-15T02:00:57.535271+00:00",
+  "build_id": "cb98eed03df6bd4ffaa551d66a54c77198911cf5b3e763a1ef3c055f5ee54ca4",
+  "run_root": "artifacts/qa/D055/re5c281a1",
+  "result": {
+    "domains_passed": [],
+    "provenance_valid": false,
+    "pairs_valid": false,
+    "model_identity_verified": false,
+    "all_required_entries_tested": false,
+    "evidence_kind": "audit",
+    "blocked_reasons": [
+      "real_journeys_missing",
+      "source_commit_missing"
+    ]
+  }
+}

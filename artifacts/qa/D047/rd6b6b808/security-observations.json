@@ -1,0 +1,62 @@
+{
+  "unauthorized_reads": [],
+  "secret_leaks": [],
+  "internal_public_events": [],
+  "executed_payloads": null,
+  "backend_checks": [
+    {
+      "kind": "authentication",
+      "actual": 401,
+      "expected": 401
+    },
+    {
+      "kind": "authentication",
+      "actual": 403,
+      "expected": 403
+    },
+    {
+      "kind": "cross-conversation",
+      "actual": 409,
+      "expected": 409
+    },
+    {
+      "kind": "upload-path",
+      "path": "../secret.md",
+      "actual": 422
+    },
+    {
+      "kind": "upload-path",
+      "path": "C:\\secret.md",
+      "actual": 422
+    },
+    {
+      "kind": "upload-path",
+      "path": "%2e%2e/secret.md",
+      "actual": 422
+    },
+    {
+      "kind": "workspace-path",
+      "rejected": true
+    },
+    {
+      "kind": "workspace-path",
+      "rejected": true
+    },
+    {
+      "kind": "workspace-path",
+      "rejected": true
+    },
+    {
+      "kind": "workspace-path",
+      "rejected": true
+    }
+  ],
+  "process_cleaned": true,
+  "unmet_checks": [
+    "electron_script_execution",
+    "junction_matrix",
+    "manual_security_review"
+  ],
+  "provider_boundary": "fake",
+  "real_provider_verified": false
+}

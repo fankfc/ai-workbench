@@ -1,0 +1,181 @@
+{
+  "schema_version": "1.0",
+  "contract_version": "1.0",
+  "generated_at": "2026-10-14T15:36:21.487680+08:00",
+  "scope": "part one D001-D020",
+  "local_backend_verified": false,
+  "real_handoff_complete": false,
+  "part_one_complete": false,
+  "functional_ready": false,
+  "goal_validated": false,
+  "completed_tasks": [
+    "D001",
+    "D002",
+    "D003",
+    "D006",
+    "D007",
+    "D008",
+    "D009",
+    "D010",
+    "D011",
+    "D012",
+    "D013",
+    "D014",
+    "D015",
+    "D016",
+    "D017",
+    "D018",
+    "D019"
+  ],
+  "blocked_tasks": {
+    "D004": "Claude 实际接入与验收未完成；GPT 替代小试验有证据，新执行作用域/正式交接尚未验收。",
+    "D005": "账户与 SDK 鉴权检查成功，但真实 GLM SDK 生成请求 HTTP 405；根因未知，官方发行版主机验证集成仍待补。",
+    "D020": "实际 API→A 计划→B 候选→C→A→发布尚未完整通过；冻结回归另有 1 个异常路径用量测试失败。"
+  },
+  "test_result": {
+    "tests": 1144,
+    "failures": 1,
+    "errors": 0,
+    "skipped": 0
+  },
+  "interfaces": {
+    "api": "authenticated /v1/conversations, turns, messages, events, /v1/tasks; loopback only",
+    "events": "version 1.0; public whitelist enforced for history/SSE/outbox",
+    "sse": "committed conversation cursor replay; EOF then reconnect with after_seq",
+    "storage": "SQLite WAL/FULL + transaction outbox + immutable SHA256 blobs",
+    "workflow": "injected provider, validator, reviewer and budget ports; durable contract pin and owner lease",
+    "recovery": "query/observe/verify ports for accepted external execution; unknown blocks; no restart callback",
+    "current_startup_recovery": "conservative unknown callback; no real provider query until a supported adapter is registered",
+    "publication": "trusted internal native publisher; HTTP/model visibility cannot grant approval",
+    "scope": "service path and role constraints; actual external OS sandbox remains unverified"
+  },
+  "filename_mappings": {
+    "runtime/scheduler.py": "dispatch responsibility implemented in runtime/outbox.py; workflow owns request scheduling",
+    "runtime/deduplication.py": "persistent event deduplication and gap buffering implemented in runtime/recovery.py",
+    "runtime/scopes.py + runtime/write_leases.py": "scope validation and persistent lease handoff implemented in runtime/workspace.py",
+    "app/prompts/*.md": "canonical project prompts are prompts/a_contract.md and prompts/b_execute.md"
+  },
+  "planned_to_actual_files": {
+    "services/orchestrator/app/runtime/scheduler.py": [
+      "services/orchestrator/app/runtime/outbox.py"
+    ],
+    "tests/integration/test_state_outbox.py": [
+      "tests/integration/test_state_machine.py",
+      "tests/integration/test_outbox.py"
+    ],
+    "services/orchestrator/app/runtime/deduplication.py": [
+      "services/orchestrator/app/runtime/recovery.py"
+    ],
+    "tests/fixtures/recovery_events.json": [
+      "tests/integration/test_recovery.py"
+    ],
+    "services/orchestrator/app/prompts/a_contract.md": [
+      "prompts/a_contract.md"
+    ],
+    "services/orchestrator/app/prompts/b_execute.md": [
+      "prompts/b_execute.md"
+    ],
+    "services/orchestrator/app/runtime/scopes.py": [
+      "services/orchestrator/app/runtime/workspace.py"
+    ],
+    "services/orchestrator/app/runtime/write_leases.py": [
+      "services/orchestrator/app/runtime/workspace.py"
+    ],
+    "tests/integration/test_task_scopes.py": [
+      "tests/integration/test_workspace.py",
+      "tests/integration/test_context_gateway.py"
+    ]
+  },
+  "providers": {
+    "claude": {
+      "schema_version": "1.0",
+      "adapter": "claude_code",
+      "capabilities": [
+        "non_interactive",
+        "isolated_workdir"
+      ],
+      "executable": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\.tools\\claude\\node_modules\\@anthropic-ai\\claude-code-win32-x64\\claude.exe",
+      "executable_sha256": "76de74f7694a5bdc03378a5f837c9e132827bf004c98c276bc4e9094ff06769a",
+      "runtime_version": "2.1.296",
+      "source_uri": "https://code.claude.com/docs/en/setup",
+      "source_kind": "official_installed_runtime",
+      "bounded_probe_enabled": false,
+      "production_enabled": false,
+      "block_reason_code": "AUTHENTICATION_REQUIRED",
+      "generated_at": "2026-10-13T11:43:03Z"
+    },
+    "zcode": {
+      "schema_version": "1.0",
+      "adapter": "zcode",
+      "capabilities": [
+        "non_interactive",
+        "isolated_workdir"
+      ],
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "executable_sha256": "3602f2bb1a10f2cbab4c36886218a33c1ab3db87290e73b033c46c77147d0237",
+      "runtime_version": "0.16.9",
+      "source_uri": "https://github.com/zai-org/ZCode/blob/main/apps/zcode-cli/README.md",
+      "source_kind": "official_installed_runtime",
+      "bounded_probe_enabled": false,
+      "production_enabled": false,
+      "block_reason_code": "MODEL_SELECTION_REQUIRED",
+      "generated_at": "2026-10-13T11:43:03Z",
+      "entrypoint": "D:/zcode/resources/glm/zcode.cjs",
+      "entrypoint_sha256": "b816e38656e70fb585fe2ab1ea010da89cda928dac1ccb5d83255fd18796da6e",
+      "gui_version": "3.15.1.8093",
+      "builtin_config_reference": "D:/zcode/resources/config/provider/zcode-builtin.json"
+    },
+    "gpt": {
+      "schema_version": "1.0",
+      "adapter": "codex",
+      "capabilities": [
+        "non_interactive",
+        "isolated_workdir"
+      ],
+      "executable": "C:\\Users\\asd15\\AppData\\Local\\OpenAI\\Codex\\bin\\f544b3844e0f14e9\\codex.exe",
+      "executable_sha256": "4b01d5920e6785614727443bbecf343f4dedbb7347052b72ba805aab6353ef01",
+      "runtime_version": "0.160.0",
+      "source_uri": "https://developers.openai.com/codex/noninteractive/",
+      "source_kind": "official_installed_runtime",
+      "bounded_probe_enabled": false,
+      "production_enabled": false,
+      "block_reason_code": "TOOL_PERMISSION_POLICY_DENIED",
+      "generated_at": "2026-10-13T11:43:03Z"
+    }
+  },
+  "gpt_completion_level": "route_decided_not_connected; native path chosen; production disabled",
+  "bounded_real_startups_this_session": {
+    "claude": 0,
+    "zcode": 2,
+    "gpt": 1,
+    "total": 3
+  },
+  "real_account_usage": "unknown where provider did not report it",
+  "pending_product_gates": [
+    "Electron GUI",
+    "complete English input and history QA for every Claude request",
+    "trusted A canonical English original capture",
+    "complete Chinese answer translation and QA",
+    "DOCX/PDF render and layout checks",
+    "atomic bilingual attachment bundle publisher",
+    "actual external sandbox enforcement",
+    "blind quality/token qualification",
+    "release and backup acceptance"
+  ],
+  "runbook": "docs/runbooks/backend-operations.md",
+  "evidence": [
+    "docs/acceptance/backend-full-test.log",
+    "docs/acceptance/backend-junit.xml",
+    "docs/acceptance/backend-source-hashes.json",
+    "docs/acceptance/D020/vertical-report.json",
+    "docs/acceptance/D020/request-ledger.json"
+  ],
+  "git_commit": null,
+  "branch": "codex/part1-foundation",
+  "phase_status": "frozen_partial",
+  "frozen_at": "2026-10-14T15:36:21.487680+08:00",
+  "full_regression_passed": false,
+  "freeze_record": "docs/acceptance/part-one-freeze-20261014/freeze.json",
+  "source_manifest": "docs/acceptance/part-one-freeze-20261014/source-hashes.json",
+  "historical_local_backend_verification": "原780及929通过快照保留为历史；不代表当前冻结完整回归通过。"
+}

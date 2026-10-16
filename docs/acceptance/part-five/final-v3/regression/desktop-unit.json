@@ -1,0 +1,18 @@
+{
+  "name": "desktop-unit",
+  "command": [
+    "C:\\Program Files\\nodejs\\node.EXE",
+    "node_modules/vitest/vitest.mjs",
+    "run",
+    "tests/desktop",
+    "tests/release",
+    "--reporter=json",
+    "--outputFile=C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\docs\\acceptance\\part-five\\final-v3\\regression\\desktop-unit-report.json"
+  ],
+  "cwd": "C:\\Users\\asd15\\Documents\\ChatGPT\\ai",
+  "started_at": "2026-10-15T05:45:31.823692+00:00",
+  "ended_at": "2026-10-15T05:45:58.493699+00:00",
+  "exit_code": 0,
+  "log": "docs/acceptance/part-five/final-v3/regression/desktop-unit.log",
+  "launch_error": null
+}

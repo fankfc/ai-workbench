@@ -1,0 +1,22 @@
+{
+  "time": "2026-10-14T06:33:08.865198+00:00",
+  "command": [
+    "C:\\Users\\asd15\\Documents\\ChatGPT\\ai\\services\\orchestrator\\.venv\\Scripts\\python.exe",
+    "-m",
+    "pytest",
+    "-q",
+    "tests/integration/test_native_planning.py",
+    "tests/integration/test_prepared_workflow.py",
+    "tests/integration/test_native_validation.py",
+    "tests/integration/test_agent_workflow.py",
+    "tests/integration/test_native_publication.py",
+    "tests/contracts/test_phase_prompt.py",
+    "tests/contracts/test_phase_bridge.py",
+    "tests/unit/test_glm_anthropic_usage.py",
+    "tests/unit/test_usage_ledger.py",
+    "-q"
+  ],
+  "exit_code": 0,
+  "git_commit": null,
+  "log": "docs\\acceptance\\part-one-closeout\\native-assembly-root-regression.log"
+}

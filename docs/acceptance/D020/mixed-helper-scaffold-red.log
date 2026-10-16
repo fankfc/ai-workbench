@@ -1,0 +1,16 @@
+
+=================================== ERRORS ====================================
+__________ ERROR collecting tests/integration/test_mixed_pipeline.py __________
+ImportError while importing test module 'C:\Users\asd15\Documents\ChatGPT\ai\tests\integration\test_mixed_pipeline.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\importlib\__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\integration\test_mixed_pipeline.py:15: in <module>
+    from support.mixed_pipeline import prepare_mixed
+E   ModuleNotFoundError: No module named 'support.mixed_pipeline'
+=========================== short test summary info ===========================
+ERROR tests/integration/test_mixed_pipeline.py
+!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+1 error in 0.39s

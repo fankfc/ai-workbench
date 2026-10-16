@@ -1,0 +1,202 @@
+{
+  "generated_at": "2026-10-14T04:29:08.113778+00:00",
+  "invocation_id": "a5ac5e2bb9214ade9b5f0865fc05e62b",
+  "status": "completed",
+  "budget_intent_index": 1,
+  "maximum_model_turn_submissions": 1,
+  "turn_start_submissions": 1,
+  "server_starts": 1,
+  "observed_bound_turn_starts": 1,
+  "accepted_turn_start_responses": 1,
+  "wall_limit_seconds": 120,
+  "max_capture_bytes": 2000000,
+  "automatic_retries": false,
+  "experimental_internal_only": true,
+  "actual_model_id": "gpt-6.1-sol",
+  "actual_model_identity_verified": true,
+  "identity_status": "reported_verified",
+  "scope_enforced": false,
+  "production_enabled": false,
+  "new_declared_provider_route": "workbench_chatgpt_http_observer",
+  "route_is_original_builtin": false,
+  "source_derived_inference_base_url": "https://chatgpt.com/backend-api/codex",
+  "private_target_sse_trace_enabled": true,
+  "full_raw_sse_trace_exported": false,
+  "native_logging_policy": "Only exact target SSE TRACE enabled for stderr; private memory projection. Other CLI native logging is not globally audited.",
+  "child_logging_environment": {
+    "RUST_LOG": "off,codex_api::sse::responses=trace",
+    "LOG_FORMAT": "json"
+  },
+  "upstream_request_count": "unknown unless independently reported; auth recovery can resend",
+  "config_auth_or_account_files_read_by_assistant": false,
+  "credentials_or_reasoning_persisted": false,
+  "fixed_inline_sample": [
+    1,
+    2,
+    3
+  ],
+  "rpc_calls": [
+    {
+      "method": "initialize",
+      "id": 1
+    },
+    {
+      "method": "initialized",
+      "id": null
+    },
+    {
+      "method": "config/read",
+      "id": 2
+    },
+    {
+      "method": "thread/start",
+      "id": 4
+    },
+    {
+      "method": "turn/start",
+      "id": 3
+    }
+  ],
+  "notification_methods": [
+    "item/agentMessage/delta",
+    "item/completed",
+    "item/started",
+    "rawResponse/completed",
+    "thread/started",
+    "thread/status/changed",
+    "thread/tokenUsage/updated",
+    "turn/completed",
+    "turn/started",
+    "unclassified"
+  ],
+  "callback_count": 0,
+  "observed_tool_count": 0,
+  "execution_model_candidates": [],
+  "reroutes": [],
+  "raw_response_receipts": [
+    {
+      "thread_id": "01a138ab-d89e-7fe3-beb5-968ddffb16a5",
+      "turn_id": "01a138ab-edb8-7462-ad7c-07b5d08b1b56",
+      "response_id": "resp_0d18ad881b040ddf016acf0525e764819191c9e7fa40319b54",
+      "binding_matches_owned_turn": true,
+      "usage": {
+        "totalTokens": 21977,
+        "inputTokens": 21954,
+        "cachedInputTokens": 0,
+        "cacheWriteInputTokens": 0,
+        "outputTokens": 23,
+        "reasoningOutputTokens": 0
+      },
+      "metadata_type": "dict"
+    }
+  ],
+  "reported_usage": {
+    "totalTokens": 21977,
+    "inputTokens": 21954,
+    "cachedInputTokens": 0,
+    "cacheWriteInputTokens": 0,
+    "outputTokens": 23,
+    "reasoningOutputTokens": 0
+  },
+  "usage_source": "thread/tokenUsage/updated.tokenUsage.total",
+  "reasoning_tokens_are_output_subset": true,
+  "max_output_tokens_parameter_supported": false,
+  "requested_policy": {
+    "approvalPolicy": "never",
+    "sandbox": "read-only",
+    "networkAccess": false,
+    "dynamicTools": [],
+    "effort": "low"
+  },
+  "schema_sha256": {
+    "ThreadStartParams": "80a40a7fac15b4bf70efb7f893fb353acc0a0d30c68f54aee4f01923deca85de",
+    "TurnStartParams": "07771223642e1b61bd9aac0069fc0f98143a1c047724ca02c7ceb13653442738",
+    "RawResponseCompletedNotification": "aba140e87952c900f96e0308a8849d3e313d985de1f1aa2b77f193884a76357c"
+  },
+  "observer_sha256": "43a5c0d27044a0b45e5bceaeb8808a2df2f294661ff3ddb79013dd314dedae06",
+  "native_home_environment_presence": {
+    "CODEX_HOME": false,
+    "CODEX_SQLITE_HOME": false
+  },
+  "requested_model": "gpt-6.1-sol",
+  "runtime_version": "0.160.0",
+  "executable_sha256": "4b01d5920e6785614727443bbecf343f4dedbb7347052b72ba805aab6353ef01",
+  "command": [
+    "C:\\Users\\asd15\\AppData\\Local\\OpenAI\\Codex\\bin\\f544b3844e0f14e9\\codex.exe",
+    "-c",
+    "model_provider=\"workbench_chatgpt_http_observer\"",
+    "-c",
+    "model_providers.workbench_chatgpt_http_observer={name=\"Workbench ChatGPT HTTP identity observation\",base_url=\"https://chatgpt.com/backend-api/codex\",wire_api=\"responses\",requires_openai_auth=true,supports_websockets=false,request_max_retries=0,stream_max_retries=0}",
+    "app-server",
+    "--listen",
+    "stdio://"
+  ],
+  "requested_model_semantics": "Configuration selection; not execution identity.",
+  "source_tag": "rust-v0.160.0",
+  "source_sha256": {
+    "model-provider-info/src/lib.rs": "941a8ec0e8be4b45080cac3df3d052999a4cb104811575634b1a9ed510690958",
+    "core/src/config/mod.rs": "854f5a6b184714740500b8d3eae2bb04cb88172efccf11d38a74f2f6189c0341",
+    "core/src/session/mod.rs": "d05728bce8f6f3163d20ec4286bf964d7dfda27a39d4669b755e7a2e51849ecf",
+    "codex-api/src/sse/responses.rs": "327127fb7e6886b0ffe73c74c753cc44b2c09e72c090600a861756334397cd2b",
+    "app-server/src/lib.rs": "1591686b49c80c062d2b1ce48e03eb7c95bb872cc57b41e0ecc016ceb42fd6f2",
+    "feedback/src/lib.rs": "a46d6485d2c49f956b2f663f83d23bea0fd242227cdca48e72566a1cf9cca8ad",
+    "state/src/log_db.rs": "528f9e21f3be1a1021c2032591ca55daed4381b8a9a004b5849be3865f6376d5",
+    "app-server/src/otel_reloader.rs": "c92e8c2288a15e385dc2a6d5e571da3d4d81edee54b84825dd2630a7991f4e7a",
+    "otel/src/targets.rs": "11fb3bc5505129dbe1e5767b777c0f1813a400ee4ad1e66b16b08cbcf72e0210",
+    "otel/src/provider.rs": "55df2c25edb49d9a3ce71dc19fca274b7eb7ac157f082f6ca4cb680d49f34442"
+  },
+  "logging_environment_passed_to_native_createprocess": true,
+  "server_pid": 51512,
+  "thread_id": "01a138ab-d89e-7fe3-beb5-968ddffb16a5",
+  "configured_thread_provider": "workbench_chatgpt_http_observer",
+  "configured_thread_model": "gpt-6.1-sol",
+  "echoed_policy": {
+    "approvalPolicy": "never",
+    "sandbox_type": "readOnly",
+    "networkAccess": false
+  },
+  "turn_id": "01a138ab-edb8-7462-ad7c-07b5d08b1b56",
+  "turn_completion_status": "completed",
+  "final_text_sha256": "74374201cf15a83f65cb169b3a80041ac8f5ef111b643268df7813c75b63837a",
+  "final_text": "{\"count\":3,\"sum\":6,\"mean\":2}",
+  "arithmetic_check": true,
+  "sse_identity_projection": {
+    "identity_status": "reported_verified",
+    "actual_model_id": "gpt-6.1-sol",
+    "server_response_event_count": 2,
+    "server_completed_event_count": 1,
+    "distinct_response_ids": 1,
+    "source_target": "codex_api::sse::responses",
+    "source_level": "TRACE",
+    "source_field": "fields.message.SSE_event.response.model",
+    "raw_record_or_body_exported": false,
+    "binding": {
+      "thread_id": "01a138ab-d89e-7fe3-beb5-968ddffb16a5",
+      "turn_id": "01a138ab-edb8-7462-ad7c-07b5d08b1b56",
+      "response_id": "resp_0d18ad881b040ddf016acf0525e764819191c9e7fa40319b54"
+    }
+  },
+  "identity_verification_scope": "Server response.model from exact native SSE source, bound to singleton owned completion; not production qualification or scope enforcement.",
+  "resources_after": {
+    "running": 0,
+    "temp_dirs": 0,
+    "open_handles": 0,
+    "peak_reserved_handles": 9,
+    "active_processes": 0,
+    "failed_cleanups": 0,
+    "query_errors": []
+  },
+  "local_cleanup": {
+    "local_state": "cancelled",
+    "remote_state": "unknown",
+    "remote_stop_confirmed": false,
+    "forced": true,
+    "exit_code": 0,
+    "stdout_kept_bytes": 85760,
+    "stderr_kept_bytes": 109880,
+    "raw_output_persisted": false
+  },
+  "parser_sha256": "0c83ea8bc649ad0dd2dd4f815983ff1bce9dfb0fb70d4765dd0fc31d67d4d84e",
+  "duration_seconds": 22.359,
+  "completed_at": "2026-10-14T04:29:30.470676+00:00"
+}

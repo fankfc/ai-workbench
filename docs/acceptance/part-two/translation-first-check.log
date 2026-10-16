@@ -1,0 +1,144 @@
+...........F........F.....                                               [100%]
+================================== FAILURES ===================================
+___________ test_direct_gpt_never_constructs_forced_translation_job ___________
+
+client = <starlette.testclient.TestClient object at 0x000001B6C4395E10>
+
+    def test_direct_gpt_never_constructs_forced_translation_job(client):
+        conversation=client.post('/v1/conversations',json={'title':'gpt'}).json()['id']
+        task=client.post(f'/v1/conversations/{conversation}/turns',json={'text':'����','provider_profile_id':'fake-gpt','client_request_id':'gpt'}).json()['task_id']
+        with closing(client.app.state.database.connect()) as connection:
+            attempt=connection.execute('SELECT attempt_id FROM task_runs WHERE task_id=?',(task,)).fetchone()[0]
+>       translation=service(client); result=run(translation,task,attempt,'����')
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\translation\test_quality_cache.py:62: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\translation\test_quality_cache.py:8: in run
+    return asyncio.run(service.translate(task_id=task,attempt_id=attempt,source=source,source_language='zh-CN',target_language='en',purpose='input',**kwargs))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:194: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:118: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py:721: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+services\orchestrator\app\translation\service.py:125: in translate
+    route=self.router.lock(task_id,attempt_id)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.translation.router.LanguageRouter object at 0x000001B6C40D3B50>
+task_id = 'f20939c1ab22499391426671301688ea'
+attempt_id = 'ad8f208e87704aef800fe42d9f5e4797'
+
+    def lock(self, task_id, attempt_id):
+        """Register the already immutable task snapshot, including legacy fake rows."""
+        with closing(self.database.connect()) as connection, transaction(connection):
+            task = require_current_attempt(connection,task_id,attempt_id)
+            data=json.loads(task['route_snapshot_json']); data.pop('test_only',None)
+            snapshot=RouteSnapshot.model_validate(data)
+            if snapshot.identity_status != 'verified':
+>               raise ValueError('UNVERIFIED_MODEL_IDENTITY')
+E               ValueError: UNVERIFIED_MODEL_IDENTITY
+
+services\orchestrator\app\translation\router.py:59: ValueError
+____ test_scoped_markdown_material_uses_runtime_gateway_and_keeps_original ____
+
+client = <starlette.testclient.TestClient object at 0x000001B6C48196A0>
+
+    def test_scoped_markdown_material_uses_runtime_gateway_and_keeps_original(client):
+        _,task,attempt=claude_turn(client)
+        workspace=WorkspaceManager(client.app.state.settings.data_root).create(task,attempt)
+        raw='����ԭ�ļ��� `print("���Ľ���")` -0.03'
+        workspace.ingest_source('material.md',raw.encode())
+        translation=service(client)
+>       result=asyncio.run(InputPipeline(translation).prepare(task,attempt,workspace,materials=[SourceMaterial('input/material.md')]))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\integration\test_input_translation.py:27: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:194: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\runners.py:118: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..\..\..\AppData\Local\Programs\Python\Python313\Lib\asyncio\base_events.py:721: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+services\orchestrator\app\translation\input_pipeline.py:50: in prepare
+    proof,ids=english_view(workspace,material,value); views[material.source_ref]=proof
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+services\orchestrator\app\translation\context_gateway.py:35: in english_view
+    ContextGateway(workspace,{material.source_ref:proof}).read('claude',material.source_ref)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <app.runtime.context_gateway.ContextGateway object at 0x000001B6C3E63380>
+model_family = 'claude', relative_path = 'input/material.md', role = 'A'
+english_view = None
+
+    def read(self, model_family, relative_path, role="A", english_view=None):
+        if model_family not in {"claude", "gpt", "glm"}:
+            raise ContextBlocked("MODEL_FAMILY_UNVERIFIED")
+        source_path = self.workspace.resolve(relative_path, role)
+        source_ref = source_path.relative_to(self.workspace.root).as_posix()
+        source = self.workspace.read(role, source_ref)
+        source_hash = hashlib.sha256(source).hexdigest()
+        if model_family != "claude":
+            return ContextRead(source_ref, source_ref, source, source_hash, "native")
+        proof = self.english_views.get(source_ref)
+        if proof is None or (english_view is not None and english_view != proof):
+            raise ContextBlocked("ENGLISH_VIEW_REQUIRED")
+        if (not isinstance(proof, ValidatedEnglishView) or proof.source_ref != source_ref
+                or proof.status != "validated" or proof.language != "en"
+                or not isinstance(proof.validation_id, str) or not proof.validation_id.strip()
+                or any(value is not True for value in (proof.coverage_passed,
+                    proof.protected_spans_passed, proof.numeric_entities_passed))):
+            raise ContextBlocked("ENGLISH_VIEW_VALIDATION_INCOMPLETE")
+        if source_hash != proof.source_sha256:
+            raise ContextBlocked("ENGLISH_VIEW_SOURCE_CHANGED")
+        view_path = self.workspace.resolve(proof.view_ref, role)
+        if view_path.relative_to(self.workspace.root).parts[0] != "translation":
+            raise ContextBlocked("ENGLISH_VIEW_SCOPE_INVALID")
+        view = self.workspace.read(role, proof.view_ref)
+        if hashlib.sha256(view).hexdigest() != proof.view_sha256:
+            raise ContextBlocked("ENGLISH_VIEW_BYTES_CHANGED")
+        try:
+            view.decode("utf-8")
+        except UnicodeDecodeError as exc:
+            raise ContextBlocked("ENGLISH_VIEW_UTF8_REQUIRED") from exc
+        natural = bytearray(view)
+        previous_end = 0
+        for span in sorted(proof.protected_spans, key=lambda item: item.view_start):
+            if (not all(isinstance(value, int) and not isinstance(value, bool) for value in
+                    (span.source_start, span.source_end, span.view_start, span.view_end))
+                    or not 0 <= span.source_start < span.source_end <= len(source)
+                    or not previous_end <= span.view_start < span.view_end <= len(view)
+                    or source[span.source_start:span.source_end] != view[span.view_start:span.view_end]):
+                raise ContextBlocked("PROTECTED_SPAN_CHANGED")
+            natural[span.view_start:span.view_end] = b" " * (span.view_end - span.view_start)
+            previous_end = span.view_end
+        try:
+            text = natural.decode("utf-8")
+        except UnicodeDecodeError as exc:
+            raise ContextBlocked("PROTECTED_SPAN_BOUNDARY_INVALID") from exc
+        if any(unicodedata.category(character).startswith("L") and
+               "LATIN" not in unicodedata.name(character, "") for character in text):
+>           raise ContextBlocked("NON_ENGLISH_NATURAL_LANGUAGE")
+E           app.runtime.context_gateway.ContextBlocked: NON_ENGLISH_NATURAL_LANGUAGE
+
+services\orchestrator\app\runtime\context_gateway.py:121: ContextBlocked
+============================== warnings summary ===============================
+tests/integration/test_route_snapshot.py::test_route_snapshot_is_persisted_immutable_and_identity_change_pauses
+  C:\Users\asd15\Documents\ChatGPT\ai\services\orchestrator\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/translation/test_quality_cache.py::test_direct_gpt_never_constructs_forced_translation_job
+FAILED tests/integration/test_input_translation.py::test_scoped_markdown_material_uses_runtime_gateway_and_keeps_original
+2 failed, 24 passed, 1 warning in 3.87s
