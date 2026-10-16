@@ -1,5 +1,7 @@
 # 协作工作台
 
+**范围 v2（2026-10-16）**：本软件仅限用户本人在本机直接使用，不发行、不分发、不做代码签名；未签名内部包（阶段三交付）即最终交付形态。发行/签名/试用/交接专属任务卡（D052/D053/D056/D057/D060）已按 [DEC-010](docs/decisions/scope-v2.md) 取消，质量、语言、恢复等全部产品行为标准不变。直接使用仍差两个前提：Claude Code 登录（D004）与 B 侧入口路线选择（D005，见[复检报告](docs/acceptance/D004-D005-recheck-20261016.md)）。
+
 阶段五本地更新：已交付工单与提示词体系及本地协议验证（final-v3，2026-10-15），所选本地检查 10/10 通过、源码一致性验证通过；回归为 Python 1702、桌面单元 88、实际 Electron 35 项通过，类型检查、桌面构建与契约严格检查全部通过。真实提供方、人工、完整产品、正式发布和优化目标保持未验收。见[阶段五证据](docs/acceptance/part-five/final-v3/summary.md)。
 
 2026-10-16 真实接入复检：D004 维持 blocked（Claude Code 2.1.296 `auth status` 仍 `loggedIn:false`，需用户本人登录）；D005 维持 blocked 但根因已精确化——CLI 0.16.9 无头 `--prompt` 入口无法携带模型选择（无对应参数、不读取 `defaultModelSelection`），`app-server` 协议入口的 `session/create` 已验证可达注册表查找，但独立实例的注册表不含账号提供方（账号实体化依赖桌面宿主握手）。见[复检报告](docs/acceptance/D004-D005-recheck-20261016.md)。

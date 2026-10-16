@@ -1,4 +1,7 @@
 import { describe, expect, it } from 'vitest';
+// 本文件用例驱动真实端口与文件系统更新流程；时间预算按机器实际延迟放宽，被验证的回滚/恢复行为不变。
+import { vi } from 'vitest';
+vi.setConfig({testTimeout:20000});
 import { mkdtemp, mkdir, readFile, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';

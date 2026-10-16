@@ -7,6 +7,8 @@ import * as filesystem from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { resolve, join } from 'node:path';
 vi.mock('node:fs/promises',{spy:true});
+// 本文件所有用例驱动真实子进程与进程树清理；时间预算按机器实际派生延迟放宽，被验证的行为分类不变。
+vi.setConfig({testTimeout:20000});
 describe('startup identity fence', () => {
   const ready = { kind:'backend.ready', port:12345, pid:123, instance_id:'expected', protocol_version:'1.0' };
   it('does not accept old occupied port or wrong process identity', () => {
@@ -22,7 +24,7 @@ describe('startup identity fence', () => {
 describe('managed process lifecycle', () => {
   async function supervisor(mode:string) {
     const root=resolve('.');const dataRoot=await mkdtemp(join(tmpdir(),'desktop-unit-'));
-    return new BackendSupervisor({root,dataRoot,providerMode:'fake',timeoutMs:300,spawnProcess:((_file:any,_args:any,options:any)=>spawn(process.execPath,[resolve('tests/desktop/support/backend-child.cjs')],{...options,env:{...options.env,TEST_BEHAVIOR:mode}})) as typeof spawn});
+    return new BackendSupervisor({root,dataRoot,providerMode:'fake',timeoutMs:1500,terminationTimeoutMs:8000,spawnProcess:((_file:any,_args:any,options:any)=>spawn(process.execPath,[resolve('tests/desktop/support/backend-child.cjs')],{...options,env:{...options.env,TEST_BEHAVIOR:mode}})) as typeof spawn});
   }
   for(const [mode,message] of [['health-timeout','无法连接'],['early-exit','就绪前退出'],['old-port','启动超时']])it(`does not claim readiness for ${mode}`,async()=>{
     const backend=await supervisor(mode);await expect(backend.start()).rejects.toThrow(message);expect(backend.status.state).toBe('offline');

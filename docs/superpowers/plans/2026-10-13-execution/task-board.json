@@ -3140,7 +3140,7 @@
         "R13"
       ],
       "owner": "发布工程师",
-      "status": "blocked",
+      "status": "cancelled",
       "deliverables": [
         "apps/desktop/electron-builder.yml",
         "release/build-windows.ps1",
@@ -3156,14 +3156,18 @@
       "estimate_hours": 16,
       "guide": "03-verification-release-operations.md",
       "gate": "G5",
-      "status_updated_at": "2026-10-15T10:01:17.345079+08:00",
+      "status_updated_at": "2026-10-16T14:30:00+08:00",
       "completion_level": "local_engineering_delivered_full_acceptance_open",
       "local_implementation": "锁定打包、便携Python运行时和内部未签名安装包",
       "remaining_acceptance": "合法签名、可信发布者及干净非管理员Windows安装",
       "verification": "docs/acceptance/part-three/final-v3/verification.json",
       "real_model_calls": 0,
       "functional_release": false,
-      "optimization_goal_met": false
+      "optimization_goal_met": false,
+      "execution_review": {
+        "scope_v2_note": "签名/发行专属范围随 scope v2 取消；未签名内部包（阶段三交付）即最终形态",
+        "decision_ref": "docs/decisions/scope-v2.md (DEC-010)"
+      }
     },
     {
       "id": "D053",
@@ -3179,7 +3183,7 @@
         "R13"
       ],
       "owner": "发布工程师＋存储工程师",
-      "status": "blocked",
+      "status": "cancelled",
       "deliverables": [
         "apps/desktop/src/main/updates.ts",
         "release/update-channel.schema.json",
@@ -3195,14 +3199,18 @@
       "estimate_hours": 16,
       "guide": "03-verification-release-operations.md",
       "gate": "G5",
-      "status_updated_at": "2026-10-15T10:01:17.345079+08:00",
+      "status_updated_at": "2026-10-16T14:30:00+08:00",
       "completion_level": "local_engineering_delivered_full_acceptance_open",
       "local_implementation": "受控更新协调器、持久日志、签名/清单前检及回滚故障矩阵",
       "remaining_acceptance": "生产原生安装/清单签名端口、真实签名包升级和兼容schema回滚演练",
       "verification": "docs/acceptance/part-three/final-v3/verification.json",
       "real_model_calls": 0,
       "functional_release": false,
-      "optimization_goal_met": false
+      "optimization_goal_met": false,
+      "execution_review": {
+        "scope_v2_note": "签名更新部分随 scope v2 取消；本地更新协调器与备份回滚保持有效",
+        "decision_ref": "docs/decisions/scope-v2.md (DEC-010)"
+      }
     },
     {
       "id": "D054",
@@ -3291,14 +3299,18 @@
       "estimate_hours": 24,
       "guide": "03-verification-release-operations.md",
       "gate": "G5",
-      "status_updated_at": "2026-10-15T10:01:17.345079+08:00",
+      "status_updated_at": "2026-10-16T14:30:00+08:00",
       "completion_level": "local_engineering_delivered_full_acceptance_open",
       "local_implementation": "四域真实材料入口及严格证据审计",
       "remaining_acceptance": "当前真实模型身份、完整四域执行及领域人评",
       "verification": "docs/acceptance/part-three/final-v3/verification.json",
       "real_model_calls": 0,
       "functional_release": false,
-      "optimization_goal_met": false
+      "optimization_goal_met": false,
+      "execution_review": {
+        "scope_v2_note": "改义为本人真实任务直接使用验证；仍以真实模型接入为前提，不再作为发行门槛",
+        "decision_ref": "docs/decisions/scope-v2.md (DEC-010)"
+      }
     },
     {
       "id": "D056",
@@ -3318,7 +3330,7 @@
         "R13"
       ],
       "owner": "产品负责人＋支持工程师",
-      "status": "blocked",
+      "status": "cancelled",
       "deliverables": [
         "release/beta-guide.md",
         "release/feedback-schema.json",
@@ -3333,14 +3345,18 @@
       "estimate_hours": 12,
       "guide": "03-verification-release-operations.md",
       "gate": "G5",
-      "status_updated_at": "2026-10-15T10:01:17.345079+08:00",
+      "status_updated_at": "2026-10-16T14:30:00+08:00",
       "completion_level": "local_engineering_delivered_full_acceptance_open",
       "local_implementation": "反馈脱敏、格式和试用手册",
       "remaining_acceptance": "5工作日真实试用、缺陷关闭与报告者复核",
       "verification": "docs/acceptance/part-three/final-v3/verification.json",
       "real_model_calls": 0,
       "functional_release": false,
-      "optimization_goal_met": false
+      "optimization_goal_met": false,
+      "execution_review": {
+        "scope_v2_note": "受控试用随 scope v2 取消；用户本人直接使用即验收",
+        "decision_ref": "docs/decisions/scope-v2.md (DEC-010)"
+      }
     },
     {
       "id": "D057",
@@ -3378,7 +3394,7 @@
         "R15"
       ],
       "owner": "发布负责人＋产品/QA 联合评审",
-      "status": "blocked",
+      "status": "cancelled",
       "deliverables": [
         "release/release-checklist.md",
         "release/release-decision.json",
@@ -3393,14 +3409,18 @@
       "estimate_hours": 8,
       "guide": "03-verification-release-operations.md",
       "gate": "G5",
-      "status_updated_at": "2026-10-15T10:01:17.345079+08:00",
+      "status_updated_at": "2026-10-16T14:30:00+08:00",
       "completion_level": "local_engineering_delivered_full_acceptance_open",
       "local_implementation": "功能和优化分离的发布决策",
       "remaining_acceptance": "全部发布硬门槛、无P0/P1及产品/QA/发布三方签署",
       "verification": "docs/acceptance/part-three/final-v3/verification.json",
       "real_model_calls": 0,
       "functional_release": false,
-      "optimization_goal_met": false
+      "optimization_goal_met": false,
+      "execution_review": {
+        "scope_v2_note": "正式发布评审随 scope v2 取消（无发行）",
+        "decision_ref": "docs/decisions/scope-v2.md (DEC-010)"
+      }
     },
     {
       "id": "D058",
@@ -3533,7 +3553,7 @@
         "R15"
       ],
       "owner": "项目负责人＋用户验收代表",
-      "status": "blocked",
+      "status": "cancelled",
       "deliverables": [
         "release/final-handover.md",
         "release/final-acceptance.json",
@@ -3548,14 +3568,18 @@
       "estimate_hours": 8,
       "guide": "03-verification-release-operations.md",
       "gate": "G6",
-      "status_updated_at": "2026-10-15T10:01:17.345079+08:00",
+      "status_updated_at": "2026-10-16T14:30:00+08:00",
       "completion_level": "local_engineering_delivered_full_acceptance_open",
       "local_implementation": "离线证据索引、交接与维护日历",
       "remaining_acceptance": "干净机器第三方交接、功能/优化终验和签署",
       "verification": "docs/acceptance/part-three/final-v3/verification.json",
       "real_model_calls": 0,
       "functional_release": false,
-      "optimization_goal_met": false
+      "optimization_goal_met": false,
+      "execution_review": {
+        "scope_v2_note": "对外交接随 scope v2 取消；个人维护依据 docs/runbooks 继续",
+        "decision_ref": "docs/decisions/scope-v2.md (DEC-010)"
+      }
     }
   ],
   "updated_at": "2026-10-14T21:48:14.951505+08:00",
