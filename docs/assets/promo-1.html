@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><style>html,body{margin:0;padding:0}svg{display:block}</style></head>
+<body>
+<svg width="1280" height="640" viewBox="0 0 1280 640" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI','Microsoft YaHei UI',sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0A1631"/><stop offset=".55" stop-color="#0E2148"/><stop offset="1" stop-color="#123B7A"/>
+    </linearGradient>
+    <radialGradient id="glowA" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#6FA0F2" stop-opacity=".55"/><stop offset="1" stop-color="#6FA0F2" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowB" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#7ED9A9" stop-opacity=".45"/><stop offset="1" stop-color="#7ED9A9" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="bridgeLine" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#6FA0F2"/><stop offset="1" stop-color="#7ED9A9"/>
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#FFFFFF" stroke-opacity=".045"/>
+    </pattern>
+  </defs>
+
+  <rect width="1280" height="640" fill="url(#bg)"/>
+  <rect width="1280" height="640" fill="url(#grid)"/>
+  <circle cx="990" cy="300" r="230" fill="url(#glowA)"/>
+  <circle cx="1150" cy="430" r="140" fill="url(#glowB)" opacity=".6"/>
+
+  <!-- 左侧文案 -->
+  <text x="90" y="205" font-size="58" font-weight="700" fill="#F4F7FD">让一个 AI</text>
+  <text x="90" y="278" font-size="58" font-weight="700" fill="#F4F7FD">给另一个 AI <tspan fill="#8FB6F5">派活</tspan></text>
+  <rect x="92" y="312" width="72" height="4" rx="2" fill="#8FB6F5"/>
+  <text x="90" y="362" font-size="21" fill="#AEC4E8">智能体协作桥 · Agent Bridge</text>
+  <text x="90" y="394" font-size="16" fill="#7E93BC">A 推理整理任务书 · B 执行直播过程 · 结果自动回到对话</text>
+
+  <g font-size="14.5" font-weight="600">
+    <rect x="90" y="432" width="112" height="34" rx="17" fill="#1B3B6F" stroke="#35599C"/>
+    <text x="146" y="454" text-anchor="middle" fill="#BAD2F7">🔌 双端可插拔</text>
+    <rect x="214" y="432" width="104" height="34" rx="17" fill="#1B3B6F" stroke="#35599C"/>
+    <text x="266" y="454" text-anchor="middle" fill="#BAD2F7">🛡 本地优先</text>
+    <rect x="330" y="432" width="98" height="34" rx="17" fill="#1B3B6F" stroke="#35599C"/>
+    <text x="379" y="454" text-anchor="middle" fill="#BAD2F7">⚡ 执行直播</text>
+    <rect x="440" y="432" width="132" height="34" rx="17" fill="#1B3B6F" stroke="#35599C"/>
+    <text x="506" y="454" text-anchor="middle" fill="#BAD2F7">🧰 一键装配接入</text>
+  </g>
+
+  <text x="90" y="565" font-size="16.5" fill="#7E93BC" font-family="Consolas,monospace">github.com/fankfc/ai-workbench</text>
+
+  <!-- 右侧插画：A 与 B 两个智能体节点 + 桥 -->
+  <g>
+    <line x1="880" y1="300" x2="1130" y2="300" stroke="url(#bridgeLine)" stroke-width="4" stroke-linecap="round"/>
+    <line x1="1012" y1="282" x2="1002" y2="292" stroke="#8FB6F5" stroke-width="3" stroke-linecap="round"/>
+    <line x1="1012" y1="292" x2="1002" y2="302" stroke="#8FB6F5" stroke-width="3" stroke-linecap="round" transform="translate(24 0)"/>
+    <line x1="1012" y1="282" x2="1002" y2="292" stroke="#7ED9A9" stroke-width="3" stroke-linecap="round" transform="translate(-70 0) rotate(180 1006 287)"/>
+
+    <circle cx="880" cy="300" r="64" fill="#152E5C" stroke="#6FA0F2" stroke-width="3"/>
+    <text x="880" y="294" text-anchor="middle" font-size="34" font-weight="800" fill="#8FB6F5">A</text>
+    <text x="880" y="322" text-anchor="middle" font-size="13" fill="#A9C1E8">推理</text>
+    <text x="880" y="205" text-anchor="middle" font-size="14.5" fill="#A9C1E8">整理任务书</text>
+    <rect x="816" y="214" width="128" height="10" rx="5" fill="#1B3B6F"/>
+    <rect x="816" y="214" width="86" height="10" rx="5" fill="#6FA0F2" opacity=".85"/>
+
+    <circle cx="1130" cy="300" r="64" fill="#122E42" stroke="#7ED9A9" stroke-width="3"/>
+    <text x="1130" y="294" text-anchor="middle" font-size="34" font-weight="800" fill="#7ED9A9">B</text>
+    <text x="1130" y="322" text-anchor="middle" font-size="13" fill="#9FD9BE">执行</text>
+    <text x="1130" y="205" text-anchor="middle" font-size="14.5" fill="#9FD9BE">直播干活</text>
+    <g font-family="Consolas,monospace" font-size="11.5" fill="#7FBFA0">
+      <text x="1066" y="222">▶ 读取任务书</text>
+      <text x="1066" y="240">🔧 写入文件</text>
+      <text x="1066" y="258">◾ 核对验收</text>
+    </g>
+
+    <!-- 用户气泡 -->
+    <g>
+      <rect x="920" y="470" width="230" height="58" rx="16" fill="#F4F7FD"/>
+      <path d="M970 528l-8 16 22-16z" fill="#F4F7FD"/>
+      <text x="938" y="496" font-size="14" font-weight="600" fill="#1A2B4A">帮我把这个项目优化一下</text>
+      <text x="938" y="517" font-size="12" fill="#5C6F94">—— 你只需要说一句话</text>
+    </g>
+    <circle cx="1190" cy="499" r="21" fill="#1B3B6F" stroke="#8FB6F5" stroke-width="2"/>
+    <text x="1190" y="504" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="700" fill="#BAD2F7">你</text>
+  </g>
+</svg>
+</body></html>
