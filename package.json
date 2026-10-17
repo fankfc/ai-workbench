@@ -11,6 +11,8 @@
     "npm": "11.17.0"
   },
   "scripts": {
+    "bridge-client": "node apps/bridge-client/server.mjs",
+    "test:bridge-client": "node --test \"tests/bridge-client/**/*.test.mjs\"",
     "test:e2e": "playwright test",
     "test:desktop": "vitest run tests/desktop",
     "build:desktop": "npm run build --workspace @ai-workbench/desktop",

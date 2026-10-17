@@ -1,0 +1,84 @@
+# Kilo ↔ ZCode 桥接协议
+
+目的：让本机的 Kilo（VS Code 插件 / Kilo CLI）把任务委派给 ZCode（GLM，编码计划账号）执行，并取回结果。
+
+链路：Kilo 写任务文件入 `queue/` → ZCode 侧持久定时自动化取件、在本会话执行 → 结果写入 `results/` → 任务文件移入 `done/` → Kilo 轮询 `results/` 读取。
+
+## 目录
+
+| 目录/文件 | 角色 |
+| --- | --- |
+| `queue/` | 待执行任务（Kilo 或桥客户端写入） |
+| `processing/` | ZCode 取件后、执行中的任务（执行前移入） |
+| `results/` | ZCode 回写的结果文件，与任务同名加 `.result.md` |
+| `done/` | 已处理完的任务文件归档（ZCode 移入） |
+| `client-status.json` | 桥客户端心跳（每 5 秒刷新；超过 60 秒未更新视为客户端未运行） |
+| `inject-log.jsonl` | 结果自动注回 Kilo 会话的记录（去重用） |
+
+## 任务文件附加字段（桥客户端生成时）
+
+`source-msg`（触发消息 id）与 `source-session`（来源 Kilo 会话 id，形如 `ses_…`）。
+带 `source-session` 的任务，结果出现后由桥客户端自动执行 `kilo run -s <会话>` 把结果注回该会话。
+
+## 自动校验与拒收
+
+桥客户端每轮检查 `queue/` 中超过 10 秒的任务文件：缺 frontmatter、缺 `created`、缺「# 任务：」标题或缺「## 目标」小节的文件会被自动拒收——写一份 status=failed 的 result 说明原因，文件移入 `done/`，不进入执行。排队超过 15 分钟或执行超过 20 分钟的任务会在控制台标「⚠ 滞留」。
+
+## 控制台直接委派
+
+网页控制台（127.0.0.1:8791）输入需求 → `POST /api/delegate` → Kilo 无头推理成任务书（`===ZCODE-TASK===` 标记包裹）→ 自动入队（`from: kilo-client`，附来源会话，结果自动注回该会话并在控制台显示 Kilo 的汇报）。
+
+## 任务文件格式（Kilo 生成）
+
+文件名：`task-YYYYMMDD-HHmmss-<短slug>.md`，UTF-8。
+
+```markdown
+---
+from: kilo
+workspace: D:\path\to\project   # 可选；不填默认 D:\zcode-workspace\ai
+created: 2026-10-16T12:00:00+08:00
+---
+
+# 任务：<一句话标题>
+
+## 目标
+<让 ZCode 完成什么，写清楚验收标准>
+
+## 约束与背景
+<可选：分支、不要动的东西、相关文件、上下文>
+```
+
+## 结果文件格式（ZCode 生成）
+
+文件名：`<任务文件名>.result.md`，与任务一一对应。
+
+```markdown
+---
+status: done | failed | needs-user
+completed: 2026-10-16T12:20:00+08:00
+---
+
+# 结果：<同名标题>
+
+## 摘要
+<做了什么、结论是什么>
+
+## 变更与产物
+<文件路径列表或说明>
+
+## 后续
+<可选：失败原因 / 需要用户确认的事项>
+```
+
+`needs-user` 表示任务遇到必须由用户本人确认的危险或越权操作，ZCode 已停在该处等待。
+
+## 约定
+
+- 单消费者：只有 ZCode 定时自动化处理 `queue/`；Kilo 只写入，不修改、不删除队列文件。
+- 结果一经写入不再改写；Kilo 读到即视为本轮结束，可自行删除对应 result 文件。
+- 任务在 ZCode 会话的权限规则下执行；Kilo 的委派不提升任何权限。
+- 未经用户明确同意，任务不得包含对外发布、删除不可恢复数据或修改凭证类操作；这类任务会被标记 `needs-user`。
+
+## 移除方式
+
+删除工作区 `D:\zcode-workspace\ai` 中名为「Kilo 桥轮询」的定时自动化（或让 ZCode 执行删除），桥即停止收件；目录可整个删除。

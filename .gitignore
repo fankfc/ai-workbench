@@ -24,6 +24,10 @@ playwright-report/
 artifacts/playwright/
 /release/staging/
 
+# Kilo bridge: keep only the protocol doc, ignore runtime state (queue/results/done/threads/agents/logs)
+.kilo-bridge/*
+!.kilo-bridge/BRIDGE.md
+
 # Local secrets and editor state
 .env
 .env.*
