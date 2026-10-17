@@ -108,7 +108,7 @@ export function buildTaskContent({ taskText, from = "kilo-client", msgId = null,
 // contextDigest：多轮工作流最近几轮的摘要（首轮为 null）
 export function delegationPrompt(requirement, contextDigest = null) {
   const lines = [
-    "你是 Kilo→ZCode 工作流的任务编排器。请把下面的用户需求推理整理成一份可执行的 ZCode 任务书：",
+    "你是「A 推理 → B 执行」双智能体工作流的任务编排器。请把下面的用户需求推理整理成一份可执行的任务书：",
     "- 补全模糊之处：给出合理默认值并标注「默认」；不要向用户提问。",
     "- 若提供了「多轮背景」，结合背景理解指代（如「刚才那个文件」「上一轮的结果」）。",
     "- 结构固定为：",

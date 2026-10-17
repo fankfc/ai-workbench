@@ -1,6 +1,8 @@
-# Kilo 桥运行手册（Kilo → ZCode 委派）
+# 智能体桥运行手册（A 推理 → B 执行，双端可插拔）
 
-建立日期：2026-10-16。让本机 Kilo（VS Code 插件 `kilocode.kilo-code-7.8.12` 与 `D:\Kilo\kilo` CLI 7.8.12）把任务委派给 ZCode（GLM，个人编码计划账号）执行。
+通用的「A 推理 → B 执行」双智能体工作流。两端可按接口插拔任意具备无头 CLI 的智能体；本手册以当前实际配置（A=Kilo、B=ZCode 会话，可选 Kilo/Codex 无头直执）为例说明部署与运维。
+
+建立日期：2026-10-16。起因是让本机 Kilo（VS Code 插件 `kilocode.kilo-code-7.8.12` 与 `D:\Kilo\kilo` CLI 7.8.12）把任务委派给 ZCode（GLM，个人编码计划账号）执行，后逐步泛化为通用双智能体桥。
 
 ## 为什么是文件桥而不是 MCP/ACP 直连
 

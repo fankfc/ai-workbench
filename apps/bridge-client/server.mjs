@@ -1,4 +1,4 @@
-// Kilo ↔ ZCode 桥客户端（双端可插拔版）
+// 智能体协作桥客户端（A 推理 → B 执行，双端可插拔）
 // A 端（推理控制器）：kilo | claude | codex | none（直投）
 // B 端（执行器）：zcode-session（队列+ZCode 会话取件）| kilo | claude | codex（无头直执，免轮询）
 // 角色与路径配置在 .kilo-bridge/agents.json，可经 /api/agents 或网页选择器热切换。

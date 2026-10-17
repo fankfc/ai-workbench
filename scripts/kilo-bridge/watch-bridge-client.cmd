@@ -1,6 +1,6 @@
 @echo off
 chcp 65001 >nul
-title Kilo-ZCode 桥客户端（守护）
+title 智能体协作桥（守护）
 cd /d D:\zcode-workspace\ai
 :loop
 node apps\bridge-client\server.mjs
