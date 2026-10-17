@@ -8,7 +8,8 @@ import { createServer } from "node:http";
 import {
   existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync, appendFileSync, renameSync, statSync,
 } from "node:fs";
-import { join } from "node:path";
+import { join, resolve, dirname } from "node:path";
+import { homedir } from "node:os";
 import { spawn } from "node:child_process";
 import { fileURLToPath } from "node:url";
 import {
@@ -16,17 +17,18 @@ import {
   extractKiloReply, extractRefinedTask, validateTaskContent, taskFileName, buildTaskContent,
   delegationPrompt, executionPrompt, headlessResultContent,
   buildContextDigest, summarizeKiloEvent, normalizeThreads, findThread, filterTurnsByThread, DEFAULT_THREAD_ID,
-  agentAdapters, normalizeAgentsConfig, DEFAULT_AGENT_PATHS,
+  agentAdapters, normalizeAgentsConfig,
 } from "./lib.mjs";
 
-const ROOT = "D:\\zcode-workspace\\ai";
+const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..", ".."); // 仓库根 = apps/bridge-client 上两级
 const BRIDGE = join(ROOT, ".kilo-bridge");
 const QUEUE = join(BRIDGE, "queue");
 const PROCESSING = join(BRIDGE, "processing");
 const RESULTS = join(BRIDGE, "results");
 const DONE = join(BRIDGE, "done");
 const AGENTS_JSON = join(BRIDGE, "agents.json");
-const KILO_DB = "C:\\Users\\asd15\\.local\\share\\kilo\\kilo.db";
+const KILO_DB = join(homedir(), ".local", "share", "kilo", "kilo.db");
+const KILO_CAPTURE = existsSync(KILO_DB); // 未装 Kilo 时关闭会话捕获，其余功能不受影响
 const PORT = 8791;
 const POLL_MS = 5000;
 const AUTO_INJECT = true;
@@ -61,6 +63,7 @@ const state = {
   kiloError: null,
   autoInject: AUTO_INJECT,
   injections: 0,
+  kiloCapture: KILO_CAPTURE,
   delegations: [],
   tasks: [],
   events: [],
@@ -165,6 +168,7 @@ function heartbeat() {
 // ---------- Kilo 会话监听（触发词捕获） ----------
 let watermark = Date.now();
 function pollKilo() {
+  if (!KILO_CAPTURE) { state.lastPoll = new Date().toISOString(); heartbeat(); return; }
   let db;
   try {
     db = new DatabaseSync(KILO_DB, { readOnly: true });

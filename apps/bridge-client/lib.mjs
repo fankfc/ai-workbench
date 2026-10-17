@@ -222,6 +222,59 @@ export function filterTurnsByThread(turns, threadId) {
   return (Array.isArray(turns) ? turns : []).filter((t) => (t.thread || DEFAULT_THREAD_ID) === id);
 }
 
+// ---------- 新机器接入模板（scripts/setup.mjs 使用，路径按仓库实际位置生成） ----------
+export const KILO_RULES_MARKER = "## 智能体协作桥（A 委派协议）";
+
+export function kiloRulesTemplate(repoRoot) {
+  const bridge = pJoin(repoRoot, ".kilo-bridge");
+  return `
+${KILO_RULES_MARKER}
+
+当用户说"交给ZCode"、"让ZCode执行"或"用ZCode"时：
+
+1. 先用读文件工具检查 \`${pJoin(bridge, "client-status.json")}\` 的 updated 时间。
+   - 心跳距今 60 秒内：桥客户端正在运行，它已自动捕获这条消息并入队。你只需回复
+     "桥客户端已入队，结果出来会自动注回本会话"，不要自己写任何文件。
+   - 文件缺失或心跳超过 60 秒（客户端未运行）：把任务写成 UTF-8 markdown 保存到
+     \`${pJoin(bridge, "queue")}\`，文件名 \`task-<YYYYMMDD-HHmmss>-<slug>.md\`，内容格式：
+     ---
+     from: kilo
+     workspace: <任务工作目录，不填默认 ${repoRoot}>
+     created: <ISO 8601 时间>
+     ---
+     # 任务：<一句话标题>
+     ## 目标
+     <要完成什么、验收标准>
+     ## 约束与背景
+     <可选：分支、禁改范围、相关文件>
+2. 告知用户已入队，B 端执行器会取件执行。
+3. 查询结果：一律用读取文件工具检查 \`${pJoin(bridge, "results")}\` 下与任务同名的 .result.md。
+   禁止用 bash/sleep 循环等待（会被权限系统拒绝）。
+4. 读到结果后汇报：status（done/failed/needs-user）、摘要、产物路径。
+`;
+}
+
+// kilo.jsonc 权限注入片段（相对仓库根的 .kilo-bridge 目录树放行；写入文件的路径分隔符需按 JSONC 规则双反斜杠）
+export function kiloPermissionEdits(repoRoot) {
+  const bridgeWin = pJoin(repoRoot, ".kilo-bridge").replace(/\\/g, "\\\\");
+  const rel = ".kilo-bridge";
+  return {
+    editBlock: [
+      "{",
+      `      "*": "ask",`,
+      `      "${rel}\\\\*": "allow",`,
+      `      "${rel}\\\\*\\\\*": "allow",`,
+      `      "${rel}/*": "allow",`,
+      `      "${rel}/*/*": "allow",`,
+      `      "${bridgeWin}\\\\*": "allow",`,
+      `      "${bridgeWin}\\\\*\\\\*": "allow"`,
+      "    }",
+    ].join("\n"),
+    externalLines: `      "${bridgeWin}\\\\*": "allow",
+      "${bridgeWin}\\\\*\\\\*": "allow",`,
+  };
+}
+
 // ---------- 执行过程直播：kilo json 事件 → 一行进度文本 ----------
 export function summarizeKiloEvent(ev) {
   if (!ev || typeof ev !== "object") return null;
@@ -244,15 +297,20 @@ export function summarizeKiloEvent(ev) {
 
 // ---------- 可插拔智能体适配器（A=推理控制器 / B=执行器） ----------
 // 约定：parseText(stdout) -> { sessionID?, text }；canContinue 表示支持会话续接（注回）。
-export const DEFAULT_AGENT_PATHS = {
-  kilo: "D:\\Kilo\\kilo.exe",
-  claude: "D:\\zcode-workspace\\ai\\.tools\\claude\\node_modules\\@anthropic-ai\\claude-code-win32-x64\\claude.exe",
-  codex: "C:\\Users\\asd15\\AppData\\Local\\OpenAI\\Codex\\bin\\codex.exe",
-};
+import { join as pJoin } from "node:path";
+
+// 按机器环境给出默认路径猜测（真实路径由 scripts/setup.mjs 探测后写入 .kilo-bridge/agents.json）
+export function defaultAgentPaths(home = process.env.USERPROFILE || process.env.HOME || ".", localAppData = process.env.LOCALAPPDATA || "") {
+  return {
+    kilo: localAppData ? pJoin(localAppData, "Programs", "kilo", "kilo.exe") : pJoin(home, "kilo", "kilo.exe"),
+    claude: pJoin(home, ".claude", "local", "claude.exe"),
+    codex: localAppData ? pJoin(localAppData, "OpenAI", "Codex", "bin", "codex.exe") : pJoin(home, "codex", "codex"),
+  };
+}
 
 // argv(prompt, sessionId, opts)：opts.auto=true 用于 B 端执行器角色（自主执行需自动批准权限）；
 // A 端推理只输出文本，不需要 auto。
-export function agentAdapters(paths = DEFAULT_AGENT_PATHS) {
+export function agentAdapters(paths = defaultAgentPaths()) {
   return {
     kilo: {
       id: "kilo", label: "Kilo CLI", path: paths.kilo,
@@ -296,7 +354,9 @@ export function normalizeAgentsConfig(raw, adapters = agentAdapters()) {
   const c = raw && typeof raw === "object" ? raw : {};
   const controller = ["kilo", "claude", "codex", "none"].includes(c.controller) ? c.controller : "kilo";
   const executor = ["zcode-session", "kilo", "claude", "codex"].includes(c.executor) ? c.executor : "zcode-session";
-  const paths = { ...DEFAULT_AGENT_PATHS, ...(c.paths && typeof c.paths === "object" ? c.paths : {}) };
+  const base = {};
+  for (const [id, a] of Object.entries(adapters)) base[id] = a.path;
+  const paths = { ...base, ...(c.paths && typeof c.paths === "object" ? c.paths : {}) };
   return { controller, executor, paths };
 }
 

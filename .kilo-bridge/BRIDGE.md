@@ -35,7 +35,7 @@
 ```markdown
 ---
 from: kilo
-workspace: D:\path\to\project   # 可选；不填默认 D:\zcode-workspace\ai
+workspace: D:\path\to\project   # 可选；不填默认为仓库根目录（clone 位置）
 created: 2026-10-16T12:00:00+08:00
 ---
 

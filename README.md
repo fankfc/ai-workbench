@@ -1,5 +1,16 @@
 # 协作工作台
 
+## 快速开始（新机器一键装配）
+
+```bash
+git clone <本仓库地址> && cd ai
+node scripts/setup.mjs            # 环境检测 + 智能体发现 + 目录初始化 + 自检
+# 可选：--kilo-rules 接入 Kilo 会话捕获；--autostart 开机自启；--start 装配后立即启动
+npm run bridge-client             # 启动，然后打开 http://127.0.0.1:8791
+```
+
+要求：Node.js ≥ 22.5（建议 24）。A 端（推理）与 B 端（执行）可插拔：本机装了 Kilo / Claude Code / Codex 任一 CLI 即可被 setup 自动发现并接入（也支持环境变量 `KILO_BIN` / `CLAUDE_BIN` / `CODEX_BIN` 指定路径）；A 还可选「无（直投）」，B 还可选「ZCode 会话取件」（需本机 ZCode 桌面端与取件自动化）。未发现的智能体自动跳过，不影响其余功能。
+
 2026-10-16 新增智能体协作桥：通用「A 推理 → B 执行」双智能体工作流（`apps/bridge-client/`，对话式网页 + 项目/对话线程 + 执行直播），两端可按接口插拔任意具备无头 CLI 的智能体；当前默认配置 A=Kilo、B=ZCode 会话（文件队列取件），也可切换为 Kilo/Codex 等无头直执。接入与成本见 [智能体桥运行手册](docs/runbooks/kilo-bridge.md)。
 
 **范围 v2（2026-10-16）**：本软件仅限用户本人在本机直接使用，不发行、不分发、不做代码签名；未签名内部包（阶段三交付）即最终交付形态。发行/签名/试用/交接专属任务卡（D052/D053/D056/D057/D060）已按 [DEC-010](docs/decisions/scope-v2.md) 取消，质量、语言、恢复等全部产品行为标准不变。直接使用仍差两个前提：Claude Code 登录（D004）与 B 侧入口路线选择（D005，见[复检报告](docs/acceptance/D004-D005-recheck-20261016.md)）。

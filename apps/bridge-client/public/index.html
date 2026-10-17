@@ -348,7 +348,7 @@ function render(s) {
   document.querySelector("#p-heart b").textContent = fmt(s.lastPoll);
   const pk = document.querySelector("#p-kilo");
   pk.className = "pill" + (s.kiloError ? " bad" : "");
-  pk.querySelector("b").textContent = s.kiloError ? "异常" : "正常";
+  pk.querySelector("b").textContent = s.kiloError ? "异常" : (s.kiloCapture === false ? "未装" : "正常");
   document.querySelector("#p-inject b").textContent = (s.autoInject ? "开" : "关") + ` ${s.injections}次`;
   document.querySelector("#p-stale b").textContent = s.tasks.filter(t => t.stale).length;
   lastState = s;

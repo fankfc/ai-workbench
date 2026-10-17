@@ -4,6 +4,7 @@ import assert from "node:assert/strict";
 import { writeFileSync, mkdtempSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
+import { sep } from "node:path";
 import {
   TRIGGER, parseFrontmatter, parseTaskFile, parseResultFile, stripToTask,
   extractKiloReply, extractRefinedTask, validateTaskContent, taskFileName, buildTaskContent,
@@ -236,4 +237,30 @@ test("buildTaskContent 写入 thread 字段", async () => {
   assert.match(c, /^---\nfrom: kilo-client\nthread: thr-9\n/);
   const c2 = buildTaskContent({ taskText: "做X" });
   assert.ok(!c2.includes("thread:"));
+});
+
+test("defaultAgentPaths 按环境生成路径猜测", async () => {
+  const { defaultAgentPaths } = await import("../../apps/bridge-client/lib.mjs");
+  const home = ["H:", "me"].join("\\");
+  const local = [home, "AppData", "Local"].join("\\");
+  const p = defaultAgentPaths(home, local);
+  assert.ok(p.kilo.startsWith(local));
+  assert.ok(p.claude.startsWith([home, ".claude"].join("\\")));
+  assert.ok(p.codex.includes("OpenAI"));
+  const p2 = defaultAgentPaths("/home/u", "");
+  assert.ok(p2.kilo.startsWith(["", "home", "u"].join(sep)));
+});
+
+test("kilo 接入模板包含真实仓库路径与标记", async () => {
+  const { kiloRulesTemplate, kiloPermissionEdits, KILO_RULES_MARKER } = await import("../../apps/bridge-client/lib.mjs");
+  const repo = ["R:", "repo"].join("\\");
+  const t = kiloRulesTemplate(repo);
+  assert.ok(t.includes(KILO_RULES_MARKER));
+  assert.ok(t.includes([repo, ".kilo-bridge"].join("\\")));
+  assert.ok(t.includes("queue"));
+  const e = kiloPermissionEdits(repo);
+  assert.ok(e.editBlock.includes('"*": "ask"'));
+  assert.ok(e.editBlock.includes(".kilo-bridge"));
+  assert.ok(e.externalLines.includes(repo.replace(/\\/g, "\\\\")));
+  assert.ok(!e.editBlock.includes("${"));
 });
