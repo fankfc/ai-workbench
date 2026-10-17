@@ -6,11 +6,12 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { sep } from "node:path";
 import {
-  TRIGGER, parseFrontmatter, parseTaskFile, parseResultFile, stripToTask,
+  TRIGGER, parseFrontmatter, stripToTask,
   extractKiloReply, extractRefinedTask, validateTaskContent, taskFileName, buildTaskContent,
   agentAdapters, normalizeAgentsConfig, executionPrompt, headlessResultContent,
   buildContextDigest, summarizeKiloEvent, delegationPrompt,
 } from "../../apps/bridge-client/lib.mjs";
+import { parseTaskFile, parseResultFile } from "../../apps/bridge-client/agent-env.mjs";
 
 test("触发词匹配容忍大小写与空格", () => {
   assert.ok(TRIGGER.test("交给ZCode：做X"));
@@ -240,7 +241,7 @@ test("buildTaskContent 写入 thread 字段", async () => {
 });
 
 test("defaultAgentPaths 按环境生成路径猜测", async () => {
-  const { defaultAgentPaths } = await import("../../apps/bridge-client/lib.mjs");
+  const { defaultAgentPaths } = await import("../../apps/bridge-client/agent-env.mjs");
   const home = ["H:", "me"].join("\\");
   const local = [home, "AppData", "Local"].join("\\");
   const p = defaultAgentPaths(home, local);
@@ -252,7 +253,7 @@ test("defaultAgentPaths 按环境生成路径猜测", async () => {
 });
 
 test("kilo 接入模板包含真实仓库路径与标记", async () => {
-  const { kiloRulesTemplate, kiloPermissionEdits, KILO_RULES_MARKER } = await import("../../apps/bridge-client/lib.mjs");
+  const { kiloRulesTemplate, kiloPermissionEdits, KILO_RULES_MARKER } = await import("../../apps/bridge-client/agent-env.mjs");
   const repo = ["R:", "repo"].join("\\");
   const t = kiloRulesTemplate(repo);
   assert.ok(t.includes(KILO_RULES_MARKER));

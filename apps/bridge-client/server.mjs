@@ -13,12 +13,13 @@ import { homedir } from "node:os";
 import { spawn } from "node:child_process";
 import { fileURLToPath } from "node:url";
 import {
-  TRIGGER, parseFrontmatter, parseTaskFile, parseResultFile, stripToTask,
+  TRIGGER, parseFrontmatter, stripToTask,
   extractKiloReply, extractRefinedTask, validateTaskContent, taskFileName, buildTaskContent,
   delegationPrompt, executionPrompt, headlessResultContent,
   buildContextDigest, summarizeKiloEvent, normalizeThreads, findThread, filterTurnsByThread, DEFAULT_THREAD_ID,
   agentAdapters, normalizeAgentsConfig,
 } from "./lib.mjs";
+import { parseTaskFile, parseResultFile } from "./agent-env.mjs";
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..", ".."); // 仓库根 = apps/bridge-client 上两级
 const BRIDGE = join(ROOT, ".kilo-bridge");

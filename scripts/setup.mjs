@@ -7,7 +7,7 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync, copyFileSync } from
 import { join, resolve, dirname } from "node:path";
 import { homedir } from "node:os";
 import { fileURLToPath } from "node:url";
-import { defaultAgentPaths, kiloRulesTemplate, kiloPermissionEdits, KILO_RULES_MARKER } from "../apps/bridge-client/lib.mjs";
+import { defaultAgentPaths, kiloRulesTemplate, kiloPermissionEdits, KILO_RULES_MARKER } from "../apps/bridge-client/agent-env.mjs";
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), ".."); // 仓库根 = scripts 上级
 const BRIDGE = join(ROOT, ".kilo-bridge");
